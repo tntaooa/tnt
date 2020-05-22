@@ -1,0 +1,169 @@
+\documentclass{subfile}
+
+
+\begin{document}
+	\subsection{Carmichael $\lambda$ Function}
+	In this section, we discuss a very important function, first introduced by \textit{Robert Daniel Carmicheal} in  \cite{ch:congruence-carmichael-original}. Consider the following scenario: coprime positive integers $a$ and $n$ are given, and $\ord_n(a)=d$. Now, fix $n$. Consider the case when $a^d\equiv1\pmod n$ holds for any positive integer $a$ coprime to $n$. This brings up some questions.
+	\begin{problem}\label{prob:CarmichaelQuestion1}
+		Does there exists an $a$ such that $\ord_n(a)=d$?
+	\end{problem}
+	
+	\begin{problem}\label{prob:CarmichaelQuestion2}
+		How do we find the minimum $d$ such that $a^d\equiv1\pmod n$ holds for any $a$ coprime to $n$?
+	\end{problem}
+	Let's proceed slowly. We will develop the theories that can solve these problems. For doing that, we have to use properties of order and primitive roots we discussed in previous sections.
+	\begin{definition}[Carmichael Function]
+		For a positive integer $n$, $\l(n)$ is the smallest positive integer for which $a^{\l(n)}\equiv1\pmod n$ holds for any positive integer $a$ relatively prime to $n$. This number $\l(n)$ is called the \textit{Carmichael function} of $n$. Sometimes, it is also called the \textit{lambda function} of $n$.
+	\end{definition}
+	Note that Theorem \eqref{thm:ordDiv} implies the following theorem.
+	\begin{theorem}\slshape\label{thm:carDiv}
+		If $a^d\equiv1\pmod n$ holds for all $a$ coprime to $n$, then $\l(n)\mid d$.
+	\end{theorem}
+	
+	\begin{corollary}\label{cor:LambdaDividesPhi}
+		For any positive integer $n$, $\l(n)\mid \t(n)$.
+	\end{corollary}
+	The following theorem is self-implicating and solves the first problem, if we can prove that $\l(n)$ exists. For now, let's assume it does.
+	\begin{theorem}\slshape
+		Let $n$ be a positive integer. There exists a positive integer $a$ coprime to $n$ such that $\ord_n(a)=\l(n)$.
+	\end{theorem}
+	Let's focus on finding $\l(n)$. First, consider the case $n=2^k$.
+	\begin{theorem}\slshape
+		If $k>2$ then $\l(2^k)=2^{k-2}$.
+	\end{theorem}
+	
+	\begin{proof}
+		The integers coprime to $2^k$ are all odd numbers. We will prove by induction that $x^{2^{k-2}} \equiv1\pmod{2^k}$ holds for all odd positive integers $x$. The base case $k=3$ is obvious. Assume that for some $k\geq 3$, we have
+			\begin{align*}
+				x^{2^{k-2}} & \equiv1\pmod{2^k},
+			\end{align*}
+		or equivalently, $x^{2^{k-2}} -1=2^kt$ for some $t$. Using the identity $a^2-b^2=(a-b)(a+b)$, we can write
+			\begin{align}
+				x^{2^{k-1}} -1 = \left(x^{2^{k-2}} -1\right)\left(x^{2^{k-2}} +1\right) = 2^kt\left(2^kt +2\right) = 2^{k+1}t \left(2^{k-1}t+1\right). \label{eq:x^{2^{k-1}}-1}
+			\end{align}
+		This gives $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$, and the induction is complete.
+		
+		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\l(2^l)=2^{l-2}$. Let $\l(2^{k+1})=\l$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from Theorem \ref{thm:carDiv} that $\l \mid 2^{k-1}$. So $\l$ is a power of $2$. If $\l = 2^{k-1}$, we are done. Otherwise, let $\l=2^\a$, where $1 \leq \a <k-1$. Then for every $x$, one can write
+			\begin{align}\label{eq:x^2^k+1}
+				x^{2^\a} \equiv 1 \pmod{2^{k+1}}.
+			\end{align}
+		However, similarly as in \eqref{eq:x^{2^{k-1}}-1}, for some $t$,
+			\begin{align}\label{eq:x^2^a}
+				x^{2^{\a}} -1 &= 2^{\a+2}t \left(2^{\a}t+1\right).
+			\end{align}
+		In \eqref{eq:x^2^a}, the highest power of $2$ which divides $x^{2^{\a}} -1$ is $2^{\a+2}$ (since $2^{\a}t+1$ is odd). But $$\a+2 <(k-1)+2=k+1$$, which contradicts \eqref{eq:x^2^k+1}. The induction is complete.
+	\end{proof}
+	
+	\begin{theorem}\slshape
+		For any prime $p$ and any positive integer $k$, 
+		\[\l(p^k)=\l(2p^k)=\t(p^k).\]
+	\end{theorem}
+	
+	\begin{proof}
+		Consider the congruence equation $x^d\equiv1\pmod{p^k}$ and let $d=\l(p^k)$. By Corollary \ref{cor:LambdaDividesPhi}, $d \mid \t(p^k)$. Take $x=g$ where $g$ is a primitive root modulo $p^k$. Then, $\ord_{p^k}(g)=\t(p^k)$ and we immediately have $\t(p^k)|d$. Thus, $d=\t(p^k)$. A very similar proof can be stated to show that $\l (2p^k)=\t (2p^k) = \t (p^k)$.
+	\end{proof}
+	
+	\begin{theorem}\slshape
+		Let $a$ and $b$ be coprime positive integers. Then
+		 \[\l(ab)=\lcm(\l(a),\l(b)).\]
+	\end{theorem}
+	
+	\begin{proof}
+		Suppose that $$\l(a)=d, \quad \l(b)=e, \quad \text{and} \quad \l(ab)=h.$$ Then, $$x^d\equiv1\pmod a, \quad x^e\equiv1\pmod b, \quad \text{and} \quad x^{h}\equiv1\pmod{ab}.$$ We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
+	\end{proof}
+	Generalization of this theorem is as follows.
+	\begin{theorem}\slshape
+		For any two positive integers $a$ and $b$,
+		\begin{align*}
+		\lcm(\l(a),\l(b)) & = \l(\lcm(a,b)).
+		\end{align*}
+	\end{theorem}
+	The next theorem combines the above results and finds $\l(n)$ for all $n$.
+	\begin{theorem}\slshape\label{thm:CarmichaelFormula}
+		Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$. Also, let $p$ be a prime and $k$ be a positive integer. Then
+		\begin{align*}
+		\l(n) & = 
+		\begin{cases}
+		\t(n),&\text{ if } n = 2,4,p^k, \text{ or } 2p^k,\\
+		\dfrac{\t(n)}{2},& \text{ if }n=2^k\text{ with }k>2,\\
+		\lcm(\l(p_1^{e_1}),\ldots,\l(p_r^{e_r})), & \text{ otherwise.}
+		\end{cases}
+		\end{align*}
+	\end{theorem}
+	
+	\begin{theorem}\slshape
+		For positive integers $a$ and $b$, if $a \mid b$, then $\l(a) \mid \l(b)$.
+	\end{theorem}
+	The proof is left as an exercise for the reader. We are now ready to fully solve Problem \ref{prob:CarmichaelQuestion1}.
+	\begin{theorem}\slshape
+		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  coprime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \l(n)$.
+	\end{theorem}
+	
+	\begin{proof}
+		The ``if'' part is true by Theorem \ref{thm:ordDiv}. For the ``only if'' part, assume that $g$ is an integer with $\ord_n(g)=\l(n)$ and $\l(n)=de$. Then $\ord_n(g^e)=d$, as desired.
+	\end{proof}
+	
+	We finish this section by proposing a theorem. We will leave the proof for the reader as an exercise.
+		\begin{theorem}\slshape
+			If $\l(n)$ is coprime to $n$, then $n$ is square-free.
+		\end{theorem}
+	Recall that $n$ is square-free if it is not divisible by any perfect square other than $1$.
+	
+	\subsection{Primitive $\l$-roots}
+	Carmichael defined a generalization of primitive roots as follows using his function. As you will see, this section generalizes everything related to primitive roots.
+	\begin{definition}[Primitive $\l$-root]
+		Let $a$ and $n$ be coprime positive integers. If $\ord_n(a)=\l(n)$, then $a$ is a primitive $\l$-root modulo $n$. That is, $a^{\l(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$. 
+	\end{definition}
+
+	\begin{definition}
+		Let $n$ be a positive integer. Define $$\xi(n) = \frac{\t(n)}{\l(n)}.$$ (Read $\xi$ as ``ksi''). According to Corollary \ref{cor:LambdaDividesPhi}, $\xi(n)$ is an integer.
+	\end{definition}
+
+	\begin{proposition}
+		 There is a primitive root (defined in the previous section) modulo $n$ if and only if $\xi(n)=1$. Carmichael calls a primitive root a $\varphi$-primitive root, and they are in fact a special case of $\lambda$-primitive roots.
+	\end{proposition}
+
+	Now, the existence of primitive root is generalized to the following theorem, cited from Carmichael's paper \cite{ch:congruence-carmichael-original}.
+	\begin{theorem}[Carmicahel]\slshape
+		For any positive integer $n$, the congruence equation
+			\begin{align*}
+				x^{\l(n)} & \equiv1\pmod n
+			\end{align*}
+		has a solution $a$ which is a primitive $\lambda$-root, and for any such $a$, there are $\t(\l(n))$ primitive roots congruent to powers of $a$.
+	\end{theorem}
+	We can show that this theorem is true in a similar fashion to what we did in last section, and we leave it as an exercise.
+	
+	As we mentioned earlier in Proposition \ref{prop:phiproperties}, $\varphi(n)$ is always even for $n>2$. As it turns out, $\lambda$ and $\varphi$ share more common properties than we think. The following next two problems, which were taken from \cite{ch:congruence-primitive-lambda}, demonstrate this.
+	
+	\begin{problem}
+		For any integer $n\geq 1$, either $\xi(n)=1$ or $\xi(n)$ is even.
+	\end{problem}
+
+	\begin{hint}
+		Use the formula for $\lambda(n)$ in Theorem \ref{thm:CarmichaelFormula}.
+	\end{hint}
+
+	\begin{problem}
+		If $\lambda(n)>2$, the number of primitive $\lambda$-roots modulo $n$ is even.
+	\end{problem}
+
+	
+
+	The next theorem generalizes Theorem \ref{thm:genWilson}, which itself was a generalization to Wilson's theorem. 
+	\begin{theorem}\slshape
+		Let $n$ be a positive integer such that $\l(n)>2$. Also, suppose that $g$ is a primitive $\l$-root modulo $n$. The product of primitive $\l$-roots of $n$ is congtuent to $1$ modulo $n$.
+	\end{theorem}
+	
+	\begin{proof}
+		Since $\l(n)>2$, we can easily argue that it must be even. If $g$ is a primitive $\l$-root modulo $n$, all the primitive $\l$-roots are $$\{g^{e_1}, g^{e_2}, \ldots, g^{e_{k}}\},$$ where $e_i$ (for $1 \leq i \leq k$) are all (distinct) positive integers with $(e_i, \lambda(n))=1$. Also, note that we can pair them up since $\l(n)$ is even if $n>2$. In fact, we can pair $g^{e_i}$ with $g^{\lambda(n)-e_i}$ for all $i$. Then,
+		\begin{equation*}
+		g^{e_1}\cdot g^{e_2}\cdots g^{e_k}  \equiv g^{\l(n)}\cdots g^{\l(n)}  \equiv 1\pmod n. \qedhere
+		\end{equation*}
+	\end{proof}
+	
+	\begin{corollary}
+		For any $n$, there are $\t(\l(n))$ primitive $\l$-roots modulo $n$.
+	\end{corollary}
+	
+
+\end{document}

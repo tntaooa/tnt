@@ -1,0 +1,299 @@
+\documentclass{subfile}
+
+\begin{document}
+	\label{sec:bertrandspostulate}
+	\textit{Bertrand's postulate} is a very nice and influential theorem in number theory. \textit{Joseph Bertrand} first conjectured it, but he couldn't prove it entirely. Later, \textit{Chebyshev} proved it, using analytic number theory tools. \textit{S. Ramanujan} proved it (see \cite{ramanujan}) using properties of \textit{Gamma function}, which is beyond the scope of this book. However, \textit{Erd\H{o}s} proved it in an elementary way. We will see that proof here. On another note, this elementary proof given by Erd\H{o}s (see \cite{erdos}) was the first paper he published! The proof is so beautiful that we could not keep this theorem along with others, instead we gave it a separate section!
+	
+	There are many formulations of this theorem. All of them are equivalent.
+	
+	\begin{theorem}[Bertrand's Postulate]\slshape
+		For all integers $n>1$, there is a prime $p$ so that $n<p<2n$.\label{thm:bertrand}
+	\end{theorem}
+	
+	\begin{theorem}[Alternative Formulations of Bertrand's Postulate]\slshape\label{thm:bertrandalternative}
+		$ $
+		\begin{itemize}
+			\item Let $p_n$ denote the $n^{th}$ prime number, starting from $p_1=2$. Then
+			\begin{eqnarray*}
+				p_{n+1} <2p_n.
+			\end{eqnarray*}
+			\item For any integer $n >1$, we have
+			\begin{eqnarray*}
+				\pi(n)-\pi\left(\dfrac{n}{2}\right)\geq1.
+			\end{eqnarray*}
+		\end{itemize}
+	\end{theorem}
+	
+	We need to show some lemmas in order to prove Bertrand's postulate. At first they all seem to be unrelated. Keep reading back and forth until you see the motivation behind all these lemmas. When you realize, see if you feel thunderstruck. You should! If this does not make you wonder how a human being can think that far, we do not know what will. And then you will probably understand why \textit{Erd\H {o}s} is our most favorite.
+	
+	\begin{lemma}\label{lem:bertrand1}
+		For any positive integer $n$,
+		\[\binom{2n}{n}\geq\dfrac{4^n}{2n+1}.\]
+	\end{lemma}
+	
+	\begin{proof}
+		From binomial the theorem, we already know that 
+		\begin{eqnarray*}
+			(1+1)^{2n}  & = & 1+\binom{2n}1+\cdots+\binom{2n}{n}+\cdots+\binom{2n}{2n}.
+		\end{eqnarray*}
+		Since the binomial coefficients exhibit a symmetry , i.e., since $\binom{2n}{k}=\binom{2n}{2n-k}$, all other terms in the above sum are smaller than $\binom{2n}{n}$. Therefore
+		\[2^{2n}\leq(2n+1)\binom{2n}n,\]
+		which is what we wanted.
+		
+	\end{proof}
+	In section \eqref{sec:powerofprimes} of previous chapter, we defined $v_p(n)$ to be the highest power of a prime $p$ which divides $n$. 
+	\begin{lemma}\label{lem:bertrand2}
+		Let $n$ be a positive integer and let $2n/3<p\leq n$ be a prime. Then $p \nmid \binom{2n}n$.
+	\end{lemma}
+	
+	\begin{proof}
+		We have
+		\begin{align*}
+			v_p \left(\binom{2n}n\right) =v_p \left(\frac{(2n)!}{(n!)^2}\right) = v_p((2n)!) - v_p((n!)^2) = v_p((2n)!) - 2v_p((n!)).
+		\end{align*}
+		Note that $2n/3<p$ means $2n<3p$, and so the only multiples of $p$ which appear in $(2n)!$ are $p$ and $2p$. Hence $v_p((2n)!) = 2$. Also, $p<n$ immediately gives $v_p((n!))=1$. Therefore
+		\begin{align*}
+			v_p \left(\binom{2n}n\right) = v_p((2n)!) - 2v_p((n!)) =  2 - 2 \cdot 1 = 0.
+		\end{align*}
+	\end{proof}
+	
+	\begin{lemma}\label{lem:bertrand3}
+		Let $n$ be a positive integer. Let $p$ be any prime divisor of $N=\binom{2n}n$. Then $p^{v_p(N)}\leq2n$.
+	\end{lemma}
+	
+	\begin{proof}
+		Let $\a$ be the positive integer for which $p^\a \leq 2n<p^{\a +1}$. Then using theorem \eqref{thm:legendre} of chapter \eqref{ch:arithfunc},
+		\begin{align*}
+			v_p(N) & =  v_p((2n)!)-2v_p(n!)= \sum_{i=1}^{\a }\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\sum_{i=1}^{\a }\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
+			& =  \sum_{i=1}^{\a }\left(\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\right) \leq \sum_{i=1}^{\a }1 =\a.
+		\end{align*}
+		The last line is true because for a rational $x$, $\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}$. Therefore, $p^{v_p(N)} \leq p^{\a} \leq 2n$.
+	\end{proof}
+	
+	\begin{lemma}\label{lem:bertrand4}
+		Let $n$ be a positive integer. Any prime $p$ with $n+2\leq p\leq 2n+1$ divides $\binom{2n+1}{n}$.
+	\end{lemma}
+	
+	\begin{proof}
+		Since $p>n+1$,
+		\begin{align*}
+			\nu_p\left(\binom{2n+1}{n}\right)  & =  v_p \left(\frac{(2n+1)!}{(n!)(n+1)!}\right) = v_p((2n+1)!)-v_p(n!)-v_p((n+1)!)=1.
+		\end{align*}
+	\end{proof}
+	
+	\begin{lemma}\label{lem:bertrand5}
+		For any positive integer $n$,
+		\[\binom{2n+1}{n}\leq2^{2n}.\]
+	\end{lemma}
+	
+	\begin{proof}
+		From binomial theorem and the fact that $\binom{2n+1}{n}=\binom{2n+1}{n+1}$,
+		\begin{align*}
+			(1+1)^{2n+1}  & =     1+\binom{2n+1}1+\cdots+\binom{2n+1}{n}+\binom{2n+1}{n+1}+\cdots+\binom{2n+1}{2n+1}\\
+			& \geq  \binom{2n+1}{n}+\binom{2n+1}{n+1} =  2\binom{2n+1}{n}.
+		\end{align*}
+		This finishes the proof.
+	\end{proof}
+	
+	The following lemma is really a nice one, and the proof requires a good insight.
+	
+	\begin{lemma}\label{lem:bertrand6}
+		The product of all primes less than or equal to $n$ is less than or equal to $4^n$.
+	\end{lemma}
+	
+	\begin{proof}
+		We will use induction. The proof is trivial for $n=1$ and $n=2$. Assume it is true for all positive integers up to $n-1$. We will show that it is also true for $n$.
+		
+		If $n$ is even and greater than $2$, $n$ is definitely not a prime. Thus,
+		\begin{align*}
+			\prod_{p\leq n}p =  \prod_{p\leq n-1}p\ \leq  4^{n-1}<  4^n.
+		\end{align*}
+		Now, assume that $n$ is odd. Take $n=2m+1$. We have
+		\begin{align*}
+			\prod_{p\leq n}p =	\prod_{p\leq 2m+1} p  = \left(\prod_{p\leq m+1}p \right) \left( \prod_{m+2\leq p\leq2m+1}p\right).
+		\end{align*}
+		By induction hypothesis, the first product, $\prod\limits_{p\leq m+1}p$, is less than or equal to $4^{m+1}$. From lemma \eqref{lem:bertrand4}, we know that any prime $p$ such that $m+2\leq p\leq2m+1$ divides $\binom{2m+1}{m}$. Therefore, the second product, $\prod\limits_{m+2\leq p\leq2m+1}p$, is less than or equal to $\binom{2m+1}{m}$. Combining these results with lemma \eqref{lem:bertrand5}, we get
+		\begin{align*}
+			\prod_{p\leq n}p &\leq 4^{m+1}\binom{2m+1}{m}\leq 4^{m+1}2^{2m} =  4^{2m+1} = 4^n.
+		\end{align*}
+		Hence, the lemma is also true for $n$ and we are done.
+	\end{proof}
+	
+	We are ready to prove Bertrand's postulate.
+	
+	\begin{proof}[Proof of Bertrand's postulate]
+		We want to show that for any positive integer $n$, there exists a prime $p$ such that $n <p \leq 2n$. Assume the converse, i.e., suppose that there exists some $n$ for which there is no prime $p$ with $n<p \leq 2n$. We will find an upper bound for $N = \binom{2n}{n}$ and seek for a contradiction. Let us divide the prime divisors of $N$ into two groups:
+		\begin{itemize}
+			\item Consider all prime divisors of $N$, say $p$, such that $p \leq \sqrt{2n}$. Let $p_1, p_2, \ldots, p_k$ be such primes. Clearly, $k \leq \sqrt{2n}$. According to lemma \eqref{lem:bertrand3}, $p_i^{v_{p_i}(N)} \leq 2n$ (for $1 \leq i \leq k$). Therefore,
+			\begin{eqnarray*}
+				\prod_{i=1}^{k} p_i^{v_{p_i}(N)} \leq (2n)^{\sqrt{2n}}.
+			\end{eqnarray*} 
+			
+			\item Consider all prime divisors of $N$ which are larger than $\sqrt{2n}$. Let $q_1, q_2, \ldots, q_m$ be such primes. Again, by lemma \eqref{lem:bertrand3}, we must have $q_i^{v_{q_i}(N)} \leq 2n$ (where $1 \leq i \leq m$). However, since $q_i > \sqrt{2n}$, we find that $v_{q_i}(N)=1$ for all $i$.
+			
+			Now, by our hypothesis, there are no primes $p$ such that $n < p \leq 2n$. On the other hand, lemma \eqref{lem:bertrand2} says that there are no prime divisors of $N$ such that $2n/3 < p \leq n$. Altogether, we find that $ \sqrt{2n} < q_i \leq 2n/3$ for $1 \leq i \leq m$. Hence,
+			\begin{eqnarray*}
+				\prod_{i=1}^{m} q_i^{v_{q_i}(N)} =  \prod_{i=1}^{m} q_i =  \prod\limits_{\substack{\sqrt{2n}<p\leq2n/3\\p|N}} p.
+			\end{eqnarray*}
+		\end{itemize}
+		We now use the fact that $N = 	\prod\limits_{i=1}^{k} p_i^{v_{p_i}(N)}\cdot \prod\limits_{i=1}^{m} q_i^{v_{q_i}(N)}$, where $p_i$ and $q_i$ are as defined above. According to what we have found,
+		\begin{eqnarray*}
+			N =\prod\limits_{i=1}^{k} p_i^{v_{p_i}(N)}\cdot \prod\limits_{i=1}^{m} q_i^{v_{q_i}(N)} & \leq & (2n)^{\sqrt{2n}} \cdot \prod\limits_{\substack{\sqrt{2n}<p\leq2n/3\\p|N}} p \\
+			& \leq & (2n)^{\sqrt{2n}} \cdot \prod_{p\leq2n/3} p\\
+			& \leq & (2n)^{\sqrt{2n}} \cdot 4^{2n/3}.
+		\end{eqnarray*}
+		Note that we have used lemma \eqref{lem:bertrand6} for writing the last line. 
+		
+		Combining this with the result of lemma \eqref{lem:bertrand1}, we see that
+		\begin{eqnarray}
+		\frac{4^n}{2n+1} \leq (2n)^{\sqrt{2n}} \cdot 4^{2n/3}.
+		\end{eqnarray}
+		However, this inequality can hold only for small values of $n$. Actually, one can check that the inequality fails for $n \geq 468$. For $n < 468$, one can check that
+		\begin{align*}
+		2, 3, 5, 7, 13, 23, 43, 83, 163, 317, 631
+		\end{align*}
+		is a sequence of primes, each term of which is less than twice the term preceding it. Therefore, any interval $\{n+1, n+2, \ldots, 2n\}$ with $n<468$ contains one of the primes in this sequence.
+		
+		Hence, we have reached the contradiction we were looking for. This means that there always exist a prime $p$ such that $n<p\leq 2n$ for any positive integer $n$. The proof is complete.
+	\end{proof}
+	
+	
+	\begin{theorem}\slshape
+		For any positive integer $n$, the set $S=\{1,2,\ldots,2n\}$ can be partitioned into $n$ pairs $(a_i,b_i)$ so that $a_i+b_i$ is a prime.
+	\end{theorem}
+	
+	Before we show the proof, readers are highly encouraged to prove it themselves. This is the kind of theorem that shows how good human thinking can be.
+	
+	\begin{proof}	
+		We will proceed by induction. The theorem is clearly true for $n=1$ since $1+2=3$, a prime. Assume that the theorem is true for all $k<n$ and we can split the set $\{1,2,\ldots,2k\}$ into pairs with a prime sum. By Bertrand's postulate, there is a prime $p$ with $2n<p<4n$. Let $p=2n+m$, where $m$ must be odd since $p$ is odd. Consider the set $\{m,m+1, \ldots , 2n\}$. It has an even number of elements. Also, we can make pairs of $(m,2n), (m+1,2n-1), \ldots$ with sum $p$, which is a prime. Now we only have to prove that the set $\{1,2,\ldots,m-1\}$ can be paired into elements with a prime sum. This is true by induction hypothesis because $m-1<2n$. The proof is complete.
+	\end{proof}
+	
+	\begin{problem}
+		Let $n > 5$ be an integer and let $p_1, p_2, \ldots, p_k$ be all the primes smaller than $n$. Show that $p_1 + p_2 + \cdots + p_k >n$.
+	\end{problem}
+	
+	\begin{solution}
+		We first show by induction that $\sum_{i=1}^{k} p_i > p_{k+1}$ for $k \geq 3$. The base case, $k=3$ is true because $2+3+5>7$. Assume that $\sum_{i=1}^{k} p_i > p_{k+1}$, then by the first alternative form of Bertrand's postulate stated in theorem \eqref{thm:bertrandalternative},
+			\begin{align*}
+				\sum_{i=1}^{k+1} p_i = p_{k+1} + \sum_{i=1}^k p_i > 2p_{k+1} > p_{k+2},
+			\end{align*}
+		and the induction is complete. Now, since $p_k<n\leq p_{k+1}$, we have
+			\begin{align*}
+				\sum_{i=1}^k p_i > p_{k+1} \geq n.
+			\end{align*}
+	\end{solution}
+	
+	\begin{problem}[China 2015]\label{prob:china2015-bertrand}
+		Determine all integers $k$ such that there exists infinitely many positive integers $n$ satisfying
+		\begin{align*}
+		n+k \not \Big| \binom{2n}{n}.
+		\end{align*}
+	\end{problem}
+	
+	\begin{solution}
+		We will show that the problem statement holds for all integers $k \neq 1$. Note that for $k=1$, we have
+			\begin{align*}
+				\binom{2n}{n} - \binom{2n}{n+1} = \frac{1}{n+1}\binom{2n}{n},
+			\end{align*}
+		and therefore $n+1 | \binom{2n}{n}$. Assume that $k>1$. By Bertrand's postulate, there exists an odd prime $p$ such that $k<p<2k$. Choose $n=(p-k)+p^m$ for any positive integer $m$. From theorem \eqref{thm:legendrealternative}, we can write
+			\begin{align*}
+				v_p \left(\binom{2n}n\right)  &=  v_p((2n)!) - 2v_p((n!))\\
+				&=  \frac{2n - s_p(2n)}{p-1} - 2 \cdot \frac{n - s_p(n)}{p-1}\\
+				&=   \frac{2s_p(n) - s_p(2n)}{p - 1}.
+			\end{align*}
+		Since $2n = 2(p - k) + 2p^m$ and $2(p - k) < p$, it follows that $s_p(2n) = 2(p - k) + 2 = 2s_p(n)$ (try to write the base $p$ representation of $n$ and $2n$ to see why). Consequently, $v_p\left(\tbinom{2n}{n}\right) = 0$. However, $p \mid n + k$, so we have $n + k \nmid \tbinom{2n}{n}$ for infinitely many $n$, as desired.
+		
+		For negative $k$, one can choose $n = -k + p^m$ for an odd prime $p > |2k|$ (which exists by Bertrand's postulate) and any positive integer $m$. In a similar manner as above, one obtains $v_p\left(\tbinom{2n}{n}\right) = 0$, but $p \mid n + k$. Consequently, $n + k \nmid \tbinom{2n}{n}$. The proof is complete.
+	\end{solution}
+After the theorem was proved, number theorists tried to tighten the interval. Also, a question was raised regarding the general case.
+	\begin{problem}
+		Let $c$ be a real number. What is the minimum value of $c$ such that, there is always a prime between $n$ and $n+cn$ for positive integers $n>1$?
+	\end{problem}
+Nagura \cite{nagura} proved the case for $c=1/5$.
+	\begin{theorem}[Nagura]\slshape
+		For $x\geq25$, there is always a prime number between $x$ and $6x/5$.
+	\end{theorem}
+The proof uses a property of gamma function (a function involving the gamma function turns out to be a prime counting function). We will not be proving the improvements or generalizations, but they are worth mentioning. The general case of this theorem would be like this:
+	\begin{problem}
+		Let $k$ be a positive integer. Does there always exist a prime between $kn$ and $(k+1)n$?
+	\end{problem}
+%\textit{Legendre} asked the following question.
+%As you can see, this is a very interesting topic for research. Anyway, let us get back to the general problem. 
+Bachraoui \cite[Thm $1.3$]{bachraoui} proved the case $k=2$. The idea is a variation of Erd\H os's proof.
+	\begin{theorem}[Bachraoui]\slshape
+		For a positive integer $n>1$, there is always a prime in the interval $[2n,3n]$.
+	\end{theorem}
+Andy Loo \cite{loo} proved the case for $k=3$ without using prime number theorem or any deep analytical method.
+	\begin{theorem}[Loo]\slshape
+		For a positive integer $n\geq2$, there is always a prime in the interval $(3n,4n)$.
+	\end{theorem}
+%Surprisingly, \textit{Sambasivarao} \cite[Thm $2.3$]{samb} proved the general case. This theorem is a killer which sealed the verdicts on conjectures of Legendre, Brocard, Oppermann and Andrica.
+	\begin{conjecture}[General Bertrand's Postulate]\label{thm:samb}\slshape
+		For a positive integer $n\geq2$ and a positive integer $k\leq n$, there always exists a prime $p$ in the interval $[kn,(k+1)n]$.
+	\end{conjecture}
+%Because of this proof, those conjectures are no more conjectures. We can consider them as theorems. Since the original proof used idea of Gamma function, we did not include the proof here. However, the derivations of these conjecture from the general theorem are intuitive and very interesting. Therefore, we want to include them here. You can try them yourself as well with the help of theorem \eqref{thm:samb}.
+If conjecture \eqref{thm:samb} can be proven, we can prove some other conjectures using it. Let us assume that the conjecture is true and it is in fact a theorem. Let us see how we could use it to prove other conjectures. The ideas are due to \textit{Sambasivarao} \cite{samb}.
+	\begin{theorem}[Legendre's theorem]
+		Assuming general Bertrand's postulate is true, there always exists a prime in the interval $[n^2,(n+1)^2]$.
+	\end{theorem}
+As we stated before, it has an improvement and we will prove that instead.
+	\begin{theorem}[Mitra's theorem]
+		Assume the general Bertrand's postulate. There exists at least two primes in the interval $[n^2,(n+1)^2]$.
+	\end{theorem}
+	
+	\begin{proof}
+		From theorem \eqref{thm:samb}, we know that there exists a prime in the interval $[kn, (k+1)n]$. Set $k=n$ and we get a prime $p$ such that $n^2\leq p\leq n^2+n$. Again, there is a prime in the interval $[k(n+1),(k+1)(n+1)]$. Let $q$ be a prime such that $k(n+1)\leq q\leq (k+1)(n+1)$ and set $k=n$. Now we have $n^2\leq p\leq n^2+n$ and $n^2+n\leq q\leq (n+1)^2$. Combining them we have $n^2\leq p\leq q\leq (n+1)^2$ since $n^2+n\leq(n+1)^2$. There will always be two but not one. The reason is $p=q$ can not occur. That would only be possible if $n^2+n=p=q$ which is not prime for $n>1$ (why?).
+		For $n=1$, we can check manually that $2,3$ are between $1$ and $4$. Therefore, the theorem holds true for all $n$.
+	\end{proof}
+	
+	\begin{theorem}[Brocard theorem]
+		Assume the general Bertrand's postulate. For each $n>1$, there are at least $4$ primes in the interval $[p_n^2,p_{n+1}^2]$.
+	\end{theorem}
+
+	\begin{proof}
+		We will keep using theorem \eqref{thm:samb} repeatedly. There are primes $q,r,s,t$ such that
+			\begin{align*}
+				p_n^2 & \leq q\leq p_n(p_n+1),\\
+				p_n(p_n+1) & \leq r \leq (p_n+1)^2,\\
+				(p_n+1)^2 & \leq s\leq (p_n+1)(p_n+2),\\
+				(p_n+1)(p_n+2) & \leq t\leq (p_n+2)(p_n+2).
+			\end{align*}
+		See the clever usage of the theorem. Now,
+			\begin{align*}
+				(p_n+2)^2 & \leq p_{n+1}^2
+			\end{align*}
+		because for $n>1$, $p_{n+1}\geq p_n+2$. By the same argument as above, no two of $q,r,s,t$ are equal. Therefore, we are done.
+	\end{proof}
+	
+	\begin{theorem}[Andrica theorem]
+		Assume the general Bertrand's postulate holds true. For any positive integer $n$, $\sqrt{p_{n+1}}-\sqrt{p_n}<1$.
+	\end{theorem}
+	
+	\begin{proof}
+		Fix the primes $p_n,p_{n+1}$ and think about the intervals they belong to. Like we did in the proof of Mitra's conjecture, assume that $km \leq p_n\leq (k+1)m$. Obviously, we are looking for \textit{suitable} values of $k$ and $m$ which fulfill our purpose. Consider the following proof. We have
+			\begin{align*}
+				km & \leq p_n \leq (k+1)m,\\
+				(k+1)m&\leq p_{n+1}\leq(k+1)(m+1).
+			\end{align*}
+		Now, set $k=m$ and we have $k^2\leq p_n<p_{n+1}\leq(k+1)^2$. Therefore,
+			\begin{align*}
+				k\leq \sqrt{p_n}& <\sqrt{p_{n+1}}<k+1,
+			\end{align*}
+		which means $\sqrt{p_{n+1}}-\sqrt{p_n} < 1$. 
+		Is this proof correct or faulty? We will leave it to the reader. Here is the original proof. Consider the intervals $A=[k(k-1),k^2],B=[k^2,k(k+1)],C=[k(k+1),(k+1)^2]$. We can certainly pick $k$ such that $p_n$ belongs to at least one of $A,B$ or $C$. So we have three cases here.
+			\begin{enumerate}[i.]
+				\item $p_n$ is in $A$. Then $p_{n+1}$ is in $B$ (or $A$ possibly)\footnote{Because $A$ might contain more than one primes.}. Whichever it is, we have the conclusion.
+				\item $p_n$ is in $B$. Again, $p_{n+1}$ is either in $B$ or $C$. Same argument.
+				\item $p_n$ is in $C$. If $p_{n+1}$ is in $C$ too, we are done. Otherwise, $p_{n+1}$ is not in any of $A,B,C$. However, since $p_n,p_{n+1}$ are consecutive primes and $(k+1)^2<p_{n+1}<(k+1)(k+2)$, we have $\sqrt{p_{n+1}}-\sqrt{p_n}<1$. If you are not sure why, take a look at this:
+					\begin{align*}
+						&k^2+k+\frac{1}{4}  < p_n < p_{n+1}< k^2+3k+2+\frac{1}{4}\\
+						\iff & (2k+1)^2 < 4p_n<4p_{n+1} < (2k+3)^2\\
+						\iff & 2k+1 < 2\sqrt{p_n}<2\sqrt{p_{n+1}}<2k+3\\
+						\iff& 2\sqrt{p_{n+1}}-2\sqrt{4p_n} < 2\\
+						\iff &\sqrt{p_{n+1}}-\sqrt{p_n} <1.
+					\end{align*}
+			\end{enumerate}
+	\end{proof}
+	
+	
+\end{document}

@@ -1,0 +1,143 @@
+Amir Hossein Parvardi, [08.07.16 00:49]
+when moving to a new environment, alway indent
+
+Amir Hossein Parvardi, [08.07.16 00:49]
+let me give you some examples
+
+Amir Hossein Parvardi, [08.07.16 00:49]
+suppose that you have started a new section
+
+Amir Hossein Parvardi, [08.07.16 00:50]
+\section{blahblah}
+      hello, this is text, indented
+
+Amir Hossein Parvardi, [08.07.16 00:50]
+use a tab to indent
+
+Amir Hossein Parvardi, [08.07.16 00:50]
+and then you want to pose a theorem
+
+Amir Hossein Parvardi, [08.07.16 00:51]
+\section{blahblah}
+      hello, this is text, indented
+            \begin{theorem}
+                  theorem statement
+            \end{theorem}
+      rest of the text
+
+Amir Hossein Parvardi, [08.07.16 00:51]
+this is the correct form of indenting
+
+Amir Hossein Parvardi, [08.07.16 00:57]
+the other thing is labeling
+
+Amir Hossein Parvardi, [08.07.16 00:59]
+use this formatting
+
+Labels:
+Proposition: \label{prop:Name}
+theorem: \label{thm:TheoremName}
+problem: \label{prob:Name}
+lemma: \label{thm:LemmaName}
+chapter: \label{ch:TheoremName}
+section: \label{sec:NameName}
+example: \label{ex:TheoremName}
+corollary: \label{cor:Name}
+definition: \label{def:Name}
+Identity: \label{id:Name}
+Equation: \label{eq:Name}
+
+Amir Hossein Parvardi, [08.07.16 01:00]
+when you are writing a proof, be sure to put a white line before \end{proof}
+
+Amir Hossein Parvardi, [08.07.16 01:00]
+that is, it should look like this:
+
+    \begin{proof}
+        Here is the proof.
+        
+    \end{proof}
+
+Amir Hossein Parvardi, [08.07.16 01:00]
+this way the square at the end of the proof goes to the next line and is more beautiful :D
+
+Amir Hossein Parvardi, [08.07.16 01:01]
+please use \slshape for writing theorems
+
+Amir Hossein Parvardi, [08.07.16 01:01]
+this is how you should use it:
+
+\begin{theorem}\slshape
+    Theorem
+\end{theorem}
+
+Amir Hossein Parvardi, [08.07.16 01:01]
+any questions by now?
+
+Amir Hossein Parvardi, [08.07.16 01:03]
+for centering equations, please avoid using \[ \] or $$ $$
+
+Amir Hossein Parvardi, [08.07.16 01:03]
+use this formatting instead:
+
+Amir Hossein Parvardi, [08.07.16 01:04]
+\begin{align*}
+      blah blah &= more blah\\
+                        &= even more\\
+                        &=enough.
+\end{align*}
+
+Amir Hossein Parvardi, [08.07.16 01:05]
+this is an example produced by align
+
+Amir Hossein Parvardi, [08.07.16 01:06]
+if you ever want to number the lines of your formula, use align instead of align*
+
+Amir Hossein Parvardi, [08.07.16 01:07]
+for example:
+
+\begin{align}
+      blah blah &= more blah\\
+                        &= numbered formula \label{eq:hojor1}\\
+                        &=enough.
+\end{align}
+
+Amir Hossein Parvardi, [08.07.16 01:07]
+[In reply to Amir Hossein Parvardi]
+this will number the second line of your equation
+as you see, i have kept the formatting for the label
+
+Amir Hossein Parvardi, [08.07.16 01:08]
+you can use eqnarray* and eqnarray as well
+
+Amir Hossein Parvardi, [08.07.16 01:08]
+Use \nmid instead of \not|
+
+Amir Hossein Parvardi, [08.07.16 01:09]
+For three dots, if you have something like a sequence use \ldots: $a_1, a_2, \ldots, a_n$ and if you have a product or sum, use \cdots: $a_1+a_2+\cdots+a_n$.
+
+Amir Hossein Parvardi, [08.07.16 01:09]
+aha, and to refer to something (a theorem, lemma, definition, fornula etc), please use \eqref{label}
+
+Amir Hossein Parvardi, [08.07.16 01:11]
+it is conventional to use \eqref only for equations and \ref for theorems, lemmas, etc
+but we like \eqref more and we used it in all kind of reference (either theorems, lemmas, etc or equations)
+
+Amir Hossein Parvardi, [08.07.16 01:12]
+to give a special name to a theorem, lemma, definition, etc simply use [the name]
+
+Amir Hossein Parvardi, [08.07.16 01:12]
+for example
+
+Amir Hossein Parvardi, [08.07.16 01:12]
+\begin{theorem}[theorem's name] \slshape
+    Theorem
+\end{theorem}
+
+Amir Hossein Parvardi, [08.07.16 01:14]
+when you want to introduce something (no difference what it is: the name of a mathematician, a special function, etc) for the first time, use \textit{name} to make it italic
+
+Amir Hossein Parvardi, [08.07.16 01:14]
+example:
+
+\textit{Bertrand's postulate} is a very nice and influential theorem in number theory. \textit{Joseph Bertrand} first conjectured it, but he couldn't prove it entirely.

@@ -1,0 +1,144 @@
+\begin{document}
+	We suppose that $a,b$ are real numbers in the following results.
+	
+	\begin{identity}\label{id:diffsqr}
+		\begin{align*}
+			(a+b)^2+(a-b)^2 &= 2(a^2+b^2),\\
+			(a+b)^2-(a-b)^2 & = 4ab.
+		\end{align*}
+	\end{identity}
+	
+	\begin{identity}[Sophie Germain Identity]\slshape
+		\begin{align*}
+			a^4+4b^4=(a^2+2ab+2b^2)(a^2-2ab+2b^2).
+		\end{align*}
+	\end{identity}
+	
+	\begin{identity}
+		\begin{align*}
+			(a+b)^3 - a^3 - b^3 &= 3ay(a+b),\\
+			(a+b)^5 - a^5 - b^5 &= 5ay(a+b)(a^2+ab+b^2),\\
+			(a+b)^7 - a^7 - b^7 &= 7ay(a+b)(a^2+ab+b^2)^2.
+		\end{align*}
+	\end{identity}
+	
+	\begin{theorem}[Binomial Theorem]\slshape\label{thm:binomial-theorem}
+		For any positive integer $n$,
+		\begin{eqnarray*}
+			(a+b)^n & = & a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\dots+\binom{n}{1}ab^{n-1}+b^n\\
+			& = & \sum_{i=0}^{n}\binom{n}{i}a^{n-i}b^i\\
+			& = & \sum_{i=0}^{n}\binom{n}{i}a^ib^{n-i}.
+		\end{eqnarray*}
+	\end{theorem}
+	
+	\begin{proof}
+		If we expand the left side, there are $n$ times $(a+b)$ multiplied together. Obviously, each term of this expansion will be of the form $a^ib^{n-i}$. So, we can write it as
+		\begin{align*}
+			(a+b)^n=s_na^n+s_{n-1}a^{n-1}b+\dots+s_1ab^{n-1}+s_0b^n.
+		\end{align*}
+		Here, $s_i$ is the coefficient of $a^ib^{n-i}$. We see that for a term $a^ib^{n-i}$ to appear in the sum, we must choose $i$ of the $n$ times $(a+b)$ to contribute an $a$ to the term, and then each of the other $n-i$ terms of the product must contribute a $b$. We can take $i$ objects from $n$ objects in $\binom{n}{i}$ ways. Therefore, $s_i=\binom{n}{i}$.
+	\end{proof}
+	
+	
+	\begin{theorem}\slshape \label{thm:binom}
+		For positive integers $n$ and $k$ such that $k \leq n$,
+		\begin{enumerate}
+			\item $\displaystyle\binom{n}{k}=\binom{n}{n-k}$,
+			\item $\displaystyle\binom{n}{k}=\binom{n-1}k+\binom{n-1}{k-1}$ (Pascal's recurrence),
+			\item $\displaystyle\binom{n}{k}=\dfrac{n}{k}\binom{n-1}{k-1}$ (absorption property), \label{id:binomreduction} 
+			\item $\displaystyle\binom{n}{0}+\binom{n}{1}+\dots+\binom{n}{n-1}+\binom{n}{n} = 2^n$,
+			\item $\displaystyle \binom{0}{k} + \binom{1}{k} + \dots +\binom{n-1}{k} + \binom{n}{k} = \binom{n+1}{k+1}$,
+			\item $\displaystyle\binom{n}0^2+\binom{n}{1}^2+\dots+\binom{n}{n-1}^2+\binom{n}{n}^2 = \binom{2n}{n}$. \label{id:binomsquaressum}
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{corollary}\slshape
+		If $n$ and $k$ are coprime, then $n$ divides $\binom nk$ and $k$ divides $\binom{n-1}{k-1}$.
+	\end{corollary}
+	
+	\begin{proof}
+		Directly implied from part \ref{id:binomreduction} of theorem \eqref{thm:binom}.
+	\end{proof}
+	
+	\begin{identity}[Sum of Powers of Consecutive Integers]\slshape\label{id:sumofpowers}
+		Let $n$ be a positive integer. Then,
+			\begin{enumerate}
+				\item $\displaystyle\sum\limits_{i=1}^{n} i = \frac{n(n+1)}{2}$,
+				\item $\displaystyle\sum\limits_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$,
+				\item $\displaystyle\sum\limits_{i=1}^{n} i^3 = \left(\frac{n(n+1)}{2}\right)^2$,
+				\item $\displaystyle\sum\limits_{i=1}^{n} i^4 = \frac{n(n+1)(2n+1)(3n^2+3n-1)}{30}$.
+			\end{enumerate}
+	\end{identity}
+
+	\begin{identity}[Sum of Differences]\slshape\label{id:sumofdif}
+		Let $a_1, a_2, a_3, \dots$ be an infinite sequence of numbers. Then, for any positive integer $n$,
+			\begin{align*}
+				a_n  = a_1 + \sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right).
+			\end{align*}
+	\end{identity}
+	
+	\begin{proof}
+		Expand the sum on the right side to obtain
+			\begin{align*}
+				\sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right)
+					&=  \left(a_{n} - a_{n-1}\right) +  \left(a_{n-1} - a_{n-2}\right) + \dots +  \left(a_{2} - a_{1}\right)\\
+					&= a_n - a_1.	
+			\end{align*}
+		The conclusion follows.
+	\end{proof}
+	
+
+	\begin{identity}[Fibonacci-Brahmagupta Identity]\slshape\label{id:fibbr}
+		For any reals $a,b,c,d$, and any integer $n$,
+		\begin{align*}
+			(a^2+nb^2)(c^2+nd^2)&=(ac-nbd)^2+n(ad+bc)^2\\
+			&=(ac+nbd)^2+n(ad-bc)^2.
+		\end{align*}
+		In other words, the product of two numbers of the form $a^2+nb^2$ is of the same form. Particularly, for $n=1$,
+		\begin{align*}
+			(a^2+b^2)(c^2+d^2)&=(ac+bd)^2+(ad-bc)^2\\
+			&=(ad+bc)^2+(ac-bd)^2.
+		\end{align*}
+	\end{identity}
+	
+	The following identity is a generalization of Fibonacci-Brahmagupta Identity. \textit{Lagrange} used this identity to prove the \textit{Sum of Four Squares Theorem}.
+	
+	\begin{identity}[Euler's Four Square Identity]\slshape\label{id:foursqr}
+		Let $a_1,a_2,\ldots,a_4$ and $b_1,b_2,\ldots,b_4$ be reals. Then,
+		\begin{multline*}
+			(a_1^2+a_2^2+a_3^2+a_4^2)(b_1^2+b_2^2+b_3^2+b_4^2) \\=(a_1 b_1 + a_2 b_2 + a_3 b_3 + a_4 b_4)^2 +(a_1 b_2 - a_2 b_1 + a_3 b_4 - a_4 b_3)^2\\
+			+(a_1 b_3 - a_2 b_4 - a_3 b_1 + a_4 b_2)^2 +(a_1 b_4 + a_2 b_3 - a_3 b_2 - a_4 b_1)^2.
+		\end{multline*}
+	\end{identity}
+	An interested reader can see \textit{Degen's eight-square identity} \cite{ch:idthm-piezas} or \textit{Pfister's sixteen-square identity} \cite{ch:idthm-conrad}, but they do not look pretty at all and we do not include them here.
+	
+	\begin{identity}[Lebesgue Identity]\slshape\label{id:lebesgue}
+		\begin{align*}
+			(a^2+b^2-c^2-d^2)^2 + (2ac+2bd)^2 + (2ad-2bc)^2 & = (a^2+b^2+c^2+d^2)^2
+		\end{align*}
+	\end{identity}
+	
+	\begin{identity}[Euler-Aida Ammei Identity]\slshape\label{id:euleraida}
+		Let $x_1,x_2,\dots,x_n$ be reals. Then,
+		\begin{align*}
+			(x_1^2-x_2^2-\dots-x_n)^2 + \sum_{i=2}^{n}(2x_1x_i)^2 & = (x_1^2+x_2^2+\dots+x_n^2)^2.
+		\end{align*}
+	\end{identity}
+	
+	\begin{identity}[Bhaskara's Lemma]\slshape
+		Let $m,x,y,n$ and $k$ be integers such that $k \neq 0$. If $y^2-nx^2=k$, then
+		\begin{align*}
+			\left( \dfrac{mx+ny}{k}\right) ^2-n\left( \dfrac{mx+y}{k}\right)^2= \dfrac{m^2-n}{k}.
+		\end{align*}
+	\end{identity}
+	This identity is used in {\it Chakravala method} to find the solutions to {\it Pell-Fermat equation}.
+	
+	\begin{thebibliography}{99}
+		\bibitem{ch:idthm-piezas} Piezas III, Titus. "The Degen-Graves-Cayley Eight-Square Identity." Web address accessed 27 August 2016. \url{http://sites.google.com/site/tpiezas/ramanujan/12.TheDegen-Graves-Cayleyeight-squareidentity(July2005).pdf}. (2005).
+		
+		\bibitem{ch:idthm-conrad} Conrad, Keith. "Pfister's Theorem on Sum of Squares." Web address accessed 27 August 2016. \url{http://www.math.uconn.edu/~kconrad/blurbs/linmultialg/pfister.pdf}.
+		
+	\end{thebibliography}
+	
+	
+\end{document}

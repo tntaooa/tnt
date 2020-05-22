@@ -1,0 +1,108 @@
+\documentclass[main.tex]{subfile}
+
+\begin{document}
+	
+	For brevity assume 
+	\begin{align*}
+		f(x,y,n)=\frac{x^n-y^n}{x-y}.
+	\end{align*}
+	
+	Remember from definition \eqref{def:vp} that $v_{p}(n)=\alpha$ means $\alpha$ is the greatest positive integer so that $p^\alpha|n$. Alternatively, we can denote this by $p^\alpha\|n$.
+	
+	\begin{theorem}[Exponent \texorpdfstring{$\boldsymbol{\gcd}$}{gcd} Lemma]\slshape\label{thm:egl}
+		If $x\perp y$, then
+			\begin{align*}
+				g=\big(x-y,f(x,y,n)\big)\big|n.
+			\end{align*}
+	\end{theorem}
+	
+	\begin{proof}
+		Re-call the identity
+			\begin{align*}
+				x^n-y^n=(x-y)\left(x^{n-1}+x^{n-2}y+\cdots+xy^{n-2}+y^{n-1}\right).
+			\end{align*}
+		This yields to
+			\begin{align*}
+				f(x,y,n)=x^{n-1}+x^{n-2}y+\ldots+xy^{n-2}+y^{n-1}
+			\end{align*}
+		We know that for polynomials $P$ and $Q$, if
+			\begin{align*}
+				P(x)=(x-a)\cdot Q(x)+r,
+			\end{align*}
+		then $r=P(a)$ (the reason is simple, just plug in $a$ into $P$). So, in this case,
+			\begin{align*}
+				f(x,y,n)=(x-y)\cdot Q(x,y,n)+r.
+			\end{align*} 
+		Hence, $r=f(y,y,n)$ which equals
+		\begin{align*}
+			f(y,y,n)=y^{n-1}+y^{n-2}\cdot y+\ldots+y^{n-1}=ny^{n-1}.
+		\end{align*}
+		From Euclidean algorithm, we can infer 
+		\begin{align*}
+			\big(x-y,f(x,y,n)\big)=\big(x-y,f(y,y,n)\big)=\big(x-y,ny^{n-1}\big).
+		\end{align*}
+		Earlier we assumed $x\perp y$, and so $x-y\perp y^{n-1}$ because $(x-y,y)=(x,y)=1$. Thus 
+		\begin{align*}
+			g=\big(x-y,f(x,y,n)\big)=\big(x-y,n\big),
+		\end{align*}
+		which results in $g|n$.
+	\end{proof}
+	
+	\begin{corollary}\slshape
+		The following result is true for any odd positive integer $n$:
+		\begin{align*}
+			\left(x+y,\frac{x^n+y^n}{x+y}\right)\Big|n.
+		\end{align*}
+	\end{corollary}
+	
+	\begin{corollary}\slshape
+		For a prime $p$,
+		\begin{align*}
+			(x-y,f(x,y,p))=1 \text{ or } p.
+		\end{align*}
+	\end{corollary}
+	
+Let's see how we can use this lemma to solve problems.
+	
+	\begin{problem}[Hungary 2000]
+		Find all positive primes $p$ for which there exist positive
+		integers $n,x$, and $y$ such that 
+		\begin{align*}
+			x^3+y^3=p^n.
+		\end{align*}
+	\end{problem}
+	
+	\begin{solution}
+		For $p=2$, $x=y=1$ works. Assume $p$ is greater than $2$, and hence odd.
+		
+		If $(x, y)=d$, then we have $d|p^n$. So, $d$ is a power of $p$. But in that case, we can divide the whole equation by $d$ and still it remains an equation of the same form. Let's therefore, consider $(x, y)=1$. Factorizing, 
+		\begin{align*}
+			(x+y)(x^2-xy+y^2)=p^n.
+		\end{align*}
+		According to the lemma, 
+		\begin{align*}
+			g=\left(x+y, f(x, y, 3)\right)\big|(x+y,3)
+		\end{align*}
+		This means $g|3$. If $g=3$, then we have $3|p$ or $p=3$. On the other hand, $g=1$ shall mean that $x+y=1$ or $x^2-xy+y^2=1$. Neither of them is true because $x,y>0,x+y>1$ and $(x-y)^2+xy>1$. 
+	\end{solution}
+	
+	\begin{problem}
+		Find all primes $p$ and positive integer $x$ such that
+			\begin{eqnarray*}
+				p^x-1 & = & (p-1)!.
+			\end{eqnarray*}
+	\end{problem}
+	
+	\begin{solution}
+		We know that if $n\geq 6$ is a composite integer, then $n$ divides $(n-1)!$. Now, $\dfrac{p^x-1}{p-1}=(p-2)!$. Assume $p>5$, then $p\geq7$ so $p-1|(p-2)!$. Thus, $p-1 \big| \dfrac{p^x-1}{p-1}$ and so from the lemma, $p-1|x$ or $x\geq p-1$. So
+			\begin{align*}
+				(p-1)!  =  p^x-1\geq p^{p-1}-1,
+			\end{align*}
+		which is not true since 
+			\begin{align*}
+				n!  < (n+1)^n-1,
+			\end{align*}
+		for $n>1$. So we need to check for only $p\in\{2,3,5\}$. If $p=2$, then $2^x-1=1$, so $x=1$. If $p=3$, then $3^x-1=2$ so $x=1$. If $p=5$, $5^x-1=24$ so $x=2$.
+	\end{solution}
+	
+\end{document}

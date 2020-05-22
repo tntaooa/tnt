@@ -1,0 +1,213 @@
+\documentclass[nt_billal_v1.tex]{subfile}
+
+\begin{document}
+This part can be considered as \textit{combinatorial number theory}. But we have included it here in order to send a message. There is a common misunderstanding that floats around: To excel in number theory, one has to know lots of theorems and stuff. This is plainly wrong. 
+
+The techniques discussed in this chapter are very simple yet powerful technique in solving problems. You will be amazed how they can make a seemingly impossible problem very organized and solvable. But the main problem is that, they are not like traditional theorems or lemmas to be applied directly. Rather they are like skills, which can be achieved only by solving problems. Therefore, we show a good number of problems and solutions for a good insight.
+
+
+
+\section{Pigeonhole Principle}
+You may be surprised to see how useful pigeonhole principle(also known as \textbf{box principle}) can be in number theory. It can be stated in many ways. Here are some versions.
+
+\begin{enumerate}[i]
+	\item If there are $n+1$ pigeons and $n$ holes, then there is at least one pigeonhole with at least two pigeons.
+	\item If there are $n$ boxes and $m$ marbles where $m>n$, there is at least one box with at least $\left\lceil\dfrac{m}{n}\right\rceil$ marbles.
+	\item If $nk+1$ objects are distributed among $k$ sets, there is at least one set with at least $n+1$ objects.
+\end{enumerate}
+
+And, we have the following consequences: %(add more if you can)
+
+\begin{itemize}
+	\item If there are $13$ people, there are at least two with the same birth month.
+	\item When $n$ integers are divided by $k$ where $n>k$, there will be two which gives the same remainder.
+\end{itemize}
+
+Let's start with a comparatively easier one.
+	\begin{problem}
+		Take any $n+1$ distinct elements from $\{1,2,...,2n\}$. Prove that there are two co-prime to each other.
+	\end{problem}
+	
+	\begin{solution}
+		First examine some examples by hand. Take $\{1,2,3,4,5,6\}$ where $n=3$. We can take $4$ numbers in many ways($\binom{6}{4}$ to be precise). If we take $1,3,4,6$, there are some co-prime pairs like $(1,4),(3,4)$(in fact any number we pair up with $1$, we get a co-prime pair). Let's take another one since the previous one is kind of trivial because of $1$. From $2,3,5,6$, we can take co-prime pairs again, like $(2,3),(2,5),(5,6)$. Is there anything common between the last case and this one? Which pairs are guaranteed to appear no matter what? With a bit of observation, you can easily understand that at least one pair is bound to be composed of consecutive integers. And consecutive integers are co-prime to each other. Now, all that's left to prove is that one pair will be at distance $1$. But it is obvious that, if we take the numbers with a gap of at least $2$, we need to reach $2n+1$ at least.
+	\end{solution}
+	
+	\begin{problem}[Masum Billal]
+		Take arbitrary $2n$ integers(not necessarily distinct, $n>2$). Consider the differences of all possible pairs and call their product $\mathcal S$. Prove that $\mathcal S$ is divisible by $2^{n^2-n}(2n-1)(2n-3)(2n-5)$.
+	\end{problem}
+	
+	\begin{solution}
+		This is an easy but nice problem which shows the application of pigeonhole principle very well. But how do we get the fact that, pigeonhole is required here?
+		
+		First note that $2n-1,2n-3$ and $2n-5$ are mutually co-prime because $\gcd(2n-1,2n-3)=\gcd(2n-1,2)=1$ and $\gcd(2n-1,2n-5)=\gcd(2n-1,4)=1$. So, if $\mathcal{S}$ is divisible by them individually, it will be divisible by their product too. Remember the fact that, since $2n-1$ is less than $2n$, among the remainders of $2n$ integers upon division by $2n-1$, two remainders are bound to repeat. The difference of those two numbers will be divisible by $2n-1$ and hence, $\mathcal{S}$ too. Similarly, $\mathcal{S}$ is divisible by $2n-3$ and $2n-5$ as well.
+		
+		Now, let's concentrate on how to get the power of $2$ here. At first it may not seem easy. After you think a bit, you get that those $2$s come from difference of numbers of same parity. So, let's assume there are $k$ odd integers. Then there will be $2n-k$ even integers. Odd or even, difference of any two such numbers will be divisible by $2$. And so, we get at least one two from each pair of those differences. Since we don't know which are greater in number, odd or even, we can assume without loss of generality that there are $n+k$ odd integers and $n-k$ even integers (or $n-k$ odd integers and $n+k$ even integers in the other case, but both yield the same result). The odd integers make $\binom {n+k}2$ pairs, each of which has a difference divisible by $2$. Similarly we get $\binom{n-k}2$ pairs for even integers. Thus, the number of $2$s in the product of those differences is at least
+			\begin{align*}
+				\binom {n+k}2+\binom{n-k}2 & = \dfrac{(n+k)(n+k-1)}{2}+\dfrac{(n-k)(n-k-1)}{2}\\
+										& = \dfrac{(n+k)^2-(n+k)+(n-k)^2-(n-k)}{2}\\
+										& = \dfrac{2(n^2+k^2)-2n}{2}\\
+										& = n^2-n+k^2\\
+										&\geq n^2-n
+			\end{align*}
+	\end{solution}
+	
+	\begin{problem}
+		Let $\alpha$ is an arbitrary real number.Prove that there exist infinitely many pairs of positive integers $(p,q)$ satisfying $\left | \alpha -\frac{p}{q} \right |<\frac{1}{q^2}$
+	\end{problem}
+Remember how we used box principle in chapter \eqref{ch:congruence}.
+	\begin{problem}
+		Suppose that $a$ and $b$ are relatively prime integers. Show that there exist integers $x$ and $y$ such that $ax + by = 1$.
+	\end{problem}
+	
+	
+	\begin{problem}
+		Take any $n+1$ distinct elements from $\{1,2,...,2n\}$. Prove that there are two so that one divides the other.
+	\end{problem}
+	
+	
+	\begin{problem}
+		Given a set of (at least) $N$ (distinct) integers, there exists a non-empty subset having its sum of elements divisible by $N$.
+	\end{problem}
+	
+	
+	\begin{problem}[APMO $1993$, Problem $5$]
+		A polygon $\mathcal{P}$ has $1993$ vertices on lattice points(not necessarily convex). Each side of $C$ has no lattice points other than two of it's vertices. Prove that at least one side contains a point $(x,y)$ with $2x$ and $2y$ both odd integers.
+	\end{problem}
+	
+	\begin{solution}
+		
+	\end{solution}
+
+	\begin{problem}
+		$a_1,a_2,...,a_{2015}$ : are different integers all their prime divisors are less than $25$. Prove that there is four numbers of them, whose product is a fourth power of an integer.
+	\end{problem}
+	
+	The following problem is an example where it's hard to get how we can juxtapose pigeonhole principle.
+	
+	\begin{problem}
+		From the interval $(2^{2n},2^{3n})$ are selected $2^{2n-1}+1$ odd numbers. Prove that there are two among the selected numbers, none of which divides the square of the other.
+	\end{problem}
+	
+	\begin{solution}
+		Consider two of the numbers $a$ and $b$ such that $b^2$ is divisible by $a$.
+		\begin{lemma}
+			$|b-a| \ge 2^{n+1}-1$.
+		\end{lemma}
+		
+		\begin{proof}
+			Let $a=b-k$, we have $\frac{b^2}{b-k}=b+k+\frac{k^2}{b-k}$. So $\frac{k^2}{b-k}$ is an integer. Now since $b-k$ is odd, and $k^2$ is even (since          $k$ is even), the quotient must be at least $4$, so $k^2 \ge 4b-4k$, so $k^2+4k\ge 4b$.
+			Now since $b>2^{2n}$, so $4b>2^{2n+2}$, implying $k^2+4k>2^{2n+2}$. Now suppose to the contrary that $|k|\le 2^{n+1}-2$, then $k^2+4k\le 2^{2n+2}-4$, contradiction. So the lemma is proved.
+		\end{proof}
+		
+		Now applying this to our numbers, split the interval into $2^{2n-1}$ intervals consisting of $2^{n+1}-2$ numbers. Clearly we must select two numbers from the same interval by the pigeonhole principle, and by our lemma, out of those two numbers none of them can divide the square of the other.
+	\end{solution}
+
+\section{Extreme Principle}
+The main ideas of \textbf{extreme principle} are:
+	\begin{enumerate}[i]
+		\item Define an element as maximum or minimum based on a certain property,
+		\item Try to maximize or minimize some function,
+		\item Sort the elements based on a certain property.
+	\end{enumerate}
+A version of extreme principle is used in number theory, which is known as \textbf{Infinite descent} technique or \textbf{Fermat's method of descent}. This is a really great technique for solving a \textit{Diophantine Equation }(more like showing that it has no solutions). But as this is out of our scope right now, we skip a discussion about it in detail.
+
+\begin{problem}[APMO $2005$, Problem $1$]
+	For positive integers $a,b$, prove that $(36a+b)(36b+a)$ is never a power of $2$.
+\end{problem}
+
+\begin{solution}
+	It can be shown in many ways. Here is the smartest one.
+	
+	Assume that among all possible $(a,b)$ so that $(36a+b)(36b+a)$ is a power of two, we have taken the smallest solution $(a,b)$. Now, note that $a$ or $b$ can't be odd. Because then one of $36a+b$ or $36b+a$ will be odd too. Therefore, both of $a$ and $b$ are even. Let $a=2x,b=2y$ and then $(36a+b)(36b+a)=2^2(36x+y)(36y+x)$ is a power of $2$. This also means that $(36x+y)(36y+x)$ is a power of $2$ too. But we get a solution $(x,y)$ strictly smaller than $(a,b)$, which contradicts the minimality of $(a,b)$. Therefore, no such $(a,b)$ exists.
+\end{solution}
+
+\begin{problem}
+	Find all integer solutions to the equation: $x^2+y^2=3(z^2+w^2)$.
+\end{problem}
+
+\begin{solution}
+	As we did in the previous problem, let's take the smallest 
+	solution $(x,y,z,w)$. First we see that, $3$ divides $x^2+y^2$.
+	We claim that $3$ must divide $x$ and $y$. If $3$ doesn't divide
+	$x$, then note that $x^2\equiv1\pmod3$, and similarly
+	$y^2\equiv1\pmod3$. But then $x^2+y^2\equiv2\pmod3$, a
+	contradiction. Therefore, $3$ divides $x$ and $y$. Let
+	$x=3a,y=3b$. But then $z^2+w^2=3(a^2+b^2)$ and again $3$ divides
+	$z$ and $w$. So we take $z=3c,w=3d$ and finally we get $a^2+b^2
+	=3(c^2+d^2)$. This gives the contradiction since $(a,b,c,d)$ is 
+	clearly a smaller solution than $(x,y,z,w)$.
+\end{solution}
+
+The following claims are quite straight forward, yet they have vast uses.
+
+\begin{itemize}
+	\item Every finite set of non-negative real numbers(integers as well) have a minimum and a maximum element(not necessarily unique).
+	\item(\textbf{Well Ordering Principle}) Every infinite set of positive integers have a minimum element.
+\end{itemize}
+
+\begin{problem}[IMO $1994$, Problem $1$]
+	Let $m$ and $n$ be positive integers. Let $a_1,a_2,...,a_m$ be distinct elements of $\{1,2,...,n\}$ such that whenever $a_i+a_j\leq n$ for $1\leq i\leq 
+	j\leq m$, there exists an index $1\leq k\leq m$ with $a_i+a_j=a_k$. Prove that, 
+	\[\dfrac{a_1+a_2+...+a_m}{m}\geq\dfrac{n+1}{2}\]
+\end{problem}
+
+\begin{solution}
+	
+\end{solution}
+
+
+\section{Invariance}
+It's not always easy to get how invariance comes into the play. However, \textbf{whenever there is some transformation, look for something that remains invariant i.e. doesn't change}. The non-changing part may be a number, parity, sum, difference, product, gcd or anything.
+
+Let's start with a classic example.
+
+\begin{problem}
+	Suppose the positive integer n is odd. First Al writes the numbers $1, 2, . . . , 2n$ on the blackboard. Then he picks any two numbers $a, b$, erases them, and writes, instead, $|a-b|$. Prove that an odd number will remain at the end.
+\end{problem}
+
+\begin{solution}
+	The problem only deals with parity. The question is, parity of whom? For example, take $3$ and $8$, then erasing them we will write $5$. Take $4$ and $10$, erasing them, we write $6$. Notice something? \textit{The parity of the sum of the numbers erased and the number written is the same!} This means that, whichever pair of numbers we erase writing their difference, the parity of the sum is not changed anyhow. In other words, the parity of the last number(since with every move, the number of elements is decreasing by one) will have the same parity as the initial sum. The initial sum is $1+2+\ldots+2n=n(2n-1)$, which is an odd number since $n$ is odd. Therefore, the last number will be odd as well.
+\end{solution}
+
+
+\begin{problem}
+	$n$ positive integers are written on a board. Every time, two positive integers are erased and their gcd and lcm are written on it. Prove that, one can do this for only a finite number of times.
+\end{problem}
+
+\begin{solution}
+	Let's look for something that remains unchanged. If two numbers are changed into their $\gcd$ and $\lcm$, then we will take the $\gcd$ and $\lcm$ again. This tells us to look for the case when this $\gcd$ and $\lcm$ will become invariant. With a bit observation and thinking, one can easily get that if $a$ divides $b$, then $\gcd(a,b)=a$ and $\lcm(a,b)=b$. And no matter how many times we take $\gcd$ and $\lcm$ now, it won't matter. But that alone doesn't prove that the whole sequence will be constant eventually. That means there is another reason why this operation can't be done infinitely. And the reason is that, $ab=\gcd(a,b)\cdot\lcm(a,b)$. However, the $\gcd$ or $\lcm$ changes, their product is fixed. Now, the reader can finish the problem.
+\end{solution}
+
+\begin{problem}
+	A circle is divided into six sectors. Then the numbers $1, 0, 1, 0, 0, 0$ are written into the sectors (counterclockwise, say). You may increase two neighboring numbers by $1$. Is it possible to equalize all numbers by a sequence of such steps?
+\end{problem}
+
+\begin{solution}
+	
+\end{solution}
+
+
+
+
+\section{Greedy Algorithm and Constructions}
+
+\begin{problem}
+	Let n be a positive integer. Find the smallest integer $k$ with the following property: Given any real numbers $a_1,..., a_d$ such that $a_1 + a_2+...+a_d =n$ and $0\leq a_i\leq 1$ for $i = 1, 2, . . . , d$, it is possible to partition these numbers into $k$ groups (some of which may be empty) such that the sum of the numbers in each group is at most $1$.
+\end{problem}
+
+\begin{solution}
+	
+\end{solution}
+
+\begin{problem}
+	Into each box of a $2012\times 2012$ square grid, a real number greater than or equal to $0$ and less than or equal to $1$ is inserted. Consider splitting the grid into $2$ non-empty rectangles consisting of boxes of the grid by drawing a line parallel either to the horizontal or the vertical side of the grid. Suppose that for at least one of the resulting rectangles the sum of the numbers in the boxes within the rectangle is less than or equal to $1$, no matter how the grid is split into $2$ such rectangles. Determine the maximum possible value for the sum of all the $2012\times2012$ numbers inserted into the boxes
+\end{problem}
+
+\begin{solution}
+	
+\end{solution}
+
+
+
+
+\end{document}

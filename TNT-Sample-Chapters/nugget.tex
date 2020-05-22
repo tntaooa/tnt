@@ -1,0 +1,139 @@
+\documentclass{subfile}
+
+\begin{document}
+	You are probably wondering how come this can be the name of a theorem if you have encountered it for the first time. The name just might be the weirdest of all names a theorem can possibly assume! Here is the reason behind such a name: The story goes that the Chicken McNugget Theorem got its name because in McDonalds, people bought Chicken McNuggets in 9 and 20 piece packages. Somebody wondered what the largest amount you could never buy was, assuming that you did not eat or take away any McNuggets. They found the answer to be 151 McNuggets, thus creating the Chicken McNugget Theorem. Actually it is \textit{Sylvester's Theorem}, now known as the \textit{Chicken McNugget Theorem}. The problem is known as \textit{Frobenius Coin Problem}, which is a generalization of this one. Have you ever wondered about the coin system of your own country? It is designed in a way so that you should never face a situation where you can not exchange a certain amount of money. But have you thought how it is possible? In this section, we will deal with problems like this. First think for yourself on the following two problems:
+		\begin{problem}
+			You are in a strange country where only two units are available for exchange: $4$ and $6$. Can you pay any amount you want?
+		\end{problem}
+		
+		\begin{problem}
+			In another country, you see that only two units are available for exchange: $3$ and $10$. Can you pay any amount you want?
+		\end{problem}
+		
+	If you have come to the right conclusions, you will see that you can not pay any amount you want in the first case. But you can pay whatever you want with the second one. Let's say two units available value $a$ and $b$. So if you use $a$ unit $x$ times and $b$ unit $y$ times, the total amount of money you can pay is $ax+by$. Here, $x,y$ can be negative or non-negative integers. If $x>0$, it will mean you are paying, or if $x<0$ it will mean you are being paid (or getting the exchange). Therefore, if you need to pay exactly $n$ amount, you need integers $x$ and $y$ with 
+		\begin{align*}
+			ax+by & = n.
+		\end{align*}
+	Play with some more values of $a$ and $b$. You will understand that you can pay $n$ amount with units $a$ and $b$ if and only $(a,b)$ divides $n$. Here is another intuitive fact: If we can pay just $1$, we can pay any amount we want with as many $1$s needed. So we should focus on when we can pay $1$ by $a$ and $b$. This tells us, $a$ and $b$ must be co-prime. And from B\'{e}zout's Identity, for any co-prime $a$ and $b$, we will get integers $x,y$ so that
+		\begin{align*}
+			ax+by & = 1.
+		\end{align*}
+	In the problems above, we can't pay any amount with $4$ and $6$ because they are not co-prime. But we can pay any amount that is a multiple of $(4,6)=2$. But we can pay any amount with $3$ and $10$ because they are co-prime. This leads us to the following theorem.
+	
+	\begin{theorem}\slshape
+		Any integer can be written as a linear combination of $a$ and $b$ if and only if $a\perp b$.
+	\end{theorem}
+By linear combination, we mean using only $a$ and $b$ as many times as we want. Now we see the same problem from another perspective. Consider the following problem. If $n$ can be written as $ax+by$ for non-negative $x,y$, we will call $n$ a \textit{good} number. Otherwise, $n$ is \textit{bad}. But to do that, we can't change the values of $a$ and $b$ simultaneously. Therefore, we fix two co-prime integers $a$ and $b$. Next, let's see why we are only considering $a\perp b$. If $(a,b)=g$ and $g>1$, then we already know that only multiples of $g$ can be good. But we want as many integers to be good as possible, and not skipping some integers is better.
+	\begin{problem}
+		A shop sells nuggets in packages of two sizes, $3$ nuggets and $10$ nuggets. What is the maximum number of nuggets that cannot be expressed as a nonnegative combination of these package sizes?
+	\end{problem}
+	
+	\begin{definition}[Frobenius Number]
+		For two integers $a$ and $b$, the largest bad integer is the \textit{Frobenius number}. In fact, it can be generalized for $n$ natural numbers. If $a_1,\ldots,a_n$ are natural numbers so that $(a_1,\ldots,a_n)=1$, the largest natural number that can not be written as $a_1x_1+\ldots a_nx_n$ for nonnegative $x_1,\ldots,x_n$ is the Frobenius number. It is denoted as $F_n(a_1,\ldots,a_n)$. Here, we will deal with the case $n=2$, $F_2(a,b)$.
+	\end{definition}
+The following theorem answers this question.
+	\begin{theorem}[Sylvester's Theorem, 1882]\slshape
+		Let $a$ and $b$ be two co-prime positive integers greater than $1$. Then the maximum integer that can not be expressed as $ax+by$ for non-negative integer $x,y$ is $ab-a-b$.
+	\end{theorem}
+If we can prove that for all $N>ab-a-b$, there are non-negative integers $x,y$ such that
+	\begin{align*}
+		N & = ax+by,
+	\end{align*}
+and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, let's prove the next lemma.
+	\begin{lemma}\slshape
+		$ab-a-b$ is a bad number.
+	\end{lemma}
+	
+	\begin{proof}
+		On the contrary, let's assume that
+			\begin{align*}
+				ab-a-b & = ax+by,
+			\end{align*}
+		for some $x,y\in\N_0$. We can rewrite it as
+			\begin{align*}
+				a(x-b+1) & = -b(y+1).
+			\end{align*}
+		From this equation, $a|b(y+1)$ but $a\perp b$. So, $a|y+1$. Again, $b|a(x-b+1)$ but $b\perp a$ so $b|x-b+1$ or $b|x+1$. We get,
+			\begin{align*}
+				&  x+1\geq b, y+1\geq a\\
+				\implies & x\geq b-1, y \geq a-1.
+			\end{align*}
+		Using these inequalities,
+			\begin{align*}
+				 ax+by & \geq a(b-1)+b(a-1) \\
+				&= ab-a+ab-b\\
+				\implies   ab-a-b & \geq 2ab-a-b,
+			\end{align*}
+		which is a contradiction.
+	\end{proof}
+	
+	\begin{lemma}
+		If $m$ and $n$ both are good, then so is $m+n$.
+	\end{lemma}
+	
+	\begin{proof}
+		If $m$ and $n$ are good, then there are nonnegative integers $x,y,u$ and $v$ so that
+			\begin{align*}
+				m & = ax+by, \text{ and }\\
+				n & = au+bv.
+			\end{align*}
+		Therefore, $m+n= a(x+u)+b(y+v)$ is good.
+	\end{proof}
+	
+	\begin{lemma}\slshape
+		If $m+n=ab-a-b$, then exactly one of $m$ and $n$ is good.
+	\end{lemma}
+	
+	\begin{proof}
+		If both $m$ and $n$ are good, then according to the lemma above, $m+n$ is good too. But that would contradict the fact that $ab-a-b$ is bad. So, one of $m$ or $n$ must be bad.
+	\end{proof}
+So, now we know that, any integer below $ab-a-b$ is bad. All that's left to prove is the following lemma.
+	\begin{lemma}\slshape
+		Any integer $n>ab-a-b$ is good.
+	\end{lemma}
+	
+	\begin{proof}
+		Since $(a,b)=1$, by B\'{e}zout's identity, there are integers $u$ and $v$ so that
+			\begin{align}
+				au+bv = 1 & \implies anu+bnv = n\nonumber\\
+				& \implies ax_0+by_0  = n.\label{eqn:syl1}
+			\end{align} 
+		We need to show that such $x_0,y_0 \geq 0$ exist. If $(x_0,y_0)$ is a solution of equation \eqref{eqn:syl1}, then so is $(x_0-bt,y_0+at)$ for any integer $t$. Here, one can choose $t$ such that $0 \leq x_0-bt<b$. In case you don't understand how we can choose such $t$, just divide $x_0$ by $b$. Then $x_0=bq+r$, where $0\leq r <b$. This means that $0 \leq x_0 -bq <b$, so one choice for $t$ is $q$. So we know that there exists some $x_0$ such that $0 \leq x_0<b$. We will show that $y_0$ is also positive. Note that
+			\begin{align*}
+				& ax_0+by_0 = n > ab-a-b\\
+				\implies & b(y_0+1)  > a(b-x_0-1).
+			\end{align*}
+		Since we know that $x_0<b$, we get $b-x_0-1\geq 0$. This means that $b(y_0+1) >0$, so $y_0+1>0$, i.e., $y\geq0$. Therefore, there is a valid solution $(x_0,y_0)$ and the proof is complete.
+	\end{proof}
+Now, the proof is complete. The same proof can be used for generalizing the case where $(a,b)>1$.
+	\begin{theorem}[Generalization of Sylvester's Theorem]\slshape
+		Let $a,b$ be positive integers with $(a,b)=g$. Then every integer \[n\geq\dfrac{(a-g)(b-g)}{g}\] such that $g|n$ is good. Also, \[F_2(a,b)=\dfrac{(a-g)(b-g)}{g}-g,\] i.e., $F_2(a,b)$ is the largest bad integer.
+	\end{theorem}
+We see some problems related to this theorem. A classical example would be the following problem that appeared at the IMO $1983$.
+	\begin{problem}[IMO 1983]
+		Let $a,b,c\in\N$ with $(a,b)=(b,c)=(c,a)=1$. Prove that, $2abc-ab-bc-ca$ is the largest integer that can not be expressed as $xbc+yca+zab$ for nonnegative $x,y,z$.
+	\end{problem}
+	
+	\begin{solution}
+		Clearly, we need to invoke Sylvester's theorem here. But the expression tells us, it can not be done in one step. Note that
+			\begin{align*}
+				xbc+yca+zab & = c(bx+ay)+zab.
+			\end{align*}
+		Therefore, we should first focus only on $bx+ay$ first. As we know from the theorem, for $k$ to be good, $bx+ay\geq ab-a-b+1+t$ must hold for some $t\geq0$. Substitute it into the equation to get
+			\begin{align*}
+				xbc+yca+zab & = c(bx+ay)+zab\\
+							& = c(ab-a-b+1+t)+zab\\
+							& = abc-bc-ca+c+ct+zab.
+			\end{align*}
+		This again calls for using the theorem for $c$ and $ab$. The minimum integer that can be expressed as $ct+abz$ for nonnegative $t$ and $z$ is $abc-ab-c+1$. So $ct+zab=abc-ab-c+1+w$ for some non-negative $w$. Then
+			\begin{align*}
+				xbc+yca+zab & = abc-bc-ca+c+ct+zab\\
+							& = abc-bc-ca+c+abc-ab-c+1+w\\
+							& = 2abc-ab-bc-ca+1+w\\
+							& > 2abc-ab-bc-ca.
+			\end{align*}
+	\end{solution}
+So, the problem is solved. As you can see, the theorem is fairly easy to understand and use in problems. There will be some related problems in the problem column. See if you can get how to solve those using this (first you have to understand that this theorem will come to the rescue though).
+
+
+\end{document}

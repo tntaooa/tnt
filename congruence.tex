@@ -1,0 +1,963 @@
+\documentclass{subfile}
+
+\begin{document}
+		\subfile{cong-basic.tex}	
+	    \subfile{bez-crt.tex}
+	
+	\section{Wilson's Theorem}
+	We have probably discussed that if $n>4$ is a composite integer, then $(n-1)!$ is divisible by $n$. What if $n$ is a prime? Take $n=3$, then $(n-1)!=2$, not divisible by $3$. Take $n=5$. $(n-1)!=24$, which is not divisible by $5$. Take $n=7$, then $(n-1)!=120$ which is not divisible by $7$. Take $n=11$, $(n-1)!=3\, 628\, 800$ and this is not divisible by $11$ either. Since they are not divisible by the primes (as expected), we should check for remainders. $2!$ leaves a remainder $2$ when divided by $3$. $4!$ leaves $4$ when divided by $5$, $6!$ leaves $6$ when divided by $7$. If you calculate further, you will see the pattern goes on. So it suggests us to conjecture that the remainder of $(p-1)!$ when divided by the prime $p$ is $p-1$. In fact, this is what we call \textit{Wilson's theorem}.
+		\begin{theorem} \label{thm:selfinverse} \slshape
+			Let $p$ be a prime number and $a$ is a positive integer. Show that if the inverse of $a$ modulo $p$ is equal to $a$, then $a \equiv 1$ or $p-1 \pmod p$.
+		\end{theorem}
+		
+		\begin{proof}
+			The proof for $p=2$ is obvious, so assume that $p>2$. The inverse of $a$ is itself, so $a^2 \equiv 1 \pmod p$. This means that $p\mid a^2-1$. So, $p$ divides $(a-1)(a+1)$. We know that $2 | (a-1, a+1)$, so $p$ divides either $a+1$ or $a-1$, which results in $a \equiv 1$ or $p-1 \pmod p$.
+		\end{proof}
+	Now, why are we concerned about such a situation at all? The inverse of $a$ being $a$ is not something of interest, at least not obviously. In fact, there is a reason behind it. And you should have thought of it before reaching this point. Notice that, in the congruence
+		\begin{align*}
+			(p-1)! & \equiv(p-1)\pmod p,
+		\end{align*}
+	$(p-1)$ is co-prime to $p$. So we can cancel it from both sides and get $(p-2)!\equiv1\pmod p$. Now, this is interesting and it asks us to reach $1$ from a product. Notice the following rearrangement for $p=11$.
+		\begin{align*}
+			9! & = 1\cdot2\cdots9\\
+				&= \left(2\cdot6\right)\cdot\left(3\cdot4\right)\cdot\left(5\cdot9\right)\cdot\left(7\cdot8\right)\\
+				& = 12\cdot12\cdot45\cdot56\\
+				& \equiv1\cdot1\cdot1\cdot1\pmod{15}.
+		\end{align*}
+	Does it make sense now why the theorem above is necessary? If not, think a little bit more. Then proceed and you will realize we have actually found the crucial step to prove Wilson's theorem.
+	
+	According to this theorem, the only two numbers in the set $\{1, 2, \ldots, p-1\}$ which have their inverse equal themselves are $1$ and $p-1$. This will help us to prove the Wilson's theorem.
+		\begin{theorem}[Wilson's Theorem]  \slshape
+			The positive integer $p>1$ is a prime if and only if $(p-1)! \equiv -1 \pmod p$.
+		\end{theorem}
+		
+		\begin{proof}
+			We divide the proof of this theorem into two parts. First, we show that if $p$ is a prime, then $(p-1)! \equiv -1 \pmod p$.
+			The result is obvious for $p=2$ and $3$. So we assume that $p \geq 5$. According to the Theorem \ref{thm:selfinverse}, the only two numbers among  $\{1, 2, \ldots, p-1\}$ which have their inverse equal themselves are $1$ and $p-1$. Put them away and consider the set  $A=\{2, 3 \ldots, p-2\}$. There are $p-3$ elements in this set, and each of them has an inverse modulo $p$, as proved in Theorem \ref{thm:arithinverse}. Furthermore, inverse of each number is congruent to $p$. This means that the inverses of elements of $A$ are distinct. So we can divide the elements of $A$ into $(p-3)/2$ inverse pairs. Thus
+			\begin{align*}
+			2 \cdot 3  \cdots  (p-2) \equiv 1 \pmod p.
+			\end{align*}
+			Multiply $1$ and $p-1$ to both sides of the above equation and the proof is complete.
+			
+			Now, we should show that if $n$ is not a prime number, then $(n-1)! \not \equiv -1 \pmod n$.
+			The theorem is obviously true for $n=3$ and $n=4$. So assume that $n \geq 5$ is a composite number. We can write $n=pq$ where $p$ and $q$ are integers greater than $1$. If $p \neq q$, then both $p$ and $q$ appear in $(n-1)!$, which means $(n-1)! \equiv 0 \pmod n$. In case $p=q$, we have $n=p^2$. Note that $n>2p$ and so both $p$ and $2p$ appear in $(n-1)!$, which again yields to $(n-1)! \equiv 0 \pmod n$.
+		\end{proof}
+	
+		\begin{corollary}
+			For a prime $p$, $(p-2)! \equiv 1 \pmod p$.
+		\end{corollary}
+		
+		\begin{problem}
+			What is the remainder of $24!$ when divided by $29$?
+		\end{problem}
+		
+		\begin{solution}
+			By Wilson's theorem, $28! \equiv -1 \pmod{29}$. Also,
+				\begin{align*}
+					-1 \equiv 28! &\equiv 24! \cdot 25 \cdot 26 \cdot 27 \cdot 28\\
+					    &\equiv 24! \cdot (-4) \cdot (-3) \cdot (-2) \cdot (-1)\\
+					    &\equiv 24! \cdot 24\\
+					    &\equiv 24! \cdot (-5)\pmod{29}.
+				\end{align*}
+			The last congruence equation can be written as $24! \cdot 5 \equiv 1 \pmod{29}$. In other words, $24!$ is the modular inverse of $5$ modulo $29$. The problem now reduces to finding the inverse of $5$ modulo $29$, which is $6$.
+			
+		\end{solution}
+		
+		\begin{problem}
+			Let $n$ be a positive integer such that
+				\begin{align*}
+					1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} +\cdots + \frac{1}{23} = \frac{n}{23!}.
+				\end{align*}
+			Find the remainder of $n$ modulo $13$.
+		\end{problem}
+		
+		\begin{solution}
+			Multiply both sides by $23!$. The right side will be $n$ and the left side includes $23$ terms all of which are divisible by $13$ except $\frac{23!}{13}$. Thus, we must find the remainder of this term modulo $13$. Note that
+				\begin{align*}
+					\frac{23!}{13} &= 12! \cdot 14 \cdot 15 \cdots 23\\
+								   &\equiv -1 \cdot 1 \cdot 2 \cdots 10\\
+								   &\equiv -10! \pmod{13}.
+				\end{align*}
+			This means that we only need to find the remainder of $-10!$ modulo $13$. We will use the same trick as in the previous problem:
+				\begin{align*}
+					-1 \equiv 12! &\equiv 10! \cdot 11 \cdot 12\\
+						&\equiv 10! \cdot (-2) \cdot (-1)\\
+						&\equiv 10! \cdot 2\pmod{13}.
+				\end{align*}
+			Rewriting the last equation, we find that $2$ is the modular inverse of $-10!$ modulo $13$. Therefore, the answer is the modular inverse of $2$ mod $13$, which is $7$.
+		\end{solution}
+	Try the next problem yourself!
+		\begin{problem}
+			Let $p$ be a prime such that $p \equiv 1 \pmod 4$. Prove that
+				\begin{align*}
+					\left(\left(\frac{p-1}{2}\right)!\right)^2 \equiv -1 \pmod p.
+				\end{align*}
+		\end{problem}
+		
+	\section{Euler's and Fermat's Theorem}
+	Find the remainder of $2016^{2016}$ when divided by $2017$. You might think we are joking but we are not. Without explicitly calculating this \textbf{BIG} integer, number theorists will tell you the remainder is $1$. They will even consider this trivial. This demonstrates another important aspect of numbers. If you know how numbers dance, you know numbers. Anyway, as you may have already guessed, there is a theorem for it. But we want to focus on the intuition part. What could lead you to find this remainder without actually calculating it? If you have been attentive so far, you should already understand that you should focus on finding a $1$ when you are multiplying (obviously, since we want to reduce the work we do!). We can try this in couple of ways, but let us start with the most obvious one. Even before that, have you noticed that $2017$ is a prime? This may not be of much importance right now, but keep going. Instead of such big numbers, try a smaller example first. Find $6^6$ modulo $7$
+		\begin{align*}
+			6^1 & \equiv -1\pmod7,\\
+			6^2 & \equiv \phantom{-}1\pmod7.
+		\end{align*}
+	We already have $1$. Is it clear to you that we will reach $1$ in $6^4$ and $6^6$ as well? If not, just calculate them by hand and see if this is true or false. We will come back to this topic later. But it seems we have the result $1$. Now, do this for $4^4\pmod5$ and $10^{10}\pmod{11}$. After you have done all the work, you should realize, like in Wilson's theorem, we are getting $1$ again. This should encourage you to experiment with some further values such as $2^4\pmod5$, $3^6\pmod7$ etc. Surprisingly, the result is always $1$ when the exponent is $1$. \textit{Pierre De Fermat} was the first one to observe and propose this.
+		\begin{theorem}[Fermat's Little \footnote{Fermat proposed (but did not prove) another theorem in number theory which is much more difficult than this one. So they call this theorem the ``little" one. The other theorem is called \slshape{Fermat's Last Theorem}.} Theorem]\slshape
+			If $p$ is a prime and $a$ is a positive integer such that $a \bot p$. Then
+			\begin{align*}
+				a^{p-1} \equiv 1 \pmod p.
+			\end{align*}
+		\end{theorem}
+	% example with a=3, p=7. Then show the proof.
+	Again, let's see an example. Take $a=3$ and $p=7$. And consider the numbers $3\cdot1,3\cdot2,3\cdot3,3\cdot4,3\cdot5,3\cdot6$ modulo $7$. They are respectively $3,6,2,5,1,4$. Notice anything? It's just a rearrangement of $1,2,\ldots,6$. In fact we already proved it before! Now we will just multiply them all to get
+		\begin{align*}
+			3\cdot1\times3\cdot2\times3\cdot3\times3\cdot4\times3\cdot5\times3\cdot6  \equiv  1\cdot2\cdot3\cdot4\cdot5\cdot6 \pmod7.
+		\end{align*}
+	Collecting all $3$'s in the left-hand side, we will have
+		\begin{align*}
+			3^6\times1\cdot2\cdot3\cdot4\cdot5\cdot6  \equiv 1\cdot2\cdot3\cdot4\cdot5\cdot6 \pmod 7.
+		\end{align*}
+	Since $1,2,\ldots, 6$ are all co-prime to $7$, we can divide both sides of the above equation by $1\cdot 2 \cdots 6$ to obtain
+		\begin{align*}
+			3^6 \equiv 1 \pmod 7.
+		\end{align*}
+	 It is now clear that the same argument works for the general case\watermark.
+		\begin{proof}
+			From the Definition \ref{def:completeresiduesystem}, it is clear that the set $A=\{0, 1, \ldots, p-1\}$ is a complete residue system modulo $p$. We know that $a \bot p$, so from Proposition \ref{prop:generalcompletesystem} the set $A'=\{0 \cdot a, 1 \cdot a, \ldots, (p-1) \cdot a\}$ is also a complete residue system modulo $p$. Putting aside the first element, $0$, it is clear that the product of the elements of $A$ and $A'$ are congruent modulo $p$:
+				\begin{align*}
+				1 \times a \cdot 2 \times a \cdots (p-1) \times a  \equiv 1 \cdot 2 \cdots (p-1) \pmod py
+				\end{align*}
+			So, we find that
+				\begin{align}
+					a^{p-1} \cdot (p-1)! \equiv (p-1)! \pmod p. \label{eq:factorialcoprime}
+				\end{align}
+			In congruence equation \eqref{eq:factorialcoprime}, we can use the fact that $(p, (p-1)!)=1$ to divide both sides by $(p-1)!$ and obtain $a^{p-1} \equiv 1 \pmod p$.
+		\end{proof}
+	
+	You can find some other proofs for Fermat's Little Theorem which use either number theoretic techniques or even combinatorial approaches. For a very strange yet interesting proof of this theorem, read the proof by counting necklaces in \cite{engel}.
+	 
+		 \begin{corollary}
+		 	If $p$ is a prime and $a$ is an arbitrary positive integer (not necessarily co-prime with $p$), then
+		 	\begin{align*}
+		 	a^p \equiv a \pmod p.
+		 	\end{align*}
+		 \end{corollary}	 
+	Fermat's little theorem comes handy in so many situations, but it only handles prime numbers. So we present the Euler's theorem which is a more general form of Fermat's little theorem. The proof is similar as well. Let's take the following example.
+	
+	% take n=14 and all co-prime numbers less than 14
+		\begin{problem}
+			Show that $4^{20} + 6^{40} + 12^{60}$ is divisible by $13$.
+		\end{problem}
+		
+		\begin{solution}
+			Obviously, $12^{60}\equiv (-1)^{60} \equiv 1 \pmod {13}$. By Fermat's little theorem, $6^{12} \equiv 1 \pmod{13}$, hence
+				\begin{align*}
+					6^{40} \equiv 6^{36} \cdot 6^4 \equiv \left(6^{12}\right)^3 \cdot 6^4 \equiv 6^4 \equiv 9 \pmod{13}.
+				\end{align*}
+			We can apply the same method to find $4^{20} \equiv 3 \pmod{13}$. Finally,
+				\begin{align*}
+					4^{20} + 6^{40} + 12^{60} \equiv 3+9+1 \equiv 0 \pmod{13}.
+				\end{align*}
+		\end{solution}
+		
+		\begin{problem}[Taken from \cite{ch:congruence-titu104}]\label{e2}
+			For integers $a,b$, prove that $a^pb-ab^p$ is divisible by $p$.
+		\end{problem}
+		
+		\begin{solution}
+			This problem is kind of a direct consequence of Fermat's little theorem. Write $a^pb-ab^p=ab(a^{p-1}-b^{p-1})$. If one of $a$ or $b$ is divisible by $p$, we are done. If neither of them is divisible by $p$,
+			\[a^{p-1}\equiv1\equiv b^{p-1}\pmod p.\]
+			Thus, $p$ divides $a^{p-1}-b^{p-1}$.
+		\end{solution}
+		
+		\begin{problem}[Problem $124$ in \cite{ch:congruence-sierpinsky}]
+			Prove that there exist infinitely many composite numbers of the form $(2^{2n}+1 )^2+4$, where $n$ is a positive integer.
+		\end{problem}
+		
+		\begin{solution}
+			A common approach for this kind of problems is to take different moduli (the first ones would be primes, obviously). Here, we will make use of modulo $29$. We will show that for any $n$ of the form $28k+1$ (for $k \geq 1$), the number $(2^{2n}+1 )^2+4$ will be divisible by $29$. By Fermat's theorem, $2^{2 \cdot 28k} \equiv 1 \pmod{29}$. Therefore, for $n=28k+1$, 
+				\begin{align*}
+					(2^{2n}+1 )^2+4 &\equiv (2^{2\cdot (28k+1)}+1 )^2+4\\
+									&\equiv (2^{2}+1 )^2+4\\
+									&\equiv 0 \pmod{29}.
+				\end{align*}
+			
+		\end{solution}
+	
+		\begin{theorem}[Euler's \footnote{Sometimes called Fermat-Euler theorem or Euler's totient theorem, proposed by Euler in $1763$.} Theorem]\slshape
+			If $a$ and $n$ are positive integers such that $a \bot n$. Then
+			\begin{align*}
+			a^{\varphi(n)} \equiv 1 \pmod n,
+			\end{align*}
+			where $\varphi(.)$ is the Euler's totient function.
+		\end{theorem}
+
+		\begin{proof} 
+			Before we start the proof, remember Definition \ref{def:totient} where we defined Euler's totient function. The proof is very similar to the proof of Fermat's theorem and you only need to apply Proposition \ref{prop:generalreducedsystem} once. Let $A=\{a_1, a_2, \ldots, a_{\varphi(m)}\}$ be a reduced residue set mod $m$. Then so is $B=\{aa_1, aa_2, \ldots, aa_{\varphi(m)}\}$. From the definition of reduced systems, any number which is coprime to $m$ is congruent to exactly one element of $A$ and exactly one element of $B$. Thus, the product of all elements of $A$ must be congruent to that of $B$, modulo $B$. Therefore
+			\begin{align}
+			& (aa_1) (aa_2) \cdots (aa_{\varphi(m)}) && \equiv && a_1 a_2 \cdots a_{\phi(m)} &&&  \pmod m\nonumber\\
+			\implies & a^{\varphi(m)} \cdot \left( a_1 a_2 \cdots a_{\varphi(m)}\right) && \equiv && a_1 a_2 \cdots a_{\varphi(m)} &&&  \pmod m\nonumber\\
+			\label{eq:productcoprime}\implies & a^{\varphi(m)} && \equiv && 1 &&& \pmod m.
+			\end{align}
+			Note that in equation \eqref{eq:productcoprime} we have used the fact that $a_i \perp m$ for $1 \leq i \leq \varphi(m)$, which results in $a_1 a_2 \cdots a_{\varphi(m)} \perp m$. 
+		\end{proof}
+	We can easily conclude the Fermat's little theorem from Euler's theorem: for a prime $p$, we have $\varphi(p)=p-1$ and so $a^{\varphi(p)} \equiv a^{p-1} \equiv 1 \pmod p$ for any integer $a$ not divisible by $p$.
+		\begin{problem}[Problem $68$ in \cite{ch:congruence-sierpinsky}]
+			Let $a$ and $b$ be positive integers. Prove that in the arithmetic progression $ak+b$ (for $k \geq 0$ an integer), there exist infinitely many terms with the same prime divisors.
+		\end{problem}
+		
+		\begin{solution}
+			Let $d=(a, a+b)$. There exist positive integers $a_1$ and $c$ such that
+				\begin{align*}
+					a=da_1 \quad \text{and} \quad a+b=dc.
+				\end{align*}
+			Also, $(a_1,c)=1$ and $c >1$ (why?). Using Euler's theorem, one can write $c^{n\varphi(a_1)} \equiv 1 \pmod {a_1}$ for any positive integer $n$. This means that there exists a positive integer $t_n$ such that $c^{n\varphi(a_1)}-1 = t_na_1$. Now,
+				\begin{align*}
+					a(ct_n+1) + b &= da_1(ct_n+1) + (dc-da_1)\\
+								  &= dc(t_na_1 + 1)\\
+								  &= dc \left(c^{n\varphi(a_1)}\right)\\
+								  &= dc^{n\varphi(a_1)+1}.
+				\end{align*}
+			Therefore, the only prime divisors of the term $a(ct_n+1) + b$ in the progression are prime divisors of $dc$, which are fixed (because $d$ and $c$ depend only on $a$ and $b$, which are fixed). This means that there exist infinitely many terms in the sequence which have the same prime divisors and we are done.
+		\end{solution}
+	Here is an exercise for you.
+		\begin{problem}[Taken from \cite{ch:congruence-herman}]
+			Find all primes $p$ such that $p^2$ divides $5^{p^2}+1$.
+		\end{problem}
+		
+	
+	\section{Quadratic Residues}\label{sec:qr}
+		\subfile{qr.tex}
+	\section{Wolstenholme's Theorem}
+		\subfile{wolst.tex}
+	\section{Lucas' Theorem}
+		\subfile{lucas.tex}	
+	\section{Lagrange's Theorem}
+		\subfile{lagrange.tex}
+	\section{Order, Primitive Roots} \label{sec:order}
+		\subfile{primitive.tex}
+	\section{Carmichael Function, Primitive $\lambda$-roots}
+		\subfile{carmichael.tex}
+	\section{Pseudoprimes} \label{sec:pseudoprimes}
+		\subfile{pseudoprimes.tex}
+	\section{Using Congruence in Diophantine Equations}
+		\subfile{cong-de.tex}
+
+		\newpage	
+		\section{Exercises}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h456895
+		Consider the following progression:
+		\begin{align*}
+		u_0 &= \frac{1}{2},\\
+		u_{n+1} &= \frac{u_n}{3-2u_n} \quad \text{ for } n=1,2,3,\dots
+		\end{align*}
+		Let $a$ be a real number. We define the series $\{w_n\}$ as
+		\begin{align*}
+		w_n &= \frac{u_n}{u_n + a} \quad \text{ for } n=1,2,3,\dots
+		\end{align*}
+		Find all values of $a$ such that $w_n$ is a geometric progression.
+	\end{problem}		
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1350191
+		Let $p$ be an odd prime number and consider the following sequence of integers: $a_1$, $a_2\ldots$ $a_{p-1}$, $a_p$. Prove that this sequence is an arithmetic progression if and only if there exists a partition of the set of natural numbers $\mathbb{N}$ into $p$ disjoint sets $A_1$, $A_2\ldots$, $A_{p-1}$, $A_p$ such that the sets $\left\{ a_i+n|n\in A_i\right\}$ (for $i=1, 2,\dots, p$) are identical.
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1184607
+		Assume we have 15 prime numbers which are elements of some arithmetic sequence with common difference $d$. Prove that $d>30000$.
+	\end{problem}
+	
+	\begin{problem}[Vietnam Pre-Olympiad 2012] %https://artofproblemsolving.com/community/c6h448257
+		Determine all values of $n$ for which there exists a permutation $(a_1,a_2,a_3,\dots,a_n)$ of $(1,2,3,\dots,n)$ such that $$\left\{ {{a_1},{a_1}{a_2},{a_1}{a_2}{a_3},\dots,{a_1}{a_2}\dots{a_n}} \right\}$$ is a complete residue system modulo $n$.
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1310199
+		Prove that for any two positive integers $m$ and $n$, there exists a positive integer $x$, such that
+		\begin{align*}
+		\left\{\begin{matrix} 2^x \equiv 1999 \text{ (mod }3^m), & & \\ 2^x \equiv 2009 \text{ (mod }5^n). & & \end{matrix}\right.
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c4h57345
+		Let $f(x) = 5 x^{13} + 13 x^5 + 9ax$. Find the least positive integer $a$ such that $65$ divides $f(x)$ for every integer $x$.
+	\end{problem}
+	
+	\begin{problem}[Romanian Mathematical Olympiad 1994] %https://artofproblemsolving.com/community/c6h56051
+		Find the remainder when $2^{1990}$ is divided by $1990$.
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1401608
+		Prove that $a^{2}+b^{5}=2015^{17}$ has no solutions in $\mathbb{Z}$.
+	\end{problem}
+	
+	\begin{problem}[Middle European Mathematical Olympiad 2009] %https://artofproblemsolving.com/community/c6h303625
+		Determine all integers $ k\ge 2$ such that for all pairs $ (m$, $ n)$ of different positive integers not greater than $ k$, the number $ n^{n-1}-m^{m-1}$ is not divisible by $ k$.
+	\end{problem}
+	
+	\begin{problem}[ELMO 2000] %https://artofproblemsolving.com/community/c6h1344240
+		Let $a$ be a positive integer and let $p$ be a prime. Prove that there exists an integer $m$ such that \[ m^{m^m} \equiv a \pmod p. \]
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1450695
+		Find all pairs of prime numbers $(p,q)$ for which
+		\begin{align*}
+		7pq^2 + p = q^3 + 43p^3 + 1.
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem} [IMO 1996] %https://artofproblemsolving.com/community/c6h60430p365167
+		The positive integers $ a$ and $ b$ are such that the numbers $ 15a + 16b$ and $ 16a - 15b$ are both squares of positive integers. What is the least possible value that can be taken on by the smaller of these two squares?
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1370199
+		2017 prime numbers $p_1,\ldots,p_{2017}$ are given. Prove that $$\prod_{i<j} (p_i^{p_j}-p_j^{p_i})$$ is divisible by $5777$.
+	\end{problem}
+	
+	\begin{problem}[Ukraine 2014] %https://artofproblemsolving.com/community/c6h610667p36302840
+		Find all pairs of prime numbers $(p,q)$ that satisfy the equation $$3p^{q}-2q^{p-1}=19.$$
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1191622
+		Let $p$ be an odd prime and let $\omega$ be the $p^{th}$ root of unity (that is, $\omega$ is some complex number such that $\omega^p = 1$). Let $$X=\sum \omega^i \quad \text{and} \quad Y=\sum \omega^j,$$ where $i$ in the first sum runs through quadratic residues and $j$ in the second sum runs over quadratic non-residues modulo $p$ and $0<i,j<p$. Prove that $XY$ is an integer.
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1194731
+		Let $p>2$ be a prime number. Prove that in the set $$\left\{1,2, \dots ,\lfloor{\sqrt{p}}\rfloor+1\right\},$$ there exists an element which is not a quadratic residue mod $p$.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let $b$ be the smallest quadratic nonresidue modulo $p$. Assume that $p-1 \ge b \ge \left \lfloor \sqrt{p} \right \rfloor+2$. There exists $1 \le r \le b-1$ such that $b \mid p+r$. Hence, let $p+r=ab \; (1 \le a \le p-1)$. If $a \ge \left \lfloor \sqrt{p} \right \rfloor+2$ then $b(a-1) >p$, a contradiction since $p=ab-r>b(a-1)$. Thus, $a \le \left \lfloor \sqrt{p} \right \rfloor+1$. This follows that $\left( \frac ap \right)=1$. Hence, $$\left( \frac{p+r}{p} \right) = \left( \frac{ab}{p} \right) = -1.$$
+	%		Note that since $1 \le r \le b-1$ so $\left( \frac{r}{p} \right)= \left( \frac{r+p}{p} \right)=1$, a contradiction.
+	%		Thus, $b \le \left \lfloor \sqrt{p} \right \rfloor+1$, or we can say that in the set $\{ 1,2, \cdots , \left \lfloor \sqrt{p} \right \rfloor+1 \}$ there exists an element which is quadratic nonresidue modulo $p$.
+	%	\end{solution}
+	
+	\begin{problem}[APMO 2014] %https://artofproblemsolving.com/community/c6h582821
+		Find all positive integers $n$ such that for any integer $k$ there exists an integer $a$ for which $a^3+a-k$ is divisible by $n$.
+	\end{problem}
+	
+	\begin{problem}
+		Let $b,n > 1$ be integers. Suppose that for each $k > 1$ there exists an integer $a_k$ such that $b - a^n_k$ is divisible by $k$. Prove that $b = A^n$ for some integer $A$.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		\textit{First Solution.} Assume that $ b$ has a prime factor, $ p$, so that $ p^{xn + r}||b$ with $ 0 < r < n$. Then, we can let $ k = p^{xn + n}$. It follows that $ b\equiv a_k^n\bmod p^{xn + n}$. Since $ p^{xn + r}||b$, we see that $ p^{xn + r}||a_k^n$. Then, $ p^{x + \frac {r}{n}}||a_k^n$, which is a contradiction since $ \frac {r}{n}$ is not an integer. Thus, we have a contradiction, so $ r = 0$, which means that only $ n$th powers of primes fully divide $ b$, so $ b$ is an $ n$th power.\\
+	%		
+	%		\textit{Second Solution.} Assume that there is no $A$ such that $b=A^n$. Then there must exist a prime number $p$ such that, if $p^a \| b$, then $n \not | a$. Assume now that $mn < a < (m+1)n$ for some $m \in \mathbb{N}$. Taking $k=p^{(m+1)n}$ yields that
+	%		\[b \equiv a_{k}^n \pmod{p^{(m+1)n}}\]
+	%		Which implies that $p^{a} |a_{k}^n$ and, since $a_{k}^n$ is a perfect $n$th power, that $p^{(m+1)n} | a_{k}^n$. Hence $b \equiv 0 \pmod{p^{(m+1)n}}$ and $n|a$ which is a contradiction.
+	%	\end{solution}
+	
+	\begin{problem}
+		$16$ is an eighth power modulo every prime.
+	\end{problem}
+	
+	\begin{problem}
+		Let $m$ and $n$ be integers greater than $1$ with $n$ odd. Suppose that $n$ is a quadratic residue modulo $p$ for any sufficiently large prime number $p \equiv -1 \pmod{2^m}$. Prove that $n$ is a perfect square.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let $n = p_1^{a_1}p_2^{a_2}...p_k^{a_k}$ and assume $n$ is not a perfect square. WLOG let $a_1$ be odd. Use Dirichlet to find a prime $p$ such that $p \equiv -1 \pmod {2^m}$ and $\left(\frac{p_i}{p}\right) = 1$ for $i > 1$ but $\left(\frac{p_1}{p}\right) = -1$ as for any prime $p > 2$ there exist $b,c$ such that if $p \equiv b \pmod q$ then $p$ is not a quadratic residue and if $p \equiv c \pmod q$ then $p$ is a quadratic residue for prime $q$. Then it follows that $n$ is a not a quadratic residue $\pmod p$ which is a contradiction.
+	%	\end{solution}
+	
+	
+	\begin{problem}
+		Form the infinite graph $A$ by taking the set of primes $p$ congruent to $1\pmod{4}$, and connecting $p$ and $q$ if they are quadratic residues modulo each other. Do the same for a graph $B$ with the primes $1\pmod{8}$. Show $A$ and $B$ are isomorphic to each other.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		We will use the following lemma which is an easy corollary of the chinese remainder theorem and Dirichlet's theorem on primes in arithmetic progressions:
+	%		Lemma: Let $m_1,...,m_r,M$ be pairwise coprime integers, let $\varphi_1,...,\varphi_r \in \{ \pm 1 \}$ and let $a$ be an integer coprime to $M$. Then there exists a prime $p$ such that $\left( \frac{p}{m_i} \right)=\varphi_i$ for all $i$ and auch that $p \equiv a \mod M$.\\
+	%		We will now construct two sequences $a_n$ and $b_n$ such that $a_n$ contains every prime $\equiv 1 \mod 4$ exactly once and $b_n$ does the same for the primes $\equiv 1 \mod 8$ in such a way that mapping $a_i$ to $b_i$ induces an isomorphism of the graphs induced by being quadratic residues:\\
+	%		Assume we have found $a_1,...,a_n$ and $b_1,...,b_n$ such that mapping $a_i$ to $b_i$ induces an isomorphism of these finite graphs of $n$ vertices. Then continue in the following way:\\
+	%		-- If $n$ is even, take $a_{n+1}$ to be the smallest prime $\equiv 1 \mod 4$ not in the set $\{a_1,...,a_n\}$. Then the lemma allows us to find a prime $b_{n+1} \equiv 1 \mod 8$ such that $\left( \frac{b_{n+1}}{b_i} \right) = \left( \frac{a_{n+1}}{a_i} \right) $ for all $i$ (note that especially $b_{n+1} \neq b_i$). By construction, the graphs therefore remain isomorphic after adding these new vertices.\\
+	%		-- If $n$ is odd, do something similar, but this time choose the smallest prime $ b_{n+1} \equiv 1 \mod 8$ not contained in $\{b_1,...,b_n\}$ and then construct $a_{n+1}$ accordingly.\\
+	%		Now its easy to see that we finished our task as we can conclude that:\\
+	%		a) $a_n$ contains only primes $\equiv 1 \mod 4$ and $b_n$ contains only primes $\equiv 1 \mod 8$\\
+	%		b) each of $a_n$ and $b_n$ contains every prime at most once\\
+	%		c) The $n$-th prime $p \equiv 1 \mod 4$ (ordered by size) is contained in $\{a_1,...,a_{2n}\}$ and the $n$-th prime $p \equiv 1 \mod 8$ is contained in $\{b_1,...,b_{2n}\}$\\
+	%		d) For every $n$ the graphs on $\{a_1,...,a_n\}$ and $\{b_1,...,b_n\}$ are isomorphic with the isomorphism given by sending $a_i$ to $b_i$.\\
+	%		a) just says we didn't get any 'wrong' primes, b) and c) imply that every prime occurs exactly once, and d) implies that sending $a_i$ to $b_i$ induces an isomorphism between the graphs on $\{a_1,a_2,...\}$ and $\{b_1,b_2,...\}$, solving the problem.
+	%	\end{solution}
+	
+	\begin{problem}
+		Find all positive integers $n$ that are quadratic residues modulo all primes greater than $n$.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		We can avoid Dirichlet (the only analytical step) by using quadratic reciprocity for Jacobi symbols (the rest of the proof being the same).\\
+	%		Here an adapted copy of more or less the same from a post of mine on MathLinks:\\
+	%		Assume that $n$ isn't a square, but a square $\mod $ all primes $>n$.\\
+	%		Let $n=2^s b = 2^s p_1^{v_1} p_2^{v_k} ... p_k^{v_k}$ be the prime factorisation and $b$ it's greatest odd factor. Since $n$ is not a square, either (w.l.o.g.) $v_1$ is odd or $s$ is odd.\\
+	%		1. case: all $v_i$ are even, so $s$ is odd.
+	%		Then simply taking an integer $q$ (coprime to all primes $\leq n$) not dividing $n$ and $\equiv 3\mod 8$ gives $\left( \frac{n}{q} \right) = \left( \frac{2^s}{q} \right) \left( \frac{b}{q} \right) = (-1)^s = -1$.\\
+	%		2. case: $v_1$ is odd.
+	%		Now let $c$ be a quadratic non-residue $\mod p_1$ and take an integer $q$ (coprime to all primes $\leq n$) such that $q \equiv 1 \mod 8$, $q \equiv c \mod p_1$ and $q \equiv 1 \mod p_i$ for all other $p_i$.
+	%		Then we get:\\
+	%		$\left( \frac{n}{q} \right) = \left( \frac{2}{q} \right)^s \left( \frac{p_1}{q} \right)^{v_1} \left( \frac{p_2}{q} \right)^{v_2} ... \left( \frac{p_k}{q} \right)^{v_n} = \left( \frac{q}{p_1} \right)^{v_1} \left( \frac{q}{p_2} \right)^{v_2} ... \left( \frac{q}{p_k} \right)^{v_k}=(-1)^{v_1}=-1$.\\
+	%		In both cases, $n$ is not a quadratic residue $\mod q$, thus not for at least one of it's prime divisors. This contradicts the assumption of $n$ being a square $\mod$ all primes $>n$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $k$ be an even positive integer and $k\ge 3$. Define $$n=\frac{2^k-1}{3}.$$ Find all $k$ such that $(-1)$ is a quadratic residue modulo $n$.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let $k=2^lm,l\ge 1$ were $m-$ odd. Then \[\frac{2^k-1}{3}=\frac{2^m+1}{3}(2^m-1)(2^{2m}+1)...(2^{m*2^{l-1}}+1).\]
+	%		If $m>1$, then $(-1)$ is not quadratic residue mod $2^m-1$ and by mod $n$.\\
+	%		Therefore $(-1)$ is quadratic residue if and only if $k=2^l, l\ge 2$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $n$ and $k$ be given positive integers. Then prove that
+		\begin{itemize}
+			\item there are infinitely many prime numbers $p$ such that $\pm 1, \pm 2, \pm 3, \ldots , \pm n$ are quadratic residue of $p$, and
+			\item there infinitely many prime numbers $ p > n $ such that $ \pm i/j$ are $k^{th}$-power residue of $p$, where $i$ and $j$ are integers between $1$ and $n$ (inclusive).
+		\end{itemize}
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let $2, p_1,p_2,\cdots,p_l$ be those prime numbers $\le n$. If $-1,2,p_1,\cdots, p_l$ are all quadratic residues, so are $\pm 1,\pm 2,\cdots,\pm n$. We want $\bigg(\frac {-1}{p}\bigg)=1$, $\bigg(\frac {2}{p}\bigg)=1$, so we set $p=1\pmod{8}$. By reciprocity, $\bigg(\frac {p_i}{p}\bigg)=(-1)^{\frac{(p-1)(p_i-1)}{4}}\bigg(\frac {p}{p_i}\bigg)=\bigg(\frac {p}{p_i}\bigg)$. We set $p=1\pmod{p_i}$. Now the question is, are there infinitely many $p$ such that
+	%		\[p=1\pmod{8}, \qquad p=1\pmod{p_i}, \ \ i=1,2,\cdots,l?\]
+	%		We need a simple lemma: suppose that $(a_n)$, $(b_n)$ are two arithmetic progressions of positive integers, their common differences $d_1$, $d_2$ being coprime. Then their intersection (terms appearing in both progressions) is an arithmetic progression with common difference $d_1d_2$.\\
+	%		According to this lemma, the intersect of arithmetic progressions $(8n+1),(p_1n+1),\cdots,(p_ln+1)$ is again an arithmetic progression. So it does contain infinitely many primes $p$ by Dirichlet.
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $p>5$ be a prime number and $$A=\{b_1,b_2,\dots,b_{\frac{p-1}{2}}\}$$ be the set of all quadratic residues modulo $p$, excluding zero. Prove that there doesn't exist positive integers $a$ and $c$ satisfying $(ac,p)=1$ such that set $$B=\{ab_1+c,ab_2+c,\dots,ab_{\frac{p-1}{2}}+c\}$$ and $A$ are disjoint modulo $p$.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		We work in $\mathbb{Z}/p\mathbb{Z}.$ First suppose $\left(\tfrac{a}{p}\right) = 1$ so that $\left(\tfrac{ab_i}{p}\right) = \left(\tfrac{a}{p}\right)\left(\tfrac{b_i}{p}\right) = 1.$ It follows that $S := \left\{ab_1, ab_2, \cdots , ab_{\frac{p - 1}{2}}\right\}$ is the set of all quadratic residues.\\
+	%		Now note that the equation $x^2 = \pm c$ has at most four solutions. Then since $|\mathbb{Z}/p\mathbb{Z}| > 5$, we may choose a nonzero element $r$ such that $r^2 \ne \pm c.$ Let $s = \tfrac{c}{r}$ and observe that $\left(\tfrac{r + s}{2}\right)^2 - \left(\tfrac{r - s}{2}\right)^2 = c.$ In particular, $r \ne \pm s$ so $\left(\tfrac{r + s}{2}\right)^2$ and $\left(\tfrac{r - s}{2}\right)^2$ are both quadratic residues. Thus if we set $\left(\tfrac{r - s}{2}\right)^2 = ab_k$ for some $k \in \left\{1, 2, \cdots , \tfrac{p - 1}{2}\right\}$, the element $ab_k + c$ is common to both $A$ and $B.$\\
+	%		Next, suppose that $\left(\tfrac{a}{p}\right) = -1$ so that $S$ is the set of all quadratic nonresidues modulo $p.$ Consider the arithmetic progression $0, c, 2c, \cdots , (p - 1)c.$\\
+	%		Notice that if $\left(\tfrac{kc}{p}\right) = -1$ for $k = 1, 2, \cdots , p - 2$, then $\left(\tfrac{(k + 1)c}{p}\right) = -1$ as well, for otherwise $kc \in S$ and therefore $(k + 1)c \ne 0$ would be an element common to $A$ and $B.$ In particular, if we consider some $k \in \{1, 2, \cdots , p - 2\}$ satisfying, $\left(\tfrac{kc}{p}\right) = -1$ then we may inductively obtain $\left(\tfrac{nc}{p}\right) = -1$ for all $k \le n \le p - 1$, implying that there are at least $p - k$ quadratic nonresidues. Since there are precisely $\tfrac{p - 1}{2}$ quadratic nonresidues, we must have $k \ge \tfrac{p + 1}{2}.$ It follows that $c, 2c, \cdots , \left(\tfrac{p - 1}{2}\right)c$ are all quadratic residues. By the multiplicative nature of the Legendre symbol, we see that $T:= \left\{1, 2, \cdots , \tfrac{p - 1}{2}\right\}$ must either be the set of all quadratic residues or all quadratic nonresidues, according to the value of $\left(\tfrac{c}{p}\right).$ However, note that $1$ is obviously a quadratic residue, implying $T$ is the set of all the quadratic residues. But then since the Legendre symbol is multiplicative, it follows that $2 \cdot \tfrac{p - 1}{2} = p - 1 \not\in T$ is a quadratic residue as well, contradiction.
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $p$ be a prime number such that $p=a^2+5b^2$, where $a$ and $b$ are positive integers and $a$ is odd. Prove that $a$ is a quadratic residue modulo $p$ if and only if $p \equiv 1 \pmod 5$.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Because $ a$ is odd, by properties of Jacobi Symbol (generalization of Legendre's symbol), we get:
+	%		$ \left( \frac{a}{p} \right) \left( \frac{p}{a} \right)=(-1)^{\frac{(a-1)(p-1)}{4}}$
+	%		But $ a$ is odd and $ p \equiv a^2 \equiv 1 \pmod 4$ (because $ b$ must be even), so $ (-1)^{\frac{(a-1)(p-1)}{4}}=1$.
+	%		Now we know that $ \left( \frac{a}{p} \right)=\left( \frac{p}{a} \right)=\left( \frac{5b^2}{a} \right)=\left( \frac{5}{a} \right)=\left( \frac{a}{5} \right)$.
+	%		But $ \left( \frac{a}{5} \right)=1 \leftrightarrow a^{\frac{5-1}{2}} \equiv 1 \pmod 5 \leftrightarrow a^2 \equiv 1 \pmod 5 \leftrightarrow p \equiv 1 \pmod 5$, and the result follows.
+	%	\end{solution}
+	
+	\begin{problem} %http://www.artofproblemsolving.com/community/q1h1124685p5192082
+		Find all primes $p$ such that $5,7$, and $-7$ are quadratic residues modulo $p$. 
+	\end{problem}
+	
+	%	\begin{solution}
+	%		If $p = 2$ it works. If $p = 5$ it fails. If $p = 7$ it fails.\\
+	%		Now $p$ is odd and not $5$ or $7$. Then $\frac{-7}{7} = -1$ is a square, so $p \equiv 1 \pmod{4}$. Also, $1 = \left(\frac{5}{p}\right) = \left(\frac{p}{5}\right)$ and $1 = \left(\frac{-7}{p}\right) = \left(\frac{p}{7}\right)$ in the Legendre symbol. These conditions are sufficient, so $p \equiv \pm 1 \pmod{5}, p \equiv 1, 2, 4 \pmod{7}$.\\
+	%		This gives $p \equiv 1, 4, 9, 11, 16, 29 \pmod{35}$ and $p \equiv 1 \pmod{4}$ so $p \equiv 1, 9, 29, 81, 109, 121 \pmod{140}$ or $p = 2$.
+	%	\end{solution}
+	
+	
+	\begin{problem}
+		Prove that there are no positive integers $k$ such that for the first $k$ odd prime numbers $p_1,p_2,\dots,p_k$, there are $a,n\in\mathbb{Z}^+$ $(n>1)$ satisfying \[ p_1p_2\cdots p_k=a^n+1.\] %http://www.artofproblemsolving.com/community/q2h1173055p5644203
+	\end{problem}
+	
+	%	\begin{solution}
+	%		First it is easy to observe that $n$ must be odd by $\pmod 3$. Now lets consider a prime $p$ dividing $n$. If $p$ is one of $p_1,p_2,...,p_k$ then letting $n= mp$ one gets
+	%		$$a^{mp} \equiv a^m \equiv -1 \pmod p$$
+	%		Now by LTE on $(a^m)^p + 1$ we get that $p^2$ must divide it which gives u a contradiction as $p^2$ does not divide $LHS$. Hence $n$ does not have any of the first $k$ primes as factors. Now let $d_i$ be the order of $a \pmod {p_i}$. We then get $d_i | p_i -1 , d_i | 2n$ which gives us $d_i = 2$ as $n$ does not have any prime factors $\leq p_k$. This leads us to conclude that $a \equiv -1 \pmod {p_i}$ for all $p_i$ as $a-1$ cannot be divisible by $p_i$. Hence $p_1p_2...p_k | a + 1$ and $n$ must be equal to $1$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Find all the pairs of positive integers $(x,p)$ such that $p$ is a prime, $x \leq 2p$, and $x^{p-1}$ is a divisor of $(p-1)^{x}+1$. %http://artofproblemsolving.com/community/c6h19762p131811
+	\end{problem}
+	
+	%	\begin{solution}
+	%		$x^{p-1}\mid\left(p-1\right)^{x}+1\mid\left(p-1\right)^{2x}-1$. Thus if $q$ is the smallest a prime divisor of $x$ (the case $x=1$ has already been dealt with) then we have that $q\mid\left(p-1\right)^{x}+1\Rightarrow q\nmid\left(p-1\right)^{x}-1$ ($x$ is odd means $q\neq2$) and $q\mid\left(p-1\right)^{2x}-1$. Thus $\text{ord}_{q}\left(p-1\right)\nmid x$ and $\text{ord}_{q}\left(p-1\right)\mid2x$ hence, as $x$ is odd, $\text{ord}_{q}\left(p-1\right)$ is twice a factor of $x$ so $\frac{\text{ord}_{q}\left(p-1\right)}{2}$ is a factor of $x$ so is either $1$ or at least $q$.\\
+	%		
+	%		Now by FLT: $\frac{\text{ord}_{q}\left(p-1\right)}{2}\mid\text{ord}_{q}\left(p-1\right)\mid q-1$ so $\frac{\text{ord}_{q}\left(p-1\right)}{2}\leq q-1\Rightarrow\frac{\text{ord}_{q}\left(p-1\right)}{2}=1\Rightarrow\text{ord}_{q}\left(p-1\right)=2$.\\
+	%		
+	%		Now $\text{ord}_{q}\left(p-1\right)=2\Rightarrow\left(p-1\right)^{2}\equiv1\mod{q}\Rightarrow\left(p-1\right)^{x-1}\equiv1\mod{q}$ ($x$ is odd means $x-1$ is even). Thus $\left(p-1\right)^{x}\equiv p-1\mod{q}\Rightarrow\left(p-1\right)^{x}+1\equiv p\mod{q}$. But $q\mid\left(p-1\right)^{x}+1$ so $q\mid p\Rightarrow q=p\Rightarrow p\mid x$ which is a case that has already been dealt with.
+	%	\end{solution}
+	
+	\begin{problem}
+		Determine all positive integers $n$ such that $3^{n}+1$ is divisible by $n^{2}$. %http://artofproblemsolving.com/community/q2h1243268p6361190
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Clearly $n=1$ works. Otherwise, let $p\mid n$ be its smallest prime factor. Then $\text{ord}_p(3) \mid 2n$ and $\text{ord}_p(3)\mid p-1$ obviously. Thus since $p-1$ is less than the smallest prime factor of $2n$ we must have $\text{ord}_p(3)= 1\text{ or }2$. If $\text{ord}_p(3)=1$ then $p=2$. If $\text{ord}_p(3)=2$ then $9\equiv 1\pmod{p}\implies p=2$ impossible already by the previous case. Thus we just have $\text{ord}_p(3)=1$ and $p=2$. But this means $n=2m$ for some integer $m$, so $$4m^2\mid 3^{2m}+1=9^m+1$$which is impossible as $9^m+1\equiv 2\pmod{4}$ so we are done.
+	%	\end{solution}
+	
+	\begin{problem}
+		Find a condition for $a \in \mathbb{N}$ such that there are infinitely many natural $x$ such that $a^{2x} \equiv a^{2a} \pmod p$ implies $a^{x} \equiv -a^a \pmod p$, where $p$ is any positive integer. %http://artofproblemsolving.com/community/q2h1248121p6416139
+	\end{problem}
+	
+	%	\begin{solution}
+	%		If $p\mid a$ then all is clear.\\
+	%		
+	%		Else $a^{\varphi(p)}\equiv 1\pmod{p}$. If there exists an $x$ satisfying the property then $x+k\varphi(p)$ will satisfy the property for any positive integer $k$, so it suffices to show the statement if there exists an $x$.\\
+	%		
+	%		Now if $\text{ord}_p(a)$ is even, choose $x=a+\dfrac{1}{2}\text{ord}_p(a)$. Then $a^{2x}= a^{2a+\text{ord}_p(a)} \equiv a^{2a}\pmod{p}$. Thus, $(a^x-a^a)(a^x+a^a)\equiv 0\pmod{p}$ However, $a^x=a^{a+\frac{1}{2}\text{ord}_p(a)} \not\equiv a^a\pmod{p}$ else $\text{ord}_p(a)\mid \frac{1}{2}\text{ord}_p(a)$ contradiction; thus, we must have $a^x+a^a\equiv 0\pmod{p}\implies a^x\equiv -a^a\pmod{p}$.\\
+	%		
+	%		If $\text{ord}_p(a)$ is odd, then you're pretty out of luck. For example, take $p=7$ and $a=2$; then $2^{2x}\equiv 16\equiv 2\pmod{7}\implies x=2+3k$ for some integer $k$. However, $2^{2+3k}\equiv 2^2\pmod{7}$ so the second statement is never true.\\
+	%		
+	%		Overall, the statement is true if and only if $\text{ord}_p(a)$ is even.
+	%	\end{solution}
+	
+	\begin{problem}
+		Show that $n$ does not divide $2^n-1$ for $n>1$. %http://artofproblemsolving.com/community/q2h538208p3094008
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Take $p$ the smallest prime divisor of $n$, then $2^n \equiv 1 \pmod{p}$ so $\text{ord}_p(2)|n$ and $\text{ord}_p(2)|p - 1$, so $\text{ord}_p(2)|\gcd(n, p - 1) = 1$, so $\text{ord}_p(2) = 1$ and $p|1$, contradiction! Note that $\gcd(n, p - 1) = 1$ since $p$ is the smallest divisor of $n$ greater than one.
+	%	\end{solution}
+	
+	\begin{problem}[China 2006]
+		Find all positive integer pairs $(a,n)$ such that $$\frac{(a+1)^n-a^n}{n}$$ is an integer. %http://artofproblemsolving.com/community/q2h80728p5983734
+	\end{problem}
+	
+	%	\begin{solution}
+	%		We want $(a+1)^n\equiv a^n\pmod{n}$. Clearly $(a,n)=1$ else $(a,n)\mid a+1$ and $(a,n)\mid a$ impossible since $(a,a+1)=1$. Thus, $a^{-1}$ exists, and we can rewrite $a^{-n}(a+1)^n\equiv (1+a^{-1})^n\equiv 1\pmod{n}$. Let $a^{-1}\equiv b \pmod{n}$; clearly we still have $(b,n)$ and now the equation is $$(b+1)^n\equiv 1\pmod{n}\implies n\mid (b+1)^n-1$$If $n=1$, then clearly $(a,n)=(a,1)$ are solutions. Else, consider the smallest prime factor $p\mid n$. Clearly $p\mid (b+1)^n-1\implies \text{ord}_p(b+1)\mid n$. However, we also clearly have $\text{ord}_p(b+1)\mid p-1$. If $\text{ord}_p(b+1)>1$ then it implies there is a factor that is less than or equal to $p-1$ that divides $n$, contradiction with $p$'s minimality. Thus, $\text{ord}_p(b+1)=1$ and so $b+1\equiv 1\pmod{p}\implies p\mid b$. However, this means $p\mid (b,n)$ contradiction with $(b,n)=1$.\\
+	%		
+	%		So overall, the solutions are $$\boxed{(a,n)=(a,1)\qquad a\in\mathbb{N}}$$
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that for any integer $n \geq 2$ the number $$\frac{3^n-2^n}{n}$$ is not an integer. %http://artofproblemsolving.com/community/q2h1163016p5545885
+	\end{problem}
+	
+	%	\begin{solution}
+	%		$n$ must be odd. Let $p$ be the least prime divisor of $n$. Then $\left(3\cdot 2^{-1}\right)^n\equiv 1\pmod{p}$ and by Fermat's Little theorem $\left(3\cdot 2^{-1}\right)^{p-1}\equiv 1\pmod{p}$, so $\text{ord}_p\left(3\cdot 2^{-1}\right)\mid n,p-1$, so $\text{ord}_p\left(3\cdot 2^{-1}\right)\mid \gcd(n,p-1)$, so $\left(3\cdot 2^{-1}\right)^{\gcd(n,p-1)}\equiv 1\pmod{p}$. But $\gcd(n,p-1)=1$, so $3\cdot 2^{-1}\equiv 1\pmod{p}$, so $3\equiv 2\pmod{p}$, so $p\mid 3-2=1$, contradiction.
+	%	\end{solution}
+	
+	\begin{problem}[China 2009]
+		Find all the pairs of prime numbers $ (p,q)$ such that $$ pq \mid 5^p+5^q.$$ %http://artofproblemsolving.com/community/q2h250256p6448384
+	\end{problem}
+	
+	%	\begin{solution}
+	%		If $p$ or $q$ is $2$, then WLOG $p=2$. Clearly $p=q=2$ does not work, so assume $q$ is odd. Now $2q\mid 25+5^q\implies 5^q+25\equiv 5+25\equiv 0\pmod{q}\implies q\mid 30$ so this case has solutions $$\boxed{(p,q)=(2,3), (2,5), (3,2), (5,2)}$$
+	%		Otherwise, if $p=q=5$ then it works: $$\boxed{(p,q)=(5,5)}$$If $p=5$ and $q\ne 5$ then $5q\mid 5^5+5^q\implies 5^5+5^q\equiv 5^5+5\equiv 0\pmod{q}\implies q\mid 5^4+1=3\times 313$ so $q=2\text{ or }313$: $$\boxed{(p,q)=(5,2), (5,313), (2,5), (313,5)}$$
+	%		If $p,q\ne 5$ then $5^p+5^q\equiv 5^p+5\equiv 0\pmod{q}\implies 5^{p-1}\equiv -1\pmod{q}$. Then $\text{ord}_q(5)\mid 2(p-1)$. In addition, since $\text{ord}_q(5)\nmid p-1$ because $q>2$, then $v_2(\text{ord}_q(5)) = v_2(2(p-1))=1+v_2(p-1)$. Similarly, $v_2(\text{ord}_p(5)) = 1+v_2(q-1)$.\\
+	%		
+	%		If $p=q$ then $p^2 \mid 2\cdot 5^p\implies p=5$ so if $p\ne 5$ then we may assume WLOG $p > q$. Then $pq\mid 5^p+5^q = 5^q(5^{p-q}+1)\implies 5^{p-q}\equiv -1\pmod{pq}$. So $5^{p-q}\equiv -1\pmod{q}$ so $\text{ord}_q(5)\mid 2(p-q)$ and since $\text{ord}_q(5)\nmid p-q$ therefore $v_2(\text{ord}_q(5)) = v_2(2(p-q))=1+v_2(p-q)$. This means $v_2(\text{ord}_q(5))=v_2(\text{ord}_p(5))\implies v_2(q-1)=v_2(p-1) = v_2(p-q)$.\\
+	%		
+	%		If we let $p-1=k_12^e$ and $q-1=k_22^e$ for $k_1, k_2$ odd, then $p-q=(k_1-k_2)2^e$; however, since $2\mid k_1-k_2$ then $v_2(p-q) > v_2(p-1)$ contradiction. Thus there are no more solutions.
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that any two different Fermat numbers are relatively prime with each other.
+		%http://artofproblemsolving.com/community/q2h524865p2968616
+	\end{problem}
+
+	\begin{note}
+		The $n^{th}$ Fermat number is $F_n = 2^{2^n} + 1$.
+	\end{note}
+	
+	%	\begin{solution}
+	%		Let $p\mid F_k=2^{2^k}+1$, then $p\nmid 2^{2^k}-1$ and $p\mid 2^{2^{k+1}}-1$ therefore $\text{ord}_p(2)=k+1$. Now if there exist $l$ such that $p\mid F_l$ then $\text{ord}_p(2)=l+1$ therefore $k=l$ and hence result.
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that for all positive integers $n$, $\gcd(n, F_n) = 1$, where $F_n$ is the $n^{th}$ Fermat number. %http://artofproblemsolving.com/community/q2h597271p3544254
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Consider any prime factor $p$ of $2^{2^n}+1$. We have that \[2^{2^n} \equiv -1 \pmod{p} \implies 2^{2^n+1} \equiv 1 \pmod{p}.\]
+	%		Let $\text{ord}_p(2)$ be the order of $2$ modulo $p$. We know that $\text{ord}_p(2) \nmid 2^n$, while $\text{ord}_p(2) \mid 2^{n+1}$. As there are no other possible primes other than $2$ present, it follows that $\text{ord}_p(2) = 2^{n+1}$. However, this implies that $2^{n+1} \mid p-1 \implies 2^{n+1} \leq p-1$, and it is easy to see that $n<2^{n+1}$, hence it follows that $n < p$. Therefore, $p$ cannot divide $n$ for any prime divisor of $2^{2^n}+1$, so $\gcd(n, 2^{2^n}+1)=1$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $a$ and $b$ be coprime integers and let $d$ be an odd prime that divides $a^{2^{k}}+b^{2^{k}}$. Prove that $d-1$ is divisible by $2^{k+1}$. %http://artofproblemsolving.com/community/q2h1177972p5694239
+	\end{problem}
+	
+	%	\begin{solution}
+	%		First, as usual, I'll denote $\text{ord}_p(a)$ as the least positive integer $t$ such that $a^t\equiv 1\pmod{p}$ and prove the following lemma: If $x^k\equiv 1\pmod{m}$, then $\text{ord}_m(x)\mid k$. Proof: for contradiction, let $k=\text{ord}_m(x)h+r$ with $0<r<\text{ord}_m(x)$; but then $1\equiv x^k\equiv \left(x^{\text{ord}_m(x)}\right)^hx^r\equiv 1^hx^r\equiv x^r\pmod{m}$, contradiction.\\
+	%		
+	%		If $d\mid b$, then $d\mid a$ and $\gcd(a,b)\ge d>1$, contradiction, so $\gcd(d,b)=1$, so $\left(ab^{-1}\right)^{2^k}\equiv -1\pmod{d}$, so $\text{ord}_d\left(ab^{-1}\right)=2^{k+1}$, so by Fermat's Little theorem $2^{k+1}\mid d-1$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that if $p$ is a prime, then $p^p-1$ has a prime factor greater than $p$. %http://artofproblemsolving.com/community/q2h1244184p6371381
+	\end{problem}
+	
+	%	\begin{solution}
+	%		If we can prove that there exists prime factor $q$ such that $\text{ord}_{q}(p) = p$ then the result follows. To prove this one, just suppose the contrary. Then for all prime factor $q$ of $p^{p} - 1$, then $\text{ord}_{q}(p) = 1$. Let $q$ be a prime divisor of $\frac{p^{p} - 1}{p - 1}$
+	%		Since $\text{ord}_{q}(p) = 1$, we conclude that $p \equiv 1\pmod{q}$
+	%		Thus, $0 \equiv p^{p - 1} + p^{p - 2} + \cdots + 1 \equiv p \pmod{q}$. This implies $q\mid p$ which is a contradition.
+	%		Hence the result follows.
+	%	\end{solution}
+	
+	\begin{problem}
+		$ $
+		\begin{enumerate}
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=3$, then \[\left(\sum_{j=0}^{2}a^{j^{2}}\right)^{2}\equiv{-3}\pmod{p}.\]
+			
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=4$, then \[\left(\sum_{j=0}^{3}a^{j^{2}}\right)^{2}\equiv{8a}\pmod{p}.\]
+			
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=6$, then \[\sum_{j=0}^{5}a^{j^{2}}\equiv{0}\pmod{p}.\]
+		\end{enumerate}
+		%http://artofproblemsolving.com/community/q2h470104p2631974
+	\end{problem}
+	
+	%	\begin{solution}
+	%		\begin{enumerate}
+	%			\item This can be written as $(1+2a)^{2}=4(1+a+a^{2})-3=-3$ (mod $p$).
+	%			
+	%			\item This can be written as $(2+2a)^2 = 4(a^2+1) + 8a \mod p$. However, note that since $\text{ord}_p(a) = 4$, that $a^2 \equiv -1 \mod p$, so $4(a^2+1) + 8a \equiv 8a \mod p$, as desired.
+	%			
+	%			\item This can be written as $(2a^4+a^3+2a+1)^2$. However, note that since $\text{ord}_p(a) = 6$, that $a^3 \equiv -1 \mod p$, so $(2a^4+a^3+2a+1)^2 \equiv (2a^4+2a)^2 \equiv 4a^2(a^3+1)^2 \equiv 0 \mod p$, as desired.
+	%		\end{enumerate}
+	%	\end{solution}
+	
+	\begin{problem}[Poland 2016]
+		Let $k$ and $n$ be odd positive integers greater than $1$. Prove that if there a exists positive integer $a$ such that $k \mid 2^a+1$ and $n \mid 2^a-1$, then there is no positive integer $b$ satisfying $k \mid 2^b-1$ and  $n \mid 2^b+1$. %http://artofproblemsolving.com/community/q2h1224675p6150214
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Assume that there exists such $b$. We have $k \mid 2^a+1 \mid 2^{2a}-1$ and $n \mid 2^a-1$ so $\text{ord}_k(2) \mid 2a, \text{ord}_k(2) \mid b$ but $\text{ord}_k(2) \nmid a$. Hence, $v_2 \left( \text{ord}_k(2) \right)= v_2(a)+1$ implies $2^{v_2(a)+1} \mid b$ implies $v_2(a)+1 \le v_2(b)$. Similarly, $2^{v_2(b)+1} \mid a$ implies $v_2(b)+1 \le v_2(a)$. This gives a contradiction. Thus, there doesn't exist such $b$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $n>9$ be a positive integer such that $\gcd(n,2014)=1$. Show that if $n \mid 2^n+1$, then $27 \mid n$. %http://artofproblemsolving.com/community/q2h557704p3242761
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Suppose $\gcd(n, 2014) = 1$ but $27 \nmid n$. Now let $p$ be the smallest prime divisor of $n$ so $p|2^{2n} - 1$ so $\text{ord}_p(2)|2n$ but also $\text{ord}_p(2)|p - 1$ so $\text{ord}_p(2)|\gcd(2n, p - 1) = 2$ so $p|2^2 - 1$ so $p = 3$. Now let $n = 3a$ so $a|8^a + 1$ let $q$ be smallest prime divisor of $a$ then $q|8^{2a} - 1$ so $\text{ord}_q(8)|2a, q - 1$ so $\text{ord}_q(8)|2$ so $q|8^2 - 1 = 63$. But if $q = 7$ then $7|8^a + 1$ so $7|2$, bad. So $q = 3$. Let $a = 3b$ so $b|512^b + 1$. Now let $r$ be the least prime divisor of $b$. So by the same argument $q|512^2 - 1$ or $q|7\cdot 73\cdot 19\cdot 27$. So now if $q = 3$ then $27|n$, contradicting our assumption. If $q = 7$ or $73$ then $q|512^b + 1$ so $q|2$, bad. So $q = 19$ but then contradiction to $\gcd(n, 2014) = 1$. This is a contradiction in all cases! Note that $n, a, b$ have prime divisors since $n > 9$.\\
+	%		
+	%		So the assumption is false and $27|n$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Find all primes $p$ and $q$ that satisfy
+		\[\left\{\begin{matrix} p^2+1\mid 2003^q+1,\\ q^2+1\mid 2003^p+1. \end{matrix}\right.\]
+		%http://artofproblemsolving.com/community/q2h1230409p6217580
+	\end{problem}
+	
+	\begin{problem}
+		Prove that there do not exist non-negative integers $a,b$, and $c$ such that $$(2^a-1)(2^b-1)=2^{2^c}+1.$$ %http://artofproblemsolving.com/community/q2h454381p2553548
+	\end{problem}
+	
+	%	\begin{solution}
+	%		There's an easy solutions by taking modulo $8$ I think.\\
+	%		
+	%		But anyways, clearly if $p|(2^{2^c} + 1)$, then $2^{2^c} \equiv -1 \pmod{p} \implies \text{ord}_p(2) = 2^{c+1}$
+	%		This means $2^{c+1}|(p-1) \implies p \equiv 1 \pmod{2^{c+1}}$. Now if $c \ge 2$ this means $\left ( \frac{2}{p} \right ) = 1$, so $\sqrt{2}$ exists.
+	%		However, as $\text{ord}_p(2) = 2^{c+1}$ we can easily show $\text{ord}_p(\sqrt{2}) = 2^{c+2} \implies 2^{c+2}|(p-1) \implies p \equiv 1 \pmod{2^{c+2}}$ and the result follows.
+	%	\end{solution}
+	
+	\begin{problem}
+		Find all triples $(x,y,z)$ of positive integers which satisfy the equation $$2^x+1=z(2^y-1).$$ %http://artofproblemsolving.com/community/q2h525122p2971275
+	\end{problem}
+	
+	%	\begin{solution}
+	%		$y = 1$ is obvious.\\
+	%		
+	%		So assume $y > 1$. Then note that there exists a prime $p$ that divides both $2^y - 1$ and $2^x + 1$.\\
+	%		
+	%		Let $p$ be this prime. We have $2^x \equiv -1 \pmod{p} \implies 2^{2x} \equiv 1 \pmod{p}$, so either $2 \equiv -1 \pmod{p}$ or $\text{ord}_p(2) = 2x$.\\
+	%		
+	%		We have a similar equation $2^y \equiv 1 \pmod{p} \implies \text{ord}_p(2) \mid y$.\\
+	%		
+	%		We have $y < x$, so it must be that $2 \equiv -1 \pmod{p} \implies p = 3$.\\
+	%		
+	%		So, we have $2^y - 1 = 3 \implies y = 2$. Then, for all $2^{x} \equiv (-1)^x \equiv -1 \pmod{3} \implies x$ must be odd.\\
+	%		
+	%		Thus, $(x, y, z) = (x, 1, z), (2k + 1, 2, (2^x + 1)/3)\forall x, y, z \in \mathbb{Z}_{+}$.
+	%	\end{solution}
+	
+	
+	\begin{problem}
+		Let $p$ be a prime number of the form $3k+2$ that divides $a^2+ab+b^2$ for two positive integers $a$ and $b$. Prove that $p$ divides both $a$ and $b$. %http://artofproblemsolving.com/community/q2h485827p2721969
+	\end{problem}
+	
+	%	\begin{solution}
+	%		If $a^2+ab+b^2 \equiv 0 \mod p$, then multiplying by $a-b$ implies that $a^3 \equiv b^3 \mod p$. Assume for sake of contradiction that $p\nmid a, b$. Then we have that $\left(ab^{-1}\right)^3 \equiv 1 \mod p$, implying that $\text{ord}_p(ab^{-1}) = 3$. Note that the order must divide $p-1$, but this is a contradiction, as $3 \nmid p-1 = 3k+1$.
+	%		
+	%		So then $p|a, b$ as desired.
+	%	\end{solution}
+	
+	
+	\begin{problem}
+		Prove Wilson's theorem using primitive roots.
+	\end{problem}
+	
+	%	\begin{solution}
+	%		If $p=2$, it's clear; if $p\ge 3$, then let $g$ be a primitive root mod $p$. Then $(p-1)!\equiv g^{1+2+\cdots+(p-1)}\equiv \left(g^{\frac{(p-1)}{2}}\right)^p\pmod{p}$. Also $g^{p-1}\equiv 1\pmod{p}\iff g^{\frac{p-1}{2}}\equiv \pm 1\pmod{p}$, but $\text{ord}_p(g)=p-1$, so $g^{\frac{p-1}{2}}\equiv -1\pmod{p}$, so $\left(g^{\frac{p-1}{2}}\right)^p\equiv (-1)^p\equiv -1\pmod{p}$.
+	%	\end{solution}
+	
+	\begin{problem}
+		If $p$ is a prime, show that the product of the primitive roots of $p$ is congruent to to $(-1)^{\varphi(p-1)}$ modulo $p$. %http://www.artofproblemsolving.com/community/q1h1222327p6119792
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let $g$ be a primitive root modulo $p$ for an odd prime $p$. Then it is well-known that $g^i$ is a primitive root modulo $p$ if and only if $\gcd(i,p-1)=1$ (not hard to prove). So the product of all primitive roots modulo $p$ is $$\prod_{\gcd(i,p-1)=1}{g^i}=g^{\sum_{\gcd(i,p-1)=1}{i}}=g^{\frac{p-1}{2}\cdot\phi(p-1)}\pmod p.$$The sum in the exponent is $\frac{p-1}{2}\cdot\phi(p-1)$ because if $\gcd(k,n)=1$ then $\gcd(n-k,n)=1$ as well. So we can pair them off so that there are $\frac{\phi(p-1)}{2}$ pairs (by definition of the $\phi$ function and the fact that $p-1$ is even), with each pair summing to $p-1$.\\
+	%		We get the final result from $g^{\frac{p-1}{2}}\equiv -1\pmod p$, which holds because $g$ is a primitive root. If we let $h=g^{\frac{p-1}{2}}$ then $h^2\equiv 1\pmod p$ so $h\equiv \pm 1\pmod p$. But it cannot be $1$ because that would contradict the definition of a primitive root (no exponent lower than $p-1$ can cause $g$ to go to $1$).
+	%	\end{solution}
+	
+	\begin{problem}
+		Let $g$ be a primitive root modulo a prime $p$. Find $\text{ord}_{p^r}(g)$. %http://www.artofproblemsolving.com/community/q1h624598p3740432
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Since $\varphi(p^r) = (p-1)p^{r-1}$, the multiplicative order of $g$ modulo $p^r$ must be a divisor of it, thus of the form $mp^k$, for some $m\mid p-1$ and $0\leq k \leq r-1$. Then $p\mid p^r \mid g^{mp^k} - 1$, so $(g^{p^k})^m = g^{mp^k} \equiv 1\pmod{p}$. But $p^k \equiv 1\pmod{p-1}$, and $g^{p-1} \equiv 1 \pmod{p}$, so it follows $g^{m} \equiv 1\pmod{p}$. Now remember $g$ is primitive, which forces $m=p-1$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that if $r$ is a primitive root modulo $m$, then so is the multiplicative inverse of $r$ modulo $m$. %http://www.artofproblemsolving.com/community/q1h1162723p5543625
+	\end{problem}
+	
+	%	\begin{solution}
+	%		You want to prove that if $\text{ord}_m(r)=\varphi(m)$, then $\text{ord}_m\left(r^{-1}\right)=\varphi(m)$. For contradiction, assume $\text{ord}_m\left(r^{-1}\right)=k<\varphi(m)$. Then $\left(r^{-1}\right)^k\equiv 1\pmod{m}$, so $r^k\equiv\left(\left(r^{-1}\right)^k\right)^{-1}\equiv 1^{-1}\equiv 1\pmod{m}$, contradiction.
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that $3$ is a primitive root modulo $p$ for any prime $p$ of the form $2^n+1$. %http://www.artofproblemsolving.com/community/q1h1142186p5370120
+	\end{problem}
+	
+	%	\begin{solution}
+	%		\textit{First Solution.} This is not true for $p=3$ so we will assume $n > 1$. In particular this means $2^n+1 \equiv 1 \pmod{4}$.
+	%		Furthermore note that since $p$ is a prime we actually have it is of the form $2^{2^r} + 1$ for some positive integer $r$. Therefore $p = 2^{2^{r}} +1 \equiv (-1)^{2^r} +1 \equiv 2 \pmod{3}$ which is not a quadratic residue $\pmod{3}$.
+	%		This means $\genfrac{(}{)}{}{}{3}{p} $ $\genfrac{(}{)}{}{}{p}{3} = (-1)^{(p-1)/2} =1$ since $p \equiv 1 \pmod{4}$ and from the above we know that $\left( \dfrac{p}{3} \right) = -1$. Therefore $3$ is not a quadratic residue $\pmod{p}$.\\
+	%		We will now prove that for a prime $p=2^{2^{r}}+1$ every quadratic non residue $\pmod{p}$ is a primitive root $\pmod{p}$. Since $p$ is a prime we know that there exists a primitive root $g$ and all the residues $\pmod{p}$ are given by $g,g^2,g^3,\dots,g^{p-1}$. It is easily seen that $g^2,g^4,\dots,g^{p-1}$ are $\dfrac{p-1}{2}$ different nonzero residues $\pmod{p}$ and they are all quadratic residues. Therefore all the quadratic non residues are given by $$g,g^3,g^5,\dots,g^{p-2}.$$We will now take one of this residues, say $g^{2k+1}$ and show that it is a primitive root $\pmod{p}$. We want to show that $g^{2k+1},g^{2(2k+1)},g^{3(2k+1)},\dots,g^{(p-1)(2k+1)}$ are all different $\pmod{p}$ which obviously happens if and only if $2k+1,2(2k+1),3(2k+1),\dots,(p-1)(2k+1)$ are all different $\pmod{p-1}$. This happens if and only if $(2k+1,p-1)=1$ or $(2k+1,2^{2^r})=1$ but this is obvious since $2k+1$ is odd and $2^{2^{r}}$ is a power of $2$. Therefore all quadratic non residues are primitive roots $\pmod{p}$ and as we have shown $3$ is a quadratic non residue $\pmod{p}$ so we are done.\\
+	%		
+	%		\textit{Second Solution.} Clearly $n=2^m$ for some $m$.
+	%		Now let $p=2^{2^m}+1$. From quadratic respectively law $\left(\frac{3}{p}\right)\left(\frac{p}{3}\right)=1\Longrightarrow \left(\frac{3}{p}\right)=-1\Longrightarrow 3^{2^{n-1}}\equiv -1\pmod{p}(\bigstar)$. Let $d$ be the order of $3$ modulo $p$ then because $d\mid p-1=2^n\Longrightarrow d=2^{\alpha}$, if $\alpha<n$ then $3^{\alpha}\equiv 1\pmod{p}\Longrightarrow 3^{2^{n-1}}\equiv 1\pmod{p}$ but it's contradiction with $(\bigstar)$ so $d=2^n$. this means that $3$ is primitive root modulo $2^n+1$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Suppose $q\equiv 1\pmod 4$ is a prime, and that $p=2q+1$ is also prime. Prove that $2$ is a primitive root modulo $p$. %http://www.artofproblemsolving.com/community/c6h598837p3554092
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Notice that, by FLT, we have $2^{p-1} \equiv 1 \pmod{p}$, so $2^q \equiv \pm 1 \pmod{p}$. If it were negative $1$, then we are done. Assume that $2^q \equiv 1 \pmod{p}$. This would mean that there exists an integer $k$ such that $k^2 \equiv 2 \pmod{p}$, which implies that $(-1)^{\frac{p^2 - 1}{8}} = 1$, which can easily be seen as a contradiction, because $\frac{p^2 - 1}{8}$ is odd. Hence, we cannot have $2^q \equiv 1 \pmod{p}$.
+	%	\end{solution}
+	
+	
+	\begin{problem}
+		Find all Fermat primes $F_n$ such that $7$ is a primitive root modulo $F_n$. %http://www.artofproblemsolving.com/community/q1h553691p3216866
+	\end{problem}
+	
+	%	\begin{solution}
+	%		The idea here is that any non-square residue is a primitive root mod $p=2^n+1$.
+	%		Because a non-primitive root $r$ satisfies $r^d\equiv 1$ for $d<p-1$ and $d|p-1=2^n$, so $d=2^\alpha$ for $ \alpha<n \Rightarrow r^{\frac{p-1}{2}}=r^{2^{n-1}}\equiv 1$.\\
+	%		
+	%		But $n\ge 2, (\frac{7}{p})=(\frac{p}{7})$ (by quadratic reciprocity), and $p=2^{2^k}+1\equiv 3$ or $5$ $(mod\,7)$. But $3$ and $5$ are not quadratic residues $mod 7$, so $7$ is not a quadratic residue $mod\, p$ $\Rightarrow 7$ is a primitive root $mod\, p$, except for $p=2^1+1$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Prove that if $F_{m}=2^{2^{m}}+1$ is a prime with $m\geq{1}$, then $3$ is a primitive root of $F_{m}$. %http://www.artofproblemsolving.com/community/q1h503123p2826526
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Assume $F_{m}=2^{2^{m}}+1$ is a prime, for some $m\geq{1}$.\\
+	%		
+	%		Then $\left (\mathbb{F}_{F_m}^*, \cdot\right)$ is cyclic; let $g$ be a generator (primitive root) of it. Then all odd powers of $g$ are also primitive roots, while the even powers are not. Assume $3$ is not a primitive root, hence $3$ is an even power of $g$, i.e. $3 = g^{2k} = (g^k)^2$. But, by the quadratic reciprocity law, $3$ is a non-quadratic residue modulo $F_m$. This contradiction shows $3$ is a primitive root for $F_m$.
+	%	\end{solution}
+	
+	\begin{problem}
+		For a given prime $p > 2$ and a positive integer $k$, let \[ S_k = 1^k + 2^k + \cdots + (p - 1)^k.\] Find those values of $k$ for which $p \mid S_k$. %http://www.artofproblemsolving.com/community/c6h295883p1602380
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let $ g$ one primitive root modulo $ p$.
+	%		Then, the numbers $ 1,2,...,p-1$ are covered modulo $ p$ by the powers of $ g$: $ g^{0},g^{1}, ..., g^{p-2}$.
+	%		So, the sum is:
+	%		$$ S = 1+g^{k}+g^{2k}+...+g^{(p-2)k}.$$
+	%		If $ p-1|k$, the sum is $p-1$ modulo $p$.\\
+	%		If $ p-1$ does not divide $k$, then $ S=\frac{g^{(p-1)k} - 1}{g^{k}-1}$.
+	%		Seeing S modulo p, we have that S is 0 modulo p.
+	%		
+	%		Hence, $ k$ is not multiple of $ (p-1)$.
+	%	\end{solution}
+	
+	\begin{problem}
+		Show that for each odd prime $p$, there is an integer $g$ such that $1<g<p$ and $g$ is a primitive root modulo $p^n$ for every positive integer $n$. %http://www.artofproblemsolving.com/community/c146h150489
+	\end{problem}
+	
+	%	\begin{solution}
+	%		For $n = 1$, consider a nonsquare $g$ mod $p$ that is not $-1$. $g^\frac{p-1}{2} = -1$ mod $p$. Assume $g^k = 1$ mod $p$ with $k < p-1$. We know that $k | p-1$ however we can also see that $k \nmid \frac{p-1}{2}$ which is only possible if $k = 2$. But if $k = 2$ then $g = 1, -1$ which is a contradiction. Thus $g$ is a primitive root mod $p$. For $n > 1$. Assume primitive roots exist mod $p^{n-1}$. Then these roots to the power of $p^{n-1}-p^{n-2}$ are in the set 1, $p^{n-1}+1$, $2p^{n-1}+1$,..., $(p-1)p^{n-1}+1$ mod $p^n$. We can see that if $g$ is a primitive root mod $p^{n-1}$ then $(p+g)^{p^{n-1}-p^{n-2}}$ or $g^{p^{n-1}-p^{n-2}}\neq 1$ mod $p^{n}$ by the binomial theorem. So this root raised to the power of $p$ is congruent to 1 as can be seen by the binomial theorem. If for this same root $g$, there existed $k < p^{n}-p^{n-1}$ such that $g^k = 1$ mod $p^n$ then $k | p^{n-1}-p^{n-2}$ which is a contradiction.
+	%	\end{solution}
+	
+	\begin{problem}
+		Show that if $p=8k+1$ is a prime for some positive integer $k$, then $p|x^4+1$ for some integer $x$. %http://www.artofproblemsolving.com/community/q1h588840p3486240
+	\end{problem}
+	
+	%	\begin{solution}
+	%		Let's assume that if p is a prime, there exists at least an element called the generator or the primitive root modulo p which is of order $p - 1$. Here, let's choose an arbitrary primitive root and let's call it $g$. From Fermat's Little Theorem, $g^{p-1} = 1\pmod p$ i.e $g^{8k}=1\pmod p$. Hence, we must have:
+	%		either $g^{4k}=1[p]$ or $g^{4k}=-1 \pmod p$. But as $k>1$, $8k>4k$ so we can't have $g^{4k}=1 \pmod p$ because of the minimality of the order. Hence, $g^{4k}=-1\pmod p$ and taking $X=g^k$, $p | X^{4}+1$. So we are done!
+	%	\end{solution}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h486495
+		Let $n$ be a positive integer. Prove that
+		\begin{align*}
+		n\le 4\lambda(n)\left(2^{\lambda(n)}-1\right),
+		\end{align*}
+		where $\lambda(n)$ denotes the Carmichael function of $n$.
+	\end{problem}
+	
+	\begin{problem}
+		Find $\lambda(1080)$.
+	\end{problem}
+
+	\begin{problem}[RMO 1990]%http://artofproblemsolving.com/community/c6h56051p347213
+		Find the remainder when $2^{1990}$ is divided by $1990$.
+	\end{problem}
+
+	\begin{hint}
+		Use Carmichael's function.
+	\end{hint}
+
+	\begin{problem} %https://artofproblemsolving.com/community/c3h1309261
+		Given three integers $a,b,c$ satisfying $a\cdot b\cdot c=2015^{2016}$. Find the remainder when we divide $A$ by $24$, knowing that
+		\begin{align*}
+		A=19a^2+5b^2+1890c^2.
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem}[APMO 2006] %https://artofproblemsolving.com/community/c6h80759
+		Let $p\ge5$ be a prime and let $r$ be the number of ways of placing $p$ checkers on a $p\times p$ checkerboard so that not all checkers are in the same row (but they may all be in the same column). Show that $r$ is divisible by $p^5$. Here, we assume that all the checkers are identical.
+	\end{problem}
+	
+	\begin{problem}[Putnam 1996] %https://artofproblemsolving.com/community/c6h296158
+		%https://artofproblemsolving.com/community/c7h592336p3511046
+		Let $p$ be a prime greater than $3$. Prove that
+		\begin{align*}
+		p^2\, \Big| \, \sum_{i=1}^{\left\lfloor\frac{2p}{3}\right\rfloor}\dbinom{p}{i}.
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h402354
+		Let $a$ and $b$ be two positive integers satisfying $0<b\leq a.$ Let $p$ be any prime number. Show that
+		\begin{align*}
+		\binom{pa}{pb}\equiv \binom{a}{b} \mod p^3.
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c6h380812
+		The sequence $a_n$ is defined as follows: $a_1 = 0$ and
+		\begin{align*}
+		a_{n+1}=\frac{\ensuremath{(4n+2).n^{3}}}{(n+1)^{4}}a_{n}+\frac{3n+1}{(n+1)^{4}} \quad \text{for } n=1,2,3,\dots
+		\end{align*}
+		Prove that there are infinitely many positive integers $n$ such that $a_n$ is an integer.
+	\end{problem}
+	
+	\begin{hint}
+		Find an explicit formula for $a_n$ and then try Wolstenholme's theorem.
+	\end{hint}
+	
+	\begin{problem} %https://math.stackexchange.com/q/1946715/6715
+		Let $p$ be an odd prime. Define
+		\begin{align*}
+		H_n = 1 + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n}
+		\end{align*}
+		to be the $n^{th}$ \textit{harmonic number} for any positive integer $n$. Prove that $p$ divides the numerator of both $H_{p(p-1)}$ and $H_{p^2-1}$.
+	\end{problem}
+	
+	\begin{problem} %https://math.stackexchange.com/q/2256601/6715
+		Let $p$ be an odd prime number. Define $q = \frac{3p-5}{2}$ and  
+		\begin{align*}
+		S_q = \frac{1}{2 \cdot 3 \cdot 4} + \frac {1}{5 \cdot 6 \cdot 7} + \dots + \frac{1}{q(q+1)(q+2)}.
+		\end{align*}
+		If we write $\frac{1}{p} - 2S_q $ as an irreducible fraction, prove that $p$ divides the difference between numerator and denominator of this fraction.
+	\end{problem}
+	
+	\begin{problem} %https://math.stackexchange.com/q/2322942/6715
+		Find the largest power of a prime $p$ which divides
+		\begin{align*}
+		S_p=\binom{p^{n+1}}{p^n}-\binom{p^{n}}{p^{n-1}}.
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem} %https://math.stackexchange.com/q/1983903/6715
+		Let $p \geq 5$ be a prime. Prove that
+		\begin{align*}
+		\sum_{k=1}^{p-1}\frac{2^k}{k^2}\equiv-\frac{(2^{p-1}-1)^2}{p^2}\pmod p
+		\end{align*}
+	\end{problem}
+	
+	\begin{problem} %https://math.stackexchange.com/q/1259840/6715
+		Let $p\geq 3$ be a prime number and let
+		\begin{align*}
+		\sum_{j=1}^{p-1}\frac{(-1)^{j}}{j} \binom{p-1}{j} =\frac{a}{b},
+		\end{align*}
+		where $a$ and $b$ are coprime integers. Prove that $p^2\mid a$.
+	\end{problem}
+	
+	\begin{problem} %https://math.stackexchange.com/q/273413/6715
+		Prove that $2^n-k\choose k-1 $ is even for all positive integers $n$ and $k$ such that $2\le k\le 2^{n-1}$.
+	\end{problem}
+	
+	\begin{problem} %https://math.stackexchange.com/q/597334/6715
+		How many of the following numbers are divisible by $3$?
+		\begin{align*}
+		\binom{200}{0}, \binom{200}{1}, \binom{200}{2}, \dots, \binom{200}{200}.
+		\end{align*}
+	\end{problem}
+
+		%Diophantine equations
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c4h1367798
+		Find all pairs $(p,q)$ prime numbers such that
+			\begin{align*}
+				7 p^3 - q^3 = 64.
+			\end{align*}
+	\end{problem}
+	
+	\begin{problem}[BMO 2009] %https://artofproblemsolving.com/community/c6h274318
+		Solve the equation
+			\begin{align*}
+				3^x - 5^y = z^2
+			\end{align*}
+		in positive integers.
+	\end{problem}
+	
+	\begin{problem} %https://artofproblemsolving.com/community/c2113h1042469
+		Solve the equation $7^x=3^y+4$ in integers.
+	\end{problem}
+
+	\begin{problem} %https://artofproblemsolving.com/community/c2113h1042469
+		 Solve the equation $2^x+3=11^y$ in positive integers.
+	\end{problem}
+
+	\begin{problem} %https://artofproblemsolving.com/community/c6h1300647
+		Solve the Diophantine equation $$2^x(1+2^y)=5^z-1$$ in positive integers.
+	\end{problem}
+
+	\begin{hint}
+		Take modulo $16$.
+	\end{hint}
+	
+	\begin{problem}[Putnam 2001] %https://artofproblemsolving.com/community/c7h466477p2612329
+		Prove that there are unique positive integers $a$ and $n$ such that $$a^{n+1}-(a+1)^n=2001.$$
+	\end{problem}
+
+
+
+
+	\begin{thebibliography}{99}
+		\bibitem{ch:congruence-titu104} Andreescu, T., Andrica, D., and Feng, Z. \textit{104 Number Theory Problems: From the Training of the USA IMO Team}. Springer Science \& Business Media. 2007.
+		
+		\bibitem{ch:congruence-cai} Cai, T. X. and Granville, A. \textit{On the Residues of Binomial Coefficients and Their Products Modulo Prime Powers}. Acta Mathematica Sinica. Volume $18.2$ ($2002$): pp. $277-288$.
+		
+		\bibitem{ch:congruence-primitive-lambda} Cameron, P. J. and Preece, D. A. \textit{Notes on primitive lambda-roots}. Preprint (2003). \url{http://www.maths.qmul.ac.uk/~pjc/csgnotes/lambda.pdf}
+		
+		\bibitem{ch:congruence-carlitz} Carlitz, L. \textit{A Note on Wolstenholme's Theorem}. The American Mathematical Monthly. Volume $61.3$ ($1954$). pp. $174-176$.
+		
+		\bibitem{ch:congruence-carmichael-original} Carmichael, R. D. \textit{Note on a New Number Theory Function}, Bulletin of the American Mathematical Society. Volume 16 ($1909-10$). pp. $232-238$.
+		
+		\bibitem{engel} Engel, A. \textit{Problem Solving Strategies}, Springer ($1998$).
+		
+		\bibitem{ch:congruence-granville} Granville, A. \textit{Arithmetic Properties of Binomial Coefficients I: Binomial Coefficients Modulo Prime Powers}. Organic Mathematics (Burnaby, BC, $1995$) $20$ ($1997$). pp. $253-276$.
+		
+		\bibitem{ch:congruence-herman} Herman, J., Kucera, R., and Simsa, J. \textit{Equations and Inequalities: Elementary Problems and Theorems in Algebra and Number Theory. Vol. 1}. Springer Science \& Business Media. 2000.
+		
+		\bibitem{ch:congruence-kokhas} Kokhas, K., Mogileva, A. \textit{Amazing Properties of Binomial Coefficients}. Summer Conference International Mathematics Tournament of Towns, Russia, Teberda. Aug. 2012. 
+		
+		\bibitem{ch:congruence-pen} Lee, H. et al. \textit{Problems in Elementary Number Theory (PEN)}, Art of Problem Solving.
+		
+		
+		\bibitem{ch:congruence-sierpinsky} Sierpinski, W. \textit{250 Problems in Elementary Number Theory}. American Elsevier (New York). 1970.
+		
+		
+		
+		
+		
+	\end{thebibliography}
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass{subfile}
+
+\begin{document}
+	In this section, we discuss yet another lemma, which involves gcd like the previous one. The first author of this book finds it really useful for solving some types of problems. The lemma was proved in Theorem \eqref{thm:modgcd} of chapter \eqref{ch:congruence}.
+		\begin{lemma}
+			Let $a, b$, and $n$ be three positive integers such that $(a,n)=(b,n)=1$ and
+				\begin{eqnarray*}
+					a^x &\equiv& b^x\pmod n,\\
+					a^y &\equiv& b^y\pmod n,
+				\end{eqnarray*}
+			then
+				\begin{eqnarray*}
+					a^{(x,y)} &\equiv& b^{(x,y)}\pmod n.
+				\end{eqnarray*}
+		\end{lemma}
+		
+		\begin{corollary}
+			Let $p$ be a prime and let $a$ and $b$ be integers not divisible by $p$ so that
+				\begin{eqnarray*}
+					a^k &\equiv& b^k\pmod p.
+				\end{eqnarray*}
+			Then
+				\begin{eqnarray*}
+					a^{(k,p-1)} &\equiv& b^{(k,p-1)}\pmod n.
+				\end{eqnarray*}
+		\end{corollary}
+		
+	The following corollary also proves theorem \eqref{thm:ordDiv} easily.
+		\begin{corollary}
+			Let $a, b$, and $n$ be three positive integers such that $(a,n)=(b,n)=1$. If $h$ is the smallest integer such that
+				\begin{eqnarray*}
+					a^h &\equiv& b^h\pmod n,
+				\end{eqnarray*}
+			and $k$ is an integer such that	
+				\begin{eqnarray*}
+					a^k &\equiv& b^k\pmod n,
+				\end{eqnarray*}
+			then $h|k$.
+		\end{corollary}
+		
+		\begin{proof}
+			From the lemma, we have $a^{(h,k)}\equiv b^{(h,k)}\pmod n$. We have $(h,k)\leq h$ and $(h,k)|k$. Now, if $(h,k)<h$ then $(h,k)$ is smaller than $h$ which satisfies the condition. So we must have $(h,k)=h$, or $h|k$.
+		\end{proof}
+		
+		\begin{corollary}\label{cor:cor2}
+			Let $p$ be a prime and let $a$ be a positive integer. If $\ord_p(a)=d$ and $a^k\equiv1\pmod p$, then $d|(p-1,k)$.
+		\end{corollary}
+		
+		\begin{proof}
+			From Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. From the theorem, $a^{(k,p-1)}\equiv1\pmod p$ and from corollary above, $d|(k,p-1)$.
+		\end{proof}
+	You should see that if a problem can be solved using the dividing property of order, then we can solve it using this lemma as well. Let's see some problems that this lemma is useful with. Sometimes, we have to couple this lemma with some other techniques such as the \textbf{smallest prime factor trick}.
+	
+	\begin{problem}
+		Find all $n\in\N$ such that $2^n-1$ is divisible by $n$.
+	\end{problem}
+	A standard problem with a very nice idea. There are many ways to start working on such problems. A common one is to find the prime factors of $n$ first. That way, we have some idea about $n$ at first, from which we can understand the nature of the problem. \textbf{Sometimes we have to find special prime factors first}. The special prime factors can provide some extra information necessary.
+	\begin{solution}
+		Here, we consider the \textbf{smallest prime divisor} of $n$. Let's call this prime $p$. Since $n$ divides $2^n-1$, $p$ divides it too. Because $2^n-1$ is odd, both $n$ and $p$ must be odd. So
+		\begin{align*}
+			2^n & \equiv1\pmod p.
+		\end{align*}
+		This equation alone does not say a lot, so we need more information. Remember Fermat's little theorem! This is another reason to find primes first. Only for primes we can get the power $a^{p-1}$, otherwise from Euler's Totient theorem, it would be $a^{\t(n)}$ which would bring troubles in this case. We have
+		\begin{align*}
+			2^{p-1} & \equiv1\pmod p
+		\end{align*}
+		Whenever you get two congruences like this, be sure to use theorem \eqref{thm:modgcd}. Using this,
+		\begin{align*}
+			2^{(n,p-1)} & \equiv1\pmod p
+		\end{align*}
+		Now you will see why we specifically chose the smallest prime divisor instead of an arbitrary prime divisor. Since $p$ is the smallest prime divisor of $n$, if a prime $q$ divides $p-1$, it can not divide $n$. Because if $q|n$, then $q\leq p-1<p$, which is a smaller prime divisor than the smallest prime divisor of $n$, a contradiction! We must have $(n,p-1)=1$. But then $2^1\equiv1\pmod p$ or $p|2-1=1$. Another contradiction. This means for no prime $p$, $n$ is divisible by $p$. So $n$ can  not have any primes i.e. $n=1$.
+	\end{solution}
+	
+	\begin{note}
+		Not just smallest prime divisor, depending on the problem we occasionally take the greatest prime divisor or something that makes our job easier to do. See the following problems for better understanding.
+	\end{note}
+	
+		\begin{problem}
+			Determine all pairs of primes $(p,q)$ such that $pq|p^p+q^q+1$.
+		\end{problem}
+		
+		\begin{solution}
+			If $(p,q)$ is a solution, so is $(q,p)$. Without loss of generality, assume that $p<q$ since $p=q$ implies $p|1$. Now, $pq|p^p+q^q+1$ gives us two things: $p|q^q+1$ and $q|p^p+1$.. Consider $p=2$, then $q|p^p+1=5$, so $q=5$.
+			Now, $p$ is odd and so $q>p+1$. We can alternatively write them as $q^{2q}\equiv1\pmod p$ and $p^{2p}\equiv1\pmod q$. From Fermat's theorem, we also have $q^{p-1}\equiv1\pmod p$ and $p^{q-1}\equiv1\pmod q$. Thus, $q^{\gcd(2q,p-1)}\equiv1\pmod p$ and $p^{\gcd(2p,q-1)}\equiv1\pmod q$. Since $q$ is odd and greater than $p-1$, $\gcd(q,p-1)=1$. We have $q^2\equiv1\pmod p$ or $p$ divides $(q+1)(q-1)$. If $p$ divides $q-1$, then $p$ also divides $q^q-1$. But that would force the contradiction $p|q^q+1-(q^q-1)=2$. So, $p$ must divide $q+1$. On the other hand, since $p$ can't divide $q-1$, we get $\gcd(2p,q-1)=2$. This gives $p^2\equiv1\pmod q$ or $q|(p+1)(p-1)$. This is impossible since $q$ divides none of $p\pm1$. So no other solutions.
+		\end{solution}
+		
+		\begin{problem}
+			Find all primes $p,q$ such that $pq|(5^p-2^p)(5^q-2^q)$.
+		\end{problem}
+		
+		\begin{solution}
+			If  $p|5^p-2^p$, from FLT (Fermat's little theorem) we get
+			\begin{align*}
+				5^p-2^p &\equiv5-2\equiv3\pmod p.
+			\end{align*}
+			So, $p$ must be $3$. Then if $p=q$, $q=3$. Otherwise, $q|5^p-2^p=5^3-2^3=117=3^2\cdot13$ so $q=13$.  Now, we can assume $p|5^q-2^q$ and $q|5^p-2^p$. It is obvious, none of $p$ or $q$ can be $2$ or $5$. From the lemma,
+			\begin{align*}
+				5^{(p,q-1)}&\equiv2^{(p,q-1)}\pmod q.
+			\end{align*}
+			Here, $p>q-1$, so $p\bot q-1$. Therefore, $5^1\equiv2\pmod q$ or $q=3$.
+		\end{solution}
+		
+\end{document}

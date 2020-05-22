@@ -1,0 +1,137 @@
+\documentclass{subfile}
+
+\begin{document}
+In general, a \textit{Pseudoprime} is an integer which shares a common property with all prime numbers but is not actually a prime. Pseudoprimes are classified according to which property of primes they satisfy. We will investigate a few types of pseudoprimes in this section.
+
+\subsection{Fermat Pseudoprimes,  Carmichael Numbers}
+	The most important class of pseudoprimes are Fermat pseudoprimes which come from Fermat's little theorem. 
+		\begin{definition}[Fermat Pseudoprime to Base $a$]
+			For an integer $a>1$, if a composite integer $n$ satisfies $a^{n-1}\equiv 1\pmod n$, then $n$ is said to be a \textit{Fermat pseudoprime to base $a$} and is denoted by $\psp(a)$.
+		\end{definition}
+	Suppose $a>1$ is an integer. It can be shown that the number of Fermat pseudoprimes to base $a$ is small compared to the number of primes. Therefore, any number $n$ that passes Fermat's little theorem (i.e., $a^{n-1} \equiv 1 \pmod n$) could be considered to be probably a prime and that is why it is called \textbf{pseudoprime}.
+
+		\begin{example}
+			Fermat pseudoprime to base $2$ are called \textit{Poulet numbers}. $341=11\times 31$ is the smallest Poulet number. The reason is that
+				\begin{align*}
+					2^{340} \equiv \left(2^5\right)^{68} \equiv (32)^{68} \equiv 1^{68} \equiv 1 \pmod{31},
+				\end{align*}
+			and
+				\begin{align*}
+					2^{340} \equiv \left(2^{10}\right)^{34} \equiv (1024)^{34} \equiv (1)^{34} \equiv 1 \pmod{11},	
+				\end{align*}
+			which yields $2^{340} \equiv 1 \pmod{341}$.
+		\end{example}
+		
+	
+		\begin{theorem}
+			For any integer $a>1$, there are infinitely many Fermat pseudoprime to base $a$.
+		\end{theorem}
+		
+		\begin{proof}
+			Let $p\geq 3$ be any prime number such that $p \nmid a^2-1$. We show that
+				\begin{align*}
+					n = \frac{a^{2p}-1}{a^2-1}
+				\end{align*}
+			is a Fermat pseudoprime to base $a$. First, $n$ is composite because
+				\begin{align*}
+					n = \frac{a^p-1}{a-1}\cdot \frac{a^p+1}{a+1}.
+				\end{align*}
+			By Fermat's little theorem, $a^{2p} \equiv a^2 \pmod p$ and therefore $p\mid a^{2p}-a^2$. Since $p$ does not divide $a^2-1$, it divides
+				\begin{align*}
+					n-1 = \frac{a^{2p}-a^2}{a^2-1} = a^{2p-2}+a^{2p-4}+\cdots+a^4+a^2,
+				\end{align*}
+			which is an even integer. We can now deduce that $2p \mid n-1$ because $p$ is odd. Now, $a^{2p}-1 = n\left(a^2-1\right)$ which means $a^{2p} \equiv 1 \pmod n$. Thus $a^{n-1}\equiv 1 \pmod n$ and $n$ is a Fermat pseudoprime to base $a$.
+		\end{proof}
+	When you first encountered Fermat's little theorem, you may have wondered if the reverse is true. That is, if $a^{n-1}\equiv 1\pmod n$ for all integers $a$ coprime to $n$, then $n$ is prime or not. If you try some examples by hand, you may convince yourself that $n$ must be a prime in order to hold the condition true. Unfortunately, that is not the case. There are infinitely many composite integers $n$ with the given property and the are called \textit{Carmichael numbers}. 
+	\begin{note}
+		Do not be mistaken by this simple statement. It took a long time for number theorists to prove that there indeed exist infinitely many Carmichael numbers.
+	\end{note}
+	With the above definition of Fermat pseudoprimes, we may provide another definition for Carmichael numbers.
+	
+		\begin{definition}[Carmichael Number]
+			Let $n$ be a positive integer. If $n$ is a Fermat pseudoprime for all values of $a$ that are coprime to $n$, then it is a \textit{Carmichael number} or \textit{Fermat pseudoprime} (and sometimes \textit{absolute Fermat pseudoprime}).
+		\end{definition}
+	
+	The first few Carmichael numbers are $561, 1105, 1729, \dots$.
+	
+The following theorem shows us a way to determine if an integer is a Carmichael number.
+
+	\begin{theorem}[Korselt's Criterion]\slshape
+		A positive integer $n$ is a Carmichael number if and only if all of the following conditions meet.
+		\begin{enumerate}[i.]
+			\item $n$ is composite.
+			\item $n$ is squarefree.
+			\item For any prime $p|n$, we also have $p-1 \mid n-1$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{proof}
+		Let's prove the second proposition first. For the sake of contradiction, let $p$ be a prime factor of $n$ such that $p^2$ divides $n$. Then for all $a$, $p^2 \mid n \mid a^n-a$. Choose $a=p$ and we have $p^2 \mid p^n-p$ or $p^2 \mid p$, which is impossible. So, $n$ is square-free.
+		
+		Now we will prove the third one. To prove this, we will use a classical technique. Let $p$ be a prime divisor of $n$. Since $a^n\equiv a\pmod n$, we can say $a^n\equiv a\pmod p$ for all $a$. Choose $a$ so that $a\bot p$. Then $p$ divides $a^n-a=a(a^{n-1}-1)$, thus $p \mid a^{n-1}-1$. Also from Fermat's little theorem, $p \mid a^{p-1}-1$.
+		
+		Here is the crucial part. From Theorem \ref{thm:primeprimitive}, we know that \textit{there is a primitive root for all primes} $p$, i.e., there is a positive integer $g$ with $\ord_p(g)=p-1$. For that $g$,
+		\begin{align*}
+		g^{n-1} & \equiv1\pmod p,\text { and}\\
+		g^{p-1} & \equiv1\pmod p.
+		\end{align*}
+		Since $p-1$ is the order, by Theorem \ref{thm:ordDiv}, $p-1 \mid n-1$ must hold.
+	\end{proof}
+	
+	\begin{note}
+		The connection of Carmichael numbers with Carmichael function is obvious. We could just do it in the following way:
+		
+		It is evident that we need $\l(n)\mid n-1$. For $n>2$, $\l(n)$ is even so $n-1$ is even too. This means $n$ is odd. Next, $\l(n)$ is coprime to $n$, so $n$ is square-free.
+	\end{note}
+	
+	\begin{definition}[Euler Pseudoprime to Base $a$]\label{def:eulerpseudoprime}
+		For an integer $a>1$, if an odd composite integer $n$ which is coprime to $a$ satisfies the congruence relation
+			\begin{align*}
+				\left(\dfrac{a}{n}\right) \equiv a^{(n-1)/2} \pmod n,
+			\end{align*} 
+		where $\left(\frac{a}{n}\right)$ is the Jacobi symbol, then $n$ is called an \textit{Euler pseudoprime to base $a$} and denoted by $\epsp(a)$.
+	\end{definition}
+	
+	\begin{corollary}
+		Let $a>1$ be an odd integer. Then every Euler pseudoprime to base $a$ is also a Fermat pseudoprime to base $a$.
+	\end{corollary}
+	
+There are infinitely many $\epsp(a)$ for any integer $a>1$. Actually, even more is true: there exist infinitely many Euler pseudoprimes to base $a$ which are product of $k$ distinct primes and are congruent to $1$ modulo $d$, where $k, d \geq 2$ are arbitrary integers.
+
+You may wonder if there exist \textit{absolute Euler pseudoprimes}, numbers which are Euler pseudoprimes to every base coprime to themselves. The answer is negative. In fact, it can be shown that an odd composite integer $n$ can be Euler pseudoprime for at most $\frac{1}{2}\varphi(n)$ bases $a$, where $1<a<n$ and $(a,n)=1$. The proof needs some algebraic background and we do not include it in this book.
+
+	\begin{example}
+		$121$ is an $\epsp(3)$. To see why, note that
+			\begin{align*}
+				\left(\dfrac{3}{121}\right) = \left(\dfrac{3}{11}\right)^2 = 1,
+			\end{align*}
+		by the definition of Jacobi symbol (Definition \ref{def:jacobi}). Now,
+			\begin{align*}
+				3^{60} = \left(3^5\right)^{12} =\left(243\right)^{12} \equiv 1^{12} \equiv 1 \pmod{121}.
+			\end{align*}
+	\end{example}
+	
+As the last class of pseudoprimes, we mention strong pseudoprimes.
+
+	\begin{definition}[Strong Pseudoprime to Base $a$]
+		Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Also, let $a>1$ be a positive integer coprime to $n$ such that one of the following conditions holds:
+			\begin{align*}
+				a^d &\equiv \phantom{-} 1 \pmod n, \text{ or}\\
+				a^{2^rd} &\equiv -1 \pmod n, \text{ for some integer } 0 \leq r <s.
+			\end{align*}
+		Then $n$ is called a \textit{strong pseudoprime to base $a$} and is denoted by $\spsp(a)$.
+	\end{definition}
+It can be proved that every $\spsp(a)$ is also a $\epsp(a)$ (and hence a $\psp(a)$). There exist infinitely many strong pseudoprimes to base $a$ for every integer $a \geq 1$. We show a special case of this where $a=2$ in the following proposition.
+	
+	\begin{proposition}
+		There are infinitely many strong pseudoprimes to base $2$.
+	\end{proposition}
+	
+	\begin{proof}
+		If $n$ is a Fermat pseudoprime to base $2$, then $2^{n-1} \equiv 1 \pmod n$ and so $2^{n-1}-1=nk$ for some integer $k$. Choose $m=2^{n}-1$. We will show that $m$ is a strong pseudoprime to base $2$. To proceed, notice that $m-1=2^n-2=2\left(2^{n-1}-1\right)$ and $2^{n-1}-1$ is an odd integer. So it suffices to show that $2^{2^{n-1}-1} \equiv 1 \pmod m$. Now,
+			\begin{align*}
+				2^{2^{n-1}-1} &= 2^{nk}= \left(2^n\right)^k \equiv 1^k \equiv 1 \pmod{m}.
+			\end{align*}
+		The proof is complete.
+	\end{proof}
+\end{document}	

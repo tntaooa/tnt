@@ -1,0 +1,252 @@
+\documentclass{subfile}
+
+\begin{document}
+	French mathematician \textit{Pierre de Fermat} first defined \textit{Fermat numbers}. This is another reason he is still remembered for, other than \textit{Fermat's Last Theorem} besides Fermat's little theorem or some other works.
+	
+	\begin{definition}[Fermat number]
+		For a nonnegative integer $n$, $n$th Fermat number is $F_n=2^{2^n}+1$. If $F_n$ is a prime, then it is called a \textit{Fermat prime}.
+	\end{definition}
+	Due to theorem \eqref{thm:primec}, he conjectured that, $F_n$ is prime for all $n$. However, he was wrong and Euler showed it for the first time in $1732$! Euler proved the next theorem. Until now, only $5$ Fermat numbers $F_0,F_1,F_2,F_3,F_4$ have been found to be prime.
+		\begin{theorem}[Euler]\slshape
+			$641$ divides $F_5$.
+		\end{theorem}
+		
+		\begin{proof}
+			$F_5=2^{2^5}+1=2^{32}+1$, so we can try using brute force taking $2^{32}+1$ modulo $641$. But that would totally cover up the beauty of the ingenious solution Euler found. Note the following facts:
+				\begin{align*}
+					641 & = 625+16=5^4+2^4 = 5\cdot2^7+1
+				\end{align*}
+			On the other hand, 
+				\begin{align*}
+					5^4+2^4 & |5^4\cdot2^{28}+2^{32}\\
+					5\cdot2^7+1 & |\left(5\cdot2^7\right)^4-1^4\\
+								& = 5^4\cdot2^{28}-1
+				\end{align*}
+			Finally, $641 |5^4\cdot2^{28}+2^{32}-(5^4\cdot2^{28}-1)=2^{32}+1$.
+					
+				
+		\end{proof}
+	The following three theorems are straightforward from definitions.
+		\begin{theorem}\slshape
+			\begin{align*}
+				F_{n+1} & = (F_{n-1}-1)^2+1
+			\end{align*}
+		\end{theorem}
+		
+		\begin{theorem}\slshape
+			\begin{align*}
+				F_n-2 & = 2^{2^n}-1\\
+					  & = (2^{2^{n-1}}+1)\cdots(2+1)(2-1)\\
+					  & = F_{n-1}\cdots F_0
+			\end{align*}
+		\end{theorem}
+		
+		\begin{corollary}\slshape
+			$F_n$ can never be written as a sum of two primes for $n>1$.
+		\end{corollary}
+		
+		\begin{proof}
+			If $F_n$ is a sum of two primes $p$ and $q$ one of them must be $2$ since otherwise $p+q$ would be even, whereas $F_n$ is odd. Let $q=2$, then $p=F_n-2$ is not a prime for $n>1$.
+			
+		\end{proof}
+		
+		\begin{corollary}\slshape
+			\begin{align*}
+				F_n & \equiv2\pmod{F_m}\text { for }m<n
+			\end{align*}
+		\end{corollary}
+		
+		\begin{theorem}\slshape
+			For $m\neq n$, $F_m\bot F_n$.
+		\end{theorem}
+	We already proved them in chapter \eqref{ch:primes} lemma \eqref{lem:fermatcp}. It can be generalized further the same way, and this generalization appeared as a problem in Baltic Olympiad, $2001$.
+		\begin{theorem}\slshape
+			If $a$ is an odd integer and $m\neq n$ are positive integers,
+				\begin{align*}
+					\left(a^{2^m}+2^{2^m},a^{2^n}\right) & = 1
+				\end{align*}
+		\end{theorem}
+		
+		\begin{theorem}\slshape
+			For $m\leq2^n-1$,
+			\begin{align*}
+			F_m & | 2^{F_{n}}-2
+			\end{align*}
+		\end{theorem}
+		
+		\begin{corollary}\slshape
+			$F_n$ is either a prime, or a pseudoprime for base $2$.
+		\end{corollary}
+		
+		\begin{theorem}\slshape
+			$F_n$ is never a square.
+		\end{theorem}
+		
+		\begin{proof}
+			We can check it for $n=0,1$. For $n>1$, squaring repeatedly, $F_n=2^{2^n}+1\equiv2\pmod5$, we get that $F_n=5k+2$ for some $k$. But $2$ is not a quadratic residue of $5$. So $F_n$ can never be a square.
+			
+		\end{proof}
+		
+		\begin{theorem}\slshape
+			For $n\geq2$, $F_n$ has infinitely many representations of the form $x^2-dy^2$. Alternatively,
+				\begin{align*}
+					F_n & = x^2-dy^2
+				\end{align*}
+			has infinitely many solutions in positive integers.
+		\end{theorem}
+		
+		\begin{proof}
+			First, let's verify that,
+				\begin{align*}
+					F_n & = 2^{2^n}+1\\
+						& = F_{n-1}^2-2(F_{n-2}-1)^2
+				\end{align*}
+			So, we can take it as the first solution $(x_0,y_0)$. Then from the identity,
+				\begin{align*}
+					(3x+4y)^2-2(2x+3y)^2 & = x^2-2y^2
+				\end{align*}
+			We can take $(x_n,y_n)=(3x_{n-1}+4y_{n-1},2x_{n-1}+3y_{n-1})$ for generating infinite family of solutions.
+			
+		\end{proof}
+				
+		\begin{theorem}\slshape
+			The set of all quadratic nonresidues of a Fermat prime is equal to the set of all its primitive roots.
+		\end{theorem}
+		
+		\begin{proof}
+			Let $a$ be a quadratic non-residue for a Fermat prime $F_n$ and the order of $a$ modulo $F_n$ is $d=\ord_{F_n}(a)$. Since $F_n$ is a prime, from Fermat's little theorem,
+				\begin{align*}
+					a^{F_n-1} & \equiv-1\pmod {F_n}\\
+					a^{2^{2^n}} & \equiv1\pmod{F_n}
+				\end{align*}
+			Using theorem \eqref{thm:ordDiv}, $d|F_n-1$. Therefore, $d=2^k$ for some $0\leq k\leq n$. From Euler criterion, if $a$ is not a quadratic residue of $F_n$, then
+				\begin{align*}
+					a^{\frac{F_n-1}{2}} &\equiv-1\pmod{F_n}\\
+					a^{2^{n-1}} &\equiv-1\pmod{F_n}
+				\end{align*}
+			Therefore, if $k<2^n$, then we would have $a^{2^k}\equiv1\pmod{F_n}$ which would give us
+				\begin{align*}
+					a^{2^{n-1}} & \equiv1\pmod{F_n}\text{ by repeated squaring}\\
+					-1 &\equiv1\pmod{F_n}
+				\end{align*}
+			a contradiction. It forces $k=2^n$ and $d=2^{2^n}=F_n-1$, which means $a$ is a primitive root of $F_n$.
+			
+		\end{proof}
+				
+		\begin{theorem}[Euler]\slshape
+			If $p$ is a prime divisor of $F_n$, then $p=2^{n+1}k+1$ for some natural $k$.
+		\end{theorem}
+		
+		\begin{proof}
+			Let $p$ be a prime divisor of $F_n$.
+				\begin{align*}
+					2^{2^n} & \equiv-1\pmod p\\
+					2^{2^{n+1}} &\equiv1\pmod p
+				\end{align*}
+			From Fermat's little theorem, $2^{p-1}\equiv1\pmod p$. Let $d=\ord_p(2)$, so $2^d\equiv1\pmod p$. We get $d|2^{n+1}$, thus $d=2^r$ for some $r$. If $r<n+1$, then $2^{2^r}\equiv1\pmod p$ so $2^{2^n}\equiv1\pmod p$, squaring until we reach $n$. But this gives us $2^{2^n}\equiv1\equiv-1\pmod p$ or $2\equiv0\pmod p$, which is a contradiction. Therefore, we must have $r=n+1$ and $d=2^{n+1}$. Since $d$ must divide $p-1$, we have $p-1=dk$ or $p=2^{n+1}k+1$.
+			
+		\end{proof}
+	The next one is a development of this one. It also appeared as a problem in China Olympiad, $2005$.
+		\begin{theorem}[Lucas]\slshape
+			For $n>2$, $F_n$ has a prime divisor $p=2^{n+2}(n+1)$.
+		\end{theorem}
+		
+		\begin{proof}
+			For $n\leq4$, we know $F_n$ is prime. So, the claim holds. Now, $n>4$ and let's assume
+				\begin{align*}
+					F_n & = \prod_{i=1}^{k}p_i^{e_i}\\
+						& = p_1^{e_1}\cdots p_k^{e_k}
+				\end{align*}
+			From the theorem above, we get that,
+				\begin{align*}
+					p_i & = 2^{n+1}a_i+1\\
+					p_i &\geq2^{n+1}+1
+				\end{align*}
+			for natural numbers $a_i$. This means, if we can prove that there exists a $p_i$ for which $a_i\geq2(n+1)$, we are done. For the sake of contradiction, let's assume there doesn't exist such an $a_i$. Obviously, we are looking for a contradiction so we will have to limit $F_n$ somehow. If we can not restrict $F_n$ directly, let's try restricting the values of the exponents. Due to the equation above,
+				\begin{align*}
+					F_n & = p_1^{e_1}\cdots p_n^{e_k}\\
+						&\geq \left(2^{n+1}+1\right)^{e_1}\cdots\left(2^{n+1}+1\right)^{e_k}\\
+					2^{2^n}+1&\geq\left(2^{n+1}+1\right)^{e_1+\ldots+e_k}\\
+							 &\geq2^{(n+1)(e_1+\ldots+e_k)}+1\\
+					2^{2^n}  &\geq2^{(n+1)(e_1+\ldots+e_k)}\\
+					2^n		 &\geq(n+1)(e_1+\ldots+e_k)\\
+					e_1+\ldots+e_k&\leq\dfrac{2^n}{n+1}
+				\end{align*}
+			We have an upper bound for $e_1+\ldots+e_k$ now, which means we can limit $F_n$ from above.
+				\begin{align*}
+					p_i^{e_i} & = (2^{n+1}a_i+1)^{e_i}\\
+							  & = 1+e_i2^{n+1}a_i+\binom{e_i}2^{2(n+1)}a_i^2+\ldots\\
+							  &\equiv1+e_i2^{n+1}a_i\pmod{2^{2n+2}}
+				\end{align*}
+			$F_n-1=2^{2^n}$ and for $n\geq5$, certainly, $2^n\geq2n+2$, so $F_n\equiv1\pmod{2^{2n+2}}$. Using the congruence we found above,
+				\begin{align*}
+					p_1^{e_1}\cdots p_k^{e_k} &\equiv(1+2^{n+1}a_1e_1)\cdots(1+2^{n+1}a_ke_k)\pmod{2^{2n+2}}\\
+											  &\equiv1+2^{n+1}a_1e_1+\ldots+2^{n+1}a_ke_k\pmod{2^{2n+2}}\\
+											  &\equiv1+2^{n+1}(a_1e_1+\ldots+a_ke_k)\pmod{2^{2n+2}}\\
+											 0&\equiv2^{n+1}(a_1e_1+\ldots+a_ke_k)\pmod{2^{2n+2}}
+				\end{align*}
+			This gives us, $2^{2n+2}$ divides $2^{n+1}(a_1e_1+\ldots+a_ke_k)$ or $2^{n+1}$ divides $a_1e_1+\ldots+a_ke_k$.
+				\begin{align*}
+					a_1e_1+\ldots+a_ke_k\geq2^{n+1}
+				\end{align*}
+			There must be a maximum integer among $a_1,\ldots,a_k$, let's call it $a$. Then,
+				\begin{align*}
+					a(e_1+\ldots+e_k) & \geq a_1e_1+\ldots+a_ke_k\\
+									  & \geq 2^{n+1}\\
+									 a&\geq\dfrac{2^{n+1}}{e_1+\ldots+e_k}
+				\end{align*}
+			But, $e_1+\ldots+e_k\leq\dfrac{2^n}{n+1}$ or $\dfrac{1}{e_1+\ldots+e_k}\geq\dfrac{2^n}{n+1}$ which gives,
+				\begin{align*}
+					a & \geq \dfrac{2^{n+1}}{\frac{2^n}{n+1}}\\
+					a & \geq 2(n+1)
+				\end{align*}
+			which is what we wanted!
+			
+		\end{proof}
+		
+		\begin{theorem}\slshape
+			If $F_n$ is a Fermat prime, then for any Fermat prime $p$ less than or equal to $F_n$,
+				\begin{align*}
+					p & | a^{F_n}-a
+				\end{align*}
+			for any integer $a$.
+		\end{theorem}
+		
+		\begin{theorem}[Pepin's Test]\slshape
+			The Fermat number $F_n$ is a prime if and only if
+				\begin{align*}
+					3^{\frac{F_n-1}{2}} &\equiv-1\pmod{F_n}
+				\end{align*}
+		\end{theorem}
+	We believe the reader can easily verify its truth. However, this test can be generalized even further using the following lemma.
+		\begin{lemma}\slshape
+			If $M_p=2^p-1$ is a prime, 
+				\begin{align*}
+					2^{M_p-1} &\equiv1\pmod{M_p}
+				\end{align*}
+		\end{lemma}
+		
+		\begin{theorem}[Generalization of Pepin's Test]\slshape
+			If $p\equiv3\pmod4$ and $M_p=2^p-1$, then $F_n$ is a prime if and only if,
+				\begin{align*}
+					M_p^{\dfrac{F_n-1}{2}}\equiv-1\pmod{F_n}
+				\end{align*}
+		\end{theorem}
+	Now we end our discussion here with open problems involving Fermat primes.
+		\begin{open}\slshape
+			Is there infinitely many Fermat primes?
+		\end{open}
+	This question brings another topic that may seem rather unrelated to our work here. So, we will just mention the result here. \textit{Gauss} proved the following theorem.
+		\begin{theorem}[Gauss]\slshape
+			A regular $n$ polygon can be constructed using ruler and compass if and only if 
+				\begin{align*}
+					n & = 2^rF_{a_1}F_{a_2}\cdots F_{a_k}
+				\end{align*}
+			for some integers $r,k\geq0,n\geq3$ and $F_{a_i}$ are distinct Fermat primes.
+		\end{theorem}
+	Since we don't know if there are infinite Fermat primes, we also don't know if there are infinite such regular polygons that can be constructed this way. However, it is popular belief that the number of Fermat primes is finite.
+		\begin{open}\slshape
+			Is $F_n$ square-free for all $n$? That is, for $n$, does there exist any prime number $p$ for which $p^2|F_n$?
+		\end{open}
+	
+\end{document}
