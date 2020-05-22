@@ -62,12 +62,12 @@
 	\end{lemma}
 	
 	\begin{proof}
-		Let $\a$ be the positive integer for which $p^\a \leq 2n<p^{\a +1}$. Then using theorem \eqref{thm:legendre} of chapter \eqref{ch:arithfunc},
+		Let $\alpha$ be the positive integer for which $p^\alpha \leq 2n<p^{\alpha +1}$. Then using theorem \eqref{thm:legendre} of chapter \eqref{ch:arithfunc},
 		\begin{align*}
-			v_p(N) & =  v_p((2n)!)-2v_p(n!)= \sum_{i=1}^{\a }\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\sum_{i=1}^{\a }\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
-			& =  \sum_{i=1}^{\a }\left(\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\right) \leq \sum_{i=1}^{\a }1 =\a.
+			v_p(N) & =  v_p((2n)!)-2v_p(n!)= \sum_{i=1}^{\alpha}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\sum_{i=1}^{\alpha }\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
+			& =  \sum_{i=1}^{\alpha}\left(\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\right) \leq \sum_{i=1}^{\alpha}1 =\alpha
 		\end{align*}
-		The last line is true because for a rational $x$, $\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}$. Therefore, $p^{v_p(N)} \leq p^{\a} \leq 2n$.
+		The last line is true because for a rational $x$, $\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}$. Therefore, $p^{v_p(N)} \leq p^{\alpha} \leq 2n$.
 	\end{proof}
 	
 	\begin{lemma}\label{lem:bertrand4}

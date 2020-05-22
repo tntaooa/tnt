@@ -184,9 +184,9 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 		We must now find a way to compute $\ln(2n)!$ and $\ln n!$. Let $k$ be a positive integer. By theorem \eqref{thm:legendre}, we have
 		\begin{align}
 		\label{eq:pi(n)approximation:3}
-		v_p(k!) = \sum_{i=1}^{\a}\left\lfloor\dfrac{k}{p^i}\right\rfloor,
+		v_p(k!) = \sum_{i=1}^{\alpha}\left\lfloor\dfrac{k}{p^i}\right\rfloor,
 		\end{align} 
-		where $\a$ is some positive integer. Here, we need to find $\a$. See proof of theorem \eqref{thm:legendre} to realize that $\a+1$ is actually the number of digits of $k$ in base $p$. On the other hand, we know that the number of digits of a positive integer $x$ in base $y$ is $\lfloor\log_y x\rfloor+1$ (prove this as an exercise). So, in our case, $\a+1=\lfloor\log_p k\rfloor+1$, or simply $\a = \lfloor\log_p k\rfloor$. Since we are working with natural logarithms (i.e., logarithms in base $e$), it would be better to write $a = \lfloor \frac{\ln k}{\ln p}\rfloor$. Finally, substituting $n$ and $2n$ for $k$ in equation \eqref{eq:pi(n)approximation:3}, we get
+		where $\alpha$ is some positive integer. Here, we need to find $\alpha$. See proof of theorem \eqref{thm:legendre} to realize that $\alpha+1$ is actually the number of digits of $k$ in base $p$. On the other hand, we know that the number of digits of a positive integer $x$ in base $y$ is $\lfloor\log_y x\rfloor+1$ (prove this as an exercise). So, in our case, $\alpha+1=\lfloor\log_p k\rfloor+1$, or simply $\alpha = \lfloor\log_p k\rfloor$. Since we are working with natural logarithms (i.e., logarithms in base $e$), it would be better to write $a = \lfloor \frac{\ln k}{\ln p}\rfloor$. Finally, substituting $n$ and $2n$ for $k$ in equation \eqref{eq:pi(n)approximation:3}, we get
 			\begin{align*}
 				v_p(n!) = \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor, \quad v_p\left((2n)!\right) = \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor.
 			\end{align*}
@@ -248,22 +248,22 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 %			\label{eq:pi(n)approximation:5}
 %				\vartheta(n) <4n \ln 2.
 %			\end{align}
-		Let $\a$ be an arbitrary real number such that $0 < \a < 1$. Then $n> n^{\a}$ and so $\pi(n) \geq \pi(n^{\a})$. Using equation \eqref{eqn:chebyshevthetainequality1}, one can write
+		Let $\alpha$ be an arbitrary real number such that $0 < \alpha < 1$. Then $n> n^{\alpha}$ and so $\pi(n) \geq \pi(n^{\alpha})$. Using equation \eqref{eqn:chebyshevthetainequality1}, one can write
 			\begin{align*}
-				\Big(\pi(n) - \pi(n^{\a})\Big) \ln n^{\a} &= \Big(\sum_{p \leq n} 1 - \sum_{p \leq n^{
-						\a}} 1\Big) \ln n^{\a}\\
-														  &=\sum_{n^{\a} \leq p \leq n} \ln n^{\a}\\
-														  &\leq \sum_{n^{\a} \leq p \leq n} p\\
+				\Big(\pi(n) - \pi(n^{\alpha})\Big) \ln n^{\alpha} &= \Big(\sum_{p \leq n} 1 - \sum_{p \leq n^{
+						\alpha}} 1\Big) \ln n^{\alpha}\\
+														  &=\sum_{n^{\alpha} \leq p \leq n} \ln n^{\alpha}\\
+														  &\leq \sum_{n^{\alpha} \leq p \leq n} p\\
 														  &\leq \vartheta(n)\\
 														  &< 2n \ln 2.
 			\end{align*}
 		This already means that
 			\begin{align*}
-				\pi(n) &< \frac{2n \ln 2}{\a \ln n} + \pi(n^{\a})\\
-					   &< \frac{2n \ln 2}{\a \ln n} + n^{\a}\\
-					   &= \frac{n}{\ln n} \Big(\frac{2 \ln 2}{\a} + \frac{\ln n}{n^{1-\a}} \Big).
+				\pi(n) &< \frac{2n \ln 2}{\alpha \ln n} + \pi(n^{\alpha})\\
+					   &< \frac{2n \ln 2}{\alpha \ln n} + n^{\alpha}\\
+					   &= \frac{n}{\ln n} \Big(\frac{2 \ln 2}{\alpha} + \frac{\ln n}{n^{1-\alpha}} \Big).
 			\end{align*}
-		We use a bit calculus to finish the proof. Let $ f(x)=\frac{\ln x}{x^{1-\a}}$. You can easily calculate the derivative $f'(x)$ of $f$ and find that it equals zero for $x=e^{1/1-\a}$. Putting this value into $f$, you will see that $\frac{\ln n}{n^{1-\a}} \leq 1/e(1-\a)$. Since $\a$ is an arbitrary number, choosing $\a = 2/3$ helps us finish the proof:
+		We use a bit calculus to finish the proof. Let $ f(x)=\frac{\ln x}{x^{1-\alpha}}$. You can easily calculate the derivative $f'(x)$ of $f$ and find that it equals zero for $x=e^{1/1-\alpha}$. Putting this value into $f$, you will see that $\frac{\ln n}{n^{1-\alpha}} \leq 1/e(1-\alpha)$. Since $\alpha$ is an arbitrary number, choosing $\alpha = 2/3$ helps us finish the proof:
 			\begin{align*}
 				\pi(n) < \frac{n}{\ln n} \Big(3 \ln 2 + \frac{3}{e} \Big)< 4 \frac{n}{\ln n}.
 			\end{align*}

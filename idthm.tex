@@ -25,7 +25,7 @@
 	\begin{theorem}[Binomial Theorem]\slshape\label{thm:binomial-theorem}
 		For any positive integer $n$,
 		\begin{eqnarray*}
-			(a+b)^n & = & a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\dots+\binom{n}{1}ab^{n-1}+b^n\\
+			(a+b)^n & = & a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n\\
 			& = & \sum_{i=0}^{n}\binom{n}{i}a^{n-i}b^i\\
 			& = & \sum_{i=0}^{n}\binom{n}{i}a^ib^{n-i}.
 		\end{eqnarray*}
@@ -34,7 +34,7 @@
 	\begin{proof}
 		If we expand the left side, there are $n$ times $(a+b)$ multiplied together. Obviously, each term of this expansion will be of the form $a^ib^{n-i}$. So, we can write it as
 		\begin{align*}
-			(a+b)^n=s_na^n+s_{n-1}a^{n-1}b+\dots+s_1ab^{n-1}+s_0b^n.
+			(a+b)^n=s_na^n+s_{n-1}a^{n-1}b+\cdots+s_1ab^{n-1}+s_0b^n.
 		\end{align*}
 		Here, $s_i$ is the coefficient of $a^ib^{n-i}$. We see that for a term $a^ib^{n-i}$ to appear in the sum, we must choose $i$ of the $n$ times $(a+b)$ to contribute an $a$ to the term, and then each of the other $n-i$ terms of the product must contribute a $b$. We can take $i$ objects from $n$ objects in $\binom{n}{i}$ ways. Therefore, $s_i=\binom{n}{i}$.
 	\end{proof}
@@ -46,9 +46,9 @@
 			\item $\displaystyle\binom{n}{k}=\binom{n}{n-k}$,
 			\item $\displaystyle\binom{n}{k}=\binom{n-1}k+\binom{n-1}{k-1}$ (Pascal's recurrence),
 			\item $\displaystyle\binom{n}{k}=\dfrac{n}{k}\binom{n-1}{k-1}$ (absorption property), \label{id:binomreduction} 
-			\item $\displaystyle\binom{n}{0}+\binom{n}{1}+\dots+\binom{n}{n-1}+\binom{n}{n} = 2^n$,
-			\item $\displaystyle \binom{0}{k} + \binom{1}{k} + \dots +\binom{n-1}{k} + \binom{n}{k} = \binom{n+1}{k+1}$,
-			\item $\displaystyle\binom{n}0^2+\binom{n}{1}^2+\dots+\binom{n}{n-1}^2+\binom{n}{n}^2 = \binom{2n}{n}$. \label{id:binomsquaressum}
+			\item $\displaystyle\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n-1}+\binom{n}{n} = 2^n$,
+			\item $\displaystyle \binom{0}{k} + \binom{1}{k} + \cdots +\binom{n-1}{k} + \binom{n}{k} = \binom{n+1}{k+1}$,
+			\item $\displaystyle\binom{n}0^2+\binom{n}{1}^2+\cdots+\binom{n}{n-1}^2+\binom{n}{n}^2 = \binom{2n}{n}$. \label{id:binomsquaressum}
 		\end{enumerate}
 	\end{theorem}
 	
@@ -71,7 +71,7 @@
 	\end{identity}
 
 	\begin{identity}[Sum of Differences]\slshape\label{id:sumofdif}
-		Let $a_1, a_2, a_3, \dots$ be an infinite sequence of numbers. Then, for any positive integer $n$,
+		Let $a_1, a_2, a_3, \cdots$ be an infinite sequence of numbers. Then, for any positive integer $n$,
 			\begin{align*}
 				a_n  = a_1 + \sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right).
 			\end{align*}
@@ -81,7 +81,7 @@
 		Expand the sum on the right side to obtain
 			\begin{align*}
 				\sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right)
-					&=  \left(a_{n} - a_{n-1}\right) +  \left(a_{n-1} - a_{n-2}\right) + \dots +  \left(a_{2} - a_{1}\right)\\
+					&=  \left(a_{n} - a_{n-1}\right) +  \left(a_{n-1} - a_{n-2}\right) + \cdots +  \left(a_{2} - a_{1}\right)\\
 					&= a_n - a_1.	
 			\end{align*}
 		The conclusion follows.
@@ -119,9 +119,9 @@
 	\end{identity}
 	
 	\begin{identity}[Euler-Aida Ammei Identity]\slshape\label{id:euleraida}
-		Let $x_1,x_2,\dots,x_n$ be reals. Then,
+		Let $x_1,x_2,\cdots,x_n$ be reals. Then,
 		\begin{align*}
-			(x_1^2-x_2^2-\dots-x_n)^2 + \sum_{i=2}^{n}(2x_1x_i)^2 & = (x_1^2+x_2^2+\dots+x_n^2)^2.
+			(x_1^2-x_2^2-\cdots-x_n)^2 + \sum_{i=2}^{n}(2x_1x_i)^2 & = (x_1^2+x_2^2+\cdots+x_n^2)^2.
 		\end{align*}
 	\end{identity}
 	

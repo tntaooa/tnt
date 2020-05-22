@@ -50,7 +50,7 @@
 			\addplot[soldot] coordinates{(1,1)(2,0)(3,0)(4,0)(5,0)};
 			\end{axis}
 			\end{tikzpicture}
-			\caption{The unit function $\varepsilon(n)$ for $n=1,2,\dots,5$.}
+			\caption{The unit function $\varepsilon(n)$ for $n=1,2,\cdots,5$.}
 			\label{fig:unitfunction}
 		\end{figure}
 			The first values of $\varepsilon(n)$ are illustrated in figure \eqref{fig:unitfunction}.
@@ -86,7 +86,7 @@
 				\addplot[soldot] coordinates{(1,1)(2,2)(3,3)(4,4)(5,5)};
 				\end{axis}
 				\end{tikzpicture}
-				\caption{The identity function $\text{id}(n)$ for $n=1,2,\dots,5$.}
+				\caption{The identity function $\text{id}(n)$ for $n=1,2,\cdots,5$.}
 				\label{fig:identityfunction}
 			\end{figure}
 			
@@ -118,7 +118,7 @@
 				\addplot[soldot] coordinates{(1,4)(2,4)(3,4)(4,4)(5,4)};
 				\end{axis}
 				\end{tikzpicture}
-				\caption{The constant $4$ function ($f(n)=4$) for $n=1,2,\dots,5$.}
+				\caption{The constant $4$ function ($f(n)=4$) for $n=1,2,\cdots,5$.}
 				\label{fig:constantfunction}
 			\end{figure}
 		\end{definition}
@@ -471,9 +471,9 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 \begin{proof}
 	By definition, $n!$ is the product of first $n$ positive integers. Therefore, by proposition \eqref{prop:v_p-rule},
 		\begin{align*}
-			v_p(n!) = v_p(1) v_p(2) \dots v_p(n).
+			v_p(n!) = v_p(1) v_p(2) \cdots v_p(n).
 		\end{align*}
-	This means that we have to find the largest power of $p$ in each of integers $1,2,\dots, n$. As we were finding a solution for problem \eqref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \dots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
+	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \eqref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
 \end{proof}
 
 There is another way for finding $v_p(n!)$ using bases. Before we state the alternative version of Legendre's theorem, we need a definition.
@@ -505,7 +505,7 @@ There is another way for finding $v_p(n!)$ using bases. Before we state the alte
 	v_p(n!) & = \sum_{i=1}^{k}\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
 	&= \left\lfloor\dfrac{n}{p}\right\rfloor+\left\lfloor\dfrac{n}{p^2}\right\rfloor+\cdots+\left\lfloor\dfrac{n}{p^k}\right\rfloor\\
 	&= \ \ \ n_kp^{k-1} + n_{k-1}p^{k-2} + \cdots + n_{2} p + n_1 \\  &\ \ \ + n_kp^{k-2} + n_{k-1}p^{k-3} + \cdots + n_{2}\\ &\ \ \ \ \ \ \ \vdots \qquad\qquad \vdots\\  &\ \ \ + n_kp  \ \ \ \ + n_{k-1} \\&\ \ \ + n_k\\
-	&=\sum_{i=1}^k n_i(p^{i-1}+p^{i-2}+\dots+p+1)\\
+	&=\sum_{i=1}^k n_i(p^{i-1}+p^{i-2}+\cdots+p+1)\\
 	&= \sum_{i=1}^k n_i\frac{p^i-1}{p-1}\\
 	&=\displaystyle \frac{\displaystyle \sum\limits_{i=0}^k n_i p^i - \sum\limits_{i=0}^k n_i}{p-1}\\
 	&=\frac{n-s_p(n)}{p-1}.
@@ -662,7 +662,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\end{solution}
 		We will see how to compute number of divisors for a positive integer $n$. Take $n=12$. If $d$ is a divisor of $n$, then it is evident that $d$ can not have any prime factor that is not in $n$. But the opposite might be true. $n$ might have some prime factor that is not in $d$. In this case, a divisor of $12$ must have prime factor of $2$ and $3$ only. Second observation is: we have $n=2^2\cdot3^1$. Thus, $d$ can not have the exponent of $2$ greater than $2$ or the exponent of $3$ greater than $1$. If $d=2^a3^b$ then $a\leq2$ and $b\leq1$. The most interesting part is that, we can actually generate all the divisors this way. Set $a=0,1,2$ and $b=0,1$. Consider the sets $A=\{2^0,2^1,2^2\}$ and $B=\{3^0,3^1\}$. If we multiply an element of $A$ with an element of $B$, we get a divisor of $12$. And for each multiplication, we get a distinct divisor each time. And certainly, this can be generalized. If the prime factorization of $n$ is $p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$, then the divisors can be generated multiplying elements from sets $A_1=\{p_1^0,\ldots,p_1^{e_1}\},A_2=\{p_2^{0},\ldots,p_2^{e_2}\},A_k=\{p_k^0,\ldots,p_k^{e_k} \}$. $A_i$ has $e_i+1$ elements because the exponent ranges from $0$ to $e_1$. Then clearly, the number of divisors of $n$ would be the product of number of elements in all $A_i$, that is, $(e_1+1)\cdots(e_k+1)$. However, we will have to prove something even though it is clear from the example. That is, we will not get a duplicate divisor in this process. This will be left as an exercise for the readers.
 			\begin{theorem}\slshape
-				Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$. Then,
+				Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Then,
 				\begin{align}
 				\tau(n) &= \prod_{i=1}^{k} (1+e_i). \label{eq:dformula-eq1}
 				\end{align}
@@ -671,9 +671,9 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\begin{proof}
 				Every positive divisor of $n$ must be of the form
 				\begin{align*}
-				d = p_1^{\a_1} p_2^{\a_2} \dots p_k^{\a_k},
+				d = p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k},
 				\end{align*}
-				where $0 \leq a_i \leq e_i$ for $i=1,2,\dots,k$. There are $e_i+1$ possible values $\{0, 1, 2, \dots, e_i\}$ for the power of prime $p_i$ in $d$. The number of divisors of $n$, $\tau(n)$, is therefore the product of $e_1+1, e_2+1, \dots ,$ and $e_k+1$. We are done.
+				where $0 \leq alpha_i \leq e_i$ for $i=1,2,\cdots,k$. There are $e_i+1$ possible values $\{0, 1, 2, \cdots, e_i\}$ for the power of prime $p_i$ in $d$. The number of divisors of $n$, $\tau(n)$, is therefore the product of $e_1+1, e_2+1, \cdots ,$ and $e_k+1$. We are done.
 			\end{proof}
 		
 			\begin{theorem}\label{prop:tau(n)<2sqrt(n)}
@@ -692,11 +692,11 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\end{theorem}
 			
 			\begin{proof}
-				Let $n$ be a positive integer with factorization $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$ and suppose that $\tau(n)$ is odd. This means that all terms in the right hand side of equation \eqref{eq:dformula-eq1} must be odd. Therefore, $e_i$ is even for $i=1,2,\dots,k$. Take $e_i = 2f_i$ for some integer $f_i$. Then,
+				Let $n$ be a positive integer with factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and suppose that $\tau(n)$ is odd. This means that all terms in the right hand side of equation \eqref{eq:dformula-eq1} must be odd. Therefore, $e_i$ is even for $i=1,2,\cdots,k$. Take $e_i = 2f_i$ for some integer $f_i$. Then,
 					\begin{align*}
-						n &= p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}\\
-						&= p_1^{2f_1}p_2^{2f_2}\dots p_k^{2f_k}\\
-						&= \left(p_1^{f_1}p_2^{f_2}\dots p_k^{f_k}\right)^2,
+						n &= p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}\\
+						&= p_1^{2f_1}p_2^{2f_2}\cdots p_k^{2f_k}\\
+						&= \left(p_1^{f_1}p_2^{f_2}\cdots p_k^{f_k}\right)^2,
 					\end{align*}
 				which is a perfect square. The proof for the converse is easy.
 			\end{proof}
@@ -704,7 +704,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\begin{problem}
 				Show that for any integer $n>1$, in the infinite sequence
 					\begin{align*}
-						n, \tau(n), \tau(\tau(n)), \tau(\tau(\tau(n))),\dots
+						n, \tau(n), \tau(\tau(n)), \tau(\tau(\tau(n))),\cdots
 					\end{align*}
 				all the terms after a certain point onwards are equal to $2$. % Prove that this point is arbitrarily given.
 			\end{problem}
@@ -763,25 +763,25 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 	As for the case of $\tau(n)$, one can express $\sigma(n)$ explicitly as well.
 		
 		\begin{theorem}\slshape \label{thm:sigmaformula}
-			Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$. Then,
+			Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Then,
 			\begin{align*}
 			\sigma(n) &= \prod_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}.
 			\end{align*}
 		\end{theorem}
 		
 		\begin{proof}
-			Later in proposition \eqref{prop:multiplicative-sigma}, we will show that $\sigma$ is multiplicative. Just accept it for now. So, it suffices to prove the assertion for the case when $n$ is a power of a prime. Let $n=p^\a$, where $p$ is a prime and $\a$ is a positive integer. In this case, the only divisors of $n$ are $1, p, p^2, \dots, p^\a$. Therefore, their sum, $\sigma(n)$, is
-			\begin{align*}
-			\sigma(p^\a) = 1+p+p^2+\dots+p^\a.
-			\end{align*}
+			Later in proposition \eqref{prop:multiplicative-sigma}, we will show that $\sigma$ is multiplicative. Just accept it for now. So, it suffices to prove the assertion for the case when $n$ is a power of a prime. Let $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. In this case, the only divisors of $n$ are $1, p, p^2, \cdots, p^\alpha$. Therefore, their sum, $\sigma(n)$, is
+				\begin{align*}
+					\sigma(p^\alpha) = 1+p+p^2+\cdots+p^\alpha.
+				\end{align*}
 			Now, by theorem \eqref{id:fatandthin}, we can write the above equation as
+				\begin{align*}
+					\sigma(p^\alpha) = \frac{p^{\alpha+1} - 1}{p-1}.
+				\end{align*}
+			To finish the proof, consider any positive integer $n$ with factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Then,
 			\begin{align*}
-			\sigma(p^\a) = \frac{p^{\a+1} - 1}{p-1}.
-			\end{align*}
-			To finish the proof, consider any positive integer $n$ with factorization $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$. Then,
-			\begin{align*}
-			\sigma(n) &=  \sigma(p_1^{e_1}p_2^{e_2}\dots p_k^{e_k})\\
-			&= \sigma(p_1^{e_1}) \sigma(p_2^{e_2}) \dots \sigma(p_k^{e_k})\\
+			\sigma(n) &=  \sigma(p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k})\\
+			&= \sigma(p_1^{e_1}) \sigma(p_2^{e_2}) \cdots \sigma(p_k^{e_k})\\
 			&= \prod_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}.
 			\end{align*}
 		\end{proof}
@@ -853,7 +853,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 				&= pq - q - p +1\\
 				&= (p-1)(q-1),
 			\end{align*}
-		which is in agreement with equation \eqref{eq:totientformula}. Take another example when $n=p_1,p_2,\dots,p_k$, where $p_1,p_2,\dots,p_k$ are different primes. Our first guess for $\psi(n)$ would be $n/p_1 +‌n/p_2 + \dots + n/p_k$. However, we are counting the numbers divisible by $p_ip_j$ (for $1\leq i <j \leq k$) twice. So, our next guess for $\psi(n)$ is
+		which is in agreement with equation \eqref{eq:totientformula}. Take another example when $n=p_1,p_2,\cdots,p_k$, where $p_1,p_2,\cdots,p_k$ are different primes. Our first guess for $\psi(n)$ would be $n/p_1 +‌n/p_2 + \cdots + n/p_k$. However, we are counting the numbers divisible by $p_ip_j$ (for $1\leq i <j \leq k$) twice. So, our next guess for $\psi(n)$ is
 			\begin{align*}
 				\psi(n) &= \sum_{1 \leq i \leq k} \frac{n}{p_i} - \sum_{\substack{1 \leq i < j\leq k }} \frac{n}{p_ip_j}.
 			\end{align*}
@@ -861,14 +861,14 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\begin{align*}
 				\sum\limits_{\substack{1\leq i<j<t\leq k}} \frac{n}{p_ip_jp_t}
 			\end{align*}
-		to include all products\footnote{Notice the indexes under the summation notation} such as $p_1p_2p_3$. This process of adding and subtracting sums is called the \textit{inclusion--exclusion principle}. We will continue the process until we count every number less than or equal to $n$ which is not co-prime to $n$ exactly once. Then, the totient function may be calculated from $\varphi(n) = n - \psi(n)$. The reader is encouraged to calculate $\varphi(n) = (p_1-1)(p_2-1) \dots (p_k-1)$ using the given approach and check that it is compatible with the formula \eqref{eq:totientformula}. The very same approach may be applied to the general case $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ to finally prove formula \eqref{eq:totientformula}. We strongly recommend the reader try this method for several examples (e.g., $n=p^2q$ or $n = p^3 q^4r^5$) and then prove the whole thing.
+		to include all products\footnote{Notice the indexes under the summation notation} such as $p_1p_2p_3$. This process of adding and subtracting sums is called the \textit{inclusion--exclusion principle}. We will continue the process until we count every number less than or equal to $n$ which is not co-prime to $n$ exactly once. Then, the totient function may be calculated from $\varphi(n) = n - \psi(n)$. The reader is encouraged to calculate $\varphi(n) = (p_1-1)(p_2-1) \cdots (p_k-1)$ using the given approach and check that it is compatible with the formula \eqref{eq:totientformula}. The very same approach may be applied to the general case $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ to finally prove formula \eqref{eq:totientformula}. We strongly recommend the reader try this method for several examples (e.g., $n=p^2q$ or $n = p^3 q^4r^5$) and then prove the whole thing.
 		
 		Using the same method, we can prove a stronger result.
 		
 		\begin{theorem}[Generalization of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]
 			Let $m$ and $n$ be positive integers and let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of $n$. The number of positive integers less than or equal to $m$ which are co-prime to $n$ is $m - \Psi(m)$, where
 			\begin{align*}
-			\Psi(m) &= \sum_{1 \leq i_1 \leq k} \left\lfloor\frac{m}{p_{i_1}} \right\rfloor - \sum_{\substack{1 \leq i_1<i_2 \leq k}} \left\lfloor\frac{m}{p_{i_1}p_{i_2}} \right\rfloor + \dots + (-1)^{k+1} \left\lfloor\frac{m}{p_1p_2\dots p_k} \right\rfloor.
+			\Psi(m) &= \sum_{1 \leq i_1 \leq k} \left\lfloor\frac{m}{p_{i_1}} \right\rfloor - \sum_{\substack{1 \leq i_1<i_2 \leq k}} \left\lfloor\frac{m}{p_{i_1}p_{i_2}} \right\rfloor + \cdots + (-1)^{k+1} \left\lfloor\frac{m}{p_1p_2\cdots p_k} \right\rfloor.
 			\end{align*}
 		\end{theorem}
 		We already stated (but did not prove) some properties of Euler's totient function in proposition \eqref{prop:phiproperties}. Here, we are going to prove them beside a few more.
@@ -893,7 +893,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 		\begin{proof}
 			$ $
 			\begin{enumerate}[(a)]
-				\item Write the numbers $1,2,\dots,mn$ in a table with $m$ rows and $n$ columns as below:
+				\item Write the numbers $1,2,\cdots,mn$ in a table with $m$ rows and $n$ columns as below:
 					\begin{center}
 						\begin{tabular}{ccccc}
 							$1$ & $m+1$ & $2m+1$ & $\ldots$ & $(n-1)m+1$\\
@@ -902,22 +902,22 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 							$m$ & $2m$ & $3m$ & $\ldots$ & $nm$						
 						\end{tabular}
 					\end{center}
-				The numbers in the $r$th row of the table are of the form $km+r$, where $k=0,1,2,\dots,m-1$. Since $(km+r,m)=(r,m)$, one of these two cases happen: either all numbers in a row are co-prime to $m$ or all of them are not co-prime to $m$. As we are looking for numbers co-prime to $mn$, which are obviously those co-prime to both $m$ and $n$, we consider the rows with all numbers co-prime to $m$. There are $\varphi(m)$ such rows. Consider one such row in th table:
+				The numbers in the $r$th row of the table are of the form $km+r$, where $k=0,1,2,\cdots,m-1$. Since $(km+r,m)=(r,m)$, one of these two cases happen: either all numbers in a row are co-prime to $m$ or all of them are not co-prime to $m$. As we are looking for numbers co-prime to $mn$, which are obviously those co-prime to both $m$ and $n$, we consider the rows with all numbers co-prime to $m$. There are $\varphi(m)$ such rows. Consider one such row in th table:
 					\begin{center}
 						\begin{tabular}{ccccc}
 							$r$ & $m+r$ & $2m+r$ & $\ldots$ & $(n-1)m+r$						
 						\end{tabular}
 					\end{center}
-				The set $\{0, 1, 2, \dots, n\}$ is a complete residue system modulo $n$. Since $(m,n)=1$, by proposition \eqref{prop:generalcompletesystem} of chapter \eqref{ch:congruence}, the numbers in the above row of table also form a complete residue system modulo $n$. This means that all the remainders $0,1,2,\dots,n-1$ happen when you take the numbers in this row modulo $n$. Now, how many numbers in this row are relatively prime to $n$? The answer is the same number of integers co-prime to $n$ in the set $\{0, 1, 2, \dots, n\}$, which is $\varphi(n)$ by definition (try to figure out why). Therefore, there are totally $\varphi(m) \cdot \varphi(n)$ numbers in the table which are co-prime to both $m$ and $n$, and hence $mn$. On the other hand, by definition, there are $\varphi(mn)$ numbers co-prime to $mn$. The conclusion follows.
+				The set $\{0, 1, 2, \cdots, n\}$ is a complete residue system modulo $n$. Since $(m,n)=1$, by proposition \eqref{prop:generalcompletesystem} of chapter \eqref{ch:congruence}, the numbers in the above row of table also form a complete residue system modulo $n$. This means that all the remainders $0,1,2,\cdots,n-1$ happen when you take the numbers in this row modulo $n$. Now, how many numbers in this row are relatively prime to $n$? The answer is the same number of integers co-prime to $n$ in the set $\{0, 1, 2, \cdots, n\}$, which is $\varphi(n)$ by definition (try to figure out why). Therefore, there are totally $\varphi(m) \cdot \varphi(n)$ numbers in the table which are co-prime to both $m$ and $n$, and hence $mn$. On the other hand, by definition, there are $\varphi(mn)$ numbers co-prime to $mn$. The conclusion follows.
 
 				\item $\varphi(n)$ is the number of positive integers $k$ such that $k \leq n$ and $k \bot n$. The point is that if $k$ is co-prime to $n$, then so is $n-k$. Therefore, for $n\geq 3$, one can match all numbers co-prime to $n$ in pairs of $(k, n-k)$, which means that $\varphi(n)$ must be even.
 				
 				\item Take $\varphi(5)>\varphi(6)$, $\varphi(n)=\varphi(2n)$ for all odd $n\geq 1$, and $\varphi(n) \equiv 1 \pmod 2$ as counterexamples.
 				
-				\item We have already provided the sketch of a proof in the beginning of this section. Here is another proof using multiplicativity of $\varphi$. Since $\varphi(n)$ is multiplicative, it suffices to prove the result when $n$ is a power of a prime. Let $p$ be a prime and $\a \geq 1$ be an integer. The only numbers which are \textit{not} co-prime to $p^\a$ between $1,2,\dots,p^\a$ are multiples of $p$. How many multiples of $p$ are there among these numbers? The answer is $p^\a/p=p^{\a-1}$ (why?). Therefore,
+				\item We have already provided the sketch of a proof in the beginning of this section. Here is another proof using multiplicativity of $\varphi$. Since $\varphi(n)$ is multiplicative, it suffices to prove the result when $n$ is a power of a prime. Let $p$ be a prime and $\alpha \geq 1$ be an integer. The only numbers which are \textit{not} co-prime to $p^\alpha$ between $1,2,\cdots,p^\alpha$ are multiples of $p$. How many multiples of $p$ are there among these numbers? The answer is $p^\alpha/p=p^{\alpha-1}$ (why?). Therefore,
 					\begin{align*}
-						\varphi(p^\a) &= p^\a - p^{\a -1}\\
-						&= p^{\a -1} (p-1).
+						\varphi(p^\alpha) &= p^\alpha - p^{\alpha -1}\\
+						&= p^{\alpha -1} (p-1).
 					\end{align*}
 				Now, if we factorize $n$ as $p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, we can write
 					\begin{eqnarray*}
@@ -983,13 +983,13 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 		\begin{definition}
 			Let $n$ and $k$ be positive integers. The number of sequences
 				\begin{align*}
-					a_1, a_2, \dots, a_k
+					a_1, a_2, \cdots, a_k
 				\end{align*}
-			of positive integers less than or equal to $n$ such that $(a_1,a_2,\dots,a_k,n)=1$ is called the \textit{$k^{th}$ Jordan's totient function} and is denoted by $J_k(n)$.
+			of positive integers less than or equal to $n$ such that $(a_1,a_2,\cdots,a_k,n)=1$ is called the \textit{$k^{th}$ Jordan's totient function} and is denoted by $J_k(n)$.
 		\end{definition}
 		
 		\begin{note}
-			Here, $(a_1,a_2,\dots,a_k,n)$ is the notation for greatest common divisor of all numbers $a_1,a_2,\dots,a_k$, and $n$.
+			Here, $(a_1,a_2,\cdots,a_k,n)$ is the notation for greatest common divisor of all numbers $a_1,a_2,\cdots,a_k$, and $n$.
 		\end{note}
 		
 		\begin{example}
@@ -1115,7 +1115,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 				\begin{eqnarray*}
 					(f \ast f)(n) & = & \sum_{d|n}f(d)f\left(\frac nd\right)\\
 								  & = & \sum_{d|n} 1\\
-								  & = & \underbrace{1 + 1 + \dots + 1}_{\text{repeated } \tau(n) \text{ times}}\\
+								  & = & \underbrace{1 + 1 + \cdots + 1}_{\text{repeated } \tau(n) \text{ times}}\\
 								  & = & \tau(n),
 				\end{eqnarray*}
 			where $\tau(n)$ is the number of divisors of $n$. More details about this function will be explained in section \eqref{sec:d(n)}.
@@ -1177,7 +1177,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{definition}
 		
 		\begin{example}
-			$\mu(20)=0$ because $2^2|20$. Also, $\mu(105)=(-1)^3=-1$ since $105=3\cdot5 \cdot 7$. The values of $\mu(n)$ for $n=1,2,\dots,100$ can be found in table \eqref{table:mu(n)}.
+			$\mu(20)=0$ because $2^2|20$. Also, $\mu(105)=(-1)^3=-1$ since $105=3\cdot5 \cdot 7$. The values of $\mu(n)$ for $n=1,2,\cdots,100$ can be found in table \eqref{table:mu(n)}.
 			
 			
 			
@@ -1233,7 +1233,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{proposition}
 		
 		\begin{hint}
-			Take $m=p_1^{\a_1}p_2^{\a_2} \dots p_k^{\a_k}$ and $n=p_1^{\b_1}p_2^{\b_2} \dots p_k^{\b_k}$ and consider the factorization of the product $mn$. Use the definition of M\H obius function to finish the proof.
+			Take $m=p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ and $n=p_1^{\beta_1}p_2^{\beta_2} \cdots p_k^{\beta_k}$ and consider the factorization of the product $mn$. Use the definition of M\H obius function to finish the proof.
 		\end{hint}
 
 	You may be wonder why would someone define such a not-very-nice-looking function? What is the motivation behind M\H obius function? In fact, this function is the \textit{inverse} of a specific arithmetic function. Before going further, we must define the Dirichlet inverse of an arithmetic function. 
@@ -1257,23 +1257,23 @@ We will state and prove the properties of Jordan's totient function later in sec
 					   &= f \ast \varepsilon\\
 					   &=f.
 		\end{align*}
-	In other words, you just need to multiply $F$ by $\mu$ to find $f$. So, we just need to find out what our defined function $\mu$ is. A few computations help us find $\mu$, the Dirichlet inverse of $1$. First, $(\mu \ast 1)(1)=\varepsilon(1)=1$, which gives $\mu(1)=1$. Let $p$ be a prime and $\a$ be a positive integer. Then,
+	In other words, you just need to multiply $F$ by $\mu$ to find $f$. So, we just need to find out what our defined function $\mu$ is. A few computations help us find $\mu$, the Dirichlet inverse of $1$. First, $(\mu \ast 1)(1)=\varepsilon(1)=1$, which gives $\mu(1)=1$. Let $p$ be a prime and $\alpha$ be a positive integer. Then,
 		\begin{align*}
-			(\mu \ast 1)(p^\a) &= \varepsilon(p^\a)\\
+			(\mu \ast 1)(p^\alpha) &= \varepsilon(p^\alpha)\\
 							   &= 0.
 		\end{align*}
-	On the other hand, by definition of Dirichlet product and using the fact that the only divisors of $p^\a$ are $1,p,\dots,p^\a$,
+	On the other hand, by definition of Dirichlet product and using the fact that the only divisors of $p^\alpha$ are $1,p,\cdots,p^\alpha$,
 		\begin{align*}
-			(\mu \ast 1)(p^\a) &= \sum_{d|p^\a}\mu(d)\\
-							   &= \mu(1) + \mu(p) + \dots + \mu(p^\a)\\
-							   &= 0.
+			(\mu \ast 1)(p^\alpha) &= \sum_{d|p^\alpha}\mu(d)\\
+							   &= \mu(1) + \mu(p) + \cdots + \mu(p^\alpha)\\
+							   &= 0
 		\end{align*}
-	Since we chose $\a$ arbitrarily, the equation $\mu(1) + \mu(p) + \dots + \mu(p^\a)=0$ must be true for all values of $\a$. For $\a=1$, we find $1 + \mu(p) = 0$, hence $\mu(p)=-1$. Similarly, for $\a \geq 2$, we find that $\mu(p^\a)=0$. Finally,
+	Since we chose $\alpha$ arbitrarily, the equation $\mu(1) + \mu(p) + \cdots + \mu(p^\alpha)=0$ must be true for all values of $\alpha$. For $\alpha=1$, we find $1 + \mu(p) = 0$, hence $\mu(p)=-1$. Similarly, for $\alpha\geq 2$, we find that $\mu(p^\alpha)=0$. Finally,
 		\begin{align*}
-			\mu(p^\a) & = \begin{cases}
-			1&\mbox{ if }\a=0,\\
-			-1&\mbox{ if }\a=1,\\
-			0&\mbox{ if }\a\geq 2.
+			\mu(p^\alpha) & = \begin{cases}
+			1&\mbox{ if }\alpha=0,\\
+			-1&\mbox{ if }\alpha=1,\\
+			0&\mbox{ if }\alpha\geq 2.
 			\end{cases}
 		\end{align*}
 	The general definition of $\mu$, as stated in definition \eqref{def:mobius}, can be inferred from the above result using the fact that $\mu$ is a multiplicative function.
@@ -1325,7 +1325,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			By definition of $F$, we can write
 				\begin{align*}
 					\sum_{k=1}^{n} F(k) &= \sum_{k=1}^{n} \sum_{d|k} f(d)\\
-										&= \sum_{d|1} f(d) + \sum_{d|2} f(d)\\ &\phantom{=} \qquad \qquad +\dots + \sum_{d|n-1} f(d)+\sum_{d|n} f(d).
+										&= \sum_{d|1} f(d) + \sum_{d|2} f(d)\\ &\phantom{=} \qquad \qquad +\cdots + \sum_{d|n-1} f(d)+\sum_{d|n} f(d).
 				\end{align*}
 			In the last formula, $f(1)$ is repeated $n$ times because $1$ divides all integers. Also, $f(2)$ is repeated $\lfloor n/2 \rfloor$ times because there are exactly $\lfloor n/2 \rfloor$ numbers between $1$ and $n$ (inclusive) which are even. Analogously, there are exactly $\lfloor n/k \rfloor$ multiples of $k$ ($1 \leq k \leq n$) in this interval and thus $f(k)$ is repeated $\lfloor n/k \rfloor$ times. The proof is complete.
 		\end{proof}
@@ -1347,7 +1347,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 The most interesting feature of Dirichlet product is that it preserves multiplicativity. That is, if two arithmetic functions are multiplicative, their Dirichlet product is also multiplicative. Before we prove this, we show a simple case. As we saw in previous sections, the summatory function $F$ of an arithmetic function $f$ is defined by $F=f\ast 1$. So, if $f$ is multiplicative, so is $F$. 
 
 		\begin{theorem}\slshape\label{thm:sumfunction}
-			Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2} \dots p_k^{e_k}$. If $f$ is a multiplicative function with summatory function $F(n)=\sum\limits_{d|n}f(d)$, then
+			Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$. If $f$ is a multiplicative function with summatory function $F(n)=\sum\limits_{d|n}f(d)$, then
 				\begin{eqnarray}
 					F(n)
 					& = &
@@ -1360,18 +1360,18 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 		
 		\begin{proof}
 			The proof somewhat follows from unique prime factorization. Assume $T$ is the expansion of the right side of equation \eqref{eq:multiplicative-eq1}.
-			If $d$ is a divisor of $n$, then $d=p_1^{w_1}p_2^{w_2}\dots p_k^{w_k}$, where $0\leq w_i\leq e_i$ for $i=1,2,\dots,k$. Therefore,
+			If $d$ is a divisor of $n$, then $d=p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}$, where $0\leq w_i\leq e_i$ for $i=1,2,\cdots,k$. Therefore,
 				\begin{eqnarray*}
-					f(d)    & = & f\left(p_1^{w_1}p_2^{w_2}\dots p_k^{w_k}\right)\\
-							& = & f\left(p_1^{w_1}\right) f\left(p_2^{w_2}\right)\dots f\left(p_k^{w_k}\right).
+					f(d)    & = & f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)\\
+							& = & f\left(p_1^{w_1}\right) f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right).
 				\end{eqnarray*}
 			which is a term that is present in $T$. Thus, we conclude that each term in the sum $F(n)=\sum\limits_{d|n}f(d)$ appears in $T$. We can easily find that the converse is also true. After expanding the right side of equation \eqref{eq:multiplicative-eq1}, we see that every term in $T$ is of the form 
 				\begin{align*}
-					f\left(p_1^{w_1}\right)	f\left(p_2^{w_2}\right)\dots f\left(p_k^{w_k}\right),
+					f\left(p_1^{w_1}\right)	f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right),
 				\end{align*}
 			where $w_i$ are integers with $0 \leq w_i \leq e_i$ for all $i$. Since $f$ is multiplicative, we can write this as
 				\begin{align*}
-					f\left(p_1^{w_1}p_2^{w_2}\dots p_k^{w_k}\right),
+					f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right),
 				\end{align*}
 			which equals $f(d)$. Therefore, every term in $T$ is also in $F(n)$. Combining these two, $T=F(n)$.
 		\end{proof}
@@ -1379,7 +1379,7 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 
 		
 		\begin{corollary}
-			If $f$ is a non-zero multiplicative arithmetic function and $n=p_1^{e_1}p_2^{e_2} \dots p_k^{e_k}$ is the prime factorization of a positive integer $n$,
+			If $f$ is a non-zero multiplicative arithmetic function and $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of a positive integer $n$,
 				\begin{align*}
 					\sum\limits_{d|n}\mu(d)f(d) = \prod_{i=1}^{k} (1-f(p_i)).
 				\end{align*}
@@ -1473,19 +1473,19 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 				\end{eqnarray*}
 			The last equality holds because $f(1)=\varepsilon(1)=1$ (why?) and $\varepsilon(n)=0$ for all $n \geq 2$. This means that $g$ is the Dirichlet inverse of $f$.
 			
-			For the converse, suppose that $f^{-1}(n) = \mu(n) f(n)$ and we want to prove that $f$ is completely multiplicative. It suffices to prove that $f(p^\a)=f(p)^\a$ for every prime $p$ and any positive integer $\a$ (why?). We will proceed by induction. The base case $\a =1$ is obvious. Suppose that we know $f(p^{\a-1})=f(p)^{\a-1}$ and we want to show that $f(p^\a)=f(p)^\a$. For any $n \geq 2$, $(f\ast f^{-1})(n)=\varepsilon(n)=0$. Therefore,
+			For the converse, suppose that $f^{-1}(n) = \mu(n) f(n)$ and we want to prove that $f$ is completely multiplicative. It suffices to prove that $f(p^\alpha)=f(p)^\alpha$ for every prime $p$ and any positive integer $\alpha$ (why?). We will proceed by induction. The base case $\alpha =1$ is obvious. Suppose that we know $f(p^{\alpha-1})=f(p)^{\alpha-1}$ and we want to show that $f(p^\alpha)=f(p)^\alpha$. For any $n \geq 2$, $(f\ast f^{-1})(n)=\varepsilon(n)=0$. Therefore,
 				\begin{align*}
 					\sum_{d|n} \mu(d) f(d) f\left(\frac{n}{d}\right) &= 0.
 				\end{align*}
-			Put $n=p^\a$ in the above equation to obtain
+			Put $n=p^\alpha$ in the above equation to obtain
 				\begin{eqnarray*}
-					\sum_{d|p^\a} \mu(d) f(d) f\left(\frac{n}{d}\right) 
-						&=& \mu(1)f(1)f(p^\a) + \mu(p)f(p)f(p^{\a -1}) + \dots +\mu(p^\a) f(p^\a)f(1)\\
-						&=& \mu(1)f(1)f(p^\a) + \mu(p)f(p)f(p^{\a -1})\\
-						&=& f(p^\a) - f(p) f(p^{\a -1}) \\
+					\sum_{d|p^\alpha} \mu(d) f(d) f\left(\frac{n}{d}\right) 
+						&=& \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1}) + \cdots +\mu(p^\alpha) f(p^\alpha)f(1)\\
+						&=& \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1})\\
+						&=& f(p^\alpha) - f(p) f(p^{\alpha -1}) \\
 						&=& 0.
 				\end{eqnarray*}
-			That is, $f(p^\a) = f(p) f(p^{\a -1})$. Using induction hypothesis, we immediately get the result.
+			That is, $f(p^\alpha) = f(p) f(p^{\alpha -1})$. Using induction hypothesis, we immediately get the result.
 		\end{proof}
 		
 		
@@ -1496,11 +1496,11 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 We provide two proofs for this theorem. The first one uses the concept of multiplicative functions discussed in previous sections. The second solution has a combinatorial spirit.
 
 	\begin{proof}
-		Since $d$ is multiplicative, it suffices to find $\tau(n)$ only when $n$ is a power of a prime. Let $n=p^\a$ for some prime $p$ and a positive integer $\a$. There exist $\a+1$ divisors $1, p, p^2, \dots, p^\a$ for $n$. Therefore, $d(p^\a)=\a + 1$. To prove the theorem in the general case, take $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$ and write
+		Since $d$ is multiplicative, it suffices to find $\tau(n)$ only when $n$ is a power of a prime. Let $n=p^\alpha$ for some prime $p$ and a positive integer $\alpha$. There exist $\alpha+1$ divisors $1, p, p^2, \cdots, p^\alpha$ for $n$. Therefore, $d(p^\alpha)=\alpha + 1$. To prove the theorem in the general case, take $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and write
 			\begin{eqnarray*}
-				d(n) &=& d(p_1^{e_1}p_2^{e_2}\dots p_k^{e_k})\\
-					 &=& d(p_1^{e_1}) d(p_2^{e_2})\dots d(p_k^{e_k})\\
-					 &=& (e_1+1)(e_2+1)\dots (e_k+1)\\
+				d(n) &=& d(p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k})\\
+					 &=& d(p_1^{e_1}) d(p_2^{e_2})\cdots d(p_k^{e_k})\\
+					 &=& (e_1+1)(e_2+1)\cdots (e_k+1)\\
 					 &=& \prod_{i=1}^{k} (1+e_i).
 			\end{eqnarray*}
 	\end{proof}
@@ -1553,9 +1553,9 @@ Here is a more interesting question:
 			\end{align}
 	\end{question}
 
-One way to answer this question is to break the condition $ab \leq x$ into smaller conditions. Obviously, the equation $ab = y$ does not have any solutions in integers if $y$ is not an integer. So, in order to find the number of solutions to the inequality \eqref{eq:ab<x}, we only need to find the number of solutions to each of $ab = 1, ab= 2, \dots, ab= \lfloor x \rfloor$ and the answer would be the sum of these numbers. According to theorem \eqref{thm:ab=n}, the answer is
+One way to answer this question is to break the condition $ab \leq x$ into smaller conditions. Obviously, the equation $ab = y$ does not have any solutions in integers if $y$ is not an integer. So, in order to find the number of solutions to the inequality \eqref{eq:ab<x}, we only need to find the number of solutions to each of $ab = 1, ab= 2, \cdots, ab= \lfloor x \rfloor$ and the answer would be the sum of these numbers. According to theorem \eqref{thm:ab=n}, the answer is
 	\begin{align*}
-		\tau(1) + \tau(2) + \dots + \tau(\lfloor x \rfloor).
+		\tau(1) + \tau(2) + \cdots + \tau(\lfloor x \rfloor).
 	\end{align*}
 We are seeking a way to determine this sum.
 
@@ -1569,7 +1569,7 @@ From what we have already found,
 	\end{align}
 	
 	\begin{example}
-		Let us find $T(10.2)$. We need to compute $\tau(1), \tau(2), \dots, \tau(10)$.
+		Let us find $T(10.2)$. We need to compute $\tau(1), \tau(2), \cdots, \tau(10)$.
 			\begin{table}
 					\begin{center}
 						\begin{tabular}{|c|c|}
@@ -1597,7 +1597,7 @@ From what we have already found,
 							$10$ & $4$\\
 							\hline
 					\end{tabular}
-					\caption{Value of $\tau(n)$ for $n=1,2,\dots,10$.}\label{table:tau}
+					\caption{Value of $\tau(n)$ for $n=1,2,\cdots,10$.}\label{table:tau}
 				\end{center}
 			\end{table}
 		According to table \eqref{table:tau} and equation \eqref{eq:T(x)-1}, $T(10.2)$ is equal to the sum of numbers in the second column, which is $27$.
@@ -1608,15 +1608,15 @@ As you observe in the above example, it would be a tedious job to calculate $T(x
 	\begin{align*}
 		b \leq \frac{x}{a}.
 	\end{align*}
-Since $b$ is a positive integer, it can take the values $1, 2, \dots, \lfloor \frac{x}{a}\rfloor$. These are $\lfloor \frac{x}{a}\rfloor$ numbers. Since $a$ can take all the values $1, 2, \dots, \lfloor x \rfloor$, we have
+Since $b$ is a positive integer, it can take the values $1, 2, \cdots, \lfloor \frac{x}{a}\rfloor$. These are $\lfloor \frac{x}{a}\rfloor$ numbers. Since $a$ can take all the values $1, 2, \cdots, \lfloor x \rfloor$, we have
 	\begin{align*}
-		T(x) = \left\lfloor \frac{x}{1}\right\rfloor + \left\lfloor \frac{x}{2}\right\rfloor + \dots + \left\lfloor \frac{x}{\lfloor x \rfloor}\right\rfloor.
+		T(x) = \left\lfloor \frac{x}{1}\right\rfloor + \left\lfloor \frac{x}{2}\right\rfloor + \cdots + \left\lfloor \frac{x}{\lfloor x \rfloor}\right\rfloor.
 	\end{align*}
 
 	\begin{example}
 		Let us calculate $T(10.2)$ with the new approach. We have
 			\begin{eqnarray*}
-				T(10.2) &=& \left\lfloor \frac{10.2}{1}\right\rfloor + \left\lfloor \frac{10.2}{2}\right\rfloor + \dots + \left\lfloor \frac{10.2}{10}\right\rfloor\\
+				T(10.2) &=& \left\lfloor \frac{10.2}{1}\right\rfloor + \left\lfloor \frac{10.2}{2}\right\rfloor + \cdots + \left\lfloor \frac{10.2}{10}\right\rfloor\\
 						&=& 10 + 5 + 3 + 2 + 2 + 1 + 1 + 1 + 1 + 1\\
 						&=& 27,
 			\end{eqnarray*}
@@ -1634,7 +1634,7 @@ We will divide the solutions to $ab \leq x$ into two classes. The first class in
 		T(x) = T_1(x) + T_2(x).
 	\end{align*}
 
-For the first class of solutions, let us consider $1 \leq a \leq \sqrt x$ is a fixed integer. The inequality $ab \leq x$, can be written as $b \leq \frac{x}{a}$. Therefore, in order to satisfy $ab \leq x$, $b$ can take only the values $1, 2,\dots,\lfloor \frac{x}{a}\rfloor$, which are $\lfloor \frac{x}{a}\rfloor$ different numbers. Keeping in mind that $a$ can take the values $1, 2, \dots, \lfloor \sqrt x \rfloor$, the number of solutions in the first class is
+For the first class of solutions, let us consider $1 \leq a \leq \sqrt x$ is a fixed integer. The inequality $ab \leq x$, can be written as $b \leq \frac{x}{a}$. Therefore, in order to satisfy $ab \leq x$, $b$ can take only the values $1, 2,\cdots,\lfloor \frac{x}{a}\rfloor$, which are $\lfloor \frac{x}{a}\rfloor$ different numbers. Keeping in mind that $a$ can take the values $1, 2, \cdots, \lfloor \sqrt x \rfloor$, the number of solutions in the first class is
 	\begin{align*}
 		T_1(x) &= \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor.
 	\end{align*}
@@ -1648,9 +1648,9 @@ This can be written as
 	\end{align*}
 Obviously, since the product of $a$ and $b$ is less than or equal to $x$ and $a > \sqrt x$, we must have $b \leq \sqrt x$ (otherwise $ab$ would be larger than $x$). Fix $b$. The only possible values for $a$ are
 	\begin{align*}
-		\lfloor \sqrt x \rfloor +1, \lfloor \sqrt x \rfloor +2, \dots, \left\lfloor \frac{x}{b}\right\rfloor.
+		\lfloor \sqrt x \rfloor +1, \lfloor \sqrt x \rfloor +2, \cdots, \left\lfloor \frac{x}{b}\right\rfloor.
 	\end{align*}
-These are $\lfloor \frac{x}{b}\rfloor - \lfloor \sqrt x \rfloor$ numbers. So, since $b$ can take all values $1, 2, \dots, \lfloor \sqrt x \rfloor$, we have
+These are $\lfloor \frac{x}{b}\rfloor - \lfloor \sqrt x \rfloor$ numbers. So, since $b$ can take all values $1, 2, \cdots, \lfloor \sqrt x \rfloor$, we have
 	\begin{align}
 		T_2(x) &= \sum_{b=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{b}\right\rfloor - \lfloor \sqrt x \rfloor\right). \label{eq:T(x)-3}
 	\end{align}
@@ -1663,7 +1663,7 @@ We can now add up $T_1(x)$ and $T_2(x)$ and write
 		T(x) &=&  T_1(x) + T_2(x)\\
 			 &=& \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor + \left(\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right)\right)\\
 			 &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \lfloor\sqrt x\rfloor\\
-		     &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \left(\underbrace{\lfloor \sqrt x \rfloor + \lfloor \sqrt x \rfloor + \dots +‌\lfloor \sqrt x \rfloor}_{\lfloor \sqrt x \rfloor \text{ times}}\right)\\
+		     &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \left(\underbrace{\lfloor \sqrt x \rfloor + \lfloor \sqrt x \rfloor + \cdots +‌\lfloor \sqrt x \rfloor}_{\lfloor \sqrt x \rfloor \text{ times}}\right)\\
 		     &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2.
 	\end{eqnarray*}
 Finally, we have the formula
@@ -1684,7 +1684,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\begin{theorem}[An Approximation for Average Value of $\tau(n)$]
 		Let $n$ be a positive integer. Prove that
 			\begin{align*}
-				\frac{\tau(1) + \tau(2) + \dots + \tau(n)}{n} = \frac{1}{1} + \frac{1}{2} + \dots + \frac{1}{n} - e,
+				\frac{\tau(1) + \tau(2) + \cdots + \tau(n)}{n} = \frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n} - e,
 			\end{align*}
 		where $e$ is a number between zero and one.
 	\end{theorem}
@@ -1714,9 +1714,9 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{proof}
 
 	\begin{note}
-		This theorem states that the average value of number-of-divisors function (i.e., $[\tau(1) +‌\tau(2) + \dots + \tau(n)]/n$) is approximately equal to sum of reciprocals of positive integers up to $n$. We represent this as
+		This theorem states that the average value of number-of-divisors function (i.e., $[\tau(1) +‌\tau(2) + \cdots + \tau(n)]/n$) is approximately equal to sum of reciprocals of positive integers up to $n$. We represent this as
 			\begin{align*}
-				\frac{\tau(1) + \tau(2) + \dots + \tau(n)}{n} \sim \frac{1}{1} + \frac{1}{2} + \dots + \frac{1}{n}.
+				\frac{\tau(1) + \tau(2) + \cdots + \tau(n)}{n} \sim \frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n}.
 			\end{align*}
 	\end{note}
 
@@ -1791,7 +1791,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 
 	\begin{proof}
-		Suppose that $\sigma(n)=n+k$ holds for some positive integer $n$. Since $k>1$, $n$ must be composite (otherwise $\sigma(n)=n+1$). According to theorem \eqref{prop:sigma(n)>n+sqrt(n)}, $\sigma(n) > n + \sqrt n$. As a result, we find $\sqrt n < k$ or $n < k^2$. Obviously, there are at most $k^2$ values $1,2,\dots,k^2$ possible for $n$. This finishes the proof.
+		Suppose that $\sigma(n)=n+k$ holds for some positive integer $n$. Since $k>1$, $n$ must be composite (otherwise $\sigma(n)=n+1$). According to theorem \eqref{prop:sigma(n)>n+sqrt(n)}, $\sigma(n) > n + \sqrt n$. As a result, we find $\sqrt n < k$ or $n < k^2$. Obviously, there are at most $k^2$ values $1,2,\cdots,k^2$ possible for $n$. This finishes the proof.
 	\end{proof}
 
 	
@@ -1808,20 +1808,20 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 			\begin{align*}
 				\frac{\sigma(n!)}{n!} &= \sum_{d|n!} \frac{1}{d}.
 			\end{align*}
-		Since $1,2,\dots,n$ all divide $n!$, we can write
+		Since $1,2,\cdots,n$ all divide $n!$, we can write
 			\begin{eqnarray*}
 				\frac{\sigma(n!)}{n!} &=& \sum_{d|n!} \frac{1}{d}\\
-									  &>& \frac{1}{1} + \frac{1}{2}+ \dots + \frac{1}{n}.
+									  &>& \frac{1}{1} + \frac{1}{2}+ \cdots + \frac{1}{n}.
 			\end{eqnarray*}
 		It suffices to find an $n$ such that
 			\begin{align*}
-				\frac{1}{1} + \frac{1}{2}+ \dots + \frac{1}{n} > k.
+				\frac{1}{1} + \frac{1}{2}+ \cdots + \frac{1}{n} > k.
 			\end{align*}
 		Take $n=2^{2k}$. Then,
 			\begin{eqnarray*}
-				\frac{1}{1} + \frac{1}{2}+ \dots + \frac{1}{2^{2k}} 
+				\frac{1}{1} + \frac{1}{2}+ \cdots + \frac{1}{2^{2k}} 
 					&>& 1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4}\right) + \left(\frac{1}{8} + \frac{1}{8}+\frac{1}{8} + \frac{1}{8}\right)\\ 
-					&\phantom{>}& \qquad  + \dots + \left(\underbrace{\frac{1}{2^{2k}}+\frac{1}{2^{2k}}+\dots+\frac{1}{2^{2k}}}_{2^{2k-1} \text{ times}}\right)\\
+					&\phantom{>}& \qquad  + \cdots + \left(\underbrace{\frac{1}{2^{2k}}+\frac{1}{2^{2k}}+\cdots+\frac{1}{2^{2k}}}_{2^{2k-1} \text{ times}}\right)\\
 					&>& 1+2k\left(\frac{1}{2}\right)\\
 					&=& 1+k\\
 					&>& k,
@@ -1834,11 +1834,11 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 	
 	\begin{proof}
-		Let $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$ be the factorization of $n$ and suppose that $\sigma(n)$ is odd. We will prove that $n$ is either a perfect square or twice a perfect square. According to theorem \eqref{thm:sigmaformula}, since $\sigma(n)$ is odd, all the terms in the product $\prod\limits_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}$ must be odd. That is,
+		Let $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ be the factorization of $n$ and suppose that $\sigma(n)$ is odd. We will prove that $n$ is either a perfect square or twice a perfect square. According to theorem \eqref{thm:sigmaformula}, since $\sigma(n)$ is odd, all the terms in the product $\prod\limits_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}$ must be odd. That is,
 		\begin{align}
-			1+p_i+p_i^2+\dots+p_i^{e_i} \label{eq:sigma-eq1}
+			1+p_i+p_i^2+\cdots+p_i^{e_i} \label{eq:sigma-eq1}
 		\end{align}
-		must be odd for $i=1,2,\dots,k$. There are two cases: if $p_i\neq 2$ for all $i$, then the number of terms in the expression \eqref{eq:sigma-eq1} must be odd so that their sum is also odd (they are all odd). That is, $e_i$ must be even for $i=1,2,\dots,k$. Hence, $n$ is a perfect square.
+		must be odd for $i=1,2,\cdots,k$. There are two cases: if $p_i\neq 2$ for all $i$, then the number of terms in the expression \eqref{eq:sigma-eq1} must be odd so that their sum is also odd (they are all odd). That is, $e_i$ must be even for $i=1,2,\cdots,k$. Hence, $n$ is a perfect square.
 		
 		The other case is when some $p_i$, say $p_1$ is equal to $2$. The expression \eqref{eq:sigma-eq1} is odd for $p_1=2$. Now, in order for expression \eqref{eq:sigma-eq1} to be odd, all $e_i$ must be even for $2 \leq i \leq k$ (exactly like the previous case). Now, if the power of $2$ that divides $n$ is even, $n$ is of the form $k^2$ and if it is odd, $n$ is of the form $2k^2$.
 		
@@ -1878,7 +1878,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 		First, suppose that $p=2^k-1$ is a prime. We will prove that $n=2^{k-1}(2^k-1)$ is perfect. Notice that $\sigma(p)=p+1=2^k$ and since $\sigma$ is multiplicative,
 		\begin{eqnarray*}
 			\sigma(n) &=& \sigma\left(2^{k-1}(2^k-1)\right) = \sigma(2^{k-1}) \sigma(p)\\
-					  &=& \left(1+2+2^2+\dots+2^{k-1}\right) \left(2^k\right)\\
+					  &=& \left(1+2+2^2+\cdots+2^{k-1}\right) \left(2^k\right)\\
 					  &=& \left(2^k-1\right) 2^k\\
 					  &=& 2n.
 		\end{eqnarray*}
@@ -1907,18 +1907,18 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 
 	\begin{proof}
-		It is obvious that sum of divisors of the product of some Mersenne primes is a power of $2$ (prove it yourself). We will now show that if $\sigma(n)=2^k$ for some natural $k$, then $n$ is a product of Mersenne primes. Let $n = p_1^{\a_1}p_2^{\a_2} \dots p_m^{\a_m}$ be the prime factorization of $n$. Since $\sigma$ is multiplicative,  $\sigma(p_i^{\a_i})$ must be a power of $2$ for $i=1,2,\dots,m$. Therefore, it suffices to prove that if for a prime $p$ and a positive integer $\a$, $\sigma(p^\a) = 2^k$, then $p$ is a Mersenne prime and $\a = 1$. The only divisors of $p^\a$ are $1,p,p^2,\dots,p^\a$, so,
+		It is obvious that sum of divisors of the product of some Mersenne primes is a power of $2$ (prove it yourself). We will now show that if $\sigma(n)=2^k$ for some natural $k$, then $n$ is a product of Mersenne primes. Let $n = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_m}$ be the prime factorization of $n$. Since $\sigma$ is multiplicative,  $\sigma(p_i^{\alpha_i})$ must be a power of $2$ for $i=1,2,\cdots,m$. Therefore, it suffices to prove that if for a prime $p$ and a positive integer $\alpha$, $\sigma(p^\alpha) = 2^k$, then $p$ is a Mersenne prime and $\alpha = 1$. The only divisors of $p^\alpha$ are $1,p,p^2,\cdots,p^\alpha$, so,
 			\begin{align*}
-				2^k &= 1 + p + p^2 + \dots + p^\a.
+				2^k &= 1 + p + p^2 + \cdots + p^\alpha.
 			\end{align*}
-		This means that $\a$ is odd. Take $\a = 2\b + 1$. Then we can factorize the right hand side as
+		This means that $\alpha$ is odd. Take $\alpha= 2\beta+ 1$. Then we can factorize the right hand side as
 			\begin{align}
-				2^k &= (1+p)\Big(1 + p^2 + p^4 + \dots + p^{2\b}\Big) \label{eq:sigma-power-of-2}
+				2^k &= (1+p)\Big(1 + p^2 + p^4 + \cdots + p^{2\beta}\Big) \label{eq:sigma-power-of-2}
 			\end{align}
-		This leads us to the conclusion that $1+p$ is a power of $2$, which means $p$ is a Mersenne prime. Now suppose that $\a > 1$. From equation \eqref{eq:sigma-power-of-2}, we observe that $\b$ must be odd. Take $\b = 2 \gamma + 1$ and write
+		This leads us to the conclusion that $1+p$ is a power of $2$, which means $p$ is a Mersenne prime. Now suppose that $\alpha > 1$. From equation \eqref{eq:sigma-power-of-2}, we observe that $\beta$ must be odd. Take $\beta = 2 \gamma + 1$ and write
 			\begin{eqnarray*}
-				2^t &=& 1 + p^2 + p^4 + \dots + p^{2\b}\\
-					&=& \left(1+p^2\right)\Big(1+p^4 + p^8 + \dots + p^{4 \gamma}\Big),
+				2^t &=& 1 + p^2 + p^4 + \cdots + p^{2\beta}\\
+					&=& \left(1+p^2\right)\Big(1+p^4 + p^8 + \cdots + p^{4 \gamma}\Big),
 			\end{eqnarray*}
 		for some natural $t$. This means that $1+p^2$ is a power of $2$. However, since $p$ is a Mersenne prime, there exists some $s$ for which $p=2^s - 1$. Therefore,
 			\begin{eqnarray*}
@@ -1937,14 +1937,14 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{problem}
 	
 	\begin{solution}
-		Let $f(n)=\mu(n)\sigma(n)/n$. Sine all three functions $\mu, \sigma$, and $\text{id}$ are multiplicative, so is $f$. Theorem \eqref{thm:sumfunction} implies that the summatory function of $f$ is also multiplicative. Therefore, it suffices to prove the given inequality only when $n=p^\a$, where $p$ is a prime and $\a$ is a positive integer. Since $\mu(p^x)$ is zero for $x \geq 2$, $\mu(1)=1$, and $\mu(p)=-1$, 
+		Let $f(n)=\mu(n)\sigma(n)/n$. Sine all three functions $\mu, \sigma$, and $\text{id}$ are multiplicative, so is $f$. Theorem \eqref{thm:sumfunction} implies that the summatory function of $f$ is also multiplicative. Therefore, it suffices to prove the given inequality only when $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. Since $\mu(p^x)$ is zero for $x \geq 2$, $\mu(1)=1$, and $\mu(p)=-1$, 
 			\begin{eqnarray*}
-				\left|\sum_{d|p^\a}\frac{\mu(d)\sigma(d)}{d}\right| 
-						&=& \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p} + \dots + \frac{\mu(p^\a)\sigma(p^a)}{p^a}\right| \\
+				\left|\sum_{d|p^\alpha}\frac{\mu(d)\sigma(d)}{d}\right| 
+						&=& \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p} + \cdots + \frac{\mu(p^\alpha)\sigma(p^a)}{p^a}\right| \\
 						&=& \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p}\right|\\
 						&=& \left|\frac{1}{1} - \frac{p+1}{p}\right|\\
 						&=& \frac{1}{p}\\
-						&\geq& \frac{1}{p^\a}.
+						&\geq& \frac{1}{p^\alpha}.
 			\end{eqnarray*} 
 		The reader is supposed to draw the conclusion and finish the proof.
 	\end{solution}
@@ -1954,28 +1954,28 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 We can generalize the concept of number-of-divisors and sum-of-divisors functions to define \textit{divisor functions}.
 
 	\begin{definition}
-		Let $n$ be a positive integer and $\a \geq 0$ be an integer\footnote{More generally, one can assume that $\a$ is any non-negative real number.}. The sum of $\a^{th}$ powers of positive divisors of $n$ is denoted by $\sigma_\a(n)$. In other words, 
+		Let $n$ be a positive integer and $\alpha \geq 0$ be an integer\footnote{More generally, one can assume that $\alpha$ is any non-negative real number.}. The sum of $\alpha^{th}$ powers of positive divisors of $n$ is denoted by $\sigma_\alpha(n)$. In other words, 
 			\begin{align*}
-				\sigma_\a(n) = \sum_{d|n} d^\a.
+				\sigma_\alpha(n) = \sum_{d|n} d^\alpha
 			\end{align*}
-		The functions $\sigma_\a$ are called \textit{divisor functions}.
+		The functions $\sigma_\alpha$ are called \textit{divisor functions}.
 	\end{definition}
 	
 According to this definition, the number-of-divisors function $\tau$ is equal to $\sigma_0$ and the sum-of-divisors function $\sigma$ is equal to $\sigma_1$.
 	
 	\begin{theorem}[Properties of Divisor Functions]\slshape
-		For every non-negative integer $\a$ and positive integer $n$,
+		For every non-negative integer $\alpha$ and positive integer $n$,
 			\begin{enumerate}
-				\item $\sigma_\a$ is multiplicative (but not completely multiplicative),
-				\item $\sigma_\a = 1 \ast \text{id}^\a$,
-				\item if $\a$ is non-zero and $n=p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$ is the prime factorization of $n$,
+				\item $\sigma_\alpha$ is multiplicative (but not completely multiplicative),
+				\item $\sigma_\alpha = 1 \ast \text{id}^\alpha$,
+				\item if $\alpha$ is non-zero and $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ is the prime factorization of $n$,
 					\begin{eqnarray*}
-						\sigma_\a(n) &=& \prod_{i=1}^{k} \frac{p_i^{\a(e_i+1)}-1}{p-1}\\
-									 &=& \prod_{i=1}^k \left(1 + p_i^\a + p_i^{2\a} + \dots + p_i^{a_i \a}\right). 
+						\sigma_\alpha(n) &=& \prod_{i=1}^{k} \frac{p_i^{\alpha(e_i+1)}-1}{p-1}\\
+									 &=& \prod_{i=1}^k \left(1 + p_i^\alpha + p_i^{2\alpha} + \cdots + p_i^{a_i \alpha}\right). 
 					\end{eqnarray*}
-				\item the Dirichlet inverse of $\sigma_\a$ is obtained by
+				\item the Dirichlet inverse of $\sigma_\alpha$ is obtained by
 					\begin{align*}
-						\sigma_\a^{-1} (n) = \sum_{d|n} d^\a \mu(d) \mu\left(\frac{n}{d}\right).
+						\sigma_\alpha^{-1} (n) = \sum_{d|n} d^\alpha\mu(d) \mu\left(\frac{n}{d}\right).
 					\end{align*}
 			\end{enumerate}
 	\end{theorem}
@@ -1985,19 +1985,19 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 			\begin{enumerate} \setcounter{enumi}{1}
 				\item Notice that
 					\begin{eqnarray*}
-						(1 \ast \text{id}^\a)(n) 
-							&=& ( \text{id}^\a \ast 1)(n) = \sum_{d|n} \text{id}^\a (d) \cdot 1\left(\frac{n}{d}\right)\\
-							&=& \sum_{d|n} d^\a \\
-							&=& \sigma_\a (n).
+						(1 \ast \text{id}^\alpha)(n) 
+							&=& ( \text{id}^\alpha\ast 1)(n) = \sum_{d|n} \text{id}^\alpha (d) \cdot 1\left(\frac{n}{d}\right)\\
+							&=& \sum_{d|n} d^\alpha \\
+							&=& \sigma_\alpha (n).
 					\end{eqnarray*}
 				\setcounter{enumi}{3}
-				\item From theorem \eqref{thm:completelymultiplicative}, sine the function $\text{id}^\a$ is completely multiplicative, its Dirichlet inverse is $\mu \ \text{id}^\a$. Hence, from part $2$ of this theorem,
+				\item From theorem \eqref{thm:completelymultiplicative}, sine the function $\text{id}^\alpha$ is completely multiplicative, its Dirichlet inverse is $\mu \ \text{id}^\alpha$. Hence, from part $2$ of this theorem,
 					\begin{eqnarray*}
-						(\sigma_\a^{-1})(n) 
-									&=& \left(1 \ast \text{id}^\a\right)^{-1}(n)\\
-									&=& \left(1^{-1} \ast  \left(\text{id}^\a\right)^{-1}\right)(n)\\
-								    &=& \left(\mu \ast \mu \ \text{id}^\a\right)(n)\\
-								    &=& \sum_{d|n} d^\a \mu(d) \mu\left(\frac{n}{d}\right).
+						(\sigma_\alpha^{-1})(n) 
+									&=& \left(1 \ast \text{id}^\alpha\right)^{-1}(n)\\
+									&=& \left(1^{-1} \ast  \left(\text{id}^\alpha\right)^{-1}\right)(n)\\
+								    &=& \left(\mu \ast \mu \ \text{id}^\alpha\right)(n)\\
+								    &=& \sum_{d|n} d^\alpha \mu(d) \mu\left(\frac{n}{d}\right).
 					\end{eqnarray*}
 			\end{enumerate}
 	\end{proof}
@@ -2055,15 +2055,15 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 		\end{theorem}
 		
 		\begin{proof}
-			We will only prove $1$ here. The other two parts are similar. Let $f(n)=\mu(n)\varphi(n)$. Since $\mu$ and $\varphi$ are both multiplicative, their product $f$ is also multiplicative. By theorem \eqref{thm:sumfunction}, the summatory function of $f$ is multiplicative as well. Therefore, it suffices to find the sum $F(n)=\sum\limits_{d|n}\mu(d)\varphi(d)$ only when $n$ is a power of a prime. Let $n=p^\a$. Then, since $\mu(p^\b)=0$ for integer $\b > 1$,
+			We will only prove $1$ here. The other two parts are similar. Let $f(n)=\mu(n)\varphi(n)$. Since $\mu$ and $\varphi$ are both multiplicative, their product $f$ is also multiplicative. By theorem \eqref{thm:sumfunction}, the summatory function of $f$ is multiplicative as well. Therefore, it suffices to find the sum $F(n)=\sum\limits_{d|n}\mu(d)\varphi(d)$ only when $n$ is a power of a prime. Let $n=p^\alpha$. Then, since $\mu(p^\beta)=0$ for integer $\beta > 1$,
 				\begin{eqnarray*}
-				\sum\limits_{d|p^\a}\mu(d)\varphi(d) 
-					&=& \mu(1)\varphi(1) + \mu(p) \varphi(p) + \dots + \mu(p^\a) \varphi(p^\a)\\
+				\sum\limits_{d|p^\alpha}\mu(d)\varphi(d) 
+					&=& \mu(1)\varphi(1) + \mu(p) \varphi(p) + \cdots + \mu(p^\alpha) \varphi(p^\alpha)\\
 					&=& \mu(1)\varphi(1) + \mu(p) \varphi(p) \\
 					&=& 1 - (p-1)\\
 					&=& 2 - p.
 				\end{eqnarray*}
-			Suppose that $n=p_1^{e_1}p_2^{e_2} \dots p_k^{e_k}$ is the prime factorization of $n$. Then, again by theorem \eqref{thm:sumfunction},
+			Suppose that $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of $n$. Then, again by theorem \eqref{thm:sumfunction},
 			\begin{align*}
 			\sum\limits_{d|n}\mu(d)\varphi(d) &= \prod_{i=1}^{k}\sum\limits_{j=0}^{e_i}\mu(d)\varphi(d)\\
 			&= \prod_{i=1}^{k} (2-p_i).
@@ -2102,19 +2102,19 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 							   &\geq& p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \cdot p_1^{1/2} p_2^{1/2} \cdots p_k^{1/2}\\
 							   &\geq& p_1^{\alpha_1-1/2} p_2^{\alpha_2-1/2} \cdots p_k^{\alpha_k-1/2}.
 				\end{eqnarray*}
-			Now, since $\a_i$ is a positive integer for all $i$, the inequality $\a_i - 1/2 \geq \a_i/2$ holds true. Hence,
+			Now, since $\alpha_i$ is a positive integer for all $i$, the inequality $\alpha_i - 1/2 \geq \alpha_i/2$ holds true. Hence,
 				\begin{eqnarray*}
 					\varphi(n)  &\geq& p_1^{\alpha_1-1/2} p_2^{\alpha_2-1/2} \cdots p_k^{\alpha_k-1/2}\\
 								&\geq& p_1^{\alpha_1/2} p_2^{\alpha_2/2} \cdots p_k^{\alpha_k/2}\\
 								&=& \sqrt n.
 				\end{eqnarray*}
-			For even $n$, let $n=2^\a t$ for some positive integer $\a$ and odd $t$. Then, $\varphi(n)=\varphi(2^\a)\varphi(t)$. Since $t$ is odd, we already know that $\varphi(t) \geq \sqrt t$. Thus,
+			For even $n$, let $n=2^\alpha t$ for some positive integer $\alpha$ and odd $t$. Then, $\varphi(n)=\varphi(2^\alpha)\varphi(t)$. Since $t$ is odd, we already know that $\varphi(t) \geq \sqrt t$. Thus,
 				\begin{eqnarray*}
-					\varphi(n) &=& \varphi(2^\a)\varphi(t)\\
-							   &=& 2^{\a -1} \varphi(t)\\
-							   &\geq& 2^{\a -1} \sqrt t\\
-							   &\geq& 2^{\a/2 -1} \sqrt t\\
-							   &=& \frac{1}{2}2^{\a/2} \sqrt t\\
+					\varphi(n) &=& \varphi(2^\alpha)\varphi(t)\\
+							   &=& 2^{\alpha -1} \varphi(t)\\
+							   &\geq& 2^{\alpha -1} \sqrt t\\
+							   &\geq& 2^{\alpha/2 -1} \sqrt t\\
+							   &=& \frac{1}{2}2^{\alpha/2} \sqrt t\\
 							   &=& \frac{1}{2} \sqrt n.
 				\end{eqnarray*}
 			Consequently, $\varphi(n) \geq \frac{\sqrt n}{2}$ for all positive integers $n$. To finish the proof, select $n_0=4k^2$ so that for any $n>n_0$,
@@ -2220,11 +2220,11 @@ $ $
 		\begin{proof}
 			$ $
 			\begin{enumerate}
-				\item Let $p_1,p_2,\dots,p_m$ be the prime factors of $n$. Consider all $k-$tuples $(x_1,x_2,\dots,x_k)$ of positive integers so that $x_i\leq n$ for $i=1,2,\dots,n$. The number of such $k-$tuples is $n^k$ (why?). In order to find $J_k(n)$, we must find out how many of these $n^k$ $k-$tuples have the property that $(x_1,x_2,\dots,x_k,n)=1$. In other words, we need to omit the $k-$tuples in which all $x_i$ ($1 \leq i \leq k$) are divisible by at least one of $p_j$ ($1 \leq j \leq m$). There are exactly $(n/p_1)^k$ $k-$tuples in which all $x_i$ are divisible by $p_1$. So, the number of $k-$tuples in which not all $x_i$ are divisible by $p_1$ is
+				\item Let $p_1,p_2,\cdots,p_m$ be the prime factors of $n$. Consider all $k-$tuples $(x_1,x_2,\cdots,x_k)$ of positive integers so that $x_i\leq n$ for $i=1,2,\cdots,n$. The number of such $k-$tuples is $n^k$ (why?). In order to find $J_k(n)$, we must find out how many of these $n^k$ $k-$tuples have the property that $(x_1,x_2,\cdots,x_k,n)=1$. In other words, we need to omit the $k-$tuples in which all $x_i$ ($1 \leq i \leq k$) are divisible by at least one of $p_j$ ($1 \leq j \leq m$). There are exactly $(n/p_1)^k$ $k-$tuples in which all $x_i$ are divisible by $p_1$. So, the number of $k-$tuples in which not all $x_i$ are divisible by $p_1$ is
 					\begin{align*}
 						n_1 &= n^k \left(1 - \frac{1}{p_1^k}\right).
 					\end{align*}
-				Among these $n_1$ $k-$tuples, there are $n_2 = n_1\left(1 - \frac{1}{p_2^k}\right)$ ones in which not all $x_i$ are divisible by $p_2$. Continuing this way, assuming $n_j$ ($1 \leq j \leq m$) to be the number of $k-$tuples $(x_1,x_2,\dots,x_k)$ in which not all $x_i$ ($1 \leq i \leq k$) are divisible by $p_1, p_2, \dots, $ or $p_j$,
+				Among these $n_1$ $k-$tuples, there are $n_2 = n_1\left(1 - \frac{1}{p_2^k}\right)$ ones in which not all $x_i$ are divisible by $p_2$. Continuing this way, assuming $n_j$ ($1 \leq j \leq m$) to be the number of $k-$tuples $(x_1,x_2,\cdots,x_k)$ in which not all $x_i$ ($1 \leq i \leq k$) are divisible by $p_1, p_2, \cdots, $ or $p_j$,
 					\begin{align*}
 						n_3 &= n_2 \left(1 - \frac{1}{p_3^k}\right),\\
 						n_4 &= n_3 \left(1 - \frac{1}{p_4^k}\right),\\
@@ -2233,13 +2233,13 @@ $ $
 					\end{align*}
 				It is now obvious that $J_k(n)=n_m$, thus
 					\begin{align*}
-						J_k(n) &= n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\dots \left(1 - \frac{1}{p_m^k}\right)\\
+						J_k(n) &= n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\cdots \left(1 - \frac{1}{p_m^k}\right)\\
 							   &= n^k \prod\limits_{p|n} \left(1 - \frac{1}{p^k}\right).
 					\end{align*}
 				
 				\item Let $m$ and $n$ be co-prime positive integers. We will show that $J_k(mn)=J_k(m)J_k(n)$. Suppose that
 					\begin{align*}
-						m = p_1^{\a_1}p_2^{\a_2} \dots p_t^{\a_t} \quad \text{and} \quad n = q_1^{\b_1}q_2^{\b_2} \dots q_s^{\b_s}
+						m = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_t^{\alpha_t} \quad \text{and} \quad n = q_1^{\beta_1}q_2^{\beta_2} \cdots q_s^{\beta_s}
 					\end{align*}
 				are the prime factorizations of  $m$ and $n$, respectively. Then, according to part $1$ of this theorem,
 					\begin{eqnarray*}
@@ -2250,22 +2250,22 @@ $ $
 					
 				\item Since Jordan's totient function is multiplicative, it suffices to prove that
 					\begin{align*}
-						\sum\limits_{d|p^\a} J_k(d) = (p^{\a})^k,
+						\sum\limits_{d|p^\alpha} J_k(d) = (p^{\alpha})^k,
 					\end{align*}
-				where $p$ is a prime and $\a$ is a positive integer. According to part $2$ of this theorem, for any positive integer $i$,
+				where $p$ is a prime and $\alpha$ is a positive integer. According to part $2$ of this theorem, for any positive integer $i$,
 					\begin{align*}
 						J_k(p^i) = p^{ki} - p^{k (i -1)}.
 					\end{align*}
 				Therefore,
 					\begin{eqnarray*}
-						\sum_{d|p^\a} J_k(d) &=& J_k(1) + J_k(p) + \dots + J_k(p^\a)\\
-											 &=& 1 + \sum_{i = 1}^{\a} \left(p^{ki} - p^{k (i -1)}\right).
+						\sum_{d|p^\alpha} J_k(d) &=& J_k(1) + J_k(p) + \cdots + J_k(p^\alpha)\\
+											 &=& 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right).
 					\end{eqnarray*}
 				Now, from identity \eqref{id:sumofdif} in appendix \eqref{ch:null},
 					\begin{eqnarray*}
-						\sum_{d|p^\a} J_k(d) &=& 1 + \sum_{i = 1}^{\a} \left(p^{ki} - p^{k (i -1)}\right)\\
-											 &=& 1 + \left(p^{k \a}-1\right)\\
-											 &=& (p^{\a})^k.
+						\sum_{d|p^\alpha} J_k(d) &=& 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)\\
+											 &=& 1 + \left(p^{k \alpha}-1\right)\\
+											 &=& (p^{\alpha})^k.
 					\end{eqnarray*}
 				
 				\item The equation $\displaystyle \sum_{d|n} J_k(d) = n^k$ can be represented as $1 \ast J_k = \text{id}^k$. Then, since the inverse of function $1$ is $\mu$ (theorem \eqref{thm:mobiusinverse}),
@@ -2275,10 +2275,10 @@ $ $
 							&=& \mu \ast \text{id}^k.
 					\end{eqnarray*}
 				
-				\item Let $n = p_1^{\a_1}p_2^{\a_2} \dots p_m^{\a_m}$ be the prime factorization of $n$. One can write the formula in part $1$ of this theorem as
+				\item Let $n = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_m}$ be the prime factorization of $n$. One can write the formula in part $1$ of this theorem as
 					\begin{eqnarray*}
-						J_k(n) &=& n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\dots \left(1 - \frac{1}{p_m^k}\right)\\
-							   &=& \left(p_1^{\a_1- 1}p_2^{\a_2 -1 } \dots p_m^{\a_m -1 }\right)^k \left(p_1^k -1 \right) \left(p_2^k -1 \right) \dots \left(p_m^k -1 \right).
+						J_k(n) &=& n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\cdots \left(1 - \frac{1}{p_m^k}\right)\\
+							   &=& \left(p_1^{\alpha_1- 1}p_2^{\alpha_2 -1 } \cdots p_m^{\alpha_m -1 }\right)^k \left(p_1^k -1 \right) \left(p_2^k -1 \right) \cdots \left(p_m^k -1 \right).
 					\end{eqnarray*}
 				The proof is obvious now.
 			\end{enumerate}
@@ -2323,31 +2323,31 @@ $ $
 			Since $s=(d,k)$, there exist positive integers $k_1$ and $d_1$ such that $k = k_1s$ and $d = d_1s$. So, the numbers $r+id$ (for $1 \leq  i \leq k$) will become $r+id_1s$ (for $1 \leq i \leq k_1s$). Classify these numbers in the following manner:
 				\begin{align*}
 					 \begin{matrix}
-						 r+d_1s&r+2d_1s&\dots&r+k_1d_1s\\
-						 r+(k_1+1)d_1s&r+(k_1+2)d_1s&\dots&r+2k_1d_1s\\
+						 r+d_1s&r+2d_1s&\cdots&r+k_1d_1s\\
+						 r+(k_1+1)d_1s&r+(k_1+2)d_1s&\cdots&r+2k_1d_1s\\
 						 \vdots&\vdots&\vdots&\vdots\\
-						 r+[(s-1)k_1+1]d_1s&r+[(s-1)k_1+2]d_1s&\dots&r+sk_1d_1s
+						 r+[(s-1)k_1+1]d_1s&r+[(s-1)k_1+2]d_1s&\cdots&r+sk_1d_1s
 					 \end{matrix}
 				\end{align*}
-			We want to prove that the number of integers among these numbers which are co-prime to $k$ is $s \dfrac{\t(k)}{\t(s)}$. Let us prove the case when $s=1$ first. In this case, $k \perp d$, $k=k_1$, and $d=d_1$. Therefore, the numbers in the first row are $r+d, r+2d, \dots, r+kd$, which are all different modulo $k$ (why?). This means that they form a complete residue system modulo $k$. Obviously, there are 
+			We want to prove that the number of integers among these numbers which are co-prime to $k$ is $s \dfrac{\t(k)}{\t(s)}$. Let us prove the case when $s=1$ first. In this case, $k \perp d$, $k=k_1$, and $d=d_1$. Therefore, the numbers in the first row are $r+d, r+2d, \cdots, r+kd$, which are all different modulo $k$ (why?). This means that they form a complete residue system modulo $k$. Obviously, there are 
 				\begin{align*}
 					\varphi(k) = \frac{\varphi(k)}{\varphi(s)}
 				\end{align*}
 			numbers co-prime to $k$ among these integers. So, the theorem is proved for the case $s=1$.
 			Now assume that $s>1$. There are $s$ rows of numbers. So, if we prove that there are $\dfrac{\t(k)}{\t(s)}$ numbers co-prime to $k$ in each row, we are done. Similar to the above, for any $i$, we have $(r+id_1s, k)=1$ if and only if $(r+id_1s, k_1)=1$. Moreover, the numbers in each column are congruent modulo $k_1$. We know that if $a \equiv b \pmod{k_1}$, then $(a, k_1) = (b, k_1)$. This means that the number of integers co-prime to $k_1$ (and thus $k$) in all the rows are equal. 
 			
-			So, it suffices to prove that there are exactly $\dfrac{\t(k)}{\t(s)}$ numbers co-prime to $k_1$ in the first row of numbers, namely, $r+is$ for $i=d_1,2d_1,\dots,k_1d_1$. If you look closely, this is exactly the same thing as the original theorem when we replace $n$ by $k$, $k$ by $k_1$, and $d$ by $s$ (the only difference is that here, the possible values for $i$ are $k_1$ numbers $d_1,2d_1,\dots,k_1d_1$, while possible values for $i$ in the original theorem are $1,2,\dots,k$). 
+			So, it suffices to prove that there are exactly $\dfrac{\t(k)}{\t(s)}$ numbers co-prime to $k_1$ in the first row of numbers, namely, $r+is$ for $i=d_1,2d_1,\cdots,k_1d_1$. If you look closely, this is exactly the same thing as the original theorem when we replace $n$ by $k$, $k$ by $k_1$, and $d$ by $s$ (the only difference is that here, the possible values for $i$ are $k_1$ numbers $d_1,2d_1,\cdots,k_1d_1$, while possible values for $i$ in the original theorem are $1,2,\cdots,k$). 
 			
-			In the new version of the theorem, which we want to prove, there are $k_1$ numbers of the form $r+is$, while this number is $k=k_1s$ in the original theorem. Since $s>1$, we have $k_1<k$. Take $s_1 = (s,k_1)$ and let $k_2$ and $d_2$ be integers such that $k_1 = k_2s_1$ and $s=d_2s_1$. With the same method as above, classify the numbers $r+d_1s, r+2d_1s, \dots, r+k_1d_1s$ as:
+			In the new version of the theorem, which we want to prove, there are $k_1$ numbers of the form $r+is$, while this number is $k=k_1s$ in the original theorem. Since $s>1$, we have $k_1<k$. Take $s_1 = (s,k_1)$ and let $k_2$ and $d_2$ be integers such that $k_1 = k_2s_1$ and $s=d_2s_1$. With the same method as above, classify the numbers $r+d_1s, r+2d_1s, \cdots, r+k_1d_1s$ as:
 				\begin{align*}
 					\begin{matrix}
-						r+d_1d_2s_1&r+2d_1d_2s_1&\dots&r+k_2d_1d_2s_1\\
-						r+(k_2+1)d_1d_2s_1&r+(k_2+2)d_1d_2s_1&\dots&r+2k_2d_1d_2s_1\\
+						r+d_1d_2s_1&r+2d_1d_2s_1&\cdots&r+k_2d_1d_2s_1\\
+						r+(k_2+1)d_1d_2s_1&r+(k_2+2)d_1d_2s_1&\cdots&r+2k_2d_1d_2s_1\\
 						\vdots&\vdots&\vdots&\vdots\\
-						r+[(s-1)k_2+1]d_1d_2s_1&r+[(s-1)k_2+2]d_1d_2s_1&\dots&r+s_1k_2d_1d_2s_1
+						r+[(s-1)k_2+1]d_1d_2s_1&r+[(s-1)k_2+2]d_1d_2s_1&\cdots&r+s_1k_2d_1d_2s_1
 					\end{matrix}
 				\end{align*}
-			With the exact same reasoning as above, we can reduce the problem to showing that there are $\dfrac{\varphi(k_2)}{\varphi(s_1)}$ integers co-prime to $k_2$ in the first row of above numbers. If $s_1=1$, we are done. Otherwise, we have $k_2<k_1$ and we can take $s_2=(s_1,k_2)$, $k_2=k_3s_2$, and $s_1=d_3s_2$. If we continue this process, we will finally reach a point where the $\gcd$ becomes one. That is, the sequence $s, s_1, s_2, \dots$ will eventually reach $1$. The reason is that the sequence $k, k_1, k_2, \dots$ is strictly decreasing and contains only positive integers. This means that for some $m$, we will have $k_m=1$ and then the sequence stops. In that point, $k_{m-1} = k_m$, which in turn means $s_{m-1}$, the $\gcd$ of $k_{m}$ and $s_{m-1}$, equals one. We have already showed that when this $\gcd$ is one, the theorem is true. The proof is complete.
+			With the exact same reasoning as above, we can reduce the problem to showing that there are $\dfrac{\varphi(k_2)}{\varphi(s_1)}$ integers co-prime to $k_2$ in the first row of above numbers. If $s_1=1$, we are done. Otherwise, we have $k_2<k_1$ and we can take $s_2=(s_1,k_2)$, $k_2=k_3s_2$, and $s_1=d_3s_2$. If we continue this process, we will finally reach a point where the $\gcd$ becomes one. That is, the sequence $s, s_1, s_2, \cdots$ will eventually reach $1$. The reason is that the sequence $k, k_1, k_2, \cdots$ is strictly decreasing and contains only positive integers. This means that for some $m$, we will have $k_m=1$ and then the sequence stops. In that point, $k_{m-1} = k_m$, which in turn means $s_{m-1}$, the $\gcd$ of $k_{m}$ and $s_{m-1}$, equals one. We have already showed that when this $\gcd$ is one, the theorem is true. The proof is complete.
 		\end{proof}
 		
 		\begin{theorem}[Menon's Identity]\slshape
@@ -2398,10 +2398,10 @@ $ $
 	\end{definition}
 	
 		\begin{proposition}\slshape
-			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of a positive integer $n$. Then, $\omega(n)=k$ and $\Omega(n)=\a_1 + \a_2 + \dots + \a_k$. In other words, 
+			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of a positive integer $n$. Then, $\omega(n)=k$ and $\Omega(n)=\alpha_1 + \alpha_2 + \cdots + \alpha_k$. In other words, 
 				\begin{eqnarray*}
 					\omega(n) & = & \sum_{i=1}^{k} 1, \text{ and}\\
-					\Omega(n) & = & \sum_{i=1}^{k} \a_i.
+					\Omega(n) & = & \sum_{i=1}^{k} \alpha_i.
 				\end{eqnarray*}
 		\end{proposition}
 		
@@ -2418,9 +2418,9 @@ $ $
 		\begin{proof}
 			If $n$ is square-free, then it is obvious that $\omega(n)=\Omega(n)$. Now, suppose that $\omega(n)=\Omega(n)$ holds for some positive integer $n$ with prime factorization $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$. In this case,
 				\begin{align*}
-					\a_1 + \a_2 + \dots + \a_k = k.
+					\alpha_1 + \alpha_2 + \cdots + \alpha_k = k.
 				\end{align*}
-			Notice that all $\a_i$ are positive integers ($1 \leq i \leq k$) and the above equation only occurs when all of them are equal to $1$. In other words, $n$ is not divisible by square of any prime and is therefore square-free.
+			Notice that all $\alpha_i$ are positive integers ($1 \leq i \leq k$) and the above equation only occurs when all of them are equal to $1$. In other words, $n$ is not divisible by square of any prime and is therefore square-free.
 		\end{proof}
 		
 		\begin{proposition}\slshape\label{prop:additiveomega}
@@ -2436,13 +2436,13 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			We want to prove that $\l \ast |\mu| = \varepsilon$. From theorem \eqref{thm:mft}, since both $\l$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\l \ast |\mu|)(p^\a)=\varepsilon(p^\a )$, where $p$ is a prime and $\a$ is a positive integer. Notice that $\varepsilon(p^\a ) = 0$, so we have to prove that $(\l \ast |\mu|)(p^\a)=0$. We have
+			We want to prove that $\l \ast |\mu| = \varepsilon$. From theorem \eqref{thm:mft}, since both $\l$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\l \ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\l \ast |\mu|)(p^\alpha)=0$. We have
 				\begin{eqnarray*}
-					(\l \ast |\mu|)(p^\a) 
-						&=& \sum_{d|p^\a} |\mu(d)| \l \left(\frac{p^\a}{d}\right)\\
-						&=& |\mu(1)|\l(p^{\a}) + |\mu(p)|\l(p^{\a -1}) + \dots + |\mu(p^{\a})| \l(1)\\
-						&=& |\mu(1)|\l(p^{\a-1}) + |\mu(p)|\l(p^{\a -2})\\
-						&=& (-1)^{\a} + (-1)^{\a -1}\\
+					(\l \ast |\mu|)(p^\alpha) 
+						&=& \sum_{d|p^\alpha} |\mu(d)| \l \left(\frac{p^\alpha}{d}\right)\\
+						&=& |\mu(1)|\l(p^{\alpha}) + |\mu(p)|\l(p^{\alpha -1}) + \cdots + |\mu(p^{\alpha})| \l(1)\\
+						&=& |\mu(1)|\l(p^{\alpha-1}) + |\mu(p)|\l(p^{\alpha -2})\\
+						&=& (-1)^{\alpha} + (-1)^{\alpha -1}\\
 						&=& 0, 
 				\end{eqnarray*}
 			as desired.
@@ -2452,26 +2452,26 @@ $ $
 		\begin{theorem}\slshape\label{thm:liouville-sum-general}
 			Let $s$ be an arbitrary integer. Then, for all integers $n >1$ with prime factorization $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, 
 				\begin{align*}
-					\sum_{d|n} \l (d) d^s = \prod_{i=1}^{k} \frac{(-1)^{\a_i} p_i^{(\a_i+1)s} + 1}{p_i^s + 1}.
+					\sum_{d|n} \l (d) d^s = \prod_{i=1}^{k} \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1}.
 				\end{align*}
 		\end{theorem}
 		
 		\begin{proof}
-			Since both $\l(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from theorem \eqref{thm:sumfunction} that $\sum\limits_{d|n} \l (d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\a$ for some prime $p$ and positive integer $\a$. Then,
+			Since both $\l(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from theorem \eqref{thm:sumfunction} that $\sum\limits_{d|n} \l (d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\alpha$ for some prime $p$ and positive integer $\alpha$. Then,
 				\begin{eqnarray*}
-					\sum_{d|p^\a} \l (d) d^s &=& \l (1) 1^s + \l (p) p^s + \l (p^2) \left(p^2\right)^s +\l (p^3) \left(p^3\right)^s+ \dots + \l (p^\a) \left(p^\a \right)^s\\
-											 &=& 1^s - p^s + p^{2s} - p^{3s} +\dots + \left(-1\right)^{\a} p^{\a s}.
+					\sum_{d|p^\alpha} \l (d) d^s &=& \l (1) 1^s + \l (p) p^s + \l (p^2) \left(p^2\right)^s +\l (p^3) \left(p^3\right)^s+ \cdots + \l (p^\alpha) \left(p^\alpha \right)^s\\
+											 &=& 1^s - p^s + p^{2s} - p^{3s} +\cdots + \left(-1\right)^{\alpha} p^{\alpha s}.
 				\end{eqnarray*}
 			This is a geometric progression with initial term $1$ and common ratio $-p^s$. Therefore, by theorem \eqref{thm:GP} which gives the formula for geometric series,
 				\begin{eqnarray*}
-					\sum_{d|p^\a} \l (d) d^s &=& \sum_{i=0}^{\a} (-1)^{si}p^{si}\\
-											 &= &\frac{\left(-p^s\right)^{\a + 1} -1}{-p^s -1}\\
-											 &=& \frac{(-1)^\a p^{(\a + 1)s} + 1}{p^s + 1}.
+					\sum_{d|p^\alpha} \l (d) d^s &=& \sum_{i=0}^{\alpha} (-1)^{si}p^{si}\\
+											 &= &\frac{\left(-p^s\right)^{\alpha + 1} -1}{-p^s -1}\\
+											 &=& \frac{(-1)^\alpha p^{(\alpha + 1)s} + 1}{p^s + 1}.
 				\end{eqnarray*}
 			Applying this result to $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, using multiplicativity of the functions as discussed,
 				\begin{eqnarray*}
-					\sum_{d|n} \l (d) d^s  &=& \prod_{i=1}^{k}\sum_{d|p_i^{\a_i}} \l (d) d^s \\
-										   &=& \frac{(-1)^{\a_i} p_i^{(\a_i+1)s} + 1}{p_i^s + 1},
+					\sum_{d|n} \l (d) d^s  &=& \prod_{i=1}^{k}\sum_{d|p_i^{\alpha_i}} \l (d) d^s \\
+										   &=& \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1},
 				\end{eqnarray*}
 			as desired.
 		\end{proof}
@@ -2496,9 +2496,9 @@ $ $
 		\begin{proof}
 			Take $s=0$ in theorem \eqref{thm:liouville-sum-general}. Then, assuming $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ as the prime factorization of $n$,
 				\begin{align*}
-					\sum_{d|n}\l (d) &= \prod_{i=1}^{k}\frac{1 + (-1)^{\a_i}}{2}.
+					\sum_{d|n}\l (d) &= \prod_{i=1}^{k}\frac{1 + (-1)^{\alpha_i}}{2}.
 				\end{align*}
-			If $n$ is a perfect square, that is, if all the $\a_i$ (for $1 \leq i \leq k$) are even, the above product equals one. Otherwise, at least one of $\a_i$ is odd and the thus $1 + (-1)^{\a_i}=0$, making the product equal zero.
+			If $n$ is a perfect square, that is, if all the $\alpha_i$ (for $1 \leq i \leq k$) are even, the above product equals one. Otherwise, at least one of $\alpha_i$ is odd and the thus $1 + (-1)^{\alpha_i}=0$, making the product equal zero.
 		\end{proof}
 		
 		\begin{remark}
@@ -2638,9 +2638,9 @@ $ $
 	\end{problem}
 	
 	\begin{problem}
-		Show for any three positive integers $\a$, $m$, and $n$ that
+		Show for any three positive integers $\alpha$, $m$, and $n$ that
 			\begin{align*}
-				\sigma_{\a} (m)\sigma_{\a} (n) = \sum_{d|(m,n)} d^2 \sigma_{\a} \left(\frac{mn}{d^2}\right).
+				\sigma_{\alpha} (m)\sigma_{\alpha} (n) = \sum_{d|(m,n)} d^2 \sigma_{\alpha} \left(\frac{mn}{d^2}\right).
 			\end{align*}
 	\end{problem}
 	\begin{problem}[From \cite{ch:arithfunc-kahan}]
@@ -2820,7 +2820,7 @@ $ $
 	\end{problem}
 
 	\begin{problem}[Iran Third Round 2009] %https://artofproblemsolving.com/community/c6h416670
-		We call a permutation $\pi$ on the set $A_n=\{1,2,\dots,n\}$ steply constant if the set $\{\pi (k)-k|k=1,2,\dots,n\}$ has exactly two elements. Prove that the number of steply constant permutations of $A_n$ is $\sigma(n)-\tau (n)$.
+		We call a permutation $\pi$ on the set $A_n=\{1,2,\cdots,n\}$ steply constant if the set $\{\pi (k)-k|k=1,2,\cdots,n\}$ has exactly two elements. Prove that the number of steply constant permutations of $A_n$ is $\sigma(n)-\tau (n)$.
 	\end{problem}
 
 	\begin{problem}[Belarus 1999] %https://artofproblemsolving.com/community/c6h577754

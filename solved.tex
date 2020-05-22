@@ -407,24 +407,24 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				2^{(2n,p-1)} &\equiv1\pmod p
 			\end{align*}
-		Using the same argument as before, $n\bot p-1$, so $(2n,p-1)=(2,p-1)=2$ because $p$ is odd. This gives us $2^2\equiv1\pmod p$ or $p=3$. What do we do now? We only have the smallest prime. So, we can assume $n=3^\a k$ where $k$ is not divisible by $3$. Think yourself about the reason to do this. It would be certainly fruitful to find out what values $\a $ can assume. This is where \textbf{Lifting the Exponent} lemma comes to the rescue! \textbf{But first we need to make sure we can actually apply LTE}. In this case, we can because $2+1=3$, divisible by $3$ and $2\bot1$. We have
+		Using the same argument as before, $n\bot p-1$, so $(2n,p-1)=(2,p-1)=2$ because $p$ is odd. This gives us $2^2\equiv1\pmod p$ or $p=3$. What do we do now? We only have the smallest prime. So, we can assume $n=3^\alpha k$ where $k$ is not divisible by $3$. Think yourself about the reason to do this. It would be certainly fruitful to find out what values $\alpha$ can assume. This is where \textbf{Lifting the Exponent} lemma comes to the rescue! \textbf{But first we need to make sure we can actually apply LTE}. In this case, we can because $2+1=3$, divisible by $3$ and $2\bot1$. We have
 			\begin{align*}
-				\nu_3(n^2)  & = \nu_3(3^{2\a }k^2)\\
-							& = \nu_3(3^{2\a })+\nu_3(k^2)\\
-							& = 2\a 
+				\nu_3(n^2)  & = \nu_3(3^{2\alpha }k^2)\\
+							& = \nu_3(3^{2\alpha })+\nu_3(k^2)\\
+							& = 2\alpha 
 			\end{align*}
 		On the other hand, from LTE,
 			\begin{align*}
-				\nu_3(2^{3^\a }+1)  & = \nu_3(2+1)+\nu_3(3^\a )\\
-									& = 1+\a 
+				\nu_3(2^{3^\alpha}+1)  & = \nu_3(2+1)+\nu_3(3^\alpha )\\
+									& = 1+\alpha
 			\end{align*}
 		$n^2|2^n+1$ implies that 
 			\begin{align*}
 				\nu_3(2^n+1) & \geq\nu_3(n^2)\\
-				1+\a & \geq2\a\\
-				1 & \geq\a 
+				1+\alpha & \geq2\alpha\\
+				1 & \geq\alpha
 			\end{align*}
-		Since $\a $ is a positive integer, we have $\a = 1$. So $n=3k$ with $3\nmid k$. The problem is now finding $k$ with
+		Since $\alpha $ is a positive integer, we have $\alpha = 1$. So $n=3k$ with $3\nmid k$. The problem is now finding $k$ with
 			\begin{align*}
 				k^2 & | 8^k+1
 			\end{align*}
@@ -542,16 +542,16 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		When proving divisibilities like this, you should consider theorem \eqref{thm:legendre}. The idea is that if we can show the exponent in the left side of the divisibility is less than or equal to the exponent in the right side for a prime $p$, we are done. It is clear that no side of divisibility will have a prime $p>2n$. So we should consider only primes $p<2n$, since $2n$ is not a prime for $n>1$. Using theorem \eqref{thm:lcm}, if for a prime $p$, $\a =\log_p(2n)$,
+		When proving divisibilities like this, you should consider theorem \eqref{thm:legendre}. The idea is that if we can show the exponent in the left side of the divisibility is less than or equal to the exponent in the right side for a prime $p$, we are done. It is clear that no side of divisibility will have a prime $p>2n$. So we should consider only primes $p<2n$, since $2n$ is not a prime for $n>1$. Using theorem \eqref{thm:lcm}, if for a prime $p$, $\alpha =\log_p(2n)$,
 			\begin{align*}
-				\nu_p([1,2,\ldots,2n]) & = \a
+				\nu_p([1,2,\ldots,2n]) & = \alpha
 			\end{align*}
 		On the other hand, from Legendre's theorem, if $N=\binom{2n}n$,
 			\begin{align*}
 				\nu_p(N) & = \sum_{i=1}^{\infty}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
 						 & = \sum_{i=1}^{\log_{p}(2n)}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
 						 &\leq\sum_{i=1}^{a}1\text { since }\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}\\
-						 & = \a \\
+						 & = \alpha \\
 				\nu_p(N) &\leq\nu_p([1,2,\ldots,2n])
 			\end{align*}
 		This is exactly what we needed to prove.
@@ -693,24 +693,24 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				\nu_p(n!) & = \dfrac{n-(a_k+\ldots+a_0)}{p-1}
 			\end{align*}
-		If $\nu_p(n)=\a $ then the last $\a $ digits of $n$ in base $p$ is $0$.
+		If $\nu_p(n)=\alpha $ then the last $\alpha $ digits of $n$ in base $p$ is $0$.
 			\begin{align*}
-				\nu_p(n!) & = \dfrac{n-(a_k+\ldots+a_{\a })}{p-1}\text { and}\\
-				\nu_p(n^{10}) & = \nu_p(p^{10\a })=10\a
+				\nu_p(n!) & = \dfrac{n-(a_k+\ldots+a_{\alpha })}{p-1}\text { and}\\
+				\nu_p(n^{10}) & = \nu_p(p^{10\alpha })=10\alpha
 			\end{align*}
-		We must have $\nu_p(n!)\geq \nu_p(n^{10})=10\a $.
+		We must have $\nu_p(n!)\geq \nu_p(n^{10})=10\alpha$.
 			\begin{align*}
-				\dfrac{n-(a_k+\ldots+a_\a )}{p-1} & \geq10\a 
+				\dfrac{n-(a_k+\ldots+a_\alpha)}{p-1} & \geq10\alpha 
 			\end{align*}
-		where $\a \leq\log_p(n)$. Remember that, we are looking for the \textbf{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\a $ first. Then In base $p$,
+		where $\alpha\leq\log_p(n)$. Remember that, we are looking for the \textbf{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\alpha$ first. Then In base $p$,
 			\begin{align*}
-				n & = (1\underbrace{0\ldots0}_{\a \text { zeros}})_p
+				n & = (1\underbrace{0\ldots0}_{\alpha\text { zeros}})_p
 			\end{align*}
-		$\nu_p(n!) = \dfrac{p^\a -1}{p-1}$ and so,	
+		$\nu_p(n!) = \dfrac{p^\alpha-1}{p-1}$ and so,	
 			\begin{align*}
-				\dfrac{p^\a -1}{p-1} &\geq10\a
+				\dfrac{p^\alpha-1}{p-1} &\geq10\alpha
 			\end{align*}
-		We need to find such $p,\a $ such that $p^\a $ is minimum. Therefore, $p$ must be $2$. Now we need the smallest $\a$ for which $2^\a-1\geq10\a $. See that $\a = 6$ works. But can we minimize $n$ even further? Since $n!$ must be divisible by $n^{10}$, so we need to look at primes for which we get the exponent at least $10$. If $p^2|n$ for some prime $p$, we need $\nu_p(n!)\geq20$ for some $n<64$. The minimum $n$ for which $n!$ is divisible by $3^{10}$ is $24$. For $n<64$,
+		We need to find such $p,\alpha$ such that $p^\alpha$ is minimum. Therefore, $p$ must be $2$. Now we need the smallest $\alpha$ for which $2^\alpha-1\geq10\alpha $. See that $\alpha = 6$ works. But can we minimize $n$ even further? Since $n!$ must be divisible by $n^{10}$, so we need to look at primes for which we get the exponent at least $10$. If $p^2|n$ for some prime $p$, we need $\nu_p(n!)\geq20$ for some $n<64$. The minimum $n$ for which $n!$ is divisible by $3^{10}$ is $24$. For $n<64$,
 			\begin{align*}
 				\nu_3(n!) & \leq \dfrac{63}{3}+\dfrac{63}{9}+\left\lfloor\dfrac{63}{27}\right\rfloor\\
 						  & = 21+7+2=30
@@ -873,12 +873,12 @@ You never know what's coming next until you think clearly!
 				p^a& |x(x^{p-1}+y)-y(x+y^{p-1})\\
 				p^a& |x^p-y^p
 			\end{align*}
-		Since $x\bot y$ and $p|x-y$, if $p^\a ||x-y$, using LTE,
+		Since $x\bot y$ and $p|x-y$, if $p^\alpha ||x-y$, using LTE,
 			\begin{align*}
 				\nu_p(x^p-y^p)  & = \nu_p(x-y)+\nu_p(p)\\
-								& = \a +1
+								& = \alpha +1
 			\end{align*}
-		We get $\a +1\geq a$, so $p^{a-1}|x-y$. Since $y>x$, assume that $y-x=p^{a-1}k$.
+		We get $\alpha +1\geq a$, so $p^{a-1}|x-y$. Since $y>x$, assume that $y-x=p^{a-1}k$.
 			\begin{align*}
 				x^{p-1}+y & = p^a\\
 				y-x & = p^{a-1}k\\

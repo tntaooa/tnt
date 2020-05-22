@@ -295,9 +295,9 @@ We are back to the first question: for which integers $n$ do we have a primitive
 			\end{align*}
 		That is, every solution to $x^{q^j} \equiv 1 \pmod p$ is also a solution to $x^{q^{k-1}} \equiv 1 \pmod p$. According to the preceding lemma, number of solutions of $x^{q^{k-1}} \equiv 1 \pmod p$ is exactly $q^{k-1}$. So there are exactly $q^k - q^{k-1}$ integers $x$ which satisfy $x^{q^k} \equiv 1 \pmod p$ but not $x^{q^{k-1}} \equiv 1 \pmod p$. If we select $a$ from these solutions, we will have $\ord_p(a)=q^k$.
 		
-		To finish the proof, let $$p-1 = q_1^{\a_1}q_2^{\a_2} \cdots q_t^{\a_t},$$ be the prime factorization of $p-1$. From what we have just proved, there exists some integer $a_i$ for each $q_i$ such that $\ord_p(a_i)=q_i^{\a_i}$. According to Theorem \eqref{thm:prproduct}, since $q_i$ are coprime, 
+		To finish the proof, let $$p-1 = q_1^{\alpha_1}q_2^{\alpha_2} \cdots q_t^{\alpha_t},$$ be the prime factorization of $p-1$. From what we have just proved, there exists some integer $a_i$ for each $q_i$ such that $\ord_p(a_i)=q_i^{\alpha_i}$. According to Theorem \eqref{thm:prproduct}, since $q_i$ are coprime, 
 			\begin{align*}
-				\deg_p\left(\prod_{i=1}^{t}a_i\right)&=\deg_p(a_1) \deg_p(a_2) \cdots \deg_p(a_t)=q_1^{\a_1}q_2^{\a_2} \cdots q_t^{\a_t} = p-1 =\t(p),
+				\deg_p\left(\prod_{i=1}^{t}a_i\right)&=\deg_p(a_1) \deg_p(a_2) \cdots \deg_p(a_t)=q_1^{\alpha_1}q_2^{\alpha_2} \cdots q_t^{\alpha_t} = p-1 =\t(p),
 			\end{align*}
 		and so $\prod_{i=1}^{t}a_i$ is a primitive root modulo $p$.
 	\end{proof}

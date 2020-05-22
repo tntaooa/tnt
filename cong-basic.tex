@@ -106,9 +106,9 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 	\end{proof}
 	
 	\begin{definition}[Arithmetic Progression]\label{def:AP}
-		A sequence $a_1, a_2, a_3, \dots$ of real numbers is called an \textit{arithmetic sequence}, \textit{arithmetic progression}, or \textit{AP} if each new term of the sequence is obtained by adding a constant real number $d$, called the \textit{common difference}, to the preceding term. In other words, the terms of an arithmetic progression are of the form
+		A sequence $a_1, a_2, a_3, \cdots$ of real numbers is called an \textit{arithmetic sequence}, \textit{arithmetic progression}, or \textit{AP} if each new term of the sequence is obtained by adding a constant real number $d$, called the \textit{common difference}, to the preceding term. In other words, the terms of an arithmetic progression are of the form
 			\begin{align*}
-				a, a+d, a+2d, a+3d, \dots
+				a, a+d, a+2d, a+3d, \cdots
 			\end{align*}
 		where $a$ is the \textit{initial term} of the sequence.
 	\end{definition}
@@ -116,9 +116,9 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 	\begin{example}
 		The sequence of odd numbers is an AP. The following sequence
 			\begin{align*}
-				-3, 2, 7, 12, 17, \dots
+				-3, 2, 7, 12, 17, \cdots
 			\end{align*}
-		which includes numbers of the form $5k+2$ for $k=-1,0,1,\dots$, is also an arithmetic sequence with initial term $-3$ and common difference $5$.
+		which includes numbers of the form $5k+2$ for $k=-1,0,1,\cdots$, is also an arithmetic sequence with initial term $-3$ and common difference $5$.
 	\end{example}
 	
 	\begin{corollary}
@@ -142,18 +142,18 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\begin{proof}
 		We have
 			\begin{align*}
-				\sum_{i=1}^{n} a_i &= a_1 + a_2 + \dots + a_n \\
-								   &= a + (a+d) + \dots + \Big(a+ (n-1)d\Big)\\
-								   &= na + d\Big(1+2+\dots+ (n-1)\Big).
+				\sum_{i=1}^{n} a_i &= a_1 + a_2 + \cdots + a_n \\
+								   &= a + (a+d) + \cdots + \Big(a+ (n-1)d\Big)\\
+								   &= na + d\Big(1+2+\cdots+ (n-1)\Big).
 			\end{align*}
-		From Identity \ref{id:sumofpowers} of Appendix \eqref{ch:null}, $1+2+\dots+n = n(n-1)/2$. Therefore,
+		From Identity \ref{id:sumofpowers} of Appendix \eqref{ch:null}, $1+2+\cdots+n = n(n-1)/2$. Therefore,
 			\begin{align*}
 				\sum_{i=1}^{n} a_i = \frac{n}{2} \big(2a_1 + (n-1)d\big).
 			\end{align*}
 	\end{proof}
 	
 	\begin{definition}[Geometric Progression]
-		A sequence $a_1, a_2, a_3, \dots$ of real numbers is called an \textit{geometric sequence}, \textit{geometric progression}, or \textit{GP} if each new term of the sequence is obtained by multiplying the previous term by a constant real number $r$, called the \textit{common ratio}. In other words, the terms of an arithmetic progression are of the form
+		A sequence $a_1, a_2, a_3, \cdots$ of real numbers is called an \textit{geometric sequence}, \textit{geometric progression}, or \textit{GP} if each new term of the sequence is obtained by multiplying the previous term by a constant real number $r$, called the \textit{common ratio}. In other words, the terms of an arithmetic progression are of the form
 			\begin{align*}
 				a, ar, ar^2, ar^3, \cdots
 			\end{align*}
@@ -163,7 +163,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\begin{example}
 		The sequence of powers of $2$ is a geometric progression. The sequence
 			\begin{align*}
-				\frac{1}{2}, \frac{1}{6}, \frac{1}{18}, \frac{1}{54}, \dots
+				\frac{1}{2}, \frac{1}{6}, \frac{1}{18}, \frac{1}{54}, \cdots
 			\end{align*}
 		is a GP with initial term $1/2$ and common ratio $1/3$.
 	\end{example}
@@ -200,8 +200,8 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\begin{proof}
 			Multiply the sum by $(r-1)$ to obtain
 				\begin{align*}
-					(r-1)\sum_{i=1}^{n} a_i &= (r-1)(ar^0 + ar^1 + \dots + ar^{n-1})\\
-											&= a(r-1)(1+r+ \dots + r^{n-1})\\
+					(r-1)\sum_{i=1}^{n} a_i &= (r-1)(ar^0 + ar^1 + \cdots + ar^{n-1})\\
+											&= a(r-1)(1+r+ \cdots + r^{n-1})\\
 											&= a(r^n -1).
 				\end{align*}
 			We have used Theorem \ref{id:fatandthin} to write the last line. Since $r \neq 1$, we can divide both sides by $r-1$ to get the desired result.
