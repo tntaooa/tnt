@@ -1,4 +1,4 @@
-# Topics In Number Theory: Volume 1 #
+# Topics In Number Theory: Second edi#
 
 # IMPORTANT #
 * Work on your branch only
@@ -18,12 +18,6 @@
 * Create a pull request when you feel it should be merged.
 * You can create a new issue if you face any problem or there is a suggestion.
 
-## Done So Far ##
-* Divisibility (needs editing and fixing typos or english)
-* Congruence (needs editing and fixing typos or english)
-
-## Current Chapter Working On ##
-* Primes (Amir)
 
 ## Make Changes ##
 * Notice the import of files in a .tex file using \subfile{file.tex}
