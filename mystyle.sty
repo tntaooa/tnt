@@ -2,14 +2,28 @@
 \ProvidesClass{mystyle}
 
 \RequirePackage{appendix}
-\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, csquotes, textgreek,epigraph, mathdots, emptypage, minitoc}
+\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage, minitoc}
 \RequirePackage{glossaries}
 
 \renewcommand\appendixtocname{Glossary}
 \renewcommand\appendixpagename{Glossary}
 
-\RequirePackage[T1]{fontenc}
+
 \RequirePackage[utf8]{inputenc}
+\RequirePackage{csquotes}
+
+\usepackage[T1]{fontenc}
+\usepackage{baskervillef}
+\usepackage[varqu,varl,var0]{inconsolata}
+\usepackage[scale=.95,type1]{cabin}
+\usepackage[baskerville,vvarbb]{newtxmath}
+\usepackage[cal=boondoxo]{mathalfa}
+
+
+\usepackage{pdfrender, xcolor}
+
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
+
 %\RequirePackage[english]{babel}
 %\usepackage{mdframed}
 %\usepackage{lipsum, tcolorbox}
