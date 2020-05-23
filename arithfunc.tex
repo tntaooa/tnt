@@ -1077,18 +1077,18 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{example}
 	
 		\begin{definition}[Liouville Function]
-			For a natural number $n$, the Liouville function $\l (n)$ is defined as
+			For a natural number $n$, the Liouville function $\lambda (n)$ is defined as
 			\begin{align*}
-			\l (n) =  (-1)^{\Omega(n)}.
+			\lambda (n) =  (-1)^{\Omega(n)}.
 			\end{align*}
 		\end{definition}
 		
 		\begin{example}
-			$\l (1) = 1$ and $\l (p)=-1$ for all primes $p$. Furthermore, $\l (a^2) =1$ for all integers $a$.
+			$\lambda(1) = 1$ and $\lambda(p)=-1$ for all primes $p$. Furthermore, $\lambda (a^2) =1$ for all integers $a$.
 		\end{example}
 		
 		\begin{theorem}\slshape
-			$\l $ is a completely multiplicative function.
+			$\lambda $ is a completely multiplicative function.
 		\end{theorem}
 		
 		\begin{proof}
@@ -2391,9 +2391,9 @@ $ $
 	\end{definition}
 	
 	\begin{definition}[Liouville Function]
-		For a natural number $n$, the Liouville function $\l (n)$ is defined as
+		For a natural number $n$, the Liouville function $\lambda (n)$ is defined as
 		\begin{align*}
-			\l (n) =  (-1)^{\Omega(n)}.
+			\lambda (n) =  (-1)^{\Omega(n)}.
 		\end{align*}
 	\end{definition}
 	
@@ -2436,12 +2436,12 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			We want to prove that $\l \ast |\mu| = \varepsilon$. From theorem \eqref{thm:mft}, since both $\l$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\l \ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\l \ast |\mu|)(p^\alpha)=0$. We have
+			We want to prove that $\lambda\ast |\mu| = \varepsilon$. From theorem \eqref{thm:mft}, since both $\lambda$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\lambda\ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\lambda\ast |\mu|)(p^\alpha)=0$. We have
 				\begin{eqnarray*}
-					(\l \ast |\mu|)(p^\alpha) 
-						&=& \sum_{d|p^\alpha} |\mu(d)| \l \left(\frac{p^\alpha}{d}\right)\\
-						&=& |\mu(1)|\l(p^{\alpha}) + |\mu(p)|\l(p^{\alpha -1}) + \cdots + |\mu(p^{\alpha})| \l(1)\\
-						&=& |\mu(1)|\l(p^{\alpha-1}) + |\mu(p)|\l(p^{\alpha -2})\\
+					(\lambda\ast |\mu|)(p^\alpha) 
+						&=& \sum_{d|p^\alpha} |\mu(d)| \lambda\left(\frac{p^\alpha}{d}\right)\\
+						&=& |\mu(1)|\lambda(p^{\alpha}) + |\mu(p)|\lambda(p^{\alpha -1}) + \cdots + |\mu(p^{\alpha})| \lambda(1)\\
+						&=& |\mu(1)|\lambda(p^{\alpha-1}) + |\mu(p)|\lambda(p^{\alpha -2})\\
 						&=& (-1)^{\alpha} + (-1)^{\alpha -1}\\
 						&=& 0, 
 				\end{eqnarray*}
@@ -2452,25 +2452,25 @@ $ $
 		\begin{theorem}\slshape\label{thm:liouville-sum-general}
 			Let $s$ be an arbitrary integer. Then, for all integers $n >1$ with prime factorization $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, 
 				\begin{align*}
-					\sum_{d|n} \l (d) d^s = \prod_{i=1}^{k} \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1}.
+					\sum_{d|n} \lambda(d) d^s = \prod_{i=1}^{k} \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1}.
 				\end{align*}
 		\end{theorem}
 		
 		\begin{proof}
-			Since both $\l(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from theorem \eqref{thm:sumfunction} that $\sum\limits_{d|n} \l (d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\alpha$ for some prime $p$ and positive integer $\alpha$. Then,
+			Since both $\lambda(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from theorem \eqref{thm:sumfunction} that $\sum\limits_{d|n} \lambda(d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\alpha$ for some prime $p$ and positive integer $\alpha$. Then,
 				\begin{eqnarray*}
-					\sum_{d|p^\alpha} \l (d) d^s &=& \l (1) 1^s + \l (p) p^s + \l (p^2) \left(p^2\right)^s +\l (p^3) \left(p^3\right)^s+ \cdots + \l (p^\alpha) \left(p^\alpha \right)^s\\
+					\sum_{d|p^\alpha} \lambda(d) d^s &=& \lambda(1) 1^s + \lambda(p) p^s + \lambda(p^2) \left(p^2\right)^s +\lambda(p^3) \left(p^3\right)^s+ \cdots + \lambda(p^\alpha) \left(p^\alpha \right)^s\\
 											 &=& 1^s - p^s + p^{2s} - p^{3s} +\cdots + \left(-1\right)^{\alpha} p^{\alpha s}.
 				\end{eqnarray*}
 			This is a geometric progression with initial term $1$ and common ratio $-p^s$. Therefore, by theorem \eqref{thm:GP} which gives the formula for geometric series,
 				\begin{eqnarray*}
-					\sum_{d|p^\alpha} \l (d) d^s &=& \sum_{i=0}^{\alpha} (-1)^{si}p^{si}\\
+					\sum_{d|p^\alpha} \lambda(d) d^s &=& \sum_{i=0}^{\alpha} (-1)^{si}p^{si}\\
 											 &= &\frac{\left(-p^s\right)^{\alpha + 1} -1}{-p^s -1}\\
 											 &=& \frac{(-1)^\alpha p^{(\alpha + 1)s} + 1}{p^s + 1}.
 				\end{eqnarray*}
 			Applying this result to $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, using multiplicativity of the functions as discussed,
 				\begin{eqnarray*}
-					\sum_{d|n} \l (d) d^s  &=& \prod_{i=1}^{k}\sum_{d|p_i^{\alpha_i}} \l (d) d^s \\
+					\sum_{d|n} \lambda(d) d^s  &=& \prod_{i=1}^{k}\sum_{d|p_i^{\alpha_i}} \lambda(d) d^s \\
 										   &=& \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1},
 				\end{eqnarray*}
 			as desired.
@@ -2479,7 +2479,7 @@ $ $
 	The previous theorem is pretty strong. The following theorem, which is an example case of the preceding theorem, is useful and important.
 		
 		\begin{theorem}\slshape \label{thm:liouville-sum-function}
-			Let $\kappa$ be the summatory function of $\l $. That is, let $\kappa$ be an arithmetic function such that
+			Let $\kappa$ be the summatory function of $\lambda$. That is, let $\kappa$ be an arithmetic function such that
 				\begin{align*}
 					\kappa (n) & = \sum_{d|n}\lambda(d).
 				\end{align*}
@@ -2514,22 +2514,22 @@ $ $
 		\begin{proof}
 			Assume that $\displaystyle \kappa(n)=\sum\limits_{d|n}\lambda(d)$. Then, by M\H obius inversion formula (theorem \eqref{thm:mobinv}),
 				\begin{eqnarray*}
-					\l(n) &=& \sum_{d|n}\mu(d)\kappa\left(\frac nd\right)\\
+					\lambda(n) &=& \sum_{d|n}\mu(d)\kappa\left(\frac nd\right)\\
 						  &=& \sum_{d|n}\kappa(d)\mu\left(\frac nd\right)\\
 						  &=& \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right),
 				\end{eqnarray*}
-			because $\k(d)$ is $1$ whenever $d$ is a perfect square (i.e., $d=k^2$ for some $k$), and zero otherwise.
+			because $\kappa(d)$ is $1$ whenever $d$ is a perfect square (i.e., $d=k^2$ for some $k$), and zero otherwise.
 		\end{proof}
 		
 		\begin{theorem}\slshape\label{thm:liouville-square-floor}
 			Prove that for every positive integer $n$,
 				\begin{align*}
-					\sum_{k=1}^{n} \l (k) \left\lfloor \frac{n}{k}\right\rfloor = \left\lfloor \sqrt n\right \rfloor.
+					\sum_{k=1}^{n} \lambda(k) \left\lfloor \frac{n}{k}\right\rfloor = \left\lfloor \sqrt n\right \rfloor.
 				\end{align*}
 		\end{theorem}
 		
 		\begin{proof}
-			The summatory function of $\l$ is $\kappa$. Therefore, from theorem \eqref{thm:sum-of-sum-function},
+			The summatory function of $\lambda$ is $\kappa$. Therefore, from theorem \eqref{thm:sum-of-sum-function},
 				\begin{align*}
 					\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor &= \sum_{k=1}^{n} \kappa(k).
 				\end{align*}

@@ -13,23 +13,23 @@
 	\end{problem}
 	Let's proceed slowly. We will develop the theories that can solve these problems. For doing that, we have to use properties of order and primitive roots we discussed in previous sections.
 	\begin{definition}[Carmichael Function]
-		For a positive integer $n$, $\l(n)$ is the smallest positive integer for which $a^{\l(n)}\equiv1\pmod n$ holds for any positive integer $a$ relatively prime to $n$. This number $\l(n)$ is called the \textit{Carmichael function} of $n$. Sometimes, it is also called the \textit{lambda function} of $n$.
+		For a positive integer $n$, $\lambda(n)$ is the smallest positive integer for which $a^{\lambda(n)}\equiv1\pmod n$ holds for any positive integer $a$ relatively prime to $n$. This number $\lambda(n)$ is called the \textit{Carmichael function} of $n$. Sometimes, it is also called the \textit{lambda function} of $n$.
 	\end{definition}
 	Note that Theorem \eqref{thm:ordDiv} implies the following theorem.
 	\begin{theorem}\slshape\label{thm:carDiv}
-		If $a^d\equiv1\pmod n$ holds for all $a$ coprime to $n$, then $\l(n)\mid d$.
+		If $a^d\equiv1\pmod n$ holds for all $a$ coprime to $n$, then $\lambda(n)\mid d$.
 	\end{theorem}
 	
 	\begin{corollary}\label{cor:LambdaDividesPhi}
 		For any positive integer $n$, $\lambda(n)\mid \varphi(n)$.
 	\end{corollary}
-	The following theorem is self-implicating and solves the first problem, if we can prove that $\l(n)$ exists. For now, let's assume it does.
+	The following theorem is self-implicating and solves the first problem, if we can prove that $\lambda(n)$ exists. For now, let's assume it does.
 	\begin{theorem}\slshape
-		Let $n$ be a positive integer. There exists a positive integer $a$ coprime to $n$ such that $\ord_n(a)=\l(n)$.
+		Let $n$ be a positive integer. There exists a positive integer $a$ coprime to $n$ such that $\ord_n(a)=\lambda(n)$.
 	\end{theorem}
-	Let's focus on finding $\l(n)$. First, consider the case $n=2^k$.
+	Let's focus on finding $\lambda(n)$. First, consider the case $n=2^k$.
 	\begin{theorem}\slshape
-		If $k>2$ then $\l(2^k)=2^{k-2}$.
+		If $k>2$ then $\lambda(2^k)=2^{k-2}$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -43,7 +43,7 @@
 			\end{align}
 		This gives $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$, and the induction is complete.
 		
-		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\l(2^l)=2^{l-2}$. Let $\l(2^{k+1})=\l$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from Theorem \ref{thm:carDiv} that $\l \mid 2^{k-1}$. So $\l$ is a power of $2$. If $\l = 2^{k-1}$, we are done. Otherwise, let $\l=2^\alpha$, where $1 \leq \alpha <k-1$. Then for every $x$, one can write
+		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\lambda(2^l)=2^{l-2}$. Let $\lambda(2^{k+1})=\lambda$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from Theorem \ref{thm:carDiv} that $\lambda \mid 2^{k-1}$. So $\lambda$ is a power of $2$. If $\lambda = 2^{k-1}$, we are done. Otherwise, let $\lambda=2^\alpha$, where $1 \leq \alpha <k-1$. Then for every $x$, one can write
 			\begin{align}\label{eq:x^2^k+1}
 				x^{2^\alpha} \equiv 1 \pmod{2^{k+1}}.
 			\end{align}

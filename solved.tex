@@ -10,13 +10,13 @@
 	\end{problem}
 	
 	\begin{solution}
-		Let $n$ be a positive integer and it has base $10$ representation $\bar{a_k\ldots a_1a_0}$. Here we show the proof for $2,3,4$ and then you should try the rest yourself in a similar fashion.
+		Let $n$ be a positive integer and it has base $10$ representation $\bar{a_k\cdots a_1a_0}$. Here we show the proof for $2,3,4$ and then you should try the rest yourself in a similar fashion.
 			\begin{enumerate}
 				\item[2:] $n$ is divisible by $2$ if and only if the last digit is even. First we will prove that if $n$ is divisible by $2$, then the last digit must be even.
 						\begin{align*}
 							2|n & = 10^ka_k+\cdots+10a_1+a_0
 						\end{align*}
-					Now, $2|10$ so $2|10^k,\ldots,10$. In turn,
+					Now, $2|10$ so $2|10^k,\cdots,10$. In turn,
 						\begin{align*}
 							2 & |10^ka_k+\cdots+10a_1\\
 							2 & |10^ka_k+\cdots+10a_1+a_0-(10^ka_k+\cdots+10a_1)=a_0
@@ -39,11 +39,11 @@
 				\item[$3$:] $n$ is divisible by $3$ if and only if the sum of digits is divisible by $3$.
 					\begin{align*}
 						n & = 10^ka_k+\cdots+10a_1+a_0\\
-						  & = (\underbrace{9\ldots9}_\text{$k$ 9's}+1)a_k+\cdots+(9+1)a_1+a_0\\
-						  & = (3\cdot\underbrace{3\ldots9}_\text{$k$ $3$'s}+1)a_k+\cdots+(3\cdot3+1)a_1+a_0\\
-						  & = 3\cdot\left(\underbrace{3\ldots9}_\text{$k$ $3$'s}a_k+\cdots+3a_1\right)+a_k+\cdots+a_1+a_0
+						  & = (\underbrace{9\cdots9}_\text{$k$ 9's}+1)a_k+\cdots+(9+1)a_1+a_0\\
+						  & = (3\cdot\underbrace{3\cdots9}_\text{$k$ $3$'s}+1)a_k+\cdots+(3\cdot3+1)a_1+a_0\\
+						  & = 3\cdot\left(\underbrace{3\cdots9}_\text{$k$ $3$'s}a_k+\cdots+3a_1\right)+a_k+\cdots+a_1+a_0
 					\end{align*}
-				Notice that, when we divide $n$ by $3$, the term with $3$ vanishes since it is divisible by $3$. This is now straightforward that $3$ will divide $n$ if and only if $a_k+\cdots+a_0$ is divisible by $3$. Since $a_k,\ldots,a_0$ are digits of $n$ in base $10$, the claim is proven.
+				Notice that, when we divide $n$ by $3$, the term with $3$ vanishes since it is divisible by $3$. This is now straightforward that $3$ will divide $n$ if and only if $a_k+\cdots+a_0$ is divisible by $3$. Since $a_k,\cdots,a_0$ are digits of $n$ in base $10$, the claim is proven.
 				\item[$4$:] $n$ is divisible by $4$ if and only if the number formed by the last two digits of $n$ is divisible by $4$.
 					\begin{align*}
 						n & = 10^ka_k+\cdots+10a_1+a_0\\
@@ -60,7 +60,7 @@
 	\end{problem}
 Before we solve this problem, let me tell you about my story when I first encountered this problem.\footnote{I was a total beginner then \blacksmiley} Since $n!=1\cdot2\cdots n$, the first thing that I thought was: since there are $n$ consecutive integers, one must leave the remainder $0$ modulo $n$. And this has to be true for all $m\leq n$. But then I immediately realized that even if we proved that the product of these $n$ integers is divisible by all $m\leq n$ individually, we can not guarantee that their $1\cdot2\cdots n$ will divide their product too! It would be a common mistake to think so. Beginners tend to make assumptions that are wrong. For example, $a$ and $b$ both divide $c$, then $ab$ divides $c$ too. We will see some common mistakes as we solve the problems. Be aware of them whenever you are thinking about a problem. So, to be on the safe side, if you assume something, don't think it's true until you can prove it. Appearances can be deceiving! Now, let's see a correct solution.
 	\begin{solution}
-		Let the $n$ consecutive integers be $a,a-1,\ldots,a-n+1$ (verify that if you take $n$ consecutive integers decreasing from $a$, the last integer will be $a-n+1$). See that,
+		Let the $n$ consecutive integers be $a,a-1,\cdots,a-n+1$ (verify that if you take $n$ consecutive integers decreasing from $a$, the last integer will be $a-n+1$). See that,
 			\begin{align*}
 				S=a(a-1)\cdots(a-n+1) & = \dfrac{a(a-1)\cdots(a-n+1)\cdot(a-n)\cdots1}{(a-n)\cdots1}\\
 									& = \dfrac{a!}{(a-n)!}
@@ -504,7 +504,7 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 	
 	\begin{note}
-		The following approach works too. Consider $a\bot d$ so we have $d|a^{n-1}-1$. Using theorem \eqref{thm:carDiv}, we get $\l(n)|n-1$.
+		The following approach works too. Consider $a\bot d$ so we have $d|a^{n-1}-1$. Using theorem \eqref{thm:carDiv}, we get $\lambda(n)|n-1$.
 	\end{note}
 	
 	\begin{problem}
@@ -538,13 +538,13 @@ You never know what's coming next until you think clearly!
 	\end{note}
 	
 	\begin{problem}
-		Prove that, for a positive integer $n$, \[\binom{2n}{n}|[1,2,\ldots,2n]\]
+		Prove that, for a positive integer $n$, \[\binom{2n}{n}|[1,2,\cdots,2n]\]
 	\end{problem}
 	
 	\begin{solution}
 		When proving divisibilities like this, you should consider theorem \eqref{thm:legendre}. The idea is that if we can show the exponent in the left side of the divisibility is less than or equal to the exponent in the right side for a prime $p$, we are done. It is clear that no side of divisibility will have a prime $p>2n$. So we should consider only primes $p<2n$, since $2n$ is not a prime for $n>1$. Using theorem \eqref{thm:lcm}, if for a prime $p$, $\alpha =\log_p(2n)$,
 			\begin{align*}
-				\nu_p([1,2,\ldots,2n]) & = \alpha
+				\nu_p([1,2,\cdots,2n]) & = \alpha
 			\end{align*}
 		On the other hand, from Legendre's theorem, if $N=\binom{2n}n$,
 			\begin{align*}
@@ -552,7 +552,7 @@ You never know what's coming next until you think clearly!
 						 & = \sum_{i=1}^{\log_{p}(2n)}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
 						 &\leq\sum_{i=1}^{a}1\text { since }\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}\\
 						 & = \alpha \\
-				\nu_p(N) &\leq\nu_p([1,2,\ldots,2n])
+				\nu_p(N) &\leq\nu_p([1,2,\cdots,2n])
 			\end{align*}
 		This is exactly what we needed to prove.
 	\end{solution}
@@ -642,14 +642,14 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\ldots,a^{2014}+2014$. Crucial observation: \textbf{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\ldots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers 
+		Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\cdots,a^{2014}+2014$. Crucial observation: \textbf{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\cdots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers 
 			\begin{align*}
-				x^{2014}!+1,x^{2014!}+2,\ldots,x^{2014!}+2014\\
-				x^{2014!}+1,\left(x^{\frac{2014!}{2}}\right)^2+2,\ldots,\left(x^{\frac{2014!}{2014}}\right)^{2014}+2014
+				x^{2014}!+1,x^{2014!}+2,\cdots,x^{2014!}+2014\\
+				x^{2014!}+1,\left(x^{\frac{2014!}{2}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014}}\right)^{2014}+2014
 			\end{align*}
 		All of them are nutty except the first one (probably). But we need exactly two to be \textbf{not nutty}. A way to do that is to divide $2014!$ by a number and hope it doesn't remain nutty. Let's say this number is $k$, that is, we are looking at the numbers 
 			\begin{align*}
-				x^{\frac{2014!}{k}}+1,\left(x^{\frac{2014!}{2k}}\right)^2+2,\ldots,\left(x^{\frac{2014!}{2014k}}\right)^{2014}+2014
+				x^{\frac{2014!}{k}}+1,\left(x^{\frac{2014!}{2k}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014k}}\right)^{2014}+2014
 			\end{align*}
 		We can see that there are only two numbers which can be candidates to be not nutty. $x^{\frac{2014!}{k}}+1$ and $\left(x^{\frac{2014!}{k^2}}\right)^k+k$. Essentially we don't want the case $k^2$ divides $2014!$. This is a hint to using primes! If we take a prime $p>1007$, $p^2\nmid2014!$. Now we that have $2012$ numbers nutty for sure, we just need to find $x,p$ so that those two numbers become not nutty.
 			\begin{align*}
@@ -667,7 +667,7 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				p-b & = a^b-2^N\\
 					& = a^b-\left(2^{\frac{N}{b}}\right)^b\\
-					& = \left(a-2^{\frac{N}{b}}\right)\left(a^{b-1}+\ldots+2^{\frac{N(b-1)}{b}}\right)\\
+					& = \left(a-2^{\frac{N}{b}}\right)\left(a^{b-1}+\cdots+2^{\frac{N(b-1)}{b}}\right)\\
 					& > p\\
 				0	& > b
 			\end{align*}
@@ -689,22 +689,22 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Let $p$ be a prime divisor of $n$ and $p$-base representation of $n$ is $n=a_kp^k+\ldots+a_1p+a_0$. Then
+		Let $p$ be a prime divisor of $n$ and $p$-base representation of $n$ is $n=a_kp^k+\cdots+a_1p+a_0$. Then
 			\begin{align*}
-				\nu_p(n!) & = \dfrac{n-(a_k+\ldots+a_0)}{p-1}
+				\nu_p(n!) & = \dfrac{n-(a_k+\cdots+a_0)}{p-1}
 			\end{align*}
 		If $\nu_p(n)=\alpha $ then the last $\alpha $ digits of $n$ in base $p$ is $0$.
 			\begin{align*}
-				\nu_p(n!) & = \dfrac{n-(a_k+\ldots+a_{\alpha })}{p-1}\text { and}\\
+				\nu_p(n!) & = \dfrac{n-(a_k+\cdots+a_{\alpha })}{p-1}\text { and}\\
 				\nu_p(n^{10}) & = \nu_p(p^{10\alpha })=10\alpha
 			\end{align*}
 		We must have $\nu_p(n!)\geq \nu_p(n^{10})=10\alpha$.
 			\begin{align*}
-				\dfrac{n-(a_k+\ldots+a_\alpha)}{p-1} & \geq10\alpha 
+				\dfrac{n-(a_k+\cdots+a_\alpha)}{p-1} & \geq10\alpha 
 			\end{align*}
 		where $\alpha\leq\log_p(n)$. Remember that, we are looking for the \textbf{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\alpha$ first. Then In base $p$,
 			\begin{align*}
-				n & = (1\underbrace{0\ldots0}_{\alpha\text { zeros}})_p
+				n & = (1\underbrace{0\cdots0}_{\alpha\text { zeros}})_p
 			\end{align*}
 		$\nu_p(n!) = \dfrac{p^\alpha-1}{p-1}$ and so,	
 			\begin{align*}
@@ -741,7 +741,7 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 	
 	\begin{problem}[Korea $2010$]
-		A prime $p$ is called a \textit{nice} prime if there exists a sequence of positive integers $(n_1,\ldots,n_k)$ satisfying following conditions for infinitely positive integers $k$, but not for $k=1$.
+		A prime $p$ is called a \textit{nice} prime if there exists a sequence of positive integers $(n_1,\cdots,n_k)$ satisfying following conditions for infinitely positive integers $k$, but not for $k=1$.
 			\begin{itemize}
 				\item For $1\leq i\leq k$, $n_i\geq\dfrac{p+1}{2}$.
 				\item For $1\leq i\leq k$, $p^{n_i}-1$ is a multiple of $n_{i+1}$ and $\dfrac{p^{n_i}-1}{n_{i+1}}$ is co-prime to $n_{i+1}$. Set $n_{k+1} = n_1$.
@@ -750,7 +750,7 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Let's deal with the case $p=2$ first. We will show that there does not exist infinitely many $k$ for which there exist $n_2,\ldots,n_k$ with $n_{i+1}|2^{n_i}-1$. For $i>1$, $n_i$ is odd, and fix $k$. Consider all prime factors of $n_i$ for $i>1$, let the smallest of them be $q$. If $q|n_{l}$ Then $2^{n_{l-1}}\equiv1\pmod q$ and $2^{q-1}\equiv1\pmod q$. If $d=\ord_q(2)$, then we can say $d|q-1$ and $d|n_{l-1}$. If $d\neq1$, then we get a smaller divisor than $q$ since $d\leq q-1$. This shows that $d=1$ but then $q|2^1-1=1$, contradiction.
+		Let's deal with the case $p=2$ first. We will show that there does not exist infinitely many $k$ for which there exist $n_2,\cdots,n_k$ with $n_{i+1}|2^{n_i}-1$. For $i>1$, $n_i$ is odd, and fix $k$. Consider all prime factors of $n_i$ for $i>1$, let the smallest of them be $q$. If $q|n_{l}$ Then $2^{n_{l-1}}\equiv1\pmod q$ and $2^{q-1}\equiv1\pmod q$. If $d=\ord_q(2)$, then we can say $d|q-1$ and $d|n_{l-1}$. If $d\neq1$, then we get a smaller divisor than $q$ since $d\leq q-1$. This shows that $d=1$ but then $q|2^1-1=1$, contradiction.
 		
 		Now we consider $p\geq3$. We have to take care of the $k=1$ case first, since it was explicitly mentioned, and it seems the easier part. We need to prove that, for no positive integer $n$,
 			\begin{align*}
@@ -773,7 +773,7 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		Therefore $q$ divides $\dfrac{p^n-1}{n}$ and $q|n$, contradiction. Such $n$ does not exist for $k=1$.
 		
-		We just have to find a construction for such $(n_1,n_2,\ldots,n_k)$. First think on the condition $\left(n_{i+1},\dfrac{p^{n_i}-1}{n_{i+1}}\right)=1$. This clearly means for any odd prime divisor\footnote{we won't show the case $q=2$ here, do that yourself in the same fashion} $q$ of $n_{i+1}$, $q$ does not divide $\dfrac{p^{n_i}-1}{n_{i+1}}$.
+		We just have to find a construction for such $(n_1,n_2,\cdots,n_k)$. First think on the condition $\left(n_{i+1},\dfrac{p^{n_i}-1}{n_{i+1}}\right)=1$. This clearly means for any odd prime divisor\footnote{we won't show the case $q=2$ here, do that yourself in the same fashion} $q$ of $n_{i+1}$, $q$ does not divide $\dfrac{p^{n_i}-1}{n_{i+1}}$.
 			\begin{align*}
 				\nu_q\left(\dfrac{p^{n_i}-1}{n_{i+1}}\right) & = 0\\
 				\nu_q(p^{n_i}-1)-\nu_q(n_{i+1}) & = 0
@@ -803,7 +803,7 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		Therefore $b_n\bot b_{n-1}$, implying $q_n\neq q_{n-1}$. Up until now, all we have done was self implicating. But what will allow us to prove that $p_n=p_{n+1}$ happens for infinite $n$? $p_n=\max(q_n,q_{n-1})$ and $p_{n+1}=\max(q_{n+1},q_n)$. The problem requires $p_n=p_{n+1}$ or $\max(q_{n-1},q_n)=\max(q_{n+1},q_n)$. This provides us a hint what we need to do. We will focus on $q_n$. That means, we will try to prove that for infinite $n$, $q_n=\max(q_n,q_{n-1})$ and $q_n=\max(q_{n+1},q_n)$. In short, we have to prove $q_n>q_{n+1}$ and $q_n>q_{n-1}$ holds true for infinite $n$. First we need to check that at least one such $q_n$ exists. $q_2=7,q_3=13,q_4=7$, so $n=3$ gives us such a $q_n$.
 		
-		Assume to the contrary that, only for finite $n$, $q_n>q_{n-1}$ and $q_n>q_{n+1}$. Then there is a largest value of $n$ for which this condition holds true, say it is $N$. Let's think if it is possible that $q_i>q_{i+1}$ for all $i\geq N$. But that would give us an infinite set of decreasing positive integers, which is impossible. So there is an $i>N$ for which $q_i<q_{i+1}$ (remember that $q_i\neq q_{i+1}$). Then is it possible to have an infinite chain of $q_i<q_{i+1}<q_{i+2}<\ldots$? No, because $q_{(i+1)^2}=p_{i+1}=\max(q_{i+1},q_i)=q_{i+1}$. Therefore, we must have an $j$ for which $q_j>q_{j+1}$. For that $j$, we have $q_j>q_{j-1}$, so it is a contradiction. Thus, there are infinite such $n$.
+		Assume to the contrary that, only for finite $n$, $q_n>q_{n-1}$ and $q_n>q_{n+1}$. Then there is a largest value of $n$ for which this condition holds true, say it is $N$. Let's think if it is possible that $q_i>q_{i+1}$ for all $i\geq N$. But that would give us an infinite set of decreasing positive integers, which is impossible. So there is an $i>N$ for which $q_i<q_{i+1}$ (remember that $q_i\neq q_{i+1}$). Then is it possible to have an infinite chain of $q_i<q_{i+1}<q_{i+2}<\cdots$? No, because $q_{(i+1)^2}=p_{i+1}=\max(q_{i+1},q_i)=q_{i+1}$. Therefore, we must have an $j$ for which $q_j>q_{j+1}$. For that $j$, we have $q_j>q_{j-1}$, so it is a contradiction. Thus, there are infinite such $n$.
 	\end{solution}
 	
 	\begin{problem}
@@ -940,7 +940,7 @@ You never know what's coming next until you think clearly!
 	\begin{problem}[Austria $2010$]
 		Let	
 			\begin{align*}
-				f(n) & = 1+n+\ldots+n^{2010}
+				f(n) & = 1+n+\cdots+n^{2010}
 			\end{align*}
 		For every integer $m$ with $2\leq m\leq2010$, there is no nonnegative integer $n$ such that $f(n)$ is divisible by $m$.
 	\end{problem}
@@ -957,7 +957,7 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		We have $d|2011$, if $d=1$. 
 			\begin{align*}
-				1+n+\ldots+n^{2010} & \equiv1+1+\ldots+1\pmod p\\
+				1+n+\cdots+n^{2010} & \equiv1+1+\cdots+1\pmod p\\
 				f(n) & \equiv2011\pmod p
 			\end{align*}
 		This gives us $p|2011$. Moreover, from FLT, we also have 
@@ -970,7 +970,7 @@ You never know what's coming next until you think clearly!
 	\begin{remark}
 		We can make a general result. Every prime divisor $q$ of 
 			\begin{align*}
-				f(n) & = 1+n+\ldots+n^{p-1}
+				f(n) & = 1+n+\cdots+n^{p-1}
 			\end{align*}
 		must be either $p$ or $q\equiv1\pmod p$, where $p$ is a prime.
 	\end{remark}
@@ -980,7 +980,7 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Make sense of the problem before you try it. It can be rephrased this way: find all $n$ such that the set $a^3+a$ for $a=1,2,\ldots,n$ we get a complete residue class modulo $n$. Or, for no two $1\leq a<b\leq n$,
+		Make sense of the problem before you try it. It can be rephrased this way: find all $n$ such that the set $a^3+a$ for $a=1,2,\cdots,n$ we get a complete residue class modulo $n$. Or, for no two $1\leq a<b\leq n$,
 			\begin{align*}
 				a^3+a &\equiv b^3+b\pmod n
 			\end{align*}
