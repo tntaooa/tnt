@@ -2,7 +2,7 @@
 \ProvidesClass{mystyle}
 
 \RequirePackage{appendix}
-\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, titlesec, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, csquotes, textgreek,epigraph, mathdots, emptypage,minitoc}
+\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, csquotes, textgreek,epigraph, mathdots, emptypage, minitoc}
 \RequirePackage{glossaries}
 
 \renewcommand\appendixtocname{Glossary}
@@ -11,7 +11,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 %\RequirePackage[english]{babel}
-\usepackage{mdframed}
+%\usepackage{mdframed}
 %\usepackage{lipsum, tcolorbox}
 
 %\RequirePackage[colorlinks=true,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
@@ -85,14 +85,14 @@
 
 
 %big parantheses in \pmod
-\makeatletter
-\DeclarePairedDelimiterX{\pmodx}[1]{(}{)}{{\operator@font mod}\mkern6mu#1}
-\renewcommand{\pmod}{%
-	\allowbreak
-	\if@display\mkern18mu\else\mkern8mu\fi
-	\pmodx
-}
-\makeatother
+%\makeatletter
+%\DeclarePairedDelimiterX{\pmodx}[1]{(}{)}{{\operator@font mod}\mkern6mu#1}
+%\renewcommand{\pmod}{%
+%	\allowbreak
+%	\if@display\mkern18mu\else\mkern8mu\fi
+%	\pmodx
+%}
+%\makeatother
 
 %use normal chapter numbering after appendices
 \makeatletter
@@ -120,16 +120,6 @@
 %}
 %\makeatother
 
-
-\newtheoremstyle{mytheoremstyle} % name
-{\topsep}%                                     % Space above
-{\topsep}%                                     % Space below
-{\slshape}%                                     % Body font
-{}%                                     % Indent amount
-{\bfseries}%                            % Theorem head font
-{.}%                                    % Punctuation after theorem head
-{ }%                                    % Space after theorem head, ' ', or \newline
-{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
 
 %define theorems definitions and remarks
 %\theoremstyle{theorem}
@@ -177,43 +167,6 @@
 \numberwithin{hint2}{chapter}
 %\numberwithin{open}{chapter}
 
-%undefined macros defined
-%\newcommand{\g}{\gamma}
-%\newcommand{\e}{\epsilon}
-%\newcommand{\p}{\phi}
-%\newcommand{\s}{\sigma}
-%\newcommand{\z}{\zeta}
-%\newcommand{\w}{\omega}
-
-%\newcommand{\implies}{\Longrightarrow}
-%\newcommand{\iff}{def}
-
-
-
-%override already defined macros
-%\renewcommand{\a}{\alpha}
-%\renewcommand{\b}{\beta}
-%\renewcommand{\c}{\chi}
-%\renewcommand{\d}{\delta}
-%\renewcommand{\t}{\theta}
-%\renewcommand{\i}{\infty}
-%\renewcommand{\k}{\kappa}
-%\renewcommand{\l}{\lambda}
-%\renewcommand{\o}{\omega}
-%\renewcommand{\r}{\rho}
-%\renewcommand{\t}{\varphi}
-%\renewcommand{\u}{\upsilon}
-
-
-%\renewcommand{\L}{\Lambda}
-
-
-
-%\newcommand{\N}{\mathbb{N}}
-%\renewcommand{\P}{\mathbb{P}}
-%\newcommand{\Q}{\mathbb{Q}}
-%\newcommand{\R}{\mathbb{R}}
-%\newcommand{\Co}{\mathbb{C}}
 
 
 
@@ -224,10 +177,6 @@
 \DeclareMathOperator{\epsp}{epsp}
 \DeclareMathOperator{\spsp}{spsp}
 
-%\font\bv=BaskervilleOldFace
-%\font\sr=SiyamRupali
-%\font\gr=Garamond
-%\font\gg=Georgia
 
 \newenvironment{dedication}
   {\clearpage           % we want a new page
