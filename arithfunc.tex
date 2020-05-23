@@ -2481,7 +2481,7 @@ $ $
 		\begin{theorem}\slshape \label{thm:liouville-sum-function}
 			Let $\kappa$ be the summatory function of $\l $. That is, let $\kappa$ be an arithmetic function such that
 				\begin{align*}
-					\kappa (n) & = \sum_{d|n}\l (d).
+					\kappa (n) & = \sum_{d|n}\lambda(d).
 				\end{align*}
 			Then, 
 				\begin{align*}
@@ -2496,23 +2496,23 @@ $ $
 		\begin{proof}
 			Take $s=0$ in theorem \eqref{thm:liouville-sum-general}. Then, assuming $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ as the prime factorization of $n$,
 				\begin{align*}
-					\sum_{d|n}\l (d) &= \prod_{i=1}^{k}\frac{1 + (-1)^{\alpha_i}}{2}.
+					\sum_{d|n}\lambda(d) &= \prod_{i=1}^{k}\frac{1 + (-1)^{\alpha_i}}{2}.
 				\end{align*}
 			If $n$ is a perfect square, that is, if all the $\alpha_i$ (for $1 \leq i \leq k$) are even, the above product equals one. Otherwise, at least one of $\alpha_i$ is odd and the thus $1 + (-1)^{\alpha_i}=0$, making the product equal zero.
 		\end{proof}
 		
 		\begin{remark}
-			The sum $L(n)= \sum\limits_{k=1}^{n} \l (k)$ has been investigated for a long time. It was first conjectured that $L(n) <0$ for all integers $n >1$. You can check and see that it is true for small integers. However, in $1980$, Minoru Tanaka found that $n=906150257$ is the smallest counter-example to this conjecture. 
+			The sum $L(n)= \sum\limits_{k=1}^{n} \lambda(k)$ has been investigated for a long time. It was first conjectured that $L(n) <0$ for all integers $n >1$. You can check and see that it is true for small integers. However, in $1980$, Minoru Tanaka found that $n=906150257$ is the smallest counter-example to this conjecture. 
 		\end{remark}
 		\begin{theorem}\slshape
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
-					\l (n) = \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right).
+					\lambda(n) = \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right).
 				\end{align*}
 		\end{theorem}
 		
 		\begin{proof}
-			Assume that $\displaystyle \k(n)=\sum\limits_{d|n}\l(d)$. Then, by M\H obius inversion formula (theorem \eqref{thm:mobinv}),
+			Assume that $\displaystyle \kappa(n)=\sum\limits_{d|n}\lambda(d)$. Then, by M\H obius inversion formula (theorem \eqref{thm:mobinv}),
 				\begin{eqnarray*}
 					\l(n) &=& \sum_{d|n}\mu(d)\kappa\left(\frac nd\right)\\
 						  &=& \sum_{d|n}\kappa(d)\mu\left(\frac nd\right)\\
