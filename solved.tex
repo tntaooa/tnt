@@ -102,7 +102,7 @@ Before we solve this problem, let me tell you about my story when I first encoun
 	\end{remark}
 	
 	\begin{problem}[Masum Billal]
-		Find all functions $f:\N\to\N$ such that
+		Find all functions $f:\mathbb{N}\to\mathbb{N}$ such that
 			\begin{align*}
 				(f(n+1),f(n)) & = [f(n),f(n-1)]
 			\end{align*}
@@ -284,7 +284,7 @@ This is a problem that has many solutions, being a relatively easier problem. We
 	\end{note}
 	
 	\begin{problem}
-		Find all $m,n\in\N$ such that $2^n-1|m^2+9$.
+		Find all $m,n\in\mathbb{N}$ such that $2^n-1|m^2+9$.
 	\end{problem}
 	
 	\begin{solution}
@@ -302,10 +302,10 @@ You never know what's coming next until you think clearly!
 	\begin{solution}
 		If we set $m=n+1$, then we need to prove $m(m-2)$ divides $2^{(m-1)!}-1$. Since $n$ is even, $m$ is odd so $m$ is co-prime to $2$. 
 			\begin{align*}
-				2^{\t (m)} &\equiv1\pmod m\text{ and}\\
-				2^{\t (m-2)} &\equiv1\pmod{m-2}
+				2^{\varphi(m)} &\equiv1\pmod m\text{ and}\\
+				2^{\varphi(m-2)} &\equiv1\pmod{m-2}
 			\end{align*}
-		Since $\t(m)<m$ and $\t (m-2)\leq m-2$, $\t (m)$ and $\t (m-2)$ divides $(m-1)!$. Therefore,
+		Since $\varphi(m)<m$ and $\varphi(m-2)\leq m-2$, $\varphi(m)$ and $\varphi(m-2)$ divides $(m-1)!$. Therefore,
 			\begin{align*}
 				2^{(m-1)!} & \equiv1\pmod m\\
 				2^{(m-1)!} & \equiv1\pmod{m-2}
@@ -317,7 +317,7 @@ You never know what's coming next until you think clearly!
 	
 	
 	\begin{problem}
-		Prove that $n$ divides $2^n+1$ for infinitely many $n\in\N$.
+		Prove that $n$ divides $2^n+1$ for infinitely many $n\in\mathbb{N}$.
 	\end{problem}
 	
 	\begin{solution}
@@ -329,7 +329,7 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Let $n=dk$ where $k\in\N$. The equation becomes
+		Let $n=dk$ where $k\in\mathbb{N}$. The equation becomes
 			\begin{align*}
 				d^2k+1 & |d^2+d^2k^2\text{ and}\\
 				d^2k+1 & |d^2k^2+k\\
@@ -340,7 +340,7 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 	
 	\begin{problem}[IMO Shortlist $2013$, N$1$, Proposed by Malaysia]
-		Find all functions $f:\N\to\N$ such that
+		Find all functions $f:\mathbb{N}\to\mathbb{N}$ such that
 		\begin{align*}
 		m^2+f(n) & |mf(m)+n
 		\end{align*}
@@ -394,7 +394,7 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 	
 	\begin{problem}[IMO $1990$, Problem $3$]
-		Find all $n\in\N$ for which $n^2|2^n+1$.
+		Find all $n\in\mathbb{N}$ for which $n^2|2^n+1$.
 	\end{problem}
 	
 	\begin{solution}
@@ -685,7 +685,7 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 	
 	\begin{problem}[Columbia $2010$]
-		Find the smallest $n\in\N$ such that $n!$ is divisible by $n^{10}$.
+		Find the smallest $n\in\mathbb{N}$ such that $n!$ is divisible by $n^{10}$.
 	\end{problem}
 	
 	\begin{solution}
@@ -849,7 +849,7 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Let $y+x^{p-1}=p^a$ and $x+y^{p-1}=p^b$ and $y>x$ without loss of generality (so $b>a$ too). If $p=2$, then $x+y=2^a$ so $(x,y)=(x,2^a-x)$ works with any $a\in\N,x<2^a$.
+		Let $y+x^{p-1}=p^a$ and $x+y^{p-1}=p^b$ and $y>x$ without loss of generality (so $b>a$ too). If $p=2$, then $x+y=2^a$ so $(x,y)=(x,2^a-x)$ works with any $a\in\mathbb{N},x<2^a$.
 		
 		We need to deal with odd $p$ now. Let $g=(x,y)$ and $x=gm,y=gn$ with $m\bot n$. We intend to prove that $x\bot y$. If not, $g=p^s$ for some $s$.
 			\begin{align*}
@@ -1053,7 +1053,7 @@ This is a problem where we use another technique, we will call it \textit{squeez
 	\end{solution}
 	
 	\begin{problem}[IMO Shortlist $2004$, N$2$]
-		For $n\in\N $ let,
+		For $n\in\mathbb{N} $ let,
 			\begin{align*}
 				f(n)=\sum\limits_{i=1}^n(i,n)
 			\end{align*}
@@ -1074,35 +1074,35 @@ This is a problem where we use another technique, we will call it \textit{squeez
 				f(10) & = 1+2+1+2+5+2+1+2+1+10\\
 				& = 1\cdot4+2\cdot4+5\cdot1+10\cdot1.
 			\end{align*}
-		First of all, $1,2,5,10$ are divisors of $10$. Since $(i,n)$ will be a divisor of $n$, it makes sense. Now we just need to figure out how to determine those numbers $4,4,1,1$ for $1,2,5,10$ respectively. Let's think about the case when divisor, $d=2$. We want $(i,10)=d$ so we can write $i=dj$ and $10=dm$ where $(j,m)=1$. Since we are counting all such possible $j$, it is simply the number of $j$ less than or equal to $m$, which are co-prime to $m$. In other words, the coefficient of $i$ is $\t (m)=\t\left(\dfrac{10}{d}\right)$. Now, let's prove it formally.
+		First of all, $1,2,5,10$ are divisors of $10$. Since $(i,n)$ will be a divisor of $n$, it makes sense. Now we just need to figure out how to determine those numbers $4,4,1,1$ for $1,2,5,10$ respectively. Let's think about the case when divisor, $d=2$. We want $(i,10)=d$ so we can write $i=dj$ and $10=dm$ where $(j,m)=1$. Since we are counting all such possible $j$, it is simply the number of $j$ less than or equal to $m$, which are co-prime to $m$. In other words, the coefficient of $i$ is $\varphi(m)=\varphi\left(\dfrac{10}{d}\right)$. Now, let's prove it formally.
 			\begin{align*}
 				f(n) & = \sum_{i=1}^{n}(i,n) = \sum_{i=1}^{n}(dj,dm)= \sum_{d|n}\sum_{\substack{j=1\\j\bot m}}^{m}d(j,m)\\
-					 & = \sum_{d|n}d\t (m) = \sum_{d|n}d\t\left(\dfrac{n}{d}\right)  = \sum_{d|n}\dfrac{n}{d}\t (d)\\
-					 & = n\sum_{d|n}\dfrac{\t (d)}{d}
+					 & = \sum_{d|n}d\varphi(m) = \sum_{d|n}d\varphi\left(\dfrac{n}{d}\right)  = \sum_{d|n}\dfrac{n}{d}\varphi(d)\\
+					 & = n\sum_{d|n}\dfrac{\varphi(d)}{d}
 			\end{align*}
 		Let's concentrate on proving the claims now.
 			\begin{enumerate}[(a)]
 				\item Let $m\bot n$.
 						\begin{align*}
-							f(mn) & = \sum_{d|mn}d\t\left(\dfrac{mn}{d}\right)\\
-								  & = \sum_{\substack{d=ef\\e|m\\f|n}}ef\t\left(\dfrac{mn}{ef}\right)  = \sum_{\substack{e|m\\f|n}}ef\t\left(\dfrac{m}{e}\right)\t\left(\dfrac{n}{f}\right)\text { since }n\bot m\\
-								  & = \sum_{e|m}e\t \left(\dfrac{m}{e}\right)\sum_{f|n}f\left(\dfrac{n}{f}\right)\\
+							f(mn) & = \sum_{d|mn}d\varphi\left(\dfrac{mn}{d}\right)\\
+								  & = \sum_{\substack{d=ef\\e|m\\f|n}}ef\varphi\left(\dfrac{mn}{ef}\right)  = \sum_{\substack{e|m\\f|n}}ef\varphi\left(\dfrac{m}{e}\right)\varphi\left(\dfrac{n}{f}\right)\mbox{ since }n\bot m\\
+								  & = \sum_{e|m}e\varphi\left(\dfrac{m}{e}\right)\sum_{f|n}f\left(\dfrac{n}{f}\right)\\
 								  & = f(m)f(n)
 						\end{align*}
-					We could also prove it using Dirichlet product. If $f(n)=n$ and $g(n)=\t (n)$, then both $f$ and $g$ are multiplicative. So, their Dirichlet product would be multiplicative as well.
+					We could also prove it using Dirichlet product. If $f(n)=n$ and $g(n)=\varphi(n)$, then both $f$ and $g$ are multiplicative. So, their Dirichlet product would be multiplicative as well.
 						\begin{align*}
 							f\ast g & = \sum_{d|n}f(d)g\left(\dfrac{n}{d}\right)\\
-									& = \sum_{d|n}d\t \left(\dfrac{n}{d}\right)
+									& = \sum_{d|n}d\varphi\left(\dfrac{n}{d}\right)
 						\end{align*}
 					must be multiplicative then!
 				\item $f(an)=an$ means
 						\begin{align*}
-							\sum_{d|an}d\t \left(\dfrac{an}{d}\right) & = an
+							\sum_{d|an}d\varphi\left(\dfrac{an}{d}\right) & = an
 						\end{align*}
 					But clearly the sum on the left side is hard to deal with. It would be better if we could have another representation, probably a closed form instead of a summation. Let's determine $f(p^i)$ first.
 						\begin{align*}
-							f(p^e)  & = p^e\sum_{d|p^e}\dfrac{\t (d)}{d} = p^e\sum_{i=0}^{e}\dfrac{\t (p^i)}{p^i}\\
-									& = p^e\left(1+\sum_{i=1}^{e}\dfrac{p^{i-1}(p-1)}{p^i}\right)\text { since }\t (1)=1\\
+							f(p^e)  & = p^e\sum_{d|p^e}\dfrac{\varphi(d)}{d} = p^e\sum_{i=0}^{e}\dfrac{\varphi(p^i)}{p^i}\\
+									& = p^e\left(1+\sum_{i=1}^{e}\dfrac{p^{i-1}(p-1)}{p^i}\right)\mbox{ since }\varphi(1)=1\\
 									& = p^e\left(1+\sum_{i=1}^{e}\dfrac{p-1}{p}\right)= p^e\left(1+\dfrac{e(p-1)}{p}\right)
 						\end{align*}
 					From the given condition, $f(n) = an$, so for $n=p^e$, it implies
@@ -1175,7 +1175,7 @@ This is a problem where we use another technique, we will call it \textit{squeez
 	\end{solution}
 	
 %	\begin{problem}[APMO $1997$, Problem $2$]
-%		Find $n\in\N$ such that $100\leq n\leq 1997$ and $n|2^n+2$.
+%		Find $n\in\mathbb{N}$ such that $100\leq n\leq 1997$ and $n|2^n+2$.
 %	\end{problem}
 %	
 %	\begin{problem}[APMO $1998$, Problem $5$]

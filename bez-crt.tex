@@ -70,11 +70,11 @@
 	\end{corollary}
 	
 	\begin{theorem} [Generalization of B\'{e}zout's Identity] \slshape 
-		If $a_1, a_2, \ldots, a_n$ are integers with $(a_1, a_2, \ldots, a_n)=d$, then the equation
+		If $a_1, a_2, \cdots, a_n$ are integers with $(a_1, a_2, \cdots, a_n)=d$, then the equation
 		\begin{align*}
 		a_1x_1 + a_2x_2 + \cdots + a_n x_n = m
 		\end{align*}
-		has a solution $(x_1, x_2, \ldots, x_n)$ in integers if and only if $d|m$.
+		has a solution $(x_1, x_2, \cdots, x_n)$ in integers if and only if $d|m$.
 	\end{theorem}
 	
 	\begin{theorem}\slshape\label{thm:ax=b}
@@ -139,7 +139,7 @@
 			\begin{align*}
 				3 \cdot 5 \equiv 1 \pmod 7.
 			\end{align*}
-		We can easily generate other inverses of $3$ modulo $7$ by adding various multiples of $7$ to $5$. Thus, the numbers in the set $\{\ldots, -2, 5, 12, 19, \ldots \}$ are all inverses of $3$ modulo $7$.
+		We can easily generate other inverses of $3$ modulo $7$ by adding various multiples of $7$ to $5$. Thus, the numbers in the set $\{\cdots, -2, 5, 12, 19, \cdots \}$ are all inverses of $3$ modulo $7$.
 	\end{example}
 	
 	\begin{example}
@@ -165,7 +165,7 @@
 The uniqueness of inverse of an integer $a$ modulo $m$ gives us the following corollary.
 
 	\begin{corollary}
-		For a positive integer $m$, let $\{a_{1}, a_{2}, \ldots, a_{\t(m)}\}$ be a reduced residue system modulo $m$. Then $\{a_{1}^{-1}, a_{2}^{-1}, \ldots, a_{\t(m)}^{-1}\}$ is also a reduced residue system modulo $m$.
+		For a positive integer $m$, let $\{a_{1}, a_{2}, \cdots, a_{\varphi(m)}\}$ be a reduced residue system modulo $m$. Then $\{a_{1}^{-1}, a_{2}^{-1}, \cdots, a_{\varphi(m)}^{-1}\}$ is also a reduced residue system modulo $m$.
 	\end{corollary}
 	
 	
@@ -316,7 +316,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\end{theorem}
 	If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
 		\begin{theorem}[CRT]\slshape
-			For $n$ pairwise coprime integers $a_1,a_2,\ldots,a_n$ there exists a solution to the congruences
+			For $n$ pairwise coprime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
 			\begin{eqnarray*}
 			x & \equiv& r_1\pmod{a_1},\\
 			x & \equiv& r_2\pmod{a_2},\\
@@ -325,7 +325,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			\end{eqnarray*}
 			If $M=a_1a_2\cdots a_n$ and $M_i=\dfrac{M}{a_i}$ and $M_ie_i\equiv1\pmod{a_i}$, then the smallest  modulo $M$ is given by
 			\begin{align*}
-			x_0  \equiv \left(r_1 M_1e_i+\ldots+r_n M_ne_n\right)\equiv \left(\sum_{i=1}^{n} r_i M_ie_i\right)\pmod M
+			x_0  \equiv \left(r_1 M_1e_i+\cdots+r_n M_ne_n\right)\equiv \left(\sum_{i=1}^{n} r_i M_ie_i\right)\pmod M
 			\end{align*}
 		\end{theorem}
 	
@@ -336,9 +336,9 @@ We are going to prove a very simple fact which will be very useful later (for in
 			\end{align*}
 			So $x_0$ is a solution to those congruences. Since $M_i\bot a_i$, there is a multiplicative inverse of $M_i$ modulo $a_i$ due to B\'{e}zout's identity. We leave it to the reader to prove that if $x,y$ are two solutions, then $x\equiv y\pmod M$. That would prove its uniqueness modulo $M$.
 		\end{proof}
-	We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\ldots,p_k$ are pairwise coprime integers. By the way, we could generalize CRT the following way.
+	We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\cdots,p_k$ are pairwise coprime integers. By the way, we could generalize CRT the following way.
 		\begin{theorem}[General CRT]\slshape
-			For $n$ integers $a_1,\ldots,a_n$ the system of congruences
+			For $n$ integers $a_1,\cdots,a_n$ the system of congruences
 			\begin{eqnarray*}
 				x & \equiv& r_1\pmod{a_1},\\
 				x & \equiv& r_2\pmod{a_2},\\
@@ -349,7 +349,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			\begin{align*}
 			r_i & \equiv r_j\pmod{(a_i,a_j)},
 			\end{align*}
-			for all $i$ and $j$. Any two solutions $x,y$ are congruent modulo the least common multiple of all $a_i$. That is, if $M=[a_1,\ldots,a_n]$ and $x,y$ are two solutions, then $x\equiv y\pmod M$.
+			for all $i$ and $j$. Any two solutions $x,y$ are congruent modulo the least common multiple of all $a_i$. That is, if $M=[a_1,\cdots,a_n]$ and $x,y$ are two solutions, then $x\equiv y\pmod M$.
 		\end{theorem}
 	
 		\begin{problem}
@@ -364,15 +364,15 @@ We are going to prove a very simple fact which will be very useful later (for in
 					  & \vdots& \\
 					x & \equiv& -n\pmod{p_{2n-1}p_{2n}}.
 				\end{eqnarray*}
-			Here, $p_1,\cdots,p_{2n}$ are distinct primes. Therefore, $M_1=p_1p_2,\cdots,M_n=p_{2n-1}p_{2n}$ are pair-wisely coprime. So, by CRT, there is indeed such an $x$ which satisfies all of the congruences above. And our problem is solved. Notice that, $x+1$ is divisible by at least two primes $p_1,p_2$. Similarly, $x+i$ is divisible by $p_{2i-1}p_{2i}$.
+			Here, $p_1,\cdots,p_{2n}$ are distinct primes. Therefore, $M_1=p_1p_2,\cdots,M_n=p_{2n-1}p_{2n}$ are pair-wisely co-prime. So, by CRT, there is indeed such an $x$ which satisfies all of the congruences above. And our problem is solved. Notice that, $x+1$ is divisible by at least two primes $p_1,p_2$. Similarly, $x+i$ is divisible by $p_{2i-1}p_{2i}$.
 		\end{solution}
 	
 		\begin{note}
-			A common idea in such problems is to bring factorial into the play. Here, $(n+1)!+2,(n+1)!+3,\cdots,(n+1)!+(n+1)$ are such $n$ consecutive integers. But the motivation behind the solution above is that, we making use of the fact: primes are coprime to each other. And to make an integer composite, we can just use two or more primes instead of one.
+			A common idea in such problems is to bring factorial into the play. Here, $(n+1)!+2,(n+1)!+3,\cdots,(n+1)!+(n+1)$ are such $n$ consecutive integers. But the motivation behind the solution above is that, we making use of the fact: primes are co-prime to each other. And to make an integer composite, we can just use two or more primes instead of one.
 		\end{note}
 		
 		\begin{problem}
-			Suppose that $ \{s_1,s_2\ldots , s_{\phi(m)}\} $ is a reduced residue set modulo $m$. Find all positive integers $a$ for which $ \{s_1+a,s_2+a\ldots , s_{\phi(m)}+a\} $ is also a reduced residue set modulo $m$.
+			Suppose that $ \{s_1,s_2\cdots , s_{\phi(m)}\} $ is a reduced residue set modulo $m$. Find all positive integers $a$ for which $ \{s_1+a,s_2+a\cdots , s_{\phi(m)}+a\} $ is also a reduced residue set modulo $m$.
 		\end{problem}
 		
 		\begin{solution}
@@ -383,9 +383,9 @@ We are going to prove a very simple fact which will be very useful later (for in
 				k &\equiv& -a \pmod p,\\
 				k &\equiv& \phantom{-}1  \pmod n.
 				\end{eqnarray*}
-			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d|k$, meaning $d|1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\ldots , s_{\t(m)}\} $. But $k+a$ is divisible by $p$, and therefore not coprime to $n$, forcing $ \{s_1+a,s_2+a\ldots , s_{\t(m)}+a\} $ not a reduced residue system.
+			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d|k$, meaning $d|1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not coprime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
 			
-			For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\ldots , s_{\t(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is coprime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is coprime to $p$, so is $s+a$. Thus $s+a$ is coprime to all prime factors of $m$, making it relatively prime to $m$ as well. 
+			For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\cdots , s_{\varphi(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is coprime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is co-prime to $p$, so is $s+a$. Thus $s+a$ is co-prime to all prime factors of $m$, making it relatively prime to $m$ as well. 
 		\end{solution}
 		
 		\begin{problem}[1997 Czech and Slovak Mathematical Olympiad]

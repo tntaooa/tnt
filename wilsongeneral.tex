@@ -16,14 +16,14 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 	
 	
 	\begin{theorem}\label{thm:reducedfactorialmodp}
-		Let $p$ be a prime number and let $(n_k n_{k-1}\ldots n_1 n_0)_p$ be a positive integer. Then
+		Let $p$ be a prime number and let $(n_k n_{k-1}\cdots n_1 n_0)_p$ be a positive integer. Then
 			\begin{align*}
 				(n!)_p\equiv (-1)^{\left[\frac{n}{p}\right]} \cdot n_0!\pmod p.
 			\end{align*}
 	\end{theorem}
 	
 	\begin{proof}
-		The numbers not divisible by $p$ among $1, 2, \ldots, n$ are
+		The numbers not divisible by $p$ among $1, 2, \cdots, n$ are
 			\[\begin{array}{*{20}{c}}
 				1&2& \cdots &{{n_0}}& \cdots &{p - 1}\\
 				{p + 1}&{p + 2}& \cdots &{p + {n_0}}& \cdots &{2p - 1}\\
@@ -71,7 +71,7 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 We are ready to prove the following theorem.
 
 	\begin{theorem}[Generalization of Wilson's Theorem]\label{thm:wilsongeneral}
-		Let $p$ be a prime number and let $(n_k n_{k-1}\ldots n_1 n_0)_p$ be the representation of a positive integer $n$ in base $p$. Then
+		Let $p$ be a prime number and let $(n_k n_{k-1}\cdots n_1 n_0)_p$ be the representation of a positive integer $n$ in base $p$. Then
 			\begin{align}\label{eq:wilsongeneral}
 				\dfrac{n!}{p^{v_p(n!)}}\equiv (-1)^{v_p(n!)} n_0!n_1!\dots n_k!\pmod p.
 			\end{align}

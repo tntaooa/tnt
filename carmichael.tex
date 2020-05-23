@@ -21,7 +21,7 @@
 	\end{theorem}
 	
 	\begin{corollary}\label{cor:LambdaDividesPhi}
-		For any positive integer $n$, $\l(n)\mid \t(n)$.
+		For any positive integer $n$, $\lambda(n)\mid \varphi(n)$.
 	\end{corollary}
 	The following theorem is self-implicating and solves the first problem, if we can prove that $\l(n)$ exists. For now, let's assume it does.
 	\begin{theorem}\slshape
@@ -56,67 +56,67 @@
 	
 	\begin{theorem}\slshape
 		For any prime $p$ and any positive integer $k$, 
-		\[\l(p^k)=\l(2p^k)=\t(p^k).\]
+		\[\lambda(p^k)=\lambda(2p^k)=\varphi(p^k).\]
 	\end{theorem}
 	
 	\begin{proof}
-		Consider the congruence equation $x^d\equiv1\pmod{p^k}$ and let $d=\l(p^k)$. By Corollary \ref{cor:LambdaDividesPhi}, $d \mid \t(p^k)$. Take $x=g$ where $g$ is a primitive root modulo $p^k$. Then, $\ord_{p^k}(g)=\t(p^k)$ and we immediately have $\t(p^k)|d$. Thus, $d=\t(p^k)$. A very similar proof can be stated to show that $\l (2p^k)=\t (2p^k) = \t (p^k)$.
+		Consider the congruence equation $x^d\equiv1\pmod{p^k}$ and let $d=\lambda(p^k)$. By Corollary \ref{cor:LambdaDividesPhi}, $d \mid \varphi(p^k)$. Take $x=g$ where $g$ is a primitive root modulo $p^k$. Then, $\ord_{p^k}(g)=\varphi(p^k)$ and we immediately have $\varphi(p^k)|d$. Thus, $d=\varphi(p^k)$. A very similar proof can be stated to show that $\lambda (2p^k)=\varphi (2p^k) = \varphi(p^k)$.
 	\end{proof}
 	
 	\begin{theorem}\slshape
 		Let $a$ and $b$ be coprime positive integers. Then
-		 \[\l(ab)=\lcm(\l(a),\l(b)).\]
+		 \[\lambda(ab)=\lcm(\lambda(a),\lambda(b)).\]
 	\end{theorem}
 	
 	\begin{proof}
-		Suppose that $$\l(a)=d, \quad \l(b)=e, \quad \text{and} \quad \l(ab)=h.$$ Then, $$x^d\equiv1\pmod a, \quad x^e\equiv1\pmod b, \quad \text{and} \quad x^{h}\equiv1\pmod{ab}.$$ We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
+		Suppose that $$\lambda(a)=d, \quad \lambda(b)=e, \quad \text{and} \quad \lambda(ab)=h.$$ Then, $$x^d\equiv1\pmod a, \quad x^e\equiv1\pmod b, \quad \text{and} \quad x^{h}\equiv1\pmod{ab}.$$ We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
 	\end{proof}
 	Generalization of this theorem is as follows.
 	\begin{theorem}\slshape
 		For any two positive integers $a$ and $b$,
 		\begin{align*}
-		\lcm(\l(a),\l(b)) & = \l(\lcm(a,b)).
+		\lcm(\lambda(a),\lambda(b)) & = \lambda(\lcm(a,b)).
 		\end{align*}
 	\end{theorem}
-	The next theorem combines the above results and finds $\l(n)$ for all $n$.
+	The next theorem combines the above results and finds $\lambda(n)$ for all $n$.
 	\begin{theorem}\slshape\label{thm:CarmichaelFormula}
 		Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$. Also, let $p$ be a prime and $k$ be a positive integer. Then
 		\begin{align*}
-		\l(n) & = 
-		\begin{cases}
-		\t(n),&\text{ if } n = 2,4,p^k, \text{ or } 2p^k,\\
-		\dfrac{\t(n)}{2},& \text{ if }n=2^k\text{ with }k>2,\\
-		\lcm(\l(p_1^{e_1}),\ldots,\l(p_r^{e_r})), & \text{ otherwise.}
-		\end{cases}
+			\lambda(n) & = 
+			\begin{cases}
+				\varphi(n),\mbox{ if } n = 2,4,p^k, \mbox{ or } 2p^k,\\
+				\dfrac{\varphi(n)}{2},\mbox{ if }n=2^k\mbox{ with }k>2,\\
+				\lcm(\lambda(p_1^{e_1}),\cdots,\lambda(p_r^{e_r})) \mbox{ otherwise.}
+			\end{cases}
 		\end{align*}
 	\end{theorem}
 	
 	\begin{theorem}\slshape
-		For positive integers $a$ and $b$, if $a \mid b$, then $\l(a) \mid \l(b)$.
+		For positive integers $a$ and $b$, if $a \mid b$, then $\lambda(a) \mid \lambda(b)$.
 	\end{theorem}
 	The proof is left as an exercise for the reader. We are now ready to fully solve Problem \ref{prob:CarmichaelQuestion1}.
 	\begin{theorem}\slshape
-		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  coprime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \l(n)$.
+		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  coprime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \lambda(n)$.
 	\end{theorem}
 	
 	\begin{proof}
-		The ``if'' part is true by Theorem \ref{thm:ordDiv}. For the ``only if'' part, assume that $g$ is an integer with $\ord_n(g)=\l(n)$ and $\l(n)=de$. Then $\ord_n(g^e)=d$, as desired.
+		The ``if'' part is true by Theorem \ref{thm:ordDiv}. For the ``only if'' part, assume that $g$ is an integer with $\ord_n(g)=\lambda(n)$ and $\lambda(n)=de$. Then $\ord_n(g^e)=d$, as desired.
 	\end{proof}
 	
 	We finish this section by proposing a theorem. We will leave the proof for the reader as an exercise.
 		\begin{theorem}\slshape
-			If $\l(n)$ is coprime to $n$, then $n$ is square-free.
+			If $\lambda(n)$ is coprime to $n$, then $n$ is square-free.
 		\end{theorem}
 	Recall that $n$ is square-free if it is not divisible by any perfect square other than $1$.
 	
-	\subsection{Primitive $\l$-roots}
+	\subsection{Primitive $\lambda$-roots}
 	Carmichael defined a generalization of primitive roots as follows using his function. As you will see, this section generalizes everything related to primitive roots.
-	\begin{definition}[Primitive $\l$-root]
-		Let $a$ and $n$ be coprime positive integers. If $\ord_n(a)=\l(n)$, then $a$ is a primitive $\l$-root modulo $n$. That is, $a^{\l(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$. 
+	\begin{definition}[Primitive $\lambda$-root]
+		Let $a$ and $n$ be coprime positive integers. If $\ord_n(a)=\lambda(n)$, then $a$ is a primitive $\lambda$-root modulo $n$. That is, $a^{\lambda(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$. 
 	\end{definition}
 
 	\begin{definition}
-		Let $n$ be a positive integer. Define $$\xi(n) = \frac{\t(n)}{\l(n)}.$$ (Read $\xi$ as ``ksi''). According to Corollary \ref{cor:LambdaDividesPhi}, $\xi(n)$ is an integer.
+		Let $n$ be a positive integer. Define $\xi(n) = \frac{\varphi(n)}{\lambda(n)}$ (read $\xi$ as ``ksi''). According to Corollary \ref{cor:LambdaDividesPhi}, $\xi(n)$ is an integer.
 	\end{definition}
 
 	\begin{proposition}
@@ -127,9 +127,9 @@
 	\begin{theorem}[Carmicahel]\slshape
 		For any positive integer $n$, the congruence equation
 			\begin{align*}
-				x^{\l(n)} & \equiv1\pmod n
+				x^{\lambda(n)} & \equiv1\pmod n
 			\end{align*}
-		has a solution $a$ which is a primitive $\lambda$-root, and for any such $a$, there are $\t(\l(n))$ primitive roots congruent to powers of $a$.
+		has a solution $a$ which is a primitive $\lambda$-root, and for any such $a$, there are $\varphi(\lambda(n))$ primitive roots congruent to powers of $a$.
 	\end{theorem}
 	We can show that this theorem is true in a similar fashion to what we did in last section, and we leave it as an exercise.
 	
@@ -151,18 +151,18 @@
 
 	The next theorem generalizes Theorem \ref{thm:genWilson}, which itself was a generalization to Wilson's theorem. 
 	\begin{theorem}\slshape
-		Let $n$ be a positive integer such that $\l(n)>2$. Also, suppose that $g$ is a primitive $\l$-root modulo $n$. The product of primitive $\l$-roots of $n$ is congtuent to $1$ modulo $n$.
+		Let $n$ be a positive integer such that $\lambda(n)>2$. Also, suppose that $g$ is a primitive $\lambda$-root modulo $n$. The product of primitive $\lambda$-roots of $n$ is congruent to $1$ modulo $n$.
 	\end{theorem}
 	
 	\begin{proof}
-		Since $\l(n)>2$, we can easily argue that it must be even. If $g$ is a primitive $\l$-root modulo $n$, all the primitive $\l$-roots are $$\{g^{e_1}, g^{e_2}, \ldots, g^{e_{k}}\},$$ where $e_i$ (for $1 \leq i \leq k$) are all (distinct) positive integers with $(e_i, \lambda(n))=1$. Also, note that we can pair them up since $\l(n)$ is even if $n>2$. In fact, we can pair $g^{e_i}$ with $g^{\lambda(n)-e_i}$ for all $i$. Then,
+		Since $\lambda(n)>2$, we can easily argue that it must be even. If $g$ is a primitive $\lambda$-root modulo $n$, all the primitive $\lambda$-roots are $$\{g^{e_1}, g^{e_2}, \cdots, g^{e_{k}}\},$$ where $e_i$ (for $1 \leq i \leq k$) are all (distinct) positive integers with $(e_i, \lambda(n))=1$. Also, note that we can pair them up since $\lambda(n)$ is even if $n>2$. In fact, we can pair $g^{e_i}$ with $g^{\lambda(n)-e_i}$ for all $i$. Then,
 		\begin{equation*}
-		g^{e_1}\cdot g^{e_2}\cdots g^{e_k}  \equiv g^{\l(n)}\cdots g^{\l(n)}  \equiv 1\pmod n. \qedhere
+		g^{e_1}\cdot g^{e_2}\cdots g^{e_k}  \equiv g^{\lambda(n)}\cdots g^{\lambda(n)}  \equiv 1\pmod n. \qedhere
 		\end{equation*}
 	\end{proof}
 	
 	\begin{corollary}
-		For any $n$, there are $\t(\l(n))$ primitive $\l$-roots modulo $n$.
+		For any $n$, there are $\varphi(\lambda(n))$ primitive $\lambda$-roots modulo $n$.
 	\end{corollary}
 	
 

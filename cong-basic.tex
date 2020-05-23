@@ -126,7 +126,7 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 	\end{corollary}
 What is the sum of the terms of an arithmetic progression? Obviously, if the sequence has \textit{infinite} number of terms, that is, if it has infinitely many terms, then the sum is not a finite number as the common difference is constant\footnote{we say that it \textit{diverges}.}. However, when the arithmetic progression is finite (such as, a portion of the sequence), the sum of all its elements is finite as well. Often we consider partial sum of such a series.
 	\begin{theorem}\slshape
-		Let $(a_1,a_2,\ldots,a_n)$ be a finite arithmetic sequence such that
+		Let $(a_1,a_2,\cdots,a_n)$ be a finite arithmetic sequence such that
 			\begin{eqnarray*}
 				a_1 & = & a,\\
 				a_2 & = & a+d,\\
@@ -178,7 +178,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\end{align*}
 	which is very close to zero. So, on a second thought, we can guess that the given sum has a finite value. In general, when the absolute value of common ratio of a geometric progression is less than one, that is, when the absolute value of each term of the sequence is smaller that its preceding term, then the \textit{geometric series} (either finite or infinite) has a finite value\footnote{to put it differently, it \textit{converges} to a fixed value.}. We will see this from a different point of view. This is due to \textit{Chamok Hasan}, a senior brother of Masum.
 	
-	Consider a pumpkin. Let us assume that it is totally symmetrical. Now, divide it in half and put aside half of it. You have half of the pumpkin to yourself. Divide it in half again. Keep one to yourself and discard the other half. So now you have one fourth of the pumpkin. Again, cut it in half. Keep one, discard one. Now you have one eighth. See that if you keep going this way, you end up getting $\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\ldots$ and dividing them. And the fun fact is, you can keep doing this for as many times as you want. Obviously, if we put together all the parts again, we get the whole pumpkin. That is, if we take all the discarded portions and put them back, the pumpkin becomes whole again. This shows us without any rigorous proof that
+	Consider a pumpkin. Let us assume that it is totally symmetrical. Now, divide it in half and put aside half of it. You have half of the pumpkin to yourself. Divide it in half again. Keep one to yourself and discard the other half. So now you have one fourth of the pumpkin. Again, cut it in half. Keep one, discard one. Now you have one eighth. See that if you keep going this way, you end up getting $\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\cdots$ and dividing them. And the fun fact is, you can keep doing this for as many times as you want. Obviously, if we put together all the parts again, we get the whole pumpkin. That is, if we take all the discarded portions and put them back, the pumpkin becomes whole again. This shows us without any rigorous proof that
 		\begin{align*}
 			\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\cdots=1.
 		\end{align*}
@@ -250,7 +250,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\end{problem}
 	The first idea that crosses your mind might be calculating $6^{49}$ and finding the remainder when divided by $49$. This would be a large integer and the calculation is really tedious, not to mention, pointless. A slight improvement would be multiplying $6$ with $6$ and taking modulo $49$ each time. We need to do this for $49$ times but at least, now we do not have to deal with that large numbers anymore. Let us call this \textit{iterative exponentiation method}.
 	
-	Suppose we want to find $c \equiv a^k \mod n$. The iterative exponentiation method computes the values $1=a^0, a^1, a^2, \ldots, a^k=c$ modulo $n$ instead of directly calculating $a^k$ modulo $n$. Suppose that we have computed $a^i$ modulo $n$ for some $i<k$ and the result is $b$. According to the above theorem, to calculate $a^{i+1}$, all we need to do is to compute $a\cdot b \mod n$. Obviously, $a \cdot b$ is much smaller than $a^i$ when $i$ is large. This is why this method takes less time for computations. Iterative exponentiation may be expressed as an algorithm as shown below.
+	Suppose we want to find $c \equiv a^k \mod n$. The iterative exponentiation method computes the values $1=a^0, a^1, a^2, \cdots, a^k=c$ modulo $n$ instead of directly calculating $a^k$ modulo $n$. Suppose that we have computed $a^i$ modulo $n$ for some $i<k$ and the result is $b$. According to the above theorem, to calculate $a^{i+1}$, all we need to do is to compute $a\cdot b \mod n$. Obviously, $a \cdot b$ is much smaller than $a^i$ when $i$ is large. This is why this method takes less time for computations. Iterative exponentiation may be expressed as an algorithm as shown below.
 	
 	\paragraph{Iterative Exponentiation Algorithm}
 	\begin{enumerate}[1.]
@@ -295,7 +295,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\end{example}
 	
 	\begin{remark}
-		In the above example where $a$ is small (compared to modulus $n$), we can increase $k_1$ more than one unit in each iteration of the algorithm. For example, in above example, we could increase $k_1$ two units each time to compute $5^2, 5^4,\ldots, 5^{20}$. In this case, the number of calculations is divided by two and therefore there will be less time needed to find the result. This is done in general case but one must notice that when one increases $k_1$, say, two units at each step, he is in fact computing $a^2 \cdot c \mod n$ instead of $a \cdot c \mod n$ in step $3$ of the algorithm to reduce the number of iterations of the algorithm. If $a$ is small, there will be no difference in computation time. But if $a$ is (too) large, computing $a^2 \cdot c \mod n$ may will be more time consuming and it may reduce the time efficiency of algorithm.
+		In the above example where $a$ is small (compared to modulus $n$), we can increase $k_1$ more than one unit in each iteration of the algorithm. For example, in above example, we could increase $k_1$ two units each time to compute $5^2, 5^4,\cdots, 5^{20}$. In this case, the number of calculations is divided by two and therefore there will be less time needed to find the result. This is done in general case but one must notice that when one increases $k_1$, say, two units at each step, he is in fact computing $a^2 \cdot c \mod n$ instead of $a \cdot c \mod n$ in step $3$ of the algorithm to reduce the number of iterations of the algorithm. If $a$ is small, there will be no difference in computation time. But if $a$ is (too) large, computing $a^2 \cdot c \mod n$ may will be more time consuming and it may reduce the time efficiency of algorithm.
 	\end{remark}
 	
 	A more efficient method to do this is \textit{modular exponentiation algorithm}. The beauty of this idea is that you can use it to compute big integers modulo $n$ by hand. The idea actually inherits from binary representation. Consider the binary number $(101101)_2$. We discussed how to convert it to a decimal integer in base conversion. However, Masum uses a variation for faster mental calculation. Start from the left most digit (which always will be $1$ if there is no leading $0$). Initially, the decimal integer is $1$. Now, go to the next digit. If it is $0$, double the current value. If it is $1$, double and add $1$. Since the next digit is $0$, we have $2$. Next digit is $1$. So it will become $2\cdot2+1=5$. Next digit is $1$ as well. It will be $5\cdot2+1=11$. Next digit is $0$, so we have $11\cdot2=22$. Next digit is $1$, so it will be $22\cdot2+1=45$. There is no more digits left, so this is the desired value in decimal. You can verify that this indeed is the intended result. And more importantly, think why this works if you have not figured it out already!
@@ -378,18 +378,18 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\end{definition}
 		
 		\begin{example}
-			$A = \{0,1, \ldots, m-1\}$ is a complete residue system modulo $m$. So is $B=\{15, 36, -7, 27, 94\}$ modulo $5$.
+			$A = \{0,1, \cdots, m-1\}$ is a complete residue system modulo $m$. So is $B=\{15, 36, -7, 27, 94\}$ modulo $5$.
 		\end{example}
 	We will state two simple propositions without proof. The reader should be able to prove them by his/her own.
 	
 	\begin{proposition}
-		The set $A=\{a_1, a_2, \ldots, a_k\}$ is a complete residue set (or system) modulo $m$ if and only if $k=m$ and $a_i \not\equiv a_j \pmod m$ for $i \neq j$.
+		The set $A=\{a_1, a_2, \cdots, a_k\}$ is a complete residue set (or system) modulo $m$ if and only if $k=m$ and $a_i \not\equiv a_j \pmod m$ for $i \neq j$.
 	\end{proposition}
 	
 	\begin{proposition} \label{prop:generalcompletesystem}
-		Let $A=\{a_1, a_2, \ldots, a_m\}$ be a complete residue set modulo $m$ and let $a,b$ be integers such that $a \bot m$. Then the set
+		Let $A=\{a_1, a_2, \cdots, a_m\}$ be a complete residue set modulo $m$ and let $a,b$ be integers such that $a \bot m$. Then the set
 		\begin{align*}
-			B=\{aa_1+b, aa_2+b, \ldots, aa_m+b\}
+			B=\{aa_1+b, aa_2+b, \cdots, aa_m+b\}
 		\end{align*}
 		is also a complete residue set modulo $m$.
 	\end{proposition}
@@ -436,7 +436,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\begin{align*}
 			\{3,6,9,12,15,18\} & \equiv\{3,6,2,5,1,4\}\pmod7.
 		\end{align*}
-	Does this look interesting? If not, take a look again. And try to understand what happened and why. Firstly, the products forms a residue class as well. Alternatively, it is a permutation of the residue class. Why? What if we multiplied by $5$? Check it out yourself and see if the conclusion holds. Check for some more integers like $10, 13,14$ etc. You will see the same is true for all integers except $0,7,14,\ldots$ i.e. multiples of $7$. Again, why? $7$ is a prime. So we know if an integer is not divisible by $7$, it is co-prime to $7$. Take $a$ such that $a\bot7$. Now, what does it mean that the set of products is a permutation of the original? We could state it this way: no two products leave the same remainder when divided by $7$. And you can see, if this is true, everything makes sense. If we can show that for $0<i<j<7$, $ia$ and $ja$ are not congruent modulo $7$, we are done! That is indeed the case. For the sake of contradiction, assume that,
+	Does this look interesting? If not, take a look again. And try to understand what happened and why. Firstly, the products forms a residue class as well. Alternatively, it is a permutation of the residue class. Why? What if we multiplied by $5$? Check it out yourself and see if the conclusion holds. Check for some more integers like $10, 13,14$ etc. You will see the same is true for all integers except $0,7,14,\cdots$ i.e. multiples of $7$. Again, why? $7$ is a prime. So we know if an integer is not divisible by $7$, it is co-prime to $7$. Take $a$ such that $a\bot7$. Now, what does it mean that the set of products is a permutation of the original? We could state it this way: no two products leave the same remainder when divided by $7$. And you can see, if this is true, everything makes sense. If we can show that for $0<i<j<7$, $ia$ and $ja$ are not congruent modulo $7$, we are done! That is indeed the case. For the sake of contradiction, assume that,
 		\begin{align*}
 			ia  \equiv &ja\pmod7\\
 			\iff 7|ia-ja&=a(i-j)
@@ -448,14 +448,14 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\end{definition}
 	
 	\begin{example}
-		The set $A=\{ 1, 2, \ldots, p-1 \}$ is a reduced residue system modulo a prime $p$. The set $\{7, 17\}$ is also a reduced residue system mod $6$.
+		The set $A=\{ 1, 2, \cdots, p-1 \}$ is a reduced residue system modulo a prime $p$. The set $\{7, 17\}$ is also a reduced residue system mod $6$.
 	\end{example}
 	
 	You can clearly sense how the Euler's phi function is related to reduced residue systems: the number of elements of $A$ is $\phi(m)$. So we can express the above definition in a better way:
 	
 	
 	\begin{proposition}
-		The set $A=\{a_1, a_2, \ldots, a_k\}$ is a reduced residue set (or system) modulo $m$ if and only if
+		The set $A=\{a_1, a_2, \cdots, a_k\}$ is a reduced residue set (or system) modulo $m$ if and only if
 		\begin{itemize}
 			\item $a_i \perp m$ for all $i$,
 			\item $k=\varphi(m)$, and
@@ -466,9 +466,9 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	An important aspect of the reduced systems is stated in the next proposition. It will help us prove the Euler's theorem later.	
 	
 	\begin{proposition}\label{prop:generalreducedsystem} 
-		Let $A=\{a_1, a_2, \ldots, a_{\varphi(m)}\}$ be a reduced residue set modulo $m$ and let $a$ be an integer such that $a \bot m$. Then the set
+		Let $A=\{a_1, a_2, \cdots, a_{\varphi(m)}\}$ be a reduced residue set modulo $m$ and let $a$ be an integer such that $a \bot m$. Then the set
 		\begin{align*}
-			B=\{aa_1, aa_2, \ldots, aa_{\varphi(m)}\}
+			B=\{aa_1, aa_2, \cdots, aa_{\varphi(m)}\}
 		\end{align*}
 		is also a reduced residue set modulo $m$.
 	\end{proposition}
@@ -479,11 +479,11 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	The latest theorem says that there are infinitely many reduced residue systems for any $m$. So, it makes sense to define a set as the original reduced residue system for any positive integer $m$. We call this set $\mathbb U_m$.
 	
 	\begin{definition}\label{def:setofunits}
-		Let $m$ be a positive integer. The \textit{set of units} modulo $m$, $\mathbb U_m$, is the set of positive integers $g_1,\ldots,g_{\varphi(m)}$ less than $m$ which are coprime to $m$. 
+		Let $m$ be a positive integer. The \textit{set of units} modulo $m$, $\mathbb U_m$, is the set of positive integers $g_1,\cdots,g_{\varphi(m)}$ less than $m$ which are coprime to $m$. 
 	\end{definition}
 	
 	\begin{example}
-		$\mathbb U_8=\{1,3,5,7\}$, and $\mathbb U_{15}=\{1,2,4,7,8,11,13,14\}$. If $p$ is a prime, then $\mathbb U_p=\{1,2,\ldots, p-1\}$.
+		$\mathbb U_8=\{1,3,5,7\}$, and $\mathbb U_{15}=\{1,2,4,7,8,11,13,14\}$. If $p$ is a prime, then $\mathbb U_p=\{1,2,\cdots, p-1\}$.
 	\end{example}
 
 	

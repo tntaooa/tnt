@@ -4,7 +4,7 @@
 	\textit{Zsigmondy's theorem} is one of the tactics that can easily tackle a good number of \textit{hard problems} in recent years. This is indeed a mighty theorem to be used in an olympiad. But it seems everyone has accepted it as a tool for solving problems because the proof of its theorem is quite elementary\footnote{according to the first author, there may be a difference in opinion} (still hard). At the IMO, often some problems appear that can be solved very easily using some heavy theorems. But those theorems are usually not accepted by everyone for not being as elementary as needed. But in this case, everyone seems to like this theorem. The first author was really keen to provide the proof of this theorem along with some other similar theorems\footnote{such as Carmichael Theorem}. But that really is beyond the scope of our book. Since it is a well established theorem, for now, we will just assume it is true. Rather we focus on how to implement this theorem in solving problems.
 	
 		\begin{definition}[Primitive Divisor]
-			For a sequence of integers $a_1,a_2,\ldots,a_n,\ldots$ a prime number $p$ is a \textit{primitive} divisor of $a_n$ if $p$ divides $a_n$ but $p$ doesn't divide $a_k$ for any $k<n$. \textit{R. D. Carmichael} called such a prime an \textit{intrinsic} divisor.
+			For a sequence of integers $a_1,a_2,\cdots,a_n,\cdots$ a prime number $p$ is a \textit{primitive} divisor of $a_n$ if $p$ divides $a_n$ but $p$ doesn't divide $a_k$ for any $k<n$. \textit{R. D. Carmichael} called such a prime an \textit{intrinsic} divisor.
 		\end{definition}
 		
 		\begin{example}
@@ -111,7 +111,7 @@
 		\begin{proof}
 			The number $M=p_1p_2\dots p_n$ has $\underbrace{(1+1)(1+1)\dots(1+1)}_{n\text{ times}}=2^n$ divisors. Say the divisors are
 				\begin{align*}
-					1=d_1<d_2<\ldots<d_{2^n}=p_1\cdots p_n.
+					1=d_1<d_2<\cdots<d_{2^n}=p_1\cdots p_n.
 				\end{align*}
 			Then first $2^{d_1}+1$ has the prime divisor $3$. $2^{d_2}+1$ has a divisor that is not $3$. Generally, each $d_i>d_{i-1}$ gives us a new primitive divisor that was not in $2^{d_{i-1}}+1$. Therefore, we have at least $2^n$ distinct prime divisors.
 		\end{proof}

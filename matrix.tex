@@ -7,10 +7,10 @@
 		A \textit{matrix} is a rectangular array which can consist of numbers, variables, or anything. Like a grid, it can have $m$ horizontal \textit{rows} and $n$ vertical \textit{columns}. So, there are $mn$ \textit{cells} in a matrix. Then the matrix is of the size $m\times n$. There are some common notations for denoting matrix. But we will use the usual one:
 		\begin{align*}
 		{A_{m \times n}} = \begin{pmatrix}
-			{{a_{11}}}&{{a_{12}}}& \ldots &{{a_{1n}}}\\
-			{{a_{21}}}&{{a_{22}}}& \ldots &{{a_{2n}}}\\
+			{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+			{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
 			\vdots & \vdots & \ddots & \vdots \\
-			{{a_{m1}}}&{{a_{m2}}}& \ldots &{{a_{mn}}}
+			{{a_{m1}}}&{{a_{m2}}}& \cdots &{{a_{mn}}}
 			\end{pmatrix}.
 			\end{align*}
 		Here, $a_{ij}$ are the \textit{entries} of the $m\times n$ matrix $A$. Notice how the index of each entry is written. The entry $a_{ij}$ belongs to the $i^{th}$ row and $j^{th}$ column of the matrix.
@@ -60,22 +60,22 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 		The matrix addition is the operation of adding two matrices by adding the corresponding entries together. If $A$ and $B$ are $m \times n$ matrices, then
 		\begin{align*}
 	{A_{m \times n}} + {B_{m \times n}} &= \begin{pmatrix}
-		{{a_{11}}}&{{a_{12}}}& \ldots &{{a_{1n}}}\\
-		{{a_{21}}}&{{a_{22}}}& \ldots &{{a_{2n}}}\\
+		{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+		{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
 		\vdots & \vdots & \ddots & \vdots \\
-		{{a_{m1}}}&{{a_{m2}}}& \ldots &{{a_{mn}}}
+		{{a_{m1}}}&{{a_{m2}}}& \cdots &{{a_{mn}}}
 		\end{pmatrix} + \begin{pmatrix}
-		{{b_{11}}}&{{b_{12}}}& \ldots &{{b_{1n}}}\\
-		{{b_{21}}}&{{b_{22}}}& \ldots &{{b_{2n}}}\\
+		{{b_{11}}}&{{b_{12}}}& \cdots &{{b_{1n}}}\\
+		{{b_{21}}}&{{b_{22}}}& \cdots &{{b_{2n}}}\\
 		\vdots & \vdots & \ddots & \vdots \\
-		{{b_{m1}}}&{{b_{m2}}}& \ldots &{{b_{mn}}}
+		{{b_{m1}}}&{{b_{m2}}}& \cdots &{{b_{mn}}}
 		\end{pmatrix}\\
 	\\
 	&= \begin{pmatrix}
-		{{a_{11}} + {b_{11}}}&{{a_{12}} + {b_{12}}}& \ldots &{{a_{1n}} + {b_{1n}}}\\
-		{{a_{21}} + {b_{21}}}&{{a_{22}} + {b_{22}}}& \ldots &{{a_{2n}} + {b_{2n}}}\\
+		{{a_{11}} + {b_{11}}}&{{a_{12}} + {b_{12}}}& \cdots &{{a_{1n}} + {b_{1n}}}\\
+		{{a_{21}} + {b_{21}}}&{{a_{22}} + {b_{22}}}& \cdots &{{a_{2n}} + {b_{2n}}}\\
 		\vdots & \vdots & \ddots & \vdots \\
-		{{a_{m1}} + {b_{m1}}}&{{a_{m2}} + {b_{m2}}}& \ldots &{{a_{mn}} + {b_{mn}}}
+		{{a_{m1}} + {b_{m1}}}&{{a_{m2}} + {b_{m2}}}& \cdots &{{a_{mn}} + {b_{mn}}}
 		\end{pmatrix}.
 		\end{align*}
 		
@@ -87,17 +87,17 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 	%	Let $A$ be an $m\times n$ matrix and let $r$ be a real number. Then
 	%	\begin{align*}
 	%		rA=	r \cdot \begin{pmatrix}
-	%			{{a_{11}}}&{{a_{12}}}& \ldots &{{a_{1n}}}\\
-	%			{{a_{21}}}&{{a_{22}}}& \ldots &{{a_{2n}}}\\
+	%			{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+	%			{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
 	%			\vdots & \vdots & \ddots & \vdots \\
-	%			{{a_{m1}}}&{{a_{m2}}}& \ldots &{{a_{mn}}}
+	%			{{a_{m1}}}&{{a_{m2}}}& \cdots &{{a_{mn}}}
 	%			\end{pmatrix}
 	%		= 
 	%		\begin{pmatrix}
-	%			{{ra_{11}}}&{{ra_{12}}}& \ldots &{{ra_{1n}}}\\
-	%			{{ra_{21}}}&{{ra_{22}}}& \ldots &{{ra_{2n}}}\\
+	%			{{ra_{11}}}&{{ra_{12}}}& \cdots &{{ra_{1n}}}\\
+	%			{{ra_{21}}}&{{ra_{22}}}& \cdots &{{ra_{2n}}}\\
 	%			\vdots & \vdots & \ddots & \vdots \\
-	%			{{ra_{m1}}}&{{ra_{m2}}}& \ldots &{{ra_{mn}}}
+	%			{{ra_{m1}}}&{{ra_{m2}}}& \cdots &{{ra_{mn}}}
 	%			\end{pmatrix}.
 	%	\end{align*}
 	%\end{definition}
@@ -106,22 +106,22 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 		Let $A$ be an $m\times n$ matrix and let $B$ be an $n\times P$. The multiplication of $A$ and $B$ is an $m \times p$ matrix $C$, such that
 		\begin{align*}
 		{A_{m \times n}} \times {B_{n \times p}} &= \begin{pmatrix}
-			{{a_{11}}}&{{a_{12}}}& \ldots &{{a_{1n}}}\\
-			{{a_{21}}}&{{a_{22}}}& \ldots &{{a_{2n}}}\\
+			{{a_{11}}}&{{a_{12}}}& \cdots &{{a_{1n}}}\\
+			{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
 			\vdots & \vdots & \ddots & \vdots \\
-			{{a_{m1}}}&{{a_{m2}}}& \ldots &{{a_{mn}}}
+			{{a_{m1}}}&{{a_{m2}}}& \cdots &{{a_{mn}}}
 				\end{pmatrix} \cdot \begin{pmatrix}
-			{{b_{11}}}&{{b_{12}}}& \ldots &{{b_{1p}}}\\
-			{{b_{21}}}&{{b_{22}}}& \ldots &{{b_{2p}}}\\
+			{{b_{11}}}&{{b_{12}}}& \cdots &{{b_{1p}}}\\
+			{{b_{21}}}&{{b_{22}}}& \cdots &{{b_{2p}}}\\
 			\vdots & \vdots & \ddots & \vdots \\
-			{{b_{n1}}}&{{b_{n2}}}& \ldots &{{b_{np}}}
+			{{b_{n1}}}&{{b_{n2}}}& \cdots &{{b_{np}}}
 			\end{pmatrix}\\
 		\\
 		&= \begin{pmatrix}
-			{{c_{11}}}&{{c_{12}}}& \ldots &{{c_{1p}}}\\
-			{{c_{21}}}&{{c_{22}}}& \ldots &{{c_{2p}}}\\
+			{{c_{11}}}&{{c_{12}}}& \cdots &{{c_{1p}}}\\
+			{{c_{21}}}&{{c_{22}}}& \cdots &{{c_{2p}}}\\
 			\vdots & \vdots & \ddots & \vdots \\
-			{{c_{m1}}}&{{c_{m2}}}& \ldots &{{c_{mp}}}
+			{{c_{m1}}}&{{c_{m2}}}& \cdots &{{c_{mp}}}
 		\end{pmatrix},
 		\end{align*}
 		
@@ -440,7 +440,7 @@ We could factorize $a^2+ab+b^2$ as $(a+\zeta b)(a+\zeta^2b)$, where $\zeta^3=1$ 
 \subsection{Proving Fibonacci Number Identities}
 The original Fibonacci sequence $F_n$ is defined by $F_0=0$, $F_1=1$, and $F_{n+1} = F_{n}+F_{n-1}$ for $n>1$. You are familiar with this sequence as it's used in so many cases:
 \begin{align*}
-0,1,1,2,3,5,8,13,\ldots
+0,1,1,2,3,5,8,13,\cdots
 \end{align*}
 We define general Fibonacci numbers $G_n$ by
 \begin{align*}

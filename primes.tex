@@ -212,12 +212,12 @@
 		\begin{proof}[Proof using Euler function]
 			Let $P$ be the product of all primes (since they are finite, $P$ is finite too). Assume that the primes are $p_1,p_2,\ldots, p_k$ and they are sorted, i.e., $2=p_1<3=p_1<\cdots$. Then $P = p_1\cdot p_2\cdots p_k$ and $P$ is square-free as well. Using the formula of Euler function,
 				\begin{align*}
-					\t (P)  & = (p_1-1)\cdot(p_2-1)\cdots(p_k-1)\\
+					\varphi(P)  & = (p_1-1)\cdot(p_2-1)\cdots(p_k-1)\\
 							& \geq 1\cdot2\cdots2\\
 							& \geq 2^{k-1}\\
 							& \geq 2
 				\end{align*}
-			if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\t (P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are coprime to $P$. If we discard $1$, there is at least one other positive integer which is coprime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
+			if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\varphi(P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are coprime to $P$. If we discard $1$, there is at least one other positive integer which is coprime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
 		\end{proof}
 	In the previous discussion, we have shown that there are infinitely many primes in several different ways.
 		\begin{theorem}\slshape

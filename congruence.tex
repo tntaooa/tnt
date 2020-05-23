@@ -164,9 +164,7 @@
 		\end{problem}
 		
 		\begin{solution}
-			This problem is kind of a direct consequence of Fermat's little theorem. Write $a^pb-ab^p=ab(a^{p-1}-b^{p-1})$. If one of $a$ or $b$ is divisible by $p$, we are done. If neither of them is divisible by $p$,
-			\[a^{p-1}\equiv1\equiv b^{p-1}\pmod p.\]
-			Thus, $p$ divides $a^{p-1}-b^{p-1}$.
+			This problem is kind of a direct consequence of Fermat's little theorem. Write $a^pb-ab^p=ab(a^{p-1}-b^{p-1})$. If one of $a$ or $b$ is divisible by $p$, we are done. If neither of them is divisible by $p$, then $a^{p-1}\equiv1\equiv b^{p-1}\pmod p$. So, $p$ divides $a^{p-1}-b^{p-1}$.
 		\end{solution}
 		
 		\begin{problem}[Problem $124$ in \cite{ch:congruence-sierpinsky}]
@@ -192,9 +190,9 @@
 		\end{theorem}
 
 		\begin{proof} 
-			Before we start the proof, remember Definition \ref{def:totient} where we defined Euler's totient function. The proof is very similar to the proof of Fermat's theorem and you only need to apply Proposition \ref{prop:generalreducedsystem} once. Let $A=\{a_1, a_2, \ldots, a_{\varphi(m)}\}$ be a reduced residue set mod $m$. Then so is $B=\{aa_1, aa_2, \ldots, aa_{\varphi(m)}\}$. From the definition of reduced systems, any number which is coprime to $m$ is congruent to exactly one element of $A$ and exactly one element of $B$. Thus, the product of all elements of $A$ must be congruent to that of $B$, modulo $B$. Therefore
+			Before we start the proof, remember Definition \ref{def:totient} where we defined Euler's totient function. The proof is very similar to the proof of Fermat's theorem and you only need to apply Proposition \ref{prop:generalreducedsystem} once. Let $A=\{a_1, a_2, \cdots, a_{\varphi(m)}\}$ be a reduced residue set mod $m$. Then so is $B=\{aa_1, aa_2, \cdots, aa_{\varphi(m)}\}$. From the definition of reduced systems, any number which is coprime to $m$ is congruent to exactly one element of $A$ and exactly one element of $B$. Thus, the product of all elements of $A$ must be congruent to that of $B$, modulo $B$. Therefore
 			\begin{align}
-			& (aa_1) (aa_2) \cdots (aa_{\varphi(m)}) && \equiv && a_1 a_2 \cdots a_{\phi(m)} &&&  \pmod m\nonumber\\
+			& (aa_1) (aa_2) \cdots (aa_{\varphi(m)}) && \equiv && a_1 a_2 \cdots a_{\varphi(m)} &&&  \pmod m\nonumber\\
 			\implies & a^{\varphi(m)} \cdot \left( a_1 a_2 \cdots a_{\varphi(m)}\right) && \equiv && a_1 a_2 \cdots a_{\varphi(m)} &&&  \pmod m\nonumber\\
 			\label{eq:productcoprime}\implies & a^{\varphi(m)} && \equiv && 1 &&& \pmod m.
 			\end{align}
@@ -208,7 +206,7 @@
 		\begin{solution}
 			Let $d=(a, a+b)$. There exist positive integers $a_1$ and $c$ such that
 				\begin{align*}
-					a=da_1 \quad \text{and} \quad a+b=dc.
+					a=da_1 \quad \text{ and } \quad a+b=dc.
 				\end{align*}
 			Also, $(a_1,c)=1$ and $c >1$ (why?). Using Euler's theorem, one can write $c^{n\varphi(a_1)} \equiv 1 \pmod {a_1}$ for any positive integer $n$. This means that there exists a positive integer $t_n$ such that $c^{n\varphi(a_1)}-1 = t_na_1$. Now,
 				\begin{align*}

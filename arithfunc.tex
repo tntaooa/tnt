@@ -6,11 +6,11 @@
 \section{Definitions}
 	
 		\begin{definition}[Arithmetic Function]
-			An \textit{arithmetic function} $f$ is a function $f : \N \to \Co $ with \textit{domain} $\N = \{1, 2, \ldots, n, \ldots\}$ and \textit{codomain} $\Co = \{a+bi: (a,b)\in \mathbb{R}^2 \}$, where $i$ is the imaginary unit defined by $i=\sqrt{-1}$.
+			An \textit{arithmetic function} $f$ is a function $f : \mathbb{N} \to \mathbb{C} $ with \textit{domain} $\mathbb{N} = \{1, 2, \cdots, n, \cdots\}$ and \textit{codomain} $\mathbb{C} = \{a+bi: (a,b)\in \mathbb{R}^2 \}$, where $i$ is the imaginary unit defined by $i=\sqrt{-1}$.
 		\end{definition}
 		
 		\begin{remark}
-			The original definition of arithmetic functions states that the output of an arithmetic function can be any complex number. For example, consider the function $f:\N\to \Co$ with
+			The original definition of arithmetic functions states that the output of an arithmetic function can be any complex number. For example, consider the function $f:\mathbb{N}\to \mathbb{C}$ with
 				\begin{align*}
 					f(n)=\dfrac{n^ee^{-n}}{e^n+n+1+\ln n}.
 				\end{align*}
@@ -127,7 +127,7 @@
 				\begin{align}
 					f(mn)=f(m)+f(n)\label{eqn:af1}
 				\end{align}
-			for all $m,n\in\N$ such that $m\perp n$. The condition $m\perp n$ is imposed to make it work on some special cases (we will find out why later). The case where equation \eqref{eqn:af1} is true for all $m,n\in\N$, $f$ is called a \textit{completely additive function}.
+			for all $m,n\in\mathbb{N}$ such that $m\perp n$. The condition $m\perp n$ is imposed to make it work on some special cases (we will find out why later). The case where equation \eqref{eqn:af1} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely additive function}.
 		\end{definition}		
 		
 		\begin{definition}[Multiplicative Function]
@@ -135,7 +135,7 @@
 				\begin{align}
 				f(mn)=f(m)f(n)\label{eqn:af2}
 				\end{align}
-			for all $m,n\in\N$ such that $m\perp n$. Again, the condition $m\perp n$ is imposed to make it work on some special cases. In the case where equation \eqref{eqn:af2} is true for all $m,n\in\N$, $f$ is called a \textit{completely multiplicative function}.
+			for all $m,n\in\mathbb{N}$ such that $m\perp n$. Again, the condition $m\perp n$ is imposed to make it work on some special cases. In the case where equation \eqref{eqn:af2} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely multiplicative function}.
 		\end{definition}
 		
 		\begin{example}
@@ -163,7 +163,7 @@
     These two sub-problems are basically the same. Therefore, we only need to answer the general question that how many integers in the interval $[1:x]$ are divisible by $n$. The result is actually the quotient of the division $x/n$ (why?). Consequently, rises the definition of the \textit{floor function}.
     
         \begin{definition}[Floor Function and Fractional Part]
-			We call the function $\lfloor x \rfloor: \R \to \mathbb Z$ the \textit{floor function} and for every real $x$, $\lfloor x\rfloor$ (read \textit{floor of $x$}) is the largest integer less than or equal to $x$. Moreover, we denote by $\{x\}$ the \textit{fractional part of $x$}, which is equal to $x-\lfloor x\rfloor$.
+			We call the function $\lfloor x \rfloor: \mathbb{R} \to \mathbb Z$ the \textit{floor function} and for every real $x$, $\lfloor x\rfloor$ (read \textit{floor of $x$}) is the largest integer less than or equal to $x$. Moreover, we denote by $\{x\}$ the \textit{fractional part of $x$}, which is equal to $x-\lfloor x\rfloor$.
 			
 			\begin{figure}
 				\centering
@@ -292,7 +292,7 @@
     Now, we get to the other way of solving problem \eqref{floorproblem}. First, we subtracted the number of multiples less than $10$. This time we find out the first multiple of $7$ that is \textit{greater than or equal to} $10$, and the greatest multiple less than or equal to $100$ (this part is same as before). $14=7\cdot2$ is the first multiple of $7$ greater than $10$. Since $98=7\cdot14$ is the largest multiple of $7$ less than $100$, the answer to the problem would be the number of integers between $2$ and $14$ (inclusive). There are $14-2+1=13$ such integers. Consequently, this makes us define \textit{ceiling}. Try to make sense how this relates to the properties of this function.
     
         \begin{definition}[Ceiling Function]
-        	We call the function $\lceil x \rceil: \R \to \mathbb Z$ the \textit{ceiling function} and for every real $x$, $\lceil x\rceil$ (read \textit{ceiling of $x$}) is the smallest integer greater than or equal to $x$.
+        	We call the function $\lceil x \rceil: \mathbb{R} \to \mathbb Z$ the \textit{ceiling function} and for every real $x$, $\lceil x\rceil$ (read \textit{ceiling of $x$}) is the smallest integer greater than or equal to $x$.
     		
     		\begin{figure}
     			\centering
@@ -389,7 +389,7 @@
     \end{theorem}
 
 \begin{proof}
-	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \R \to \R$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \eqref{prop:floor},
+	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \eqref{prop:floor},
 	\begin{align*}
 	\bigg\lfloor f(\lfloor x \rfloor)\bigg\rfloor  \leq \bigg\lfloor f(x) \bigg\rfloor.
 	\end{align*}
@@ -744,7 +744,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 		\begin{theorem}\slshape\label{thm:sodfrac}
 			For any positive integer $n$, 
 				\begin{align*}
-					\dfrac{\s (n)}{n} & = \sum_{d|n}\dfrac{1}{d}
+					\dfrac{\sigma (n)}{n} & = \sum_{d|n}\dfrac{1}{d}
 				\end{align*}
 		\end{theorem}
 		
@@ -1830,7 +1830,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{proof}
 
 	\begin{theorem}\slshape\label{thm:oddsigma}
-		$\s (n)$ is odd if and only if $n=k^2$ or $n=2k^2$ for some integer $k$.
+		$\sigma (n)$ is odd if and only if $n=k^2$ or $n=2k^2$ for some integer $k$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -1846,7 +1846,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{proof}
 	
 	\begin{corollary}
-		If $n$ is an odd positive integer, then $n$ is a square if and only if $\s (n)$ is odd.
+		If $n$ is an odd positive integer, then $n$ is a square if and only if $\sigma (n)$ is odd.
 	\end{corollary}
 	
 	\begin{proposition}\slshape
@@ -2029,11 +2029,11 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. We will now prove that the converse of this theorem is also true. That is, $\varphi$ is the only arithmetic function with this property.
 
 		\begin{theorem}\slshape \label{thm:sumofphicon}
-			If $f$ is an arithmetic function such that for all $n\in\N $,
+			If $f$ is an arithmetic function such that for all $n\in\mathbb{N} $,
 				\begin{align*}
 					\sum_{d|n}f(d) & = n,
 				\end{align*}
-			then $f(n)=\t (n)$ for all $n\in\N $.
+			then $f(n)=\varphi(n)$ for all $n\in\mathbb{N} $.
 		\end{theorem}
 		
 		\begin{proof}
@@ -2306,19 +2306,19 @@ $ $
 	
 	
 		\begin{theorem}\slshape \label{thm:menon-lemma}
-			Given integers $r,d, k$, and $n$ so that $n=dk, d, k>0,n\geq1$, and $\gcd(r,d)=1$. Then the number of integers of the form $r+id$ (for $1 \leq i \leq k$) which are co-prime to $n$ is $\dfrac{\t (n)}{\t (d)}$.
+			Given integers $r,d, k$, and $n$ so that $n=dk, d, k>0,n\geq1$, and $\gcd(r,d)=1$. Then the number of integers of the form $r+id$ (for $1 \leq i \leq k$) which are co-prime to $n$ is $\dfrac{\varphi(n)}{\varphi(d)}$.
 		\end{theorem}
 		
 		\begin{proof}
-			First, let us write $\dfrac{\t (n)}{\t (d)}$ in another way. Let $s = (d,k)$. Then, from lemma \eqref{lem:phigcd},
+			First, let us write $\dfrac{\varphi(n)}{\varphi(d)}$ in another way. Let $s = (d,k)$. Then, from lemma \eqref{lem:phigcd},
 				\begin{eqnarray*}
-					\dfrac{\t (n)}{\t (d)} &=& \dfrac{\t (kd)}{\t (d)}\\
-										   &=& \dfrac{\frac{\t(k) \t(d) s}{\t(s)}}{\t(d)}\\
-										   &=& s \dfrac{\t(k)}{\t(s)}.
+					\dfrac{\varphi(n)}{\varphi(d)} &=& \dfrac{\varphi(kd)}{\varphi(d)}\\
+										   &=& \dfrac{\frac{\varphi(k) \varphi(d) s}{\varphi(s)}}{\varphi(d)}\\
+										   &=& s \dfrac{\varphi(k)}{\varphi(s)}.
 				\end{eqnarray*}
 			Notice that if $(r+id , n)=1$ for some $i$, then $(r+id , k) = 1$. The reason is that if $(r+id , k) = g$, then $g | k$, which in turn means $g|n$. Now, $g$ divides $r+id$ and $n$ and hence it also divides their $\gcd$, which is $1$. So, $g=1$. On the other hand, if $(r+id, k)=1$ for some $i$, then $(r+id, n)=1$ since $r \perp d$.
 			
-			Therefore, the problem reduces to showing that the number of integers of the form $r+id$ ($1 \leq i \leq k$) which are co-prime to $k$ is $s \dfrac{\t(k)}{\t(s)}$.
+			Therefore, the problem reduces to showing that the number of integers of the form $r+id$ ($1 \leq i \leq k$) which are co-prime to $k$ is $s \dfrac{\varphi(k)}{\varphi(s)}$.
 			
 			Since $s=(d,k)$, there exist positive integers $k_1$ and $d_1$ such that $k = k_1s$ and $d = d_1s$. So, the numbers $r+id$ (for $1 \leq  i \leq k$) will become $r+id_1s$ (for $1 \leq i \leq k_1s$). Classify these numbers in the following manner:
 				\begin{align*}
@@ -2329,14 +2329,14 @@ $ $
 						 r+[(s-1)k_1+1]d_1s&r+[(s-1)k_1+2]d_1s&\cdots&r+sk_1d_1s
 					 \end{matrix}
 				\end{align*}
-			We want to prove that the number of integers among these numbers which are co-prime to $k$ is $s \dfrac{\t(k)}{\t(s)}$. Let us prove the case when $s=1$ first. In this case, $k \perp d$, $k=k_1$, and $d=d_1$. Therefore, the numbers in the first row are $r+d, r+2d, \cdots, r+kd$, which are all different modulo $k$ (why?). This means that they form a complete residue system modulo $k$. Obviously, there are 
+			We want to prove that the number of integers among these numbers which are co-prime to $k$ is $s \dfrac{\varphi(k)}{\varphi(s)}$. Let us prove the case when $s=1$ first. In this case, $k \perp d$, $k=k_1$, and $d=d_1$. Therefore, the numbers in the first row are $r+d, r+2d, \cdots, r+kd$, which are all different modulo $k$ (why?). This means that they form a complete residue system modulo $k$. Obviously, there are 
 				\begin{align*}
 					\varphi(k) = \frac{\varphi(k)}{\varphi(s)}
 				\end{align*}
 			numbers co-prime to $k$ among these integers. So, the theorem is proved for the case $s=1$.
-			Now assume that $s>1$. There are $s$ rows of numbers. So, if we prove that there are $\dfrac{\t(k)}{\t(s)}$ numbers co-prime to $k$ in each row, we are done. Similar to the above, for any $i$, we have $(r+id_1s, k)=1$ if and only if $(r+id_1s, k_1)=1$. Moreover, the numbers in each column are congruent modulo $k_1$. We know that if $a \equiv b \pmod{k_1}$, then $(a, k_1) = (b, k_1)$. This means that the number of integers co-prime to $k_1$ (and thus $k$) in all the rows are equal. 
+			Now assume that $s>1$. There are $s$ rows of numbers. So, if we prove that there are $\dfrac{\varphi(k)}{\varphi(s)}$ numbers co-prime to $k$ in each row, we are done. Similar to the above, for any $i$, we have $(r+id_1s, k)=1$ if and only if $(r+id_1s, k_1)=1$. Moreover, the numbers in each column are congruent modulo $k_1$. We know that if $a \equiv b \pmod{k_1}$, then $(a, k_1) = (b, k_1)$. This means that the number of integers co-prime to $k_1$ (and thus $k$) in all the rows are equal. 
 			
-			So, it suffices to prove that there are exactly $\dfrac{\t(k)}{\t(s)}$ numbers co-prime to $k_1$ in the first row of numbers, namely, $r+is$ for $i=d_1,2d_1,\cdots,k_1d_1$. If you look closely, this is exactly the same thing as the original theorem when we replace $n$ by $k$, $k$ by $k_1$, and $d$ by $s$ (the only difference is that here, the possible values for $i$ are $k_1$ numbers $d_1,2d_1,\cdots,k_1d_1$, while possible values for $i$ in the original theorem are $1,2,\cdots,k$). 
+			So, it suffices to prove that there are exactly $\dfrac{\varphi(k)}{\varphi(s)}$ numbers co-prime to $k_1$ in the first row of numbers, namely, $r+is$ for $i=d_1,2d_1,\cdots,k_1d_1$. If you look closely, this is exactly the same thing as the original theorem when we replace $n$ by $k$, $k$ by $k_1$, and $d$ by $s$ (the only difference is that here, the possible values for $i$ are $k_1$ numbers $d_1,2d_1,\cdots,k_1d_1$, while possible values for $i$ in the original theorem are $1,2,\cdots,k$). 
 			
 			In the new version of the theorem, which we want to prove, there are $k_1$ numbers of the form $r+is$, while this number is $k=k_1s$ in the original theorem. Since $s>1$, we have $k_1<k$. Take $s_1 = (s,k_1)$ and let $k_2$ and $d_2$ be integers such that $k_1 = k_2s_1$ and $s=d_2s_1$. With the same method as above, classify the numbers $r+d_1s, r+2d_1s, \cdots, r+k_1d_1s$ as:
 				\begin{align*}
@@ -2353,7 +2353,7 @@ $ $
 		\begin{theorem}[Menon's Identity]\slshape
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
-					\sum_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)=\tau(n)\t (n),
+					\sum_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)=\tau(n)\varphi(n),
 				\end{align*}
 			where $\tau(n)$ is the number of divisors of $n$.
 		\end{theorem}
@@ -2362,20 +2362,20 @@ $ $
 			We can write the sum as
 				\begin{eqnarray*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n) 
-					& = & \sum\limits_{\substack{i=1\\(i,n)=1}}^{n}\sum\limits_{d\mid(i-1,n)}\t (d)\\
-					& = & \sum\limits_{d|n}\t (d)\sum\limits_{\substack{i=1\\(i,n)=1\\i\equiv 1\pmod d}}^n 1.
+					& = & \sum\limits_{\substack{i=1\\(i,n)=1}}^{n}\sum\limits_{d\mid(i-1,n)}\varphi(d)\\
+					& = & \sum\limits_{d|n}\varphi(d)\sum\limits_{\substack{i=1\\(i,n)=1\\i\equiv 1\pmod d}}^n 1.
 				\end{eqnarray*}
 			According to theorem \eqref{thm:menon-lemma}, the second sum in the last line equals $\varphi(n)/\varphi(d)$. Therefore,
 				\begin{eqnarray*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n) 
-					& = & \sum\limits_{d|n}\t (d)\dfrac{\t (n)}{\t (d)}\\
-					& = & \sum\limits_{d|n}\t (n)
+					& = & \sum\limits_{d|n}\varphi(d)\dfrac{\varphi(n)}{\varphi(d)}\\
+					& = & \sum\limits_{d|n}\varphi(n)
 				\end{eqnarray*}
 			Since $\varphi(n)$ is independent from $d$ in the last summation, we have
 				\begin{eqnarray*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n) 
-					& = & \t(n)\sum\limits_{d|n}1\\
-					& = & \tau(n)\t (n),
+					& = & \varphi(n)\sum\limits_{d|n}1\\
+					& = & \tau(n)\varphi(n),
 				\end{eqnarray*}
 			which is what we wanted.
 		\end{proof}
@@ -2479,13 +2479,13 @@ $ $
 	The previous theorem is pretty strong. The following theorem, which is an example case of the preceding theorem, is useful and important.
 		
 		\begin{theorem}\slshape \label{thm:liouville-sum-function}
-			Let $\k$ be the summatory function of $\l $. That is, let $\k$ be an arithmetic function such that
+			Let $\kappa$ be the summatory function of $\l $. That is, let $\kappa$ be an arithmetic function such that
 				\begin{align*}
-					\k (n) & = \sum_{d|n}\l (d).
+					\kappa (n) & = \sum_{d|n}\l (d).
 				\end{align*}
 			Then, 
 				\begin{align*}
-					\k(n) & =
+					\kappa(n) & =
 						\begin{cases}
 							1&\text{ if }n\text{ is a perfect square,}\\
 							0&\text{ otherwise.}
@@ -2514,8 +2514,8 @@ $ $
 		\begin{proof}
 			Assume that $\displaystyle \k(n)=\sum\limits_{d|n}\l(d)$. Then, by M\H obius inversion formula (theorem \eqref{thm:mobinv}),
 				\begin{eqnarray*}
-					\l(n) &=& \sum_{d|n}\mu(d)\k\left(\frac nd\right)\\
-						  &=& \sum_{d|n}\k(d)\mu\left(\frac nd\right)\\
+					\l(n) &=& \sum_{d|n}\mu(d)\kappa\left(\frac nd\right)\\
+						  &=& \sum_{d|n}\kappa(d)\mu\left(\frac nd\right)\\
 						  &=& \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right),
 				\end{eqnarray*}
 			because $\k(d)$ is $1$ whenever $d$ is a perfect square (i.e., $d=k^2$ for some $k$), and zero otherwise.
@@ -2529,11 +2529,11 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			The summatory function of $\l$ is $\k$. Therefore, from theorem \eqref{thm:sum-of-sum-function},
+			The summatory function of $\l$ is $\kappa$. Therefore, from theorem \eqref{thm:sum-of-sum-function},
 				\begin{align*}
-					\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor &= \sum_{k=1}^{n} \k(k).
+					\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor &= \sum_{k=1}^{n} \kappa(k).
 				\end{align*}
-			We know by theorem \eqref{thm:liouville-sum-function} that $\k(k)$ is $1$ if $k$ is a perfect square and $0$ otherwise. So, $\sum\limits_{k=1}^{n} \k(k)$ is exactly $\lfloor \sqrt n \rfloor$.
+			We know by theorem \eqref{thm:liouville-sum-function} that $\kappa(k)$ is $1$ if $k$ is a perfect square and $0$ otherwise. So, $\sum\limits_{k=1}^{n} \kappa(k)$ is exactly $\lfloor \sqrt n \rfloor$.
 		\end{proof}
 \newpage	
 \section{Exercises}

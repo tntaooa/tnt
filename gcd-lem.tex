@@ -52,7 +52,7 @@
 	You should see that if a problem can be solved using the dividing property of order, then we can solve it using this lemma as well. Let's see some problems that this lemma is useful with. Sometimes, we have to couple this lemma with some other techniques such as the \textbf{smallest prime factor trick}.
 	
 	\begin{problem}
-		Find all $n\in\N$ such that $2^n-1$ is divisible by $n$.
+		Find all $n\in\mathbb{N}$ such that $2^n-1$ is divisible by $n$.
 	\end{problem}
 	A standard problem with a very nice idea. There are many ways to start working on such problems. A common one is to find the prime factors of $n$ first. That way, we have some idea about $n$ at first, from which we can understand the nature of the problem. \textbf{Sometimes we have to find special prime factors first}. The special prime factors can provide some extra information necessary.
 	\begin{solution}
@@ -60,7 +60,7 @@
 		\begin{align*}
 			2^n & \equiv1\pmod p.
 		\end{align*}
-		This equation alone does not say a lot, so we need more information. Remember Fermat's little theorem! This is another reason to find primes first. Only for primes we can get the power $a^{p-1}$, otherwise from Euler's Totient theorem, it would be $a^{\t(n)}$ which would bring troubles in this case. We have
+		This equation alone does not say a lot, so we need more information. Remember Fermat's little theorem! This is another reason to find primes first. Only for primes we can get the power $a^{p-1}$, otherwise from Euler's Totient theorem, it would be $a^{\varphi(n)}$ which would bring troubles in this case. We have
 		\begin{align*}
 			2^{p-1} & \equiv1\pmod p
 		\end{align*}
