@@ -2,7 +2,7 @@
 \ProvidesClass{mystyle}
 
 \RequirePackage{appendix}
-\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, titlesec, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, appendix, csquotes, textgreek,epigraph, mathdots, emptypage,minitoc}
+\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, titlesec, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, csquotes, textgreek,epigraph, mathdots, emptypage,minitoc}
 \RequirePackage{glossaries}
 
 \renewcommand\appendixtocname{Glossary}
@@ -12,7 +12,7 @@
 \RequirePackage[utf8]{inputenc}
 %\RequirePackage[english]{babel}
 \usepackage{mdframed}
-\usepackage{lipsum, tcolorbox}
+%\usepackage{lipsum, tcolorbox}
 
 %\RequirePackage[colorlinks=true,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
 %\RequirePackage[colorlinks=true,linkcolor=webgreen,filecolor=webbrown,citecolor=webgreen]{hyperref}
@@ -40,8 +40,8 @@
 \setlength{\topmargin}{-.1in}
 \setlength{\textheight}{8.4in}
 
-\definecolor{webgreen}{rgb}{0,.5,0}
-\definecolor{webbrown}{rgb}{.6,0,0}
+%\definecolor{webgreen}{rgb}{0,.5,0}
+%\definecolor{webbrown}{rgb}{.6,0,0}
 
 %\RequirePackage[left=1in, right = 1 inو margin=3cm]{geometry}
 
@@ -61,11 +61,11 @@
 \newcommand*{\yMax}{6}%
 
 %title of sections, subsections, and subsubsections
-\titleformat*{\section}{\LARGE\bfseries}
-\titleformat*{\subsection}{\Large\bfseries}
-\titleformat*{\subsubsection}{\large\bfseries}
-\titleformat*{\paragraph}{\large\bfseries}
-\titleformat*{\subparagraph}{\large\bfseries}
+%\titleformat*{\section}{\LARGE\bfseries}
+%\titleformat*{\subsection}{\Large\bfseries}
+%\titleformat*{\subsubsection}{\large\bfseries}
+%\titleformat*{\paragraph}{\large\bfseries}
+%\titleformat*{\subparagraph}{\large\bfseries}
 
 %numbering subsubsections
 \setcounter{secnumdepth}{3}
@@ -109,16 +109,16 @@
 %\setmainfont{Georgia}
 
 %make theorems, propositions, definitions captions bold
-\makeatletter
-\def\th@plain{%
-	\thm@notefont{}% same as heading font
-	\itshape % body font
-}
-\def\th@definition{%
-	\thm@notefont{}% same as heading font
-	\normalfont % body font
-}
-\makeatother
+%\makeatletter
+%\def\th@plain{%
+%	\thm@notefont{}% same as heading font
+%	\itshape % body font
+%}
+%\def\th@definition{%
+%	\thm@notefont{}% same as heading font
+%	\normalfont % body font
+%}
+%\makeatother
 
 
 \newtheoremstyle{mytheoremstyle} % name
