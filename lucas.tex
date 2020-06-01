@@ -1,12 +1,12 @@
 \documentclass[12pt]{subfile}
 \begin{document}
-In $2010$, Masum encountered the following problem:
+In $2010$, the following problem was posed in Bangladesh national mathematical Olympiad:
 	\begin{problem}
 		Find the number of odd binomial coefficients in the expansion of $(a+b)^{2010}$.
 	\end{problem}
-Try to solve it yourself. If you do not have any idea how to proceed, then here is a hint: you need to find the value of $\binom{2010}{i}\pmod2$ for $0\leq i\leq2010$. One idea for doing that is to count the exponent of $2$ in $\binom{2010}{i}$ using Legendre's theorem. If look for the condition when a coefficient can be odd.
+Here is a hint: you need to find the value of $\binom{2010}{i}\pmod2$ for $0\leq i\leq2010$. One idea for doing that is to count the exponent of $2$ in $\binom{2010}{i}$ using Legendre's theorem. Then look for the condition when a coefficient can be odd.
 
-Here, we will focus on a generalized version of such problems. In problems like this, it happens that we need to find the remainder of division of the binomial coefficient $\tbinom{m}{n}$ by a prime number $p$. \textit{Edouard Lucas} found patterns in Pascal triangle which resulted in the following theorem.
+Here, we will focus on a generalized version of such problems. In problems like this, it happens that we need to find the remainder of division of the binomial coefficient $\tbinom{m}{n}$ by a prime number $p$. \textit{\'{E}douard Lucas} found patterns in Pascal triangle which resulted in the following theorem.
 	\begin{theorem}[Lucas's Theorem]\slshape
 		Let $p$ be a prime and let $m$ and $n$ be non-negative integers. Then
 			\begin{align*}
@@ -31,9 +31,7 @@ Here, we will focus on a generalized version of such problems. In problems like 
 			\end{align*}
 		Note that $\binom{67}{10} = 247,994,680,648 \equiv 1 \pmod 7$, which is a huge number and it would be a tedious work to find the remainder modulo $7$ without Lucas's theorem.
 	\end{example}
-	
 In order to prove Lucas's theorem, we need to state a lemma first.
-	
 	\begin{lemma}
 		For a prime $p$, an integer $x$, and a positive integer $r$, we have
 			\begin{align*}
@@ -64,6 +62,10 @@ In order to prove Lucas's theorem, we need to state a lemma first.
 		\binom{m}{n}\equiv\prod_{i=0}^{k}\binom{m_i}{n_i}\pmod{p}. \qedhere
 		\end{equation*}		
 	\end{proof}
+	
+	\begin{corollary}\label{cor:binomdiv}
+		The binomial coefficient $\binom{n}{k}$ is divisible by $p$ if and only if at least one of the digits of $k$ in base $p$ is greater than the corresponding digit $n$ in base $p$.
+	\end{corollary}
 	
 	\begin{corollary}\label{cor:lucas}
 		Let $s,t,q,r$ be non-negative integers and $p$ $p$ be a prime such that $0 \leq q,r \leq p-1$. Then
@@ -106,7 +108,7 @@ In order to prove Lucas's theorem, we need to state a lemma first.
 		Use Problem \ref{prob:binom(p-1)(k)} and apply Lucas' theorem.
 	\end{hint}
 	
-	\begin{problem}[Taken from \cite{ch:congruence-cai}]
+	\begin{problem}
 		Let $p$ and $q$ be distinct odd primes. Prove that
 			\begin{align*}
 				\binom{2pq-1}{pq-1}\equiv 1\pmod{pq}
@@ -128,7 +130,7 @@ In order to prove Lucas's theorem, we need to state a lemma first.
 		Suppose  that $\binom{2pq-1}{pq-1}\equiv 1\pmod{pq}$. This means that $\binom{2pq-1}{pq-1}\equiv 1\pmod{p}$. By equation \eqref{eq:lucasproblem}, $\binom{2q-1}{q-1} \equiv 1 \pmod p$ as desired. Proving $\binom{2p-1}{p-1}\equiv 1 \pmod q$ is similar.
 	\end{solution}
 	
-	\begin{problem}[Taken from \cite{ch:congruence-kokhas}]
+	\begin{problem}
 		Let $n$ and $k$ be arbitrary positive integers and let $p$ be an odd prime $p$. Prove that 
 			\begin{align*}
 				p^2 \Big| \binom{pk}{pm} - \binom{k}{m}.

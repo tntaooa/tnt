@@ -1,28 +1,31 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mystyle}
 
+
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+	%citestyle=authoryear-icomp,
+	sorting=anyt,
+]{biblatex}
+
+
 \RequirePackage{appendix}
-\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage, minitoc}
+\RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
+%\RequirePackage{minitoc}
+
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{csquotes}
+
+
 \RequirePackage{glossaries}
 
 \renewcommand\appendixtocname{Glossary}
 \renewcommand\appendixpagename{Glossary}
 
 
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{csquotes}
-
-\usepackage[T1]{fontenc}
-\usepackage{baskervillef}
-\usepackage[varqu,varl,var0]{inconsolata}
-\usepackage[scale=.95,type1]{cabin}
-\usepackage[baskerville,vvarbb]{newtxmath}
-\usepackage[cal=boondoxo]{mathalfa}
-
-
 \usepackage{pdfrender, xcolor}
-
-\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
 
 %\RequirePackage[english]{babel}
 %\usepackage{mdframed}
@@ -177,7 +180,7 @@
 \numberwithin{fact}{chapter}
 %\numberwithin{proposition}{chapter}
 %\numberwithin{definition}{chapter}
-\numberwithin{identity}{chapter}
+%\numberwithin{identity}{chapter}
 \numberwithin{hint2}{chapter}
 %\numberwithin{open}{chapter}
 

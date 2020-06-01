@@ -1,4 +1,9 @@
 \begin{document}
+\noappendicestocpagenum
+\addappheadtotoc
+\chapter{Identities and Well-Known Theorems}\label{ch:null}
+\begin{appendix}\label{ch:appendices}
+		
 	We suppose that $a,b$ are real numbers in the following results\watermark.
 	
 	\begin{identity}\label{id:diffsqr}
@@ -22,25 +27,16 @@
 		\end{align*}
 	\end{identity}
 	
-	\begin{theorem}[Binomial Theorem]\slshape\label{thm:binomial-theorem}
+	\begin{identity}[Binomial Theorem]\slshape\label{thm:binomial-theorem}
 		For any positive integer $n$,
 		\begin{eqnarray*}
 			(a+b)^n & = & a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n\\
 			& = & \sum_{i=0}^{n}\binom{n}{i}a^{n-i}b^i\\
 			& = & \sum_{i=0}^{n}\binom{n}{i}a^ib^{n-i}.
 		\end{eqnarray*}
-	\end{theorem}
+	\end{identity}
 	
-	\begin{proof}
-		If we expand the left side, there are $n$ times $(a+b)$ multiplied together. Obviously, each term of this expansion will be of the form $a^ib^{n-i}$. So, we can write it as
-		\begin{align*}
-			(a+b)^n=s_na^n+s_{n-1}a^{n-1}b+\cdots+s_1ab^{n-1}+s_0b^n.
-		\end{align*}
-		Here, $s_i$ is the coefficient of $a^ib^{n-i}$. We see that for a term $a^ib^{n-i}$ to appear in the sum, we must choose $i$ of the $n$ times $(a+b)$ to contribute an $a$ to the term, and then each of the other $n-i$ terms of the product must contribute a $b$. We can take $i$ objects from $n$ objects in $\binom{n}{i}$ ways. Therefore, $s_i=\binom{n}{i}$.
-	\end{proof}
-	
-	
-	\begin{theorem}\slshape \label{thm:binom}
+	\begin{identity}\slshape \label{thm:binom}
 		For positive integers $n$ and $k$ such that $k \leq n$,
 		\begin{enumerate}
 			\item $\displaystyle\binom{n}{k}=\binom{n}{n-k}$,
@@ -50,15 +46,11 @@
 			\item $\displaystyle \binom{0}{k} + \binom{1}{k} + \cdots +\binom{n-1}{k} + \binom{n}{k} = \binom{n+1}{k+1}$,
 			\item $\displaystyle\binom{n}0^2+\binom{n}{1}^2+\cdots+\binom{n}{n-1}^2+\binom{n}{n}^2 = \binom{2n}{n}$. \label{id:binomsquaressum}
 		\end{enumerate}
-	\end{theorem}
+	\end{identity}
 	
-	\begin{corollary}\slshape
+	\begin{identity}\slshape
 		If $n$ and $k$ are coprime, then $n$ divides $\binom nk$ and $k$ divides $\binom{n-1}{k-1}$.
-	\end{corollary}
-	
-	\begin{proof}
-		Directly implied from part \ref{id:binomreduction} of theorem \eqref{thm:binom}.
-	\end{proof}
+	\end{identity}
 	
 	\begin{identity}[Sum of Powers of Consecutive Integers]\slshape\label{id:sumofpowers}
 		Let $n$ be a positive integer. Then,
@@ -110,7 +102,7 @@
 			+(a_1 b_3 - a_2 b_4 - a_3 b_1 + a_4 b_2)^2 +(a_1 b_4 + a_2 b_3 - a_3 b_2 - a_4 b_1)^2.
 		\end{multline*}
 	\end{identity}
-	An interested reader can see \textit{Degen's eight-square identity} \cite{ch:idthm-piezas} or \textit{Pfister's sixteen-square identity} \cite{ch:idthm-conrad}, but they do not look pretty at all and we do not include them here.
+	An interested reader can see \textit{Degen's eight-square identity} or \textit{Pfister's sixteen-square identity}, but they do not look pretty at all so we do not include them here.
 	
 	\begin{identity}[Lebesgue Identity]\slshape\label{id:lebesgue}
 		\begin{align*}
@@ -132,13 +124,6 @@
 		\end{align*}
 	\end{identity}
 	This identity is used in {\it Chakravala method} to find the solutions to {\it Pell-Fermat equation}.
-	
-	\begin{thebibliography}{99}
-		\bibitem{ch:idthm-piezas} Piezas III, Titus. "The Degen-Graves-Cayley Eight-Square Identity." Web address accessed 27 August 2016. \url{http://sites.google.com/site/tpiezas/ramanujan/12.TheDegen-Graves-Cayleyeight-squareidentity(July2005).pdf}. (2005).
-		
-		\bibitem{ch:idthm-conrad} Conrad, Keith. "Pfister's Theorem on Sum of Squares." Web address accessed 27 August 2016. \url{http://www.math.uconn.edu/~kconrad/blurbs/linmultialg/pfister.pdf}.
-		
-	\end{thebibliography}
-	
+\end{appendix}
 	
 \end{document}

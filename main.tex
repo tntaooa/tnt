@@ -1,12 +1,17 @@
 \documentclass[12pt]{book}
 
-\usepackage{mystyle, subfiles}
-\usepackage{nomencl}
+\usepackage{mystyle}
+%\usepackage{nomencl}
 
-\usepackage[baskerville,vvarbb]{newtxmath}
+\usepackage{baskervillef}
+%\usepackage[varqu,varl,var0]{inconsolata}
+%\usepackage[scale=.95,type1]{cabin}
+\usepackage[baskerville]{newtxmath}
+%\usepackage[cal=boondoxo]{mathalfa}
 \usepackage{pdfrender}
-\usepackage{librebaskerville}
+%\usepackage{librebaskerville}
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
+
 
 
 \newcommand\watermark[1]{%
@@ -35,10 +40,7 @@
 }
 \date{\today}
 
-%\DeclareUnicodeCharacter{2212}{-}
-
-%\makenomenclature
-%\renewcommand{\nomname}{Notations}
+\bibliography{main.bib}
 
 \begin{document}
 \frontmatter
@@ -58,7 +60,7 @@
 	Euler, without whom number theory probably wouldn't be so rich today.\\
 	Riemann, who made huge contributions to analytic number theory.\\
 	Ramanujan, the mathematician of mathematicians.\\
-	Paul Erd$\ddot{\mbox{o}}$s, the man who loved only numbers.
+	Paul Erd\"{o}s, the man who loved only numbers.
 \end{dedication}
 
 \section*{Links, Contact}
@@ -160,7 +162,7 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 		\item We are thankful to \textbf{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\"{}) used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
 	\end{enumerate}
 	
-\dominitoc
+%\dominitoc
 \tableofcontents
 
 
@@ -168,41 +170,26 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 		\pagestyle{fancy}
 \mainmatter
 \setcounter{page}{13}
-	\section*{Notations}
 	\subfile{intro.tex}
-\part{Fundamentals}
-	\chapter{Divisibility}\label{ch:divisibility}
-	\minitoc \mtcskip \minilof
+	%\minitoc \mtcskip \minilof
 		\subfile{divisibility.tex}
-	\chapter{Modular Arithmetic}\label{ch:congruence}
-	\minitoc \mtcskip \minilof
+	%\minitoc \mtcskip \minilof
 		\subfile{congruence.tex}
-	\chapter{Arithmetic Functions}\label{ch:arithfunc}
-	\minitoc \mtcskip \minilof
+	%\minitoc \mtcskip \minilof
 		\subfile{arithfunc.tex}
-	\chapter{Primes}\label{ch:primes}
-	\minitoc \mtcskip \minilof
+	%\minitoc \mtcskip \minilof
 		\subfile{primes.tex}
-	\chapter{Special Topics}\label{ch:special}
-	\minitoc \mtcskip \minilof
+	%\minitoc \mtcskip \minilof
 		\subfile{special.tex}
-	\begin{appendix}\label{ch:appendices}
-		\appendixpage
-		\noappendicestocpagenum
-		\addappheadtotoc
-		%\chapter{Common Identities and Theorems}\label{ch:idthm}
-		\chapter{Identities and Well-Known Theorems}\label{ch:null}
-			\subfile{idthm.tex}
-	\end{appendix}
-	\resumechapters	
+	%\resumechapters	
 
-\part{Problem Column}
-	\chapter{Solving Challenge Problems}\label{ch:solved}
 		\subfile{solved.tex}
-	\chapter{Practice Challenge Problems}\label{ch:unsolved}
 		\subfile{unsolved.tex}
 		\subfile{unsolved2016.tex}
-
-
+\backmatter
+\pagestyle{empty}
+\subfile{idthm.tex}
+\nocite{*}
+\printbibliography
 
 \end{document}
