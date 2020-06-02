@@ -160,16 +160,16 @@
 					4^{20} + 6^{40} + 12^{60} \equiv 3+9+1 \equiv 0 \pmod{13}.
 				\end{align*}
 		\end{solution}
-		
-		\begin{problem}[Taken from \textcite{andreescuandricafeng2007}]\label{e2}
+	Here \textcite[Page $29$, Example $1.29$]{andreescuandricafeng2007} is an easy consequence of Fermat's little theorem.
+		\begin{problem}\label{e2}
 			For integers $a,b$, prove that $a^pb-ab^p$ is divisible by $p$.
 		\end{problem}
 		
 		\begin{solution}
 			This problem is kind of a direct consequence of Fermat's little theorem. Write $a^pb-ab^p=ab(a^{p-1}-b^{p-1})$. If one of $a$ or $b$ is divisible by $p$, we are done. If neither of them is divisible by $p$, then $a^{p-1}\equiv1\equiv b^{p-1}\pmod p$. So, $p$ divides $a^{p-1}-b^{p-1}$.
 		\end{solution}
-		
-		\begin{problem}[Problem $124$ in \cite{ch:congruence-sierpinsky}]
+	The next problem is taken from \cite[Problem $124$]{WaclawSierpinski1964}.
+		\begin{problem}
 			Prove that there exist infinitely many composite numbers of the form $(2^{2n}+1 )^2+4$, where $n$ is a positive integer.
 		\end{problem}
 		
@@ -201,11 +201,15 @@
 			Note that in equation \eqref{eq:productcoprime} we have used the fact that $a_i \perp m$ for $1 \leq i \leq \varphi(m)$, which results in $a_1 a_2 \cdots a_{\varphi(m)} \perp m$. 
 		\end{proof}
 	We can easily conclude the Fermat's little theorem from Euler's theorem: for a prime $p$, we have $\varphi(p)=p-1$ and so $a^{\varphi(p)} \equiv a^{p-1} \equiv 1 \pmod p$ for any integer $a$ not divisible by $p$.
-		\begin{problem}[Problem $68$ in \cite{ch:congruence-sierpinsky}]
+	
+	\textcite[Problem $68$]{WaclawSierpinski1964}.	
+		\begin{problem}
 			Let $a$ and $b$ be positive integers. Prove that in the arithmetic progression $ak+b$ (for $k \geq 0$ an integer), there exist infinitely many terms with the same prime divisors.
 		\end{problem}
 		
 		\begin{solution}
+			It's not obvious at all how we should approach this problem. First, let us discard the common factor between $a$ and $b$ so they do not have any common factor. Then we see that $ak+b=d(uk+v)$ for some relatively prime $u,v$. Since $d$ is a fixed positive integer, we now have to worry about $uk+v$ only. We want to show that there are many $k$ such that $uk+v$ has a fixed set of prime divisors. So, if we could show anyhow that $uk+v$ is the power of the same number for infinitely many $k$, that would give us a solution (note that the converse does not have to be true).
+			
 			Let $d=(a, a+b)$. There exist positive integers $a_1$ and $c$ such that
 				\begin{align*}
 					a=da_1 \quad \text{ and } \quad a+b=dc.

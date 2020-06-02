@@ -2,16 +2,9 @@
 \ProvidesClass{mystyle}
 
 
-\usepackage[
-	backend=biber,
-	style=alphabetic,
-	%citestyle=authoryear-icomp,
-	sorting=anyt,
-]{biblatex}
-
-
 \RequirePackage{appendix}
 \RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
+\RequirePackage{titlesec}
 %\RequirePackage{minitoc}
 
 
@@ -34,7 +27,7 @@
 %\RequirePackage[colorlinks=true,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
 %\RequirePackage[colorlinks=true,linkcolor=webgreen,filecolor=webbrown,citecolor=webgreen]{hyperref}
 
-\usepackage{hyperref}
+\RequirePackage{hyperref}
 \hypersetup{
 	%colorlinks,
 	citecolor=black,
@@ -78,11 +71,7 @@
 \newcommand*{\yMax}{6}%
 
 %title of sections, subsections, and subsubsections
-%\titleformat*{\section}{\LARGE\bfseries}
-%\titleformat*{\subsection}{\Large\bfseries}
-%\titleformat*{\subsubsection}{\large\bfseries}
-%\titleformat*{\paragraph}{\large\bfseries}
-%\titleformat*{\subparagraph}{\large\bfseries}
+%\titleformat*{$\S$\section}{\normalsize\bfseries}
 
 %numbering subsubsections
 \setcounter{secnumdepth}{3}
@@ -161,7 +150,7 @@
 \newtheorem*{acknowledgement}{Acknowledgement}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
-\newtheorem*{solution}{\sffamily\slshape Solution}
+\newtheorem*{solution}{Solution}
 %\newtheorem{open}{Open Question}
 
 \theoremstyle{remark}
