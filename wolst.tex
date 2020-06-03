@@ -64,8 +64,7 @@
 				\end{align*}
 			The last line is true because from Theorem \ref{thm:binpdiv}, for $0<i<p$, we have
 				\begin{equation*}
-					\binom{p}{i}  \equiv 0\pmod p \quad \text{and} \quad \binom{p}{i}^2 \equiv 0\pmod{p^2}.
-					\qedhere
+					\binom{p}{i}  \equiv 0\pmod p \quad \text{and} \quad \binom{p}{i}^2 \equiv 0\pmod{p^2}
 				\end{equation*}
 		\end{proof}
 	
@@ -83,7 +82,7 @@
 			\end{align*}
 			In the last line of above equations, the sum can be written as $\frac{a}{(p-1)!}$, where $a$ is some integer. Note that $(p, (p-1)!)=1$ and that's why we can conclude
 				\begin{equation*}
-					p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)} \equiv 0 \pmod p. \qedhere
+					p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)} \equiv 0 \pmod p.
 				\end{equation*}
 		\end{proof}
 		
@@ -106,12 +105,12 @@
 				\end{align*}
 			We shall show that the sets $A=\{1,2,\ldots,p-1\}$ and $B=\{1^{-1}, 2^{-1},\ldots,(p-1)^{-1}\}$ are equal. A proof is as follows: from Theorem \ref{thm:arithinverse}, for any $x \in A$, there exists some $y \in B$ such that $xy \equiv 1 \pmod p$. This $y$ is unique, because if there exists some other $z \in B$ for which $xz \equiv 1 \pmod p$, then $xy \equiv xz \pmod p$, and since $(x,p)=1$, we have $y \equiv z \pmod p$ which means $y=z$ (why?). So there exists a unique $y\in B$ for each $x \in A$, and thus $A=B$ since $A$ and $B$ have equal number of elements. Finally,
 				\begin{equation*}
-					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 1^2+2^2+\cdots+(p-1)^2 \equiv 0 \pmod p. \qedhere
+					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 1^2+2^2+\cdots+(p-1)^2 \equiv 0 \pmod p
 				\end{equation*}
 		\end{proof}
 	We are going to re-state Proposition \ref{thm:modgcd} because, as we already mentioned, it is very useful:
 		\begin{lemma}\label{lem:wolstproof3}
-			For a prime $p\geq 3$ and any positive integer $a$ coprime to $p$,
+			For a prime $p\geq 3$ and any positive integer $a$ relatively prime to $p$,
 			\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p,\]
 			for all positive integers $n$.
 		\end{lemma}
@@ -183,7 +182,7 @@
 			\begin{align*}
 			1 + \frac{1}{2} + \cdots + \frac{1}{p}=\frac{a}{b},
 			\end{align*}
-			where $a$ and $b$ are two coprime integers. Show that $p^4 | ap -b$.
+			where $a$ and $b$ are two relatively prime integers. Show that $p^4 | ap -b$.
 		\end{problem}
 		
 		\begin{solution}
@@ -204,7 +203,7 @@
 			\begin{align*}
 			\frac{1}{p-1} + \frac{2}{p-2} + \cdots + \frac{p-1}{1}=\frac{a}{b},
 			\end{align*}
-			where $a$ and $b$ are two coprime integers. Show that $p^3 | a-b+bp$.
+			where $a$ and $b$ are two relatively prime integers. Show that $p^3 | a-b+bp$.
 		\end{problem}
 		
 		\begin{solution}
@@ -213,7 +212,7 @@
 					\frac{a}{b} &= \sum_{i=1}^{p-1} \frac{p-i}{i} =\sum_{i=1}^{p-1} \left(\frac{p}{i} -1 \right)=\sum_{i=1}^{p-1} \frac{p}{i} - (p-1) =p\cdot\left(\sum_{i=1}^{p-1} \frac{1}{i}\right) - (p-1)\\
 					&=p \cdot p^2 \frac{x}{y} - (p-1),
 				\end{align*}
-			where $x$ and $y$ are coprime integers with $y \bot p$ (we have used Wolstenholme's theorem in the last line). Now,
+			where $x$ and $y$ are relatively prime integers with $y \bot p$ (we have used Wolstenholme's theorem in the last line). Now,
 				\begin{align*}
 					\frac a b+p-1=p\cdot\frac{p^2x}y \implies (a-b+bp)y=p^3xb,
 				\end{align*}

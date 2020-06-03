@@ -4,7 +4,7 @@
 \begin{document}
 \chapter{Arithmetic Functions}\label{ch:arithfunc}
 	
-	In chapter \eqref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \eqref{prob:ex1}, we were looking for divisors of $17$ which satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. It is natural that we would encounter more such functions repeatedly. Certainly, this calls for a separate study of such functions. We call them \textit{arithmetic functions}, that is, functions which take positive integers as input. Apart form the need to study these functions for common purpose, when you have dived into number theory, you will find that arithmetic functions form the nucleus of modern number theory (more precisely, analytical number theory, which is out of our scope)\watermark.
+	In chapter \ref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ which satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. It is natural that we would encounter more such functions repeatedly. Certainly, this calls for a separate study of such functions. We call them \textit{arithmetic functions}, that is, functions which take positive integers as input. Apart form the need to study these functions for common purpose, when you have dived into number theory, you will find that arithmetic functions form the nucleus of modern number theory (more precisely, analytical number theory, which is out of our scope)\watermark.
 \section{Definitions}
 	
 		\begin{definition}[Arithmetic Function]
@@ -55,15 +55,15 @@
 			\caption{The unit function $\varepsilon(n)$ for $n=1,2,\cdots,5$.}
 			\label{fig:unitfunction}
 		\end{figure}
-			The first values of $\varepsilon(n)$ are illustrated in figure \eqref{fig:unitfunction}.
+			The first values of $\varepsilon(n)$ are illustrated in figure \ref{fig:unitfunction}.
 		\end{definition}
 	
 		\begin{note}
-			Here, we call $\varepsilon(n)$ the unit function because it acts like $1$ when multiplying arithmetic functions. That is, $\varepsilon$ is the multiplicative identity of arithmetic functions. In section \eqref{sec:dirichletmobius}, we will discuss the process of finding the result of multiplication of two arithmetic functions (called the \text{Dirichlet product}) and explain why $\varepsilon(n)$ has this property.
+			Here, we call $\varepsilon(n)$ the unit function because it acts like $1$ when multiplying arithmetic functions. That is, $\varepsilon$ is the multiplicative identity of arithmetic functions. In section \ref{sec:dirichletmobius}, we will discuss the process of finding the result of multiplication of two arithmetic functions (called the \text{Dirichlet product}) and explain why $\varepsilon(n)$ has this property.
 		\end{note}
 		
 		\begin{definition}[Identity Function]
-			The \textit{identity function}, $\text{id}$, takes every positive integer to itself. In other words, $\text{id}(n)=n$ for all positive integers $n$. You can see the plot of this function in figure \eqref{fig:identityfunction}. 
+			The \textit{identity function}, $\text{id}$, takes every positive integer to itself. In other words, $\text{id}(n)=n$ for all positive integers $n$. You can see the plot of this function in figure \ref{fig:identityfunction}. 
 			
 			\begin{figure}
 				\centering
@@ -95,7 +95,7 @@
 		\end{definition}
 		
 		\begin{definition}[Constant Function]
-			Let $c$ be a fixed positive integer.Consider the function $f$ with the property that $f(n)=c$ for all positive integers $n$. We call $f$ the \textit{constant $c$ function}. A plot for constant $4$ function can be seen in figure \eqref{fig:constantfunction}.
+			Let $c$ be a fixed positive integer.Consider the function $f$ with the property that $f(n)=c$ for all positive integers $n$. We call $f$ the \textit{constant $c$ function}. A plot for constant $4$ function can be seen in figure \ref{fig:constantfunction}.
 			
 			\begin{figure}
 				\centering
@@ -129,7 +129,7 @@
 				\begin{align}
 					f(mn)=f(m)+f(n)\label{eqn:af1}
 				\end{align}
-			for all $m,n\in\mathbb{N}$ such that $m\perp n$. The condition $m\perp n$ is imposed to make it work on some special cases (we will find out why later). The case where equation \eqref{eqn:af1} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely additive function}.
+			for all $m,n\in\mathbb{N}$ such that $m\perp n$. The condition $m\perp n$ is imposed to make it work on some special cases (we will find out why later). The case where equation \ref{eqn:af1} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely additive function}.
 		\end{definition}		
 		
 		\begin{definition}[Multiplicative Function]
@@ -137,7 +137,7 @@
 				\begin{align}
 				f(mn)=f(m)f(n)\label{eqn:af2}
 				\end{align}
-			for all $m,n\in\mathbb{N}$ such that $m\perp n$. Again, the condition $m\perp n$ is imposed to make it work on some special cases. In the case where equation \eqref{eqn:af2} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely multiplicative function}.
+			for all $m,n\in\mathbb{N}$ such that $m\perp n$. Again, the condition $m\perp n$ is imposed to make it work on some special cases. In the case where equation \ref{eqn:af2} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely multiplicative function}.
 		\end{definition}
 		
 		\begin{example}
@@ -204,7 +204,7 @@
 		\end{definition}
 		
 		\begin{example}
-			$\lfloor 3.1415\rfloor=3$, $\lfloor-2\rfloor=-2$, and $\lfloor5\rfloor=5$. Figure \eqref{fig:floorfunction} shows the value of $\lfloor x \rfloor$ for $x$ between $-2$ and $2$. For positive real numbers, the fractional part is simply the the non-integer part of the number. For example, the fractional part of  $3.14$ is $0.14$. However, the definition of fractional part for negative real numbers may be deceptive. For instance, the fractional part of $-3.14$ is not $0.14$, but
+			$\lfloor 3.1415\rfloor=3$, $\lfloor-2\rfloor=-2$, and $\lfloor5\rfloor=5$. Figure \ref{fig:floorfunction} shows the value of $\lfloor x \rfloor$ for $x$ between $-2$ and $2$. For positive real numbers, the fractional part is simply the the non-integer part of the number. For example, the fractional part of  $3.14$ is $0.14$. However, the definition of fractional part for negative real numbers may be deceptive. For instance, the fractional part of $-3.14$ is not $0.14$, but
 			    \begin{align*}
 			        \{-3.14\} &= -3.14 - (-4)\\
 			                  &= 0.86.
@@ -218,7 +218,7 @@
 	(Can you see why we are using $a-1$ in the second fraction?) Here, we have assumed that $b\geq a$.
 	    
 	    \begin{note}
-	        Floor and ceiling functions are two of the crossover functions in number theory. If we consider these two functions as \textit{arithmetic} functions (i.e., functions which act only on positive integers), they would seem useless (we already know that the floor and ceiling of an integer is equal to itself). However, when we are working generally with \textit{real} numbers, floor and ceiling are pretty useful and pop up in various problems (like problem \eqref{floorproblem}).
+	        Floor and ceiling functions are two of the crossover functions in number theory. If we consider these two functions as \textit{arithmetic} functions (i.e., functions which act only on positive integers), they would seem useless (we already know that the floor and ceiling of an integer is equal to itself). However, when we are working generally with \textit{real} numbers, floor and ceiling are pretty useful and pop up in various problems (like problem \ref{floorproblem}).
 	    \end{note}
 	    
         \begin{proposition}[Properties of Floor Function]\slshape \label{prop:floor}
@@ -291,7 +291,7 @@
 	    Proofs are straightforward and we leave them for the reader as an exercise.
     
     
-    Now, we get to the other way of solving problem \eqref{floorproblem}. First, we subtracted the number of multiples less than $10$. This time we find out the first multiple of $7$ that is \textit{greater than or equal to} $10$, and the greatest multiple less than or equal to $100$ (this part is same as before). $14=7\cdot2$ is the first multiple of $7$ greater than $10$. Since $98=7\cdot14$ is the largest multiple of $7$ less than $100$, the answer to the problem would be the number of integers between $2$ and $14$ (inclusive). There are $14-2+1=13$ such integers. Consequently, this makes us define \textit{ceiling}. Try to make sense how this relates to the properties of this function.
+    Now, we get to the other way of solving problem \ref{floorproblem}. First, we subtracted the number of multiples less than $10$. This time we find out the first multiple of $7$ that is \textit{greater than or equal to} $10$, and the greatest multiple less than or equal to $100$ (this part is same as before). $14=7\cdot2$ is the first multiple of $7$ greater than $10$. Since $98=7\cdot14$ is the largest multiple of $7$ less than $100$, the answer to the problem would be the number of integers between $2$ and $14$ (inclusive). There are $14-2+1=13$ such integers. Consequently, this makes us define \textit{ceiling}. Try to make sense how this relates to the properties of this function.
     
         \begin{definition}[Ceiling Function]
         	We call the function $\lceil x \rceil: \mathbb{R} \to \mathbb Z$ the \textit{ceiling function} and for every real $x$, $\lceil x\rceil$ (read \textit{ceiling of $x$}) is the smallest integer greater than or equal to $x$.
@@ -332,7 +332,7 @@
     	\end{definition}
     	
     	\begin{example}
-    		$\lceil3.14\rceil=4$ and $\lceil4\rceil=4$. Also $\lceil-4.1\rceil=-4$ whereas $\lceil4.1\rceil=5$. As seen in figure \eqref{fig:ceilingfunction}, similar to the floor function, the plot of the ceiling is like a chain of steps. Every two real numbers which lie between two consecutive integers have the same ceiling and floor value. Compare the plots of these two functions.
+    		$\lceil3.14\rceil=4$ and $\lceil4\rceil=4$. Also $\lceil-4.1\rceil=-4$ whereas $\lceil4.1\rceil=5$. As seen in figure \ref{fig:ceilingfunction}, similar to the floor function, the plot of the ceiling is like a chain of steps. Every two real numbers which lie between two consecutive integers have the same ceiling and floor value. Compare the plots of these two functions.
     	\end{example}
 	
         \begin{proposition}[Properties of Ceiling Function]\slshape \label{prop:ceiling}
@@ -391,7 +391,7 @@
     \end{theorem}
 
 \begin{proof}
-	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \eqref{prop:floor},
+	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \ref{prop:floor},
 	\begin{align*}
 	\bigg\lfloor f(\lfloor x \rfloor)\bigg\rfloor  \leq \bigg\lfloor f(x) \bigg\rfloor.
 	\end{align*}
@@ -402,7 +402,7 @@
 	&= k\\
 	&= \lfloor f(x) \rfloor.
 	\end{align*}
-	So $f(y)=\lfloor f(x) \rfloor \leq f(x)$, which implies $y \leq x$ (because $f$ is strictly increasing). Also, $y > \lfloor x \rfloor$ because otherwise $\lfloor f(x) \rfloor = f(y) \leq  f(\lfloor x \rfloor)$ and by part $2$ of proposition \eqref{prop:floor}, $\lfloor f(x) \rfloor \leq \lfloor f(\lfloor x \rfloor)\rfloor$, which is in contradiction with our assumption. This means that we have found an integer $y$ such that $\lfloor x \rfloor < y \leq x$. This is obviously in contradiction with the definition of $\lfloor x \rfloor$ (since $x$ is non-integer). Therefore, $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$ and we are done.
+	So $f(y)=\lfloor f(x) \rfloor \leq f(x)$, which implies $y \leq x$ (because $f$ is strictly increasing). Also, $y > \lfloor x \rfloor$ because otherwise $\lfloor f(x) \rfloor = f(y) \leq  f(\lfloor x \rfloor)$ and by part $2$ of proposition \ref{prop:floor}, $\lfloor f(x) \rfloor \leq \lfloor f(\lfloor x \rfloor)\rfloor$, which is in contradiction with our assumption. This means that we have found an integer $y$ such that $\lfloor x \rfloor < y \leq x$. This is obviously in contradiction with the definition of $\lfloor x \rfloor$ (since $x$ is non-integer). Therefore, $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$ and we are done.
 \end{proof}
 
 \begin{corollary}
@@ -471,11 +471,11 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 \end{theorem}
 
 \begin{proof}
-	By definition, $n!$ is the product of first $n$ positive integers. Therefore, by proposition \eqref{prop:v_p-rule},
+	By definition, $n!$ is the product of first $n$ positive integers. Therefore, by proposition \ref{prop:v_p-rule},
 		\begin{align*}
 			v_p(n!) = v_p(1) v_p(2) \cdots v_p(n).
 		\end{align*}
-	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \eqref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
+	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \ref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
 \end{proof}
 
 There is another way for finding $v_p(n!)$ using bases. Before we state the alternative version of Legendre's theorem, we need a definition.
@@ -573,7 +573,7 @@ Let us prove Kummer's theorem now.
 	\begin{align*}
 	v_p\left( \binom{m}{n}\right) &= v_p(m!)-v_p(n!)-v_p((m-n)!)
 	\end{align*}
-	along with theorem \eqref{thm:legendrealternative} to show that $s=v_p\left( \binom{m}{n}\right)$. By theorem \eqref{thm:legendrealternative}, we know that for every positive integer $a$,
+	along with theorem \ref{thm:legendrealternative} to show that $s=v_p\left( \binom{m}{n}\right)$. By theorem \ref{thm:legendrealternative}, we know that for every positive integer $a$,
 	\begin{align*}
 	v_p(a!) & =\frac{a-s_p(a)}{p-1},
 	\end{align*}
@@ -608,7 +608,7 @@ Let us prove Kummer's theorem now.
 \begin{solution}
 	The condition $p^m < n < p^{m+1}$ means that $n$ has $m+1$ digits when represented in base $p$. By Kummer's theorem, $v_p\left(\binom{n}{k}\right)$ is the number of carries in addition $k+(n-k)$ in base $p$. Obviously, the number of carries must be less than number of digits of $n$ in base $p$ (why?). The conclusion follows.
 \end{solution}
-We will provide another solution for problem \eqref{prob:china2015-bertrand} stated in section \eqref{sec:bertrand}.
+We will provide another solution for problem \ref{prob:china2015-bertrand} stated in section \ref{sec:bertrand}.
 
 \begin{problem}[China 2015]
 	Determine all integers $k$ such that there exists infinitely many positive integers $n$ satisfying
@@ -618,7 +618,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 \end{problem}
 
 \begin{solution}
-	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \eqref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4|n$, thus $	n \not \big| \binom{2n}{n}$.
+	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4|n$, thus $	n \not \big| \binom{2n}{n}$.
 	
 	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_2\left(\binom{2n}{n}\right) \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \not \big| \binom{2n}{n}$ for our choice of $n$.
 \end{solution}
@@ -630,7 +630,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 \begin{solution}
 	We will first prove that $n$ must be a power of a prime. Suppose the contrary. Take any prime divisor $p$ of $n$ and let $v=v_p(n)$. By Lucas' theorem, it follows that $p \not\big| \binom{n}{p^v}$, which contradicts the assumption that $n \big| \binom{n}{p^v}$. Thus, $n$ must be a power of a prime. 
 	
-	Write $n=p^r$ for some prime $p$ and positive integer $r$. if $r>1$, then from corollary \eqref{cor:kummer-corollary},
+	Write $n=p^r$ for some prime $p$ and positive integer $r$. if $r>1$, then from corollary \ref{cor:kummer-corollary},
 	\begin{align*}
 	p^2 \not \Big| \binom{n}{p^{r-1}},
 	\end{align*}
@@ -640,7 +640,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 
 \section{Common Arithmetic Functions}
 	\subsection{Number of Divisors}\label{sec:number-of-divisors}
-		We first introduced $\tau(n)$ in chapter \eqref{ch:divisibility}. To be precise, in theorem \eqref{thm:nos}, we explained that there are $\tau(n)$ positive integer solutions $(a,b)$ to the equation $ab=n$. For example, $ab=12$ has $\tau(12)=6$ solutions $(1,12), (2, 6), (3,4), (4,3), (6,2), (12,1)$ in positive integers.
+		We first introduced $\tau(n)$ in chapter \ref{ch:divisibility}. To be precise, in theorem \ref{thm:nos}, we explained that there are $\tau(n)$ positive integer solutions $(a,b)$ to the equation $ab=n$. For example, $ab=12$ has $\tau(12)=6$ solutions $(1,12), (2, 6), (3,4), (4,3), (6,2), (12,1)$ in positive integers.
 		
 			\begin{definition}[Number-of-divisors Function]
 				Let $n$ be a positive integer. The number of positive divisors of $n$ is denoted by $\tau(n)$. In other words, the \textit{number-of-divisors} function is defined as
@@ -694,7 +694,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\end{theorem}
 			
 			\begin{proof}
-				Let $n$ be a positive integer with factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and suppose that $\tau(n)$ is odd. This means that all terms in the right hand side of equation \eqref{eq:dformula-eq1} must be odd. Therefore, $e_i$ is even for $i=1,2,\cdots,k$. Take $e_i = 2f_i$ for some integer $f_i$. Then,
+				Let $n$ be a positive integer with factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and suppose that $\tau(n)$ is odd. This means that all terms in the right hand side of equation \ref{eq:dformula-eq1} must be odd. Therefore, $e_i$ is even for $i=1,2,\cdots,k$. Take $e_i = 2f_i$ for some integer $f_i$. Then,
 					\begin{align*}
 						n &= p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}\\
 						&= p_1^{2f_1}p_2^{2f_2}\cdots p_k^{2f_k}\\
@@ -772,11 +772,11 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 		\end{theorem}
 		
 		\begin{proof}
-			Later in proposition \eqref{prop:multiplicative-sigma}, we will show that $\sigma$ is multiplicative. Just accept it for now. So, it suffices to prove the assertion for the case when $n$ is a power of a prime. Let $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. In this case, the only divisors of $n$ are $1, p, p^2, \cdots, p^\alpha$. Therefore, their sum, $\sigma(n)$, is
+			Later in proposition \ref{prop:multiplicative-sigma}, we will show that $\sigma$ is multiplicative. Just accept it for now. So, it suffices to prove the assertion for the case when $n$ is a power of a prime. Let $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. In this case, the only divisors of $n$ are $1, p, p^2, \cdots, p^\alpha$. Therefore, their sum, $\sigma(n)$, is
 				\begin{align*}
 					\sigma(p^\alpha) = 1+p+p^2+\cdots+p^\alpha.
 				\end{align*}
-			Now, by theorem \eqref{id:fatandthin}, we can write the above equation as
+			Now, by theorem \ref{id:fatandthin}, we can write the above equation as
 				\begin{align*}
 					\sigma(p^\alpha) = \frac{p^{\alpha+1} - 1}{p-1}.
 				\end{align*}
@@ -855,7 +855,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 				&= pq - q - p +1\\
 				&= (p-1)(q-1),
 			\end{align*}
-		which is in agreement with equation \eqref{eq:totientformula}. Take another example when $n=p_1,p_2,\cdots,p_k$, where $p_1,p_2,\cdots,p_k$ are different primes. Our first guess for $\psi(n)$ would be $n/p_1 +‌n/p_2 + \cdots + n/p_k$. However, we are counting the numbers divisible by $p_ip_j$ (for $1\leq i <j \leq k$) twice. So, our next guess for $\psi(n)$ is
+		which is in agreement with equation \ref{eq:totientformula}. Take another example when $n=p_1,p_2,\cdots,p_k$, where $p_1,p_2,\cdots,p_k$ are different primes. Our first guess for $\psi(n)$ would be $n/p_1 +‌n/p_2 + \cdots + n/p_k$. However, we are counting the numbers divisible by $p_ip_j$ (for $1\leq i <j \leq k$) twice. So, our next guess for $\psi(n)$ is
 			\begin{align*}
 				\psi(n) &= \sum_{1 \leq i \leq k} \frac{n}{p_i} - \sum_{\substack{1 \leq i < j\leq k }} \frac{n}{p_ip_j}.
 			\end{align*}
@@ -863,7 +863,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\begin{align*}
 				\sum\limits_{\substack{1\leq i<j<t\leq k}} \frac{n}{p_ip_jp_t}
 			\end{align*}
-		to include all products\footnote{Notice the indexes under the summation notation} such as $p_1p_2p_3$. This process of adding and subtracting sums is called the \textit{inclusion--exclusion principle}. We will continue the process until we count every number less than or equal to $n$ which is not co-prime to $n$ exactly once. Then, the totient function may be calculated from $\varphi(n) = n - \psi(n)$. The reader is encouraged to calculate $\varphi(n) = (p_1-1)(p_2-1) \cdots (p_k-1)$ using the given approach and check that it is compatible with the formula \eqref{eq:totientformula}. The very same approach may be applied to the general case $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ to finally prove formula \eqref{eq:totientformula}. We strongly recommend the reader try this method for several examples (e.g., $n=p^2q$ or $n = p^3 q^4r^5$) and then prove the whole thing.
+		to include all products\footnote{Notice the indexes under the summation notation} such as $p_1p_2p_3$. This process of adding and subtracting sums is called the \textit{inclusion--exclusion principle}. We will continue the process until we count every number less than or equal to $n$ which is not co-prime to $n$ exactly once. Then, the totient function may be calculated from $\varphi(n) = n - \psi(n)$. The reader is encouraged to calculate $\varphi(n) = (p_1-1)(p_2-1) \cdots (p_k-1)$ using the given approach and check that it is compatible with the formula \ref{eq:totientformula}. The very same approach may be applied to the general case $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ to finally prove formula \ref{eq:totientformula}. We strongly recommend the reader try this method for several examples (e.g., $n=p^2q$ or $n = p^3 q^4r^5$) and then prove the whole thing.
 		
 		Using the same method, we can prove a stronger result.
 		
@@ -873,7 +873,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 			\Psi(m) &= \sum_{1 \leq i_1 \leq k} \left\lfloor\frac{m}{p_{i_1}} \right\rfloor - \sum_{\substack{1 \leq i_1<i_2 \leq k}} \left\lfloor\frac{m}{p_{i_1}p_{i_2}} \right\rfloor + \cdots + (-1)^{k+1} \left\lfloor\frac{m}{p_1p_2\cdots p_k} \right\rfloor.
 			\end{align*}
 		\end{theorem}
-		We already stated (but did not prove) some properties of Euler's totient function in proposition \eqref{prop:phiproperties}. Here, we are going to prove them beside a few more.
+		We already stated (but did not prove) some properties of Euler's totient function in proposition \ref{prop:phiproperties}. Here, we are going to prove them beside a few more.
 		
 		\begin{theorem}[Properties of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]\slshape\label{thm:phiproperties-ch:arith}
 			Let $m$ and $n$ be positive integers. Then,
@@ -910,7 +910,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 							$r$ & $m+r$ & $2m+r$ & $\ldots$ & $(n-1)m+r$						
 						\end{tabular}
 					\end{center}
-				The set $\{0, 1, 2, \cdots, n\}$ is a complete residue system modulo $n$. Since $(m,n)=1$, by proposition \eqref{prop:generalcompletesystem} of chapter \eqref{ch:congruence}, the numbers in the above row of table also form a complete residue system modulo $n$. This means that all the remainders $0,1,2,\cdots,n-1$ happen when you take the numbers in this row modulo $n$. Now, how many numbers in this row are relatively prime to $n$? The answer is the same number of integers co-prime to $n$ in the set $\{0, 1, 2, \cdots, n\}$, which is $\varphi(n)$ by definition (try to figure out why). Therefore, there are totally $\varphi(m) \cdot \varphi(n)$ numbers in the table which are co-prime to both $m$ and $n$, and hence $mn$. On the other hand, by definition, there are $\varphi(mn)$ numbers co-prime to $mn$. The conclusion follows.
+				The set $\{0, 1, 2, \cdots, n\}$ is a complete residue system modulo $n$. Since $(m,n)=1$, by proposition \ref{prop:generalcompletesystem} of chapter \ref{ch:congruence}, the numbers in the above row of table also form a complete residue system modulo $n$. This means that all the remainders $0,1,2,\cdots,n-1$ happen when you take the numbers in this row modulo $n$. Now, how many numbers in this row are relatively prime to $n$? The answer is the same number of integers co-prime to $n$ in the set $\{0, 1, 2, \cdots, n\}$, which is $\varphi(n)$ by definition (try to figure out why). Therefore, there are totally $\varphi(m) \cdot \varphi(n)$ numbers in the table which are co-prime to both $m$ and $n$, and hence $mn$. On the other hand, by definition, there are $\varphi(mn)$ numbers co-prime to $mn$. The conclusion follows.
 
 				\item $\varphi(n)$ is the number of positive integers $k$ such that $k \leq n$ and $k \bot n$. The point is that if $k$ is co-prime to $n$, then so is $n-k$. Therefore, for $n\geq 3$, one can match all numbers co-prime to $n$ in pairs of $(k, n-k)$, which means that $\varphi(n)$ must be even.
 				
@@ -1014,7 +1014,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 		\end{example}
 		
 
-We will state and prove the properties of Jordan's totient function later in section \eqref{sec:euler-jordan}.
+We will state and prove the properties of Jordan's totient function later in section \ref{sec:euler-jordan}.
 
 \section{Characterizing Multiplicative Functions} \label{sec:characterizing-multiplicative}
 	Multiplicative functions are of high interest. All multiplicative functions possess some generic properties which we can use to characterize them. It is obvious that if a result is true for multiplicative functions, it is true for completely multiplicative functions as well.
@@ -1094,7 +1094,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{theorem}
 		
 		\begin{proof}
-			By proposition \eqref{prop:additiveomega}, $\Omega$ is a completely additive function. The conclusion follows directly from proposition \eqref{prop:addtomul}.
+			By proposition \ref{prop:additiveomega}, $\Omega$ is a completely additive function. The conclusion follows directly from proposition \ref{prop:addtomul}.
 		\end{proof}
 	
 \section{Dirichlet Product and M\" {o}bius Inversion}\label{sec:dirichletmobius}
@@ -1120,7 +1120,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 								  & = & \underbrace{1 + 1 + \cdots + 1}_{\text{repeated } \tau(n) \text{ times}}\\
 								  & = & \tau(n),
 				\end{eqnarray*}
-			where $\tau(n)$ is the number of divisors of $n$. More details about this function will be explained in section \eqref{sec:d(n)}.
+			where $\tau(n)$ is the number of divisors of $n$. More details about this function will be explained in section \ref{sec:d(n)}.
 		\end{example}
 		
 		\begin{example}
@@ -1179,7 +1179,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{definition}
 		
 		\begin{example}
-			$\mu(20)=0$ because $2^2|20$. Also, $\mu(105)=(-1)^3=-1$ since $105=3\cdot5 \cdot 7$. The values of $\mu(n)$ for $n=1,2,\cdots,100$ can be found in table \eqref{table:mu(n)}.
+			$\mu(20)=0$ because $2^2|20$. Also, $\mu(105)=(-1)^3=-1$ since $105=3\cdot5 \cdot 7$. The values of $\mu(n)$ for $n=1,2,\cdots,100$ can be found in table \ref{table:mu(n)}.
 			
 			
 			
@@ -1227,7 +1227,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{example}
 	
 	\begin{note}
-		Why do we care about M\"{o}bius? We can express long, ugly-looking, tedious sums into a very brief expression including sums over $\mu(n)$. If you feel comfortable with arithmetic functions so far, you might like to see an application of the M\"{o}bius function $\mu(n)$ in theorem \eqref{thm:numofprime}. You would be able to make sense of a beautiful application of this function.
+		Why do we care about M\"{o}bius? We can express long, ugly-looking, tedious sums into a very brief expression including sums over $\mu(n)$. If you feel comfortable with arithmetic functions so far, you might like to see an application of the M\"{o}bius function $\mu(n)$ in theorem \ref{thm:numofprime}. You would be able to make sense of a beautiful application of this function.
 	\end{note}
 		M\"{o}bius function has amazing properties. The first is that it is multiplicative. 
 		\begin{proposition}
@@ -1252,7 +1252,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			F(n) &= (f\ast 1)(n)\\
 			     &= \sum_{d|n} f(d).
 		\end{align*}
-	This function $F$ is called the \textit{summatory function} of $f$. In number theory, there are times when we know what $F=f\ast 1$ is and we want to know what $f$ is. This is where M\"{o}bius function comes in. Suppose that you do not know M\"{o}bius function, and you just define $\mu(n)$ as the Dirichlet inverse of $1(n)$. That is, you define $\mu(n)$ be a function such that $\mu \ast 1 = \varepsilon$. Then, multiply $F$ by $\mu$ and use proposition \eqref{prop:convolutionproperties} to get
+	This function $F$ is called the \textit{summatory function} of $f$. In number theory, there are times when we know what $F=f\ast 1$ is and we want to know what $f$ is. This is where M\"{o}bius function comes in. Suppose that you do not know M\"{o}bius function, and you just define $\mu(n)$ as the Dirichlet inverse of $1(n)$. That is, you define $\mu(n)$ be a function such that $\mu \ast 1 = \varepsilon$. Then, multiply $F$ by $\mu$ and use proposition \ref{prop:convolutionproperties} to get
 		\begin{align*}
 			F \ast \mu &= (f \ast 1) \ast \mu\\
 					   &= f \ast (1 \ast \mu)\\
@@ -1278,7 +1278,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			0&\mbox{ if }\alpha\geq 2.
 			\end{cases}
 		\end{align*}
-	The general definition of $\mu$, as stated in definition \eqref{def:mobius}, can be inferred from the above result using the fact that $\mu$ is a multiplicative function.
+	The general definition of $\mu$, as stated in definition \ref{def:mobius}, can be inferred from the above result using the fact that $\mu$ is a multiplicative function.
 	
 	As you can observe, the $\mu$ function is defined to help us find an arithmetic function $f$ given its summatory function $F$. In fact, $f=F \ast \mu$. This was first introduced by M\"{o}bius in $19^{th}$ century and is known as the \textit{M\"{o}bius Inversion Formula}.
 			
@@ -1333,7 +1333,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{proof}
 		
 		\begin{example}
-			According to theorem \eqref{thm:mobiusinverse}, the summatory function of $\mu$ is $\varepsilon$. Therefore,
+			According to theorem \ref{thm:mobiusinverse}, the summatory function of $\mu$ is $\varepsilon$. Therefore,
 				\begin{align*}
 					\sum_{k=1}^{n} \varepsilon(k) &= \sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor.
 				\end{align*}
@@ -1361,13 +1361,13 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 		\end{theorem}
 		
 		\begin{proof}
-			The proof somewhat follows from unique prime factorization. Assume $T$ is the expansion of the right side of equation \eqref{eq:multiplicative-eq1}.
+			The proof somewhat follows from unique prime factorization. Assume $T$ is the expansion of the right side of equation \ref{eq:multiplicative-eq1}.
 			If $d$ is a divisor of $n$, then $d=p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}$, where $0\leq w_i\leq e_i$ for $i=1,2,\cdots,k$. Therefore,
 				\begin{eqnarray*}
 					f(d)    & = & f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)\\
 							& = & f\left(p_1^{w_1}\right) f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right).
 				\end{eqnarray*}
-			which is a term that is present in $T$. Thus, we conclude that each term in the sum $F(n)=\sum\limits_{d|n}f(d)$ appears in $T$. We can easily find that the converse is also true. After expanding the right side of equation \eqref{eq:multiplicative-eq1}, we see that every term in $T$ is of the form 
+			which is a term that is present in $T$. Thus, we conclude that each term in the sum $F(n)=\sum\limits_{d|n}f(d)$ appears in $T$. We can easily find that the converse is also true. After expanding the right side of equation \ref{eq:multiplicative-eq1}, we see that every term in $T$ is of the form 
 				\begin{align*}
 					f\left(p_1^{w_1}\right)	f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right),
 				\end{align*}
@@ -1412,13 +1412,13 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 					\end{align*}
 				which is what we wanted.
 				
-				\item $f$ is multiplicative, hence $f(mn)=f(m)f(n)$ for all co-prime positive integers $m$ and $n$. Put $m=n=1$ in this equation to get $f(1)=f(1)^2$, which immediately gives $f(1)=1$ because $f$ only accepts positive integer values. Let $g$ be the Dirichlet inverse of $f$. By theorem \eqref{thm:dirichletinverse}, $g(1)=1$. We will prove by induction that $g$ is multiplicative. The base case $n=1$ is true. Suppose that $n>1$ and whenever $ab<n$ with $(a,b)=1$, then $g(ab)=g(a)g(b)$. Also, suppose that $xy=n$ with $(x,y)=1$. We will show that $g(xy)=g(x)g(y)$. Since $g$ is the inverse of $f$, we have $(f \ast g)(n) = \varepsilon(n)$. Also, $\varepsilon(n)=0$ for $n>1$. Therefore,
+				\item $f$ is multiplicative, hence $f(mn)=f(m)f(n)$ for all co-prime positive integers $m$ and $n$. Put $m=n=1$ in this equation to get $f(1)=f(1)^2$, which immediately gives $f(1)=1$ because $f$ only accepts positive integer values. Let $g$ be the Dirichlet inverse of $f$. By theorem \ref{thm:dirichletinverse}, $g(1)=1$. We will prove by induction that $g$ is multiplicative. The base case $n=1$ is true. Suppose that $n>1$ and whenever $ab<n$ with $(a,b)=1$, then $g(ab)=g(a)g(b)$. Also, suppose that $xy=n$ with $(x,y)=1$. We will show that $g(xy)=g(x)g(y)$. Since $g$ is the inverse of $f$, we have $(f \ast g)(n) = \varepsilon(n)$. Also, $\varepsilon(n)=0$ for $n>1$. Therefore,
 					\begin{eqnarray}
 						0 &=& \sum_{d|n} f(d) g\left(\frac{n}{d}\right)\nonumber\\
 						  &=& \sum_{d|xy} f(d) g\left(\frac{xy}{d}\right) \nonumber\\
 						  &=& g(xy) + \sum\limits_{\substack{d|xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right).\label{eq:dirichinverse-eq1}
 					\end{eqnarray}
-				The sum in equation \eqref{eq:dirichinverse-eq1} includes terms of te form $f(d)g(xy/d)$, and since $d$ is larger than $1$, $xy/d$ is less than $xy=n$. Since $x \bot y$, there exist positive integers $d_1$ and $d_2$ such that $d=d_1d_2$, $d_1|x$, and $d_2|y$. As a result,
+				The sum in equation \ref{eq:dirichinverse-eq1} includes terms of te form $f(d)g(xy/d)$, and since $d$ is larger than $1$, $xy/d$ is less than $xy=n$. Since $x \bot y$, there exist positive integers $d_1$ and $d_2$ such that $d=d_1d_2$, $d_1|x$, and $d_2|y$. As a result,
 					\begin{eqnarray*}
 						g(xy) &=& - \sum\limits_{\substack{d|xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\\
 							  &=& - \sum\limits_{\substack{d_1|x, d_2|y \\ d_1d_2>1}} f(d_1d_2) g\left(\frac{x}{d_1} \frac{y}{d_2}\right)\\
@@ -1439,14 +1439,14 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 			The same is true for part $2$: if $f$ is completely multiplicative, then $f^{-1}$ is multiplicative, but not in general completely multiplicative.
 		\end{note}
 	
-	In proposition \eqref{prop:phiproperties}, we stated that Euler's totient function $\varphi$ is multiplicative. We can now prove this result.
+	In proposition \ref{prop:phiproperties}, we stated that Euler's totient function $\varphi$ is multiplicative. We can now prove this result.
 	
 		\begin{proposition}\slshape\label{prop:multiplicativephi}
 			Prove that $\varphi$ is multiplicative.
 		\end{proposition}
 		
 		\begin{proof}
-			As proved in theorem \eqref{thm:phi*1}, we know that $\varphi \ast 1 = \text{id}$. Obviously, both $1(n)$ and $\text{id}(n)$ are multiplicative. The conclusion follows from part $3$ of theorem \eqref{thm:mft}.
+			As proved in theorem \ref{thm:phi*1}, we know that $\varphi \ast 1 = \text{id}$. Obviously, both $1(n)$ and $\text{id}(n)$ are multiplicative. The conclusion follows from part $3$ of theorem \ref{thm:mft}.
 		\end{proof}
 		
 		
@@ -1470,7 +1470,7 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 								  &=& \sum_{d|n} \mu(d) f(d) f\left(\frac{n}{d}\right)\\
 								  &=& \sum_{d|n} \mu(d) f\left(d \cdot \frac{n}{d}\right) \quad \text{since } f \text{ is multiplicative}\\
 								  &=& f(n) \sum_{d|n} \mu(d)\\
-								  &=& f(n) \varepsilon(n) \quad \text{by theorem \eqref{thm:mobiusinverse}}\\
+								  &=& f(n) \varepsilon(n) \quad \text{by theorem \ref{thm:mobiusinverse}}\\
 								  &=& \varepsilon(n).
 				\end{eqnarray*}
 			The last equality holds because $f(1)=\varepsilon(1)=1$ (why?) and $\varepsilon(n)=0$ for all $n \geq 2$. This means that $g$ is the Dirichlet inverse of $f$.
@@ -1522,7 +1522,7 @@ We provide two proofs for this theorem. The first one uses the concept of multip
 	\end{problem}
 	
 	\begin{solution}
-		By theorem \eqref{thm:mobiusinverse}, $1 \ast \mu =\varepsilon$. Multiply both sides of this equation by $1$ and use the fact that $1\ast 1 = \tau$, we find
+		By theorem \ref{thm:mobiusinverse}, $1 \ast \mu =\varepsilon$. Multiply both sides of this equation by $1$ and use the fact that $1\ast 1 = \tau$, we find
 			\begin{eqnarray*}
 				\tau \ast \mu &=& 1 \ast 1 \ast \mu \\
 							  &=& 1 \ast \varepsilon\\
@@ -1531,7 +1531,7 @@ We provide two proofs for this theorem. The first one uses the concept of multip
 	\end{solution}
 
 
-As mentioned in section \eqref{sec:number-of-divisors}, the number of solutions to $ab = n$ in positive integers is $\tau(n)$. For the sake of completeness, we will state this result as a theorem.
+As mentioned in section \ref{sec:number-of-divisors}, the number of solutions to $ab = n$ in positive integers is $\tau(n)$. For the sake of completeness, we will state this result as a theorem.
 
 	\begin{theorem}\label{thm:ab=n}
 		Let $n$ be a positive integer. The number of pairs $(a,b)$ of positive integers which satisfy
@@ -1555,7 +1555,7 @@ Here is a more interesting question:
 			\end{align}
 	\end{question}
 
-One way to answer this question is to break the condition $ab \leq x$ into smaller conditions. Obviously, the equation $ab = y$ does not have any solutions in integers if $y$ is not an integer. So, in order to find the number of solutions to the inequality \eqref{eq:ab<x}, we only need to find the number of solutions to each of $ab = 1, ab= 2, \cdots, ab= \lfloor x \rfloor$ and the answer would be the sum of these numbers. According to theorem \eqref{thm:ab=n}, the answer is
+One way to answer this question is to break the condition $ab \leq x$ into smaller conditions. Obviously, the equation $ab = y$ does not have any solutions in integers if $y$ is not an integer. So, in order to find the number of solutions to the inequality \ref{eq:ab<x}, we only need to find the number of solutions to each of $ab = 1, ab= 2, \cdots, ab= \lfloor x \rfloor$ and the answer would be the sum of these numbers. According to theorem \ref{thm:ab=n}, the answer is
 	\begin{align*}
 		\tau(1) + \tau(2) + \cdots + \tau(\lfloor x \rfloor).
 	\end{align*}
@@ -1602,7 +1602,7 @@ From what we have already found,
 					\caption{Value of $\tau(n)$ for $n=1,2,\cdots,10$.}\label{table:tau}
 				\end{center}
 			\end{table}
-		According to table \eqref{table:tau} and equation \eqref{eq:T(x)-1}, $T(10.2)$ is equal to the sum of numbers in the second column, which is $27$.
+		According to table \ref{table:tau} and equation \ref{eq:T(x)-1}, $T(10.2)$ is equal to the sum of numbers in the second column, which is $27$.
 	\end{example}
 
 
@@ -1629,7 +1629,7 @@ The formula
 	\begin{align}
 		T(x) = \sum_{k=1}^{\lfloor x \rfloor} \left\lfloor \frac{x}{k} \right\rfloor \label{eq:T(x)-2}
 	\end{align}
-is more convenient than \eqref{eq:T(x)-1}. That is, we can find $T(x)$ using equation \eqref{eq:T(x)-2} with less number of calculations. In fact, to compute $T(x)$ from \eqref{eq:T(x)-1}, we need to calculate the number of divisors of $\lfloor x \rfloor$ numbers, which obviously needs more computations than $\lfloor x \rfloor$  computations needed in formula \eqref{eq:T(x)-2}. However, this can be refined even more.
+is more convenient than \ref{eq:T(x)-1}. That is, we can find $T(x)$ using equation \ref{eq:T(x)-2} with less number of calculations. In fact, to compute $T(x)$ from \ref{eq:T(x)-1}, we need to calculate the number of divisors of $\lfloor x \rfloor$ numbers, which obviously needs more computations than $\lfloor x \rfloor$  computations needed in formula \ref{eq:T(x)-2}. However, this can be refined even more.
 
 We will divide the solutions to $ab \leq x$ into two classes. The first class includes solutions in which $a \leq \sqrt x$ and the second one includes all solutions such that $a > \sqrt x$. Let $T_1(x)$ be the number of solutions in the first class and let $T_2(x)$ be that of the second class. Therefore,
 	\begin{align*}
@@ -1656,7 +1656,7 @@ These are $\lfloor \frac{x}{b}\rfloor - \lfloor \sqrt x \rfloor$ numbers. So, si
 	\begin{align}
 		T_2(x) &= \sum_{b=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{b}\right\rfloor - \lfloor \sqrt x \rfloor\right). \label{eq:T(x)-3}
 	\end{align}
-In order to add $T_1(x)$ and $T_2(x)$ to obtain $T(x)$, we have to make their summation parameter the same. We already know that changing the summation parameter does not change the value of the sum. Therefore, we can change $b$ to $a$ in equation \eqref{eq:T(x)-3} and write $T_2(x)$ as
+In order to add $T_1(x)$ and $T_2(x)$ to obtain $T(x)$, we have to make their summation parameter the same. We already know that changing the summation parameter does not change the value of the sum. Therefore, we can change $b$ to $a$ in equation \ref{eq:T(x)-3} and write $T_2(x)$ as
 	\begin{align*}
 		T_2(x) &= \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right).
 	\end{align*}
@@ -1672,10 +1672,10 @@ Finally, we have the formula
 	\begin{align}
 		T(x) &= 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2.\label{eq:T(x)-4}
 	\end{align}
-Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calculate $T(x)$, which is obviously less than $\lfloor x \rfloor$ computations needed to find $T(x)$ from \eqref{eq:T(x)-2}.
+Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calculate $T(x)$, which is obviously less than $\lfloor x \rfloor$ computations needed to find $T(x)$ from \ref{eq:T(x)-2}.
 
 	\begin{example}
-		We will calculate the number of positive integer solutions to $ab \leq 100.2$. Since $x=100.2$ is large in this case, the best way to calculate $T(x)$ is from formula \eqref{eq:T(x)-4}. We find
+		We will calculate the number of positive integer solutions to $ab \leq 100.2$. Since $x=100.2$ is large in this case, the best way to calculate $T(x)$ is from formula \ref{eq:T(x)-4}. We find
 			\begin{eqnarray*}
 				T(100.2) &=& 2\sum_{a=1}^{10} \left\lfloor\frac{100.2}{a}\right\rfloor - 100\\
 						 &=& 2\big(100 + 50 + 33 + 25 + 20 + 16 + 14 + 12 + 11 + 10\big) - 100\\
@@ -1692,7 +1692,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 
 	\begin{proof}
-		Assuming $x=n$, we employ equations \eqref{eq:T(x)-1} and \eqref{eq:T(x)-2} to write
+		Assuming $x=n$, we employ equations \ref{eq:T(x)-1} and \ref{eq:T(x)-2} to write
 			\begin{align*}
 				\sum_{k=1}^{n} \tau(k) = \sum_{k=1}^{n} \left\lfloor \frac{n}{k} \right\rfloor
 			\end{align*}
@@ -1708,7 +1708,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 			\begin{align}
 			\frac{\sum\limits_{k=1}^{n} \tau(k)}{n} = \sum_{k=1}^{n} \frac{1}{k}  - \frac{\sum\limits_{k=1}^{n} \left\{ \frac{n}{k} \right\}}{n}.
 			\end{align}
-		We already know that $0 \leq \{n/k\}<1$. Therefore, the second sum in the right hand side of equation \eqref{eq:T(x)-5} is between zero and $n$. Therefore,
+		We already know that $0 \leq \{n/k\}<1$. Therefore, the second sum in the right hand side of equation \ref{eq:T(x)-5} is between zero and $n$. Therefore,
 			\begin{align*}
 				0 < \frac{\sum_{k=1}^{n} \left\{ n/k \right\}}{n} < 1
 			\end{align*}
@@ -1738,7 +1738,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 						  &=& \sum_{d|n} d \cdot 1\left(\frac{n}{d}\right)\\
 						  &=& (\text{id} \ast 1)(n).
 			\end{eqnarray*}
-		Now, since both $\text{id}$ and constant $1$ function are multiplicative, part $1$ of theorem \eqref{thm:mft} implies that $\sigma$ is also multiplicative.
+		Now, since both $\text{id}$ and constant $1$ function are multiplicative, part $1$ of theorem \ref{thm:mft} implies that $\sigma$ is also multiplicative.
 	\end{proof}
 	
 	
@@ -1750,7 +1750,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{problem}
 	
 	\begin{solution}
-		Let $b=\prod\limits_{p|b}p^e$ be the prime factorization of $b$. Then, since $a|b$, the factorization of $a$ would be $a=\prod\limits_{p|b}p^f$ with $0\leq f\leq e$ for each prime $p$ dividing $b$. From theorem \eqref{thm:sigmaformula},
+		Let $b=\prod\limits_{p|b}p^e$ be the prime factorization of $b$. Then, since $a|b$, the factorization of $a$ would be $a=\prod\limits_{p|b}p^f$ with $0\leq f\leq e$ for each prime $p$ dividing $b$. From theorem \ref{thm:sigmaformula},
 		\begin{align*}
 			\sigma(b)=\prod_{p|b}\dfrac{p^{e+1}-1}{p-1}\quad \text{and} \quad 	\sigma(a)=\prod_{p|b}\dfrac{p^{f+1}-1}{p-1}. 
 		\end{align*}
@@ -1775,7 +1775,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{proposition}
 
 	\begin{proof}
-		Since $n$ is composite, we know from proposition \eqref{factorsqrt} that $n$ has a prime factor $p$ less than or equal to $\sqrt n$. Then, $n/p$ is a divisor of $n$ and $n/p \geq \sqrt n$. Since $n$ has at least three divisors $n$, $n/p$, and $1$,
+		Since $n$ is composite, we know from proposition \ref{factorsqrt} that $n$ has a prime factor $p$ less than or equal to $\sqrt n$. Then, $n/p$ is a divisor of $n$ and $n/p \geq \sqrt n$. Since $n$ has at least three divisors $n$, $n/p$, and $1$,
 			\begin{eqnarray*}
 				\sigma(n) &\geq& n + \frac{n}{p} + 1\\
 						  &\geq& n + \sqrt n + 1\\
@@ -1793,7 +1793,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 
 	\begin{proof}
-		Suppose that $\sigma(n)=n+k$ holds for some positive integer $n$. Since $k>1$, $n$ must be composite (otherwise $\sigma(n)=n+1$). According to theorem \eqref{prop:sigma(n)>n+sqrt(n)}, $\sigma(n) > n + \sqrt n$. As a result, we find $\sqrt n < k$ or $n < k^2$. Obviously, there are at most $k^2$ values $1,2,\cdots,k^2$ possible for $n$. This finishes the proof.
+		Suppose that $\sigma(n)=n+k$ holds for some positive integer $n$. Since $k>1$, $n$ must be composite (otherwise $\sigma(n)=n+1$). According to theorem \ref{prop:sigma(n)>n+sqrt(n)}, $\sigma(n) > n + \sqrt n$. As a result, we find $\sqrt n < k$ or $n < k^2$. Obviously, there are at most $k^2$ values $1,2,\cdots,k^2$ possible for $n$. This finishes the proof.
 	\end{proof}
 
 	
@@ -1806,7 +1806,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 
 	\begin{proof}
-		According to theorem \eqref{thm:sodfrac},
+		According to theorem \ref{thm:sodfrac},
 			\begin{align*}
 				\frac{\sigma(n!)}{n!} &= \sum_{d|n!} \frac{1}{d}.
 			\end{align*}
@@ -1836,13 +1836,13 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{theorem}
 	
 	\begin{proof}
-		Let $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ be the factorization of $n$ and suppose that $\sigma(n)$ is odd. We will prove that $n$ is either a perfect square or twice a perfect square. According to theorem \eqref{thm:sigmaformula}, since $\sigma(n)$ is odd, all the terms in the product $\prod\limits_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}$ must be odd. That is,
+		Let $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ be the factorization of $n$ and suppose that $\sigma(n)$ is odd. We will prove that $n$ is either a perfect square or twice a perfect square. According to theorem \ref{thm:sigmaformula}, since $\sigma(n)$ is odd, all the terms in the product $\prod\limits_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}$ must be odd. That is,
 		\begin{align}
 			1+p_i+p_i^2+\cdots+p_i^{e_i} \label{eq:sigma-eq1}
 		\end{align}
-		must be odd for $i=1,2,\cdots,k$. There are two cases: if $p_i\neq 2$ for all $i$, then the number of terms in the expression \eqref{eq:sigma-eq1} must be odd so that their sum is also odd (they are all odd). That is, $e_i$ must be even for $i=1,2,\cdots,k$. Hence, $n$ is a perfect square.
+		must be odd for $i=1,2,\cdots,k$. There are two cases: if $p_i\neq 2$ for all $i$, then the number of terms in the expression \ref{eq:sigma-eq1} must be odd so that their sum is also odd (they are all odd). That is, $e_i$ must be even for $i=1,2,\cdots,k$. Hence, $n$ is a perfect square.
 		
-		The other case is when some $p_i$, say $p_1$ is equal to $2$. The expression \eqref{eq:sigma-eq1} is odd for $p_1=2$. Now, in order for expression \eqref{eq:sigma-eq1} to be odd, all $e_i$ must be even for $2 \leq i \leq k$ (exactly like the previous case). Now, if the power of $2$ that divides $n$ is even, $n$ is of the form $k^2$ and if it is odd, $n$ is of the form $2k^2$.
+		The other case is when some $p_i$, say $p_1$ is equal to $2$. The expression \ref{eq:sigma-eq1} is odd for $p_1=2$. Now, in order for expression \ref{eq:sigma-eq1} to be odd, all $e_i$ must be even for $2 \leq i \leq k$ (exactly like the previous case). Now, if the power of $2$ that divides $n$ is even, $n$ is of the form $k^2$ and if it is odd, $n$ is of the form $2k^2$.
 		
 		The proof of the converse is now obvious.
 	\end{proof}
@@ -1859,7 +1859,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{proposition}
 	
 	\begin{proof}
-		There are $n$ positive integers less than or equal to $n$. We know from theorem \eqref{thm:oddsigma} that numbers which are a perfect square or twice a perfect square have an even $\sigma$. The number of perfect squares less than or equal to $n$ is $\left\lfloor\sqrt{n}\right\rfloor$ (why?). Similarly, the number of integers less than or equal to $n$ which are twice a perfect square is $\lfloor\sqrt{n/2}\rfloor$. The conclusion follows.
+		There are $n$ positive integers less than or equal to $n$. We know from theorem \ref{thm:oddsigma} that numbers which are a perfect square or twice a perfect square have an even $\sigma$. The number of perfect squares less than or equal to $n$ is $\left\lfloor\sqrt{n}\right\rfloor$ (why?). Similarly, the number of integers less than or equal to $n$ which are twice a perfect square is $\lfloor\sqrt{n/2}\rfloor$. The conclusion follows.
 	\end{proof}
 	
 	A family of numbers which are related to sum-of-divisors function are \textit{perfect numbers}.
@@ -1884,7 +1884,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 					  &=& \left(2^k-1\right) 2^k\\
 					  &=& 2n.
 		\end{eqnarray*}
-		Now, suppose that $n$ is an even perfect number. We want to show that it is of the form $2^{k-1}(2^k-1)$. We will use the trick stated in theorem \eqref{thm:factorizeintopowersoftwo}. One can write $n$ as $2^ks$ for a positive integer $k$ and an odd integer $s$. Again by multiplicativity of $\sigma$,
+		Now, suppose that $n$ is an even perfect number. We want to show that it is of the form $2^{k-1}(2^k-1)$. We will use the trick stated in theorem \ref{thm:factorizeintopowersoftwo}. One can write $n$ as $2^ks$ for a positive integer $k$ and an odd integer $s$. Again by multiplicativity of $\sigma$,
 		\begin{eqnarray*}
 			\sigma(n) &=&  \sigma(2^k s) = \sigma(2^k)\sigma(s)\\
 					  &=& \left(2^{k+1}-1\right) \sigma(s).
@@ -1893,7 +1893,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 		\begin{align}
 			2^{k+1}s = \left(2^{k+1}-1\right) \sigma(s). \label{eq:perfect-eq1}
 		\end{align}
-		This means that $2^{k+1}-1$ divides $2^{k+1}s$, but since $(2^{k+1}, 2^{k+1}-1)= 1$, we have $2^{k+1}-1|s$. Consequently, there exists an integer $t$ such that $s = \left(2^{k+1}-1\right) t$.  Substituting this in equation \eqref{eq:perfect-eq1}, one realizes that
+		This means that $2^{k+1}-1$ divides $2^{k+1}s$, but since $(2^{k+1}, 2^{k+1}-1)= 1$, we have $2^{k+1}-1|s$. Consequently, there exists an integer $t$ such that $s = \left(2^{k+1}-1\right) t$.  Substituting this in equation \ref{eq:perfect-eq1}, one realizes that
 		\begin{align*}
 			2^{k+1}t = \sigma(s) \geq s +t = 2^{k+1}t.
 		\end{align*}
@@ -1901,7 +1901,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{proof}
 	
 	\begin{remark}
-		We do not know whether there exist infinitely many perfect numbers. In fact, even perfect numbers are formed by \textit{Mersenne primes} (see theorem \eqref{thm:a^k-1prime} and its remark), and it has not yet been proved that there are infinitely many Mersenne primes. Furthermore, it is not known whether there are any odd perfect numbers. Mathematicians have tested first $10^{1500}$ integers but did not find any odd perfect number among them, so they guess there probably does not exist any.
+		We do not know whether there exist infinitely many perfect numbers. In fact, even perfect numbers are formed by \textit{Mersenne primes} (see theorem \ref{thm:a^k-1prime} and its remark), and it has not yet been proved that there are infinitely many Mersenne primes. Furthermore, it is not known whether there are any odd perfect numbers. Mathematicians have tested first $10^{1500}$ integers but did not find any odd perfect number among them, so they guess there probably does not exist any.
 	\end{remark}
 	
 	\begin{theorem}
@@ -1917,7 +1917,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 			\begin{align}
 				2^k &= (1+p)\Big(1 + p^2 + p^4 + \cdots + p^{2\beta}\Big) \label{eq:sigma-power-of-2}
 			\end{align}
-		This leads us to the conclusion that $1+p$ is a power of $2$, which means $p$ is a Mersenne prime. Now suppose that $\alpha > 1$. From equation \eqref{eq:sigma-power-of-2}, we observe that $\beta$ must be odd. Take $\beta = 2 \gamma + 1$ and write
+		This leads us to the conclusion that $1+p$ is a power of $2$, which means $p$ is a Mersenne prime. Now suppose that $\alpha > 1$. From equation \ref{eq:sigma-power-of-2}, we observe that $\beta$ must be odd. Take $\beta = 2 \gamma + 1$ and write
 			\begin{eqnarray*}
 				2^t &=& 1 + p^2 + p^4 + \cdots + p^{2\beta}\\
 					&=& \left(1+p^2\right)\Big(1+p^4 + p^8 + \cdots + p^{4 \gamma}\Big),
@@ -1939,7 +1939,7 @@ Equation \eqref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcu
 	\end{problem}
 	
 	\begin{solution}
-		Let $f(n)=\mu(n)\sigma(n)/n$. Sine all three functions $\mu, \sigma$, and $\text{id}$ are multiplicative, so is $f$. Theorem \eqref{thm:sumfunction} implies that the summatory function of $f$ is also multiplicative. Therefore, it suffices to prove the given inequality only when $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. Since $\mu(p^x)$ is zero for $x \geq 2$, $\mu(1)=1$, and $\mu(p)=-1$, 
+		Let $f(n)=\mu(n)\sigma(n)/n$. Sine all three functions $\mu, \sigma$, and $\text{id}$ are multiplicative, so is $f$. Theorem \ref{thm:sumfunction} implies that the summatory function of $f$ is also multiplicative. Therefore, it suffices to prove the given inequality only when $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. Since $\mu(p^x)$ is zero for $x \geq 2$, $\mu(1)=1$, and $\mu(p)=-1$, 
 			\begin{eqnarray*}
 				\left|\sum_{d|p^\alpha}\frac{\mu(d)\sigma(d)}{d}\right| 
 						&=& \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p} + \cdots + \frac{\mu(p^\alpha)\sigma(p^a)}{p^a}\right| \\
@@ -1993,7 +1993,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 							&=& \sigma_\alpha (n).
 					\end{eqnarray*}
 				\setcounter{enumi}{3}
-				\item From theorem \eqref{thm:completelymultiplicative}, sine the function $\text{id}^\alpha$ is completely multiplicative, its Dirichlet inverse is $\mu \ \text{id}^\alpha$. Hence, from part $2$ of this theorem,
+				\item From theorem \ref{thm:completelymultiplicative}, sine the function $\text{id}^\alpha$ is completely multiplicative, its Dirichlet inverse is $\mu \ \text{id}^\alpha$. Hence, from part $2$ of this theorem,
 					\begin{eqnarray*}
 						(\sigma_\alpha^{-1})(n) 
 									&=& \left(1 \ast \text{id}^\alpha\right)^{-1}(n)\\
@@ -2014,7 +2014,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 		\end{theorem}
 		
 		\begin{proof}
-			Let $f(n)=\varphi(n)$. By theorem \eqref{thm:phi*1}, we know that $F(n)=\sum\limits_{d|n} \varphi(d)=n$. Therefore, by M\"{o}bius inversion formula,
+			Let $f(n)=\varphi(n)$. By theorem \ref{thm:phi*1}, we know that $F(n)=\sum\limits_{d|n} \varphi(d)=n$. Therefore, by M\"{o}bius inversion formula,
 				\begin{eqnarray*}
 					\varphi(n) = f(n) &=& \sum_{d|n}\mu(d)F\left(\frac nd\right)\\
 									  &=& \sum_{d|n}\mu(d)\left(\frac nd\right)\\
@@ -2028,7 +2028,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 			$\varphi = \mu \ast \text{id}$.
 		\end{corollary}
 
-In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. We will now prove that the converse of this theorem is also true. That is, $\varphi$ is the only arithmetic function with this property.
+In theorem \ref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. We will now prove that the converse of this theorem is also true. That is, $\varphi$ is the only arithmetic function with this property.
 
 		\begin{theorem}\slshape \label{thm:sumofphicon}
 			If $f$ is an arithmetic function such that for all $n\in\mathbb{N} $,
@@ -2039,7 +2039,7 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 		\end{theorem}
 		
 		\begin{proof}
-			By M\"{o}bius inversion formula, $f = \mu \ast F$, where $F(n)=\sum\limits_{d|n}f(d)$. So, in this case $f=\mu \ast \text{id}$. On the other hand, we already know from corollary \eqref{cor:phi=mu*id} that $\varphi=\mu \ast \text{id}$. Thus, $f=\varphi$.
+			By M\"{o}bius inversion formula, $f = \mu \ast F$, where $F(n)=\sum\limits_{d|n}f(d)$. So, in this case $f=\mu \ast \text{id}$. On the other hand, we already know from corollary \ref{cor:phi=mu*id} that $\varphi=\mu \ast \text{id}$. Thus, $f=\varphi$.
 		\end{proof}
 		
 		\begin{theorem}\slshape
@@ -2057,7 +2057,7 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 		\end{theorem}
 		
 		\begin{proof}
-			We will only prove $1$ here. The other two parts are similar. Let $f(n)=\mu(n)\varphi(n)$. Since $\mu$ and $\varphi$ are both multiplicative, their product $f$ is also multiplicative. By theorem \eqref{thm:sumfunction}, the summatory function of $f$ is multiplicative as well. Therefore, it suffices to find the sum $F(n)=\sum\limits_{d|n}\mu(d)\varphi(d)$ only when $n$ is a power of a prime. Let $n=p^\alpha$. Then, since $\mu(p^\beta)=0$ for integer $\beta > 1$,
+			We will only prove $1$ here. The other two parts are similar. Let $f(n)=\mu(n)\varphi(n)$. Since $\mu$ and $\varphi$ are both multiplicative, their product $f$ is also multiplicative. By theorem \ref{thm:sumfunction}, the summatory function of $f$ is multiplicative as well. Therefore, it suffices to find the sum $F(n)=\sum\limits_{d|n}\mu(d)\varphi(d)$ only when $n$ is a power of a prime. Let $n=p^\alpha$. Then, since $\mu(p^\beta)=0$ for integer $\beta > 1$,
 				\begin{eqnarray*}
 				\sum\limits_{d|p^\alpha}\mu(d)\varphi(d) 
 					&=& \mu(1)\varphi(1) + \mu(p) \varphi(p) + \cdots + \mu(p^\alpha) \varphi(p^\alpha)\\
@@ -2065,7 +2065,7 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 					&=& 1 - (p-1)\\
 					&=& 2 - p.
 				\end{eqnarray*}
-			Suppose that $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of $n$. Then, again by theorem \eqref{thm:sumfunction},
+			Suppose that $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of $n$. Then, again by theorem \ref{thm:sumfunction},
 			\begin{align*}
 			\sum\limits_{d|n}\mu(d)\varphi(d) &= \prod_{i=1}^{k}\sum\limits_{j=0}^{e_i}\mu(d)\varphi(d)\\
 			&= \prod_{i=1}^{k} (2-p_i).
@@ -2080,7 +2080,7 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 		\end{theorem}
 		
 		\begin{proof}
-			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of $n$. Since $n$ is composite, we get from proposition \eqref{factorsqrt} that it must have a prime factor, say $p_1$, which is less than or equal to $\sqrt n$. Then, using the formula in part $(d)$ of theorem \eqref{thm:phiproperties-ch:arith},
+			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of $n$. Since $n$ is composite, we get from proposition \ref{factorsqrt} that it must have a prime factor, say $p_1$, which is less than or equal to $\sqrt n$. Then, using the formula in part $(d)$ of theorem \ref{thm:phiproperties-ch:arith},
 				\begin{eqnarray*}
 					\varphi(n) &=& n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
 							   &\leq& n \left( 1 - \frac{1}{p_1} \right)\\
@@ -2143,18 +2143,18 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 				\begin{align*}
 					f(n) = \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2.
 				\end{align*}
-			Then, from theorem \eqref{thm:floor-k|n+1},
+			Then, from theorem \ref{thm:floor-k|n+1},
 				\begin{eqnarray*}
 					f(n+1)-f(n) &=& \frac{1}{2}\sum_{k=1}^{n+1} \mu(k) \left\lfloor \frac{n+1}{k} \right\rfloor^2 - \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2\\
 								&=& \frac{1}{2}\sum_{k=1}^{n+1} \mu(k) \left(\left\lfloor \frac{n+1}{k} \right\rfloor^2 - \left\lfloor \frac{n}{k} \right\rfloor^2\right)\\
 								&=& \frac{1}{2}\sum_{k|(n+1)}\mu(k) \left(2 \frac{n+1}{k}-1\right)\\
 								&=& (n+1)\sum_{k|(n+1)} \frac{\mu(k)}{k} - \frac{1}{2} \sum_{k|(n+1)} \mu(k).
 				\end{eqnarray*}
-			By theorem \eqref{thm:phi=n*sigma(mu/k)}, the first term in the last line of above equations equals $\varphi(n+1)$, and by theorem \eqref{thm:mobiusinverse}, the second term is $\frac{1}{2} \varepsilon(n+1)$. Therefore,
+			By theorem \ref{thm:phi=n*sigma(mu/k)}, the first term in the last line of above equations equals $\varphi(n+1)$, and by theorem \ref{thm:mobiusinverse}, the second term is $\frac{1}{2} \varepsilon(n+1)$. Therefore,
 				\begin{align*}
 					f(n+1)-f(n) &= \varphi(n+1) - \frac{1}{2}\varepsilon(n+1).
 				\end{align*}
-			Now, by identity \eqref{id:sumofdif} in appendix \eqref{ch:null},
+			Now, by identity \ref{id:sumofdif} in appendix \ref{ch:null},
 				\begin{eqnarray*}
 					\frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2 = f(n) 
 						&=& f(1) + \sum_{k=1}^{n-1} \left(f(k+1)-f(k)\right)\\
@@ -2175,12 +2175,12 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 		\end{theorem}
 		
 		\begin{proof}[First Proof.]
-			In an analogous way to the proof of previous theorem, we use theorem \eqref{thm:floor-k|n+1}. Define $f(n)= \sum\limits_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor$. In this case,
+			In an analogous way to the proof of previous theorem, we use theorem \ref{thm:floor-k|n+1}. Define $f(n)= \sum\limits_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor$. In this case,
 				\begin{eqnarray*}
 					f(n+1)-f(n) &=& \sum_{k=1}^{n+1} \frac{\mu(k)}{k} \left\lfloor \frac{n+1}{k} \right\rfloor - \sum_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor\\
 								&=& \sum_{k=1}^{n+1} \frac{\mu(k)}{k} \left(\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor\right)\\
 								&=& \sum_{k|(n+1)} \frac{\mu(k)}{k}\\
-								&=& \frac{\varphi(n+1)}{n+1} \quad \mbox{by theorem \eqref{thm:phi=n*sigma(mu/k)}}.
+								&=& \frac{\varphi(n+1)}{n+1} \quad \mbox{by theorem \ref{thm:phi=n*sigma(mu/k)}}.
 				\end{eqnarray*}
 			Consequently,
 				\begin{eqnarray*}
@@ -2199,11 +2199,11 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 					F(n) &=& \sum_{d|n} \frac{\mu(d)}{d} \\
 						 &=& \frac{1}{n} \left(n\sum_{d|n} \frac{\mu(d)}{d}\right).
 				\end{eqnarray*}
-			According to theorem \eqref{thm:phi=n*sigma(mu/k)}, the expression in the parenthesis equals $\varphi(n)$. Therefore,
+			According to theorem \ref{thm:phi=n*sigma(mu/k)}, the expression in the parenthesis equals $\varphi(n)$. Therefore,
 				\begin{align*}
 					F(n) &= \frac{\varphi(n)}{n}.
 				\end{align*}
-			The conclusion follows from theorem \eqref{thm:sum-of-sum-function}.
+			The conclusion follows from theorem \ref{thm:sum-of-sum-function}.
 		\end{proof}
 		
 	
@@ -2263,14 +2263,14 @@ $ $
 						\sum_{d|p^\alpha} J_k(d) &=& J_k(1) + J_k(p) + \cdots + J_k(p^\alpha)\\
 											 &=& 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right).
 					\end{eqnarray*}
-				Now, from identity \eqref{id:sumofdif} in appendix \eqref{ch:null},
+				Now, from identity \ref{id:sumofdif} in appendix \ref{ch:null},
 					\begin{eqnarray*}
 						\sum_{d|p^\alpha} J_k(d) &=& 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)\\
 											 &=& 1 + \left(p^{k \alpha}-1\right)\\
 											 &=& (p^{\alpha})^k.
 					\end{eqnarray*}
 				
-				\item The equation $\displaystyle \sum_{d|n} J_k(d) = n^k$ can be represented as $1 \ast J_k = \text{id}^k$. Then, since the inverse of function $1$ is $\mu$ (theorem \eqref{thm:mobiusinverse}),
+				\item The equation $\displaystyle \sum_{d|n} J_k(d) = n^k$ can be represented as $1 \ast J_k = \text{id}^k$. Then, since the inverse of function $1$ is $\mu$ (theorem \ref{thm:mobiusinverse}),
 					\begin{eqnarray*}
 						J_k &=& 1^{-1} \ast (1 \ast J_k)\\
 							&=& 1^{-1} \ast \text{id}^k\\
@@ -2297,7 +2297,7 @@ $ $
 		\end{lemma}
 	
 		\begin{proof}
-			Using part (d) of theorem \eqref{thm:phiproperties-ch:arith}, we know that $\varphi(x) = x \prod\limits_{p|x} \left(1 - \frac{1}{p}\right)$, where $x$ is a positive integer and $p$ ranges over all prime divisors of $x$. So,
+			Using part (d) of theorem \ref{thm:phiproperties-ch:arith}, we know that $\varphi(x) = x \prod\limits_{p|x} \left(1 - \frac{1}{p}\right)$, where $x$ is a positive integer and $p$ ranges over all prime divisors of $x$. So,
 				\begin{eqnarray*}
 					\varphi(mn) &=& mn \prod\limits_{p \mid mn} \left( 1 - \frac 1p \right)\\
 								&=& mn \cdot\frac{\prod\limits_{p \mid m} \left( 1 - \frac 1p \right) \cdot \prod\limits_{p \mid n} \left( 1 - \frac 1p \right)}{\prod\limits_{p \mid d} \left( 1 - \frac 1p \right)}\\
@@ -2312,7 +2312,7 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			First, let us write $\dfrac{\varphi(n)}{\varphi(d)}$ in another way. Let $s = (d,k)$. Then, from lemma \eqref{lem:phigcd},
+			First, let us write $\dfrac{\varphi(n)}{\varphi(d)}$ in another way. Let $s = (d,k)$. Then, from lemma \ref{lem:phigcd},
 				\begin{eqnarray*}
 					\dfrac{\varphi(n)}{\varphi(d)} &=& \dfrac{\varphi(kd)}{\varphi(d)}\\
 										   &=& \dfrac{\frac{\varphi(k) \varphi(d) s}{\varphi(s)}}{\varphi(d)}\\
@@ -2367,7 +2367,7 @@ $ $
 					& = & \sum\limits_{\substack{i=1\\(i,n)=1}}^{n}\sum\limits_{d\mid(i-1,n)}\varphi(d)\\
 					& = & \sum\limits_{d|n}\varphi(d)\sum\limits_{\substack{i=1\\(i,n)=1\\i\equiv 1\pmod d}}^n 1.
 				\end{eqnarray*}
-			According to theorem \eqref{thm:menon-lemma}, the second sum in the last line equals $\varphi(n)/\varphi(d)$. Therefore,
+			According to theorem \ref{thm:menon-lemma}, the second sum in the last line equals $\varphi(n)/\varphi(d)$. Therefore,
 				\begin{eqnarray*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n) 
 					& = & \sum\limits_{d|n}\varphi(d)\dfrac{\varphi(n)}{\varphi(d)}\\
@@ -2382,7 +2382,7 @@ $ $
 			which is what we wanted.
 		\end{proof}
 \section{Liouville Function}
-	Liouville function is of high interest in many sections of number theory. As a reminder, we are going to state the definitions of the functions $\omega(n)$, $\Omega(n)$, and $\lambda(n)$ once again. For more examples, read section \eqref{sec:characterizing-multiplicative}.
+	Liouville function is of high interest in many sections of number theory. As a reminder, we are going to state the definitions of the functions $\omega(n)$, $\Omega(n)$, and $\lambda(n)$ once again. For more examples, read section \ref{sec:characterizing-multiplicative}.
 	
 	\begin{definition}[Big Omega Function]
 		Let $n$ be a positive integer. The number of prime factors of $n$ (with multiplicity) is denoted by $\Omega(n)$.
@@ -2438,7 +2438,7 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			We want to prove that $\lambda\ast |\mu| = \varepsilon$. From theorem \eqref{thm:mft}, since both $\lambda$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\lambda\ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\lambda\ast |\mu|)(p^\alpha)=0$. We have
+			We want to prove that $\lambda\ast |\mu| = \varepsilon$. From theorem \ref{thm:mft}, since both $\lambda$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\lambda\ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\lambda\ast |\mu|)(p^\alpha)=0$. We have
 				\begin{eqnarray*}
 					(\lambda\ast |\mu|)(p^\alpha) 
 						&=& \sum_{d|p^\alpha} |\mu(d)| \lambda\left(\frac{p^\alpha}{d}\right)\\
@@ -2459,12 +2459,12 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			Since both $\lambda(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from theorem \eqref{thm:sumfunction} that $\sum\limits_{d|n} \lambda(d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\alpha$ for some prime $p$ and positive integer $\alpha$. Then,
+			Since both $\lambda(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from theorem \ref{thm:sumfunction} that $\sum\limits_{d|n} \lambda(d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\alpha$ for some prime $p$ and positive integer $\alpha$. Then,
 				\begin{eqnarray*}
 					\sum_{d|p^\alpha} \lambda(d) d^s &=& \lambda(1) 1^s + \lambda(p) p^s + \lambda(p^2) \left(p^2\right)^s +\lambda(p^3) \left(p^3\right)^s+ \cdots + \lambda(p^\alpha) \left(p^\alpha \right)^s\\
 											 &=& 1^s - p^s + p^{2s} - p^{3s} +\cdots + \left(-1\right)^{\alpha} p^{\alpha s}.
 				\end{eqnarray*}
-			This is a geometric progression with initial term $1$ and common ratio $-p^s$. Therefore, by theorem \eqref{thm:GP} which gives the formula for geometric series,
+			This is a geometric progression with initial term $1$ and common ratio $-p^s$. Therefore, by theorem \ref{thm:GP} which gives the formula for geometric series,
 				\begin{eqnarray*}
 					\sum_{d|p^\alpha} \lambda(d) d^s &=& \sum_{i=0}^{\alpha} (-1)^{si}p^{si}\\
 											 &= &\frac{\left(-p^s\right)^{\alpha + 1} -1}{-p^s -1}\\
@@ -2496,7 +2496,7 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			Take $s=0$ in theorem \eqref{thm:liouville-sum-general}. Then, assuming $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ as the prime factorization of $n$,
+			Take $s=0$ in theorem \ref{thm:liouville-sum-general}. Then, assuming $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ as the prime factorization of $n$,
 				\begin{align*}
 					\sum_{d|n}\lambda(d) &= \prod_{i=1}^{k}\frac{1 + (-1)^{\alpha_i}}{2}.
 				\end{align*}
@@ -2514,7 +2514,7 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			Assume that $\displaystyle \kappa(n)=\sum\limits_{d|n}\lambda(d)$. Then, by M\"{o}bius inversion formula (theorem \eqref{thm:mobinv}),
+			Assume that $\displaystyle \kappa(n)=\sum\limits_{d|n}\lambda(d)$. Then, by M\"{o}bius inversion formula (theorem \ref{thm:mobinv}),
 				\begin{eqnarray*}
 					\lambda(n) &=& \sum_{d|n}\mu(d)\kappa\left(\frac nd\right)\\
 						  &=& \sum_{d|n}\kappa(d)\mu\left(\frac nd\right)\\
@@ -2531,11 +2531,11 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			The summatory function of $\lambda$ is $\kappa$. Therefore, from theorem \eqref{thm:sum-of-sum-function},
+			The summatory function of $\lambda$ is $\kappa$. Therefore, from theorem \ref{thm:sum-of-sum-function},
 				\begin{align*}
 					\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor &= \sum_{k=1}^{n} \kappa(k).
 				\end{align*}
-			We know by theorem \eqref{thm:liouville-sum-function} that $\kappa(k)$ is $1$ if $k$ is a perfect square and $0$ otherwise. So, $\sum\limits_{k=1}^{n} \kappa(k)$ is exactly $\lfloor \sqrt n \rfloor$.
+			We know by theorem \ref{thm:liouville-sum-function} that $\kappa(k)$ is $1$ if $k$ is a perfect square and $0$ otherwise. So, $\sum\limits_{k=1}^{n} \kappa(k)$ is exactly $\lfloor \sqrt n \rfloor$.
 		\end{proof}
 \newpage	
 \section{Exercises}
@@ -2739,7 +2739,7 @@ $ $
 	\end{problem}
 	
 	\begin{hint}
-		Use theorem \eqref{thm:liouville-square-floor}.
+		Use theorem \ref{thm:liouville-square-floor}.
 	\end{hint}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1160246

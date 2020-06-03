@@ -4,6 +4,7 @@
 
 \RequirePackage{appendix}
 \RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
+\RequirePackage{xparse}
 \RequirePackage{titlesec}
 %\RequirePackage{minitoc}
 
@@ -44,6 +45,11 @@
 \usepackage{float, framed}
 \usetikzlibrary{fit,matrix,shapes}
 
+\makeatletter
+\renewcommand{\@pnumwidth}{3em} 
+\renewcommand{\@tocrmarg}{4em}
+\makeatother
+
 \setlength{\textwidth}{6.5in}
 \setlength{\oddsidemargin}{.1in}
 \setlength{\evensidemargin}{.1in}
@@ -79,12 +85,14 @@
 %header and footer
 \fancypagestyle{myfancy}
 {
-\fancyhf{}
-\fancyfoot{}
-\renewcommand{\headrulewidth}{1pt}
-\fancyhead[RO,LE]{\thepage}
-\fancyhead[LO]{\leftmark}
-\fancyhead[RE]{\rightmark}
+	\fancyhead[C]{\rule{.5\textwidth}{4\baselineskip}}
+	\setlength{\headheight}{52pt}
+	\fancyhf{}
+	\fancyfoot[LO,RE]{M. Billal, A. Hossein}
+	\renewcommand{\headrulewidth}{1pt}
+	\fancyhead[RO,LE]{\thepage}
+	\fancyhead[LO]{\leftmark}
+	\fancyhead[RE]{\rightmark}
 }
 %fixing margins
 \geometry{left=3cm,right=3cm,top=1.6cm,bottom=3cm,headheight=4pt,headsep=0.3in}
@@ -156,7 +164,7 @@
 \theoremstyle{remark}
 \newtheorem*{hint}{Hint}
 \newtheorem*{example}{Example}
-\newtheorem{hint2}{Hint}
+\newtheorem*{hint2}{Hint}
 
 
 \numberwithin{equation}{chapter}
@@ -170,9 +178,22 @@
 %\numberwithin{proposition}{chapter}
 %\numberwithin{definition}{chapter}
 %\numberwithin{identity}{chapter}
-\numberwithin{hint2}{chapter}
+%\numberwithin{hint2}{chapter}
 %\numberwithin{open}{chapter}
 
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\renewcommand\thetheorem{\Roman{theorem}}
+\renewcommand\thelemma{\Roman{lemma}}
+\renewcommand\thecorollary{\Roman{corollary}}
+\renewcommand\theidentity{\Roman{identity}}
+\renewcommand\theproblem{\Roman{problem}}
+%\renewcommand\thehint{\Roman{hint}}
+\renewcommand\theconjecture{\Roman{conjecture}}
+\renewcommand\thefact{\Roman{fact}}
+\renewcommand\theequation{\Roman{equation}}
+\renewcommand\thedefinition{\Roman{definition}}
 
 
 
