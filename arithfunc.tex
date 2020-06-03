@@ -802,7 +802,7 @@ We will provide another solution for problem \eqref{prob:china2015-bertrand} sta
 		\end{align*}
 	\end{example}
 	
-	Amicable numbers have been studied since a very long time ago, and there is evidence that they were known to Pythagoreans (followers of Pythagoras) which originated in the sixth century BC. Th\={a}bit ibn Qurra (826--901) found a formula that generates amicable numbers (which we will state in the following) \cite{ch:arithfunc-dickson}. The Iranian mathematician Muhammad Baqir Yazdi, who lived in 16th century, found the pair $(9363584, 9437056)$ of amicable numbers. You can imagaine how difficult it is to find such numbers without using computers. Over a billion pairs of amicable numbers have been found so far (July 2018).
+	Amicable numbers have been studied since a very long time ago, and there is evidence that they were known to Pythagoreans (followers of Pythagoras) which originated in the sixth century BC. According to \textcite[Chapter I, Page $39$]{dickson_1952} Th\={a}bit ibn Qurra (826--901) found a formula that generates amicable numbers (which we will state in the following). The Iranian mathematician Muhammad Baqir Yazdi, who lived in 16th century, found the pair $(9363584, 9437056)$ of amicable numbers. You can imagaine how difficult it is to find such numbers without using computers. Over a billion pairs of amicable numbers have been found so far (July 2018).
 	
 	\begin{theorem}[Th\={a}bit ibn Qurra's Rule]
 		Let $n\geq 2$ be a positive integer such that
@@ -1162,10 +1162,10 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{proof}
 		
 		
-		We are going define the M\H obius function $\mu(n)$, which doesn't seem to have a natural definition. As we go on in this chapter and later in chapter \ref{ch:primes} on primes, we will find out why this definition is in fact very natural and it will help us a lot when solving problems concerning inclusion--exclusion. In other words, the definition of the M\H obius function is natural in the way that it's trying to alternate positive and negative signs in an inclusion--exclusion argument.
+		We are going define the M\"{o}bius function $\mu(n)$, which doesn't seem to have a natural definition. As we go on in this chapter and later in chapter \ref{ch:primes} on primes, we will find out why this definition is in fact very natural and it will help us a lot when solving problems concerning inclusion--exclusion. In other words, the definition of the M\"{o}bius function is natural in the way that it's trying to alternate positive and negative signs in an inclusion--exclusion argument.
 
-		\begin{definition}[M\H obius Function]\label{def:mobius}
-			The M\H obius function $\mu(n)$ is defined as
+		\begin{definition}[M\"{o}bius Function]\label{def:mobius}
+			The M\"{o}bius function $\mu(n)$ is defined as
 				\begin{align*}
 					\mu(n) & = 
 						\begin{cases}
@@ -1221,24 +1221,24 @@ We will state and prove the properties of Jordan's totient function later in sec
 					$24$ & $0$   & $49$ & $0$  & $74$ & $1$  & $99$  & $0$     \\ \hline
 					$25$ & $0$   & $50$ & $0$  & $75$ & $0$  & $100$ & $0$      \\ \hline
 				\end{tabular}
-				\caption{The M\H obius function values for the first $100$ positive integers.}
+				\caption{The M\"{o}bius function values for the first $100$ positive integers.}
 				\label{table:mu(n)}
 			\end{table}
 		\end{example}
 	
 	\begin{note}
-		Why do we care about M\H obius? We can express long, ugly-looking, tedious sums into a very brief expression including sums over $\mu(n)$. If you feel comfortable with arithmetic functions so far, you might like to see an application of the M\H obius function $\mu(n)$ in theorem \eqref{thm:numofprime}. You would be able to make sense of a beautiful application of this function.
+		Why do we care about M\"{o}bius? We can express long, ugly-looking, tedious sums into a very brief expression including sums over $\mu(n)$. If you feel comfortable with arithmetic functions so far, you might like to see an application of the M\"{o}bius function $\mu(n)$ in theorem \eqref{thm:numofprime}. You would be able to make sense of a beautiful application of this function.
 	\end{note}
-		M\H obius function has amazing properties. The first is that it is multiplicative. 
+		M\"{o}bius function has amazing properties. The first is that it is multiplicative. 
 		\begin{proposition}
-			The M\H obius function is multiplicative.
+			The M\"{o}bius function is multiplicative.
 		\end{proposition}
 		
 		\begin{hint}
-			Take $m=p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ and $n=p_1^{\beta_1}p_2^{\beta_2} \cdots p_k^{\beta_k}$ and consider the factorization of the product $mn$. Use the definition of M\H obius function to finish the proof.
+			Take $m=p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ and $n=p_1^{\beta_1}p_2^{\beta_2} \cdots p_k^{\beta_k}$ and consider the factorization of the product $mn$. Use the definition of M\"{o}bius function to finish the proof.
 		\end{hint}
 
-	You may be wonder why would someone define such a not-very-nice-looking function? What is the motivation behind M\H obius function? In fact, this function is the \textit{inverse} of a specific arithmetic function. Before going further, we must define the Dirichlet inverse of an arithmetic function. 
+	You may be wonder why would someone define such a not-very-nice-looking function? What is the motivation behind M\"{o}bius function? In fact, this function is the \textit{inverse} of a specific arithmetic function. Before going further, we must define the Dirichlet inverse of an arithmetic function. 
 	
 		\begin{definition}[Dirichlet Inverse Function]
 			Let $f$ be an arithmetic function. The arithmetic function $g$ for which
@@ -1252,7 +1252,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			F(n) &= (f\ast 1)(n)\\
 			     &= \sum_{d|n} f(d).
 		\end{align*}
-	This function $F$ is called the \textit{summatory function} of $f$. In number theory, there are times when we know what $F=f\ast 1$ is and we want to know what $f$ is. This is where M\H obius function comes in. Suppose that you do not know M\H obius function, and you just define $\mu(n)$ as the Dirichlet inverse of $1(n)$. That is, you define $\mu(n)$ be a function such that $\mu \ast 1 = \varepsilon$. Then, multiply $F$ by $\mu$ and use proposition \eqref{prop:convolutionproperties} to get
+	This function $F$ is called the \textit{summatory function} of $f$. In number theory, there are times when we know what $F=f\ast 1$ is and we want to know what $f$ is. This is where M\"{o}bius function comes in. Suppose that you do not know M\"{o}bius function, and you just define $\mu(n)$ as the Dirichlet inverse of $1(n)$. That is, you define $\mu(n)$ be a function such that $\mu \ast 1 = \varepsilon$. Then, multiply $F$ by $\mu$ and use proposition \eqref{prop:convolutionproperties} to get
 		\begin{align*}
 			F \ast \mu &= (f \ast 1) \ast \mu\\
 					   &= f \ast (1 \ast \mu)\\
@@ -1280,9 +1280,9 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{align*}
 	The general definition of $\mu$, as stated in definition \eqref{def:mobius}, can be inferred from the above result using the fact that $\mu$ is a multiplicative function.
 	
-	As you can observe, the $\mu$ function is defined to help us find an arithmetic function $f$ given its summatory function $F$. In fact, $f=F \ast \mu$. This was first introduced by M\H obius in $19^{th}$ century and is known as the \textit{M\H obius Inversion Formula}.
+	As you can observe, the $\mu$ function is defined to help us find an arithmetic function $f$ given its summatory function $F$. In fact, $f=F \ast \mu$. This was first introduced by M\"{o}bius in $19^{th}$ century and is known as the \textit{M\"{o}bius Inversion Formula}.
 			
-		\begin{theorem}[M\H obius Inversion Formula]\slshape
+		\begin{theorem}[M\"{o}bius Inversion Formula]\slshape
 			\label{thm:mobinv}
 			If the summatory function of an arithmetic function $f$ is $\displaystyle F(n)=\sum\limits_{d|n}f(d)$, then
 			\begin{align*}
@@ -1306,7 +1306,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 	As discussed above, $\mu(n)$ is the Dirichlet inverse of the simplest arithmetic function, $1(n)$. The next theorem follows.
 		\begin{theorem}
 			\label{thm:mobiusinverse}
-			The Dirichlet inverse of the M\H obius function is the constant $1$ function. In other words, $1=\mu^{-1}$ or
+			The Dirichlet inverse of the M\"{o}bius function is the constant $1$ function. In other words, $1=\mu^{-1}$ or
 			\begin{align*}
 			\sum_{d|n}\mu(n) & =\varepsilon(n).
 			\end{align*}
@@ -2014,7 +2014,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 		\end{theorem}
 		
 		\begin{proof}
-			Let $f(n)=\varphi(n)$. By theorem \eqref{thm:phi*1}, we know that $F(n)=\sum\limits_{d|n} \varphi(d)=n$. Therefore, by M\H obius inversion formula,
+			Let $f(n)=\varphi(n)$. By theorem \eqref{thm:phi*1}, we know that $F(n)=\sum\limits_{d|n} \varphi(d)=n$. Therefore, by M\"{o}bius inversion formula,
 				\begin{eqnarray*}
 					\varphi(n) = f(n) &=& \sum_{d|n}\mu(d)F\left(\frac nd\right)\\
 									  &=& \sum_{d|n}\mu(d)\left(\frac nd\right)\\
@@ -2039,7 +2039,7 @@ In theorem \eqref{thm:phi*1}, we proved that $\sum\limits_{d|n} \varphi(d)=n$. W
 		\end{theorem}
 		
 		\begin{proof}
-			By M\H obius inversion formula, $f = \mu \ast F$, where $F(n)=\sum\limits_{d|n}f(d)$. So, in this case $f=\mu \ast \text{id}$. On the other hand, we already know from corollary \eqref{cor:phi=mu*id} that $\varphi=\mu \ast \text{id}$. Thus, $f=\varphi$.
+			By M\"{o}bius inversion formula, $f = \mu \ast F$, where $F(n)=\sum\limits_{d|n}f(d)$. So, in this case $f=\mu \ast \text{id}$. On the other hand, we already know from corollary \eqref{cor:phi=mu*id} that $\varphi=\mu \ast \text{id}$. Thus, $f=\varphi$.
 		\end{proof}
 		
 		\begin{theorem}\slshape
@@ -2434,7 +2434,7 @@ $ $
 		\end{proposition}	
 	The reader should have a decent idea of what to use in order to prove it!
 		\begin{theorem}\slshape
-			Prove that the Dirichlet inverse of Liouville function is the absolute value of M\H obius function.
+			Prove that the Dirichlet inverse of Liouville function is the absolute value of M\"{o}bius function.
 		\end{theorem}
 		
 		\begin{proof}
@@ -2449,7 +2449,7 @@ $ $
 				\end{eqnarray*}
 			as desired.
 		\end{proof}
-	The following theorem is due to \cite{ch:arithfunc-sierpinski}.	
+	The following theorem is due to \textcite[Chapter $\S$IV, Section $11$, Page $196-197$]{sierpinski_schinzel_1988}.
 	
 		\begin{theorem}\slshape\label{thm:liouville-sum-general}
 			Let $s$ be an arbitrary integer. Then, for all integers $n >1$ with prime factorization $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, 
@@ -2514,7 +2514,7 @@ $ $
 		\end{theorem}
 		
 		\begin{proof}
-			Assume that $\displaystyle \kappa(n)=\sum\limits_{d|n}\lambda(d)$. Then, by M\H obius inversion formula (theorem \eqref{thm:mobinv}),
+			Assume that $\displaystyle \kappa(n)=\sum\limits_{d|n}\lambda(d)$. Then, by M\"{o}bius inversion formula (theorem \eqref{thm:mobinv}),
 				\begin{eqnarray*}
 					\lambda(n) &=& \sum_{d|n}\mu(d)\kappa\left(\frac nd\right)\\
 						  &=& \sum_{d|n}\kappa(d)\mu\left(\frac nd\right)\\
@@ -2551,7 +2551,7 @@ $ $
 			\end{align*}
 	\end{problem}
 
-	\begin{problem}[Taken from \cite{ch:arithfunc-victor}]
+	\begin{problem}%[Taken from \cite{ch:arithfunc-victor}]
 		Let $n$ be a positive integer. Show for every prime $p$ that
 			\begin{align*}
 				\frac{n}{p-1} - \frac{\ln(n+1)}{\ln p} \leq v_p(n!) \leq \frac{n-1}{p-1}.
@@ -2612,6 +2612,7 @@ $ $
 	\begin{problem}
 		Prove that the product of all divisors of a positive integer $n$ is $n^{\tau(n)/2}$.
 	\end{problem}
+
 	\begin{problem}
 		Let $n$ be a positive integer. Show that
 			\begin{align*}
@@ -2645,7 +2646,7 @@ $ $
 				\sigma_{\alpha} (m)\sigma_{\alpha} (n) = \sum_{d|(m,n)} d^2 \sigma_{\alpha} \left(\frac{mn}{d^2}\right).
 			\end{align*}
 	\end{problem}
-	\begin{problem}[From \cite{ch:arithfunc-kahan}]
+	\begin{problem}%[From \cite{ch:arithfunc-kahan}]
 		Let $p$ be a prime that generates the even perfect number $E_p=2^{p-1}(2^p-1)$. Then $E_p$ is expressible as the sum of the cubes of the first $n$ consecutive positive integers, where $n=2^{(p-1)/2}$.
 	\end{problem}
 	
