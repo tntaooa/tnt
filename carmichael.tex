@@ -3,13 +3,13 @@
 
 \begin{document}
 	\subsection{Carmichael $\lambda$ Function}
-	In this section, we discuss a very important function in number theory. \textcite{carmichael1910} first introduced it for generalizing Euler's totient function. Consider that two relatively prime positive integers $a,n$ are given, and $\ord_n(a)=d$. Now, fix $n$. Consider the case when $a^d\equiv1\pmod n$ holds for any positive integer $a$ coprime to $n$. This brings up some questions.
+	In this section, we discuss a very important function in number theory. \textcite{carmichael1910} first introduced it for generalizing Euler's totient function. Consider that two relatively prime positive integers $a,n$ are given, and $\ord_n(a)=d$. Now, fix $n$. Consider the case when $a^d\equiv1\pmod n$ holds for any positive integer $a$ relatively prime to $n$. This brings up some questions.
 	\begin{problem}\label{prob:CarmichaelQuestion1}
 		Does there exists an $a$ such that $\ord_n(a)=d$?
 	\end{problem}
 	
 	\begin{problem}\label{prob:CarmichaelQuestion2}
-		How do we find the minimum $d$ such that $a^d\equiv1\pmod n$ holds for any $a$ coprime to $n$?
+		How do we find the minimum $d$ such that $a^d\equiv1\pmod n$ holds for any $a$ relatively prime to $n$?
 	\end{problem}
 	Let's proceed slowly. We will develop the theories that can solve these problems. For doing that, we have to use properties of order and primitive roots we discussed in previous sections.
 	\begin{definition}[Carmichael Function]
@@ -17,7 +17,7 @@
 	\end{definition}
 	Note that Theorem \eqref{thm:ordDiv} implies the following theorem.
 	\begin{theorem}\slshape\label{thm:carDiv}
-		If $a^d\equiv1\pmod n$ holds for all $a$ coprime to $n$, then $\lambda(n)\mid d$.
+		If $a^d\equiv1\pmod n$ holds for all $a$ relatively prime to $n$, then $\lambda(n)\mid d$.
 	\end{theorem}
 	
 	\begin{corollary}\label{cor:LambdaDividesPhi}
@@ -25,7 +25,7 @@
 	\end{corollary}
 	The following theorem is self-implicating and solves the first problem, if we can prove that $\lambda(n)$ exists. For now, let's assume it does.
 	\begin{theorem}\slshape
-		Let $n$ be a positive integer. There exists a positive integer $a$ coprime to $n$ such that $\ord_n(a)=\lambda(n)$.
+		Let $n$ be a positive integer. There exists a positive integer $a$ relatively prime to $n$ such that $\ord_n(a)=\lambda(n)$.
 	\end{theorem}
 	Let's focus on finding $\lambda(n)$. First, consider the case $n=2^k$.
 	\begin{theorem}\slshape
@@ -33,7 +33,7 @@
 	\end{theorem}
 	
 	\begin{proof}
-		The integers coprime to $2^k$ are all odd numbers. We will prove by induction that $x^{2^{k-2}} \equiv1\pmod{2^k}$ holds for all odd positive integers $x$. The base case $k=3$ is obvious. Assume that for some $k\geq 3$, we have
+		The integers relatively prime to $2^k$ are all odd numbers. We will prove by induction that $x^{2^{k-2}} \equiv1\pmod{2^k}$ holds for all odd positive integers $x$. The base case $k=3$ is obvious. Assume that for some $k\geq 3$, we have
 			\begin{align*}
 				x^{2^{k-2}} & \equiv1\pmod{2^k},
 			\end{align*}
@@ -64,7 +64,7 @@
 	\end{proof}
 	
 	\begin{theorem}\slshape
-		Let $a$ and $b$ be coprime positive integers. Then
+		Let $a$ and $b$ be relatively prime positive integers. Then
 		 \[\lambda(ab)=\lcm(\lambda(a),\lambda(b)).\]
 	\end{theorem}
 	
@@ -96,7 +96,7 @@
 	\end{theorem}
 	The proof is left as an exercise for the reader. We are now ready to fully solve Problem \ref{prob:CarmichaelQuestion1}.
 	\begin{theorem}\slshape
-		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  coprime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \lambda(n)$.
+		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  relatively prime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \lambda(n)$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -105,16 +105,16 @@
 	
 	We finish this section by proposing a theorem. We will leave the proof for the reader as an exercise.
 		\begin{theorem}\slshape
-			If $\lambda(n)$ is coprime to $n$, then $n$ is square-free.
+			If $\lambda(n)$ is relatively prime to $n$, then $n$ is square-free.
 		\end{theorem}
 	Recall that $n$ is square-free if it is not divisible by any perfect square other than $1$.
 	
 	\subsection{Primitive $\lambda$-roots}
 	\textcite[Page $232-233$, Result II]{carmichael1910} defined a generalization of primitive roots as follows using his function. As you will see, this section generalizes everything related to primitive roots.
 	\begin{definition}[Primitive $\lambda$-root]
-		Let $a$ and $n$ be coprime positive integers. If $\ord_n(a)=\lambda(n)$, then $a$ is a primitive $\lambda$-root modulo $n$. That is, $a^{\lambda(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$. 
+		Let $a$ and $n$ be relatively prime positive integers. If $\ord_n(a)=\lambda(n)$, then $a$ is a primitive $\lambda$-root modulo $n$. That is, $a^{\lambda(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$. 
 	\end{definition}
-
+\textcite{cameron_preece_2014} shows the following theorem.
 	\begin{definition}
 		Let $n$ be a positive integer. Define $\xi(n) = \frac{\varphi(n)}{\lambda(n)}$ (read $\xi$ as ``ksi''). According to Corollary \ref{cor:LambdaDividesPhi}, $\xi(n)$ is an integer.
 	\end{definition}

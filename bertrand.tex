@@ -2,7 +2,7 @@
 
 \begin{document}
 	\label{sec:bertrandspostulate}
-	\textit{Bertrand's postulate} is a very nice and influential theorem in number theory. \textit{Joseph Bertrand} first conjectured it, but he couldn't prove it entirely. Later, \textit{Chebyshev} proved it, using analytic number theory tools. \textit{S. Ramanujan} proved it (see \cite{ramanujan}) using properties of \textit{Gamma function}, which is beyond the scope of this book. However, \textit{Erd\H{o}s} proved it in an elementary way. We will see that proof here. On another note, this elementary proof given by Erd\H{o}s (see \cite{erdos}) was the first paper he published! The proof is so beautiful that we could not keep this theorem along with others, instead we gave it a separate section!
+	\textit{Bertrand's postulate} is a very nice and influential theorem in number theory. \textit{Joseph Bertrand} first conjectured it, but he couldn't prove it entirely. Later, \textit{Chebyshev} proved it, using analytic number theory tools. \textit{S. Ramanujan} \cite{meher_murty_2013} proved it using properties of \textit{Gamma function}, which is beyond the scope of this book. The first elementary proof of this theorem was given by \cite{erdos_1932}. It was the first paper he published! We will show that proof here. The proof is so beautiful that we could not keep this theorem along with others, instead we gave it a separate section!
 	
 	There are many formulations of this theorem. All of them are equivalent.
 	
@@ -11,7 +11,6 @@
 	\end{theorem}
 	
 	\begin{theorem}[Alternative Formulations of Bertrand's Postulate]\slshape\label{thm:bertrandalternative}
-		$ $
 		\begin{itemize}
 			\item Let $p_n$ denote the $n^{th}$ prime number, starting from $p_1=2$. Then
 			\begin{eqnarray*}
@@ -209,7 +208,7 @@ After the theorem was proved, number theorists tried to tighten the interval. Al
 	\begin{problem}
 		Let $c$ be a real number. What is the minimum value of $c$ such that, there is always a prime between $n$ and $n+cn$ for positive integers $n>1$?
 	\end{problem}
-Nagura \cite{nagura} proved the case for $c=1/5$.
+\textcite{nagura_1952} proved the case for $c=1/5$.
 	\begin{theorem}[Nagura]\slshape
 		For $x\geq25$, there is always a prime number between $x$ and $6x/5$.
 	\end{theorem}
@@ -217,83 +216,32 @@ The proof uses a property of gamma function (a function involving the gamma func
 	\begin{problem}
 		Let $k$ be a positive integer. Does there always exist a prime between $kn$ and $(k+1)n$?
 	\end{problem}
-%\textit{Legendre} asked the following question.
-%As you can see, this is a very interesting topic for research. Anyway, let us get back to the general problem. 
-Bachraoui \cite[Thm $1.3$]{bachraoui} proved the case $k=2$. The idea is a variation of Erd\H os's proof.
+\textcite{bachraoui_2006} proved the case $k=2$. The idea is an extension of Erd\"{o}s's proof.
 	\begin{theorem}[Bachraoui]\slshape
 		For a positive integer $n>1$, there is always a prime in the interval $[2n,3n]$.
 	\end{theorem}
-Andy Loo \cite{loo} proved the case for $k=3$ without using prime number theorem or any deep analytical method.
+\textcite{loo_2011} proved the case for $k=3$ without using prime number theorem or any deep analytical method.
 	\begin{theorem}[Loo]\slshape
 		For a positive integer $n\geq2$, there is always a prime in the interval $(3n,4n)$.
 	\end{theorem}
-%Surprisingly, \textit{Sambasivarao} \cite[Thm $2.3$]{samb} proved the general case. This theorem is a killer which sealed the verdicts on conjectures of Legendre, Brocard, Oppermann and Andrica.
-	\begin{conjecture}[General Bertrand's Postulate]\label{thm:samb}\slshape
-		For a positive integer $n\geq2$ and a positive integer $k\leq n$, there always exists a prime $p$ in the interval $[kn,(k+1)n]$.
-	\end{conjecture}
-%Because of this proof, those conjectures are no more conjectures. We can consider them as theorems. Since the original proof used idea of Gamma function, we did not include the proof here. However, the derivations of these conjecture from the general theorem are intuitive and very interesting. Therefore, we want to include them here. You can try them yourself as well with the help of theorem \eqref{thm:samb}.
-If conjecture \eqref{thm:samb} can be proven, we can prove some other conjectures using it. Let us assume that the conjecture is true and it is in fact a theorem. Let us see how we could use it to prove other conjectures. The ideas are due to \textit{Sambasivarao} \cite{samb}.
-	\begin{theorem}[Legendre's theorem]
-		Assuming general Bertrand's postulate is true, there always exists a prime in the interval $[n^2,(n+1)^2]$.
+\textcite{moses_shevelev_greathouse_2013} proves the following theorem.
+	\begin{theorem}
+		The list of integers $k$ for which every interval $(kn,(k+1)n)$ contains a prime for $n>1$ is $\{1,2,3,5,9,14\}$ and no others, at least for $k\leq10^9$.
 	\end{theorem}
-As we stated before, it has an improvement and we will prove that instead.
-	\begin{theorem}[Mitra's theorem]
+There are some nice conjectures involving this theorem.
+	\begin{conjecture}[Legendre's conjecture]
+		There always exists a prime in the interval $[n^2,(n+1)^2]$.
+	\end{conjecture}
+
+	\begin{theorem}[Mitra's conjecture]
 		Assume the general Bertrand's postulate. There exists at least two primes in the interval $[n^2,(n+1)^2]$.
 	\end{theorem}
-	
-	\begin{proof}
-		From theorem \eqref{thm:samb}, we know that there exists a prime in the interval $[kn, (k+1)n]$. Set $k=n$ and we get a prime $p$ such that $n^2\leq p\leq n^2+n$. Again, there is a prime in the interval $[k(n+1),(k+1)(n+1)]$. Let $q$ be a prime such that $k(n+1)\leq q\leq (k+1)(n+1)$ and set $k=n$. Now we have $n^2\leq p\leq n^2+n$ and $n^2+n\leq q\leq (n+1)^2$. Combining them we have $n^2\leq p\leq q\leq (n+1)^2$ since $n^2+n\leq(n+1)^2$. There will always be two but not one. The reason is $p=q$ can not occur. That would only be possible if $n^2+n=p=q$ which is not prime for $n>1$ (why?).
-		For $n=1$, we can check manually that $2,3$ are between $1$ and $4$. Therefore, the theorem holds true for all $n$.
-	\end{proof}
-	
-	\begin{theorem}[Brocard theorem]
+
+	\begin{theorem}[Brocard's conjecture]
 		Assume the general Bertrand's postulate. For each $n>1$, there are at least $4$ primes in the interval $[p_n^2,p_{n+1}^2]$.
 	\end{theorem}
 
-	\begin{proof}
-		We will keep using theorem \eqref{thm:samb} repeatedly. There are primes $q,r,s,t$ such that
-			\begin{align*}
-				p_n^2 & \leq q\leq p_n(p_n+1),\\
-				p_n(p_n+1) & \leq r \leq (p_n+1)^2,\\
-				(p_n+1)^2 & \leq s\leq (p_n+1)(p_n+2),\\
-				(p_n+1)(p_n+2) & \leq t\leq (p_n+2)(p_n+2).
-			\end{align*}
-		See the clever usage of the theorem. Now,
-			\begin{align*}
-				(p_n+2)^2 & \leq p_{n+1}^2
-			\end{align*}
-		because for $n>1$, $p_{n+1}\geq p_n+2$. By the same argument as above, no two of $q,r,s,t$ are equal. Therefore, we are done.
-	\end{proof}
-	
-	\begin{theorem}[Andrica theorem]
+	\begin{theorem}[Andrica's conjecture]
 		Assume the general Bertrand's postulate holds true. For any positive integer $n$, $\sqrt{p_{n+1}}-\sqrt{p_n}<1$.
 	\end{theorem}
-	
-	\begin{proof}
-		Fix the primes $p_n,p_{n+1}$ and think about the intervals they belong to. Like we did in the proof of Mitra's conjecture, assume that $km \leq p_n\leq (k+1)m$. Obviously, we are looking for \textit{suitable} values of $k$ and $m$ which fulfill our purpose. Consider the following proof. We have
-			\begin{align*}
-				km & \leq p_n \leq (k+1)m,\\
-				(k+1)m&\leq p_{n+1}\leq(k+1)(m+1).
-			\end{align*}
-		Now, set $k=m$ and we have $k^2\leq p_n<p_{n+1}\leq(k+1)^2$. Therefore,
-			\begin{align*}
-				k\leq \sqrt{p_n}& <\sqrt{p_{n+1}}<k+1,
-			\end{align*}
-		which means $\sqrt{p_{n+1}}-\sqrt{p_n} < 1$. 
-		Is this proof correct or faulty? We will leave it to the reader. Here is the original proof. Consider the intervals $A=[k(k-1),k^2],B=[k^2,k(k+1)],C=[k(k+1),(k+1)^2]$. We can certainly pick $k$ such that $p_n$ belongs to at least one of $A,B$ or $C$. So we have three cases here.
-			\begin{enumerate}[i.]
-				\item $p_n$ is in $A$. Then $p_{n+1}$ is in $B$ (or $A$ possibly)\footnote{Because $A$ might contain more than one primes.}. Whichever it is, we have the conclusion.
-				\item $p_n$ is in $B$. Again, $p_{n+1}$ is either in $B$ or $C$. Same argument.
-				\item $p_n$ is in $C$. If $p_{n+1}$ is in $C$ too, we are done. Otherwise, $p_{n+1}$ is not in any of $A,B,C$. However, since $p_n,p_{n+1}$ are consecutive primes and $(k+1)^2<p_{n+1}<(k+1)(k+2)$, we have $\sqrt{p_{n+1}}-\sqrt{p_n}<1$. If you are not sure why, take a look at this:
-					\begin{align*}
-						&k^2+k+\frac{1}{4}  < p_n < p_{n+1}< k^2+3k+2+\frac{1}{4}\\
-						\iff & (2k+1)^2 < 4p_n<4p_{n+1} < (2k+3)^2\\
-						\iff & 2k+1 < 2\sqrt{p_n}<2\sqrt{p_{n+1}}<2k+3\\
-						\iff& 2\sqrt{p_{n+1}}-2\sqrt{4p_n} < 2\\
-						\iff &\sqrt{p_{n+1}}-\sqrt{p_n} <1.
-					\end{align*}
-			\end{enumerate}
-	\end{proof}
-	
-	
 \end{document}
