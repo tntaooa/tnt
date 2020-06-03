@@ -6,7 +6,7 @@
 \section{Introduction}
 	Prime numbers just might be the most mysterious topic in mathematics. There are already countless books on the topic. We have already defined prime numbers in chapter \eqref{ch:divisibility}. Recall that a positive integer $p$ is a prime if and only if it has exactly two positive divisors: only $1$ and $p$ itself (recall how this lets us deal with the case of $1$ automatically). In this chapter, we are going to explore the properties of primes\watermark.
 	
-	We will start with a widely discussed topic: \textbf{Infinitude of primes}. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\H{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite elementary or Olympiad style topics. Still, we decided to include them because they let us understand why numbers dance the way they do. Probably this will not make sense to many people, but we think so. We would feel really good if we could provide the elementary proof of \textbf{Prime Number Theorem} by \textbf{Erd\H{o}s} and \textbf{Selberg}\footnote{We accredit both of them, not only for avoiding any controversy, also because we believe they both had contributions. Specially, after reading some papers (such as \cite{baas}) from a close colleague of both of them, the authors are convinced they both had their parts in this proof.} as well but had we done so, we would be way off topic. Therefore, we will keep the analytic stuff as limited as possible, yet giving an insight to what make number theorists think that way or what drives them study so hard.
+	We will start with a widely discussed topic: \textbf{Infinitude of primes}. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\"{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite elementary or Olympiad style topics. Still, we decided to include them because they let us understand why numbers dance the way they do. Probably this will not make sense to many people, but we think so. We would feel really good if we could provide the elementary proof of \textbf{Prime Number Theorem} by \textbf{Erd\"{o}s} and \textbf{Selberg}\footnote{There was a dispute over who actually proved the prime number theorem. We accredit both Erd\"{o}s and Selberg because we believe they both had contributions on the matter. Specially, \textcite{goldfeld_2004} who was a close colleague of both of them was convinced that they both had contribution in this proof. \textcite{baas_skau_2008} is also a good read in this regard.} as well but had we done so, we would be way off topic. Therefore, we will keep the analytic stuff as limited as possible, yet giving an insight to what make number theorists think that way or what drives them study so hard.
 	
 	In section \eqref{sec:primalitytesting}, we will discuss how to list primes efficiently or decide whether an integer is prime or not, and how to factorize an integer quickly. Now, there are a few points to clear out in the last statement.
 		\begin{enumerate}
@@ -281,7 +281,7 @@
 					\end{align*}
 				Put $x=kp$ in the above equation. We find that $p|P(kp)$ for all integers $k$. However, since $P(kp)$ is a prime, we must have $P(kp)=p$ for all integers $k$. Now consider the polynomial $Q(x)=P(px)-p$. All integers are roots of $Q(x)$, which is impossible unless $Q(x)$ is the zero polynomial. So $P(px)=p$ for all real numbers $x$. Hence, $P(x)$ is constant.
 			\end{proof}
-		Back to the original question: are there any closed form for $p_n$? Is there an expression which always generates a prime? The answer is yes for both of them. However, here we will concentrate on the number of primes mostly\footnote{We would like to discuss the second question as well but it requires some analytical number theory, which of course is out of our scope. If you are an interested reader, you can study \textit{Ingham's theorem,}\cite{ingham} \textit{Mill's theorem}\cite{mills} and \textit{Niven's theorem}\cite{niven}.}. It makes sense that the formula for primes and the prime counting function are close to each other. Because if you get a good formula for $\pi(n)$, the number of primes less than or equal to $n$, you can replace $n$ with $p_k$ for some $k$ and get a recursive formula for primes, that is in terms of previous primes or positive integers less than $p_k$. However, recursive formulas do not look pretty at all. Therefore, we focus on finding $\pi(n)$ rather than a direct formula for $p_n$. The following theorem is one of those ideas which can give us a formula for the prime counting function, due to the first author (unpublished). Let's see the theorem and then explain the idea behind it.
+		Back to the original question: are there any closed form for $p_n$? Is there an expression which always generates a prime? The answer is yes for both of them. However, here we will concentrate on the number of primes mostly\footnote{We would like to discuss the second question as well but it requires some analytical number theory, which of course is out of our scope. If you are an interested reader, you can study \textcite{ingham_1937}, \textcite{mills_1947} and \textcite{niven_1951}.}. It makes sense that the formula for primes and the prime counting function are close to each other. Because if you get a good formula for $\pi(n)$, the number of primes less than or equal to $n$, you can replace $n$ with $p_k$ for some $k$ and get a recursive formula for primes, that is in terms of previous primes or positive integers less than $p_k$. However, recursive formulas do not look pretty at all. Therefore, we focus on finding $\pi(n)$ rather than a direct formula for $p_n$. The following theorem is one of those ideas which can give us a formula for the prime counting function, due to the first author (unpublished). Let's see the theorem and then explain the idea behind it.
 			\begin{theorem}[Masum Billal]\slshape
 				The number of primes less than or equal to $n$ can be obtained as
 					\begin{align*}
@@ -336,7 +336,7 @@
 	\begin{align}
 		\pi(n) -\pi(\sqrt{n})+1 = \sum_{i=1}^{P}\mu(i)\left\lfloor\frac{n}{i}\right\rfloor, \label{eq:tau(n)-amin}
 	\end{align}
-	where $P=p_1p_2\cdots p_k$. This is probably not obvious to you, so we explain how the above fomula is obtained\footnote{Thanks to \textbf{Amin Soofiani} for reminding us to add some more explanation here.}. It is now a very good time to mention a point the importance of the M\H obius $\mu$ function defined in defintion \eqref{def:mobius} as:
+	where $P=p_1p_2\cdots p_k$. This is probably not obvious to you, so we explain how the above fomula is obtained\footnote{Thanks to \textbf{Amin Soofiani} for reminding us to add some more explanation here.}. It is now a very good time to mention a point the importance of the M\" obius $\mu$ function defined in defintion \eqref{def:mobius} as:
 	\begin{align*}
 		\mu(n) & = 
 		\begin{cases}
@@ -347,7 +347,7 @@
 			(-1)^k&\mbox{ if }n=p_1p_2\cdots p_k.
 		\end{cases}
 	\end{align*}
-	We stated in the previous chapter that M\H obius comes handy when dealing with inclusion--exclusion arguments. Here, we have a nice one. We will investigate equation \eqref{eq:tau(n)-amin} term by term. The first term is $n$, obtained from $i=1$. For $i=p_j$, the contribution is $\mu(p_j)\lfloor n/p_j \rfloor=-\lfloor n/p_j \rfloor$ (here, $1 \leq j \leq k$). That's exactly the first group of terms in equation \eqref{eq:tau(n)-tau(sqrt(n))+1}. But what about the case when $i$ is not a prime? Well, if it's a square-free number, i.e., if it is of the form $i=p_{i_1}p_{i_2}\cdots p_{i_s}$, where $\{i_1, i_2, \ldots, i_s\} \subseteq \{1,2,\ldots,k\}$, then, we get a contribution of
+	We stated in the previous chapter that M\" obius comes handy when dealing with inclusion--exclusion arguments. Here, we have a nice one. We will investigate equation \eqref{eq:tau(n)-amin} term by term. The first term is $n$, obtained from $i=1$. For $i=p_j$, the contribution is $\mu(p_j)\lfloor n/p_j \rfloor=-\lfloor n/p_j \rfloor$ (here, $1 \leq j \leq k$). That's exactly the first group of terms in equation \eqref{eq:tau(n)-tau(sqrt(n))+1}. But what about the case when $i$ is not a prime? Well, if it's a square-free number, i.e., if it is of the form $i=p_{i_1}p_{i_2}\cdots p_{i_s}$, where $\{i_1, i_2, \ldots, i_s\} \subseteq \{1,2,\ldots,k\}$, then, we get a contribution of
 	\begin{align*}
 		\mu(p_{i_1}p_{i_2}\cdots p_{i_s}) \left\lfloor\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}\right\rfloor = (-1)^s\left\lfloor\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}\right\rfloor.
 	\end{align*}
@@ -558,7 +558,7 @@
 				\end{align*}
 			which is in contradiction with the second condition since $q$ is a prime such that $q|x|n-1$. Thus the order of $a$ modulo $n$ is $n-1$. So $\varphi(n)=n-1$ which implies that $n$ is a prime.
 		\end{proof}	
-	The next theorem is taken from \cite{Koblitz}.
+	The next theorem appears in \cite[Chapter $\S$VI, section $6.3$, proposition $6.3.1$, Page $187$]{koblitz_2012}.
 		\begin{theorem}[Pocklington's Theorem]\slshape
 			Let $n>1$ be an integer and suppose that there exist an integer $a$ and a prime $q$ such that the following conditions hold:
 				\begin{enumerate}
@@ -773,7 +773,7 @@
 		\begin{align*}
 				M_{2}, M_{3}, M_{5}, M_{7}, M_{13},M_{17},M_{19},M_{31},M_{67},M_{127},M_{257}
 		\end{align*}
-	are the only Mersenne primes less than $M_{258}$. Although he was wrong about $M_{67}$\footnote{$M_{67}=193707721 \times 761838257287.$} and $M_{257}$\footnote{Lehmer and Kra\"{i}tchik showed that $M_{257}$ is composite.} and he missed $M_{61}, M_{89},$ and $M_{107}$ in the list, his work is considered astonishing because these numbers are astronomically large. Interested readers may study \cite{ch:primes-archibald} and \cite{ch:primes-ribenboim} for more details about Mersenne primes.
+	are the only Mersenne primes less than $M_{258}$. Although he was wrong about $M_{67}$\footnote{$M_{67}=193707721 \times 761838257287.$} and $M_{257}$\footnote{Lehmer and Kra\"{i}tchik showed that $M_{257}$ is composite.} and he missed $M_{61}, M_{89},$ and $M_{107}$ in the list, his work is considered astonishing because these numbers are astronomically large. Interested readers may study \textcite{ribenboim_1991} for more details about Mersenne primes.
 	
 		\begin{theorem}
 				Let $q>2$ be a prime. For every divisor $n$ of $M_q$, we have
@@ -794,7 +794,7 @@
 			Theorem \eqref{thm:2qr} now verifies that $p \equiv \pm 1 \pmod 8$.
 		\end{proof}
 		
-	The above theorem can be used to factorize Mersenne numbers. It will be tough to use this theorem for large Mersenne number though. To realize whether a Mersenne number is prime or composite, one may use the so-called Lucas–Lehmer primality test, introduced by \textit{\'Edouard Lucas} in 1856 and improved by \textit{Derrick Henry Lehmer} later in $1930$s. The proof is a bit difficult and we refuse to write it. The reader may see \cite{ch:primes-bruce} for a proof if interested.
+	The above theorem can be used to factorize Mersenne numbers. It will be tough to use this theorem for large Mersenne number though. To realize whether a Mersenne number is prime or composite, one may use the so-called Lucas–Lehmer primality test, introduced by \textit{\'Edouard Lucas} in 1856 and improved by \textit{Derrick Henry Lehmer} later in $1930$s. The proof is a bit difficult and we refuse to write it. The reader may see \cite{bruce_1993} for a proof if interested.
 	
 		\begin{theorem}[Lucas--Lehmer Primality Test for Mersenne Numbers]
 			Define the recursive sequence $S(n)$ by $S(1)=4$ and $S(n+1)=S(n)^2-2$ for any integer $n \geq 1$. Also, let $p>2$ be a prime. Then $M_p$ is prime if and only if it divides $S(p-1)$.
@@ -1006,7 +1006,7 @@
 			\end{table}
 	\end{example}
 \subsection{Pollard's Rho Factorization}
-	As already mentioned, prime factorization by sieve method is not time efficient. In fact, most deterministic factorization methods are not. Therefore, we again use probabilistic method. There are two crucial steps for probabilistic factorization methods.
+	As already mentioned, prime factorization by sieve method is not time efficient. In fact, most deterministic factorization methods are not. Therefore, we again use probabilistic method. There are two crucial steps for probabilistic factorization methods. This algorithm is due to \textcite{pollard_1975}, \textcite{brent_1980}.
 		\begin{itemize}
 			\item Finding a non-trivial factor of $n$ (that is, a factor other than $1$ and $n$).
 			\item Using a time efficient primality test in order to check if the non-trivial factor $d$ is prime or not. If $d$ is prime, we can just factorize $\dfrac{n}{d}$ only. Otherwise, we can repeat the same process for $d$ and $\dfrac{n}{d}$. Mostly Rabin-Miller test is used widely these days.
@@ -1084,7 +1084,7 @@
 				\label{table:pollard}
 		\end{table}
 	\end{example}
-The next example, taken from Patrick Stein's website (see \cite{ch:primes-stein}), takes a different polynomial $g(x)$ and initial value $x_0$ in Pollard's rho method.
+The next example, taken from Patrick Stein's website, takes a different polynomial $g(x)$ and initial value $x_0$ in Pollard's rho method.
 	\begin{example}
 		We will factorize a much larger integer $n=16843009$. This time, we take $g(x)=1024x^2+32767$ and $x_0=1$. Table \ref{table:pollardmodified} shows the steps. As you see in the table, at $9^{th}$ step we find $257$ to be a factor of $n$ and the factorization is done:
 			\begin{align*}
@@ -1186,7 +1186,7 @@ The next example, taken from Patrick Stein's website (see \cite{ch:primes-stein}
 	\end{hint}
 	
 	\begin{problem}
-		Find a formula for the number of square-free numbers less than $x$ for a real number $x$. Recall that, a natural number $n$ is square-free if $n$ does not have any factor that is perfect square other than $1$. Can you represent this formula using \textit{M\H obius function} as well?
+		Find a formula for the number of square-free numbers less than $x$ for a real number $x$. Recall that, a natural number $n$ is square-free if $n$ does not have any factor that is perfect square other than $1$. Can you represent this formula using \textit{M\" obius function} as well?
 	\end{problem}
 	
 	\begin{problem}

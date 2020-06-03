@@ -14,11 +14,11 @@
 			We call $\varphi^{-1}(n)$ the \textit{inverse of Euler's totient function}, or simply the \textit{inverse of phi function}. Moreover, for ever positive integer $x$, we define $N(x)$ to be the number of positive integers $y$ such that $\varphi(x)=\varphi(y)$.
 		\end{definition}
 	
-	Carmichael stated in \cite{carmichael} that the cardinality (number of elements) of $\varphi^{-1}(n)$ is always greater than $1$ but due to his proof being inadequate, this is a conjecture now:
+	\textcite{carmichael_1907} stated that the cardinality (number of elements) of $\varphi^{-1}(n)$ is always greater than $1$ but due to his proof being inadequate, this is a conjecture now:
 		\begin{conjecture}[Carmichael's Totient Conjecture]
 			For a positive integer $n$, the number of solutions to $\varphi(x)=n$ is either $0$ or at least $2$.
 		\end{conjecture}
-	After this statement, quite a lot of number theorists worked on it. There has been no proof of the theorem to our knowledge, though there are some nice results on it. And it is indeed a very interesting topic to work on. Even though it is a conjecture, everything points this to be true. For example, \textit{Klee} pointed out in \cite{klee} that if $N(x)=1$ then $x$ and $\varphi(x)$ are both larger than $10^{400}$. Carmichael originally proved that $x>10^{37}$ must be true. Let's start investigating $N(x)$.
+	After this statement, quite a lot of number theorists worked on it. There has been no proof of the theorem to our knowledge, though there are some nice results on it. And it is indeed a very interesting topic to work on. Even though it is a conjecture, everything points this to be true. For example, \textit{Klee} pointed out in \cite{jr._1947} that if $N(x)=1$ then $x$ and $\varphi(x)$ are both larger than $10^{400}$. Carmichael originally proved that $x>10^{37}$ must be true. Let's start investigating $N(x)$.
 		\begin{theorem}\slshape
 			Let $x$ be a positive integer. If $N(x)=1$, then $x$ is divisible by $4$.
 		\end{theorem}
@@ -42,7 +42,7 @@
 				\end{align*}
 			Thus, $y=2^{k+e}s\neq x$ satisfies the condition, so we must have $p|s$ and hence $p^2 | x$.
 		\end{proof}
-	Here is a very nice result that provides us with a sufficient condition for $N(x)=1$ to happen.. The result is due to C. Pomerance \cite{pomerance}.
+	Here is a very nice result that provides us with a sufficient condition for $N(x)=1$ to happen. The result is due to \textcite{pomerance_1974}.
 		\begin{theorem}[Carl Pomerance]\slshape
 			 Let $x$ be a positive integer. Suppose that the following property holds for every prime $p$:
 				\begin{align*}
@@ -101,7 +101,7 @@
 			which was what we wanted.
 		\end{proof}
 	
-	Gupta \cite{gupta} found upper and lower bounds for $\varphi^{-1}(n)$. For odd $n$, $\varphi^{-1}(n)$ is empty. Therefore, we only need to consider the case when $n$ is even. 
+	\textcite{gupta_1981} found upper and lower bounds for $\varphi^{-1}(n)$. For odd $n$, $\varphi^{-1}(n)$ is empty. Therefore, we only need to consider the case when $n$ is even. 
 		\begin{theorem}[Gupta]\slshape\label{thm:gupta}
 			Let $m$ and $n$ be two positive integers such that $n\in\varphi^{-1}(m)$. Then,
 				\begin{align*}
