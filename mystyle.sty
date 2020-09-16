@@ -8,10 +8,23 @@
 \RequirePackage{titlesec}
 %\RequirePackage{minitoc}
 
+\newcommand\watermark[1]{%
+	#1%
+	\sbox0{#1}%
+	\llap{%
+		\makebox[\wd0][c]{%  hor. centering
+			\raisebox{.5\ht0}{%  approx. vert. centering
+				\csname Gin@isotrue\endcsname% = "keepaspectratio"
+				\resizebox*{.8\ht0}{.8\ht0}{% Scale down (the height is also used for the width to avoid the surrounding spaces)
+					\parbox{10em}{% Allow line breaks
+						\color{black!90}%  
+						This PDF was created for Amazon.
+					}%
+	}}}}%
+}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{csquotes}
-
 
 \RequirePackage{glossaries}
 
@@ -20,29 +33,30 @@
 
 
 \usepackage{pdfrender, xcolor}
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
 
-%\RequirePackage[english]{babel}
-%\usepackage{mdframed}
-%\usepackage{lipsum, tcolorbox}
-
-%\RequirePackage[colorlinks=true,linkcolor=black,filecolor=black,citecolor=black]{hyperref}
-%\RequirePackage[colorlinks=true,linkcolor=webgreen,filecolor=webbrown,citecolor=webgreen]{hyperref}
-
+\definecolor{bondiblue}{rgb}{0.0, 0.58, 0.71}
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{darkseagreen}{rgb}{0.56, 0.74, 0.56}
+\definecolor{darkturquoise}{rgb}{0.0, 0.81, 0.82}
+\definecolor{oxfordblue}{rgb}{0.0, 0.13, 0.28}
+\definecolor{prune}{rgb}{0.44, 0.11, 0.11}
+\definecolor{prussianblue}{rgb}{0.0, 0.19, 0.33}
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
 \RequirePackage{hyperref}
 \hypersetup{
 	%colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black,
+	citecolor=burgundy,
+	filecolor=burgundy,
+	linkcolor=burgundy,
+	urlcolor=burgundy,
 	unicode      = true,            % non-Latin characters in Acrobat’s bookmarks
 	%pdftoolbar   = false,             % show Acrobat’s toolbar?
 	%pdfmenubar   = false,             % show Acrobat’s menu?
 	pdfstartview=,
 }
-%\usepackage{fullpage}
+
 \usepackage[ocgcolorlinks]{ocgx2}
-\usepackage{float, framed}
 \usetikzlibrary{fit,matrix,shapes}
 
 \makeatletter
@@ -181,9 +195,9 @@
 %\numberwithin{hint2}{chapter}
 %\numberwithin{open}{chapter}
 
-\renewcommand{\thechapter}{\Roman{chapter}}
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\Roman{subsection}}
+%\renewcommand{\thechapter}{\Roman{chapter}}
+%\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesubsection}{\Roman{subsection}}
 %\renewcommand\thetheorem{\Roman{theorem}}
 %\renewcommand\thelemma{\Roman{lemma}}
 %\renewcommand\thecorollary{\Roman{corollary}}
@@ -192,7 +206,7 @@
 %\renewcommand\thehint{\Roman{hint}}
 %\renewcommand\theconjecture{\Roman{conjecture}}
 %\renewcommand\thefact{\Roman{fact}}
-\renewcommand\theequation{\Roman{equation}}
+%\renewcommand\theequation{\Roman{equation}}
 %\renewcommand\thedefinition{\Roman{definition}}
 
 

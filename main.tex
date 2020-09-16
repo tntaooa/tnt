@@ -1,7 +1,6 @@
 \documentclass[12pt]{book}
 
 \usepackage{mystyle}
-%\usepackage{nomencl}
 
 \usepackage[
 	backend=biber,
@@ -11,38 +10,10 @@
 	natbib=true,
 ]{biblatex}
 
-%\usepackage{natbib}
-
-%\usepackage{lmodern}
-\usepackage{baskervillef}
-%\usepackage[varqu,varl,var0]{inconsolata}
-%\usepackage[scale=.95,type1]{cabin}
-\usepackage[baskerville]{newtxmath}
-%\usepackage[cal=boondoxo]{mathalfa}
-%\usepackage{librecaslon}
-%\renewcommand*\rmdefault{cmdh}
-%\usepackage{LibreBodoni}
-\usepackage{pdfrender}
-%\usepackage{librebaskerville}
-\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
-
-
-
-\newcommand\watermark[1]{%
-	#1%
-	\sbox0{#1}%
-	\llap{%
-		\makebox[\wd0][c]{%  hor. centering
-			\raisebox{.5\ht0}{%  approx. vert. centering
-				\csname Gin@isotrue\endcsname% = "keepaspectratio"
-				\resizebox*{.8\ht0}{.8\ht0}{% Scale down (the height is also used for the width to avoid the surrounding spaces)
-					\parbox{10em}{% Allow line breaks
-						\color{black!90}%  
-						This PDF was created for Amazon.
-					}%
-	}}}}%
-}
-
+\usepackage{lmodern}
+\usepackage{datetime}
+%\usepackage{baskervillef}
+%\usepackage[baskerville]{newtxmath}
 
 \title{\bf TOPICS IN NUMBER THEORY:\\ \it An Olympiad-Oriented Approach\\Second Edition}
 \author{
@@ -54,6 +25,14 @@
 }
 \date{\today}
 
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+	\color{#1}\global\let\default@color\current@color
+}
+\makeatother
+\AtBeginDocument{\globalcolor{prussianblue}}
+
+
 \bibliography{main.bib}
 \pgfplotsset{compat=1.16,}
 
@@ -63,10 +42,6 @@
 \pagestyle{plain}
 
 \begin{dedication}
-	%\begin{center}
-	%	\textbf{Editing Acknowledgment}
-	%\end{center}
-	%{\slshape Nur Muhammad Shafiullah (also known as Hojor Shofi, first of his name, hojor of the BdMO camp, murid of the hojormaker, sophomore at MIT, job holder at some company)}, for his valuable editions and suggestions that made this book better.
 	\begin{center}
 		\textbf{Dedicated to}
 	\end{center}\slshape
@@ -81,10 +56,10 @@
 \section*{Links, Contact}
 
 \begin{itemize}
-	\item The website of the book always contains the updates, errata, and new free materials that we regularly post on social media. Exclusive olympiad problem-sets will be released in the website in the near fuure: \texttt{TopicsInNumberTheory.com}
+	\item The website of the book always contains the updates, errata, and new free materials that we regularly post on social media. Exclusive olympiad problem-sets will be released in the website in the near fuure: \url{TopicsInNumberTheory.com}
 	%	\href{https://facebook.com/TopicsInNumberTheory/}{\texttt{@TopicsInNumberTheory}}.
-	\item Facebook page: \texttt{@TopicsInNumberTheory}. This is our main page for feedback and reviews on the book. Feel free to post any kind of review, comment, solution, or suggestion you have about this book. Amir Hossein will create a forum for the book on AoPS so everyone can post their solutions to be added to the book later on.
-	\item If you find any mistake or typo in the book, we would be happy to hear it at Facebook or \texttt{info@TopicsInNumberTheory.com}.
+	\item Facebook page: \url{@TopicsInNumberTheory}. This is our main page for feedback and reviews on the book. Feel free to post any kind of review, comment, solution, or suggestion you have about this book. Amir Hossein will create a forum for the book on AoPS so everyone can post their solutions to be added to the book later on.
+	\item If you find any mistake or typo in the book, we would be happy to hear it at Facebook or \url{info@TopicsInNumberTheory.com}.
 \end{itemize}
 
 \newpage
@@ -204,7 +179,7 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 \backmatter
 \pagestyle{empty}
 \subfile{idthm.tex}
-\nocite{*}
+%\nocite{*}
 \printbibliography
 
 \end{document}

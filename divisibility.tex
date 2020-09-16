@@ -119,9 +119,9 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 			\setcounter{enumi}{3}
 			\item $0\mid a$ means that $a=0k$ for some integer $k$. So $a=0$.
 			\setcounter{enumi}{5}
-			\item $a|b$ means that $b=aq$ for some $q$. Multiply both sides of this equation by $k$ to get $bk = akq=aq'$. Therefore $a|bk$.
+			\item $a\mid b$ means that $b=aq$ for some $q$. Multiply both sides of this equation by $k$ to get $bk = akq=aq'$. Therefore $a\mid bk$.
 			\setcounter{enumi}{8} 
-			\item $a\mid b$ and $b|c$, so $b=aq_1$ and $c=bq_2$ for some integers $q_1, q_2$. Combine these two equations to get $c = aq_1q_2 = aq$ and thus $a|c$.
+			\item $a\mid b$ and $b\mid c$, so $b=aq_1$ and $c=bq_2$ for some integers $q_1, q_2$. Combine these two equations to get $c = aq_1q_2 = aq$ and thus $a\mid c$.
 			\setcounter{enumi}{9} 
 			\item $a\mid b$, so $b = ak$ for some integer $k$. Rewrite this equation in absolute value terms: $|b| = |ak| = |a| \cdot |k|$. Since $k$ is a non-zero integer, the smallest value for $|k|$ is $1$, so $|b| = |a| \cdot |k| \geq |a|$.
 			\setcounter{enumi}{11}
@@ -143,7 +143,7 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{proposition}
 	
 	\begin{proof}
-		We can easily rule out the case $r=0$. Just notice that $a|b$.
+		We can easily rule out the case $r=0$. Just notice that $a\mid b$.
 		
 		So, we can now assume that $a\nmid b$. So $b$ must have a nonzero remainder upon division by $a$, say $r$. One can rewrite the equation $b=aq+r$ as $aq=b-r$ or $q=(b-r)/a$. This simply means that uniqueness of $r$ implies the uniqueness of $q$. Therefore, we only need to prove that $r$ is unique. Assume that there exist integers $q'$ and $r'$ so that
 		\begin{align*}
@@ -177,7 +177,7 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{note}
 	
 	\begin{question}
-		Let $a,b$, and $n$ be positive integers such that $a\mid n$ and $b|n$. Do we have $ab \mid n$?
+		Let $a,b$, and $n$ be positive integers such that $a\mid n$ and $b\mid n$. Do we have $ab \mid n$?
 	\end{question}
 	This is a very common mistake among new problem solvers. Consider an integer that is divisible by both $6$ and $4$. Is that integer divisible by $4\cdot6=24$? If you think the answer is yes, think again! How about $12$?
 	
@@ -232,8 +232,9 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 		\end{equation}
 		where $p_1,p_2,\cdots p_k$ are different primes and $e_1,e_2,\cdots e_k$ are positive integers. Using product notation, we can write equation \eqref{eqn:one} as
 		\begin{align*}
-			n &=\prod\limits_{i=1}^{k}p_i^{e_i}, \text{or}\\
-			n  &=\prod\limits_{p|n}p^e.
+			n 
+				&=\prod\limits_{i=1}^{k}p_i^{e_i}\\
+				&=\prod\limits_{p\mid n}p^e
 		\end{align*}
 		In the second equation above, $p$ runs through different primes dividing $n$ and $e$ is the maximum power of $p$ that divides $n$.\footnote{Make sure you understand the notations $\sum$ and $\prod$ well.}
 	\end{theorem}
@@ -249,7 +250,7 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 		\begin{align}
 			p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}=q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t} \label{eq:fundamentalarith-eq1}
 		\end{align}
-		are two factorizations for $n$, where $p_i$ and $q_j$ are primes and $\alpha_i$ and $\beta_j$ are positive integers ($1 \leq i \leq s, 1 \leq j \leq t$). The above equation implies that $p_1$ divides $q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t}$. By generalization of Euclid's lemma (Corollary \eqref{cor:euclidgeneral}), $p_1$ must divide at least one of $q_1^{\beta_1},q_2^{\beta_2},\cdots ,$ or $q_t^{\beta_t}$. Without loss of generality, suppose that $p_1|q_1^{\beta_1}$. Since $q_1$ is a prime, the only prime divisor of $q_1^{\beta_1}$ is $q_1$. This means that $p_1=q_1$ and $\alpha_1=\beta_1$. Divide both sides of equation \eqref{eq:fundamentalarith-eq1} by $p_1$ to obtain
+		are two factorizations for $n$, where $p_i$ and $q_j$ are primes and $\alpha_i$ and $\beta_j$ are positive integers ($1 \leq i \leq s, 1 \leq j \leq t$). The above equation implies that $p_1$ divides $q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t}$. By generalization of Euclid's lemma (Corollary \eqref{cor:euclidgeneral}), $p_1$ must divide at least one of $q_1^{\beta_1},q_2^{\beta_2},\cdots ,$ or $q_t^{\beta_t}$. Without loss of generality, suppose that $p_1\mid q_1^{\beta_1}$. Since $q_1$ is a prime, the only prime divisor of $q_1^{\beta_1}$ is $q_1$. This means that $p_1=q_1$ and $\alpha_1=\beta_1$. Divide both sides of equation \eqref{eq:fundamentalarith-eq1} by $p_1$ to obtain
 		\begin{align*}
 			p_2^{\alpha_2}p_3^{\alpha_3}\cdots p_s^{\alpha_s}=q_2^{\beta_2}q_3^{\beta_3}\cdots q_t^{\beta_t}.
 		\end{align*}
@@ -515,7 +516,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{example}
 	
 	\begin{note}
-		The above definition of $\gcd$ is equivalent to the following: if $(a, b)$ equals $g$, then $g$ divides both $a$ and $b$. Furthermore, if there is a positive integer $c$ for which $c|a$ and $c|b$, then $g \geq c$. Analogously, if $[a, b]$ equals $\ell$, then $\ell$ is divisible by both $a$ and $b$. Moreover, if there is a positive integer $c$ for which $a|c$ and $b|c$, then $c \geq \ell$.
+		The above definition of $\gcd$ is equivalent to the following: if $(a, b)$ equals $g$, then $g$ divides both $a$ and $b$. Furthermore, if there is a positive integer $c$ for which $c\mid a$ and $c\mid b$, then $g \geq c$. Analogously, if $[a, b]$ equals $\ell$, then $\ell$ is divisible by both $a$ and $b$. Moreover, if there is a positive integer $c$ for which $a\mid c$ and $b\mid c$, then $c \geq \ell$.
 	\end{note}
 	
 	\begin{proposition}[Properties of \texorpdfstring{$\boldsymbol{\gcd}$}{gcd} and \texorpdfstring{$\boldsymbol{\lcm}$}{lcm}]\slshape\label{prop:basicgcd}
@@ -525,18 +526,18 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 			\item 	$(a,0)=a$, $[a,0]=0$, $(a,1)=1$ and $[a,1]=a$.
 			\item 	$(a,a)=[a,a] = a$.
 			\item   $[a,b] \geq (a,b)$.
-			\item	$a|b$ if and only if $(a,b)=a$. Similarly, $a|b$ if and only if $[a,b]=b$
+			\item	$a\mid b$ if and only if $(a,b)=a$. Similarly, $a\mid b$ if and only if $[a,b]=b$
 			\item   For any integer $k$, $ (a, b+ak) = (a, b)$ and $(ka,kb)=k(a,b)$. Furthermore, $[ka,kb]=k[a,b]$.
 			\item   For any non-negative integer $n$, we have $(a^n,b^n)=\left((a,b)\right)^n$ and $[a^n,b^n]=\left([a,b]\right)^n$.
-			\item 	For any two integers $x$ and $y$, we have $(a,b)|ax+by$.
-			\item 	If $p$ is a prime divisor of $a$ or $b$, then $p|[a,b]$.
+			\item 	For any two integers $x$ and $y$, we have $(a,b)\mid ax+by$.
+			\item 	If $p$ is a prime divisor of $a$ or $b$, then $p\mid [a,b]$.
 			\item 	For any prime divisor $p$ of $(a, b)$, we have $p\mid a$ and $p\mid b$.
 			\item 	If $p$ is a prime, then
 			\begin{align*}
 				(a,p) & = 
 				\begin{cases}
-					p,& \text{if } p\mid a\\
-					1,& \text{otherwise}
+					p & \mbox{if } p\mid a\\
+					1 & \mbox{otherwise}
 				\end{cases}
 			\end{align*}
 		\end{enumerate}
@@ -551,7 +552,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{problem}
 	
 	\begin{solution}
-		Let $g=(a,b)$. By part $7$ of proposition \eqref{prop:basicgcd}, $g^n = (a^n,b^n)$. On the other hand, $a^n|b^n$ implies $(a^n, b^n)=a^n$ by part $5$ of the same proposition. Hence, $(a, b)^n=a^n=g^n$. Taking root $n$, we find $(a,b)=a=g$. Using part $5$ again, one obtains $a|b$. The proof is complete.
+		Let $g=(a,b)$. By part $7$ of proposition \eqref{prop:basicgcd}, $g^n = (a^n,b^n)$. On the other hand, $a^n\mid b^n$ implies $(a^n, b^n)=a^n$ by part $5$ of the same proposition. Hence, $(a, b)^n=a^n=g^n$. Taking root $n$, we find $(a,b)=a=g$. Using part $5$ again, one obtains $a\mid b$. The proof is complete.
 		
 	\end{solution}
 	
@@ -595,7 +596,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{theorem}
 	
 	\begin{proof}
-		Let $g= (a,b)$. We already know that $g|a$ and $g|b$. Since $b=aq+r$, it follows that $g|aq+r$. On the other hand, $g\mid a$ implies $g|aq$. As established in proposition \eqref{prop:a|bx+cy}, we can subtract these two divisibility relations and find $g\mid aq+r-aq$, or $g\mid r$. This means that $g$ divides $r$ too. That is, the greatest common divisor of $a$ and $b$ is a divisor of $r$ too. In order to show that $g=(a,r)$, there is only one thing remained to prove: if there exists some $c$ for which $c\mid a$ and $c|r$, then $g \geq c$. We will prove a stronger argument: if such a $c$ exists, then $c|g$ (since $c$ and $g$ are both positive, $c\mid g$ implies $g \geq c$). Note that $c|a$ gives $c|aq$. Adding the latter relation with $c|r$ yields $c\mid aq+r = b$. From proposition \eqref{prop:dividegcd}, we see that $c\mid (a,b)=g$. The proof is complete.
+		Let $g= (a,b)$. We already know that $g\mid a$ and $g\mid b$. Since $b=aq+r$, it follows that $g\mid aq+r$. On the other hand, $g\mid a$ implies $g\mid aq$. As established in proposition \eqref{prop:a|bx+cy}, we can subtract these two divisibility relations and find $g\mid aq+r-aq$, or $g\mid r$. This means that $g$ divides $r$ too. That is, the greatest common divisor of $a$ and $b$ is a divisor of $r$ too. In order to show that $g=(a,r)$, there is only one thing remained to prove: if there exists some $c$ for which $c\mid a$ and $c\mid r$, then $g \geq c$. We will prove a stronger argument: if such a $c$ exists, then $c\mid g$ (since $c$ and $g$ are both positive, $c\mid g$ implies $g \geq c$). Note that $c\mid a$ gives $c\mid aq$. Adding the latter relation with $c\mid r$ yields $c\mid aq+r = b$. From proposition \eqref{prop:dividegcd}, we see that $c\mid (a,b)=g$. The proof is complete.
 	\end{proof}
 	
 	Euclidean algorithm\footnote{An algorithm means a set of operations in a certain process to solve a problem or to find something.} is pretty useful because it helps us find the $\gcd$ only by a series of divisions. Suppose that you have two extremely large numbers $a$ and $b$ such that $b>a$. First, find the remainder $r$ of $b$ upon division by $a$. The remainder is strictly less than $a$, and there is a chance that it would be much smaller than $b$ because $b>a>r$. According to Euclidean algorithm, instead of finding $\gcd$ of $a$ and $b$, we can calculate $(a,r)$. In the next step, find the remainder $r_1$ of $a$ upon division by $r$. Then $(a,b)=(a,r)=(r,r_1)$. As you might have noticed, the numbers are becoming smaller and smaller. Continuing the divisions, you will reach a point where the numbers are small enough to compute the $\gcd$ by hand.
@@ -649,7 +650,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{proposition}
 	
 	\begin{proof}
-		Integers $m$ and $n$ exist because $g|a$ and $g|b$, but why are $m$ and $n$ coprime? This is true because if there were any other common factor between $m$ and $n$, that would have been included in $g$ too. Otherwise, $g$ could not remain the greatest common divisor since we can make a bigger one multiplying that common factor with $g$. We can think of $m$ and $n$ as the \textit{uncommon} factors between $a$ and $b$.
+		Integers $m$ and $n$ exist because $g\mid a$ and $g\mid b$, but why are $m$ and $n$ coprime? This is true because if there were any other common factor between $m$ and $n$, that would have been included in $g$ too. Otherwise, $g$ could not remain the greatest common divisor since we can make a bigger one multiplying that common factor with $g$. We can think of $m$ and $n$ as the \textit{uncommon} factors between $a$ and $b$.
 	\end{proof}
 	
 	\begin{example}
@@ -678,20 +679,21 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		Now, can you understand the simple fact that $\min(x,y)+\max(x,y)=x+y$? If so, then the proof should be clear to you. In fact,
 		\[ab=p_1^{e_1}\cdots p_k^{e_k}\cdot p_1^{f_1}\cdots p_k^{f_k}=p_1^{e_1+f_1}\cdots p_k^{e_k+f_k}.\]
 		On the other hand, from proposition \eqref{prop:gcdfactorization}, 
-		\begin{eqnarray*}
+		\begin{align*}
 			(a,b)\cdot[a,b] 
-			& = & p_1^{\min(e_1)}\cdots p_k^{\min(e_k)}\cdot p_1^{\max(e_1,f_1)}\cdots p_k^{\max(e_k,f_k)}\\
-			& = & p_1^{\min(e_1,f_1)+\max(e_1+f_1)}\cdots p_k^{\min(e_k,f_k)+\max(e_k,f_k)}\\
-			& = & p_1^{e_1+f_1}\cdots p_k^{e_k+f_k}\\
-			& = & ab.
-		\end{eqnarray*}
+			& = p_1^{\min(e_1)}\cdots p_k^{\min(e_k)}\cdot p_1^{\max(e_1,f_1)}\cdots p_k^{\max(e_k,f_k)}\\
+			& = p_1^{\min(e_1,f_1)+\max(e_1+f_1)}\cdots p_k^{\min(e_k,f_k)+\max(e_k,f_k)}\\
+			& = p_1^{e_1+f_1}\cdots p_k^{e_k+f_k}\\
+			& = ab.
+		\end{align*}
 	\end{proof}
 	
 	\begin{question}
 		Let $a,b$, and $c$ be positive integers. Does the equation
-		\begin{align*}
-			abc=(a,b,c)\cdot[a,b,c]
-		\end{align*}
+			\begin{align*}
+				abc
+					& =(a,b,c)\cdot[a,b,c]
+			\end{align*}
 		hold? If not, why?
 	\end{question}
 	
@@ -700,12 +702,13 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	There is a rumor that \textbf{Pascal} once promised $1000000$ dollars to anyone who marries his daughter. Later, when the son-in-law asked for the money, Pascal gave him only $64$ dollars. Poor guy! If you got the joke, you are probably good with bases. If not, do not worry, keep reading and you will get the point.
 	
 	In daily mathematics, meaning the math you face in real life, you unconsciously express numbers in decimal system. That is, when you say you have $15$ apples, you are using base $10$ without ever realizing it. The question here is that what is this \textit{base} actually? Let us start with a simple example.
-	\begin{example}
-		Consider the number $573$. Have you ever thought why we write digits in this way to denote a number? The reason is that every digit in the number represents the coefficient of a power of ten. That is,
-		\begin{align*}
-			573 = 5 \cdot 10^2 + 7 \cdot 10^1 + 3 \cdot 10^0.
-		\end{align*}
-	\end{example}
+		\begin{example}
+			Consider the number $573$. Have you ever thought why we write digits in this way to denote a number? The reason is that every digit in the number represents the coefficient of a power of ten. That is,
+			\begin{align*}
+				573
+					& = 5 \cdot 10^2 + 7 \cdot 10^1 + 3 \cdot 10^0.
+			\end{align*}
+		\end{example}
 	Rigorously talking, each integer has to be written in a \textit{base} for it to make sense. For example, the number $15$ has different values when expressed in base $6$ and in base $10$. Actually, $15$ in base $6$ is equal to $11$ in base $10$. Probably it still does not make sense. If so, just keep reading.
 	
 	All of our calculations in daily life are done in base $10$, which is called the \textit{decimal system}. However, this does not mean that we cannot present numbers in any other bases other than $10$. There are a limited number of \textit{digits} in each base (to be precise, the number of digits is the same as the value of base). These digits run from $0$ to the largest integer smaller than the base. Therefore, in base $10$ the digits are $0,1,\cdots,9$\footnote{Take a wild guess why we use base $10$ and not any other base.}. Similarly, in base $b$ the digits will be $0,1,\cdots,b-1$. Observe the base-$10$ representation of $573$ in the above example again. The rightmost digit is multiplied by $1$. The middle digit, $7$, is multiplied by $10$ (hence the name \textit{tenths digit}). Finally, the leftmost digit is multiplied by $100$ (the \textit{hundredths digit}). In simpler words, each time we go left, we multiply the multiplier by $10$. If it were base $b$ instead of base $10$, we would multiply by $b$ each time. So, the multipliers would be $1,b,b^2,\cdots$ and so on. You should understand the formal representation of an integer in base $b$ (for $b>1$ an integer). Note that it is pointless to take base $1$ since we do not have any meaningful digit (recall that $0$ is not a meaningful digit). You can think of these multipliers as weights (or contribution) of those digits.
@@ -1137,7 +1140,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{theorem}
 	
 	\begin{proof}
-		The case $n=1$ is trivial. For $n=2,3,4$ we can check by hand. For $n>4$, if $n$ is a prime, $n$ does not share a factor with any of $1,2,\cdots,n-1$. Consequently, $n$ does not divide their product $(n-1)!$. If $n$ is composite, we can write $n=ab$ with $a$ and $b$ larger than $n$ and $a\neq b$. Since $a\neq b$ and $(n-1)!$ contains both $a$ and $b$ in the product, $n=ab|(n-1)!$.
+		The case $n=1$ is trivial. For $n=2,3,4$ we can check by hand. For $n>4$, if $n$ is a prime, $n$ does not share a factor with any of $1,2,\cdots,n-1$. Consequently, $n$ does not divide their product $(n-1)!$. If $n$ is composite, we can write $n=ab$ with $a$ and $b$ larger than $n$ and $a\neq b$. Since $a\neq b$ and $(n-1)!$ contains both $a$ and $b$ in the product, $n=ab\mid (n-1)!$.
 	\end{proof}
 	
 	\begin{theorem}[Four Numbers Theorem]\slshape
@@ -1152,7 +1155,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\begin{align*}
 			g_1g_2x_1x_2 & =g_1g_2y_1y_2,
 		\end{align*}
-		or simply $x_1x_2 =y_1y_2$. We claim that $x_1=y_2$ and $x_2=y_1$. To prove this claim, we use a trick. Observe that $x_1x_2=y_1y_2$ means $x_1 | y_1y_2$. The second part of Proposition \eqref{prop:cpdiv} tells us that since $x_1 \perp y_1$, we must have $x_1 | y_2$. With the same reasoning, one can show that $y_2|x_1$. It follows by proposition \eqref{prop:bothdivide} that $x_1 =y_2$. One can similarly show that $x_2=y_1$. Compare the  parameters in the theorem with the ones we just used and take $r=g_1, s=x_1, t=x_2 $, and $u=g_2$. The proof is complete.
+		or simply $x_1x_2 =y_1y_2$. We claim that $x_1=y_2$ and $x_2=y_1$. To prove this claim, we use a trick. Observe that $x_1x_2=y_1y_2$ means $x_1\mid y_1y_2$. The second part of Proposition \eqref{prop:cpdiv} tells us that since $x_1 \perp y_1$, we must have $x_1\mid y_2$. With the same reasoning, one can show that $y_2\mid x_1$. It follows by proposition \eqref{prop:bothdivide} that $x_1 =y_2$. One can similarly show that $x_2=y_1$. Compare the  parameters in the theorem with the ones we just used and take $r=g_1, s=x_1, t=x_2 $, and $u=g_2$. The proof is complete.
 	\end{proof}
 	
 	\begin{theorem}\slshape
@@ -1199,7 +1202,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{theorem}
 	
 	\begin{proof}
-		Let $g=(a,b)$. Then there exist coprime integers $x$ and $y$ such that $a=gx$ and $b=gy$. Then $g^2xy=c^2$ so that $g^2|c^2$, or $g|c$ (see the example provided right after proposition \eqref{prop:basicgcd} for a proof). This implies that there exists some positive integer $k$ for which $c=gk$. Substituting this into the equation, we find $k^2=xy$ with $x\perp y$. From corollary \eqref{cor:sqr}, there exist integers $u$ and $v$ such that $x=u^2$ and $y=v^2$. Thus, $a=gu^2,b=gv^2$, and $c=guv$.
+		Let $g=(a,b)$. Then there exist coprime integers $x$ and $y$ such that $a=gx$ and $b=gy$. Then $g^2xy=c^2$ so that $g^2\mid c^2$, or $g\mid c$ (see the example provided right after proposition \eqref{prop:basicgcd} for a proof). This implies that there exists some positive integer $k$ for which $c=gk$. Substituting this into the equation, we find $k^2=xy$ with $x\perp y$. From corollary \eqref{cor:sqr}, there exist integers $u$ and $v$ such that $x=u^2$ and $y=v^2$. Thus, $a=gu^2,b=gv^2$, and $c=guv$.
 	\end{proof}
 	Now, we introduce a simple but really useful method for factorization: \textbf{Simon's Favorite Factorization Trick}\footnote{Named after Simon Rubinstein-Salzedo, a member of AoPS.}, or \textbf{SFFT} in brief.
 	\begin{proposition}[SFFT]
@@ -1215,7 +1218,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{align*}
 	In fact, the act of adding ${jk}$ to ${xy}+{xk}+{yj}$ in order to be able to factor it could be called \textbf{completing the rectangle} in analogy to the famous \textit{completing the square} trick.
 	\begin{theorem}\slshape\label{thm:lcmfactor}
-		If $N$ is the least common multiple of positive integers upto $n$, that is, $N=[1,2,\cdots,n]$, then for a prime $p$, the maximum  integer $\alpha$ for which $p^\alpha |N$ is the unique non-negative integer $\alpha$ so that $p^\alpha\leq n<p^{\alpha+1}$. In other words, if $p_i$ is a prime less than or equal to $n$, and for that prime, $\alpha_i$ is the unique integer such that $p_i^{\alpha _i}\leq n<p_i^{\alpha_i+1}$ then,
+		If $N$ is the least common multiple of positive integers upto $n$, that is, $N=[1,2,\cdots,n]$, then for a prime $p$, the maximum  integer $\alpha$ for which $p^\alpha\mid N$ is the unique non-negative integer $\alpha$ so that $p^\alpha\leq n<p^{\alpha+1}$. In other words, if $p_i$ is a prime less than or equal to $n$, and for that prime, $\alpha_i$ is the unique integer such that $p_i^{\alpha _i}\leq n<p_i^{\alpha_i+1}$ then,
 		\begin{align*}
 			N & = p_1^{\alpha _1}\cdots p_k^{\alpha_i}.
 		\end{align*}\label{thm:lcm}
@@ -1275,7 +1278,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{proof}
 	Using the above theorem, we can prove the following.
 	\begin{theorem}\slshape
-		For a prime $p>3$, $24|p^2-1$.
+		For a prime $p>3$, $24\mid p^2-1$.
 	\end{theorem}
 	
 	\begin{proof}
@@ -1329,17 +1332,17 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	
 	
 	\begin{theorem}\slshape\label{thm:powerdiv}
-		Let $a,m,$ and $n$ be positive integers. Then, $a^m-1|a^n-1$ if and only if $m|n$.
+		Let $a,m,$ and $n$ be positive integers. Then, $a^m-1\mid a^n-1$ if and only if $m\mid n$.
 	\end{theorem}
 	
 	\begin{proof}
-		We will first show that if $m|n$, then $a^m-1|a^n-1$. Notice that if $m|n$, that there exists a positive integer $h$ such that $n=mh$, and so,
+		We will first show that if $m\mid n$, then $a^m-1\mid a^n-1$. Notice that if $m\mid n$, that there exists a positive integer $h$ such that $n=mh$, and so,
 		\begin{align*}
 			a^n-1 = a^{mh}-1 = \left( a^m\right)^h -1.
 		\end{align*}
 		Let $x=a^m$. By corollary \eqref{cor:a-b|a^n-b^n}, $x-1=a^m-1$ divides $x^h-1=a^n-1$, as desired.
 		
-		Let us now show the other side. If $a^m-1|a^n-1$, then,
+		Let us now show the other side. If $a^m-1\mid a^n-1$, then,
 		\begin{align*}
 			a^m-1\mid a^n-1-(a^m-1)=a^n-a^m=a^m(a^{n-m}-1).
 		\end{align*}
@@ -1437,9 +1440,9 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	You are probably familiar with the \textit{binomial theorem}. We state this theorem here because of its high importance but do not prove it. Interested reader may see a proof of binomial theorem along with several useful related identities in Appendix \ref{ch:null}.
 		\begin{theorem}[Binomial Theorem]\slshape
 			For any positive integer $n$,
-				\begin{eqnarray*}
-					(a+b)^n & = & a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n.
-				\end{eqnarray*}
+				\begin{align*}
+					(a+b)^n & = a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n.
+				\end{align*}
 		\end{theorem}
 		
 		\begin{theorem}\slshape\label{thm:binpdiv}
@@ -1472,27 +1475,27 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	A suggestion: while reading a solution, try to find the motivation behind its idea rather than understanding it or learning the technique used in the solution. 
 	
 		\begin{solution}[Old-fashioned Way]
-			Since $n|n+3$, the fraction $\dfrac{n+3}{n}=1+\dfrac{3}{n}$ is a positive integer. This shows that $\dfrac{3}{n}$ must be an integer. Therefore, $n$ divides $3$ and the only possible values for $n$ are $1$ and $3$.
+			Since $n\mid n+3$, the fraction $\dfrac{n+3}{n}=1+\dfrac{3}{n}$ is a positive integer. This shows that $\dfrac{3}{n}$ must be an integer. Therefore, $n$ divides $3$ and the only possible values for $n$ are $1$ and $3$.
 		\end{solution}
 		
 		\begin{solution}[A Smarter Way]
-			We know that if $a|b$ and $a|c$, then $a|b-c$. But how can we know what to subtract? If $m$ is a given constant, we can easily find all numbers $n$ such that $n|m$ just as in the previous solution. See that the right side of $n|n+3$ has a variable $n$ which is not constant. So, we need to remove it somehow. This is where divisibility rules come into play. We can now subtract $n|n$ from $n|n+3$ from to obtain $n|(n+3)-n=3$ or $n|3$. In words, $n$ is a divisor of $3$ which has namely two divisors $1$ and $3$. Thus, $n$ can be $1$ or $3$.
+			We know that if $a\mid b$ and $a\mid c$, then $a\mid b-c$. But how can we know what to subtract? If $m$ is a given constant, we can easily find all numbers $n$ such that $n\mid m$ just as in the previous solution. See that the right side of $n\mid n+3$ has a variable $n$ which is not constant. So, we need to remove it somehow. This is where divisibility rules come into play. We can now subtract $n\mid n$ from $n\mid n+3$ from to obtain $n\mid (n+3)-n=3$ or $n\mid 3$. In words, $n$ is a divisor of $3$ which has namely two divisors $1$ and $3$. Thus, $n$ can be $1$ or $3$.
 		\end{solution}
 		
 		\begin{solution}[Another Smart Solution]
-			For positive integers $a$ and $b$, if $a|b$, $b\geq a$. Now, since $n+3$ cannot be equal to $n$, if it has to be divisible by $n$, it must be at least twice $n$, i.e., $n+3\geq2n$. This forces $3\geq n$ and so $n$ is one of $1,2$, or $3$. There are only three values so we can check them by hand and get the answer.
+			For positive integers $a$ and $b$, if $a\mid b$, $b\geq a$. Now, since $n+3$ cannot be equal to $n$, if it has to be divisible by $n$, it must be at least twice $n$, i.e., $n+3\geq2n$. This forces $3\geq n$ and so $n$ is one of $1,2$, or $3$. There are only three values so we can check them by hand and get the answer.
 		\end{solution}
 	Note the difference between the first and the second solution. There are pretty much no differences other than the fact that the latter is more systematic. You will eventually find that solving problems this way is particularly useful in Olympiads.
 	
 	For now, we will keep the use of inequality in store and solve a few problems by twisting up left and right sides of divisibility relations.
 		\begin{problem}
-			Find all $n \in \mathbb{N}$ so that $n|2n+3$.
+			Find all $n \in \mathbb{N}$ so that $n\mid 2n+3$.
 		\end{problem}
 		
 		\begin{solution}
 			This time we have to remove $n$ like before, but notice that there is an extra $2$ attached.
 			
-			We can overcome this easily: just see that $n|2n$ and then it is the same as the previous problem: $n|2n+3-2n=3$.
+			We can overcome this easily: just see that $n\mid 2n$ and then it is the same as the previous problem: $n\mid 2n+3-2n=3$.
 		\end{solution}
 		
 		\begin{problem}
@@ -1502,29 +1505,30 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			The left side contains more than just a $n$, but it does not make any difference. We have $n+1 \mid 3(n+1)=3n+3$ and it is given in the problem that $n+1 \mid 3n+4$. Subtracting,
 				\begin{align*}
-					n+1|3n+4-(3n+3)=1,
+					n+1
+						&\mid 3n+4-(3n+3)=1,
 				\end{align*}
 			which means $n+1$ must be $1$. This is impossible because $n+1$ is a positive integer greater than $1$.
 		\end{solution}
 		
 		\begin{note}
-			When dealing with a divisibility relation $k|m$ in which $m$ is constant, there are $\tau(m)$ possible values for $k$, where $\tau(m)$ is the number of positive divisors of $m$ (why?).
+			When dealing with a divisibility relation $k\mid m$ in which $m$ is constant, there are $\tau(m)$ possible values for $k$, where $\tau(m)$ is the number of positive divisors of $m$ (why?).
 		\end{note}
 	Try to do the following problem yourself before reading the solution.
 		\begin{problem}
-			Find all $n\in\mathbb{N}$ which satisfies $4n+2|6n+5$.
+			Find all $n\in\mathbb{N}$ which satisfies $4n+2\mid 6n+5$.
 		\end{problem}
 		
 		\begin{solution}
-			There are coefficients on both sides of divisibility now. Still it can be overridden but it is a bit tricky. See that $4n+2|3(4n+2)=12n+6$ and also $4n+2 \mid 2(6n+5)=12n+10$. Now that the coefficients are matched, we can subtract and find
+			There are coefficients on both sides of divisibility now. Still it can be overridden but it is a bit tricky. See that $4n+2\mid 3(4n+2)=12n+6$ and also $4n+2 \mid 2(6n+5)=12n+10$. Now that the coefficients are matched, we can subtract and find
 				\begin{align*}
-					4n+2|12n+10-(12n+6)=4.
+					4n+2\mid 12n+10-(12n+6)=4.
 				\end{align*}
 			So, $4n+2$ must be one of $1,2$, or $4$. None of these values give a valid solution for $n$.
 		\end{solution}
-	If you have not noticed already, this idea can be generalized to find all $n$ satisfying $an+b|cn+d$, where $a,b,c,$ and $d$ are integers. Then what shall we multiply both sides with? Here is a hint: consider the $\lcm$ of $a$ and $c$. Why $a$ and $c$?
+	If you have not noticed already, this idea can be generalized to find all $n$ satisfying $an+b\mid cn+d$, where $a,b,c,$ and $d$ are integers. Then what shall we multiply both sides with? Here is a hint: consider the $\lcm$ of $a$ and $c$. Why $a$ and $c$?
 		\begin{problem}\label{prob:ex1}
-			Find all positive integers $n$ for which $8n+9|12n+5$.
+			Find all positive integers $n$ for which $8n+9\mid 12n+5$.
 		\end{problem}
 		
 		\begin{solution}
@@ -1543,8 +1547,8 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			We are asked to find positive integers which would divide $n+4$ and $n+12$ both, no matter what. If $d$ is such a positive integer then
 				\begin{align*}
-					d|n+4 & , d|n+12\\
-					\iff d|(n+12)&-(n+4)=8
+					d\mid n+4 & , d\mid n+12\\
+					d\mid (n+12)&-(n+4)=8
 				\end{align*}
 			We immediately get that $d\in\{1,2,4,8\}$.
 		\end{solution}
@@ -1596,28 +1600,31 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				\begin{align*}
 					n+3 \mid 3n+9 \text{ and } n+3 \mid 3n-2,
 				\end{align*}		
-			we obtain $n+3|11$ which immediately gives $n=8$ as the only solution.
+			we obtain $n+3\mid 11$ which immediately gives $n=8$ as the only solution.
 		\end{solution}
 		
 		\begin{solution}[Second Solution]
 			This one is more elegant. In order to avoid the second step, we can directly multiply $n+3$ by $n-3$ to obtain
 			\begin{align*}
-				n+3  |n^2-9.
+				n+3
+					& \mid n^2-9.
 			\end{align*}
-			Subtracting from the original relation, $n+3 \mid n^2+2-(n^2-9)$ or $n+3|11$, and we find the same solution as before.
+			Subtracting from the original relation, $n+3 \mid n^2+2-(n^2-9)$ or $n+3\mid 11$, and we find the same solution as before.
 		\end{solution}
 		
 		\begin{problem}
 			Find the greatest positive integer $x$ for which
 				\begin{align*}
-					x+10|x^3+10.
+					x+10
+						& \mid x^3+10.
 				\end{align*}
 		\end{problem}
 	
 		\begin{solution}
 			Since $3$ is odd, we can use corollary \eqref{cor:a-b|a^n-b^n} to write $x+10 \mid x^3+10^3$. So,
 				\begin{align*}
-					x+10|(x^3+1000)-(x^3+10)=990,
+					x+10
+						& \mid (x^3+1000)-(x^3+10)=990,
 				\end{align*}
 			and the answer is $x=980$.
 		\end{solution}
@@ -1631,7 +1638,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			
 			First write it as, $7n+1 \mid n^4(n^2+1)$. The problematic part is $n^4$. Many beginners make mistakes in such situations claiming that $7n+1$ does not divide $n^4$, and so $7n+1 \mid n^2+1$. This is \textbf{wrong}. In general, the following statement is wrong: 
 			\begin{displayquote}
-				For positive integers $a,b$, and $c$, if $a|bc$ and $b$ is not divisible by $a$, then $a|c$.
+				For positive integers $a,b$, and $c$, if $a\mid bc$ and $b$ is not divisible by $a$, then $a\mid c$.
 			\end{displayquote}
 			This is another common  mistake new problem solvers make. You can check this using an example: $14$ divides $28=7\times4$ but $14$ does not divide $7$. But in this problem, we can still take $n^4$ off because $n^4$ is coprime to $7n+1$. Just notice that $7n+1$ leaves a remainder of $1$ when divided by $n$, so $n\perp7n+1$. Evidently, $n^4\perp7n+1$ by part $4$ of proposition \eqref{prop:cpdiv}. Using part $2$ of the same proposition, we can cancel out $n^4$ and get 
 				\begin{align*}
@@ -1649,7 +1656,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				\begin{align*}
 					7n+1  \mid n^2-7n \implies 7n+1\mid  n(n-7).
 				\end{align*}
-			Again, $n\perp7n+1$ implies $7n+1|n-7$. If $n=7$, we have a solution. Otherwise, $7n+1$ would have a larger value than $|n-7|$ and we get a contradiction.
+			Again, $n\perp7n+1$ implies $7n+1\mid n-7$. If $n=7$, we have a solution. Otherwise, $7n+1$ would have a larger value than $|n-7|$ and we get a contradiction.
 		\end{remark}
 		
 		\begin{problem}
@@ -1689,18 +1696,18 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\end{note}
 		
 		\begin{problem}
-			Find all $n\in\mathbb{N}$ such that $2^n+n|8^n+n$.
+			Find all $n\in\mathbb{N}$ such that $2^n+n\mid 8^n+n$.
 		\end{problem}
 		
 		\begin{solution}
-			There is $8$ on the right side and $2$ on the left side. Since $8=2^3$, this should certainly provoke us to use the fact that $a+b|a^3+b^3$. In this case,
+			There is $8$ on the right side and $2$ on the left side. Since $8=2^3$, this should certainly provoke us to use the fact that $a+b\mid a^3+b^3$. In this case,
 				\begin{align*}
 					2^n+n   & \mid (2^n)^3+n^3 \\
 					\implies  2^n+n & \mid 8^n+n^3\\
 					\implies 2^n+n	& \mid (8^n+n^3)-(8^n+n)\\
 					\implies 2^n+n & \mid n^3-n.
 				\end{align*}
-			Now we need to find all $n$ such that $2^n+n\mid n^3-n$. If you play around with the small values of $n$, you will clearly see that $2^n$ grows a lot faster than $n^3$. Since $2^n+n|n^3-n$, we must have
+			Now we need to find all $n$ such that $2^n+n\mid n^3-n$. If you play around with the small values of $n$, you will clearly see that $2^n$ grows a lot faster than $n^3$. Since $2^n+n\mid n^3-n$, we must have
 				\begin{align*}
 					2^n+n & \leq n^3-n.
 				\end{align*}
@@ -1728,13 +1735,13 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				g & \mid 3(14n+3) = 42n+9,\\
 				g & \mid  2(21n+4)= 42n+8.
 			\end{align*}
-		Thus, $g|(42n+9)-(42n+8)=1$ and $g=1$.
+		Thus, $g\mid (42n+9)-(42n+8)=1$ and $g=1$.
 		
 			\item Take $14n+3=gx$ and $21n+4=gy$ for some integers $x$ and $y$. Note that $3(14n+3)-2(21n+4) = 1$, and so
 			\begin{align*}
 				 3gx-2gy  & = 1,
 			\end{align*}
-		or $g(3x-2y) = 1.$ So, $g|1$ and this gives us the same result $g=1$.
+		or $g(3x-2y) = 1.$ So, $g\mid 1$ and this gives us the same result $g=1$.
 		\end{enumerate}
 	\end{solution}
 	
@@ -1785,15 +1792,15 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\end{problem}
 	
 	\begin{solution}
-		Do not panic! Even some TST problems can be solved using simple tricks. The general idea is to first see if there are infinitely many solutions. Check some numbers and some special values for $m$ and $n$. For instance, put $m=n$ to see if it fits in. In this problem, we cannot find a pattern to construct infinitely many solutions, so we guess that there are finite solutions and continue. To be honest, many of such divisibility problems (with finite solutions) rely heavily on case working, and you need to know how to start the case work. One of the best ways to handle this situation is to find a limit for $m$ and $n$. Remember the properties of divisibility from proposition \eqref{prop:basicdiv}. Limit means boundary, and boundary means inequality (see part 10 of that proposition). Actually, we will use the fact that if $a|b$ for positive integers $a$ and $b$, then $a \leq b$. After we have found the limit, the case work begins.
+		Do not panic! Even some TST problems can be solved using simple tricks. The general idea is to first see if there are infinitely many solutions. Check some numbers and some special values for $m$ and $n$. For instance, put $m=n$ to see if it fits in. In this problem, we cannot find a pattern to construct infinitely many solutions, so we guess that there are finite solutions and continue. To be honest, many of such divisibility problems (with finite solutions) rely heavily on case working, and you need to know how to start the case work. One of the best ways to handle this situation is to find a limit for $m$ and $n$. Remember the properties of divisibility from proposition \eqref{prop:basicdiv}. Limit means bounds, and bounds means inequality (see part 10 of that proposition). Actually, we will use the fact that if $a\mid b$ for positive integers $a$ and $b$, then $a \leq b$. After we have found the limit, the case work begins.
 		
-		Write $n|3m+1$ as $3m+1=nk$ or $m=\frac{nk-1}{3}$. Now try to rewrite the second divisibility relation as
+		Write $n\mid 3m+1$ as $3m+1=nk$ or $m=\frac{nk-1}{3}$. Now try to rewrite the second divisibility relation as
 			\begin{align*}
 				& \frac{nk-1}{3} \bigg| n^2 + 3 \\
 				\stackrel{\times 3}{\implies} & nk-1\mid 3n^2+9 \\
 				\stackrel{\times k}{\implies} & nk-1\mid 3n^2k+9k.
 			\end{align*}
-		On the other hand, we know that $nk-1|3n(nk-1)=3n^2k-3n$. Subtract these two last divisibility relations to find
+		On the other hand, we know that $nk-1\mid 3n(nk-1)=3n^2k-3n$. Subtract these two last divisibility relations to find
 			\begin{align*}
 				nk-1 \mid 3n+9k,
 			\end{align*}
@@ -1801,19 +1808,21 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			\begin{align*}
 				nk-3n-9k\leq 1 \stackrel{\text{add }27}{\implies} (n-9)(k-3) \leq 28.
 			\end{align*}
-		Notice that we have found the limit we wanted! The solution is almost obvious from here on, because one can manually put all possible values for $n$ and $k$ such that $(n-9)(k-3) \leq 28$ and pick those which satisfy the problem conditions ($n|3m+1$ and $m|n^2+3$). In order to avoid this tedious endeavor, we start a proper case work.
+		Notice that we have found the limit we wanted! The solution is almost obvious from here on, because one can manually put all possible values for $n$ and $k$ such that $(n-9)(k-3) \leq 28$ and pick those which satisfy the problem conditions ($n\mid 3m+1$ and $m\mid n^2+3$). In order to avoid this tedious endeavor, we start a proper case work.
 		
 		We start case work on the parameter $k$ (you will know why). Since $m$ is odd and $3m+1=nk$, $k$ is even. We check some possible values of $k$:
 			\begin{enumerate}[(a)]
 				\item If $k=2$, then from $nk-1\mid 3n+9k$ we have $2n-1\mid 3n+18$, and thus
 					\begin{align*}
-						2n-1|2(3n+18)-3(2n-1)=39.
+						2n-1
+							& \mid 2(3n+18)-3(2n-1)=39.
 					\end{align*}
 				 This means that $2n-1=1, 3, 13$, or $39$. None of these values make a solution for the problem.
 				
-				\item If $k=4$, then from $nk-1|3n+9k$ we have $4n-1|3n+36$, and thus
+				\item If $k=4$, then from $nk-1\mid 3n+9k$ we have $4n-1\mid 3n+36$, and thus
 					\begin{align*}
-						4n-1|4(3n+36)-3(4n-1)=147.
+						4n-1
+							& \mid 4(3n+36)-3(4n-1)=147.
 					\end{align*}
 				This means that $4n-1=1, 3, 7, 21, 49$, or $147$. Checking the values of $n$, we find that $n=1$ and $n=37$ satisfy the conditions of the problem and give us the solutions $(m,n)=(1,1)$ and $(m,n)=(49,37)$.
 				
@@ -1825,7 +1834,8 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			\end{enumerate}
 		Finally, the solutions are
 			\begin{align*}
-				(m,n)=(1,1), (49,37), (43,13).
+				(m,n)
+					& =(1,1), (49,37), (43,13).
 			\end{align*}
 	\end{solution}
 \newpage
@@ -2364,7 +2374,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %	\end{solution}
 
 	\begin{problem}
-		Let $a, b$, and $c$ be positive integers satisfying $\gcd (a, b) = \gcd (b, c) = \gcd (c, a) = 1$. Show that $2abc-ab-bc-ca$ cannot be represented as $bcx+cay +abz$ with nonnegative integers $x, y, z$. %175
+		Let $a, b$, and $c$ be positive integers satisfying $\gcd (a, b) = \gcd (b, c) = \gcd (c, a) = 1$. Show that $2abc-ab-bc-ca$ cannot be represented as $bcx+cay +abz$ with non-negative integers $x, y, z$. %175
 	\end{problem}
 
 %	\begin{solution}
