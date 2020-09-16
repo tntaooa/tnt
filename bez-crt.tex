@@ -229,20 +229,20 @@ We are going to prove a very simple fact which will be very useful later (for in
 \end{remark}
 		
 	\begin{problem}
-		Prove that, $$\dfrac{(m,n)}{m}\binom{m}{n}$$ is an integer.
+		Prove that, $\frac{(m,n)}{m}\binom{m}{n}$ is an integer.
 	\end{problem}
-	Since this problem is juxtaposed with this section, it is obvious we are going to use this theorem. But in a real contest, that is not the case at all.
+	Since this problem is juxtaposed with this section, it is obvious we are going to use this theorem. But in a real contest, that may  not be the case at all. Try solving it without seeing the solution first and you will know what we mean.
 	\begin{solution}
 		Since there are integers $x,y$ with $(m,n)=mx+ny$, it is easy to deduce that:
 			\begin{align*}
-			\dfrac{(m,n)}{m}\binom{m}{n} & = \dfrac{mx+ny}{m}\binom{m}{n}\\
-			& = x\binom{m}{n}+\dfrac{ny}{m}\binom{m}{n}\\
-			& = x\binom{m}{n}+\dfrac{ny}{m}\cdot\dfrac{m}{n}\binom{m-1}{n-1}\\
-			& = x\binom{m}{n}+y\binom{m-1}{n-1}.
+				\dfrac{\gcd(m,n)}{m}\binom{m}{n}
+					& = \dfrac{mx+ny}{m}\binom{m}{n}\\
+					& = x\binom{m}{n}+\dfrac{ny}{m}\binom{m}{n}\\
+					& = x\binom{m}{n}+\dfrac{ny}{m}\cdot\dfrac{m}{n}\binom{m-1}{n-1}\\
+					& = x\binom{m}{n}+y\binom{m-1}{n-1}.
 			\end{align*}
-		Now we can say this is an integer. See how tactfully we tackled this problem.
+		This is obviously an integer.
 	\end{solution}
-	
 
 \section{Chinese Remainder Theorem}	
 	Chinese Remainder Theorem --usually called \textit{CRT}-- is a very old principle in mathematics. It was first introduced by a Chinese mathematician Sun Tzu almost $1700$ years ago. Consider the following example.
@@ -392,7 +392,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 					k &\equiv -a \pmod p\\
 					k &\equiv \phantom{-}1  \pmod n
 				\end{align*}
-			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d|k$, meaning $d|1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not coprime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
+			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d\mid k$, meaning $d\mid 1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not coprime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
 			
 			For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\cdots , s_{\varphi(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is coprime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is co-prime to $p$, so is $s+a$. Thus $s+a$ is co-prime to all prime factors of $m$, making it relatively prime to $m$ as well. 
 		\end{solution}

@@ -1,4 +1,4 @@
-\documentclass[12pt]{subfile}
+\documentclass[main.tex]{subfile}
 
 \begin{document}
 	Let $n$ be a fixed positive integer. There are many cases when we are interested in integers $a$ coprime to $n$ for which there exists another integer $x$ such that $a \equiv x^2 \pmod n$. As an example, assume that we want to solve the quadratic congruence relation
@@ -56,9 +56,10 @@
 		\end{align*}
 		These numbers are distinct modulo $p$, because otherwise if $x^2 \equiv y^2 \pmod p$ for some $x,y \in \{1,2,\ldots,\frac{p-1}{2}\}$, then
 		\begin{align*}
-			p| x^2 -y^2 \implies p|(x-y)(x+y).
+			p\mid x^2 -y^2\\
+			\implies p\mid (x-y)(x+y).
 		\end{align*}
-		But note that $x+y< \frac{p-1}{2}+\frac{p-1}{2}=p-1$, and so $p \nmid x+y$, which means $p|x-y$. Finally, since $x$ and $y$ are less than $p$, we should have $x=y$.
+		But note that $x+y< \frac{p-1}{2}+\frac{p-1}{2}=p-1$, and so $p \nmid x+y$, which means $p\mid x-y$. Finally, since $x$ and $y$ are less than $p$, we should have $x=y$.
 		So we have proved that there are exactly $(p-1)/2$ quadratic residues and they are
 		\begin{equation*}
 			1^2, 2^2, \ldots, \displaystyle \left(\frac{p-1}{2}\right)^2. 
@@ -101,9 +102,9 @@
 			\left(\dfrac{a}{p}\right) 
 			& = 
 			\begin{cases}
-				0,& \mbox{ if }p|a,\\
-				1, &\mbox{ if }a\mbox{ is a qr of }p,\\
-				-1, &\mbox{ otherwise}.
+				0 & \mbox{if }p\mid a,\\
+				1 &\mbox{if }a\mbox{ is a quadratic residue of }p,\\
+				-1 &\mbox{otherwise}.
 			\end{cases}
 		\end{align*}
 		
@@ -226,7 +227,7 @@ This infers the following theorem and the next.
 			\begin{align*}
 			\left(a^2\right)^{\frac{p-1}{2}} \equiv \left(-b^2\right)^{\frac{p-1}{2}}\pmod p \implies a^{p-1} \equiv -b^{p-1} \pmod p.
 			\end{align*}
-		Clearly, since $p|a^2+b^2$, if $p$ divides one of $a$ or $b$, it should divide the other one. But this is impossible because $a \bot b$. So $p \bot a$ and $p \bot b$. By Fermat's little theorem, $a^{p-1} \equiv b^{p-1} \equiv 1 \pmod p$, which is in contradiction with the above equation since $p$ is odd.
+		Clearly, since $p\mid a^2+b^2$, if $p$ divides one of $a$ or $b$, it should divide the other one. But this is impossible because $a \bot b$. So $p \bot a$ and $p \bot b$. By Fermat's little theorem, $a^{p-1} \equiv b^{p-1} \equiv 1 \pmod p$, which is in contradiction with the above equation since $p$ is odd.
 		So, $p$ cannot be of the form $4k+3$ and therefore every odd prime divisor of $a^2+b^2$ is of the form $4k+1$.
 	\end{proof}
 	
@@ -281,16 +282,20 @@ Back to quadratic residues, the next step is to determine if $2$ is a quadratic 
 		2^5 \cdot 5! \equiv (-1)^3 \cdot 5! \pmod{11}\implies 2^5 \equiv (-1)^3 \equiv -1 \pmod{11}.
 		\end{align*}
 		Let's go back to the solution of the general problem. As in the example of $p=11$, we are searching for the power of $(-1)$ appeared in the congruence relation. In fact, this power equals the number of even elements bigger than $ \frac{p-1}{2}$ and less than or equal to $p-1$. Depending on the remainder of $p$ modulo $8$, this power of $(-1)$ can be even or odd. Consider the case when $p \equiv 1 \pmod 8$. Then $p-1 = 8k$ for some positive integer $k$ and so the even numbers less than or equal to $\frac{p-1}{2} = 4k$ in the set $A=\{2,4,\ldots,8k\}$ are $2,4,\ldots,4k$, which are $2k+1$ numbers. Therefore
-		\begin{align*}
-		2 \times 4 \times \cdots \times (p-1) &= \overbrace{\left(2 \times 4 \times \cdots \times 4k\right)}^{2k+1 \text{ items}} \cdot \overbrace{\left((4k+2) \times (4k+4) \times \cdots \times 8k\right)}^{2k \text{ items}}\\
-		& \equiv \left(2 \times 4 \times \cdots \times 4k\right) \cdot \left((-(4k-1)) \times (-(4k-3)) \times \cdots \times (-1)\right) \\
-		& \equiv (-1)^{2k} \cdot (4k)!\\
-		& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p.
-		\end{align*} 
+			\begin{align*}
+				2 \times 4 \times \cdots \times (p-1)
+					&= \overbrace{\left(2 \times 4 \times \cdots \times 4k\right)}^{2k+1 \text{ items}} \cdot \overbrace{\left((4k+2) \times (4k+4) \times \cdots \times 8k\right)}^{2k \text{ items}}\\
+					& \equiv \left(2 \times 4 \times \cdots \times 4k\right) \cdot \left((-(4k-1)) \times (-(4k-3)) \times \cdots \times (-1)\right) \\
+					& \equiv (-1)^{2k} \cdot (4k)!\\
+					& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p.
+			\end{align*} 
 		Compare this result with \eqref{eq:factorialqr1}, you see that
-		\begin{align*}
-		2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)! \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p \implies 2^\frac{p-1}{2} \equiv (-1)^{2k} \equiv 1 \pmod p.
-		\end{align*}
+			\begin{align*}
+				2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)!
+					& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p\\
+				\implies 2^\frac{p-1}{2}
+					& \equiv (-1)^{2k} \equiv 1 \pmod p.
+			\end{align*}
 		So if $p \equiv 1 \pmod 8$, then $ \left(\frac{2}{p}\right)=1$.
 		
 		The process is similar for $p \equiv 3, 5, 7 \pmod 8$ and we put it as an exercise for the reader. 
@@ -418,12 +423,12 @@ The proof is left as an exercise for the reader.
 	
 	\begin{proof}
 		The \textit{if} part is easy to prove. Assume that $a$ is a quadratic residue modulo $n$ and $a \equiv x^2 \pmod n$ for some integer $x$. Then $a \equiv x^2 \pmod{p_i^{\alpha_i}}$ since $p_i$s are relatively prime to each other. Now the \textit{only if} part: assume that $a \equiv x_i^2 \pmod{p_i^{\alpha_i}}$ for all $i$, where $x_i$ are integers. According to Chinese Remainder Theorem, since the numbers ${p_i^{\alpha_i}}$ are pairwise coprime, the system of congruence equations
-		\begin{eqnarray*}
-		x & \equiv& x_1\pmod{p_1^{\alpha_1}}\\
-		x & \equiv& x_2\pmod{p_2^{\alpha_2}}\\
-		& \vdots&\\
-		x & \equiv& x_k\pmod{p_k^{\alpha_k}}
-		\end{eqnarray*}
+		\begin{align*}
+			x & \equiv x_1\pmod{p_1^{\alpha_1}}\\
+			x & \equiv x_2\pmod{p_2^{\alpha_2}}\\
+			& \vdots\\
+			x & \equiv x_k\pmod{p_k^{\alpha_k}}
+		\end{align*}
 		has a solution for $x$. Now $x^2 \equiv x_i^2 \equiv a \pmod{p_i^{\alpha_i}}$, and therefore $x^2 \equiv a \pmod n$, which means that $a$ is a quadratic residue modulo $n$.
 	\end{proof}
 	
@@ -443,13 +448,13 @@ The proof is left as an exercise for the reader.
 		\begin{theorem}\slshape
 			If a positive integer is a quadratic residue modulo every prime, then it is a perfect square. 
 		\end{theorem}
-	This is a really cool theorem. However, proving this might be challenging!\footnote{A popular proof for this uses Dirichlet's theorem: For two co-prime positive integers $a$ and $b$, there are infinitely many primes in the sequence $\{an+b\}_{n\geq1}$. This theorem is very famous for being difficult to prove and it is well beyond our scope. How you are going to use it, that is entirely up to you.} Give it a try.
+	This is a really cool theorem. However, proving this might be challenging!\footnote{A popular proof for this uses Dirichlet's theorem: For two co-prime positive integers $a$ and $b$, there are infinitely many primes in the sequence $\{an+b\}_{n\geq1}$. This theorem is very famous for being difficult to prove and it is well beyond our scope.} Give it a try.
 		\begin{theorem}\slshape
 			Let $b,n > 1$ be integers. Suppose that for each $k > 1$ there exists an integer $a_k$ such that $b - a^n_k$ is divisible by $k$. Prove that $b = A^n$ for some integer $A$.
 		\end{theorem}
 		
 		\begin{proof}
-			Assume that $ b$ has a prime factor, $ p$, so that $ p^{xn + r}||b$ with $ 0 < r < n$. Then, we can let $ k = p^{xn + n}$. It follows that $ b\equiv a_k^n\bmod p^{xn + n}$. Since $ p^{xn + r}||b$, we see that $ p^{xn + r}||a_k^n$. Then, $ p^{x + \frac {r}{n}}||a_k^n$, which is a contradiction since $ \frac {r}{n}$ is not an integer. Thus, we have a contradiction, so $ r = 0$, which means that only $ n$th powers of primes fully divide $ b$, so $ b$ is an $ n$th power.
+			Assume that $ b$ has a prime factor, $ p$, so that $ p^{xn + r}\|b$ with $ 0 < r < n$. Then, we can let $ k = p^{xn + n}$. It follows that $ b\equiv a_k^n\bmod p^{xn + n}$. Since $ p^{xn + r}\|b$, we see that $ p^{xn + r}\|a_k^n$. Then, $ p^{x + \frac {r}{n}}\|a_k^n$, which is a contradiction since $ \frac {r}{n}$ is not an integer. Thus, we have a contradiction, so $ r = 0$, which means that only $ n$th powers of primes fully divide $ b$, so $ b$ is an $ n$th power.
 		\end{proof}
 		
 

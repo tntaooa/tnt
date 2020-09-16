@@ -172,52 +172,59 @@
 		\begin{proof}[Proof of Wolstenholme's Theorem]
 			According to Lemma \ref{lem:wolstproof1}, we can write $S$ as
 			\begin{align*}
-				S= p \cdot \sum_{i=1}^{\frac{p-1}{2}} \frac{1}{i(p-i)}.
+				S
+					& = p \cdot \sum_{i=1}^{\dfrac{p-1}{2}} \dfrac{1}{i(p-i)}.
 			\end{align*}
 			From Lemma \ref{lem:wolstproof4}, we know that the above sum is divisible by $p$, so $S$ is divisible by $p^2$.
 		\end{proof}
 		
 		\begin{problem}
 			Let $p \geq 5$ be a prime number, and 
-			\begin{align*}
-			1 + \frac{1}{2} + \cdots + \frac{1}{p}=\frac{a}{b},
-			\end{align*}
-			where $a$ and $b$ are two relatively prime integers. Show that $p^4 | ap -b$.
+				\begin{align*}
+					1 + \dfrac{1}{2} + \ldots + \dfrac{1}{p}=\dfrac{a}{b},
+				\end{align*}
+			where $a$ and $b$ are two relatively prime integers. Show that $p^4\mid ap -b$.
 		\end{problem}
 		
 		\begin{solution}
 			From Wolstenholme's theorem, we have
 				\begin{align*}
-				1 + \frac{1}{2} + \cdots + \frac{1}{p-1}=p^2 \cdot \frac{x}{y},
+					1 + \dfrac{1}{2} + \cdots + \dfrac{1}{p-1}
+						& =p^2 \cdot \dfrac{x}{y},
 				\end{align*}
 			for some integers $x$ and $y$ such that $y \bot p$. Replacing this in the given equation,
 				\begin{align*}
-				p^2 \cdot \frac{x}{y}+ \frac{1}{p}=\frac{a}{b} \implies ap-b = p^3b \cdot \frac{x}{y}.
+					p^2 \cdot \dfrac{x}{y}+ \dfrac{1}{p}
+						& =\frac{a}{b}\\
+					ap-b 
+						& = p^3b \cdot \dfrac{x}{y}.
 				\end{align*}
-			Since $b$ is divisible by $p$, we have $p^4 | ap-b$.
-			
+			Since $b$ is divisible by $p$, we have $p^4\mid ap-b$.
 		\end{solution}
 	
-		\begin{problem}[Masum Billal]
+		\begin{problem}
 			Let $p \geq 5$ be a prime and
-			\begin{align*}
-			\frac{1}{p-1} + \frac{2}{p-2} + \cdots + \frac{p-1}{1}=\frac{a}{b},
-			\end{align*}
-			where $a$ and $b$ are two relatively prime integers. Show that $p^3 | a-b+bp$.
+				\begin{align*}
+					\dfrac{1}{p-1} + \dfrac{2}{p-2} + \ldots + \dfrac{p-1}{1}=\dfrac{a}{b},
+				\end{align*}
+			where $a$ and $b$ are two relatively prime integers. Show that $p^3\mid a-b+bp$.
 		\end{problem}
 		
 		\begin{solution}
 			Note that
 				\begin{align*}
-					\frac{a}{b} &= \sum_{i=1}^{p-1} \frac{p-i}{i} =\sum_{i=1}^{p-1} \left(\frac{p}{i} -1 \right)=\sum_{i=1}^{p-1} \frac{p}{i} - (p-1) =p\cdot\left(\sum_{i=1}^{p-1} \frac{1}{i}\right) - (p-1)\\
-					&=p \cdot p^2 \frac{x}{y} - (p-1),
+					\dfrac{a}{b} &= \sum_{i=1}^{p-1} \frac{p-i}{i} =\sum_{i=1}^{p-1} \left(\frac{p}{i} -1 \right)=\sum_{i=1}^{p-1} \dfrac{p}{i} - (p-1)
+						& = p\cdot\left(\sum_{i=1}^{p-1} \dfrac{1}{i}\right) - (p-1)\\
+						& = p \cdot p^2 \dfrac{x}{y} - (p-1),
 				\end{align*}
 			where $x$ and $y$ are relatively prime integers with $y \bot p$ (we have used Wolstenholme's theorem in the last line). Now,
 				\begin{align*}
-					\frac a b+p-1=p\cdot\frac{p^2x}y \implies (a-b+bp)y=p^3xb,
+					\dfrac a b+p-1
+						& =p\cdot\dfrac{p^2x}y\\
+					\implies (a-b+bp)y
+						& =p^3xb,
 				\end{align*}
-			and since $y\bot p$, we have $p^3 | a-b+bp$.
-			
+			and since $y\bot p$, we have $p^3\mid a-b+bp$.
 		\end{solution}
 	
 
@@ -232,10 +239,11 @@
 		\begin{solution}
 			We use the fact that $p-i\equiv-i\pmod p$ and that $(i,p)=1$ for $0<i<p$.
 				\begin{align*}
-					\binom{p-1}{k} & = \dfrac{(p-1)(p-2)\cdots(p-1-k+1)}{1\times 2 \times \cdots \times k}\\
-					& \equiv \dfrac{(-1) \times (-2) \times \cdots \times (-k)}{1\times 2 \times \cdots \times k}\\
-					& \equiv\dfrac{(-1)^k \cdot 1\times 2 \times \cdots \times k}{1\times 2 \times \cdots \times k}\\
-					& \equiv(-1)^k\pmod p.
+					\binom{p-1}{k} 
+						& = \dfrac{(p-1)(p-2)\cdots(p-1-k+1)}{1\times 2 \times \cdots \times k}\\
+						& \equiv \dfrac{(-1) \times (-2) \times \cdots \times (-k)}{1\times 2 \times \cdots \times k}\\
+						& \equiv\dfrac{(-1)^k \cdot 1\times 2 \times \cdots \times k}{1\times 2 \times \cdots \times k}\\
+						& \equiv(-1)^k\pmod p.
 				\end{align*}
 			
 		\end{solution}
@@ -250,18 +258,21 @@
 		\begin{solution}
 			The approach is not obvious here unless one knows the above theorem. In problems like this, it is usually hard to pin down how to approach the problem. However, one should of course try to make use of the fact that
 				\begin{align*}
-					2^p & = (1+1)^p = 1+\binom{p}{1}+\cdots+\binom{p}{p-1}+1\\
-					& = 	1+\dfrac{p}{1}\binom{p-1}{0}+\cdots+\dfrac{p}{p-1}\binom{p-1}{p-2}+1.
+					2^p 
+						& = (1+1)^p = 1+\binom{p}{1}+\cdots+\binom{p}{p-1}+1\\
+						& = 1+\dfrac{p}{1}\binom{p-1}{0}+\cdots+\dfrac{p}{p-1}\binom{p-1}{p-2}+1.
 				\end{align*}
 			So,
 				\begin{align*}
-					2^p-2&= p\left(\frac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\right).
+					2^p-2
+						& = p\left(\frac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\right).
 				\end{align*}
 			Now, the problem is in a suitable shape and we can use the theorem above to write
 				\begin{align*}
-					\dfrac{2^p-2}{p}& = \dfrac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\\
-					& \equiv(-1)^0+\dfrac{1}{2}(-1)^1+\cdots+\dfrac{1}{p-1}(-1)^{p-3}\\
-					& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-1}\pmod p.
+					\dfrac{2^p-2}{p}
+						& = \dfrac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\\
+						& \equiv(-1)^0+\dfrac{1}{2}(-1)^1+\cdots+\dfrac{1}{p-1}(-1)^{p-3}\\
+						& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-1}\pmod p.
 				\end{align*}
 			
 		\end{solution}
@@ -269,62 +280,69 @@
 		\begin{corollary}
 			For an odd prime $p$,
 				\begin{align*}
-					\dfrac{2^{p-1}-1}{p} & \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-2}\pmod p.
+					\dfrac{2^{p-1}-1}{p}
+						& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-2}\pmod p.
 				\end{align*}
 		\end{corollary}
 					
 		\begin{problem}
 			Let $p \geq 5$ be a prime. Prove that
 				\begin{align*}
-					\binom{p^2}{p} \equiv p \pmod{p^5}.
+					\binom{p^2}{p}
+						& \equiv p \pmod{p^5}
 				\end{align*}
 		\end{problem}
 		
 		\begin{solution}
 			Notice that
 				\begin{align*}
-					\binom{p^2}{p} - p &=\frac{p^2(p^2-1)(p^2-2)\cdots(p^2-(p-1))}{p!}-p\\
-					&=\frac{p}{(p-1)!} \Big((p^2-1)(p^2-2)\cdots(p^2-(p-1)) - (p-1)!\Big).
+					\binom{p^2}{p} - p
+						& =\dfrac{p^2(p^2-1)(p^2-2)\cdots(p^2-(p-1))}{p!}-p\\
+						& =\dfrac{p}{(p-1)!} \Big((p^2-1)(p^2-2)\cdots(p^2-(p-1)) - (p-1)!\Big).
 				\end{align*}
 			Since $(p, (p-1)!)=1$, it suffices to show that
 				\begin{align*}
 					(p^2-1)(p^2-2)\cdots(p^2-(p-1)) \equiv (p-1)! \pmod{p^4}.
 				\end{align*}
 			Expand the left side to obtain
-				\begin{multline*}
-					(p^2-1)(p^2-2)\cdots(p^2-(p-1)) \\ = (p-1)! + p^2\Big(1+\frac{1}{2}+\cdots+\frac{1}{p-1}\Big)\left(p-1\right)!+p^4\cdot x,
-				\end{multline*}
+				\begin{align*}
+					(p^2-1)(p^2-2)\cdots(p^2-(p-1)) \\ 
+						& = (p-1)! + p^2\Big(1+\frac{1}{2}+\cdots+\frac{1}{p-1}\Big)\left(p-1\right)!+p^4\cdot x
+				\end{align*}
 			where $x$ is some integer. By Wolstenholme's theorem, the second term in the above expansion is divisible by $p^4$ and we are done.
 		\end{solution}
 		
 		\begin{corollary}
 			Let $p \geq 5$ be a prime and $n\geq 1$ be an integer. Then
 				\begin{align*}
-					\binom{p^{n+1}}{p} \equiv p^n \pmod{p^{2n+3}}.
+					\binom{p^{n+1}}{p}
+						& \equiv p^n \pmod{p^{2n+3}}.
 				\end{align*}
 		\end{corollary}
 	A result from \textcite{carlitz_1954}.
 		\begin{problem}
 			Let $k$ be a non-negative integer and $p\geq 5$ be a prime. Prove that
 				\begin{align*}
-					\frac{1}{kp+1}+ \frac{1}{kp+2}+ \dots+\frac{1}{kp+(p-1)}\equiv 0\pmod{p^2}.
+					\dfrac{1}{kp+1}+ \dfrac{1}{kp+2}+ \ldots+\dfrac{1}{kp+(p-1)}\equiv 0\pmod{p^2}.
 				\end{align*}
 		\end{problem}
 		
 		\begin{hint}
 			Use the following:
 				\begin{align*}
-					\sum_{i=1}^{p-1}\frac{1}{kp+i} &=\frac{1}{2}\sum_{i=1}^{p-1}\Bigl(\frac{1}{kp+i}+\frac{1}{kp+p-i}\Bigr).
+					\sum_{i=1}^{p-1}\dfrac{1}{kp+i}
+						& = \dfrac{1}{2}\sum_{i=1}^{p-1}\Bigl(\dfrac{1}{kp+i}+\dfrac{1}{kp+p-i}\Bigr).
 				\end{align*}
 		\end{hint}
 	
 		\begin{problem}
 			For a prime $p \geq 5$, show that
 				\begin{align*}
-					\binom{p^3}{p^2} \equiv \binom{p^2}{p} \pmod{p^8}.
+					\binom{p^3}{p^2}
+						& \equiv \binom{p^2}{p} \pmod{p^8}.
 				\end{align*}
 		\end{problem}
-	The following problems appears in \textcite[D23]{vandendriessche_lee_2007}.
+	The following problem appears in \textcite[D23]{vandendriessche_lee_2007}.
 		\begin{problem}
 			Let $p$ be an odd prime of the form $p=4n+1$. 
 			\begin{itemize}
@@ -336,15 +354,16 @@
 		\begin{problem} %[http://www.artofproblemsolving.com/community/c6h229692p1272166]
 			Let $p \geq 7$ be a prime and let $s$ be a positive integer such that $p-1 \nmid s$. Prove that 
 			\begin{align*}
-				1 + \frac {1}{2^s} + \frac {1}{3^s} + \cdots + \frac {1}{(p - 1)^s} \equiv 0 \pmod p.
+				1 + \dfrac {1}{2^s} + \dfrac {1}{3^s} + \ldots + \dfrac {1}{(p - 1)^s} \equiv 0 \pmod p.
 			\end{align*}
 		\end{problem}
 		
 		\begin{problem} %[Generalized Wolstenholme's Theorem]%[http://www.artofproblemsolving.com/community/q1h164729p916854]
 			Let $n$ be a positive integer not divisible by $6$. Also, let $S$ be a reduced residue system modulo $n$ such that $1 \leq a <n$ for all $a \in S$. Prove that
-			\begin{align*}
-			\sum_{a \in S} \frac{1}{a} \equiv 0 \pmod{n^2}.
-			\end{align*}
+				\begin{align*}
+					\sum_{a \in S} \frac{1}{a}
+						& \equiv 0 \pmod{n^2}.
+				\end{align*}
 		\end{problem}
 	
 	
