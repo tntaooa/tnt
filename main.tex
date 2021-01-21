@@ -25,16 +25,8 @@
 }
 \date{\today}
 
-\makeatletter
-\newcommand{\globalcolor}[1]{%
-	\color{#1}\global\let\default@color\current@color
-}
-\makeatother
-\AtBeginDocument{\globalcolor{coolblack}}
+\makeatletter\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}\makeatother\AtBeginDocument{\globalcolor{onyx}}
 
-
-\bibliography{main.bib}
-\pgfplotsset{compat=1.16,}
 
 \begin{document}
 \frontmatter
@@ -71,7 +63,7 @@ I would like to have a few words before diving into the discussion. First of all
 When I first thought about writing this book, my intention was to make students realize that they do not need to know a lot of theorems in order to be able to solve problems. My primary target was to build confidence about this claim. But as we kept writing we had to increase the pace since we had to cover a lot (and that was  discarding a lot of contents which we thought would ask for even discussion or we just felt lazy about it), we had to increase the pace.
 
 
-I would like to address one more concern. Originally, my plan was to make this book a series of $5$ volumes, this being the first one. In those volumes I wanted to discuss a lot of topics such as special numbers like \textit{egyptian fraction} or even interesting numbers like \textit{abundant number or deficient number} and their properties etc or crucial topics such as \textit{Diophantine equations}. You will notice that we have left a lot of important topics like those out of this book. The reason is, I quickly realized I can hardly finish writing this first volume, and if I wanted to complete the series we will probably have to keep writing my whole life. So, I had to discard a lot of contents and make the book concise which resulted in squeezing in a lot of contents in a few hundreds of pages. 
+I would like to address one more concern. Originally, my plan was to make this book a series of $5$ volumes, this being the first one. In those volumes I wanted to discuss a lot of topics such as special numbers like \textit{egyptian fraction} or even interesting numbers like \textit{abundant number or deficient number} and their properties etc or crucial topics such as \textit{Diophantine equations}. You will notice that we have left a lot of important topics like those out of this book. The reason is, I quickly realized I can hardly finish writing this first volume, and if I wanted to complete the series we will probably have to keep writing my whole life. So, I had to discard a lot of contents and make the book concise which resulted in squeezing in a lot of contents in a few hundreds of pages.
 
 
 Finally, I would like to thank Amir to join me in this project. At one point I stopped writing the book. If he had not agreed to be a co-author, this book would have probably not been completed at all. More so because he agreed to follow the style I wanted to write in even when we had objection from reputed publisher like \textit{Springer}.
@@ -93,7 +85,7 @@ Professor \textbf{Peyman Nasehpour}, whom I knew from the very first semester of
 
 \vspace{0.3cm}
 
-The idea behind the lattices in the \textbf{cover} is a geometric proof of law of quadratic reciprocity. Our friends found other interpretations of it such as Pick's theorem (which is not the case here) or the sum of positive integers up to $n$, which you will realize is also not always true (for all primes $p,q$). Section \eqref{sec:qrlawproof} is dedicated to this proof and investigates why it is true using counting the lattice (grid) points. When we picked this idea for the cover, we chose quadratic reciprocity because its proof is geometrically visual and indeed very beautiful. Our hope was to make the reader curious because the design looks familiar. Stay excited until you read that proof! Or, maybe, go read it if you have the prerequisite knowledge and the puzzle is boggling your mind. I remember I found the idea of the proof in one of Kenneth H. Rosen's books on discrete mathematics, but I'm not sure which one, as it was a long time ago when I wrote it. I used TikZ package for \LaTeX to write the codes and generate the graphs. 
+The idea behind the lattices in the \textbf{cover} is a geometric proof of law of quadratic reciprocity. Our friends found other interpretations of it such as Pick's theorem (which is not the case here) or the sum of positive integers up to $n$, which you will realize is also not always true (for all primes $p,q$). Section \eqref{sec:qrlawproof} is dedicated to this proof and investigates why it is true using counting the lattice (grid) points. When we picked this idea for the cover, we chose quadratic reciprocity because its proof is geometrically visual and indeed very beautiful. Our hope was to make the reader curious because the design looks familiar. Stay excited until you read that proof! Or, maybe, go read it if you have the prerequisite knowledge and the puzzle is boggling your mind. I remember I found the idea of the proof in one of Kenneth H. Rosen's books on discrete mathematics, but I'm not sure which one, as it was a long time ago when I wrote it. I used TikZ package for \LaTeX to write the codes and generate the graphs.
 
 \vspace{0.3cm}
 
@@ -107,45 +99,45 @@ There are so many wonderful things to learn in this book. I hope you enjoy it!
 
 
 \newpage
-	
+
 \section*{Acknowledgment}
 
 Here is a list of all the kind people who helped us review, edit, and improve this book. We could not decide who to thank more, hence an alphabetically (last name) ordered list:
 	\begin{enumerate}
-		\item Thanks to \textbf{Ali Amiri}, a kind friend who helped us in the cover design. 
+		\item Thanks to \textbf{Ali Amiri}, a kind friend who helped us in the cover design.
 		\item Thanks to \textbf{Anr\' eC} from TeX.StackExchange who wrote the code for figure \eqref{fig:base16} in base conversion.
 		\item We are thankful to \textbf{Arta Khanalizadeh} for designing the cover of the book.
 		\item Thanks to \textbf{Kave Eskandari} for reading the whole book and commenting on the general points. He caught a good mistake in chapter \ref{ch:divisibility}.
-		\item Cheers to our mathematical friend \textbf{Leonard Mihai C. Giugiuc} from Romania who gave us positive and constructive feedback on the book. He also wrote us a wonderful review in the website. 
+		\item Cheers to our mathematical friend \textbf{Leonard Mihai C. Giugiuc} from Romania who gave us positive and constructive feedback on the book. He also wrote us a wonderful review in the website.
 
 		\item Thanks to \textbf{Valentio Iverson} for proof-reading chapters \ref{ch:arithfunc} and \ref{ch:special}, and pointing out the typo in figure \eqref{fig:unitfunction}.
 
 		\item Thanks to \textbf{Aditya Khurmi} for reading the book and giving us positive feedback.
-				
-				
+
+
 		\item We appreciate \textbf{Hesam Korki}'s comments on chapter \ref{ch:divisibility}. He mentioned a few very important typos, including grammatical. He also mentioned a mathematical change in that chapter, which was very helpful.
-		
+
 		\item Professor \textbf{Peyman Nasehpour} sent us the beautiful problem \eqref{prob:nasehpour} and an amazing solution using Prime Number Theorem. He also gave us pretty useful comments on chapter \ref{ch:divisibility}. He also introduced in section \eqref{sec:sum-of-divisors} the amicable numbers to us with a brief historical note on it.
-		
-		\item We appreciate \textbf{Kenji Nakagawa}'s comments on chapters \ref{ch:primes} and \ref{ch:special}. He was one of the first people who read and reviewed these two chapters when we put them on the website of the book. 
-		
+
+		\item We appreciate \textbf{Kenji Nakagawa}'s comments on chapters \ref{ch:primes} and \ref{ch:special}. He was one of the first people who read and reviewed these two chapters when we put them on the website of the book.
+
 		\item We are thankful to \textbf{Mohammadamin Nejatbakhshesfahani}, Iran National Olympiad gold medalist (2010) and winner of gold medals at IMS and IMC, who honored us toread and reviewe the whole book and gave us really instructive comments.
-				
+
 		\item We would like to thank \textbf{Nur Muhammad Shafiullah Mahi} for his efforts to make this book better.
-		
+
 		\item We are honored to thank Professor \textbf{Greg Martin}, a faculty member at the Mathematics Department of University of British Columbia. He happens to be Amir Hossein's Master's supervisor. He kindly reviewed a printed draft of the book and emailed us over 10 major points to correct in the book. We do appreciate his advice on improving the whole context of the book.
-		
+
 		\item We are thankful to \textbf{Sohrab Mohtat} for his comments on chapter \ref{ch:divisibility}. Thanks to him, we avoided a fatal mistake in the beginning of the book. He also wrote a very useful and detailed review for our book in the website.
 
 
 		\item We are thankful to \textbf{Aditya Guha Roy} who reviewed the whole book and caught a few LaTeX typos, generalized lemma \eqref{lem:aditya-generalized}, fixing problems in chapter \ref{ch:unsolved}. Aditya wrote an amazing, educative review in our website.
 		\item \textbf{Navneel Singhal} carefully reviewed and proof-read the whole first part of the book (chapters \ref{ch:divisibility} to \ref{ch:special}) and gave us very constructive comments. We are thankful to him.
-				
-		\item Thanks to \textbf{Amin Soofiani}, who is a Master's student of mathematics at University of British Columbia, we noticed there was a mistake in theorem \eqref{thm:numofprime}. He did a perfect, precise, and detailed review on chapter \ref{ch:primes}. 
-		
+
+		\item Thanks to \textbf{Amin Soofiani}, who is a Master's student of mathematics at University of British Columbia, we noticed there was a mistake in theorem \eqref{thm:numofprime}. He did a perfect, precise, and detailed review on chapter \ref{ch:primes}.
+
 		\item We are thankful to \textbf{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\"{}) used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
 	\end{enumerate}
-	
+
 %\dominitoc
 \tableofcontents
 
@@ -165,7 +157,7 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 		\subfile{primes.tex}
 	%\minitoc \mtcskip \minilof
 		\subfile{special.tex}
-	%\resumechapters	
+	%\resumechapters
 
 		\subfile{solved.tex}
 		\subfile{unsolved.tex}
