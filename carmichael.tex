@@ -2,12 +2,12 @@
 
 
 \begin{document}
-	\subsection{Carmichael $\lambda$ Function}
+	\subsection{Carmichael \texorpdfstring{$\lambda$}{Lambda} Function}
 	In this section, we discuss a very important function in number theory. \textcite{carmichael1910} first introduced it for generalizing Euler's totient function. Consider that two relatively prime positive integers $a,n$ are given, and $\ord_n(a)=d$. Now, fix $n$. Consider the case when $a^d\equiv1\pmod n$ holds for any positive integer $a$ relatively prime to $n$. This brings up some questions.
 	\begin{problem}\label{prob:CarmichaelQuestion1}
 		Does there exists an $a$ such that $\ord_n(a)=d$?
 	\end{problem}
-	
+
 	\begin{problem}\label{prob:CarmichaelQuestion2}
 		How do we find the minimum $d$ such that $a^d\equiv1\pmod n$ holds for any $a$ relatively prime to $n$?
 	\end{problem}
@@ -19,7 +19,7 @@
 	\begin{theorem}\slshape\label{thm:carDiv}
 		If $a^d\equiv1\pmod n$ holds for all $a$ relatively prime to $n$, then $\lambda(n)\mid d$.
 	\end{theorem}
-	
+
 	\begin{corollary}\label{cor:LambdaDividesPhi}
 		For any positive integer $n$, $\lambda(n)\mid \varphi(n)$.
 	\end{corollary}
@@ -31,7 +31,7 @@
 	\begin{theorem}\slshape
 		If $k>2$ then $\lambda(2^k)=2^{k-2}$.
 	\end{theorem}
-	
+
 	\begin{proof}
 		The integers relatively prime to $2^k$ are all odd numbers. We will prove by induction that $x^{2^{k-2}} \equiv1\pmod{2^k}$ holds for all odd positive integers $x$. The base case $k=3$ is obvious. Assume that for some $k\geq 3$, we have
 			\begin{align*}
@@ -42,7 +42,7 @@
 				x^{2^{k-1}} -1 = \left(x^{2^{k-2}} -1\right)\left(x^{2^{k-2}} +1\right) = 2^kt\left(2^kt +2\right) = 2^{k+1}t \left(2^{k-1}t+1\right). \label{eq:x^{2^{k-1}}-1}
 			\end{align}
 		This gives $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$, and the induction is complete.
-		
+
 		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\lambda(2^l)=2^{l-2}$. Let $\lambda(2^{k+1})=\lambda$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from Theorem \ref{thm:carDiv} that $\lambda \mid 2^{k-1}$. So $\lambda$ is a power of $2$. If $\lambda = 2^{k-1}$, we are done. Otherwise, let $\lambda=2^\alpha$, where $1 \leq \alpha <k-1$. Then for every $x$, one can write
 			\begin{align}\label{eq:x^2^k+1}
 				x^{2^\alpha} \equiv 1 \pmod{2^{k+1}}.
@@ -53,21 +53,21 @@
 			\end{align}
 		In \eqref{eq:x^2^a}, the highest power of $2$ which divides $x^{2^{\alpha}} -1$ is $2^{\alpha+2}$ (since $2^{\alpha}t+1$ is odd). But $$\alpha+2 <(k-1)+2=k+1$$, which contradicts \eqref{eq:x^2^k+1}. The induction is complete.
 	\end{proof}
-	
+
 	\begin{theorem}\slshape
-		For any prime $p$ and any positive integer $k$, 
+		For any prime $p$ and any positive integer $k$,
 		\[\lambda(p^k)=\lambda(2p^k)=\varphi(p^k).\]
 	\end{theorem}
-	
+
 	\begin{proof}
 		Consider the congruence equation $x^d\equiv1\pmod{p^k}$ and let $d=\lambda(p^k)$. By Corollary \ref{cor:LambdaDividesPhi}, $d \mid \varphi(p^k)$. Take $x=g$ where $g$ is a primitive root modulo $p^k$. Then, $\ord_{p^k}(g)=\varphi(p^k)$ and we immediately have $\varphi(p^k)|d$. Thus, $d=\varphi(p^k)$. A very similar proof can be stated to show that $\lambda (2p^k)=\varphi (2p^k) = \varphi(p^k)$.
 	\end{proof}
-	
+
 	\begin{theorem}\slshape
 		Let $a$ and $b$ be relatively prime positive integers. Then
 		 \[\lambda(ab)=\lcm(\lambda(a),\lambda(b)).\]
 	\end{theorem}
-	
+
 	\begin{proof}
 		Suppose that $$\lambda(a)=d, \quad \lambda(b)=e, \quad \text{and} \quad \lambda(ab)=h.$$ Then, $$x^d\equiv1\pmod a, \quad x^e\equiv1\pmod b, \quad \text{and} \quad x^{h}\equiv1\pmod{ab}.$$ We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
 	\end{proof}
@@ -82,7 +82,7 @@
 	\begin{theorem}\slshape\label{thm:CarmichaelFormula}
 		Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$. Also, let $p$ be a prime and $k$ be a positive integer. Then
 		\begin{align*}
-			\lambda(n) & = 
+			\lambda(n) & =
 			\begin{cases}
 				\varphi(n),\mbox{ if } n = 2,4,p^k, \mbox{ or } 2p^k,\\
 				\dfrac{\varphi(n)}{2},\mbox{ if }n=2^k\mbox{ with }k>2,\\
@@ -90,7 +90,7 @@
 			\end{cases}
 		\end{align*}
 	\end{theorem}
-	
+
 	\begin{theorem}\slshape
 		For positive integers $a$ and $b$, if $a \mid b$, then $\lambda(a) \mid \lambda(b)$.
 	\end{theorem}
@@ -98,21 +98,21 @@
 	\begin{theorem}\slshape
 		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  relatively prime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \lambda(n)$.
 	\end{theorem}
-	
+
 	\begin{proof}
 		The ``if'' part is true by Theorem \ref{thm:ordDiv}. For the ``only if'' part, assume that $g$ is an integer with $\ord_n(g)=\lambda(n)$ and $\lambda(n)=de$. Then $\ord_n(g^e)=d$, as desired.
 	\end{proof}
-	
+
 	We finish this section by proposing a theorem. We will leave the proof for the reader as an exercise.
 		\begin{theorem}\slshape
 			If $\lambda(n)$ is relatively prime to $n$, then $n$ is square-free.
 		\end{theorem}
 	Recall that $n$ is square-free if it is not divisible by any perfect square other than $1$.
-	
-	\subsection{Primitive $\lambda$-roots}
+
+	\subsection{Primitive \texorpdfstring{$\lambda$}{Lambda}-roots}
 	\textcite[Page $232-233$, Result II]{carmichael1910} defined a generalization of primitive roots as follows using his function. As you will see, this section generalizes everything related to primitive roots.
 	\begin{definition}[Primitive $\lambda$-root]
-		Let $a$ and $n$ be relatively prime positive integers. If $\ord_n(a)=\lambda(n)$, then $a$ is a primitive $\lambda$-root modulo $n$. That is, $a^{\lambda(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$. 
+		Let $a$ and $n$ be relatively prime positive integers. If $\ord_n(a)=\lambda(n)$, then $a$ is a primitive $\lambda$-root modulo $n$. That is, $a^{\lambda(n)}$ is the smallest power of $a$ which is congruent to $1$ modulo $n$.
 	\end{definition}
 \textcite{cameron_preece_2014} shows the following theorem.
 	\begin{definition}
@@ -132,7 +132,7 @@
 		has a solution $a$ which is a primitive $\lambda$-root, and for any such $a$, there are $\varphi(\lambda(n))$ primitive roots congruent to powers of $a$.
 	\end{theorem}
 	We can show that this theorem is true in a similar fashion to what we did in last section, and we leave it as an exercise.
-	
+
 	As we mentioned earlier in Proposition \ref{prop:phiproperties}, $\varphi(n)$ is always even for $n>2$. As it turns out, $\lambda$ and $\varphi$ share some common properties.
 	\begin{problem}
 		For any integer $n\geq 1$, either $\xi(n)=1$ or $\xi(n)$ is even.
@@ -146,21 +146,21 @@
 		If $\lambda(n)>2$, the number of primitive $\lambda$-roots modulo $n$ is even.
 	\end{problem}
 
-	The next theorem generalizes Theorem \ref{thm:genWilson}, which itself was a generalization to Wilson's theorem. 
+	The next theorem generalizes Theorem \ref{thm:genWilson}, which itself was a generalization to Wilson's theorem.
 	\begin{theorem}\slshape
 		Let $n$ be a positive integer such that $\lambda(n)>2$. Also, suppose that $g$ is a primitive $\lambda$-root modulo $n$. The product of primitive $\lambda$-roots of $n$ is congruent to $1$ modulo $n$.
 	\end{theorem}
-	
+
 	\begin{proof}
 		Since $\lambda(n)>2$, we can easily argue that it must be even. If $g$ is a primitive $\lambda$-root modulo $n$, all the primitive $\lambda$-roots are $$\{g^{e_1}, g^{e_2}, \cdots, g^{e_{k}}\},$$ where $e_i$ (for $1 \leq i \leq k$) are all (distinct) positive integers with $(e_i, \lambda(n))=1$. Also, note that we can pair them up since $\lambda(n)$ is even if $n>2$. In fact, we can pair $g^{e_i}$ with $g^{\lambda(n)-e_i}$ for all $i$. Then,
 		\begin{equation*}
-		g^{e_1}\cdot g^{e_2}\cdots g^{e_k}  \equiv g^{\lambda(n)}\cdots g^{\lambda(n)}  \equiv 1\pmod n.
+			g^{e_1}\cdot g^{e_2}\cdots g^{e_k}  \equiv g^{\lambda(n)}\cdots g^{\lambda(n)}  \equiv 1\pmod n.
 		\end{equation*}
 	\end{proof}
-	
+
 	\begin{corollary}
 		For any $n$, there are $\varphi(\lambda(n))$ primitive $\lambda$-roots modulo $n$.
 	\end{corollary}
-	
+
 
 \end{document}
