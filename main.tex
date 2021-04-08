@@ -1,6 +1,7 @@
 \documentclass[12pt]{book}
 
 \usepackage{mystyle}
+\usepackage{bookmark}
 
 \usepackage[
 	backend=biber,
@@ -10,10 +11,6 @@
 	natbib=true,
 ]{biblatex}
 
-\usepackage{lmodern}
-\usepackage{datetime}
-%\usepackage{baskervillef}
-%\usepackage[baskerville]{newtxmath}
 
 \title{\bf TOPICS IN NUMBER THEORY:\\ \it An Olympiad-Oriented Approach\\Second Edition}
 \author{
@@ -26,7 +23,7 @@
 \date{\today}
 
 \makeatletter\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}\makeatother\AtBeginDocument{\globalcolor{onyx}}
-
+\bibliography{main}
 
 \begin{document}
 \frontmatter
@@ -48,7 +45,7 @@
 \section*{Links, Contact}
 
 \begin{itemize}
-	\item The website of the book always contains the updates, errata, and new free materials that we regularly post on social media. Exclusive olympiad problem-sets will be released in the website in the near fuure: \url{TopicsInNumberTheory.com}
+	\item The website of the book always contains the updates, errata, and new free materials that we regularly post on social media. Exclusive Olympiad problem-sets will be released in the website in the near fuure: \url{TopicsInNumberTheory.com}
 	%	\href{https://facebook.com/TopicsInNumberTheory/}{\texttt{@TopicsInNumberTheory}}.
 	\item Facebook page: \url{@TopicsInNumberTheory}. This is our main page for feedback and reviews on the book. Feel free to post any kind of review, comment, solution, or suggestion you have about this book. Amir Hossein will create a forum for the book on AoPS so everyone can post their solutions to be added to the book later on.
 	\item If you find any mistake or typo in the book, we would be happy to hear it at Facebook or \url{info@TopicsInNumberTheory.com}.
@@ -81,7 +78,7 @@ Many of our friends helped us during the way to finish this book, as mentioned i
 
 \vspace{0.3cm}
 
-Professor \textbf{Peyman Nasehpour}, whom I knew from the very first semester of my undergraduate studies in elelctrical englineering at University of Tehran, helped me a lot in the process of enhancing my mathematical abilities to change my field to mathematics (number theory) for my master's.  He is an inspiration to me, and a great colleague when it comes to teamwork. I'm looking forward to working with him more ofter.
+Professor \textbf{Peyman Nasehpour}, whom I knew from the very first semester of my undergraduate studies in electrical engineering at University of Tehran, helped me a lot in the process of enhancing my mathematical abilities to change my field to mathematics (number theory) for my master's.  He is an inspiration to me, and a great colleague when it comes to teamwork. I'm looking forward to working with him more ofter.
 
 \vspace{0.3cm}
 
@@ -105,7 +102,7 @@ There are so many wonderful things to learn in this book. I hope you enjoy it!
 Here is a list of all the kind people who helped us review, edit, and improve this book. We could not decide who to thank more, hence an alphabetically (last name) ordered list:
 	\begin{enumerate}
 		\item Thanks to \textbf{Ali Amiri}, a kind friend who helped us in the cover design.
-		\item Thanks to \textbf{Anr\' eC} from TeX.StackExchange who wrote the code for figure \eqref{fig:base16} in base conversion.
+		\item Thanks to \textbf{Anr\'{e}C} from TeX.StackExchange who wrote the code for figure \eqref{fig:base16} in base conversion.
 		\item We are thankful to \textbf{Arta Khanalizadeh} for designing the cover of the book.
 		\item Thanks to \textbf{Kave Eskandari} for reading the whole book and commenting on the general points. He caught a good mistake in chapter \ref{ch:divisibility}.
 		\item Cheers to our mathematical friend \textbf{Leonard Mihai C. Giugiuc} from Romania who gave us positive and constructive feedback on the book. He also wrote us a wonderful review in the website.
