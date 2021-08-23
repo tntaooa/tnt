@@ -1,6 +1,5 @@
 \documentclass[12pt]{book}
 
-
 \usepackage{mystyle}
 \usepackage{bookmark}
 
@@ -24,7 +23,9 @@
 \date{\today}
 
 \makeatletter\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}\makeatother\AtBeginDocument{\globalcolor{onyx}}
-\bibliography{main}
+\addbibresource{main.bib}
+\addbibresource{ref.bib}
+%\addbibresource{ref.bib}
 
 \begin{document}
 \frontmatter
@@ -35,7 +36,7 @@
 	\begin{center}
 		\textbf{Dedicated to}
 	\end{center}\slshape
-	Our regular studies, without which, we could have finished this book long time ago.\\
+	%Our regular studies, without which, we could have finished this book long time ago.\\
 	Fermat, the father of modern number theory.\\
 	Euler, without whom number theory probably wouldn't be so rich today.\\
 	Riemann, who made huge contributions to analytic number theory.\\
@@ -44,9 +45,9 @@
 \end{dedication}
 
 \section*{Preface to Second Edition}
-It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things we wrote back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. Anyway, we mention these here not to make any excuses nor do we feel guilty about it. Because in the end, these were our decisions and we stand by those decisions regardless of how they turned out to be. Because even though the end product does not look like the most ideal output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so.
+It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. And one of the biggest concerns we had was that if we did not finish the book soon, we might not have been able to finish it at all. Maybe even worse, we could have forgotten about the whole book altogether (that has happened as well). Anyway, we mention these here not to make any excuses nor do we feel terrible about it. Because even though the end product does not look like the most ideal output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so. There are some updates in this edition which hopefully improves at least some aspects of the book. Also, we are releasing the book as an e-print in the \texttt{arXiv}. Hopefully this will help even more students.
 
-Also, we are releasing the book as an e-print in the \texttt{arXiv}. Hopefully this will help even more students to get the book.
+It is possible there are some \LaTeX issues in the new edition. If anyone finds any, please do not hesitate to email us.
 
 \begin{flushright}
 	Masum Billal\\
@@ -154,26 +155,50 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 		\pagestyle{fancy}
 \mainmatter
 \setcounter{page}{13}
-	\subfile{intro.tex}
+	\begin{refsection}
+		\subfile{intro.tex}
+		\printbibliography
+	\end{refsection}
 	%\minitoc \mtcskip \minilof
+	\begin{refsection}
 		\subfile{divisibility.tex}
+		\printbibliography
+	\end{refsection}
 	%\minitoc \mtcskip \minilof
+	\begin{refsection}
 		\subfile{congruence.tex}
+		\printbibliography
+	\end{refsection}
 	%\minitoc \mtcskip \minilof
+	\begin{refsection}
 		\subfile{arithfunc.tex}
+		\printbibliography
+	\end{refsection}
 	%\minitoc \mtcskip \minilof
+	\begin{refsection}
 		\subfile{primes.tex}
+		\printbibliography
+	\end{refsection}
 	%\minitoc \mtcskip \minilof
+	\begin{refsection}
 		\subfile{special.tex}
+		\printbibliography
+	\end{refsection}
 	%\resumechapters
-
+	\begin{refsection}
 		\subfile{solved.tex}
 		\subfile{unsolved.tex}
 		\subfile{unsolved2016.tex}
+		\printbibliography
+	\end{refsection}
+
 \backmatter
 \pagestyle{empty}
-\subfile{idthm.tex}
+	\begin{refsection}
+		\subfile{idthm.tex}
+		\printbibliography
+	\end{refsection}
 %\nocite{*}
-\printbibliography
+%\printbibliography
 
 \end{document}

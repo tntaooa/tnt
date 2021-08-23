@@ -1,24 +1,24 @@
 \begin{document}
-\noappendicestocpagenum
-\addappheadtotoc
-\chapter*{Identities and Well-Known Theorems}\label{ch:null}
+%\noappendicestocpagenum
+%\addappheadtotoc
 \begin{appendix}\label{ch:appendices}
-		
+	\chapter*{Identities and Well-Known Theorems}\label{ch:null}
+
 	We suppose that $a,b$ are real numbers in the following results\watermark.
-	
+
 	\begin{identity}\label{id:diffsqr}
 		\begin{align*}
 			(a+b)^2+(a-b)^2 &= 2(a^2+b^2),\\
 			(a+b)^2-(a-b)^2 & = 4ab.
 		\end{align*}
 	\end{identity}
-	
+
 	\begin{identity}[Sophie Germain Identity]\slshape
 		\begin{align*}
 			a^4+4b^4=(a^2+2ab+2b^2)(a^2-2ab+2b^2).
 		\end{align*}
 	\end{identity}
-	
+
 	\begin{identity}
 		\begin{align*}
 			(a+b)^3 - a^3 - b^3 &= 3ay(a+b),\\
@@ -26,7 +26,7 @@
 			(a+b)^7 - a^7 - b^7 &= 7ay(a+b)(a^2+ab+b^2)^2.
 		\end{align*}
 	\end{identity}
-	
+
 	\begin{identity}[Binomial Theorem]\slshape\label{thm:binomial-theorem}
 		For any positive integer $n$,
 		\begin{eqnarray*}
@@ -35,23 +35,23 @@
 			& = & \sum_{i=0}^{n}\binom{n}{i}a^ib^{n-i}.
 		\end{eqnarray*}
 	\end{identity}
-	
+
 	\begin{identity}\slshape \label{thm:binom}
 		For positive integers $n$ and $k$ such that $k \leq n$,
 		\begin{enumerate}
 			\item $\displaystyle\binom{n}{k}=\binom{n}{n-k}$,
 			\item $\displaystyle\binom{n}{k}=\binom{n-1}k+\binom{n-1}{k-1}$ (Pascal's recurrence),
-			\item $\displaystyle\binom{n}{k}=\dfrac{n}{k}\binom{n-1}{k-1}$ (absorption property), \label{id:binomreduction} 
+			\item $\displaystyle\binom{n}{k}=\dfrac{n}{k}\binom{n-1}{k-1}$ (absorption property), \label{id:binomreduction}
 			\item $\displaystyle\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n-1}+\binom{n}{n} = 2^n$,
 			\item $\displaystyle \binom{0}{k} + \binom{1}{k} + \cdots +\binom{n-1}{k} + \binom{n}{k} = \binom{n+1}{k+1}$,
 			\item $\displaystyle\binom{n}0^2+\binom{n}{1}^2+\cdots+\binom{n}{n-1}^2+\binom{n}{n}^2 = \binom{2n}{n}$. \label{id:binomsquaressum}
 		\end{enumerate}
 	\end{identity}
-	
+
 	\begin{identity}\slshape
 		If $n$ and $k$ are coprime, then $n$ divides $\binom nk$ and $k$ divides $\binom{n-1}{k-1}$.
 	\end{identity}
-	
+
 	\begin{identity}[Sum of Powers of Consecutive Integers]\slshape\label{id:sumofpowers}
 		Let $n$ be a positive integer. Then,
 			\begin{enumerate}
@@ -68,17 +68,17 @@
 				a_n  = a_1 + \sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right).
 			\end{align*}
 	\end{identity}
-	
+
 	\begin{proof}
 		Expand the sum on the right side to obtain
 			\begin{align*}
 				\sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right)
 					&=  \left(a_{n} - a_{n-1}\right) +  \left(a_{n-1} - a_{n-2}\right) + \cdots +  \left(a_{2} - a_{1}\right)\\
-					&= a_n - a_1.	
+					&= a_n - a_1.
 			\end{align*}
 		The conclusion follows.
 	\end{proof}
-	
+
 
 	\begin{identity}[Fibonacci-Brahmagupta Identity]\slshape\label{id:fibbr}
 		For any reals $a,b,c,d$, and any integer $n$,
@@ -92,9 +92,9 @@
 			&=(ad+bc)^2+(ac-bd)^2.
 		\end{align*}
 	\end{identity}
-	
+
 	The following identity is a generalization of Fibonacci-Brahmagupta Identity. \textit{Lagrange} used this identity to prove the \textit{Sum of Four Squares Theorem}.
-	
+
 	\begin{identity}[Euler's Four Square Identity]\slshape\label{id:foursqr}
 		Let $a_1,a_2,\ldots,a_4$ and $b_1,b_2,\ldots,b_4$ be reals. Then,
 		\begin{multline*}
@@ -103,20 +103,20 @@
 		\end{multline*}
 	\end{identity}
 	An interested reader can see \textit{Degen's eight-square identity} or \textit{Pfister's sixteen-square identity}, but they do not look pretty at all so we do not include them here.
-	
+
 	\begin{identity}[Lebesgue Identity]\slshape\label{id:lebesgue}
 		\begin{align*}
 			(a^2+b^2-c^2-d^2)^2 + (2ac+2bd)^2 + (2ad-2bc)^2 & = (a^2+b^2+c^2+d^2)^2
 		\end{align*}
 	\end{identity}
-	
+
 	\begin{identity}[Euler-Aida Ammei Identity]\slshape\label{id:euleraida}
 		Let $x_1,x_2,\cdots,x_n$ be reals. Then,
 		\begin{align*}
 			(x_1^2-x_2^2-\cdots-x_n)^2 + \sum_{i=2}^{n}(2x_1x_i)^2 & = (x_1^2+x_2^2+\cdots+x_n^2)^2.
 		\end{align*}
 	\end{identity}
-	
+
 	\begin{identity}[Bhaskara's Lemma]\slshape
 		Let $m,x,y,n$ and $k$ be integers such that $k \neq 0$. If $y^2-nx^2=k$, then
 		\begin{align*}
@@ -125,5 +125,5 @@
 	\end{identity}
 	This identity is used in {\it Chakravala method} to find the solutions to {\it Pell-Fermat equation}.
 \end{appendix}
-	
+
 \end{document}

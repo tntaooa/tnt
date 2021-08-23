@@ -1,6 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mystyle}
 
+\RequirePackage{hyperref}
+\hypersetup{
+	%colorlinks,
+	citecolor=burgundy,
+	filecolor=burgundy,
+	linkcolor=burgundy,
+	urlcolor=burgundy,
+	unicode      = true,            % non-Latin characters in Acrobat’s bookmarks
+	%pdftoolbar   = false,             % show Acrobat’s toolbar?
+	%pdfmenubar   = false,             % show Acrobat’s menu?
+	pdfstartview=,
+}
 
 \RequirePackage{appendix}
 \RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
@@ -58,18 +70,6 @@
 \definecolor{vividauburn}{rgb}{0.58, 0.15, 0.14}
 \definecolor{venetianred}{rgb}{0.78, 0.03, 0.08}
 \definecolor{tyrianpurple}{rgb}{0.4, 0.01, 0.24}
-\RequirePackage{hyperref}
-\hypersetup{
-	%colorlinks,
-	citecolor=burgundy,
-	filecolor=burgundy,
-	linkcolor=burgundy,
-	urlcolor=burgundy,
-	unicode      = true,            % non-Latin characters in Acrobat’s bookmarks
-	%pdftoolbar   = false,             % show Acrobat’s toolbar?
-	%pdfmenubar   = false,             % show Acrobat’s menu?
-	pdfstartview=,
-}
 
 \usepackage[ocgcolorlinks]{ocgx2}
 \usetikzlibrary{fit,matrix,shapes}
