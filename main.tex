@@ -11,24 +11,31 @@
 	natbib=true,
 ]{biblatex}
 
-
-\title{\bf TOPICS IN NUMBER THEORY:\\ \it An Olympiad-Oriented Approach\\Second Edition}
-\author{
-	\it Masum Billal%\\University of Dhaka\\Dhaka, Bangladesh\\
-	%Email: \href{mailto:billalmasum93@gmail.com}{billalmasum93@gmail.com}
-	\and
-	\it Amir Hossein Parvardi%\\University of Tehran\\Tehran, Iran\\
-	%Email: \href{mailto:a.parvardi@gmail.com}{a.parvardi@gmail.com}
+\makeatletter
+\newcommand{\globalcolor}[1]{%
+	\color{#1}\global\let\default@color\current@color
 }
-\date{\today}
+\makeatother
+\AtBeginDocument{\globalcolor{onyx}}
 
-\makeatletter\newcommand{\globalcolor}[1]{\color{#1}\global\let\default@color\current@color}\makeatother\AtBeginDocument{\globalcolor{onyx}}
+\title{\bf\Huge TOPICS IN NUMBER THEORY\\ {\vspace*{.3in}\it\LARGE An Olympiad-Oriented Approach}\\\vspace*{.3in}{\Large Second Edition\\\vspace*{.1in}\rule{\textwidth}{0.8pt}}}
+\author{
+	\sc \Huge Masum Billal%\\University of Dhaka\\Dhaka, Bangladesh\\
+	\and \sc \Huge Amir Hossein Parvardi\\\vspace*{.4in}
+	\rule{\textwidth}{0.8pt}\\\vspace*{.2in}
+	\bf Published Independently
+}
+\date{}
+
 \addbibresource{main.bib}
 \addbibresource{ref.bib}
-%\addbibresource{ref.bib}
 
 \begin{document}
 \frontmatter
+\begin{tikzpicture}[remember picture,overlay]
+	\node at (current page.center) {\includegraphics[width=\pdfpagewidth,height=\pdfpageheight]{1}};
+\end{tikzpicture}
+
 \maketitle
 \pagestyle{plain}
 
@@ -36,7 +43,6 @@
 	\begin{center}
 		\textbf{Dedicated to}
 	\end{center}\slshape
-	%Our regular studies, without which, we could have finished this book long time ago.\\
 	Fermat, the father of modern number theory.\\
 	Euler, without whom number theory probably wouldn't be so rich today.\\
 	Riemann, who made huge contributions to analytic number theory.\\
@@ -45,12 +51,12 @@
 \end{dedication}
 
 \section*{Preface to Second Edition}
-It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. And one of the biggest concerns we had was that if we did not finish the book soon, we might not have been able to finish it at all. Maybe even worse, we could have forgotten about the whole book altogether (that has happened as well). Anyway, we mention these here not to make any excuses nor do we feel terrible about it. Because even though the end product does not look like the most ideal output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so. There are some updates in this edition which hopefully improves at least some aspects of the book. Also, we are releasing the book as an e-print in the \texttt{arXiv}. Hopefully this will help even more students.
+It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. And one of the biggest concerns we had was that if we had not finished the book soon, we might not have been able to finish it at all. Or even worse, we could have forgotten about the whole book altogether (that has happened as well). Anyway, we mention these here not to make any excuses nor do we feel terrible about it. Because even though the end product does not look like the most ideal output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so. There are some updates in this edition which hopefully improves at least some aspects of the book. Also, we are releasing the book as an e-print in the \texttt{arXiv}. Hopefully this will help even more students.
 
-It is possible there are some \LaTeX issues in the new edition. If anyone finds any, please do not hesitate to email us.
+It is possible there are some \LaTeX\ issues in the new edition. If anyone finds any, please do not hesitate to email us.
 
 \begin{flushright}
-	Masum Billal\\
+	\it Masum Billal\\
 	Amir Hossein\\
 	August, $2021$
 \end{flushright}
@@ -64,7 +70,7 @@ It is possible there are some \LaTeX issues in the new edition. If anyone finds 
 \end{itemize}
 
 \newpage
-\section*{First Words}
+\section*{Preface from first edition}
 
 I would like to have a few words before diving into the discussion. First of all, from my personal experience, I have found that there is a common practice to learn by learning a lot of theories and then investigating how those theories are used to solve problems. As our primary audience would be students who are looking to get into mathematical Olympiads, I highly discourage this. Please do not take number theory for a collection of theories just because the word theory is literally juxtaposed with it. That being said, one could say that our book itself is a collection of a lot of theorems as well. Sadly, that is partially true for multiple reasons even though it was not our intention at all.
 

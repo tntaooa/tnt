@@ -17,6 +17,7 @@
 \RequirePackage{appendix}
 \RequirePackage{amsthm, amsfonts, amssymb, amsmath,  amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, subfiles, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
 \RequirePackage{xparse}
+%\RequirePackage{incgraph}
 \RequirePackage{titlesec}
 %\RequirePackage{minitoc}
 
@@ -35,7 +36,7 @@
 	}}}}%
 }
 
-\RequirePackage[utf8]{inputenc}
+%\RequirePackage[utf8]{inputenc}
 \RequirePackage{csquotes}
 
 \RequirePackage{glossaries}
@@ -43,10 +44,19 @@
 \renewcommand\appendixtocname{Glossary}
 \renewcommand\appendixpagename{Glossary}
 
+\providecommand{\HUGE}{\Huge}% if not using memoir
+\newlength{\drop}
+
+\DeclareRobustCommand{\cs}[1]{\texttt{\char`\\#1}}
+\newlength{\tpheight}\setlength{\tpheight}{0.9\textheight}
+\newlength{\txtheight}\setlength{\txtheight}{0.9\tpheight}
+\newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
+\newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
 
 %\usepackage{pdfrender, xcolor}
 %\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
 
+\definecolor{smokyblack}{rgb}{0.06, 0.05, 0.03}
 \definecolor{bondiblue}{rgb}{0.0, 0.58, 0.71}
 \definecolor{amber}{rgb}{1.0, 0.49, 0.0}
 \definecolor{darkseagreen}{rgb}{0.56, 0.74, 0.56}
@@ -70,6 +80,8 @@
 \definecolor{vividauburn}{rgb}{0.58, 0.15, 0.14}
 \definecolor{venetianred}{rgb}{0.78, 0.03, 0.08}
 \definecolor{tyrianpurple}{rgb}{0.4, 0.01, 0.24}
+\definecolor{splashedwhite}{rgb}{1.0, 0.99, 1.0}
+
 
 \usepackage[ocgcolorlinks]{ocgx2}
 \usetikzlibrary{fit,matrix,shapes}
