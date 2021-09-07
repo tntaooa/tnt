@@ -1,7 +1,9 @@
-\documentclass[12pt]{book}
+\documentclass[12pt,leqno]{book}
 
 \usepackage{mystyle}
-\usepackage{bookmark}
+\usepackage{subfiles}
+\usepackage{pdfpages}
+\usepackage{bookmark,rotating}
 
 \usepackage[
 	backend=biber,
@@ -11,16 +13,11 @@
 	natbib=true,
 ]{biblatex}
 
-\makeatletter
-\newcommand{\globalcolor}[1]{%
-	\color{#1}\global\let\default@color\current@color
-}
-\makeatother
-\AtBeginDocument{\globalcolor{onyx}}
+\usepackage{OldStandard}
 
 \title{\bf\Huge TOPICS IN NUMBER THEORY\\ {\vspace*{.3in}\it\LARGE An Olympiad-Oriented Approach}\\\vspace*{.3in}{\Large Second Edition\\\vspace*{.1in}\rule{\textwidth}{0.8pt}}}
 \author{
-	\sc \Huge Masum Billal%\\University of Dhaka\\Dhaka, Bangladesh\\
+	\sc \Huge Masum Billal
 	\and \sc \Huge Amir Hossein Parvardi\\\vspace*{.4in}
 	\rule{\textwidth}{0.8pt}\\\vspace*{.2in}
 	\bf Published Independently
@@ -33,8 +30,9 @@
 \begin{document}
 \frontmatter
 \begin{tikzpicture}[remember picture,overlay]
-	\node at (current page.center) {\includegraphics[width=\pdfpagewidth,height=\pdfpageheight]{1}};
+	\node at (current page.center) {\includegraphics[origin=c,angle=180,width=\pdfpagewidth,height=\pdfpageheight]{FullCover-01}};
 \end{tikzpicture}
+
 
 \maketitle
 \pagestyle{plain}
@@ -51,7 +49,7 @@
 \end{dedication}
 
 \section*{Preface to Second Edition}
-It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. And one of the biggest concerns we had was that if we had not finished the book soon, we might not have been able to finish it at all. Or even worse, we could have forgotten about the whole book altogether (that has happened as well). Anyway, we mention these here not to make any excuses nor do we feel terrible about it. Because even though the end product does not look like the most ideal output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so. There are some updates in this edition which hopefully improves at least some aspects of the book. Also, we are releasing the book as an e-print in the \texttt{arXiv}. Hopefully this will help even more students.
+It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. And one of the biggest concerns we had was that if we had not finished the book soon, we might not have been able to finish it at all. Or even worse, we could have forgotten about the whole book altogether (that has happened as well). Anyway, we mention these here not to make any excuses nor do we feel terrible about it. Because even though the end product does not look like the most ideal output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so. There are some updates in this edition which hopefully improves at least some aspects of the book.
 
 It is possible there are some \LaTeX\ issues in the new edition. If anyone finds any, please do not hesitate to email us.
 
@@ -96,7 +94,7 @@ Many of our friends helped us during the way to finish this book, as mentioned i
 
 \vspace{0.3cm}
 
-Professor \textbf{Peyman Nasehpour}, whom I knew from the very first semester of my undergraduate studies in electrical engineering at University of Tehran, helped me a lot in the process of enhancing my mathematical abilities to change my field to mathematics (number theory) for my master's.  He is an inspiration to me, and a great colleague when it comes to teamwork. I'm looking forward to working with him more ofter.
+Professor \textbf{Peyman Nasehpour}, whom I knew from the very first semester of my undergraduate studies in electrical engineering at University of Tehran, helped me a lot in the process of enhancing my mathematical abilities to change my field to mathematics (number theory) for my master's.  He is an inspiration to me, and a great colleague when it comes to teamwork. I'm looking forward to working with him more often.
 
 \vspace{0.3cm}
 
