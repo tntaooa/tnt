@@ -8,7 +8,7 @@
 \section{Definitions}
 
 		\begin{definition}[Arithmetic Function]
-			An \textit{arithmetic function} $f$ is a function $f : \mathbb{N} \to \mathbb{C} $ with \textit{domain} $\mathbb{N} = \{1, 2, \cdots, n, \cdots\}$ and \textit{codomain} $\mathbb{C} = \{a+bi: (a,b)\in \mathbb{R}^2 \}$, where $i$ is the imaginary unit defined by $i=\sqrt{-1}$. Here, we are primarily interested in $f:\mathbb{N}\to\mathbb{N}$ only.
+			An \textit{arithmetic function} $f$ is a function $f : \mathbb{N} \to \mathbb{C} $ with \textit{domain} $\mathbb{N} = \{1, 2, \cdots, n, \cdots\}$ and \textit{co-domain} $\mathbb{C} = \{a+bi: (a,b)\in \mathbb{R}^2 \}$, where $i$ is the imaginary unit defined by $i=\sqrt{-1}$. Here, we are primarily interested in $f:\mathbb{N}\to\mathbb{N}$ only.
 		\end{definition}
 
 		\begin{remark}
@@ -16,9 +16,7 @@
 				\begin{align*}
 					f(n)=\dfrac{n^ee^{-n}}{e^n+n+1+\ln n}.
 				\end{align*}
-			With the above definition, $f(n)$ is an arithmetic function although it does not represent any specific property of $n$. In this chapter, however, we are looking for functions which represent some \textit{number theoric} property of their input. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and coprime to $n$ as its output.
-
-			This being said, we are interested in integer-valued functions only. In fact, arithmetic functions are introduced to express some arithmetical properties of positive integers and it is logical to expect such functions to have integer values. Therefore, we only study functions with codomain $\mathbb Z$ in this book.
+			With the above definition, $f(n)$ is an arithmetic function although it does not represent any specific property of $n$. In this chapter, we want to study functions which present some \textit{number theoric} properties. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and relatively prime to $n$ as its output.
 		\end{remark}
 	Here are some examples of arithmetic functions.
 		\begin{definition}[\bfseries Unit Function]
@@ -61,7 +59,7 @@
 		\end{note}
 
 		\begin{definition}[\bfseries Identity Function]
-			The \textit{identity function}, $\text{id}$, maps every positive integer to itself. In other words, $\text{id}(n)=n$ for all positive integers $n$. You can see the plot of this function in figure \ref{fig:identityfunction}.%figure necessary?
+			The \textit{identity function}, $\text{id}$, maps every positive integer to itself so $\text{id}(n)=n$ for all positive integers $n$. %You can see the plot of this function in figure \ref{fig:identityfunction}.%figure necessary?
 			\begin{figure}
 				\centering
 				\begin{tikzpicture}
@@ -88,10 +86,9 @@
 				\caption{The identity function $\text{id}(n)$ for $n=1,2,\cdots,5$.}
 				\label{fig:identityfunction}
 			\end{figure}
-
 		\end{definition}
 
-		\begin{definition}[\bfseries Constant Function]
+		\begin{definition}[Constant Function]
 			Let $c$ be a fixed positive integer.Consider the function $f$ with the property that $f(n)=c$ for all positive integers $n$. We call $f$ the \textit{constant $c$ function}. A plot for constant $4$ function can be seen in figure \ref{fig:constantfunction}.
 
 			\begin{figure}
@@ -154,7 +151,7 @@
         \begin{problem} \label{floorproblem}
             How many integers between $10$ and $100$ are divisible by $7$?
         \end{problem}
-    First, we count the multiples of $7$ less than $100$: $7, 14, 21, 28, 35, 42, 49, 56, 63, 70$, $77$, $84$, $91$, and $98$. We don't need go any further since it will make the multiple larger than $100$. Amongst these multiples, we should not consider $7$ since we are asked between $10$ and $100$. This gives us the intuition behind the problem. We first find the number of multiples of $7$ between $1$ and $100$, which is $14$. Then, subtract the number of multiples that are less than $10$, i.e., those which are between $1$ and $9$. In this case, only $7$ itself would be such a multiple. Therefore, the answer to the problem is $14-1=13$. In fact, the problem is converted into two sub-problems:
+    First, we count the multiples of $7$ less than $100$: $7, 14, 21, 28, 35, 42, 49, 56, 63, 70$, $77$, $84$, $91$, and $98$. We don't need go any further since it will make the multiple larger than $100$. Among these multiples, we should not consider $7$ since we are asked between $10$ and $100$. This gives us the intuition behind the problem. We first find the number of multiples of $7$ between $1$ and $100$, which is $14$. Then, subtract the number of multiples that are less than $10$, i.e., those which are between $1$ and $9$. In this case, only $7$ itself would be such a multiple. Therefore, the answer to the problem is $14-1=13$. In fact, the problem is converted into two sub-problems:
     	\begin{enumerate}
     		\item how many integers from $1$ to $100$ are divisible by $7$?
     		\item how many integers from $1$ to $10$ are divisible by $7$?
@@ -213,10 +210,6 @@
 		    \left\lfloor\dfrac{b}{n}\right\rfloor-\left\lfloor\dfrac{a-1}{n}\right\rfloor+1
 	    \end{align*}
 	(Can you see why we are using $a-1$ in the second fraction?) Here, we have assumed that $b\geq a$.
-
-	    \begin{note}
-	        Floor and ceiling functions are two of the crossover functions in number theory. If we consider these two functions as \textit{arithmetic} functions (i.e., functions which act only on positive integers), they would seem useless (we already know that the floor and ceiling of an integer is equal to itself). However, when we are working generally with \textit{real} numbers, floor and ceiling are pretty useful and pop up in various problems (like problem \ref{floorproblem}).
-	    \end{note}
 
         \begin{proposition}[Properties of Floor Function]\slshape \label{prop:floor}
         	For any two reals $x$ and $y$ and any two integers $m$ and $n$,
