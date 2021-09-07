@@ -51,7 +51,7 @@
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
 
 
-\usepackage[ocgcolorlinks]{ocgx2}
+%\usepackage[ocgcolorlinks]{ocgx2}
 \usetikzlibrary{fit,matrix,shapes}
 
 \makeatletter
@@ -59,16 +59,11 @@
 \renewcommand{\@tocrmarg}{4em}
 \makeatother
 
-\setlength{\textwidth}{6.5in}
-\setlength{\oddsidemargin}{.1in}
-\setlength{\evensidemargin}{.1in}
-\setlength{\topmargin}{-.1in}
-\setlength{\textheight}{8.4in}
-
-%\definecolor{webgreen}{rgb}{0,.5,0}
-%\definecolor{webbrown}{rgb}{.6,0,0}
-
-%\RequirePackage[left=1in, right = 1 inو margin=3cm]{geometry}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\oddsidemargin}{.1in}
+%\setlength{\evensidemargin}{.1in}
+%\setlength{\topmargin}{-.1in}
+%\setlength{\textheight}{8.4in}
 
 \setlength{\textwidth}{6.5in}
 \setlength{\oddsidemargin}{.1in}
@@ -106,18 +101,6 @@
 %fixing margins
 \geometry{left=3cm,right=3cm,top=1.6cm,bottom=3cm,headheight=4pt,headsep=0.3in}
 
-
-%big parantheses in \pmod
-%\makeatletter
-%\DeclarePairedDelimiterX{\pmodx}[1]{(}{)}{{\operator@font mod}\mkern6mu#1}
-%\renewcommand{\pmod}{%
-%	\allowbreak
-%	\if@display\mkern18mu\else\mkern8mu\fi
-%	\pmodx
-%}
-%\makeatother
-
-%use normal chapter numbering after appendices
 \makeatletter
 \usepackage{etoolbox}
 \newcounter{savedchapter}% for remembering the last chapter number
@@ -129,23 +112,7 @@
 	\gdef\thechapter{\@arabic\c@chapter}% make chapter numbers arabic
 }
 \makeatother
-%\setmainfont{Georgia}
 
-%make theorems, propositions, definitions captions bold
-%\makeatletter
-%\def\th@plain{%
-%	\thm@notefont{}% same as heading font
-%	\itshape % body font
-%}
-%\def\th@definition{%
-%	\thm@notefont{}% same as heading font
-%	\normalfont % body font
-%}
-%\makeatother
-
-
-%define theorems definitions and remarks
-%\theoremstyle{theorem}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -182,26 +149,6 @@
 \numberwithin{conjecture}{chapter}
 %\numberwithin{notation}{chapter}
 \numberwithin{fact}{chapter}
-%\numberwithin{proposition}{chapter}
-%\numberwithin{definition}{chapter}
-%\numberwithin{identity}{chapter}
-%\numberwithin{hint2}{chapter}
-%\numberwithin{open}{chapter}
-
-%\renewcommand{\thechapter}{\Roman{chapter}}
-%\renewcommand{\thesection}{\Roman{section}}
-%\renewcommand{\thesubsection}{\Roman{subsection}}
-%\renewcommand\thetheorem{\Roman{theorem}}
-%\renewcommand\thelemma{\Roman{lemma}}
-%\renewcommand\thecorollary{\Roman{corollary}}
-%\renewcommand\theidentity{\Roman{identity}}
-%\renewcommand\theproblem{\Roman{problem}}
-%\renewcommand\thehint{\Roman{hint}}
-%\renewcommand\theconjecture{\Roman{conjecture}}
-%\renewcommand\thefact{\Roman{fact}}
-%\renewcommand\theequation{\Roman{equation}}
-%\renewcommand\thedefinition{\Roman{definition}}
-
 
 
 %define custom commands
@@ -233,39 +180,6 @@
 
 \newcommand{\entoure}[2]{\tikz[remember picture,overlay] \node[preaction={draw=black,ultra thick,opacity=.2,
 		transform canvas={xshift=1.5pt,yshift=-1.5pt}},draw,ellipse,ultra thick,inner sep=.5em,fit=(#1.center)(#2.center)]{} ;}
-
-
-%\fancypagestyle{front}{% style for TOC, LOF, LOT
-%  \fancyhf{}
-%  \renewcommand{\headrulewidth}{0pt}
-%  \cfoot{\thepage}
-%}
-%\fancypagestyle{main}{% style for the mainmatter
-
-%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-%\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-%\fancyhf{} % delete current setting for header and footer
-%\fancyhead[LO]{\bfseries\rightmark}
-%\fancyhead[RE]{\bfseries\leftmark}
-%\fancyfoot{} % clear all footer fields
-%\fancyfoot[LE,RO]{\bfseries\thepage}
-%\fancypagestyle{plain}{%
-%\fancyhead{} % get rid of headers on plain pages
-%\renewcommand{\headrulewidth}{0pt} % and the line
-%}
-%\fancyhf{}
-%\renewcommand\headrulewidth{.4pt}
-%\fancyhead[C]{\slshape \leftmark}
-%\fancyfoot[C]{\thepage}
-%}
-
-%\makeatletter
-%  \newcommand\frontpagestyle{\cleardoublepage\pagestyle{front}\let\ps@plain\ps@front}
-%  \newcommand\mainpagestyle{\cleardoublepage\pagestyle{main}\let\ps@plain\ps@main}
-%\makeatother
-%\newenvironment{edition}{\Large\it}{\itshape\raggedleft}
-%\newenvironment{thetitle}{\centering\Huge\bfseries}{\par}
-%\newenvironment{theauthor}{\Large\itshape\centering|}{\vspace*{.1in}}
 
 %long division
 \input longdiv.tex
