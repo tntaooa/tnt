@@ -4,11 +4,11 @@
 \begin{document}
 \chapter{Arithmetic Functions}\label{ch:arithfunc}
 
-	In chapter \ref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ which satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. It is natural that we would encounter more such functions repeatedly. Certainly, this calls for a separate study of such functions. We call them \textit{arithmetic functions}, that is, functions which take positive integers as input. Apart form the need to study these functions for common purpose, when you have dived into number theory, you will find that arithmetic functions form the nucleus of modern number theory (more precisely, analytical number theory, which is out of our scope)\watermark.
+	In chapter \ref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ which satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers. \watermark.
 \section{Definitions}
 
 		\begin{definition}[Arithmetic Function]
-			An \textit{arithmetic function} $f$ is a function $f : \mathbb{N} \to \mathbb{C} $ with \textit{domain} $\mathbb{N} = \{1, 2, \cdots, n, \cdots\}$ and \textit{codomain} $\mathbb{C} = \{a+bi: (a,b)\in \mathbb{R}^2 \}$, where $i$ is the imaginary unit defined by $i=\sqrt{-1}$.
+			An \textit{arithmetic function} $f$ is a function $f : \mathbb{N} \to \mathbb{C} $ with \textit{domain} $\mathbb{N} = \{1, 2, \cdots, n, \cdots\}$ and \textit{codomain} $\mathbb{C} = \{a+bi: (a,b)\in \mathbb{R}^2 \}$, where $i$ is the imaginary unit defined by $i=\sqrt{-1}$. Here, we are primarily interested in $f:\mathbb{N}\to\mathbb{N}$ only.
 		\end{definition}
 
 		\begin{remark}
@@ -16,14 +16,12 @@
 				\begin{align*}
 					f(n)=\dfrac{n^ee^{-n}}{e^n+n+1+\ln n}.
 				\end{align*}
-			With the above definition, $f(n)$ is an arithmetic function although it does not represent any specific property of $n$. In this book, however, we are looking for functions which represent some \textit{number theoric} property of their input. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and coprime to $n$ as its output.
+			With the above definition, $f(n)$ is an arithmetic function although it does not represent any specific property of $n$. In this chapter, however, we are looking for functions which represent some \textit{number theoric} property of their input. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and coprime to $n$ as its output.
 
 			This being said, we are interested in integer-valued functions only. In fact, arithmetic functions are introduced to express some arithmetical properties of positive integers and it is logical to expect such functions to have integer values. Therefore, we only study functions with codomain $\mathbb Z$ in this book.
 		\end{remark}
-
-
 	Here are some examples of arithmetic functions.
-		\begin{definition}[Unit Function]
+		\begin{definition}[\bfseries Unit Function]
 			The \textit{unit function} is defined as below for all positive integers $n$:
 				\begin{align*}
 					\varepsilon(n) & =\left[\dfrac 1n\right] =\begin{cases}1&\mbox{ if }n=1,\\0&\mbox{ if }n>1.\end{cases}
@@ -62,9 +60,8 @@
 			Here, we call $\varepsilon(n)$ the unit function because it acts like $1$ when multiplying arithmetic functions. That is, $\varepsilon$ is the multiplicative identity of arithmetic functions. In section \ref{sec:dirichletmobius}, we will discuss the process of finding the result of multiplication of two arithmetic functions (called the \text{Dirichlet product}) and explain why $\varepsilon(n)$ has this property.
 		\end{note}
 
-		\begin{definition}[Identity Function]
-			The \textit{identity function}, $\text{id}$, takes every positive integer to itself. In other words, $\text{id}(n)=n$ for all positive integers $n$. You can see the plot of this function in figure \ref{fig:identityfunction}.
-
+		\begin{definition}[\bfseries Identity Function]
+			The \textit{identity function}, $\text{id}$, maps every positive integer to itself. In other words, $\text{id}(n)=n$ for all positive integers $n$. You can see the plot of this function in figure \ref{fig:identityfunction}.%figure necessary?
 			\begin{figure}
 				\centering
 				\begin{tikzpicture}
@@ -94,7 +91,7 @@
 
 		\end{definition}
 
-		\begin{definition}[Constant Function]
+		\begin{definition}[\bfseries Constant Function]
 			Let $c$ be a fixed positive integer.Consider the function $f$ with the property that $f(n)=c$ for all positive integers $n$. We call $f$ the \textit{constant $c$ function}. A plot for constant $4$ function can be seen in figure \ref{fig:constantfunction}.
 
 			\begin{figure}
@@ -124,20 +121,20 @@
 				\label{fig:constantfunction}
 			\end{figure}
 		\end{definition}
-		\begin{definition}[Additive Function]
+		\begin{definition}[\bfseries Additive Function]
 			An arithmetic function $f$ is called an \textit{additive function} if and only if
 				\begin{align}
 					f(mn)=f(m)+f(n)\label{eqn:af1}
 				\end{align}
-			for all $m,n\in\mathbb{N}$ such that $m\perp n$. The condition $m\perp n$ is imposed to make it work on some special cases (we will find out why later). The case where equation \ref{eqn:af1} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely additive function}.
+			for all $m,n\in\mathbb{N}$ such that $m\perp n$. The condition $m\perp n$ is particularly significant for a lot of arithmetic functions as we will see later. The case where equation \ref{eqn:af1} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely additive function}.
 		\end{definition}
 
-		\begin{definition}[Multiplicative Function]
+		\begin{definition}[\bfseries Multiplicative Function]
 			An arithmetic function $f$ is called a \textit{multiplicative function} if and only if
 				\begin{align}
 				f(mn)=f(m)f(n)\label{eqn:af2}
 				\end{align}
-			for all $m,n\in\mathbb{N}$ such that $m\perp n$. Again, the condition $m\perp n$ is imposed to make it work on some special cases. In the case where equation \ref{eqn:af2} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely multiplicative function}.
+			for all $m,n\in\mathbb{N}$ such that $m\perp n$. In the case where equation \ref{eqn:af2} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely multiplicative function}.
 		\end{definition}
 
 		\begin{example}
@@ -164,7 +161,7 @@
     	\end{enumerate}
     These two sub-problems are basically the same. Therefore, we only need to answer the general question that how many integers in the interval $[1:x]$ are divisible by $n$. The result is actually the quotient of the division $x/n$ (why?). Consequently, rises the definition of the \textit{floor function}.
 
-        \begin{definition}[Floor Function and Fractional Part]
+        \begin{definition}[\bfseries Floor Function and Fractional Part]
 			We call the function $\lfloor x \rfloor: \mathbb{R} \to \mathbb Z$ the \textit{floor function} and for every real $x$, $\lfloor x\rfloor$ (read \textit{floor of $x$}) is the largest integer less than or equal to $x$. Moreover, we denote by $\{x\}$ the \textit{fractional part of $x$}, which is equal to $x-\lfloor x\rfloor$.
 
 			\begin{figure}
@@ -293,7 +290,7 @@
 
     Now, we get to the other way of solving problem \ref{floorproblem}. First, we subtracted the number of multiples less than $10$. This time we find out the first multiple of $7$ that is \textit{greater than or equal to} $10$, and the greatest multiple less than or equal to $100$ (this part is same as before). $14=7\cdot2$ is the first multiple of $7$ greater than $10$. Since $98=7\cdot14$ is the largest multiple of $7$ less than $100$, the answer to the problem would be the number of integers between $2$ and $14$ (inclusive). There are $14-2+1=13$ such integers. Consequently, this makes us define \textit{ceiling}. Try to make sense how this relates to the properties of this function.
 
-        \begin{definition}[Ceiling Function]
+        \begin{definition}[\bfseries Ceiling Function]
         	We call the function $\lceil x \rceil: \mathbb{R} \to \mathbb Z$ the \textit{ceiling function} and for every real $x$, $\lceil x\rceil$ (read \textit{ceiling of $x$}) is the smallest integer greater than or equal to $x$.
 
     		\begin{figure}
@@ -477,9 +474,7 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 		\end{align*}
 	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \ref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
 \end{proof}
-
 There is another way for finding $v_p(n!)$ using bases. Before we state the alternative version of Legendre's theorem, we need a definition.
-
 \begin{definition}
 	Let $n$ be a positive integer and let $p$ be a prime number.  We denote by $s_p(n)$  the sum of the standard base $p$ digits of $n$. That is, if $n=(n_k n_{k-1}\ldots n_1 n_0)_p$, then $s_p(n)=n_k+ n_{k-1}+\cdots +n_1+ n_0$.
 \end{definition}
@@ -642,7 +637,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\subsection{Number of Divisors}\label{sec:number-of-divisors}
 		We first introduced $\tau(n)$ in chapter \ref{ch:divisibility}. To be precise, in theorem \ref{thm:nos}, we explained that there are $\tau(n)$ positive integer solutions $(a,b)$ to the equation $ab=n$. For example, $ab=12$ has $\tau(12)=6$ solutions $(1,12), (2, 6), (3,4), (4,3), (6,2), (12,1)$ in positive integers.
 
-			\begin{definition}[Number-of-divisors Function]
+			\begin{definition}[\bfseries Number-of-divisors Function]
 				Let $n$ be a positive integer. The number of positive divisors of $n$ is denoted by $\tau(n)$. In other words, the \textit{number-of-divisors} function is defined as
 					\begin{align*}
 						\tau(n)=\sum_{d|n} 1.
@@ -718,7 +713,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\subsection{Sum of Divisors}\label{sec:sum-of-divisors}
 		The sum of divisors of a number is another important property of each positive integer.
 
-		\begin{definition}[Sum-of-divisors Function]
+		\begin{definition}[\bfseries Sum-of-divisors Function]
 			Let $n$ be a positive integer. The sum of positive divisors of $n$ is denoted by $\sigma(n)$.\footnote{Read ``sigma of $n$''.} In other words, the \textit{sum-of-divisors} function is defined as
 			\begin{align*}
 			\sigma(n)=\sum_{d|n} d.
@@ -1066,11 +1061,11 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{proof}
 	An example for demonstrating this would be the \textit{Liouville Function}. We will discuss more about this function later in this chapter. It is noteworthy to mention that Liouville function plays a huge role in analytic number theory.
 
-		\begin{definition}[Big Omega Function]
+		\begin{definition}[\bfseries Big Omega Function]
 			Let $n$ be a positive integer. The number of prime factors of $n$ (with multiplicity) is denoted by $\Omega(n)$.
 		\end{definition}
 
-		\begin{definition}[Small Omega Function]
+		\begin{definition}[\bfseries Small Omega Function]
 			Let $n$ be a positive integer. The number of distinct prime factors of $n$ is denoted by $\omega(n)$.
 		\end{definition}
 
@@ -1078,7 +1073,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			$\omega(45)=2$ but $\Omega(45)=3$ since $3$ and $5$ are the only prime divisors of $45$ and $3$ is repeated twice (that is, $3^2|45$). On the other hand, $\omega(35)=\Omega(35)=2$ since the only prime factors of $35$ are $5$ and $7$, each repeated exactly once.
 		\end{example}
 
-		\begin{definition}[Liouville Function]
+		\begin{definition}[\bfseries Liouville Function]
 			For a natural number $n$, the Liouville function $\lambda (n)$ is defined as
 			\begin{align*}
 			\lambda (n) =  (-1)^{\Omega(n)}.
@@ -1101,7 +1096,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 	When working with arithmetic functions, we are mostly interested in the \textit{Dirichlet product} of two functions rather than their normal product. As you keep reading this section, you find out why Dirichlet products are important when studying arithmetic functions.
 
-		\begin{definition}[Dirichlet Product or Dirichlet Convolution]
+		\begin{definition}[\bfseries Dirichlet Product or Dirichlet Convolution]
 			For two arithmetic functions $f$ and $g$, we define their Dirichlet product as
 				\begin{align*}
 					h(n)=\sum_{d|n}f(d)g\left(\frac nd\right),
@@ -1164,7 +1159,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 		We are going define the M\"{o}bius function $\mu(n)$, which doesn't seem to have a natural definition. As we go on in this chapter and later in chapter \ref{ch:primes} on primes, we will find out why this definition is in fact very natural and it will help us a lot when solving problems concerning inclusion--exclusion. In other words, the definition of the M\"{o}bius function is natural in the way that it's trying to alternate positive and negative signs in an inclusion--exclusion argument.
 
-		\begin{definition}[M\"{o}bius Function]\label{def:mobius}
+		\begin{definition}[\bfseries M\"{o}bius Function]\label{def:mobius}
 			The M\"{o}bius function $\mu(n)$ is defined as
 				\begin{align*}
 					\mu(n) & =
@@ -1240,7 +1235,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 	You may be wonder why would someone define such a not-very-nice-looking function? What is the motivation behind M\"{o}bius function? In fact, this function is the \textit{inverse} of a specific arithmetic function. Before going further, we must define the Dirichlet inverse of an arithmetic function.
 
-		\begin{definition}[Dirichlet Inverse Function]
+		\begin{definition}[\bfseries Dirichlet Inverse Function]
 			Let $f$ be an arithmetic function. The arithmetic function $g$ for which
 				\begin{align*}
 					f \ast g = \varepsilon
@@ -2384,15 +2379,15 @@ $ $
 \section{Liouville Function}
 	Liouville function is of high interest in many sections of number theory. As a reminder, we are going to state the definitions of the functions $\omega(n)$, $\Omega(n)$, and $\lambda(n)$ once again. For more examples, read section \ref{sec:characterizing-multiplicative}.
 
-	\begin{definition}[Big Omega Function]
+	\begin{definition}[\bfseries Big Omega Function]
 		Let $n$ be a positive integer. The number of prime factors of $n$ (with multiplicity) is denoted by $\Omega(n)$.
 	\end{definition}
 
-	\begin{definition}[Small Omega Function]
+	\begin{definition}[\bfseries Small Omega Function]
 		Let $n$ be a positive integer. The number of distinct prime factors of $n$ is denoted by $\omega(n)$.
 	\end{definition}
 
-	\begin{definition}[Liouville Function]
+	\begin{definition}[\bfseries Liouville Function]
 		For a natural number $n$, the Liouville function $\lambda (n)$ is defined as
 		\begin{align*}
 			\lambda (n) =  (-1)^{\Omega(n)}.

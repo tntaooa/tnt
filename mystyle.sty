@@ -16,6 +16,7 @@
 %\RequirePackage{incgraph}
 \RequirePackage{titlesec}
 %\RequirePackage{minitoc}
+\usepackage{xifthen}
 
 \newcommand\watermark[1]{%
 	#1%
@@ -49,7 +50,13 @@
 
 \usepackage{pdfrender, xcolor}
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
-
+\makeatletter
+\let\normalrender\PdfRender@NormalColorHook
+\let\PdfRender@NormalColorHook\@empty
+\newcommand*{\textnormalrender}[1]{%
+	\begingroup\normalrender#1\endgroup
+}
+\makeatother
 
 %\usepackage[ocgcolorlinks]{ocgx2}
 \usetikzlibrary{fit,matrix,shapes}
@@ -125,7 +132,9 @@
 
 \theoremstyle{definition}
 
-\newtheorem{definition}[theorem]{Definition}
+%\newtheorem*{definition}{Definition}
+%\newcounter{definition}[section]
+\newenvironment{definition}[1][]{\par\medskip\noindent \textbf{\ifthenelse{\isempty{#1}}{Definition.}{#1.}} \rmfamily}{\medskip}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{question}[theorem]{Question}
