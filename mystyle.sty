@@ -3,7 +3,6 @@
 
 \RequirePackage{hyperref}
 \hypersetup{
-	%colorlinks,
 	unicode      = true,            % non-Latin characters in Acrobat’s bookmarks
 	%pdftoolbar   = false,             % show Acrobat’s toolbar?
 	%pdfmenubar   = false,             % show Acrobat’s menu?
@@ -13,9 +12,7 @@
 \RequirePackage{appendix}
 \RequirePackage{amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
 \RequirePackage{xparse}
-%\RequirePackage{incgraph}
 \RequirePackage{titlesec}
-%\RequirePackage{minitoc}
 \usepackage{xifthen}
 
 \newcommand\watermark[1]{%
@@ -58,7 +55,6 @@
 }
 \makeatother
 
-%\usepackage[ocgcolorlinks]{ocgx2}
 \usetikzlibrary{fit,matrix,shapes}
 
 \makeatletter
@@ -66,20 +62,11 @@
 \renewcommand{\@tocrmarg}{4em}
 \makeatother
 
-%\setlength{\textwidth}{6.5in}
-%\setlength{\oddsidemargin}{.1in}
-%\setlength{\evensidemargin}{.1in}
-%\setlength{\topmargin}{-.1in}
-%\setlength{\textheight}{8.4in}
-
 \setlength{\textwidth}{6.5in}
 \setlength{\oddsidemargin}{.1in}
 \setlength{\evensidemargin}{.1in}
 \setlength{\topmargin}{-.1in}
 \setlength{\textheight}{8.4in}
-
-%\titleformat{\subsection}	{\vspace{.3 in}\centering\large\sc}{\thesubsection.}{1.5em}{}
-
 
 %tikz
 \newcommand*{\xMin}{0}%
@@ -87,10 +74,6 @@
 \newcommand*{\yMin}{0}%
 \newcommand*{\yMax}{6}%
 
-%title of sections, subsections, and subsubsections
-%\titleformat*{$\S$\section}{\normalsize\bfseries}
-
-%numbering subsubsections
 \setcounter{secnumdepth}{3}
 
 %header and footer
@@ -133,8 +116,6 @@
 
 \theoremstyle{definition}
 
-%\newtheorem*{definition}{Definition}
-%\newcounter{definition}[section]
 \newenvironment{definition}[1][]{\par\medskip\noindent \textbf{\ifthenelse{\isempty{#1}}{Definition.}{#1.}} \rmfamily}{\medskip}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{problem}[theorem]{Problem}
@@ -143,7 +124,6 @@
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 \newtheorem*{solution}{Solution}
-%\newtheorem{open}{Open Question}
 
 \theoremstyle{remark}
 \newtheorem*{hint}{Hint}
@@ -152,12 +132,8 @@
 
 
 \numberwithin{equation}{chapter}
-%\numberwithin{problem}{chapter}
-%\numberwithin{corollary}{chapter}
 \numberwithin{theorem}{section}
-%\numberwithin{lemma}{chapter}
 \numberwithin{conjecture}{chapter}
-%\numberwithin{notation}{chapter}
 \numberwithin{fact}{chapter}
 
 
