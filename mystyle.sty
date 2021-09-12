@@ -45,16 +45,6 @@
 \newlength{\tpwidth}\setlength{\tpwidth}{0.9\textwidth}
 \newlength{\txtwidth}\setlength{\txtwidth}{0.9\tpwidth}
 
-\usepackage{pdfrender, xcolor}
-\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
-\makeatletter
-\let\normalrender\PdfRender@NormalColorHook
-\let\PdfRender@NormalColorHook\@empty
-\newcommand*{\textnormalrender}[1]{%
-	\begingroup\normalrender#1\endgroup
-}
-\makeatother
-
 \usetikzlibrary{fit,matrix,shapes}
 
 \makeatletter
