@@ -4,13 +4,13 @@
 	\section{Basic Modular Arithmetic}
 	Consider the timestamp we use in our daily life. Certainly, there was a point when people started counting time. Then, why is it not something like, $2147483647$? Rather we say something like $12.09$ am (and there is a date of course, that separates two $12.09$ am). The reason is, each time the hour hand in a clock crosses $12$, it starts from $1$ again, not $13$. If the numbers kept going large, we would have a hard time realizing what time we are living in. Similarly, when the second hand ticks $60$ times, it starts from $1$ again (meaning it has been $1$ minute, letting the minute hand tick once). Here, intentionally or inadvertently, we have been using what number theorists call \textbf{modular arithmetic}. The idea is, we keep the integers that leave the same remainder (when divided by a certain integer) in the same \textit{class}. It will be clear afterwards what exactly we mean by class here when we discuss complete set of residue class\watermark.
 	\begin{definition}
-		For a non-zero integer $m$, integers $a$ and $b$ are \textit{congruent modulo} $m$ if and only if $m\mid a-b$. We show this by the notation 
+		For a non-zero integer $m$, integers $a$ and $b$ are \textit{congruent modulo} $m$ if and only if $m\mid a-b$. We show this by the notation
 			\begin{align*}
 				a \equiv b \pmod m
 			\end{align*}
 		If $m$ does not divide $a-b$, we say that $a$ and $b$ are not congruent modulo $m$ and denote it by $a \not \equiv b \pmod m$.
 	\end{definition}
-	
+
 	\begin{note}
 		$ $
 		\begin{enumerate}
@@ -19,11 +19,11 @@
 		\end{enumerate}
 	\end{note}
 
-	
+
 	\begin{example}
 		$3 \equiv 7 \pmod 4$,	$5^2 \equiv -1 \pmod {13}$, $n^2-1 \equiv 0 \pmod {n+1}$.
 	\end{example}
-	
+
 	\begin{proposition}
 		Assume that $a$ and $b$ are two integers and $m$ is a positive integer. Then the following propositions are correct.
 			\begin{enumerate}[i.]
@@ -36,28 +36,28 @@
 				\item If $a \equiv b \pmod m$, then for any integer $k$, $ka \equiv kb \pmod m$.
 			\end{enumerate}
 	\end{proposition}
-	
+
 	\begin{proposition}\slshape\label{prop:powercong}
 		If $n$ is a positive integer and $a \equiv b \pmod m$, then $a^n \equiv b^n \pmod m$.
 	\end{proposition}
-	
+
 	\begin{proof}
 		From the definition, $a \equiv b \pmod m$ means $m\mid a-b$. We know from Theorem \ref{id:fatandthin} that
 		\begin{align*}
 			a^n-b^n & = (a-b)\Big(a^{n-1}+a^{n-2}b+\cdots+b^{n-1}\Big).
 		\end{align*}
 		This gives $a-b\mid a^n-b^n$. So $m\mid a^n - b^n$, or $a^n \equiv b^n \pmod m$.
-	\end{proof}	
-	
+	\end{proof}
+
 	\begin{proposition}\slshape
 		If $f(x)$ is a polynomial with integer coefficients and $a \equiv b \pmod m$, then $f(a) \equiv f(b) \pmod m$.
 	\end{proposition}
-	
+
 	\begin{proof}
 		Assume $f(x)=a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$. Use Proposition \eqref{prop:powercong} to get $a_i a^i \equiv a_i b^i \pmod m$ and add up all the terms.
-	\end{proof}	
-	
-	
+	\end{proof}
+
+
 	\begin{proposition}\slshape
 		If $a$ is an integer and $n$ is a positive integer, then exactly one of the following relations holds.
 			\begin{align*}
@@ -67,14 +67,14 @@
 				a &\equiv n-1 \pmod{n}.
 			\end{align*}
 	\end{proposition}
-	
-	
+
+
 	\begin{theorem}\slshape
 		Let $m$ be a positive integer and $a, b$, and $c$ be integers. Then
 		\begin{enumerate}[(a)]
-			\item If $ac \equiv bc \pmod m$ and $\gcd(c,m)=d$, then 
+			\item If $ac \equiv bc \pmod m$ and $\gcd(c,m)=d$, then
 				\begin{align*}
-					 a & \equiv b \mod{\Big(\dfrac{m}{d}\Big)}. 
+					 a & \equiv b \mod{\Big(\dfrac{m}{d}\Big)}.
 				 \end{align*}
 			We will call this the \textit{cancellation rule} for congruence.
 			\item If $b \equiv c \pmod m$, then $\gcd(b,m)=\gcd(c,m)$.
@@ -100,16 +100,16 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 				 	c=c_1d, m = m_1 d & \mbox{and } \gcd(c_1,m_1) = 1.
 				\end{align*}
 			Since $ac \equiv bc \pmod m$, we have $m=m_1d\mid (a-b)c=(a-b)c_1d$. Canceling $d$ from both sides, we get $m_1\mid (a-b)c_1$. But $\gcd(c_1,m_1)=1$, and so by Proposition \ref{prop:cpdiv}, we get $m_1\mid a-b$. Thus,
-				\begin{align*} 
-					a 
+				\begin{align*}
+					a
 						& \equiv b \pmod{m_1},
 				\end{align*}
 			as desired.
-			
-			\item Because $b \equiv c \pmod m$, there exists an integer $k$ for which $b-c=mk$. So $\gcd(b,m)\mid c$. On the other hand, from definition of $\gcd$, it is clear that $\gcd(b,m)\mid m$. Now by proposition \ref{prop:dividegcd} we have $\gcd(b,m)\mid \gcd(c,m)$. Similarly, one can show that $\gcd(c,m)\mid \gcd(b,m)$. Using Proposition \ref{prop:bothdivide}, we get $\gcd(c,m)=\gcd(b,m)$. 
+
+			\item Because $b \equiv c \pmod m$, there exists an integer $k$ for which $b-c=mk$. So $\gcd(b,m)\mid c$. On the other hand, from definition of $\gcd$, it is clear that $\gcd(b,m)\mid m$. Now by proposition \ref{prop:dividegcd} we have $\gcd(b,m)\mid \gcd(c,m)$. Similarly, one can show that $\gcd(c,m)\mid \gcd(b,m)$. Using Proposition \ref{prop:bothdivide}, we get $\gcd(c,m)=\gcd(b,m)$.
 		\end{enumerate}
 	\end{proof}
-	
+
 	\begin{definition}[Arithmetic Progression]\label{def:AP}
 		A sequence $a_1, a_2, a_3, \cdots$ of real numbers is called an \textit{arithmetic sequence}, \textit{arithmetic progression}, or \textit{AP} if each new term of the sequence is obtained by adding a constant real number $d$, called the \textit{common difference}, to the preceding term. In other words, the terms of an arithmetic progression are of the form
 			\begin{align*}
@@ -117,7 +117,7 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 			\end{align*}
 		where $a$ is the \textit{initial term} of the sequence.
 	\end{definition}
-	
+
 	\begin{example}
 		The sequence of odd numbers is an AP. The following sequence
 			\begin{align*}
@@ -125,7 +125,7 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 			\end{align*}
 		which includes numbers of the form $5k+2$ for $k=-1,0,1,\cdots$, is also an arithmetic sequence with initial term $-3$ and common difference $5$.
 	\end{example}
-	
+
 	\begin{corollary}
 		All terms of an arithmetic progression are equivalent modulo the common difference.
 	\end{corollary}
@@ -144,7 +144,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 					& = \frac{n}{2} \left(a_1+a_n\right) = \frac{n}{2} \big(2a_1 + (n-1)d\big).
 			\end{align*}
 	\end{theorem}
-	
+
 	\begin{proof}
 		We have
 			\begin{align*}
@@ -158,7 +158,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 				\sum_{i=1}^{n} a_i = \dfrac{n}{2} \big(2a_1 + (n-1)d\big).
 			\end{align*}
 	\end{proof}
-	
+
 	\begin{definition}[Geometric Progression]
 		A sequence $a_1, a_2, a_3, \cdots$ of real numbers is called an \textit{geometric sequence}, \textit{geometric progression}, or \textit{GP} if each new term of the sequence is obtained by multiplying the previous term by a constant real number $r$, called the \textit{common ratio}. In other words, the terms of an arithmetic progression are of the form
 			\begin{align*}
@@ -166,7 +166,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\end{align*}
 		where $a$ is the \textit{initial term} of the sequence.
 	\end{definition}
-	
+
 	\begin{example}
 		The sequence of powers of $2$ is a geometric progression. The sequence
 			\begin{align*}
@@ -174,7 +174,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\end{align*}
 		is a GP with initial term $1/2$ and common ratio $1/3$.
 	\end{example}
-	
+
 	Similar to arithmetic progressions, the sum of terms of a finite geometric progression is always possible to find. An interesting question would be what happens if we add all the terms of an \textit{infinite} geometric sequence? For example, what is the value of the following sum?
 		\begin{align*}
 			1 + \dfrac{1}{2}+ \dfrac{1}{4}+\dfrac{1}{8}+ \ldots
@@ -184,7 +184,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\frac{1}{256} = 0.00390625,
 		\end{align*}
 	which is very close to zero. So, on a second thought, we can guess that the given sum has a finite value. In general, when the absolute value of common ratio of a geometric progression is less than one, that is, when the absolute value of each term of the sequence is smaller that its preceding term, then the \textit{geometric series} (either finite or infinite) has a finite value\footnote{to put it differently, it \textit{converges} to a fixed value.}. We will see this from a different point of view. This is due to \textit{Chamok Hasan}, a teacher of the first author.
-	
+
 	Consider a pumpkin. Let us assume that it is totally symmetrical. Now, divide it in half and put aside half of it. You have half of the pumpkin to yourself. Divide it in half again. Keep one to yourself and discard the other half. So now you have one fourth of the pumpkin. Again, cut it in half. Keep one, discard one. Now you have one eighth. See that if you keep going this way, you end up getting $\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\cdots$ and dividing them. And the fun fact is, you can keep doing this for as many times as you want. Obviously, if we put together all the parts again, we get the whole pumpkin. That is, if we take all the discarded portions and put them back, the pumpkin becomes whole again. This shows us without any rigorous proof that
 		\begin{align*}
 			\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\dfrac{1}{16}+\ldots=1.
@@ -203,7 +203,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 					\sum_{i=1}^{n} a_i &= \dfrac{a \left(r^n-1\right)}{r-1}.
 				\end{align*}
 		\end{theorem}
-		
+
 		\begin{proof}
 			Multiply the sum by $(r-1)$ to obtain
 				\begin{align*}
@@ -220,7 +220,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 					\sum_{i\geq1} a_i &= \frac{a}{1-r}.
 				\end{align*}
 		\end{corollary}
-		
+
 		\begin{proof}
 			If $|r|<1$, then $|r^n|$ decreases as we increase $n$. Therefore, when $n$ is very large, $|r^n|$ is almost zero. Here, we should borrow the idea of \textit{limit} from calculus but for now, let us convince ourselves that as $n\to\infty$, $r^n\to0$. This gives us
 				\begin{align*}
@@ -252,9 +252,9 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			Define $a_n=6^n+8^n$. Find the remainder of $a_{49}$ when divided by $49$.
 		\end{problem}
 	The first idea that crosses your mind might be calculating $6^{49}$ and finding the remainder when divided by $49$. This would be a large integer and the calculation is really tedious, not to mention, pointless. A slight improvement would be multiplying $6$ with $6$ and taking modulo $49$ each time. We need to do this for $49$ times but at least, now we do not have to deal with that large numbers anymore. Let us call this \textit{iterative exponentiation method}.
-	
+
 	Suppose we want to find $c \equiv a^k \mod n$. The iterative exponentiation method computes the values $1=a^0, a^1, a^2, \cdots, a^k=c$ modulo $n$ instead of directly calculating $a^k$ modulo $n$. Suppose that we have computed $a^i$ modulo $n$ for some $i<k$ and the result is $b$. According to the above theorem, to calculate $a^{i+1}$, all we need to do is to compute $a\cdot b \mod n$. Obviously, $a \cdot b$ is much smaller than $a^i$ when $i$ is large. This is why this method takes less time for computations. Iterative exponentiation may be expressed as an algorithm as shown below.
-	
+
 	\paragraph{Iterative Exponentiation Algorithm}
 	\begin{enumerate}[1.]
 		\item Set $k_1 \longleftarrow 0$ and $c \longleftarrow 1$.
@@ -262,47 +262,47 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\item Set $c \longleftarrow a \cdot c \pmod n$.
 		\item If $k_1<k$, go to step $2$. Otherwise return $c$.
 	\end{enumerate}
-	
+
 	\begin{example}
 		Let's compute $5^{20}$ modulo $751$ by iterative exponentiation algorithm. Table \ref{table:modmult} shows $5^i \mod{751}$ for $i=1$ to $20$. As obtained from the table, $5^{20} \equiv 200 \pmod{751}$, which is in agreement with what we previously found.
 		\begin{table}
 			\centering
-			\begin{tabular}{|c|c|c|c|} 
-				\hline 
-				$k_1$ & $5^{k_1} \pmod{751}$ & $k_1$ & $5^{k_1} \pmod{751}$ \\ 
-				\hline 
-				1 & 5 & 11 & 358  \\ 
-				\hline 
-				2 & 25 & 12 & 288 \\ 
-				\hline 
-				3 & 125 & 13 & 689 \\ 
-				\hline 
-				4 & 625 & 14 & 441  \\ 
-				\hline 
-				5 & 121 & 15 & 703 \\ 
-				\hline 
-				6 & 605 & 16 & 511 \\ 
-				\hline 
-				7 & 21 & 17 & 302 \\ 
-				\hline 
-				8 & 105 & 18 & 8 \\ 
-				\hline 
-				9 & 525 & 19 & 40 \\ 
-				\hline 
-				10 & 372 & 20 & 200 \\ 
-				\hline 
-			\end{tabular} 
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				$k_1$ & $5^{k_1} \pmod{751}$ & $k_1$ & $5^{k_1} \pmod{751}$ \\
+				\hline
+				1 & 5 & 11 & 358  \\
+				\hline
+				2 & 25 & 12 & 288 \\
+				\hline
+				3 & 125 & 13 & 689 \\
+				\hline
+				4 & 625 & 14 & 441  \\
+				\hline
+				5 & 121 & 15 & 703 \\
+				\hline
+				6 & 605 & 16 & 511 \\
+				\hline
+				7 & 21 & 17 & 302 \\
+				\hline
+				8 & 105 & 18 & 8 \\
+				\hline
+				9 & 525 & 19 & 40 \\
+				\hline
+				10 & 372 & 20 & 200 \\
+				\hline
+			\end{tabular}
 			\caption{Applying iterative exponentiation method to find $5^{20}$ modulo $751$.}
 			\label{table:modmult}
 		\end{table}
 	\end{example}
-	
+
 	\begin{remark}
 		In the above example where $a$ is small (compared to modulus $n$), we can increase $k_1$ more than one unit in each iteration of the algorithm. For example, in above example, we could increase $k_1$ two units each time to compute $5^2, 5^4,\cdots, 5^{20}$. In this case, the number of calculations is divided by two and therefore there will be less time needed to find the result. This is done in general case but one must notice that when one increases $k_1$, say, two units at each step, he is in fact computing $a^2 \cdot c \mod n$ instead of $a \cdot c \mod n$ in step $3$ of the algorithm to reduce the number of iterations of the algorithm. If $a$ is small, there will be no difference in computation time. But if $a$ is (too) large, computing $a^2 \cdot c \mod n$ may will be more time consuming and it may reduce the time efficiency of algorithm.
 	\end{remark}
-	
+
 	A more efficient method to do this is \textit{modular exponentiation algorithm}. The beauty of this idea is that you can use it to compute big integers modulo $n$ by hand. The idea actually inherits from binary representation. Consider the binary number $(101101)_2$. We discussed how to convert it to a decimal integer in base conversion. However, Masum uses a variation for faster mental calculation. Start from the left most digit (which always will be $1$ if there is no leading $0$). Initially, the decimal integer is $1$. Now, go to the next digit. If it is $0$, double the current value. If it is $1$, double and add $1$. Since the next digit is $0$, we have $2$. Next digit is $1$. So it will become $2\cdot2+1=5$. Next digit is $1$ as well. It will be $5\cdot2+1=11$. Next digit is $0$, so we have $11\cdot2=22$. Next digit is $1$, so it will be $22\cdot2+1=45$. There is no more digits left, so this is the desired value in decimal. You can verify that this indeed is the intended result. And more importantly, think why this works if you have not figured it out already!
-	
+
 	We just saw a way of converting binary numbers into decimal. How does that help us in modular exponentiation? Assume that we want $a^k\pmod n$. We will not compute it directly or iteratively. Instead, represent $k$ in binary. Then, initially, the result is $1$. Divide $k$ by $2$ and keep the remainder. If it is $1$, multiply the current result by $a$ and do the modulo operation, that is, $r\to ra\pmod n$. Also, set $a\to a^2\pmod n$. Keep doing this until $k=0$. In the end we will see $r\equiv a^k\pmod n$. Again, make sense why this works. Do the example above this way and see if the result matches. Algorithm to find $a^k\pmod n$.
 	\paragraph{Modular Exponentiation Algorithm ($a^k\pmod n$)}
 		\begin{enumerate}[1.]
@@ -323,7 +323,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\item Go to step $2$.
 		\end{enumerate}
 	We can call this \textit{modular multiplication}. This way, we will not have to actually multiply two numbers to get the remainder. The proofs for the last two ideas were not shown deliberately. We expect that you can do it easily. By the way, did you notice something else too? In modular exponentiation, we do not have to iterate $k$ times. The number of times we need to iterate is actually $\lfloor \log_2(k)\rfloor+1$ (again, why?). Same goes for modular multiplication. Therefore, it is a very desirable improvement. In fact, these methods are highly used in primality tests or similar fields (we will discuss about primes in Chapter \ref{ch:primes}).
-	
+
 	Notice that, we can write modular exponentiation algorithm in a better fashion.
 	\paragraph{Modular Exponentiation Algorithm - Cleaner Version ($a^k\pmod n$)}
 		\begin{enumerate}[1.]
@@ -336,7 +336,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\item Set $a\longleftarrow a^2\pmod n$.
 			\item Go to step $3$.
 		\end{enumerate}
-	
+
 	\begin{example}
 		Let us calculate $5^{20} \pmod{751}$ this way. First, we need to find the binary representation of $20$, which is $(10100)_2$. Then, we can write
 			\begin{align*}
@@ -352,16 +352,16 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\end{align*}
 		So, we calculate $R_3 = R_2 \cdot 5$ at this stage and try to construct $5^4$. The rest of the solution is similar and we expect the reader to finish it. Try to find $R_4$ and $R_5$ for yourself. In case you want to check your answers, you can consult table \ref{table:modexp}.
 %		Initially, $R_0=1$ and $a_0=5$ (step $1$ in the algorithm). In the first iteration of the algorithm, we divide $20$ by $2$ and find the quotient of $10$ and remainder of zero. So, $a_1=a_0^2 \pmod {751}$ and $R_1=R_0$. In the second iteration, the quotient is $5$ and remainder is still zero. So, $a_2=a_1^2 \pmod {751}$ and $R_2=R_1$. In the third iteration, we have a quotient of $2$ and remainder of $1$. In this case, $a_3=a_2^2 \pmod {751}$ and $R_3=R_2 a_3$. The fourth iteration gives the quotient $1$ and the remainder is zero: $a_4=a_3^2 \pmod {751}$ and $R_4=R_3$. Finally, we find  $a_5=a_4^2 \pmod {751}$ and $R_5=R_4a_5$.
-		
+
 		\begin{table}[ht]
 			\centering
-			\begin{tabular}{|c|c|c|c|c|c|} 
-				\hline 
-				$i$ & 1 & 2 & 3 & 4 & 5  \\ 
-				\hline 
-				$R_i$ & $25$ & $625$ &  $121$ & $372$ & $200$\\ 
+			\begin{tabular}{|c|c|c|c|c|c|}
 				\hline
-			\end{tabular} 
+				$i$ & 1 & 2 & 3 & 4 & 5  \\
+				\hline
+				$R_i$ & $25$ & $625$ &  $121$ & $372$ & $200$\\
+				\hline
+			\end{tabular}
 			\caption{Applying modular exponentiation method to find $5^{20}$ modulo $751$.}
 			\label{table:modexp}
 		\end{table}
@@ -373,22 +373,22 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\begin{definition}
 			Two integers $a$ and $b$ are said to be members of the same \slshape{residue class} modulo $m$, if and only if $a \equiv b \pmod m$.
 		\end{definition}
-		
+
 		Clearly, there are $m$ distinct residues modulo $m$.
-		
+
 		\begin{definition}\label{def:completeresiduesystem}
 			Let $m$ be a positive integer. The set $A$ is called a \slshape{complete residue system modulo $m$} if and only if every number is congruent to a unique element of $A$ modulo $m$. In other words, $A$ should be representing all the residue classes modulo $m$.
 		\end{definition}
-		
+
 		\begin{example}
 			$A = \{0,1, \cdots, m-1\}$ is a complete residue system modulo $m$. So is $B=\{15, 36, -7, 27, 94\}$ modulo $5$.
 		\end{example}
 	We will state two simple propositions without proof. The reader should be able to prove them on their own.
-	
+
 	\begin{proposition}
 		The set $A=\{a_1, a_2, \cdots, a_k\}$ is a complete residue set (or system) modulo $m$ if and only if $k=m$ and $a_i \not\equiv a_j \pmod m$ for $i \neq j$.
 	\end{proposition}
-	
+
 	\begin{proposition} \label{prop:generalcompletesystem}
 		Let $A=\{a_1, a_2, \cdots, a_m\}$ be a complete residue set modulo $m$ and let $a,b$ be integers such that $a \bot m$. Then the set
 		\begin{align*}
@@ -396,22 +396,22 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\end{align*}
 		is also a complete residue set modulo $m$.
 	\end{proposition}
-	
-	\subsubsection{Reduced Residue Systems and Euler's Totient Function} 
+
+	\subsubsection{Reduced Residue Systems and Euler's Totient Function}
 	We really wish that you have a firm grasp of \textit{function}. However, if you are in $10$th grade or below, there is a good chance, you are not familiar with the concept of functions very well. Since that is entirely a different topic, we restrain ourselves from discussing it. Make sure you at least realize what function actually is. Here, we will say a thing about function or two but it is not nearly enough for covering the fundamentals.
-	
-	A \textit{function} is like a machine. It takes a number as its input, \textit{functions on the number}, and gives another number as its output with the property that each input is related to exactly one output. This property seems logical. Consider a weighing scale designed to measure the weight of people. Obviously, a person cannot be both $70$ and $75$ kilograms at the same time. The weight of a person (in a specific time) is a constant number, and hence the weighing scale actually works as a function: it takes a person as its input, measures his weight, and then shows the person's weight as its input. 
-	
+
+	A \textit{function} is like a machine. It takes a number as its input, \textit{functions on the number}, and gives another number as its output with the property that each input is related to exactly one output. This property seems logical. Consider a weighing scale designed to measure the weight of people. Obviously, a person cannot be both $70$ and $75$ kilograms at the same time. The weight of a person (in a specific time) is a constant number, and hence the weighing scale actually works as a function: it takes a person as its input, measures his weight, and then shows the person's weight as its input.
+
 	Another example would be a function that takes a real number $x$ as its input and gives $x^2$ as its output. For convenience, we can call this function $f: \mathbb R \to \mathbb R$ and write its \textit{relation} as $f(x) = x^2$ for all $x \in \mathbb R$. The notation $f: \mathbb S \to \mathbb T$ means that the function $f$ takes its inputs from the \textit{domain} $S$ (the set of inputs) and assigns them an output from the \textit{codomain} $T$ (the set of outputs and maybe some additional elements). For the previous example, we see that both domain and codomain of $f$ are $\mathbb R$. However, the \textit{range} (or \textit{image}) of $f$, which is the set containing only outputs of $f$, is $\mathbb R^{+}$, the set of all positive real numbers.
-	
-	\begin{definition}[Euler's Totient Function]\label{def:totient} 
+
+	\begin{definition}[Euler's Totient Function]\label{def:totient}
 		For every positive integer $n>1$, $\varphi(n)$ is the number of positive integers less than or equal to $n$ which are relatively prime to $n$. We call this function Euler's phi function (or totient\footnote{You might be wondering what \slshape{totient} means. In Latin, \slshape{tot} means so many. The suffix of \slshape{iens} is probably from the Sanskrit.} function).
 	\end{definition}
-	
+
 	\begin{example}
-		$\varphi(5)=4$ and $\varphi(10)=4$. 
+		$\varphi(5)=4$ and $\varphi(10)=4$.
 	\end{example}
-	
+
 	We will investigate properties of this function in details in Chapter \ref{ch:arithfunc}. For now let's just assume the following claims are true.
 	\begin{proposition}[Properties of Euler's Totient Function]\label{prop:phiproperties}\slshape
 		Let $m$ and $n$ be two positive integers.
@@ -421,20 +421,20 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 				\varphi(mn)=\varphi(m) \cdot \varphi (n).
 			\end{align*}
 			\item For all $n \geq 3$, $\varphi(n)$ is even.
-			\item $\varphi$ is neither increasing\footnote{The function $f$ is increasing if for $a_1 >a_2$, we have  $f(a_1) > f(a_2)$.}, injective\footnote{The function $f$ is injective if for $a_1 \neq a_2$, we have $f(a_1) \neq f(a_2)$.} nor surjective\footnote{The function $f:X \to Y$ is surjective if for every $y \in Y$, there exists $x \in X$ such that $f(x)=y$.}. 
+			\item $\varphi$ is neither increasing\footnote{The function $f$ is increasing if for $a_1 >a_2$, we have  $f(a_1) > f(a_2)$.}, injective\footnote{The function $f$ is injective if for $a_1 \neq a_2$, we have $f(a_1) \neq f(a_2)$.} nor surjective\footnote{The function $f:X \to Y$ is surjective if for every $y \in Y$, there exists $x \in X$ such that $f(x)=y$.}.
 			\item If $n$ is factorized as $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, then
-			
+
 			\begin{align*}
 				\varphi(n) & =n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
 				& = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right) .
-			\end{align*}					
-			
+			\end{align*}
+
 		\end{enumerate}
 	\end{proposition}
-	
-	
+
+
 	Why do we require function in congruence? Moreover, Euler's totient function? Before you decide it sounds irrelevant, take a look at the following example.
-	
+
 	Consider the integers $\{1,2,3,4,5,6\}$ (complete set of residue class modulo $7$ except $0$). Now, take an integer, say $3$. Multiply the whole set with $3$ and find the residues again:
 		\begin{align*}
 			\{3,6,9,12,15,18\} & \equiv\{3,6,2,5,1,4\}\pmod7.
@@ -445,18 +445,18 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\iff 7\mid ia-ja&=a(i-j)
 		\end{align*}
 	Here $a\bot7$, so we have $7\mid i-j$. But remember that, $i<j<7$ so $|i-j|<7$. This yields the contradiction we were looking for. This claim was true mainly because $a\bot7$. What if we did not take a prime $7$? Well, we could still do something similar. And that is why Euler's totient function comes to the play. This is more valuable than you may realize.
-	
+
 	\begin{definition}
-		Let $m$ be a positive integer. The set $A$ is called a \slshape{reduced residue system modulo $m$} if all elements of $A$ are coprime to $m$, and also every integer which is coprime to $m$ is congruent to a unique element of $A$ modulo $m$.
+		Let $m$ be a positive integer. The set $A$ is called a \slshape{reduced residue system modulo $m$} if all elements of $A$ are relatively prime to $m$, and also every integer which is relatively prime to $m$ is congruent to a unique element of $A$ modulo $m$.
 	\end{definition}
-	
+
 	\begin{example}
 		The set $A=\{ 1, 2, \cdots, p-1 \}$ is a reduced residue system modulo a prime $p$. The set $\{7, 17\}$ is also a reduced residue system mod $6$.
 	\end{example}
-	
+
 	You can clearly sense how the Euler's phi function is related to reduced residue systems: the number of elements of $A$ is $\phi(m)$. So we can express the above definition in a better way:
-	
-	
+
+
 	\begin{proposition}
 		The set $A=\{a_1, a_2, \cdots, a_k\}$ is a reduced residue set (or system) modulo $m$ if and only if
 		\begin{itemize}
@@ -465,31 +465,31 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\item $a_i \not \equiv a_j \pmod m$ for $i \neq j$.
 		\end{itemize}
 	\end{proposition}
-	
-	An important aspect of the reduced systems is stated in the next proposition. It will help us prove the Euler's theorem later.	
-	
-	\begin{proposition}\label{prop:generalreducedsystem} 
+
+	An important aspect of the reduced systems is stated in the next proposition. It will help us prove the Euler's theorem later.
+
+	\begin{proposition}\label{prop:generalreducedsystem}
 		Let $A=\{a_1, a_2, \cdots, a_{\varphi(m)}\}$ be a reduced residue set modulo $m$ and let $a$ be an integer such that $a \bot m$. Then the set
 		\begin{align*}
 			B=\{aa_1, aa_2, \cdots, aa_{\varphi(m)}\}
 		\end{align*}
 		is also a reduced residue set modulo $m$.
 	\end{proposition}
-	
-	The proof of this theorem is pretty easy, try it for yourself. Pay attention to the difference between this proposition and the similar Proposition \ref{prop:generalcompletesystem} for complete systems. 
-	
+
+	The proof of this theorem is pretty easy, try it for yourself. Pay attention to the difference between this proposition and the similar Proposition \ref{prop:generalcompletesystem} for complete systems.
+
 
 	The latest theorem says that there are infinitely many reduced residue systems for any $m$. So, it makes sense to define a set as the original reduced residue system for any positive integer $m$. We call this set $\mathbb U_m$.
-	
+
 	\begin{definition}\label{def:setofunits}
-		Let $m$ be a positive integer. The \textit{set of units} modulo $m$, $\mathbb U_m$, is the set of positive integers $g_1,\cdots,g_{\varphi(m)}$ less than $m$ which are coprime to $m$. 
+		Let $m$ be a positive integer. The \textit{set of units} modulo $m$, $\mathbb U_m$, is the set of positive integers $g_1,\cdots,g_{\varphi(m)}$ less than $m$ which are relatively prime to $m$.
 	\end{definition}
-	
+
 	\begin{example}
 		$\mathbb U_8=\{1,3,5,7\}$, and $\mathbb U_{15}=\{1,2,4,7,8,11,13,14\}$. If $p$ is a prime, then $\mathbb U_p=\{1,2,\cdots, p-1\}$.
 	\end{example}
 
-	
-	You might be wondering why we call $\mathbb U_m$ the set of \textit{units}. In algebraic structures, a unit is an element $a$ for which there exists some element $b$ such that $ab=1$. In our case, the number $a$ is a unit if there exists some $b$ such that $ab \equiv 1 \pmod m$. As proved before, $a$ is a unit if and only if it is coprime to $m$, and this shows us why $\mathbb U_m$ is called the set of units.
-	
+
+	You might be wondering why we call $\mathbb U_m$ the set of \textit{units}. In algebraic structures, a unit is an element $a$ for which there exists some element $b$ such that $ab=1$. In our case, the number $a$ is a unit if there exists some $b$ such that $ab \equiv 1 \pmod m$. As proved before, $a$ is a unit if and only if it is relatively prime to $m$, and this shows us why $\mathbb U_m$ is called the set of units.
+
 \end{document}

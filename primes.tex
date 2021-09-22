@@ -44,11 +44,11 @@
 		\end{note}
 
 		\begin{proof}[Kummer's proof\footnote{The idea is similar to Euclid's}]
-			Again, it suffices to prove that for any $n$, there is a larger prime than $n$. Consider $N=n!+1$. Any prime less than $n$ is coprime to $N$. Therefore, it must have a prime divisor greater than $n$.
+			Again, it suffices to prove that for any $n$, there is a larger prime than $n$. Consider $N=n!+1$. Any prime less than $n$ is relatively prime to $N$. Therefore, it must have a prime divisor greater than $n$.
 		\end{proof}
 
 		\begin{proof}[Goldbach's proof]
-			We are done if we can show that there is a strictly increasing infinite sequence of positive integers $a_1,a_2,a_3\ldots$ so that they are pair-wisely coprime. Since no prime can divide two terms of the sequence, each time a new term appears it will produce a new prime factor. So, all we have to do is find such a sequence. One way to do it is using \textit{Fermat numbers}. The $n^{th}$ Fermat number, $F_n$, is defined as $F_n=2^{2^n}+1$. In the following lemma, we will show that any two Fermat numbers are coprime to each other.
+			We are done if we can show that there is a strictly increasing infinite sequence of positive integers $a_1,a_2,a_3\ldots$ so that they are pair-wisely relatively prime. Since no prime can divide two terms of the sequence, each time a new term appears it will produce a new prime factor. So, all we have to do is find such a sequence. One way to do it is using \textit{Fermat numbers}. The $n^{th}$ Fermat number, $F_n$, is defined as $F_n=2^{2^n}+1$. In the following lemma, we will show that any two Fermat numbers are relatively prime to each other.
 		\end{proof}
 
 		\begin{lemma}\slshape
@@ -64,7 +64,7 @@
 			\end{eqnarray*}
 			Therefore, if $n>m$, then $F_m|F_n-2$. If $p$ is a prime so that $p|F_m$ and $p|F_n$, then $p|F_n-2$ and so $p|2$, which is a contradiction since $p$ has to be an odd prime.
 		\end{proof}
-	There are other proofs that use the same idea of coprime integers.
+	There are other proofs that use the same idea of relatively prime integers.
 		\begin{proof}[Schorn's Proof]
 			First we will prove the following:
 				\begin{align*}
@@ -84,7 +84,7 @@
 				\begin{eqnarray*}
 					(j(n!)+1,i(n!)+1) = ((i+k)(n!)+1,i(n!)+1) = (k,i(n!)+1) = 1.
 				\end{eqnarray*}
-			From this we can say, the integers $i(n!)+1$ for $1\leq i\leq n$ are coprime. And so, we are done.
+			From this we can say, the integers $i(n!)+1$ for $1\leq i\leq n$ are relatively prime. And so, we are done.
 		\end{proof}
 	This elegant proof is due to J. Braun ($1896$).
 		\begin{proof}[Proof by Braun]
@@ -177,9 +177,9 @@
 				\end{align*}
 		\end{proof}
 	Euler found a general result for $\zeta(s)$ for any positive integer $s$. We have stated this result in the following theorem. The proof is analogous to the proof of the previous theorem.
-		\begin{theorem}\slshape
+		\begin{theorem}[Euler's theorem]\slshape
 			\begin{align*}
-				\zeta(s) & =1+\dfrac{1}{2^s}+\dfrac{1}{3^s}+\cdots=\prod_{p\in\P }\dfrac{p^s}{p^s-1}
+				\zeta(s) & =1+\dfrac{1}{2^s}+\dfrac{1}{3^s}+\cdots=\prod_{p\in\mathbb{P} }\dfrac{p^s}{p^s-1}
 			\end{align*}
 		\end{theorem}
 
@@ -198,7 +198,7 @@
 			So the sum diverges.
 		\end{proof}
 	You may think that $\zeta(2),\zeta(3),\ldots$ all diverge too. Wrong! Using calculus Euler also proved the following theorem:
-		\begin{theorem}[Euler's $\zeta(2)$ theorem]\label{thm:zeta2}\slshape
+		\begin{theorem}[Euler]\label{thm:zeta2}\slshape
 			$\zeta(2)=\frac{\pi^2}{6}$. In other words,
 				\begin{align*}
 					1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots & = \dfrac{\pi^2}{6}.
@@ -208,7 +208,7 @@
 	We are now ready to prove the infinitude of primes using Zeta function.
 
 		\begin{proof}[Proof using Zeta Function]
-			In theorem \eqref{thm:zeta1div}, it is already proved that $S$ is infinite. A series diverges if it has an infinite sum. If the number of primes is finite, then the product of all $\dfrac p{p-1}$ would be finite too. But it gives us a contradiction. Thus, the number of primes must be infinite.
+			In theorem \autoref{thm:zeta1div}, it is already proved that $S$ is infinite. A series diverges if it has an infinite sum. If the number of primes is finite, then the product of all $\dfrac p{p-1}$ would be finite too. But it gives us a contradiction. Thus, the number of primes must be infinite.
 		\end{proof}
 	We provide yet another proof due to Euler. The proof was published after his death. The proof uses multiplicative property of Euler's Totient function.
 		\begin{proof}[Proof using Euler function]
@@ -219,7 +219,7 @@
 							& \geq 2^{k-1}\\
 							& \geq 2
 				\end{align*}
-			if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\varphi(P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are coprime to $P$. If we discard $1$, there is at least one other positive integer which is coprime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
+			if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\varphi(P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are relatively prime to $P$. If we discard $1$, there is at least one other positive integer which is relatively prime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
 		\end{proof}
 	In the previous discussion, we have shown that there are infinitely many primes in several different ways.
 		\begin{theorem}\slshape
@@ -227,7 +227,7 @@
 		\end{theorem}
 
 		\begin{proof}
-			We proceed the same way as Euclid did. Let $p_1,p_2,\ldots,p_k$ be all the primes of the form $4m+3$. Consider the number $N=4p_1p_2\cdots p_k-1$. Clearly, $N\equiv3\pmod4$. According to theorem \eqref{thm:4k+3prime} in chapter \eqref{ch:divisibility}, $N$ has at least one prime factor $p$ which is of the form $4m+3$. This prime $p$ divides $N$, so it is coprime to $N-1=4p_1p_2\cdots p_k$, which means that $p$ is none of those $p_1,p_2,\ldots,p_k$. Therefore, another prime $p$ of the form $4m+3$ exists. This is a contradiction. So, the number of such primes is infinite.
+			We proceed the same way as Euclid did. Let $p_1,p_2,\ldots,p_k$ be all the primes of the form $4m+3$. Consider the number $N=4p_1p_2\cdots p_k-1$. Clearly, $N\equiv3\pmod4$. According to theorem \autoref{thm:4k+3prime} in chapter \eqref{ch:divisibility}, $N$ has at least one prime factor $p$ which is of the form $4m+3$. This prime $p$ divides $N$, so it is relatively prime to $N-1=4p_1p_2\cdots p_k$, which means that $p$ is none of those $p_1,p_2,\ldots,p_k$. Therefore, another prime $p$ of the form $4m+3$ exists. This is a contradiction. So, the number of such primes is infinite.
 		\end{proof}
 
 		\begin{theorem}\slshape
@@ -243,7 +243,7 @@
 		\end{theorem}
 
 		\begin{proof}
-			The theorem is obvious for $p=2$ since all primes are odd. Assume that $p$ is odd. Let us rephrase the theorem: for each prime $p$, there are infinitely many primes $q$ such that $q\equiv1\mod{p}$. Let $X \geq 2$ be an integer. We know from theorem \eqref{thm:cyclodiv} that any prime divisor $q \neq p$ of $\frac{X^{p}-1}{X-1}$ is either $p$ or $1 \pmod p$.
+			The theorem is obvious for $p=2$ since all primes are odd. Assume that $p$ is odd. Let us rephrase the theorem: for each prime $p$, there are infinitely many primes $q$ such that $q\equiv1\mod{p}$. Let $X \geq 2$ be an integer. We know from theorem \autoref{thm:cyclodiv} that any prime divisor $q \neq p$ of $\frac{X^{p}-1}{X-1}$ is either $p$ or $1 \pmod p$.
 
 			For the sake of argument, suppose that $q_{1},q_{2},\ldots,q_{n}$ are the only primes which are $1\mod{p}$. Set $X=pq_{1}q_{2}\cdots q_{n}$ and consider the number
 				\begin{align*}
@@ -260,9 +260,9 @@
 		\begin{proof}
 			According to previous theorem, there are infinitely many primes $q$ such that $q \equiv 1 \pmod p$. So, all these primes are quadratic residues modulo $p$ and we are done.
 		\end{proof}
-	You might have already conjectured that there are infinitely many primes of the form $an+1$. Even more generally $an+b$, where $a$ and $b$ are coprime positive integers. And luckily, this is true and \textit{Dirichlet} was the first one to prove it. Though the proof of this theorem is way beyond the scope of this book. It is even accepted in many mathematics competitions. You should still try to avoid using it. Use it only if you find no other way. For most of the problems, there is a solution to that does not require a high level theorem like this. Readers are highly encouraged to try for a different solution even if it makes their  lives a lot harder.
+	You might have already conjectured that there are infinitely many primes of the form $an+1$. Even more generally $an+b$, where $a$ and $b$ are relatively prime positive integers. And luckily, this is true and \textit{Dirichlet} was the first one to prove it. Though the proof of this theorem is way beyond the scope of this book. It is even accepted in many mathematics competitions. You should still try to avoid using it. Use it only if you find no other way. For most of the problems, there is a solution to that does not require a high level theorem like this. Readers are highly encouraged to try for a different solution even if it makes their  lives a lot harder.
 		\begin{theorem}[Dirichlet's Theorem on Arithmetic Progressions]\slshape
-			If $a$ and $b$ are two coprime positive integers, then there are infinitely many primes the arithmetic progression
+			If $a$ and $b$ are two relatively prime positive integers, then there are infinitely many primes the arithmetic progression
 				\begin{align*}
 					a+b, 2a+b, 3a+b, \cdots
 				\end{align*}
@@ -309,7 +309,7 @@
 					\end{align*}
 				This completes the proof.
 			\end{proof}
-		Have you ever thought about finding the number of primes not exceeding $n$ yourself? This is actually a very intriguing question for most of the people interested in number theory, even for curious school students. At first it seems impossible to find a closed form in such a case. However, as you think more, you can find different ways to proceed. The above one is an example. This should enable you to find one as well. Here is another example, and you may be surprised at this approach. In fact, we have used it before when we tried to find the number of coprime integers less than or equal to $n$. The idea is similar, in a sense that it is recursive in a way. Since it is troublesome to directly find the number of primes, we will do exactly the opposite. We will find the number of \textbf{non-primes} not exceeding $n$. Then we can just subtract it from $n$. Now, we intend to find the number of positive integers $m$ such that $m=ab$ with $a,b>1$. More specifically, we can say that the smallest prime divisor does not exceed $\sqrt{n}$ (recall this from chapter \eqref{ch:divisibility}). Let $p_1,p_2,\ldots,p_k$ be the primes not exceeding $\sqrt{n}$ in increasing order. That is, $p_k$ is the largest prime less than or equal to $\sqrt{n}$ (this is why we said this approach is recursive). Any composite positive integer not exceeding $n$ must have a prime divisor from this set $\{p_1,p_2,\ldots,p_k\}$.
+		Have you ever thought about finding the number of primes not exceeding $n$ yourself? This is actually a very intriguing question for most of the people interested in number theory, even for curious school students. At first it seems impossible to find a closed form in such a case. However, as you think more, you can find different ways to proceed. The above one is an example. This should enable you to find one as well. Here is another example, and you may be surprised at this approach. In fact, we have used it before when we tried to find the number of relatively prime integers less than or equal to $n$. The idea is similar, in a sense that it is recursive in a way. Since it is troublesome to directly find the number of primes, we will do exactly the opposite. We will find the number of \textbf{non-primes} not exceeding $n$. Then we can just subtract it from $n$. Now, we intend to find the number of positive integers $m$ such that $m=ab$ with $a,b>1$. More specifically, we can say that the smallest prime divisor does not exceed $\sqrt{n}$ (recall this from chapter \eqref{ch:divisibility}). Let $p_1,p_2,\ldots,p_k$ be the primes not exceeding $\sqrt{n}$ in increasing order. That is, $p_k$ is the largest prime less than or equal to $\sqrt{n}$ (this is why we said this approach is recursive). Any composite positive integer not exceeding $n$ must have a prime divisor from this set $\{p_1,p_2,\ldots,p_k\}$.
 
 		Again, this is a repetitive problem we encountered before. How many positive integers not exceeding $n$ are divisible by $p_1$? The number is $\lfloor {n}/{p_1}\rfloor$. The same goes for $p_2,\ldots,p_k$. So, the total number of non-prime positive integers should be \[\left\lfloor\frac{n}{p_1}\right\rfloor+\left\lfloor\frac{n}{p_2}\right\rfloor+\cdots.\] However, the positive integers that are multiple of both $p_1$ and $p_2$ were counted twice in this sum. So, we need to subtract them. Now it becomes
 			\begin{align*}
@@ -319,7 +319,7 @@
 			\begin{align*}
 				\left\lfloor\frac{n}{p_1}\right\rfloor+\left\lfloor\frac{n}{p_2}\right\rfloor+\cdots-\left\lfloor\frac{n}{p_1p_2}\right\rfloor-\left\lfloor\frac{n}{p_1p_3}\right\rfloor-\cdots+\left\lfloor\frac{n}{p_1p_2p_3}\right\rfloor+\left\lfloor\frac{n}{p_1p_3p_4}\right\rfloor+\cdots
 			\end{align*}
-		Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem\footnote{In the final examination of senior year, Masum faced the following question: Provide an approximation formula for the number of primes not exceeding $N$. He proved theorem \eqref{thm:numofprime} instead as an exact formula in the exam.}.
+		Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem\footnote{In the final examination of senior year, Masum faced the following question: Provide an approximation formula for the number of primes not exceeding $N$. He proved theorem \autoref{thm:numofprime} instead as an exact formula in the exam.}.
 			\begin{theorem}\label{thm:numofprime}
 	Let $n$ be a positive integer and $p_1,p_2,\ldots,p_k$ be the primes less than or equal to $\sqrt{n}$. If the number of primes not exceeding $n$ is $\pi(n)$, then $\pi(n) -\pi(\sqrt{n})+1$ is
 	\begin{align}
@@ -392,7 +392,7 @@
 	\end{theorem}
 
 	\begin{proof}
-		If $p<n$ and $p$ does not divide $d$, then $(d,p)=1$. Therefore, by theorem \eqref{thm:arithinverse}, $d$ has a unique inverse modulo $p$, say $e$. So $de\equiv1\pmod p$, where $0<e<p<n$. Let $-ae \equiv i \pmod p$. Then
+		If $p<n$ and $p$ does not divide $d$, then $(d,p)=1$. Therefore, by theorem \autoref{thm:arithinverse}, $d$ has a unique inverse modulo $p$, say $e$. So $de\equiv1\pmod p$, where $0<e<p<n$. Let $-ae \equiv i \pmod p$. Then
 			\begin{align*}
 				-a & \equiv -ade \equiv id \pmod p.
 			\end{align*}
@@ -474,7 +474,7 @@
 	\end{lemma}
 
 	\begin{proof}
-		If $n=1$, $p_1=2=2^1$. We know that $p_2=3<2^2$. Thus we induct on $n$ using the first alternative of Bertrand's postulate stated in theorem \eqref{thm:bertrandalternative}. Let's assume that $p_n<2^n$. Since $p$ is odd, we have $p_{n+1}<2p_n<2^{n+1}$.
+		If $n=1$, $p_1=2=2^1$. We know that $p_2=3<2^2$. Thus we induct on $n$ using the first alternative of Bertrand's postulate stated in theorem \autoref{thm:bertrand}. Let's assume that $p_n<2^n$. Since $p$ is odd, we have $p_{n+1}<2p_n<2^{n+1}$.
 	\end{proof}
 
 	We are ready to prove P\'{o}sa's theorem.
@@ -502,11 +502,11 @@
 	\end{proof}
 
 	\begin{theorem}\slshape
-		The probability of two random positive integers being coprime is $\dfrac{6}{\pi^2}$.
+		The probability of two random positive integers being relatively prime is $\dfrac{6}{\pi^2}$.
 	\end{theorem}
 
 	\begin{proof}
-		Two positive integers are coprime if they do not share any prime divisor. So we can do just the opposite. We will find out the probability of them not being coprime. Fix a prime $p$. What is the probability that both $a$ and $b$ are divisible by $p$? Think on this for a bit.
+		Two positive integers are relatively prime if they do not share any prime divisor. So we can do just the opposite. We will find out the probability of them not being relatively prime. Fix a prime $p$. What is the probability that both $a$ and $b$ are divisible by $p$? Think on this for a bit.
 
 		Let us focus on what $a$ and $b$ leave as remainders when divided by $p$. There can be $p$ remainders ($0,1,\ldots,p-1$). Both for $a$ and $b$, there are $p$ possibilities. The probability that $a$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$. Similarly, the probability that $b$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$ as well. Therefore\footnote{We assume you know that, the probability of two independent events is the product of the probability of those events. That is if $A$ and $B$ are independent, then $P(A\cap B)=P(A)P(B)$. And certainly $a$ being divisible by $p$ has nothing to do with $b$ being divisible by $p$. So they are independent.}, both $a$ and $b$ leave remainder $0$ when divided by $p$ is $\frac{1}{p}\cdot\frac{1}{p}$. Thus, the probability of $a$ and $b$ not being divisible by $p$ is $1-\frac{1}{p^2}$. Now, this is only for a fixed prime $p$. Since $p$ can be any prime, the probability should be multiplied for all primes. The probability is
 			\begin{align*}
@@ -514,7 +514,7 @@
 				& = \prod_{i\geq1}\left(1-\dfrac{1}{p_i^2}\right) = \prod_{i\geq1}\left(\dfrac{p_i^2-1}{p_i^2}\right) = \prod_{i\geq1}\dfrac{1}{\frac{p_i^2}{p_i^2-1}}\\
 				& = \dfrac{1}{\prod_{i\geq1}\left(\dfrac{p_i^2}{p_i^2-1}\right)}  = \dfrac{1}{\zeta(2)} = \dfrac{6}{\pi^2}.
 			\end{align*}
-		We used Euler's $\zeta(2)$ theorem \eqref{thm:zeta2}.
+		We used Euler's $\zeta(2)$ theorem \autoref{thm:zeta2}.
 	\end{proof}
 
 \section{Distribution of Prime Numbers}
@@ -547,9 +547,9 @@
 		\end{theorem}
 
 		\begin{proof}
-			We will show the if part first. If $n$ is a prime, then by theorem \eqref{thm:primeprimitive}, it has a primitive root. That is, there exists some integer $a$ such that $a^{\varphi(n)} = a^{n-1} \equiv 1 \pmod n$ and $a^d \not \equiv 1 \pmod n$ for all $d<n$.
+			We will show the if part first. If $n$ is a prime, then by theorem \autoref{thm:primeprimitive}, it has a primitive root. That is, there exists some integer $a$ such that $a^{\varphi(n)} = a^{n-1} \equiv 1 \pmod n$ and $a^d \not \equiv 1 \pmod n$ for all $d<n$.
 
-			On the other hand, assume that given conditions hold for a positive integer $n$. The first condition asserts that $(a,n)=1$. Let $d$ be the order of $a$ modulo $n$. That is, $d$ is the smallest positive integer less than $n$ such that $a^d \equiv 1 \pmod n$. By theorem \eqref{thm:ordDiv}, $d|n-1$. This means that $dx = n-1$ for some $x$. Choose a prime $q$ which divides $x$ so that $x=qy$ for some integer $y$. Therefore, $n-1=dqy$ or $(n-1)/q=dy$. But then
+			On the other hand, assume that given conditions hold for a positive integer $n$. The first condition asserts that $(a,n)=1$. Let $d$ be the order of $a$ modulo $n$. That is, $d$ is the smallest positive integer less than $n$ such that $a^d \equiv 1 \pmod n$. By theorem \autoref{thm:ordDiv}, $d|n-1$. This means that $dx = n-1$ for some $x$. Choose a prime $q$ which divides $x$ so that $x=qy$ for some integer $y$. Therefore, $n-1=dqy$ or $(n-1)/q=dy$. But then
 				\begin{align*}
 					a^{(n-1)/q} \equiv a^{dy} \equiv \left(a^d\right)^y \equiv 1 \pmod n,
 				\end{align*}
@@ -567,7 +567,7 @@
 		\end{theorem}
 
 		\begin{proof}
-			Assume $n$ is not prime. Then $n$ has a prime divisor $p$ such that $p \leq \sqrt n$. By first condition, $q>p-1$ and so $(q, p-1)=1$. We can deduce by theorem \eqref{thm:arithinverse} that there exists an integer $x$ such that $qx \equiv 1 \pmod {p-1}$. This means that $qx-1 = (p-1)k$ or $qx = (p-1)k+1$ for some $k$. Since $p|n$, the second condition gives $a^{n-1} \equiv 1 \pmod p$ and so
+			Assume $n$ is not prime. Then $n$ has a prime divisor $p$ such that $p \leq \sqrt n$. By first condition, $q>p-1$ and so $(q, p-1)=1$. We can deduce by theorem \autoref{thm:arithinverse} that there exists an integer $x$ such that $qx \equiv 1 \pmod {p-1}$. This means that $qx-1 = (p-1)k$ or $qx = (p-1)k+1$ for some $k$. Since $p|n$, the second condition gives $a^{n-1} \equiv 1 \pmod p$ and so
 				\begin{align*}
 					1 & \equiv a^{n-1} \\
 					  & \equiv \left(a^{n-1}\right)^{x}\\
@@ -584,7 +584,7 @@
 		\end{proof}
 
 		\begin{note}
-			Depending on the implementation of a result, a deterministic test can be converted into a non-deterministic one. For example, the above theorem can be both deterministic and probabilistic. Because you can iterate over all possible $a$ modulo $a$. Or you could use some random $a$ that are coprime to $n$. For a randomized test, we would check only for some random $a\bot n$ because $a^{n-1}\equiv1\pmod n$ must hold. If the result was in favor for all $a$, we would say, $n$ is a \textit{probable prime}. Otherwise, $n$ is a \textit{definite composite}.
+			Depending on the implementation of a result, a deterministic test can be converted into a non-deterministic one. For example, the above theorem can be both deterministic and probabilistic. Because you can iterate over all possible $a$ modulo $a$. Or you could use some random $a$ that are relatively prime to $n$. For a randomized test, we would check only for some random $a\bot n$ because $a^{n-1}\equiv1\pmod n$ must hold. If the result was in favor for all $a$, we would say, $n$ is a \textit{probable prime}. Otherwise, $n$ is a \textit{definite composite}.
 		\end{note}
 	In $1977$, \textit{Robert Martin Solovay} and \textit{Volker Strassen} developed a method called \textit{Solovay--Strassen primality testing} which is based on Euler's criterion.
 
@@ -601,21 +601,21 @@
 		\end{theorem}
 
 		\begin{proof}
-			By Euler's criterion, we know that if $n$ is a prime, then for every integer $a$ coprime to $n$,
+			By Euler's criterion, we know that if $n$ is a prime, then for every integer $a$ relatively prime to $n$,
 				\begin{align}
 					a^{(n-1)/2}  \equiv \left(\dfrac{a}{n}\right) \pmod n. \label{eq:solovay-eq1}
 				\end{align}
-			So, if for some $a$ coprime to $n$, the above congruence equation does not hold, $n$ cannot be a prime. Thus it is composite.
+			So, if for some $a$ relatively prime to $n$, the above congruence equation does not hold, $n$ cannot be a prime. Thus it is composite.
 		\end{proof}
 
 		\begin{remark}
-					We discussed different classes of pseudoprimes, integers which share a common property with all primes but are composite, in section \eqref{sec:pseudoprimes}. If equation \eqref{eq:solovay-eq1} holds true for a composite integer $n$ and an integer $a>1$ coprime to it, then $n$ is called an Euler pseudoprime to base $a$, abbreviated as $\epsp(a)$. The Solovay--Strassen test is closely related to Euler pseudoprimes. In fact, if an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not an Euler witness for $n$, then $n$ is an $\epsp(a)$. On the other hand, if an odd $n$ is an $\epsp(a)$ for some $a$, then $a$ is not an Euler witness for $n$.
+					We discussed different classes of pseudoprimes, integers which share a common property with all primes but are composite, in section \eqref{sec:pseudoprimes}. If equation \eqref{eq:solovay-eq1} holds true for a composite integer $n$ and an integer $a>1$ relatively prime to it, then $n$ is called an Euler pseudoprime to base $a$, abbreviated as $\epsp(a)$. The Solovay--Strassen test is closely related to Euler pseudoprimes. In fact, if an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not an Euler witness for $n$, then $n$ is an $\epsp(a)$. On the other hand, if an odd $n$ is an $\epsp(a)$ for some $a$, then $a$ is not an Euler witness for $n$.
 		\end{remark}
 
 	 As explained in that section, a well-known class of pseudoprimes are strong pseudoprimes. \textit{Gary Lee Miller} developed \textit{Miller's primality test} which involves the congruences used in the definition of strong pseudoprimes. \textit{Michael Oser Rabin} later modified Miller's primality test and obtained \textit{Miller--Rabin} test which we will now explain. To formulate Miller-Rabin primality test, it would be convenient to use the terminology introduced by Rabin as below:
 
 		\begin{definition}
-			Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Let $a>1$ be an integer coprime to $n$. Then $a$ is said to be a \textit{witness for compositeness of $n$}, or simply a witness for $n$ when
+			Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Let $a>1$ be an integer relatively prime to $n$. Then $a$ is said to be a \textit{witness for compositeness of $n$}, or simply a witness for $n$ when
 				\begin{align*}
 				a^d &\not\equiv \phantom{-} 1 \pmod n, \text{ and}\\
 				a^{2^rd} &\not\equiv -1 \pmod n, \text{ for every integer } 0 \leq r <s.
@@ -690,7 +690,7 @@
 						 &= \sum_{i=0}^{n} \binom{n}{i} x^i a^{n-i} - \left(x^n + a\right)\\
 						 &= \sum_{i=1}^{n-1} \binom{n}{i} x^i a^{n-i} - \left(a - a^n\right).
 				\end{align*}
-			If $n$ is prime, then $n$ divides $\binom{n}{i}$ for all $0<i<n$ by theorem \eqref{thm:binpdiv} and also $a^n \equiv a \pmod n$ by Fermat's little theorem. So $P(x) \equiv 0 \pmod n$ and the condition holds.
+			If $n$ is prime, then $n$ divides $\binom{n}{i}$ for all $0<i<n$ by theorem \autoref{thm:binpdiv} and also $a^n \equiv a \pmod n$ by Fermat's little theorem. So $P(x) \equiv 0 \pmod n$ and the condition holds.
 
 			If $n$ is composite, take a prime divisor $p$ of $n$. Let $v$ be the greatest power of $p$ that divides $n$. That is, $p^v |n$ but $p^{v+1} \nmid n$. Then $q^i$ does not divide $\binom{n}{i}$ (why?) and therefore $n$ does not divide the term $\binom{n}{p}x^qa^{n-p}$ in $P(x)$. This means that $P(x) \not \equiv 0 \pmod n$ and the proof is complete.
 		\end{proof}
@@ -717,7 +717,7 @@
 		\end{proposition}
 
 		\begin{proof}
-			This is a special case of theorem \eqref{thm:primec}.
+			This is a special case of theorem \autoref{thm:primec}.
 		\end{proof}
 
 	Fermat conjectured that all Fermat numbers are actually primes. He computed $F_n$ for $n=0,1,2,3,$ and $4$ and found out they are all primes. However, he was unable to show that $F_5$ is prime. Euler later showed that for $n\geq 2$, every factor of $F_n$ should be of the form $m\cdot 2^{n+2}+1$ and thus found $641$ to be a divisor of $F_5$ and factorized it as
@@ -736,7 +736,7 @@
 		\end{theorem}
 
 		\begin{proof}
-			Assume that condition $1$ holds. Then by Euler's criterion (theorem \eqref{thm:eulerscriterion}),
+			Assume that condition $1$ holds. Then by Euler's criterion (theorem \autoref{thm:eulerscriterion}),
 				\begin{align*}
 					k^{(F_n-1)/2} \equiv \left(\dfrac{k}{F_n}\right) \equiv -1 \pmod{F_n}.
 				\end{align*}
@@ -744,7 +744,7 @@
 				\begin{align*}
 					m^{(F_n-1)/2} \equiv k^{(F_n-1)/2} \equiv -1 \pmod{F_n}.
 				\end{align*}
-			Note that the only prime divisor of $F_n-1 = 2^{2^n}$ is $2$. Hence we can use Lucas test (with $a=m$ and $p=2$, using notation of theorem \eqref{thm:lucastest}) and deduce that $F_n$ is a prime. Furthermore, we have by Euler's criterion that
+			Note that the only prime divisor of $F_n-1 = 2^{2^n}$ is $2$. Hence we can use Lucas test (with $a=m$ and $p=2$, using notation of theorem \autoref{thm:lucastest}) and deduce that $F_n$ is a prime. Furthermore, we have by Euler's criterion that
 				\begin{align*}
 					\left(\dfrac{k}{F_n}\right) \equiv	k^{(F_n-1)/2}  \equiv -1 \pmod{F_n}.
 				\end{align*}
@@ -763,7 +763,7 @@
 		\end{proposition}
 
 		\begin{proof}
-			See theorem \eqref{thm:a^k-1prime}.
+			See theorem \autoref{thm:a^k-1prime}.
 		\end{proof}
 
 	Mersenne stated that
@@ -788,7 +788,7 @@
 											  &\equiv \left(2^q\right)^k\\
 											  &\equiv 1 \pmod p.
 				\end{align*}
-			Theorem \eqref{thm:2qr} now verifies that $p \equiv \pm 1 \pmod 8$.
+			Theorem \autoref{thm:2qr} now verifies that $p \equiv \pm 1 \pmod 8$.
 		\end{proof}
 
 	The above theorem can be used to factorize Mersenne numbers. It will be tough to use this theorem for large Mersenne number though. To realize whether a Mersenne number is prime or composite, one may use the so-called Lucas–Lehmer primality test, introduced by \textit{\'Edouard Lucas} in 1856 and improved by \textit{Derrick Henry Lehmer} later in $1930$s. The proof is a bit difficult and we refuse to write it. The reader may see \textcite{bruce_1993} for a proof if interested.
@@ -891,7 +891,7 @@
 		\end{lemma}
 
 		\begin{proof}
-			Assume on the contrary that $n$ is composite and take the smallest prime factor $q$ of $n$. Theorem \eqref{thm:trialdivision} implies that $q \leq \sqrt n$. Let $p$ be a prime factor of $b$. Write $b=p^ks$, where $k\geq 1$ and $s$ are positive integer such that $(s,p)=1$. Let $x$ be an integer which satisfies the given conditions. Then
+			Assume on the contrary that $n$ is composite and take the smallest prime factor $q$ of $n$. Theorem \autoref{thm:trialdivision} implies that $q \leq \sqrt n$. Let $p$ be a prime factor of $b$. Write $b=p^ks$, where $k\geq 1$ and $s$ are positive integer such that $(s,p)=1$. Let $x$ be an integer which satisfies the given conditions. Then
 					\begin{align}
 						x^{n-1} &\equiv 1 \pmod q, \text{ and} \label{eq:proth-eq1}\\
 						x^{(n-1)/p} &\not \equiv 1 \pmod q.\label{eq:proth-eq2}

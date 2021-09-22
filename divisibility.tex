@@ -559,7 +559,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{proposition}
 
 	\begin{definition}
-		Two positive integers are \textit{coprime} or \textit{relatively prime to each other} if their greatest common divisor is $1$. We shall use $a\perp b$ to denote that $(a,b)=1$, i.e., that $a$ and $b$ are coprime.
+		Two positive integers are \textit{relatively prime} or \textit{relatively prime to each other} if their greatest common divisor is $1$. We shall use $a\perp b$ to denote that $(a,b)=1$, i.e., that $a$ and $b$ are relatively prime.
 	\end{definition}
 
 	\begin{example}
@@ -648,7 +648,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{proposition}
 
 	\begin{proof}
-		Integers $m$ and $n$ exist because $g\mid a$ and $g\mid b$, but why are $m$ and $n$ coprime? This is true because if there were any other common factor between $m$ and $n$, that would have been included in $g$ too. Otherwise, $g$ could not remain the greatest common divisor since we can make a bigger one multiplying that common factor with $g$. We can think of $m$ and $n$ as the \textit{uncommon} factors between $a$ and $b$.
+		Integers $m$ and $n$ exist because $g\mid a$ and $g\mid b$, but why are $m$ and $n$ relatively prime? This is true because if there were any other common factor between $m$ and $n$, that would have been included in $g$ too. Otherwise, $g$ could not remain the greatest common divisor since we can make a bigger one multiplying that common factor with $g$. We can think of $m$ and $n$ as the \textit{uncommon} factors between $a$ and $b$.
 	\end{proof}
 
 	\begin{example}
@@ -665,7 +665,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 
 	\begin{proof}[First proof]
-		By proposition \eqref{prop:gcduncommon}, there exist coprime positive integers $m$ and $n$ such that $a=gm$ and $b=gn$. Therefore $ab=gm\cdot gn=g^2mn$. On the other hand, by proposition \eqref{prop:lcmvalue}, $gl=g\cdot gmn=g^2mn$.
+		By proposition \eqref{prop:gcduncommon}, there exist relatively prime positive integers $m$ and $n$ such that $a=gm$ and $b=gn$. Therefore $ab=gm\cdot gn=g^2mn$. On the other hand, by proposition \eqref{prop:lcmvalue}, $gl=g\cdot gmn=g^2mn$.
 	\end{proof}
 
 	The following proof uses prime factorization and is somewhat more rigorous. But the previous one makes more sense. Even though it may look uglier, it shows how to invoke prime factorization.
@@ -1109,7 +1109,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		$ $
 		\begin{enumerate}
 			\item Here, $k$ is the largest power of $2$ that divides $n$. Therefore, $s$ must be odd. Moreover, $s$ is the largest odd divisor of $n$. Notice that if $n$ is odd, then $k=0$ and $s=n$.
-			\item  One can write any positive integer $n$ as $n=p^ks$, where $p$ is a prime, $k$ is a non-negative, and $s$ is an integer coprime to $p$. The case $p=2$ (above theorem) is usually used in problem solving (and sometimes even in some combinatorics problems).
+			\item  One can write any positive integer $n$ as $n=p^ks$, where $p$ is a prime, $k$ is a non-negative, and $s$ is an integer relatively prime to $p$. The case $p=2$ (above theorem) is usually used in problem solving (and sometimes even in some combinatorics problems).
 		\end{enumerate}
 	\end{note}
 
@@ -1130,7 +1130,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{solution}
 
 	\begin{theorem}\slshape
-		Every composite positive integer $n$ can be written as $ab$ where $a$ and $b$ are coprime positive integers larger than $1$.
+		Every composite positive integer $n$ can be written as $ab$ where $a$ and $b$ are relatively prime positive integers larger than $1$.
 	\end{theorem}
 
 	\begin{theorem}\slshape
@@ -1157,7 +1157,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{proof}
 
 	\begin{theorem}\slshape
-		For positive integers $a, b, n$, and $e$, suppose that $a\perp b$ and $ab=n^e$. Then there exist positive integers $x$ and $y$ such that $a=x^e$ and $b=y^e$. In other  words, if product of two coprime positive integers is a perfect $e^{th}$ power, then both of them should be perfect $e^{th}$ powers. \label{thm:copower}
+		For positive integers $a, b, n$, and $e$, suppose that $a\perp b$ and $ab=n^e$. Then there exist positive integers $x$ and $y$ such that $a=x^e$ and $b=y^e$. In other  words, if product of two relatively prime positive integers is a perfect $e^{th}$ power, then both of them should be perfect $e^{th}$ powers. \label{thm:copower}
 	\end{theorem}
 
 	\begin{proof}
@@ -1200,7 +1200,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{theorem}
 
 	\begin{proof}
-		Let $g=(a,b)$. Then there exist coprime integers $x$ and $y$ such that $a=gx$ and $b=gy$. Then $g^2xy=c^2$ so that $g^2\mid c^2$, or $g\mid c$ (see the example provided right after proposition \eqref{prop:basicgcd} for a proof). This implies that there exists some positive integer $k$ for which $c=gk$. Substituting this into the equation, we find $k^2=xy$ with $x\perp y$. From corollary \eqref{cor:sqr}, there exist integers $u$ and $v$ such that $x=u^2$ and $y=v^2$. Thus, $a=gu^2,b=gv^2$, and $c=guv$.
+		Let $g=(a,b)$. Then there exist relatively prime integers $x$ and $y$ such that $a=gx$ and $b=gy$. Then $g^2xy=c^2$ so that $g^2\mid c^2$, or $g\mid c$ (see the example provided right after proposition \eqref{prop:basicgcd} for a proof). This implies that there exists some positive integer $k$ for which $c=gk$. Substituting this into the equation, we find $k^2=xy$ with $x\perp y$. From corollary \eqref{cor:sqr}, there exist integers $u$ and $v$ such that $x=u^2$ and $y=v^2$. Thus, $a=gu^2,b=gv^2$, and $c=guv$.
 	\end{proof}
 	Now, we introduce a simple but really useful method for factorization: \textbf{Simon's Favorite Factorization Trick}\footnote{Named after Simon Rubinstein-Salzedo, a member of AoPS.}, or \textbf{SFFT} in brief.
 	\begin{proposition}[SFFT]
@@ -1288,11 +1288,11 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{proof}
 
 	\begin{theorem}\slshape
-		If the sum of two positive integers is a prime, they are coprime to each other.
+		If the sum of two positive integers is a prime, they are relatively prime to each other.
 	\end{theorem}
 
 	\begin{proof}
-		Assume that $a+b=p$, where $p$ is a prime. If $(a,b)=g$ then there exist coprime positive integers $x$ and $y$ for which $a=gx$ and $b=gy$. So,
+		Assume that $a+b=p$, where $p$ is a prime. If $(a,b)=g$ then there exist relatively prime positive integers $x$ and $y$ for which $a=gx$ and $b=gy$. So,
 		\begin{align*}
 			p = a+b = g(x+y),
 		\end{align*}
@@ -1400,7 +1400,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 			(a^m-b^m,a^n-b^n) & = (a^n(a^k-b^k)+b^k(a^n-b^n),a^n-b^n)\\
 			&=(a^n(a^k-b^k),a^n-b^n).
 		\end{align*}
-		Since $a$ and $b$ are coprime, $a^n\bot a^n-b^n$ (why?). This gives us
+		Since $a$ and $b$ are relatively prime, $a^n\bot a^n-b^n$ (why?). This gives us
 		\begin{eqnarray*}
 			(a^m-b^m,a^n-b^n) & = & (a^n-b^n,a^k-b^k).
 		\end{eqnarray*}
@@ -1414,7 +1414,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				\begin{align*}
 					n! = 1 \times 2 \times \cdots \times n.
 				\end{align*}
-			For convenience, we define $0!$ to be one\footnote{We can argue combinatorially as well, but let us put that aside for now.}.
+			For convenience, we define $0!$ to be one.
 		\end{definition}
 
 		\begin{definition}[Binomial Coefficient]
@@ -1638,7 +1638,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			\begin{displayquote}
 				For positive integers $a,b$, and $c$, if $a\mid bc$ and $b$ is not divisible by $a$, then $a\mid c$.
 			\end{displayquote}
-			This is another common  mistake new problem solvers make. You can check this using an example: $14$ divides $28=7\times4$ but $14$ does not divide $7$. But in this problem, we can still take $n^4$ off because $n^4$ is coprime to $7n+1$. Just notice that $7n+1$ leaves a remainder of $1$ when divided by $n$, so $n\perp7n+1$. Evidently, $n^4\perp7n+1$ by part $4$ of proposition \eqref{prop:cpdiv}. Using part $2$ of the same proposition, we can cancel out $n^4$ and get
+			This is another common  mistake new problem solvers make. You can check this using an example: $14$ divides $28=7\times4$ but $14$ does not divide $7$. But in this problem, we can still take $n^4$ off because $n^4$ is relatively prime to $7n+1$. Just notice that $7n+1$ leaves a remainder of $1$ when divided by $n$, so $n\perp7n+1$. Evidently, $n^4\perp7n+1$ by part $4$ of proposition \eqref{prop:cpdiv}. Using part $2$ of the same proposition, we can cancel out $n^4$ and get
 				\begin{align*}
 					7n+1  \mid n^2+1.
 				\end{align*}
@@ -1662,7 +1662,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\end{problem}
 
 		\begin{solution}
-			Assume that $(a,b)=g$. Then we can find two coprime integers $m$ and $n$ so that $a=gm$ and $b=gn$. Setting these into the given equation, we observe $g(mx+ny)=1$. This implies that $g$ divides $1$, and so $g=1$.
+			Assume that $(a,b)=g$. Then we can find two relatively prime integers $m$ and $n$ so that $a=gm$ and $b=gn$. Setting these into the given equation, we observe $g(mx+ny)=1$. This implies that $g$ divides $1$, and so $g=1$.
 		\end{solution}
 
 		\begin{note}
@@ -1721,7 +1721,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\end{problem}
 
 	\begin{solution}
-		We must make sense of the problem first. It asks to prove that a fraction is irreducible. That means the fraction cannot be simplified anymore. In other words, we must prove that the numerator ($14n+3$) and denominator ($21n+4$) of the fraction are coprime to each other. How do we prove this? We will show this in two ways:
+		We must make sense of the problem first. It asks to prove that a fraction is irreducible. That means the fraction cannot be simplified anymore. In other words, we must prove that the numerator ($14n+3$) and denominator ($21n+4$) of the fraction are relatively prime to each other. How do we prove this? We will show this in two ways:
 		\begin{enumerate}
 			\item Let $g=(14n+3,21n+4)$. Then,
 			\begin{align*}
@@ -1870,7 +1870,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\end{problem}
 
 %		\begin{solution}
-%			\textit{First Solution.} Let $(k,m)=(ga,gb)$ where $g=\gcd(k,m)$ (and $a>b$). Now $k^3-m^3|km(k^2-m^2)\implies a^3-b^3|gab(a^2-b^2)\implies a^2+ab+b^2|gab(a+b)$.\\ Suppose there exists a prime $p$ such that $p|a^2+ab+b^2$ and $p|ab(a+b)$. So $p$ divides one of $a,b,a+b$. If $p|a$ then $p|a^2+ab$ but also $a^2+ab+b^2$ i.e. $p|b^2$, a contradiction since $a,b$ are coprime. Same goes for the case $p|b$. \\
+%			\textit{First Solution.} Let $(k,m)=(ga,gb)$ where $g=\gcd(k,m)$ (and $a>b$). Now $k^3-m^3|km(k^2-m^2)\implies a^3-b^3|gab(a^2-b^2)\implies a^2+ab+b^2|gab(a+b)$.\\ Suppose there exists a prime $p$ such that $p|a^2+ab+b^2$ and $p|ab(a+b)$. So $p$ divides one of $a,b,a+b$. If $p|a$ then $p|a^2+ab$ but also $a^2+ab+b^2$ i.e. $p|b^2$, a contradiction since $a,b$ are relatively prime. Same goes for the case $p|b$. \\
 %
 %			If $p|a+b$ then $p|(a+b)^2=a^2+2ab+b^2$. Then $p|a^2+2ab+b^2-(a^2+ab+b^2)=ab$ so we are back to $p$ dividing one of $a,b$, which we have seen to be impossible. Hence $\gcd(a^2+ab+b^2,ab(a+b))=1$ so $a^2+ab+b^2|g$ -  this implies $g\ge a^2+ab+b^2$.\\ Now $a^2+ab+b^2>3ab$ by AM-GM ($a\not= b$) so that $(a^2+ab+b^2)(a-b)^3>3ab$ since $(a-b)$ is positive and at least one. But $g(a-b)^3\ge (a^2+ab+b^2)(a-b)^3>3ab\implies g^3(a-b)^3>3g^2ab$ i.e. $(k-m)^3>3km$.\\
 %
@@ -2197,7 +2197,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %			1.1) $k_1=1$ and $c=2(a+b)$\\
 %			The numbers are $a,b,2a+2b,3a+3b$\\
 %			And $b|6a+5b$ and so $b|6a$ and, $a|6b$\\
-%			Let then $a=a_1u$ and $b=b_1u$ with $a_1<b_1$ coprime.\\
+%			Let then $a=a_1u$ and $b=b_1u$ with $a_1<b_1$ relatively prime.\\
 %			We get $b_1|6$ and $a_1|6$ and so $(a_1,b_1)$ is $(1,2),(1,3),(1,6),(2,3),(2,6),(3,6)$\\
 %			And solutions :\\
 %			$(a,b,c,d)=(u,2u,6u,9u)$\\
@@ -2209,7 +2209,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %			1.2) $k_1=2$ and $c=a+b$\\
 %			The numbers are $a,b,a+b,2a+2b$\\
 %			And $b|4a+3b$ and so $b|4a$ and $a|4b$\\
-%			Let then $a=a_1u$ and $b=b_1u$ with $a_1<b_1$ coprime.\\
+%			Let then $a=a_1u$ and $b=b_1u$ with $a_1<b_1$ relatively prime.\\
 %			We get $b_1|4$ and $a_1|4$ and so $(a_1,b_1)$ is $(1,2),(1,4)$\\
 %			And solutions :\\
 %			$(a,b,c,d)=(u,2u,3u,6u)$\\
@@ -2271,7 +2271,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %		\end{solution}
 
 	\begin{problem}
-		Find all pairs $(a,b)$ of positive integers such that $2a-1$ and $2b+1$ are coprime and $a+b$ divides $4ab+1.$ %1113
+		Find all pairs $(a,b)$ of positive integers such that $2a-1$ and $2b+1$ are relatively prime and $a+b$ divides $4ab+1.$ %1113
 	\end{problem}
 
 %		\begin{solution}
@@ -2471,7 +2471,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %
 %		Now consider the function $f$ defined by $$f\left(n\right)=\sum_{i=1}^n\gcd\left(i;\;n\right).$$
 %
-%		Fix $n \in \mathbb{N}$. You can split the set of numbers $\left\{1;\;2;\;...;\;n\right\}$ into classes characterized by the greatest common divisor with $n$: For every number $k$ in the set $\left\{1;\;2;\;...;\;n\right\}$, the number $\gcd \left(k;\;n\right)$ is a divisor of $n$. Conversely, for every divisor $d$ of $n$, there are exactly $\phi\left(\frac{n}{d}\right)$ numbers $k$ in the set $\left\{1;\;2;\;...;\;n\right\}$ such that $\gcd \left(k;\;n\right) = d$ (in fact, there are exactly $\phi\left(\frac{n}{d}\right)$ numbers in the set $\left\{1;\;2;\;...;\;\frac{n}{d}\right\}$ which are coprime with $\frac{n}{d}$; multiplying them with $d$, we get exactly all numbers $k$ in the set $\left\{1;\;2;\;...;\;n\right\}$ such that $\gcd \left(k;\;n\right) = d$). Hence, the sum $f\left(n\right)=\sum_{i=1}^n\gcd\left(i;\;n\right)$ can be considered as a sum of divisors of $n$, with each divisor $d$ of $n$ occuring exactly $\phi\left(\frac{n}{d}\right)$ times. Hence, we can write
+%		Fix $n \in \mathbb{N}$. You can split the set of numbers $\left\{1;\;2;\;...;\;n\right\}$ into classes characterized by the greatest common divisor with $n$: For every number $k$ in the set $\left\{1;\;2;\;...;\;n\right\}$, the number $\gcd \left(k;\;n\right)$ is a divisor of $n$. Conversely, for every divisor $d$ of $n$, there are exactly $\phi\left(\frac{n}{d}\right)$ numbers $k$ in the set $\left\{1;\;2;\;...;\;n\right\}$ such that $\gcd \left(k;\;n\right) = d$ (in fact, there are exactly $\phi\left(\frac{n}{d}\right)$ numbers in the set $\left\{1;\;2;\;...;\;\frac{n}{d}\right\}$ which are relatively prime with $\frac{n}{d}$; multiplying them with $d$, we get exactly all numbers $k$ in the set $\left\{1;\;2;\;...;\;n\right\}$ such that $\gcd \left(k;\;n\right) = d$). Hence, the sum $f\left(n\right)=\sum_{i=1}^n\gcd\left(i;\;n\right)$ can be considered as a sum of divisors of $n$, with each divisor $d$ of $n$ occuring exactly $\phi\left(\frac{n}{d}\right)$ times. Hence, we can write
 %		$$f\left(n\right)=\sum_{d\mid n}\phi\left(\frac{n}{d}\right)\cdot d=\sum_{d\mid n} d\cdot \phi\left(\frac{n}{d}\right)=\sum_{d\mid n} \nu\left(d\right)\cdot \phi\left(\frac{n}{d}\right).$$
 %
 %		Thus, the function $f$ is the Dirichlet convolution of the functions $\nu$ and $\phi$. In other words, $f=\nu\bigstar\phi$. Since the functions $\nu$ and $\phi$ are multiplicative, it follows that the function $f$ is multiplicative, too. This solves first part of the problem.\\
