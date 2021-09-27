@@ -5,24 +5,25 @@
 	\chapter{Divisibility}\label{ch:divisibility}
 
 	\section{Definitions and Propositions}
-	Let us start from the very basics. Whenever you encounter a definition, try to make sense of it with examples. Try to get used to these terms and divisibility notation. It will not only make your life a lot easier, but also keep your solutions or ideas concise. So try not to get bored with the definitions\watermark.
+	Let us start from the very basics. Whenever you encounter a definition, try to make sense of it with a few examples. As we move on to next sections, you will get used to the divisibility terms and notation. The following definitions are designed to teach a beginner student the basics of divisibility, so please do not bore yourself with them\watermark.
 	\begin{definition}\label{def:remainder}
-		When an integer $a$ is divided by another integer $b$, we can write $a=bq+r$ for some integers $q$ and $r$. In this general case, we call $r$ the \textit{remainder} of the division.
+		When an integer $b$ is divided by another (non-zero) integer $a$, we can write $b=aq+r$ for some integers $q$ and $r$. In this most general case, we call $r$ the \textit{remainder} of the division.
 
-		However, if we choose $q$ such that $0\leq r< |b|$, then we say $r$ is the \textit{minimum remainder} of the division\footnote{$|x|$ is the absolute value of $x$.}.
+		However, if we choose $q$ such that $0\leq r< |a|$, then we say $r$ is the \textit{minimum remainder} of the division\footnote{$|x|$ is the absolute value of $x$.}.
 
-		At times, it is convenient to carry out the division so that $b$ is as close as possible to an integral multiple of $a$. Then we can write $a = bq + r$, with $|r| \leq |\frac{b}{2}|$ for some integer $q$.  In this case, we call $r$ the \textit{minimum absolute remainder}.
+		At times, it is convenient to carry out the division (i.e., choose $q$) so that $b$ is as close as possible to an integral multiple of $a$. Then we can write $b = aq + r$, with $|r| \leq |a/2|$ for some integer $q$.  In this case, we call $r$ the \textit{minimum absolute remainder}.
 	\end{definition}
 
 	\begin{note}[1]
-		We will prove later that the minimum remainder is unique. That is, there exists exactly one value for $r$ such that $a=bq+r$ and $0 \leq r <b$. Because of its uniqueness and positivity, remainder in this book will mean minimum remainder unless stated otherwise.
+		We will prove later that the minimum remainder is unique. That is, there exists exactly one value for $r$ such that $b=aq+r$ and $0 \leq r <a$. Because of its uniqueness and non-negativity, remainder in this book will mean minimum remainder unless otherwise stated.
 	\end{note}
 
 	\begin{note}[2]
-		When we talk about the the minimum absolute remainder in the division $a=bq+r$, note that if $b$ is odd, we will have a unique $r$. That is, there exist only one possible value for $r$ such that $|r| \leq \left|\frac{b}{2}\right|$. However, if $b$ and $a$ both are even, there can be two possible values for $r$. For example, if $b=20$ and $a=8$, the division can be done as both $20=8\cdot2+4$ and $20=3\cdot8-4$ and we would have two values for $r$: $4$ and $-4$. To force $r$ to be unique in this case, we will take the positive value of $r$ as the minimum absolute remainder. Therefore, in our example, $20=2\cdot8+4$ would be accepted as the division equation and $r=4$ is the minimum absolute remainder.
+		When we talk about the the minimum absolute remainder in the division $b=aq+r$, note that if $a$ is odd, we will have a unique $r$. That is, there exist only one possible value for $r$ such that $|r| \leq \left|a/2\right|$. However, if $a$ and $b$ both are even, there can be two possible values for $r$. For example, if $a=20$ and $b=8$, the division can be done as both $20=8\cdot2+4$ and $20=3\cdot8-4$ and we would have two values for $r$: $4$ and $-4$. To force $r$ to be unique in this case, we will take the positive value of $r$ as the minimum absolute remainder. Therefore, in our example, $20=2\cdot8+4$ would be accepted as the division equation and $r=4$ is the minimum absolute remainder.
 	\end{note}
-
-In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead of $a=bq+r$.
+	
+% Fixed it:
+% In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead of $a=bq+r$.
 
 	\begin{definition}
 		If $b=aq+r$ is the proper division of $b$ by $a$ (that is, a division in which $r$ is the minimum remainder), $b$ is the \textit{dividend}, $a$ is the \textit{divisor}, and $q$ is the \textit{quotient}.
@@ -42,11 +43,11 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 			\item $a$ is a \textit{divisor} (or a \textit{factor}) of $b$, or
 			\item $b$ is a \textit{multiple} of $a$.
 		\end{itemize}
-		Likewise, $a\nmid b$ denotes that $b$ is not divisible by $a$.
+		Likewise, $a\centernot\mid b$ denotes that $b$ is not divisible by $a$.
 	\end{definition}
 
 	\begin{remark}
-		Some authors use the notation $b\vdots a$ instead of $a\mid b$, but it is not as common.
+		Some (Eastern) authors use the notation $b\vdots a$ instead of $a\mid b$, but it is not as common.
 	\end{remark}
 
 	\begin{definition}
@@ -54,17 +55,17 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{definition}
 
 	\begin{example}
-		$4 \mid 20$ and $5 \mid 20$ but $11\nmid 20$.
+		$4 \mid 20$ and $5 \mid 20$ but $11\centernot\mid 20$.
 	\end{example}
 
 	\begin{example}
 		$1$ is a divisor of all integers.
 	\end{example}
 
-	You can also try to make sense of division in this way: $8$ divides $40$ because $40$ has every factor that $8$ has in it. In other words, if $8$ had a factor which was not a factor of $40$, $40$ would not be divisible by $8$. For example, $42$ does not have the factor $4$, which is a factor of $8$, therefore $8 \nmid 42$.
+	You can also try to make sense of division in this way: $8$ divides $40$ because $40$ has every factor that $8$ has in it. In other words, if $8$ had a factor which was not a factor of $40$, then $40$ would not be divisible by $8$. For example, $42$ does not have the factor $4$, which is a factor of $8$, therefore $8 \centernot\mid 42$.
 
 	\begin{definition}[Prime and Composite Numbers]
-		An integer $n>1$ is called \textit{prime} if it has exactly two distinct (positive) divisors, namely $1$ and $n$ itself. A number greater than $1$ which is not a prime is \textit{composite}. In other words, an integer $n$ is composite if it has a proper divisor other than $1$.
+		An integer $n>1$ is called \textit{prime} if it has exactly two distinct (positive) divisors, namely $1$ and $n$ itself. A number greater than $1$ which is not a prime is \textit{composite}. In other words, an integer $n$ is composite if it has a proper divisor other than $1$. We do not wish to discuss primality for negative integers.
 	\end{definition}
 
 	\begin{note}
@@ -72,15 +73,15 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{note}
 
 	\begin{question}
-		Is $1$ a prime number? If so, why? If not, how is it a composite number? You may be already familiar with prime numbers and in that case, the definition may seem a little different. Try to understand why we chose to stick with this definition rather than \textit{a positive integer $n$ that is not divisible by any positive integer other than $1$ and $n$ is a prime}.
+		Is $1$ a prime number? If so, why? If not, how is it a composite number? You may be already familiar with prime numbers and in that case, the definition you know may seem a little different. Try to understand why we chose to stick with the above definition of primes rather than the following: \textit{a positive integer $n$ that is not divisible by any positive integer other than $1$ and $n$ is a prime}.
 	\end{question}
 
 	\begin{definition}[Parity]
-		Parity is the property of an integer being {\it even} or {\it odd}. An even number is one which is divisible by $2$. Odd numbers, on the other hand, leave a remainder of $1$ when divided by $2$.
+		Parity is the property of an integer being \textit{even} or \textit{odd}. An even number is one which is divisible by $2$. Odd numbers, on the other hand, leave a remainder of $1$ when divided by $2$.
 	\end{definition}
 
 	\begin{example}
-		$2$ and $4$ have the same parity, they are both even. $5$ and $10$ are of different parity, $5$ is odd and $10$ is even.
+		$2$ and $4$ have the same parity; they are both even. $5$ and $10$ are of different parity; $5$ is odd and $10$ is even.
 	\end{example}
 
 	\begin{example}
@@ -97,15 +98,13 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 			\item $a\mid 0$.
 			\item $a\mid a$.
 			\item $1\mid a$ and $-1\mid a$.
-			\item If $a$ is non-zero, then $0 \nmid a$. In the case when $a=0$, since $0/0$ is undefined,  $0\mid 0$ is also meaningless.
+			\item If $a$ is non-zero, then $0 \centernot\mid a$.\footnote{Does zero divide zero? That depends on the context. In arithmetics, we can write $0 = 0\cdot 0 + 0$, so technically $0 \mid 0$ in number theory. However, when studying real analysis, division is defined as multiplying by the multiplicative inverse, which means that $0/0$ is undefined and therefore, $0 \centernot \mid 0$ with that logic.}
 			\item If $a \mid b$, then $a\mid -b$, $-a\mid b$, and $-a\mid -b$.
 			\item If $a\mid b$, then $a\mid bk$ for all integers $k$.
 			\item If $a\mid b$, then $ak\mid bk$ for all integers $k$.
 			\item If $ak\mid bk$ for some non-zero integer $k$, then $a\mid b$.
-			\item If $a\mid b$ and $b\mid c$, then $a\mid c$.
-
-			\textit{Keith Conrad} states this as a mantra: A factor of a factor is a factor.
-			\item If $a\mid b$ and $b$ is non-zero, then $|b| \geq |a|$. Consequently, if $a\mid b$ and $|a|>|b|$, then we have $b=0$.
+			\item If $a\mid b$ and $b\mid c$, then $a\mid c$. \footnote{\textit{Keith Conrad} states this as a mantra: ``A factor of a factor is a factor.''}
+			\item If $a\mid b$ and $b\neq 0$, then $|b| \geq |a|$. Consequently, if $a\mid b$ and $|a|>|b|$, then $b=0$.
 			\item If $a\mid b$, then $a^n\mid b^n$ for all non-negative integers $n$.
 			\item If $a^n \mid b^n$ for some positive integer $n$, then $a\mid b$.
 		\end{enumerate}
@@ -116,17 +115,20 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 		Most of the parts are trivial and we prove only the important ones. A general approach to solve this kind of problems is simply transforming them into equations. That is, when $x\mid y$, write $y=kx$ for some integer $k$.
 		\begin{enumerate}
 			\setcounter{enumi}{3}
-			\item $0\mid a$ means that $a=0k$ for some integer $k$. So $a=0$.
+			\item Assume that $0\mid a$ for some integer $a$. This means that $a=0k$ for some integer $k$. Therefore, $a=0$ is the only integer that is divisible by zero (in number theory).
 			\setcounter{enumi}{5}
 			\item $a\mid b$ means that $b=aq$ for some $q$. Multiply both sides of this equation by $k$ to get $bk = akq=aq'$. Therefore $a\mid bk$.
 			\setcounter{enumi}{8}
-			\item $a\mid b$ and $b\mid c$, so $b=aq_1$ and $c=bq_2$ for some integers $q_1, q_2$. Combine these two equations to get $c = aq_1q_2 = aq$ and thus $a\mid c$.
+			\item $a\mid b$ and $b\mid c$, so $b=aq_1$ and $c=bq_2$ for some integers $q_1$ and $q_2$. Combine these two equations to get $c = aq_1q_2 = aq$, thus $a\mid c$.
 			\setcounter{enumi}{9}
 			\item $a\mid b$, so $b = ak$ for some integer $k$. Rewrite this equation in absolute value terms: $|b| = |ak| = |a| \cdot |k|$. Since $k$ is a non-zero integer, the smallest value for $|k|$ is $1$, so $|b| = |a| \cdot |k| \geq |a|$.
 			\setcounter{enumi}{11}
 		\end{enumerate}
 	\end{proof}
-	Let us talk about $(12)$ a bit. You may think that it is straightforward. It kind of is, however, not that straightforward. The reason is we need to prove that if $\frac{b^n}{a^n}=\left(\frac{b}{a}\right)^n$ is an integer, so is $\frac{b}{a}$. This is not obvious (try to make sense why).
+	
+	\begin{note}
+	    You may think that it is straightforward to prove statement $(12)$ in the above Proposition. However, it is not so simple. The reason is we need to prove that if $$\frac{b^n}{a^n}=\left(\frac{b}{a}\right)^n$$ is an integer, then so is $\frac{b}{a}$. This is not obvious (try to make sense why).
+	\end{note}
 
 	\begin{proposition}\slshape\label{prop:bothdivide}
 		If $a \mid b$ and $b \mid a$, then  $|a|=|b|$. In other words, $a=\pm b$.
@@ -144,7 +146,7 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\begin{proof}
 		We can easily rule out the case $r=0$. Just notice that $a\mid b$.
 
-		So, we can now assume that $a\nmid b$. So $b$ must have a nonzero remainder upon division by $a$, say $r$. One can rewrite the equation $b=aq+r$ as $aq=b-r$ or $q=(b-r)/a$. This simply means that uniqueness of $r$ implies the uniqueness of $q$. Therefore, we only need to prove that $r$ is unique. Assume that there exist integers $q'$ and $r'$ so that
+		We can now assume that $a\centernot\mid b$. Then, $b$ must have a nonzero remainder upon division by $a$, say $r$. One can rewrite the equation $b=aq+r$ as $aq=b-r$ or $q=(b-r)/a$. This simply means that uniqueness of $r$ implies the uniqueness of $q$. Therefore, we only need to prove that $r$ is unique. Assume that there exist integers $q'$ and $r'$ so that
 		\begin{align*}
 			b=aq+r=aq'+r'.
 		\end{align*}
@@ -160,7 +162,7 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{question}
 
 	\begin{proposition}\slshape\label{prop:a|bx+cy}
-		If $a\mid b$ and $a\mid c$ then $a\mid bx+cy$ where $x,y$ are arbitrary integers. In particular, $a\mid b\pm ak,a\mid b+c$, and $a\mid b-c$.
+		If $a\mid b$ and $a\mid c$, then $a\mid bx+cy$ for any arbitrary integers $x$ and $y$. In particular, we have $a\mid b\pm ak,a\mid b+c$, and $a\mid b-c$.
 	\end{proposition}
 
 	\begin{proof}
@@ -172,7 +174,7 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{proof}
 
 	\begin{note}
-		Here, $x$ and $y$ can be negative integers as well. That is how negative numbers may come into play even when we start off with positive integers.
+		Here, $x$ and $y$ can be negative integers as well. This shows how negative numbers may come into play even when we start off with positive integers.
 	\end{note}
 
 	\begin{question}
@@ -194,10 +196,10 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 		Let $n$ be a positive integer larger than $1$. The smallest divisor of $n$ is a prime.
 	\end{corollary}
 
-	You should be able to prove the following proposition by yourself. Even if you can not prove it formally, at least make sense of why this is true. We will not prove it here. Try not to skip it and move on. Can you use induction\footnote{A traditional induction process. Prove the claim for a base case, say $n_0$. Assume the claim is true for $n=m$, then prove it for $n=m+1$.} to prove it? How about using the facts you already know?
+	You should be able to prove the following proposition by yourself. Even if you can not prove it formally, at least make sense of why this is true. We will not prove it here. Try not to skip it and move on. Can you use induction\footnote{The traditional induction process. Prove the claim for a base case, say $n_0$. Assume the claim is true for $n=m$, then prove it for $n=m+1$.} to prove it? How about using the facts you already know?
 
 	\begin{proposition}[Euclid's Lemma]\slshape\label{prop:euclidslemma}
-		Let $a$ and $b$ be two integers. If $p$ is a prime and $p\mid ab$, then $p\mid a$ or $p\mid b$.
+		Let $a$ and $b$ be two integers. If $p$ is a prime and $p\mid ab$, then either $p\mid a$ or $p\mid b$.
 	\end{proposition}
 
 	\begin{corollary}\label{cor:euclidgeneral}
@@ -209,14 +211,14 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 	\end{proposition}
 
 	\begin{proof}
-		Since $n$ is composite, it has at least one proper prime divisor. {\it Consider the smallest prime factor $p$ of $n$} and write $n=pk$ for some integer $k$. Of course $p\leq k$, because otherwise according to corollary \eqref{cor:smallestdivisor}, the smallest prime factor would be $k$ or one of its divisors. Therefore,
+		Since $n$ is composite, it has at least one proper prime divisor. {\it Consider the smallest prime factor $p$ of $n$} and write $n=pk$ for some integer $k$. Of course $p\leq k$, because otherwise according to Corollary \eqref{cor:smallestdivisor}, the smallest prime factor would be $k$ or one of its divisors. Therefore,
 		\begin{align*}
 			n=pk\geq p^2,
 		\end{align*}
 		which in turn implies $p\leq \sqrt{n}$.
 	\end{proof}
 
-	This proposition is quite useful to test if a number is prime or not. It implies that it suffices to check if $n$ is divisible by any of the primes less than or equal to $\sqrt{n}$. If it is, then $n$ is not a prime. Check this with some simulations by hand, say for $11,25,$ and $479$. However, the test can be quite lengthy and tedious if $n$ is too large and its smallest prime factor is not small. If you are curious how lengthy this test can be, take the number $357879581$ and try finding its smallest prime divisor.
+	This proposition is quite useful to test the primality of a number. It implies that it suffices to check if $n$ is divisible by any of the primes less than or equal to $\sqrt{n}$. If it is, then $n$ is not a prime. Check this with some simulations by hand, say for $11,25,$ and $479$. However, the test can be quite lengthy and tedious if $n$ is too large and its smallest prime factor is not small. If you are curious how lengthy this test can be, take the number $357 \ 879 \ 581$ and try finding its smallest prime divisor.
 
 	\begin{definition}[Prime Factorization]
 		Prime factorization is the process of finding all the prime factors of a positive integer.
@@ -232,24 +234,23 @@ In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead
 		where $p_1,p_2,\cdots p_k$ are different primes and $e_1,e_2,\cdots e_k$ are positive integers. Using product notation, we can write equation \eqref{eqn:one} as
 		\begin{align*}
 			n
-				&=\prod\limits_{i=1}^{k}p_i^{e_i}\\
-				&=\prod\limits_{p\mid n}p^e
+				&=\prod\limits_{i=1}^{k}p_i^{e_i}=\prod\limits_{p\mid n}p^e
 		\end{align*}
-		In the second equation above, $p$ runs through different primes dividing $n$ and $e$ is the maximum power of $p$ that divides $n$.\footnote{Make sure you understand the notations $\sum$ and $\prod$ well.}
+		In the second product notation above, $p$ runs through all primes dividing $n$ and $e$ is the maximum power of $p$ that divides $n$.\footnote{Make sure you understand the notations $\sum$ and $\prod$.}
 	\end{theorem}
 
 	\begin{proof}
-		We first prove by induction that the factorization indeed exists. Suppose that all numbers $k$ such that $1<k<n$ have a factorization. If $n$ is a prime, its factorization is obvious. Otherwise, there exist positive integers $a$ and $b$ both less than $n$ such that $ab=n$. By induction hypothesis, $a$ and $b$ both have factorizations. Let $a=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$ and $b=q_1^{\beta_1}q_2^{\beta_2}\cdots q_l^{\beta_l}$ be prime factorizations of $a$ and $b$. Then,
+		We first prove by induction that the factorization indeed exists. Suppose that all numbers $k$ such that $1<k<n$ have a factorization. If $n$ is a prime, its factorization is obvious. Otherwise, there exist positive integers $a$ and $b$ both less than $n$ such that $ab=n$. By induction hypothesis, $a$ and $b$ both have factorizations. Let $a=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$ and $b=q_1^{\beta_1}q_2^{\beta_2}\cdots q_l^{\beta_l}$ be the prime factorizations of $a$ and $b$. Then,
 		\begin{align*}
 			n = ab = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}q_1^{\beta_1}q_2^{\beta_2}\cdots q_l^{\beta_l}.
 		\end{align*}
-		This is a prime factorization for $n$ and induction is complete.
+		This is a prime factorization for $n$ and the induction is complete.
 
 		Now, let us prove that the prime factorization of $n$ is unique. Suppose that there are two factorizations for $n$. That is,
 		\begin{align}
 			p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}=q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t} \label{eq:fundamentalarith-eq1}
 		\end{align}
-		are two factorization of $n$, where $p_i$ and $q_j$ are primes and $\alpha_i$ and $\beta_j$ are positive integers ($1 \leq i \leq s, 1 \leq j \leq t$). The above equation implies that $p_1$ divides $q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t}$. By generalization of Euclid's lemma (Corollary \eqref{cor:euclidgeneral}), $p_1$ must divide at least one of $q_1^{\beta_1},q_2^{\beta_2},\cdots ,$ or $q_t^{\beta_t}$. Without loss of generality, suppose that $p_1\mid q_1^{\beta_1}$. Since $q_1$ is a prime, the only prime divisor of $q_1^{\beta_1}$ is $q_1$. This means that $p_1=q_1$ and $\alpha_1=\beta_1$. Divide both sides of equation \eqref{eq:fundamentalarith-eq1} by $p_1$ to obtain
+		are two factorization of $n$, where $p_i$ and $q_j$ are primes and $\alpha_i$ and $\beta_j$ are positive integers ($1 \leq i \leq s, 1 \leq j \leq t$). The above equation implies that $p_1$ divides $q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t}$. By generalization of Euclid's lemma (Corollary \eqref{cor:euclidgeneral}), $p_1$ must divide at least one of $q_1^{\beta_1},q_2^{\beta_2},\dots,$ or $q_t^{\beta_t}$. Without loss of generality, suppose that $p_1\mid q_1^{\beta_1}$. Since $q_1$ is a prime, the only prime divisor of $q_1^{\beta_1}$ is $q_1$. This means that $p_1=q_1$ and $\alpha_1=\beta_1$. Divide both sides of equation \eqref{eq:fundamentalarith-eq1} by $p_1$ to obtain
 		\begin{align*}
 			p_2^{\alpha_2}p_3^{\alpha_3}\cdots p_s^{\alpha_s}=q_2^{\beta_2}q_3^{\beta_3}\cdots q_t^{\beta_t}.
 		\end{align*}
