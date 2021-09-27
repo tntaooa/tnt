@@ -1,25 +1,21 @@
-\documentclass[leqno,11pt]{book}
+\documentclass[leqno,12pt]{book}
 
 \usepackage{amsthm, amsfonts, amssymb, amsmath}
 \usepackage{mystyle}
 \usepackage{subfiles}
 \usepackage{bookmark,rotating}
 
-\usepackage[
-	backend=biber,
-	style=alphabetic,
-	sorting=ynt,
-	natbib=true,
-]{biblatex}
+\usepackage[backend=biber,style=musuos,sorting=ynt,labeldateparts=true]{biblatex}
 
 \usepackage{iftex}
 
 \ifpdftex
 	\usepackage[T1]{fontenc}
-	\usepackage{OldStandard}
-	\usepackage[baskervillef]{newtxmath}
-	\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,]{microtype}
-	\microtypecontext{spacing=nonfrench}
+	%\usepackage{OldStandard}
+	\usepackage{lmodern}
+	%\usepackage[baskervillef]{newtxmath}
+	%\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,]{microtype}
+	%\microtypecontext{spacing=nonfrench}
 	\usepackage{pdfrender, xcolor}
 	\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.4pt}
 	\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
@@ -34,8 +30,15 @@
 }
 \date{}
 
-\addbibresource{main.bib}
 \addbibresource{ref.bib}
+
+\newcommand*{\problemautorefname}{\textit{Problem}}
+\newcommand{\identityautorefname}{Identity}
+
+\renewcommand*{\chapterautorefname}{$\S$}
+\renewcommand*{\sectionautorefname}{$\S$}
+\renewcommand*{\subsectionautorefname}{$\S$}
+
 
 \begin{document}
 \frontmatter
@@ -70,12 +73,6 @@ It is possible there are some \LaTeX\ issues in the new edition. If anyone finds
 \end{flushright}
 \section*{Links, Contact}
 
-%\begin{itemize}
-%	\item The website of the book contains the updates, errata, and new free materials that we regularly post on social media. Exclusive Olympiad problem-sets will be released on the website in the near future: \url{TopicsInNumberTheory.com}
-	%	\href{https://facebook.com/TopicsInNumberTheory/}{\texttt{@TopicsInNumberTheory}}.
-%	\item Facebook page: \url{@TopicsInNumberTheory}. This is our main page for feedback and reviews on the book. Feel free to post review, comment, solution, or suggestion you have about this book. Amir Hossein will create a forum for the book on AoPS so everyone can post their solutions to be added to the book later on.
-%	\item If you find any mistake or typo in the book, we would be happy to hear it on Facebook or \url{info@TopicsInNumberTheory.com}.
-%\end{itemize}
 
 \newpage
 \section*{Preface from first edition}
@@ -86,7 +83,7 @@ I would like to have a few words before diving into the discussion. First of all
 When I first thought about writing this book, my intention was to make students realize that they do not need to know a lot of theorems in order to be able to solve problems. But as we kept writing, we had to increase the pace since we had to cover a lot (and that was discarding a lot of content which we thought would ask for even discussion or we just felt lazy about it), we had to increase the pace.
 
 
-Initially my plan was to make this book a series of $5$ volumes, this being the first one. In those volumes, I wanted to discuss a lot of topics such as special numbers like \textit{egyptian fraction} or even interesting numbers like \textit{abundant number or deficient number} and their properties, etc., or crucial topics such as \textit{Diophantine equations}. You will notice that we have left a lot of important topics like those out of this book. The reason is, I quickly realized I could hardly finish writing this first volume, and if I wanted to complete the whole series, we would probably have to keep writing my whole life. So, I had to discard a lot of content and make the book concise. This resulted in squeezing in a lot of content in a few hundred pages.
+Initially, my plan was to make this book a series of $5$ volumes, this being the first one. In those volumes, I wanted to discuss a lot of topics such as special numbers like \textit{egyptian fraction} or even interesting numbers like \textit{abundant number or deficient number} and their properties, etc., or crucial topics such as \textit{Diophantine equations}. You will notice that we have left a lot of important topics like those out of this book. The reason is, I quickly realized I could hardly finish writing this first volume, and if I wanted to complete the whole series, we would probably have to keep writing my whole life. So, I had to discard a lot of content and make the book concise. This resulted in squeezing in a lot of content in a few hundred pages.
 
 
 Finally, I would like to thank Amir for joining me in this project. At one point, I stopped writing the book. If he had not agreed to be a co-author, this book would have probably not been completed at all, more so because he agreed to follow the style I wanted to write in even when we had objections from a reputed publisher like \textit{Springer}.
@@ -120,7 +117,6 @@ There are so many wonderful things to learn in this book. I hope you enjoy it!
 	July 2018.
 \end{flushright}
 
-
 \newpage
 
 \section*{Acknowledgment}
@@ -136,7 +132,6 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 		\item Thanks to \textbf{Valentio Iverson} for proof-reading chapters \ref{ch:arithfunc} and \ref{ch:special}, and pointing out the typo in figure \eqref{fig:unitfunction}.
 
 		\item Thanks to \textbf{Aditya Khurmi} for reading the book and giving us positive feedback.
-
 
 		\item We appreciate \textbf{Hesam Korki}'s comments on chapter \ref{ch:divisibility}. He mentioned a few very important typos, including grammatical. He also mentioned a mathematical change of that chapter, which was very helpful.
 
