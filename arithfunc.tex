@@ -4,7 +4,7 @@
 \begin{document}
 \chapter{Arithmetic Functions}\label{ch:arithfunc}
 
-	In chapter \ref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ which satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers. \watermark.
+	In chapter \ref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ that satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers. \watermark.
 \section{Definitions}
 
 		\begin{definition}[Arithmetic Function]
@@ -16,7 +16,7 @@
 				\begin{align*}
 					f(n)=\dfrac{n^ee^{-n}}{e^n+n+1+\ln n}.
 				\end{align*}
-			With the above definition, $f(n)$ is an arithmetic function although it does not represent any specific property of $n$. In this chapter, we want to study functions which present some \textit{number theoric} properties. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and relatively prime to $n$ as its output.
+			With the above definition, $f(n)$ is an arithmetic function even though it does not represent any specific property of $n$. In this chapter, we want to study functions that present some \textit{number theoric} properties. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and relatively prime to $n$ as its output.
 		\end{remark}
 	Here are some examples of arithmetic functions.
 		\begin{definition}[\bfseries Unit Function]
@@ -642,9 +642,9 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 			\end{problem}
 
 			\begin{solution}
-				First, try to make sense of what this problem is asking for. This is one of those problems that makes you think in a nice way while also teaching that theorems are not everything to solve problems. A very important point to keep in mind here is that, the order in which we pick the points does not matter.
+				First, try to make sense of what this problem is asking. This is one of those problems that make you think in a nice way while also teaching that theorems are not everything to solve problems. A very important point to keep in mind here is that, the order in which we pick the points does not matter.
 
-				The next step should be finding out how we should pick those points if we want to make a regular polygon. And of course, how many point for that matter. Let us label the points of the $2016$-gon as $P_1,P_2,\ldots,P_{2016}$. So, the regular polygon would be $P_1P_2\ldots P_{2016}$. Here, $P_1$ is connected to $P_2$, $P_2$ to $P_3$, and so on. However, $P_{2016}$ would be connected to $P_1$ to complete the cycle of the polygon.
+				The next step should be finding out how we should pick those points if we want to make a regular polygon and how many points are necessary to make such a polygon. Let us label the points of the $2016$-gon as $P_1,P_2,\ldots,P_{2016}$. So, the regular polygon would be $P_1P_2\ldots P_{2016}$. Here, $P_1$ is connected to $P_2$, $P_2$ to $P_3$, and so on. However, $P_{2016}$ would be connected to $P_1$ to complete the cycle of the polygon.
 
 				An important observation: we can always let $P_1$ be the first vertex of the regular polygon we want to construct. Because no matter where we start from, if we rotate, it would be identical to the one that can be created starting from $P_1$. So, $P_1$ is the first vertex of our regular polygon. Also, we fix the number of points in the new regular polygon we want to create. If it has $k$ points, all $k$ sides must be equal.
 
@@ -1266,7 +1266,7 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 		\end{theorem}
 
 		\begin{proof}
-			The proof somewhat follows from unique prime factorization. Assume $T$ is the expansion of the right side of equation \ref{eq:multiplicative-eq1}.
+			The proof somewhat follows from the unique prime factorization. Assume $T$ is the expansion of the right side of equation \ref{eq:multiplicative-eq1}.
 			If $d$ is a divisor of $n$, then $d=p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}$, where $0\leq w_i\leq e_i$ for $i=1,2,\cdots,k$. Therefore,
 				\begin{eqnarray*}
 					f(d)    & = & f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)\\
@@ -1760,10 +1760,10 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\end{proposition}
 
 	\begin{proof}
-		There are $n$ positive integers less than or equal to $n$. We know from theorem \ref{thm:oddsigma} that numbers which are a perfect square or twice a perfect square have an even $\sigma$. The number of perfect squares less than or equal to $n$ is $\left\lfloor\sqrt{n}\right\rfloor$ (why?). Similarly, the number of integers less than or equal to $n$ which are twice a perfect square is $\lfloor\sqrt{n/2}\rfloor$. The conclusion follows.
+		There are $n$ positive integers less than or equal to $n$. We know from theorem \ref{thm:oddsigma} that numbers that are a perfect square or twice a perfect square have an even $\sigma$. The number of perfect squares less than or equal to $n$ is $\left\lfloor\sqrt{n}\right\rfloor$ (why?). Similarly, the number of integers less than or equal to $n$ that is twice a perfect square is $\lfloor\sqrt{n/2}\rfloor$. The conclusion follows.
 	\end{proof}
 
-	A family of numbers which are related to sum-of-divisors function are \textit{perfect numbers}.
+	A family of numbers that are related to the sum of divisors function are \textit{perfect numbers}.
 
 	\begin{definition}
 		A positive integer $n$ is a \textit{perfect number} if $\sigma(n)=2n$.
@@ -1802,7 +1802,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\end{proof}
 
 	\begin{remark}
-		We do not know whether there exist infinitely many perfect numbers. In fact, even perfect numbers are formed by \textit{Mersenne primes} (see theorem \ref{thm:a^k-1prime} and its remark), and it has not yet been proved that there are infinitely many Mersenne primes. Furthermore, it is not known whether there are any odd perfect numbers. Mathematicians have tested first $10^{1500}$ integers but did not find any odd perfect number among them, so they guess there probably does not exist any.
+		We do not know whether there exist infinitely many perfect numbers. In fact, even perfect numbers are formed by \textit{Mersenne primes} (see theorem \ref{thm:a^k-1prime} and its remark), and it has not yet been proved that there are infinitely many Mersenne primes. Furthermore, it is not known whether there are any odd perfect numbers. Mathematicians have tested the first $10^{1500}$ natural numbers but did not find any odd perfect number among them, so they guess there probably does not exist any.
 	\end{remark}
 
 	\begin{theorem}
@@ -2323,7 +2323,7 @@ $ $
 				\begin{align*}
 					\alpha_1 + \alpha_2 + \cdots + \alpha_k = k.
 				\end{align*}
-			Notice that all $\alpha_i$ are positive integers ($1 \leq i \leq k$) and the above equation only occurs when all of them are equal to $1$. In other words, $n$ is not divisible by square of any prime and is therefore square-free.
+			Notice that all $\alpha_i$ are positive integers ($1 \leq i \leq k$) and the above equation only occurs when all of them are equal to $1$. In other words, $n$ is not divisible by the square of any prime and is therefore square-free.
 		\end{proof}
 
 		\begin{proposition}\slshape\label{prop:additiveomega}
@@ -2401,7 +2401,7 @@ $ $
 				\begin{align*}
 					\sum_{d\mid n}\lambda(d) &= \prod_{i=1}^{k}\frac{1 + (-1)^{\alpha_i}}{2}.
 				\end{align*}
-			If $n$ is a perfect square, that is, if all the $\alpha_i$ (for $1 \leq i \leq k$) are even, the above product equals one. Otherwise, at least one of $\alpha_i$ is odd and the thus $1 + (-1)^{\alpha_i}=0$, making the product equal zero.
+			If $n$ is a perfect square, that is, if all the $\alpha_i$ (for $1 \leq i \leq k$) are even, the above product equals one. Otherwise, at least one of $\alpha_i$ is odd and thus $1 + (-1)^{\alpha_i}=0$, making the product equal to zero.
 		\end{proof}
 
 		\begin{remark}
@@ -2442,7 +2442,7 @@ $ $
 \section{Exercises}
 
 	\begin{problem}
-		How many integers between $a$ and $b$ are divisible by $n$? Note that, $a$ and $b$ are not necessarily positive.
+		How many integers between $a$ and $b$ are divisible by $n$? Note that $a$ and $b$ are not necessarily positive.
 	\end{problem}
 
 	\begin{problem}
@@ -2735,7 +2735,7 @@ $ $
 	\end{problem}
 
 	\begin{problem}[All Russian Olympiads 2000] %https://artofproblemsolving.com/community/c6h514302
-		A perfect number, greater than $28$ is divisible by $7$. Prove that it is also divisible by $49$.
+		A perfect number greater than $28$ is divisible by $7$. Prove that it is also divisible by $49$.
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h347599
