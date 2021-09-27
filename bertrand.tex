@@ -2,7 +2,7 @@
 
 \begin{document}
 	\label{sec:bertrandspostulate}
-	\textit{Bertrand's postulate} is a very nice and influential theorem in number theory. \textit{Joseph Bertrand} first conjectured it, but he couldn't prove it entirely. Later, \textit{Chebyshev} proved it, using analytic number theory tools. \textit{S. Ramanujan} \textcite{meher_murty_2013} proved it using properties of \textit{Gamma function}, which is beyond the scope of this book. The first elementary proof of this theorem was given by \textcite{erdos_1932}. It was the first paper he published! We will show that proof here. The proof is so beautiful that we could not keep this theorem along with others, instead we gave it a separate section!
+	\textit{Bertrand's postulate} is a very nice and influential theorem in number theory. \textit{Joseph Bertrand} first conjectured it, but he couldn't prove it entirely. Later, \textit{Chebyshev} proved it, using analytic number theory tools. \textit{S. Ramanujan} \textcite{meher_murty_2013} proved it using properties of \textit{Gamma function}, which is beyond the scope of this book. The first elementary proof of this theorem was given by \textcite{erdos_1932}. It was the first paper he published! We will show that proof here.
 
 	There are many formulations of this theorem. All of them are equivalent.
 
@@ -58,7 +58,7 @@
 	\end{lemma}
 
 	\begin{proof}
-		Let $\alpha$ be the positive integer for which $p^\alpha \leq 2n<p^{\alpha +1}$. Then using theorem \eqref{thm:legendre} of chapter \eqref{ch:arithfunc},
+		Let $\alpha$ be the positive integer for which $p^\alpha \leq 2n<p^{\alpha +1}$. Then using theorem \autoref{thm:legendre} of chapter \eqref{ch:arithfunc},
 		\begin{align*}
 			v_p(N) & =  v_p((2n)!)-2v_p(n!)= \sum_{i=1}^{\alpha}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\sum_{i=1}^{\alpha }\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
 			& =  \sum_{i=1}^{\alpha}\left(\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\right) \leq \sum_{i=1}^{\alpha}1 =\alpha
@@ -108,11 +108,11 @@
 		\begin{align*}
 			\prod_{p\leq n}p =	\prod_{p\leq 2m+1} p  = \left(\prod_{p\leq m+1}p \right) \left( \prod_{m+2\leq p\leq2m+1}p\right).
 		\end{align*}
-		By induction hypothesis, the first product, $\prod\limits_{p\leq m+1}p$, is less than or equal to $4^{m+1}$. From lemma \eqref{lem:bertrand4}, we know that any prime $p$ such that $m+2\leq p\leq2m+1$ divides $\binom{2m+1}{m}$. Therefore, the second product, $\prod\limits_{m+2\leq p\leq2m+1}p$, is less than or equal to $\binom{2m+1}{m}$. Combining these results with lemma \eqref{lem:bertrand5}, we get
+		By induction hypothesis, the first product, $\prod\limits_{p\leq m+1}p$, is less than or equal to $4^{m+1}$. From lemma \autoref{lem:bertrand4}, we know that any prime $p$ such that $m+2\leq p\leq2m+1$ divides $\binom{2m+1}{m}$. Therefore, the second product, $\prod\limits_{m+2\leq p\leq2m+1}p$, is less than or equal to $\binom{2m+1}{m}$. Combining these results with lemma \autoref{lem:bertrand5}, we get
 		\begin{align*}
 			\prod_{p\leq n}p &\leq 4^{m+1}\binom{2m+1}{m}\leq 4^{m+1}2^{2m} =  4^{2m+1} = 4^n.
 		\end{align*}
-		Hence, the lemma is also true for $n$ and we are done.
+		So, the lemma is also true for $n$ and, we are done.
 	\end{proof}
 
 	We are ready to prove Bertrand's postulate.
@@ -120,14 +120,14 @@
 	\begin{proof}[Proof of Bertrand's postulate]
 		We want to show that for any positive integer $n$, there exists a prime $p$ such that $n <p \leq 2n$. Assume the converse, i.e., suppose that there exists some $n$ for which there is no prime $p$ with $n<p \leq 2n$. We will find an upper bound for $N = \binom{2n}{n}$ and seek for a contradiction. Let us divide the prime divisors of $N$ into two groups:
 		\begin{itemize}
-			\item Consider all prime divisors of $N$, say $p$, such that $p \leq \sqrt{2n}$. Let $p_1, p_2, \ldots, p_k$ be such primes. Clearly, $k \leq \sqrt{2n}$. According to lemma \eqref{lem:bertrand3}, $p_i^{v_{p_i}(N)} \leq 2n$ (for $1 \leq i \leq k$). Therefore,
+			\item Consider all prime divisors of $N$, say $p$, such that $p \leq \sqrt{2n}$. Let $p_1, p_2, \ldots, p_k$ be such primes. Clearly, $k \leq \sqrt{2n}$. According to lemma \autoref{lem:bertrand3}, $p_i^{v_{p_i}(N)} \leq 2n$ (for $1 \leq i \leq k$). Therefore,
 			\begin{eqnarray*}
 				\prod_{i=1}^{k} p_i^{v_{p_i}(N)} \leq (2n)^{\sqrt{2n}}.
 			\end{eqnarray*}
 
-			\item Consider all prime divisors of $N$ which are larger than $\sqrt{2n}$. Let $q_1, q_2, \ldots, q_m$ be such primes. Again, by lemma \eqref{lem:bertrand3}, we must have $q_i^{v_{q_i}(N)} \leq 2n$ (where $1 \leq i \leq m$). However, since $q_i > \sqrt{2n}$, we find that $v_{q_i}(N)=1$ for all $i$.
+			\item Consider all prime divisors of $N$ which are larger than $\sqrt{2n}$. Let $q_1, q_2, \ldots, q_m$ be such primes. Again, by lemma \autoref{lem:bertrand3}, we must have $q_i^{v_{q_i}(N)} \leq 2n$ (where $1 \leq i \leq m$). However, since $q_i > \sqrt{2n}$, we find that $v_{q_i}(N)=1$ for all $i$.
 
-			Now, by our hypothesis, there are no primes $p$ such that $n < p \leq 2n$. On the other hand, lemma \eqref{lem:bertrand2} says that there are no prime divisors of $N$ such that $2n/3 < p \leq n$. Altogether, we find that $ \sqrt{2n} < q_i \leq 2n/3$ for $1 \leq i \leq m$. Hence,
+			Now, by our hypothesis, there are no primes $p$ such that $n < p \leq 2n$. On the other hand, lemma \autoref{lem:bertrand2} says that there are no prime divisors of $N$ such that $2n/3 < p \leq n$. Altogether, we find that $ \sqrt{2n} < q_i \leq 2n/3$ for $1 \leq i \leq m$. Hence,
 			\begin{eqnarray*}
 				\prod_{i=1}^{m} q_i^{v_{q_i}(N)} =  \prod_{i=1}^{m} q_i =  \prod\limits_{\substack{\sqrt{2n}<p\leq2n/3\\p|N}} p.
 			\end{eqnarray*}
@@ -138,9 +138,9 @@
 			& \leq & (2n)^{\sqrt{2n}} \cdot \prod_{p\leq2n/3} p\\
 			& \leq & (2n)^{\sqrt{2n}} \cdot 4^{2n/3}.
 		\end{eqnarray*}
-		Note that we have used lemma \eqref{lem:bertrand6} for writing the last line.
+		Note that we have used lemma \autoref{lem:bertrand6} for writing the last line.
 
-		Combining this with the result of lemma \eqref{lem:bertrand1}, we see that
+		Combining this with the result of lemma \autoref{lem:bertrand1}, we see that
 		\begin{eqnarray}
 		\frac{4^n}{2n+1} \leq (2n)^{\sqrt{2n}} \cdot 4^{2n/3}.
 		\end{eqnarray}
@@ -169,7 +169,7 @@
 	\end{problem}
 
 	\begin{solution}
-		We first show by induction that $\sum_{i=1}^{k} p_i > p_{k+1}$ for $k \geq 3$. The base case, $k=3$ is true because $2+3+5>7$. Assume that $\sum_{i=1}^{k} p_i > p_{k+1}$, then by the first alternative form of Bertrand's postulate stated in theorem \eqref{thm:bertrandalternative},
+		We first show by induction that $\sum_{i=1}^{k} p_i > p_{k+1}$ for $k \geq 3$. The base case, $k=3$ is true because $2+3+5>7$. Assume that $\sum_{i=1}^{k} p_i > p_{k+1}$, then by the first alternative form of Bertrand's postulate stated in theorem \autoref{thm:bertrand},
 			\begin{align*}
 				\sum_{i=1}^{k+1} p_i = p_{k+1} + \sum_{i=1}^k p_i > 2p_{k+1} > p_{k+2},
 			\end{align*}
@@ -191,7 +191,7 @@
 			\begin{align*}
 				\binom{2n}{n} - \binom{2n}{n+1} = \frac{1}{n+1}\binom{2n}{n},
 			\end{align*}
-		and therefore $n+1 | \binom{2n}{n}$. Assume that $k>1$. By Bertrand's postulate, there exists an odd prime $p$ such that $k<p<2k$. Choose $n=(p-k)+p^m$ for any positive integer $m$. From theorem \eqref{thm:legendrealternative}, we can write
+		and therefore $n+1 | \binom{2n}{n}$. Assume that $k>1$. By Bertrand's postulate, there exists an odd prime $p$ such that $k<p<2k$. Choose $n=(p-k)+p^m$ for any positive integer $m$. From theorem \autoref{thm:legendrealternative}, we can write
 			\begin{align*}
 				v_p \left(\binom{2n}n\right)  &=  v_p((2n)!) - 2v_p((n!))\\
 				&=  \frac{2n - s_p(2n)}{p-1} - 2 \cdot \frac{n - s_p(n)}{p-1}\\

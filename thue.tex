@@ -3,12 +3,12 @@
 \begin{document}
 \textit{Thue's Lemma} is a wonderful theorem in modular arithmetic. It should have been quite popular, but unfortunately, it is not as well-known as it should be. Here we will see what a powerful tool it is.
 
-\begin{theorem}[Thue's Lemma]\slshape
+\begin{theorem}[Thue's Lemma]\label{thm:thue}\slshape
 	Let $n>1$ be an integer and $a$ be an integer coprime to $n$. Then, there are integers $x$ and $y$ so that 
 	\begin{align*}
 		0 &< |x|, |y| \leq \sqrt n, \quad \text{and}\\
 		x&\equiv ay\pmod n.
-	\end{align*}\label{thm:thue}
+	\end{align*}
 	We call such a solution $(x,y)$ to the above congruence equation a \textit{small solution}.
 \end{theorem}
 
@@ -50,14 +50,14 @@
 	\end{theorem}
 	
 	
-	Now we demonstrate some applications of the lemma. First, we show an elegant proof of Fermat's $4n+1$ theorem, restated in theorem \eqref{thm:fermat4n+1}.
+	Now we demonstrate some applications of the lemma. First, we show an elegant proof of Fermat's $4n+1$ theorem, restated in theorem \autoref{thm:fermat4n+1}.
 	
-	\begin{theorem}[Fermat's Theorem on Sum of Two Squares]\slshape\label{thm:fermat4n+1}
-		Any prime of the form $4n+1$ can be represented as sum of two squares.
+	\begin{theorem}[Fermat's Theorem on Sum of Two Squares]\label{thm:fermat4n+1}\slshape
+		Any prime of the form $4n+1$ can be represented as a sum of two squares.
 	\end{theorem}
 
 	\begin{proof}
-		We already know from theorem \eqref{thm:-1qr} that for $p\equiv1\pmod4$, there is an $x$ so that
+		We already know from theorem \autoref{thm:-1qr} that for $p\equiv1\pmod4$, there is an $x$ so that
 		\begin{align*}
 			x^2 & \equiv-1\pmod p.
 		\end{align*}
@@ -75,15 +75,15 @@
 	\end{proof}
 
 	\begin{remark}
-		We can prove a stronger result than that of Theorem \ref{thm:fermat4n+1} using Fibonacci-Brahmagupta Identity (see Identity \ref{id:fibbr} in Appendix \ref{ch:appendices}). This identity states that
+		We can prove a stronger result than that of Theorem \autoref{thm:fermat4n+1} using Fibonacci-Brahmagupta Identity (see Identity \ref{id:fibbr} in Appendix \ref{ch:appendices}). This identity states that
 		\begin{align*}
 			(a^2+nb^2)(c^2+nd^2)&=(ac-nbd)^2+n(ad+bc)^2\\
 			&=(ac+nbd)^2+n(ad-bc)^2.
 		\end{align*}
 	Since we know that the product of any two numbers of the form $4k+1$ is again of the form $4k+1$ (see the proof of Theorem \ref{thm:4k+3prime}), the special case when $n=1$ of the above identity along with Theorem \ref{thm:fermat4n+1} shows that all numbers which are comprised only of prime divisors of the form $4k+1$ are representable as the sum of two squares. 
 	\end{remark}
-	In fact, we can use the same technique for generalizing theorem \eqref{thm:fermat4n+1}.
-	\begin{theorem}\slshape\label{thm:gen4n+1}
+	In fact, we can use the same technique for generalizing theorem \autoref{thm:fermat4n+1}.
+	\begin{theorem}\label{thm:gen4n+1}\slshape
 		Let $n\in\{-1,-2,-3\}$. If $n$ is a quadratic residue modulo a prime $p$, then there are integers $a$ and $b$ so that $a^2-nb^2=p$.
 	\end{theorem}
 	
@@ -110,10 +110,10 @@
 	\end{proof}
 
 	\begin{question}
-		Can you prove a similar result to that of the remark after Theorem \ref{thm:fermat4n+1}, but for the above theorem? Try using Fibonacci-Brahmagupta's identity before reading the next corollary.
+		Can you prove a similar result to that of the remark after Theorem \autoref{thm:fermat4n+1}, but for the above theorem? Try using Fibonacci-Brahmagupta's identity before reading the next corollary.
 	\end{question}
 	
-	\begin{corollary}\slshape\label{cor:p|x^2+ny^2}
+	\begin{corollary}\label{cor:p|x^2+ny^2}\slshape
 		For a prime $p$ and an integer $n$ with $p \nmid n$ the following two statements are equivalent:
 		\begin{itemize}
 			\item There exist coprime integers $x$ and $y$ so that $p$ divides $x^2+ny^2$.
@@ -140,7 +140,7 @@
 	\end{theorem}
 	
 	\begin{proof}
-		According to the Fibonacci-Brahmagupta Identity (identity \eqref{id:fibbr} in appendix \eqref{ch:null}),
+		According to the Fibonacci-Brahmagupta Identity (identity \autoref{id:fibbr} in appendix \autoref{ch:null}),
 			\begin{align*}
 				(a^2+Db^2)(c^2+Dd^2)& =(ac-Dbd)^2+D(ad+bc)^2\\
 				& =(ac+Dbd)^2+D(ad-bc)^2.
@@ -153,9 +153,9 @@
 			\begin{align*}
 				d & = \prod_{i=1}^{k}p_i^{f_i}\text{ where }0\leq f_i\leq e_i.
 			\end{align*}
-		For any $1\leq i\leq k$, $p_i$ divides $n=x^2+Dy^2$. Therefore, according to corollary \eqref{cor:p|x^2+ny^2}, $-D$ is a quadratic residue modulo $p_i$. Now, by theorem \eqref{thm:gen4n+1}, each $p_i$ is of the form $x^2+Dy^2$. From our previous discussion, we find that $p_i^{f_i}$ is of the same form for all $i$. As a consequence, the product $p_1^{f_1}\cdots p_k^{f_k}=d$ is of the same form and we are done.
+		For any $1\leq i\leq k$, $p_i$ divides $n=x^2+Dy^2$. Therefore, according to corollary \autoref{cor:p|x^2+ny^2}, $-D$ is a quadratic residue modulo $p_i$. Now, by theorem \autoref{thm:gen4n+1}, each $p_i$ is of the form $x^2+Dy^2$. From our previous discussion, we find that $p_i^{f_i}$ is of the same form for all $i$. As a consequence, the product $p_1^{f_1}\cdots p_k^{f_k}=d$ is of the same form and we are done.
 	\end{proof}
-	Now we prove another theorem that demonstrates the power of Thue's lemma. We will use a theorem which we proved in section \eqref{sec:qr}. For convenience, we state the theorem here again.
+	Now we prove another theorem that demonstrates the power of Thue's lemma. We will use a theorem which we proved in section \autoref{sec:qr}. For convenience, we state the theorem here again.
 		\begin{theorem}\slshape
 			$-3$ is a quadratic residue modulo $p$ if and only if $p$ is of the form $3k+1$.
 		\end{theorem}

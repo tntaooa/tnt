@@ -330,7 +330,7 @@ Let's see the mathematical idea behind the divisibility rule for $3$.
 				x & = 10^{k-1}x_{k-1} + 10^{k-2}x_{k-2} + \cdots + 10x_1 + x_0\\
 				&= (3 \cdot 3 + 1)^{k-1}x_{k-1} + (3 \cdot 3 + 1)^{k-2}x_{k-2} + \cdots + (3 \cdot 3 + 1)x_1 + x_0
 			\end{align*}
-		Try to show as an exercise that the remainder of division of $(3 \cdot 3 + 1)^{i}$ (for $1 \leq i \leq k-1$) is always equal to $1$ (hint: you might want to use theorem \eqref{thm:binomial-theorem} (binomial theorem)). In other words, there exist integers $q_i$ (for $1 \leq i \leq k-1$) such that $(3 \cdot 3 + 1)^{i} = 3q_i + 1$. Therefore,
+		Try to show as an exercise that the remainder of division of $(3 \cdot 3 + 1)^{i}$ (for $1 \leq i \leq k-1$) is always equal to $1$ (hint: you might want to use theorem \autoref{thm:binomial-theorem} (binomial theorem)). In other words, there exist integers $q_i$ (for $1 \leq i \leq k-1$) such that $(3 \cdot 3 + 1)^{i} = 3q_i + 1$. Therefore,
 			\begin{align*}
 				x &= (3 \cdot 3 + 1)^{k-1}x_{k-1} + (3 \cdot 3 + 1)^{k-2}x_{k-2} + \cdots + (3 \cdot 3 + 1)x_1 + x_0\\
 				&= (3q_{k-1}+1)x_{k-1} + (3q_{k-2}+1)x_{k-2} + \cdots  + (3q_{1}+1)x_{1} + x_{0}\\
@@ -1210,7 +1210,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\end{align*}
 		Two special common cases are $$xy + x + y + 1 = (x+1)(y+1),$$ and $$xy - x - y +1 = (x-1)(y-1).$$
 	\end{proposition}
-	Let's see the motivation behind this trick. Once Mr. Simon was studying number theory, he found this problem: find all positive integers $x$ and $y$ such that $xy-x+y=49$. Simon probably hates expressions of this form because he cannot factorize them. However, if he adds $-1$ to both sides of his equation, he finds the nice and factored form $(x+1)(y-1)=48$, which is much easier to solve than the original equation. In fact, to solve the factorized equation, he only needs to find the divisors of $48$ (see theorem \eqref{thm:nos} for more details). If you look closely, SFFT is inspired by the so-called \textbf{Completing the Square Method}:
+	Let's see the motivation behind this trick. Once Mr. Simon was studying number theory, he found this problem: find all positive integers $x$ and $y$ such that $xy-x+y=49$. Simon probably hates expressions of this form because he cannot factorize them. However, if he adds $-1$ to both sides of his equation, he finds the nice and factored form $(x+1)(y-1)=48$, which is much easier to solve than the original equation. In fact, to solve the factorized equation, he only needs to find the divisors of $48$ (see theorem \autoref{thm:nos} for more details). If you look closely, SFFT is inspired by the so-called \textbf{Completing the Square Method}:
 	\begin{align*}
 		x^2+kx+\frac{k^2}{4}=\left(x+\frac{k}{2}\right)^2.
 	\end{align*}
@@ -1261,7 +1261,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		Take $n=6$. The only positive divisors of $n$ are $1,2,3,$ and $6$. Therefore, $\tau(6)=4$. On the other hand, the equation $ab=6$ has exactly four solutions $(1,6), (2,3),(3,2)$, and $(6,1)$.
 	\end{example}
 
-	We will study $\tau(n)$ in details in Chapter \ref{ch:arithfunc}.
+	We will study $\tau(n)$ in details in Chapter \autoref{ch:arithfunc}.
 
 	\begin{theorem}\slshape
 		Every prime greater than $3$ is either of the form $6k+1$ or of the form $6k-1$.
@@ -1433,9 +1433,9 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\end{proposition}
 
 		\begin{hint}
-			Use Problem \ref{prob:productdividesfactorial} in chapter \ref{ch:solved}.
+			Use Problem \ref{prob:productdividesfactorial} in chapter \autoref{ch:solved}.
 		\end{hint}
-	You are probably familiar with the \textit{binomial theorem}. We state this theorem here because of its high importance but do not prove it. Interested reader may see a proof of binomial theorem along with several useful related identities in Appendix \ref{ch:null}.
+	You are probably familiar with the \textit{binomial theorem}. We state this theorem here because of its high importance but do not prove it. Interested reader may see a proof of binomial theorem along with several useful related identities in Appendix \autoref{ch:null}.
 		\begin{theorem}[Binomial Theorem]\slshape
 			For any positive integer $n$,
 				\begin{align*}
@@ -1450,7 +1450,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	For now, we will be proving only the first part.
 
 		\begin{proof}
-			From identity number \ref{id:binomreduction} of theorem \eqref{thm:binom} in Appendix \ref{ch:null}, we know that
+			From identity number \autoref{id:binomreduction} of theorem \autoref{thm:binom} in Appendix \autoref{ch:null}, we know that
 				\begin{align*}
 					k\binom{p}{k} & = p\binom{p-1}{k-1}.
 				\end{align*}
@@ -1686,7 +1686,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				\begin{align*}
 					(x-2015)(y-2015) & = 2015^2.
 				\end{align*}
-			According to theorem \eqref{thm:nos}, we get that the number of solutions is the number of positive divisors of $2015^2$, $\tau(2015^2)$.
+			According to theorem \autoref{thm:nos}, we get that the number of solutions is the number of positive divisors of $2015^2$, $\tau(2015^2)$.
 		\end{solution}
 
 		\begin{note}
@@ -1752,7 +1752,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\end{problem}
 
 	\begin{solution}
-		According to theorem \eqref{thm:factorizeintopowersoftwo}, write $n=2^ms$, where $s$ is an odd positive integer. By theorem \eqref{id:fatandthin}, we can write
+		According to theorem \autoref{thm:factorizeintopowersoftwo}, write $n=2^ms$, where $s$ is an odd positive integer. By theorem \eqref{id:fatandthin}, we can write
 			\begin{align*}
 				p = 2^n+1 &= 2^{2^{m}s}+1 = \left(2^{2^{m}}\right)^s+1\\
 				   		  &=\left(2^{2^m}+1\right)\left(2^{2^{m}(s-1)}+2^{2^{m}(s-2)}+ \cdots + 2^{2^{m}}+1\right).
