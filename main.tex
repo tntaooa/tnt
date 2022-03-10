@@ -5,20 +5,36 @@
 \usepackage{subfiles}
 \usepackage{bookmark,rotating}
 
-\usepackage[backend=biber,style=musuos,sorting=ynt,labeldateparts=true]{biblatex}
+\usepackage[style=philosophy-verbose,backend=biber,sortcites=true,classical=true,scauthors=true, scauthorscite=true,scauthorsbib=true,volnumformat=strings,volumeformat=romansc,]{biblatex}
+\interfootnotelinepenalty=10000
 
 \usepackage{iftex}
 
+\ifxetex
+\usepackage[no-math]{fontspec}
+\usepackage{unicode-math}
+\else
+\usepackage[LGR,T2A,LY1]{fontenc}
+\usepackage{OldStandard}
+\usepackage{pdfrender, xcolor}
+\fi
+
 \ifpdftex
-	\usepackage[T1]{fontenc}
-	%\usepackage{OldStandard}
-	\usepackage{lmodern}
-	%\usepackage[baskervillef]{newtxmath}
-	%\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,]{microtype}
-	%\microtypecontext{spacing=nonfrench}
-	\usepackage{pdfrender, xcolor}
-	\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.3pt}
-	\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.1pt}
+\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
+\else
+\newcommand{\fakebold}{2}
+\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,BoldItalicFont=OldStandard-BoldItalic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp}},BoldItalicFeatures={FakeBold=0}]{ModernMTStd-Extended.otf}
+\setmathfont[FakeBold=\fakebold,]{NewCMMath-Book.otf}
+\setmathfont[range=it,FakeBold=\fakebold]{Old Standard Italic}
+\setmathfont[range={\symfrak},FakeBold=\fakebold]{Asana Math}
+\setmathfont[range={\int},Scale=2,]{Old Standard Italic}
+\setmathfont[range={\sum,\prod},Scale=1.7]{Old Standard Italic}
+
+\usepackage{mathspec}
+\setmathsfont(Digits)[Scale=MatchUppercase,FakeBold=\fakebold]{Old Standard}
+\setmathsfont(Latin)[Uppercase=Italic,Lowercase=Italic,FakeBold=\fakebold,Scale=MatchUppercase]{ModernMT-ExtendedItalic.otf}
+\defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \fi
 
 \title{\bf\Huge TOPICS IN NUMBER THEORY\\ {\vspace*{.3in}\it\LARGE An Olympiad--Oriented Approach}\\\vspace*{.3in}{\Large Second Edition\\\vspace*{.1in}\rule{\textwidth}{0.8pt}}}
@@ -26,7 +42,6 @@
 	\sc \Huge Masum Billal
 	\and \sc \Huge Amir Parvardi\\\vspace*{.4in}
 	\rule{\textwidth}{0.8pt}\\\vspace*{.2in}
-	\bf Published Independently
 }
 \date{}
 
@@ -35,6 +50,10 @@
 \newcommand*{\problemautorefname}{\textit{Problem}}
 \newcommand{\identityautorefname}{Identity}
 
+\titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}}[\vspace{1ex}\titlerule]
+\titleformat{\section}[display]{\bfseries\scshape\Large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
+\titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
+
 \renewcommand*{\chapterautorefname}{$\S$}
 \renewcommand*{\sectionautorefname}{$\S$}
 \renewcommand*{\subsectionautorefname}{$\S$}
@@ -42,13 +61,14 @@
 
 \begin{document}
 \frontmatter
+\pagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
 	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\pdfpagewidth,height=\pdfpageheight]{TNT_Cover/FrontCover.jpg}};
 \end{tikzpicture}
 
 
 \maketitle
-\pagestyle{plain}
+\pagestyle{empty}
 
 \begin{dedication}
 	\begin{center}
@@ -154,14 +174,14 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 
 		\item We are thankful to \textbf{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\"{}) used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
 	\end{enumerate}
-
+\clearpage
 %\dominitoc
 \tableofcontents
 
 
-\pagestyle{myfancy}
-		\pagestyle{fancy}
+%\pagestyle{myfancy}
 \mainmatter
+\pagestyle{fancy}
 \setcounter{page}{13}
 	\begin{refsection}
 		\subfile{intro.tex}
