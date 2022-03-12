@@ -235,7 +235,7 @@
 		\end{theorem}
 
 		\begin{proof}
-			Let's say the number of primes of this form is finite. Call these primes $p_1,p_2,\ldots,p_k$. Consider the number $N=4p_1^2\cdots p_k^2+1$. Using corollary \eqref{cor:4n+1} of chapter \eqref{ch:congruence}, we get that every divisor of $N$ is of the form $4t+1$. Thus, a prime divisor $p$ of $N$ must be of the same form. The contradiction follows.
+			Let's say the number of primes of this form is finite. Call these primes $p_1,p_2,\ldots,p_k$. Consider the number $N=4p_1^2\cdots p_k^2+1$. Using corollary \eqref{cor:4n+1}, we get that every divisor of $N$ is of the form $4t+1$. Thus, a prime divisor $p$ of $N$ must be of the same form. The contradiction follows.
 		\end{proof}
 
 		\begin{theorem}\slshape
@@ -319,7 +319,7 @@
 			\begin{align*}
 				\left\lfloor\frac{n}{p_1}\right\rfloor+\left\lfloor\frac{n}{p_2}\right\rfloor+\cdots-\left\lfloor\frac{n}{p_1p_2}\right\rfloor-\left\lfloor\frac{n}{p_1p_3}\right\rfloor-\cdots+\left\lfloor\frac{n}{p_1p_2p_3}\right\rfloor+\left\lfloor\frac{n}{p_1p_3p_4}\right\rfloor+\cdots
 			\end{align*}
-		Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem\footnote{In the final examination of senior year, Masum faced the following question: Provide an approximation formula for the number of primes not exceeding $N$. He proved theorem \autoref{thm:numofprime} instead as an exact formula in the exam.}.
+		Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem.
 			\begin{theorem}\label{thm:numofprime}
 	Let $n$ be a positive integer and $p_1,p_2,\ldots,p_k$ be the primes less than or equal to $\sqrt{n}$. If the number of primes not exceeding $n$ is $\pi(n)$, then $\pi(n) -\pi(\sqrt{n})+1$ is
 	\begin{align}

@@ -20,8 +20,6 @@
 		\end{itemize}
 	\end{theorem}
 
-	We need to show some lemmas in order to prove Bertrand's postulate. At first they all seem to be unrelated. Keep reading back and forth until you see the motivation behind all these lemmas. When you realize, see if you feel thunderstruck. You should! If this does not make you wonder how a human being can think that far, we do not know what will. And then you will probably understand why \textit{Erd\H {o}s} is our most favorite.
-
 	\begin{lemma}\label{lem:bertrand1}
 		For any positive integer $n$,
 		\[\binom{2n}{n}\geq\dfrac{4^n}{2n+1}.\]
@@ -182,7 +180,8 @@
 	\begin{problem}[China 2015]\label{prob:china2015-bertrand}
 		Determine all integers $k$ such that there exists infinitely many positive integers $n$ satisfying
 		\begin{align*}
-		n+k \not \Big| \binom{2n}{n}.
+		n+k
+			& \nmid \binom{2n}{n}.
 		\end{align*}
 	\end{problem}
 
@@ -213,7 +212,7 @@ The proof uses a property of gamma function (a function involving the gamma func
 	\begin{problem}
 		Let $k$ be a positive integer. Does there always exist a prime between $kn$ and $(k+1)n$?
 	\end{problem}
-\textcite{bachraoui_2006} proved the case $k=2$. The idea is an extension of Erd\"{o}s's proof.
+\textcite{bachraoui_2006} proved the case $k=2$. The idea is an extension of Erd\fH{o}s's proof.
 	\begin{theorem}[Bachraoui]\slshape
 		For a positive integer $n>1$, there is always a prime in the interval $[2n,3n]$.
 	\end{theorem}

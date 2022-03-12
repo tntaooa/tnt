@@ -28,12 +28,15 @@
 \setmathfont[FakeBold=\fakebold,]{NewCMMath-Book.otf}
 \setmathfont[range=it,FakeBold=\fakebold]{Old Standard Italic}
 \setmathfont[range={\symfrak},FakeBold=\fakebold]{Asana Math}
-\setmathfont[range={\int},Scale=2,]{Old Standard Italic}
-\setmathfont[range={\sum,\prod},Scale=1.7]{Old Standard Italic}
+\setmathfont[range={\int},Scale=\fakebold,]{Old Standard Italic}
+\setmathfont[range={\sum,\prod},]{Old Standard}
+\newfontfamily{\mtmext}[FakeBold=\fakebold]{Old Standard}
+\newcommand*{\customaccent}[1]{\mtmext\selectfont #1}
+\newcommand{\fH}[1]{\rmfamily\H{\customaccent{#1}}}
 
 \usepackage{mathspec}
-\setmathsfont(Digits)[Scale=MatchUppercase,FakeBold=\fakebold]{Old Standard}
-\setmathsfont(Latin)[Uppercase=Italic,Lowercase=Italic,FakeBold=\fakebold,Scale=MatchUppercase]{ModernMT-ExtendedItalic.otf}
+\setmathsfont(Digits)[Scale=MatchUppercase,FakeBold=\fakebold]{ModernMTStd-Extended.otf}
+\setmathsfont(Latin)[Uppercase=Italic,Lowercase=Italic,FakeBold=\fakebold,Scale=MatchUppercase]{ModernMTStd-ExtendedItalic.otf}
 \defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \fi
 
@@ -52,7 +55,7 @@
 
 \titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}}[\vspace{1ex}\titlerule]
 \titleformat{\section}[display]{\bfseries\scshape\Large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
-\titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
+\titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesubsection}{}\;}[\titlerule]
 
 \renewcommand*{\chapterautorefname}{$\S$}
 \renewcommand*{\sectionautorefname}{$\S$}
@@ -172,7 +175,7 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 
 		\item Thanks to \textbf{Amin Soofiani}, who is a Master's student of mathematics at the University of British Columbia, we noticed there was a mistake in theorem \eqref{thm:numofprime}. He did a perfect, precise, and detailed review on chapter \ref{ch:primes}.
 
-		\item We are thankful to \textbf{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\"{}) used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
+		\item We are thankful to \textbf{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\H{}), used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
 	\end{enumerate}
 \clearpage
 %\dominitoc
