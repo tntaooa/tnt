@@ -23,13 +23,13 @@
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.1pt}
 \makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
 \else
-\newcommand{\fakebold}{2}
-\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,BoldItalicFont=OldStandard-BoldItalic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp}},BoldItalicFeatures={FakeBold=0}]{ModernMTStd-Extended.otf}
+\newcommand{\fakebold}{1}
+\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,BoldItalicFont=ModernMT-ExtendedItalic.otf,BoldItalicFeatures={FakeBold=\fakebold},SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp}}]{ModernMTStd-Extended.otf}
 \setmathfont[FakeBold=\fakebold,]{NewCMMath-Book.otf}
 \setmathfont[range=it,FakeBold=\fakebold]{Old Standard Italic}
 \setmathfont[range={\symfrak},FakeBold=\fakebold]{Asana Math}
-\setmathfont[range={\int},Scale=\fakebold,]{Old Standard Italic}
-\setmathfont[range={\sum,\prod},]{Old Standard}
+\setmathfont[range={\int},FakeBold=\fakebold]{Old Standard Italic}
+\setmathfont[range={\sum,\prod},FakeBold=\fakebold,]{Old Standard}
 \newfontfamily{\mtmext}[FakeBold=\fakebold]{Old Standard}
 \newcommand*{\customaccent}[1]{\mtmext\selectfont #1}
 \newcommand{\fH}[1]{\rmfamily\H{\customaccent{#1}}}
@@ -81,7 +81,7 @@
 	Euler, without whom number theory probably wouldn't be so rich today.\\
 	Riemann, who made huge contributions to analytic number theory.\\
 	Ramanujan, the mathematician of mathematicians.\\
-	Paul Erd\"{o}s, the man who loved only numbers.
+	Paul Erd\fH{o}s, the man who loved only numbers.
 \end{dedication}
 
 \section*{Preface to Second Edition}

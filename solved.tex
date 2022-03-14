@@ -5,7 +5,7 @@
 	\chapter{Solving Challenge Problems}\label{ch:solved}
 
 	\numberwithin{theorem}{chapter}
-	\epigraph{There will be plenty of time to rest in the grave.}{\textit{Paul Erd\'{o}s}}
+	\epigraph{There will be plenty of time to rest in the grave.}{\textit{Paul Erd\fH{o}s}}
 	
 
 	\begin{problem}
@@ -490,7 +490,7 @@ You never know what's coming next until you think clearly!
 		From what we just proved, the smallest prime of $a,b,c$ (namely $c\geq3$) must be at least $3$. What other information is there for us to use? $800\in \{a+b, b+c, c+a\}$, but we don't need to analyze every case since they are symmetric over $a,b,c$. Without loss of generality, take $a+b=800$. $a+b-c>0$ is a prime too, so $c<a+b=800$ or $c\leq 799$, a prime. We can check that $17$ divides $799$, so $c\leq797$, inferring $a+b+c\leq800+797=1597$. And by luck, $1597$ is a prime (well, that's how the problem creator created the problem). So if we can find $a,b$ so that all are primes, we are done and in that case, $d=a+b+c-3=1594$ since $a+b+c$ is the largest prime and $3$ is the smallest prime. $a$ must be greater than or equal to $5$, but since $a+b=800$, $a$ can not be $5$. Let's check starting from $a=7,b=793$. With some tedious calculations, we can find that $a=13,b=787$ satisfies all the conditions. Other primes would be $23,1571$.
 	\end{solution}
 	
-	\begin{problem}[Masum Billal, Bangladesh TST $2015$]
+	\begin{problem}
 		Find the number of positive integers $d$ so that for a given positive integer $n$, $d$ divides $a^n-a$ for all integer $a$.
 	\end{problem}
 	
@@ -515,12 +515,12 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 	
 	\begin{solution}
-		Since $a,b$ are rational, we can assume that $a=\frac{m}{d},b=\frac{n}{d}$ with $m\perp d,n\perp d$. Otherwise, if $m\not\perp d$ we can divide by the common factor. Moreover, we can assume $m\perp n$. Indeed, if not, say $r$ is a prime factor of $d$. Then we must have $r\not|\gcd(m,n)$. Otherwise the condition $m\perp d$ would be broken. Therefore, without loss of generality, $m\perp n$. Let $q$ be a prime factor of $d$. Thus, \[q^p|m^p-n^p\] for all $p$, and $e$ be the smallest positive integer such that \[m^e\equiv n^e\pmod q\]
+		Since $a,b$ are rational, we can assume that $a=\frac{m}{d},b=\frac{n}{d}$ with $m\perp d,n\perp d$. Otherwise, if $\gcd(m,d)>1$ we can divide by the common factor. Moreover, we can assume $m\perp n$. Indeed, if not, say $r$ is a prime factor of $d$. Then we must have $r\nmid\gcd(m,n)$. Otherwise the condition $m\perp d$ would be broken. Therefore, without loss of generality, $m\perp n$. Let $q$ be a prime factor of $d$. Thus, \[q^p|m^p-n^p\] for all $p$, and $e$ be the smallest positive integer such that \[m^e\equiv n^e\pmod q\]
 		We can say that $e|p$ for all prime $p$. But this impossible except for $e=1$. Hence, $q|m-n$. Now, take a prime $p\neq q$, and from Exponent GCD lemma we have 
 		
 		\begin{align*}
 			\gcd\left(m-n,f(m,n,p)\right) | p\\
-			q\not|  f(m,n,p)
+			q\nmid  f(m,n,p)
 		\end{align*}
 		
 		
@@ -810,7 +810,11 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 	
 	\begin{problem}
-		Let $p$ be an odd prime. If $g_{1}, \cdots, g_{\phi(p-1)}$ are the primitive roots $\pmod{p}$ in the range $1<g \le p-1$, prove that$ \sum_{i=1}^{\phi(p-1)}g_{i}\equiv \mu(p-1) \pmod{p}$
+		Let $p$ be an odd prime. If $g_{1}, \cdots, g_{\phi(p-1)}$ are the primitive roots $\pmod{p}$ in the range $1<g \le p-1$, prove that
+			\begin{align*}
+				\sum_{i=1}^{\phi(p-1)}g_{i}
+					& \equiv \mu(p-1) \pmod{p}
+			\end{align*}
 	\end{problem}
 	
 	\begin{solution}
@@ -1058,7 +1062,7 @@ This is a problem where we use another technique, we will call it \textit{squeez
 	\begin{problem}[IMO Shortlist $2004$, N$2$]
 		For $n\in\mathbb{N} $ let,
 			\begin{align*}
-				f(n)=\sum\limits_{i=1}^n(i,n)
+				f(n)=\sum\limits_{i=1}^n\gcd(i,n)
 			\end{align*}
 			
 			\begin{enumerate}[(a)]
