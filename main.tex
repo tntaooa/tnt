@@ -23,20 +23,19 @@
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.1pt}
 \makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
 \else
-\newcommand{\fakebold}{1}
-\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,BoldItalicFont=ModernMT-ExtendedItalic.otf,BoldItalicFeatures={FakeBold=\fakebold},SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp}}]{ModernMTStd-Extended.otf}
+\newcommand{\fakebold}{2}
+\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,ItalicFeatures={FakeBold=\fakebold},BoldItalicFont=OldStandard-BoldItalic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=\fakebold,SmallCapsFont=OldStandard-Regular.otf,SmallCapsFeatures={RawFeature=+smcp,Color=992211}},BoldItalicFeatures={FakeBold=0}]{ModernMT-Extended-OldStandard.otf}
 \setmathfont[FakeBold=\fakebold,]{NewCMMath-Book.otf}
-\setmathfont[range=it,FakeBold=\fakebold]{Old Standard Italic}
-\setmathfont[range={\symfrak},FakeBold=\fakebold]{Asana Math}
-\setmathfont[range={\int},FakeBold=\fakebold]{Old Standard Italic}
-\setmathfont[range={\sum,\prod},FakeBold=\fakebold,]{Old Standard}
-\newfontfamily{\mtmext}[FakeBold=\fakebold]{Old Standard}
-\newcommand*{\customaccent}[1]{\mtmext\selectfont #1}
-\newcommand{\fH}[1]{\rmfamily\H{\customaccent{#1}}}
-
-\usepackage{mathspec}
-\setmathsfont(Digits)[Scale=MatchUppercase,FakeBold=\fakebold]{ModernMTStd-Extended.otf}
-\setmathsfont(Latin)[Uppercase=Italic,Lowercase=Italic,FakeBold=\fakebold,Scale=MatchUppercase]{ModernMTStd-ExtendedItalic.otf}
+\setmathfont[FakeBold=\fakebold,range={"0000,"FFFF}]{Old Standard}
+\setmathfont[range={it},FakeBold=\fakebold]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
+\setmathfont[range={up/{num}},FakeBold=\fakebold]{ModernMT-Extended-OldStandard.otf}
+\setmathfont[range={\symfrak,},FakeBold=\fakebold]{Asana Math}
+\setmathfont[range={\int},Scale=1.6,]{Old Standard Italic}
+\setmathfont[range={\sum,\prod},Scale=1.4]{Old Standard}
+%\setmathfont[range={"005B,"005D,"0028,"0029,"007B,"007D},FakeBold=0]{Asana Math}
+%\usepackage{mathspec}
+%\setmathsfont(Digits)[Scale=MatchUppercase,FakeBold=\fakebold]{ModernMTStd-Extended.otf}
+%\setmathsfont(Latin)[Uppercase=Italic,Lowercase=Italic,FakeBold=\fakebold,Scale=MatchUppercase]{ModernMTStd-ExtendedItalic.otf}
 \defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \fi
 
@@ -53,9 +52,9 @@
 \newcommand*{\problemautorefname}{\textit{Problem}}
 \newcommand{\identityautorefname}{Identity}
 
-\titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}}[\vspace{1ex}\titlerule]
-\titleformat{\section}[display]{\bfseries\scshape\Large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
-\titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesubsection}{}\;}[\titlerule]
+\titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}\ifthenelse{\value{chapter}>0}{$\S\S$\thechapter\;}{}}[\vspace{1ex}\titlerule]
+\titleformat{\section}[display]{\bfseries\scshape\LARGE}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S$\thesection\;}{}}[\titlerule]
+\titleformat{\subsection}[display]{\bfseries\scshape\Large}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S\S$\thesection\;}{}}[\titlerule]
 
 \renewcommand*{\chapterautorefname}{$\S$}
 \renewcommand*{\sectionautorefname}{$\S$}
@@ -81,7 +80,7 @@
 	Euler, without whom number theory probably wouldn't be so rich today.\\
 	Riemann, who made huge contributions to analytic number theory.\\
 	Ramanujan, the mathematician of mathematicians.\\
-	Paul Erd\fH{o}s, the man who loved only numbers.
+	Paul Erd\H{o}s, the man who loved only numbers.
 \end{dedication}
 
 \section*{Preface to Second Edition}
@@ -186,50 +185,49 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 \mainmatter
 \pagestyle{fancy}
 \setcounter{page}{13}
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{intro.tex}
 		%\printbibliography
-	\end{refsection}
+	%\end{refsection}
 	%\minitoc \mtcskip \minilof
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{divisibility.tex}
 		%\printbibliography
-	\end{refsection}
+	%\end{refsection}
 	%\minitoc \mtcskip \minilof
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{congruence.tex}
-		\printbibliography
-	\end{refsection}
+		%\printbibliography
+	%\end{refsection}
 	%\minitoc \mtcskip \minilof
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{arithfunc.tex}
-		\printbibliography
-	\end{refsection}
+		%\printbibliography
+	%\end{refsection}
 	%\minitoc \mtcskip \minilof
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{primes.tex}
-		\printbibliography
-	\end{refsection}
+		%\printbibliography
+	%\end{refsection}
 	%\minitoc \mtcskip \minilof
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{special.tex}
-		\printbibliography
-	\end{refsection}
+		%\printbibliography
+	%\end{refsection}
 	%\resumechapters
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{solved.tex}
 		\subfile{unsolved.tex}
 		\subfile{unsolved2016.tex}
 		%\printbibliography
-	\end{refsection}
+	%\end{refsection}
 
 \backmatter
 \pagestyle{empty}
-	\begin{refsection}
+	%\begin{refsection}
 		\subfile{idthm.tex}
 		%\printbibliography
-	\end{refsection}
-%\nocite{*}
-%\printbibliography
+	%\end{refsection}
+\printbibliography
 
 \end{document}

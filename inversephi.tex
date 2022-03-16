@@ -1,4 +1,4 @@
-\documentclass{subfile}
+\documentclass[main.tex]{subfile}
 
 \begin{document}
 	For a given positive integer $n$, we can find $\varphi(n)$ after factorizing $n$. What about the reverse problem? That is, given $\varphi(n)$, can you find $n$? A more interesting question is whether this solution $n$ is unique or there are other solutions. We can answer the latter question pretty quickly using an example: $\varphi(4)=2$ and $\varphi (6)=2$. In other words, $\varphi $ is not a one to one function. Now, another question normally arises here:
@@ -13,25 +13,25 @@
 				\end{align*}
 			We call $\varphi^{-1}(n)$ the \textit{inverse of Euler's totient function}, or simply the \textit{inverse of phi function}. Moreover, for ever positive integer $x$, we define $N(x)$ to be the number of positive integers $y$ such that $\varphi(x)=\varphi(y)$.
 		\end{definition}
-	
+
 	\textcite{carmichael_1907} stated that the cardinality (number of elements) of $\varphi^{-1}(n)$ is always greater than $1$ but due to his proof being inadequate, this is a conjecture now:
 		\begin{conjecture}[Carmichael's Totient Conjecture]
 			For a positive integer $n$, the number of solutions to $\varphi(x)=n$ is either $0$ or at least $2$.
 		\end{conjecture}
-	After this statement, quite a lot of number theorists worked on it. There has been no proof of the theorem to our knowledge, though there are some nice results on it. And it is indeed a very interesting topic to work on. Even though it is a conjecture, everything points this to be true. For example, \textit{Klee} pointed out in \cite{jr._1947} that if $N(x)=1$ then $x$ and $\varphi(x)$ are both larger than $10^{400}$. Carmichael originally proved that $x>10^{37}$ must be true. Let's start investigating $N(x)$.
+	After this statement, quite a lot of number theorists worked on it. There has been no proof of the theorem to our knowledge, though there are some nice results on it. And it is indeed a very interesting topic to work on. Even though it is a conjecture, everything points this to be true. For example, \textcite{jr._1947} pointed out that if $N(x)=1$ then $x$ and $\varphi(x)$ are both larger than $10^{400}$. Carmichael originally proved that $x>10^{37}$ must be true. Let's start investigating $N(x)$.
 		\begin{theorem}\slshape
 			Let $x$ be a positive integer. If $N(x)=1$, then $x$ is divisible by $4$.
 		\end{theorem}
-		
+
 		\begin{proof}
 			For $n>2$, $\varphi(n)$ is always even. If $x$ is odd, then $2\bot x$ so $\varphi(2x)=\varphi(x)$ so $y=2x$ is a solution, so contradiction. Again, if $x=2t$ with $t$ odd then $\varphi(x)=\varphi(t)$ by same argument. Thus, $x$ is divisible by $4$.
 		\end{proof}
 	The following theorem is due to Carmichael.
-	
+
 		\begin{theorem} \slshape
 			Let $x$ be a positive integer and let $p=2^k+1$ be a prime divisor of $x$, where $k$ is some natural number. If $N(x)=1$, then $p^2|x$.
 		\end{theorem}
-		
+
 		\begin{proof}
 			To the contrary, assume that $x=2^eps$ for some positive integers $e$ and $s$ with $s\bot 2p$. Then,
 				\begin{align*}
@@ -50,21 +50,21 @@
 				\end{align*}
 			Then $N(x)=1$. That is, if $\varphi(y)=\varphi(x)$ for some positive integer $y$, then $y=x$.
 		\end{theorem}
-		
+
 		\begin{proof}
 			For every positive integer $n$, define $S(n)$ to be the set of prime divisors of $n$. If the prime factorization of $n$ is $\prod_{i=1}^{r}p_i^{e_i}$, then
 				\begin{align*}
 					\varphi(n) & = \prod_{i=1}^{r}p_i^{e_i-1}(p_i-1).
 				\end{align*}
 			According to our assumption, $x$ is a positive integer such that if $p-1|\varphi(x)$ then $p^2|x$. We are required to prove that under this assumption, if $\varphi(x)=\varphi(y)$ then $x=y$ must hold. If $p\in S(y)$ then $p-1|\varphi(y)=\varphi(x)$. So, from the assumption, $p^2|x$ for any prime $p$ in $S(y)$. This gives us $S(y)\subseteq S(x)$.
-				
+
 			We will investigate the exponent of a prime $p$ in $\varphi(n)$. There are two cases:
 				\begin{enumerate}
 					\item $p$ divides $n$. Suppose that $p^e\|n$. Then we have $p^{e-1}|\varphi(n)$. But is this the highest exponent possible? No. Because in the factorization of $\varphi(n)$, there are factors of the form $(q-1)$ for any other prime divisor $q$ of $n$. If $p|q-1$ for any such $q$, those will contribute to $v_p(\varphi(n))$ as well. That is,
 						\begin{align*}
 							v_p(\varphi(n)) & = v_p(n)-1+\sum_{q\in S(n)}v_p(q-1).
 						\end{align*}
-					
+
 					\item $p$ does not divide $n$. In this case, only factors of the form $(q-1)$ for any prime divisor $q$ of $n$ may contribute to $v_p(\varphi(n))$. In other words,
 						\begin{align*}
 							v_p(\varphi(n)) & = \sum_{q\in S(n)}v_p(q-1).
@@ -73,7 +73,7 @@
 
 			Combining these two results, we find out that for any prime $p$ and any positive integer $n$,
 				\begin{align*}
-					v_p(\varphi(n)) & = 
+					v_p(\varphi(n)) & =
 						\begin{cases}
 							\displaystyle\sum_{q\in S(n)}v_p(q-1),&\text{ if }p\nmid n,\\
 							v_p(n)-1+\displaystyle \sum_{q\in S(n)}v_p(q-1),&\text{ otherwise}.
@@ -100,15 +100,15 @@
 				\end{enumerate}
 			which was what we wanted.
 		\end{proof}
-	
-	\textcite{gupta_1981} found upper and lower bounds for $\varphi^{-1}(n)$. For odd $n$, $\varphi^{-1}(n)$ is empty. Therefore, we only need to consider the case when $n$ is even. 
+
+	\textcite{gupta_1981} found upper and lower bounds for $\varphi^{-1}(n)$. For odd $n$, $\varphi^{-1}(n)$ is empty. Therefore, we only need to consider the case when $n$ is even.
 		\begin{theorem}[Gupta]\slshape\label{thm:gupta}
 			Let $m$ and $n$ be two positive integers such that $n\in\varphi^{-1}(m)$. Then,
 				\begin{align*}
 					m < n & \leq m\prod_{p-1|m}\dfrac{p}{p-1}.
 				\end{align*}
 		\end{theorem}
-		
+
 		\begin{proof}
 			For even $n$, $m=\varphi(n)<n$ because $\varphi(n)=n$ holds for $n=1$ only. This proves the lower bound. For the upper bound, we can write
 				\begin{align*}
@@ -117,27 +117,27 @@
 				\end{align*}
 			The last line is true because if $p|n$ then $p-1|m$ must hold, but the converse is not true. If $p-1|m$, $p$ may or may not divide $n$.
 		\end{proof}
-	
+
 	Now we will look at the elements of $\varphi^{-1}(m)$.
 		\begin{theorem}\slshape
 			Let $m$ be a positive integers and suppose that $\varphi^{-1}(m)$ contains $A$ elements. Then, the number of odd elements of $\varphi^{-1}(m)$ is less than or equal to $A/2$.
 		\end{theorem}
-		
+
 		\begin{proof}
 			For a positive integer $n$, if $\varphi(n)=m$ then $\varphi(2n)=m$ is true as well. Thus, for any odd $n$, there is an even $x$ which belongs to $\varphi^{-1}(m)$. This proves that the number of odd elements is at most half of the number of elements in $\varphi^{-1}(m)$.
 		\end{proof}
-		
+
 		\begin{theorem}\slshape
 			For a prime $p$, there exists a positive integer $n$ such that $n\in\varphi^{-1}(2p)$ if and only if $2p+1$ is a prime.
 		\end{theorem}
-		
+
 		\begin{proof}
 			The ``only if'' part is easy to prove. When $q=2p+1$ is a prime, $\varphi(q)=2p$ so $q\in\varphi^{-1}(2p)$.
-			
+
 			Now we prove the ``if'' part. For a positive integer $n\in\varphi^{-1}(m)$, consider that $\varphi(n)=2p$. In other words, suppose that $n \in\varphi^{-1}(2p)$.  If $p=2$ we see that $n=5$ works. We need to show it for odd $p$ now.
-			
+
 			Suppose that $n= 2^a p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$, where $p_1, p_2, \dots, p_k$ are odd primes. Obviously, both $a$ and $k$ cannot be zero at the same time. We have three cases here:
-			
+
 				\begin{enumerate}
 					\item If $a$ and $k$ are both non-zero, then
 						\begin{align*}
@@ -151,14 +151,14 @@
 							\implies p_1 &= 2p+1,
 						\end{align*}
 					implying $2p+1$ is a prime.
-					
+
 					\item If $a=0$, then
 						\begin{align*}
 							\varphi(n) &= p_1^{e_1-1}p_2^{e_2-1}\dots p_k^{e_k-1} (p_1-1)(p_2-1)\dots (p_k-1)\\
 									   &= 2p.
 						\end{align*}
 					In this case, $1 = v_2(2p) = v_2(\varphi(n)) \geq k$, and hence $k=1$ or $n=p_1$. So, $\varphi(n)=p_1-1=2p$, and $2p+1$ will be a prime in this case.
-					
+
 					\item If $k=0$, then
 						\begin{align*}
 							\varphi(n) &= 2^{a-1}\\
@@ -168,15 +168,15 @@
 				\end{enumerate}
 			The proof is complete.
 		\end{proof}
-	
+
 	We leave the following theorems as exercise for the reader.
 		\begin{theorem}\slshape
 			The number of odd elements in $\varphi^{-1}(2^k)$ is $0$ or $1$.
 		\end{theorem}
-		
+
 		\begin{theorem}\slshape
 			For an odd $m$, the number of odd elements in $\varphi^{-1}(m)$ is equal to the number of even elements.
 		\end{theorem}
-	
+
 
 \end{document}
