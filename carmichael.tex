@@ -39,24 +39,32 @@
 			\end{align*}
 		or equivalently, $x^{2^{k-2}} -1=2^kt$ for some $t$. Using the identity $a^2-b^2=(a-b)(a+b)$, we can write
 			\begin{align}
-				x^{2^{k-1}} -1 = \left(x^{2^{k-2}} -1\right)\left(x^{2^{k-2}} +1\right) = 2^kt\left(2^kt +2\right) = 2^{k+1}t \left(2^{k-1}t+1\right). \label{eq:x^{2^{k-1}}-1}
+				x^{2^{k-1}} -1
+					& = \left(x^{2^{k-2}} -1\right)\left(x^{2^{k-2}} +1\right)\\
+					& = 2^kt\left(2^kt +2\right)\\
+					& = 2^{k+1}t \left(2^{k-1}t+1\right) \label{eq:x^{2^{k-1}}-1}
 			\end{align}
 		This gives $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$, and the induction is complete.
 
 		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\lambda(2^l)=2^{l-2}$. Let $\lambda(2^{k+1})=\lambda$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from Theorem \ref{thm:carDiv} that $\lambda \mid 2^{k-1}$. So $\lambda$ is a power of $2$. If $\lambda = 2^{k-1}$, we are done. Otherwise, let $\lambda=2^\alpha$, where $1 \leq \alpha <k-1$. Then for every $x$, one can write
 			\begin{align}\label{eq:x^2^k+1}
-				x^{2^\alpha} \equiv 1 \pmod{2^{k+1}}.
+				x^{2^\alpha}
+					& \equiv 1 \pmod{2^{k+1}}
 			\end{align}
 		However, similarly as in \eqref{eq:x^{2^{k-1}}-1}, for some $t$,
 			\begin{align}\label{eq:x^2^a}
-				x^{2^{\alpha}} -1 &= 2^{\alpha+2}t \left(2^{\alpha}t+1\right).
+				x^{2^{\alpha}} -1
+					&= 2^{\alpha+2}t \left(2^{\alpha}t+1\right)
 			\end{align}
 		In \eqref{eq:x^2^a}, the highest power of $2$ which divides $x^{2^{\alpha}} -1$ is $2^{\alpha+2}$ (since $2^{\alpha}t+1$ is odd). But $$\alpha+2 <(k-1)+2=k+1$$, which contradicts \eqref{eq:x^2^k+1}. The induction is complete.
 	\end{proof}
 
 	\begin{theorem}\slshape
 		For any prime $p$ and any positive integer $k$,
-		\[\lambda(p^k)=\lambda(2p^k)=\varphi(p^k).\]
+			\begin{align*}
+				\lambda(p^k)
+					& =\lambda(2p^k)=\varphi(p^k)
+			\end{align*}
 	\end{theorem}
 
 	\begin{proof}
@@ -69,7 +77,25 @@
 	\end{theorem}
 
 	\begin{proof}
-		Suppose that $$\lambda(a)=d, \quad \lambda(b)=e, \quad \text{and} \quad \lambda(ab)=h.$$ Then, $$x^d\equiv1\pmod a, \quad x^e\equiv1\pmod b, \quad \text{and} \quad x^{h}\equiv1\pmod{ab}.$$ We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
+		Suppose that
+			\begin{align*}
+				\lambda(a)
+					& =d\\
+				\lambda(b)
+					& =e\\
+				\lambda(ab)
+					& =h
+			\end{align*}
+		Then
+			\begin{align*}
+				x^d
+					& \equiv1\pmod a\\
+				x^e
+					& \equiv1\pmod b\\
+				x^{h}
+					& \equiv1\pmod{ab}
+			\end{align*}
+		We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
 	\end{proof}
 	Generalization of this theorem is as follows.
 	\begin{theorem}\slshape
@@ -83,11 +109,11 @@
 		Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$. Also, let $p$ be a prime and $k$ be a positive integer. Then
 		\begin{align*}
 			\lambda(n) & =
-			\begin{cases}
-				\varphi(n),\mbox{ if } n = 2,4,p^k, \mbox{ or } 2p^k,\\
-				\dfrac{\varphi(n)}{2},\mbox{ if }n=2^k\mbox{ with }k>2,\\
-				\lcm(\lambda(p_1^{e_1}),\cdots,\lambda(p_r^{e_r})) \mbox{ otherwise.}
-			\end{cases}
+				\begin{cases}
+					\varphi(n)& \mbox{ if } n = 2,4,p^k, \mbox{ or } 2p^k,\\
+					\dfrac{\varphi(n)}{2}& \mbox{ if }n=2^k\mbox{ with }k>2\\
+					\lcm(\lambda(p_1^{e_1}),\cdots,\lambda(p_r^{e_r}))& \mbox{ otherwise.}
+				\end{cases}
 		\end{align*}
 	\end{theorem}
 

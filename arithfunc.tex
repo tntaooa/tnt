@@ -567,10 +567,13 @@ Let us prove Kummer's theorem now.
 	\end{align*}
 	where $s_p(a)$ denotes the sum of the standard base $p$ digits of $a$. Therefore,
 	\begin{align*}
-	v_p\left( \binom{m}{n}\right) &= \frac{m-s_p(m)}{p-1} - \frac{n-s_p(n)}{p-1} - \frac{(m-n)-s_p(m-n)}{p-1}\\
-	&= \frac{m-(m_k+m_{k-1}+\cdots+m_0)}{p-1} \\&\phantom{=}-\frac{n-(n_k+n_{k-1}+\cdots+n_0)}{p-1} \\&\phantom{=}-\frac{(m-n)-(q_k+q_{k-1}+\cdots+q_0)}{p-1}\\
-	&= \frac{(q_k+q_{k-1}+\cdots+q_0) + (n_k+n_{k-1}+\cdots+n_0) - (m_k+m_{k-1}+\cdots+m_0)}{p-1}\\
-	&=s.
+		v_p\left( \binom{m}{n}\right)
+			& = \frac{m-s_p(m)}{p-1}-\frac{n-s_p(n)}{p-1}-\frac{(m-n)-s_p(m-n)}{p-1}\\
+			& = \frac{m-(m_k+m_{k-1}+\cdots+m_0)}{p-1}\\
+			& \phantom{=}-\frac{n-(n_k+n_{k-1}+\cdots+n_0)}{p-1}\\
+			& \phantom{=}-\frac{(m-n)-(q_k+q_{k-1}+\cdots+q_0)}{p-1}\\
+			& = \frac{(q_k+q_{k-1}+\cdots+q_0) + (n_k+n_{k-1}+\cdots+n_0) - (m_k+m_{k-1}+\cdots+m_0)}{p-1}\\
+		&=s
 	\end{align*}
 	The proof is complete.
 \end{proof}
@@ -601,14 +604,14 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 \begin{problem}[China 2015]
 	Determine all integers $k$ such that there exists infinitely many positive integers $n$ satisfying
 	\begin{align*}
-	n+k \not \Big| \binom{2n}{n}.
+	n+k \nmid \binom{2n}{n}.
 	\end{align*}
 \end{problem}
 
 \begin{solution}
-	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4|n$, thus $	n \not \big| \binom{2n}{n}$.
+	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4|n$, thus $	n \nmid\binom{2n}{n}$.
 
-	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_2\left(\binom{2n}{n}\right) \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \not \big| \binom{2n}{n}$ for our choice of $n$.
+	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_2\left(\binom{2n}{n}\right) \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \nmid\binom{2n}{n}$ for our choice of $n$.
 \end{solution}
 
 \begin{problem}
@@ -616,11 +619,11 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 \end{problem}
 
 \begin{solution}
-	We will first prove that $n$ must be a power of a prime. Suppose the contrary. Take any prime divisor $p$ of $n$ and let $v=v_p(n)$. By Lucas' theorem, it follows that $p \not\big| \binom{n}{p^v}$, which contradicts the assumption that $n \big| \binom{n}{p^v}$. Thus, $n$ must be a power of a prime.
+	We will first prove that $n$ must be a power of a prime. Suppose the contrary. Take any prime divisor $p$ of $n$ and let $v=v_p(n)$. By Lucas' theorem, it follows that $p \nmid\binom{n}{p^v}$, which contradicts the assumption that $n \nmid\binom{n}{p^v}$. Thus, $n$ must be a power of a prime.
 
 	Write $n=p^r$ for some prime $p$ and positive integer $r$. if $r>1$, then from corollary \ref{cor:kummer-corollary},
 	\begin{align*}
-	p^2 \not \Big| \binom{n}{p^{r-1}},
+	p^2\nmid\binom{n}{p^{r-1}},
 	\end{align*}
 	which is a contradiction. Therefore, $r=1$ and $n$ must be a prime.
 
@@ -805,13 +808,21 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\begin{proof}
 		Let $a=2^n\cdot p \cdot q$ and  $b=2^n\cdot r$. Since $p, q$, and $r$ are all odd primes, the divisors of $a$ are of the form $2^{\alpha}\cdot p^{\beta} \cdot q^{\gamma}$, where $\alpha, \beta, \gamma $ are integers with $0\leq \alpha \leq n$ and $\beta, \gamma \in \{0, 1\}$. Similarly, the divisors of $b$ are of the form $2^{\delta} \cdot r^{\epsilon}$, where $\delta$ and $\epsilon$ are integers with $0 \leq \delta \leq n$ and $\epsilon \in \{0,1\}$. Hence,
 		\begin{align*}
-			\sigma(a) &= \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} \sum_{\gamma=0}^1 2^{\alpha} p^{\beta}  q^{\gamma} = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}   \sum_{\gamma=0}^1 q^{\gamma}   = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}   (q+1) \\
-			&= \sum_{\alpha=0}^{n} 2^{\alpha} (q+1) \sum_{\beta=0}^{1} p^{\beta} = \sum_{\alpha=0}^{n} 2^{\alpha} (p+1)(q+1) = (p+1)(q+1)  \sum_{\alpha=0}^{n} 2^{\alpha} \\
-			&=  (p+1)(q+1) \left(2^{n+1} - 1\right) = 9 \cdot 2^{2n-1} \left(2^{n+1} - 1\right),
+			\sigma(a)
+				&= \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} \sum_{\gamma=0}^1 2^{\alpha} p^{\beta}  q^{\gamma}\\
+				& = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}   \sum_{\gamma=0}^1 q^{\gamma}\\
+				& = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}   (q+1)\\
+				& = \sum_{\alpha=0}^{n} 2^{\alpha} (q+1) \sum_{\beta=0}^{1} p^{\beta}\\
+				& = \sum_{\alpha=0}^{n} 2^{\alpha} (p+1)(q+1)\\
+				& = (p+1)(q+1)  \sum_{\alpha=0}^{n} 2^{\alpha}\\
+				& =  (p+1)(q+1) \left(2^{n+1} - 1\right)\\
+				& = 9 \cdot 2^{2n-1} \left(2^{n+1} - 1\right)
 		\end{align*}
 		and so,
 		\begin{align*}
-			\sigma(a)-a =  9 \cdot 2^{2n-1} \left(2^{n+1} - 1\right) - 2^n \left(3 \cdot 2^{n-1} - 1\right) \left(3 \cdot 2^{n} - 1\right) = 2^n \left(9 \cdot 2^{2n-1}-1\right) = b.
+			\sigma(a)-a
+				& =  9 \cdot 2^{2n-1} \left(2^{n+1} - 1\right) - 2^n \left(3 \cdot 2^{n-1} - 1\right) \left(3 \cdot 2^{n} - 1\right)\\
+				& = 2^n \left(9 \cdot 2^{2n-1}-1\right) = b
 		\end{align*}
 		We expect the reader to be able to prove $\sigma(b)-b=a$ in a similar way on their own. This shows that $(a,b)$ is a pair of amicable numbers.
 	\end{proof}
@@ -1231,8 +1242,9 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\begin{proof}
 			By definition of $F$, we can write
 				\begin{align*}
-					\sum_{k=1}^{n} F(k) &= \sum_{k=1}^{n} \sum_{d|k} f(d)\\
-										&= \sum_{d|1} f(d) + \sum_{d|2} f(d)\\ &\phantom{=} \qquad \qquad +\cdots + \sum_{d\mid n-1} f(d)+\sum_{d\mid n} f(d).
+					\sum_{k=1}^{n} F(k)
+						& = \sum_{k=1}^{n} \sum_{d|k} f(d)\\
+						& = \sum_{d|1} f(d) + \sum_{d|2} f(d)+\cdots + \sum_{d\mid n-1} f(d)+\sum_{d\mid n} f(d)
 				\end{align*}
 			In the last formula, $f(1)$ is repeated $n$ times because $1$ divides all integers. Also, $f(2)$ is repeated $\lfloor n/2 \rfloor$ times because there are exactly $\lfloor n/2 \rfloor$ numbers between $1$ and $n$ (inclusive) which are even. Analogously, there are exactly $\lfloor n/k \rfloor$ multiples of $k$ ($1 \leq k \leq n$) in this interval and thus $f(k)$ is repeated $\lfloor n/k \rfloor$ times. The proof is complete.
 		\end{proof}
@@ -1307,13 +1319,14 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 			\begin{enumerate}
 				\item Let $f\ast g=h$. We need to prove that if $a$ and $b$ are co-prime positive integers, $h(ab)=h(a)h(b)$. We have
 					\begin{align*}
-						h(a)h(b) &= \left[(f\ast g)(a)\right] \cdot \left[(f\ast g)(b)\right]\\
-								 &= \sum\limits_{d_1|a}f(d_1)g\left(\frac{a}{d_1}\right)\cdot \sum\limits_{d_2|b}f(d_2)g\left(\frac{b}{d_2}\right)\\
-								 &= \sum\limits_{d_1|a, d_2|b}f(d_1)f(d_2)g\left(\frac{a}{d_1}\right)g\left(\frac{b}{d_2}\right)\\
-								 &= \sum\limits_{d_1|a, d_2|b}f(d_1d_2)g\left(\frac{ab}{d_1d_2}\right)\\
-								 &= \sum\limits_{d|ab}f(d)g\left(\frac{ab}{d}\right)\\
-								 &= (f\ast g)(ab)\\
-								 &=h(ab),
+						h(a)h(b)
+							& = \left[(f\ast g)(a)\right] \cdot \left[(f\ast g)(b)\right]\\
+							& = \sum\limits_{d_1|a}f(d_1)g\left(\frac{a}{d_1}\right)\cdot \sum\limits_{d_2|b}f(d_2)g\left(\frac{b}{d_2}\right)\\
+							& = \sum\limits_{d_1|a, d_2|b}f(d_1)f(d_2)g\left(\frac{a}{d_1}\right)g\left(\frac{b}{d_2}\right)\\
+							& = \sum\limits_{d_1|a, d_2|b}f(d_1d_2)g\left(\frac{ab}{d_1d_2}\right)\\
+							& = \sum\limits_{d|ab}f(d)g\left(\frac{ab}{d}\right)\\
+							& = (f\ast g)(ab)\\
+							& =h(ab)
 					\end{align*}
 				which is what we wanted.
 

@@ -2,7 +2,7 @@
 
 \begin{document}
 	Matrices come to the rescue as a useful tool in many problems (for example, in Diophantine equations or representation problems), and contribute a much better and more elegant solution. But since we are not doing a linear algebra course, we will define and discuss only what's required here.
-	
+
 	\begin{definition}[Matrix]
 		A \textit{matrix} is a rectangular array which can consist of numbers, variables, or anything. Like a grid, it can have $m$ horizontal \textit{rows} and $n$ vertical \textit{columns}. So, there are $mn$ \textit{cells} in a matrix. Then the matrix is of the size $m\times n$. There are some common notations for denoting matrix. But we will use the usual one:
 		\begin{align*}
@@ -15,7 +15,7 @@
 			\end{align*}
 		Here, $a_{ij}$ are the \textit{entries} of the $m\times n$ matrix $A$. Notice how the index of each entry is written. The entry $a_{ij}$ belongs to the $i^{th}$ row and $j^{th}$ column of the matrix.
 	\end{definition}
-	
+
 	\begin{example}
 	Consider the matrices
 		\begin{align*}
@@ -33,27 +33,27 @@
 			0&0&0&1
 			\end{pmatrix}.
 		\end{align*}
-		
-	$A$ is $3\times 3$, $B$ is $4\times 2$, and $C$ is $2 \times 4$. 
+
+	$A$ is $3\times 3$, $B$ is $4\times 2$, and $C$ is $2 \times 4$.
 	\end{example}
-	
+
 	\begin{definition}[Square Matrix]
 		A matrix is \textit{square} if the number of rows is equal to the number of columns, i.e., $m=n$ if the size is $m\times n$. The example above is a square matrix as well.
 	\end{definition}
-	
+
 	\begin{definition}[Matrix Diagonals]
 		Let $A_{m\times n}$ be a matrix with entries $a_{ij}$. The \textit{main diagonal} of $A$ is the collection of entries $a_{ij}$ where $i=j$.
 	\end{definition}
-	
+
 	\begin{definition}[Identity Matrix]
 		An square matrix $A_{n\times n}$ is called \textit{identity matrix} and denoted by $I_n$ if entries of its main diagonal equal to one, and all other entries are zero.
 	\end{definition}
-	
-	
+
+
 	\begin{example}
 		Matrix $A$ in the previous example is a square matrix however $B$ and $C$ are not. Moreover, $I$ is an identity matrix of dimension $3$, that is, $A=I_3$. The main diagonal of matrix $B$ is formed by the entries $b_{11}=1$ and $b_{22}=4$.
 	\end{example}
-	
+
 Matrices might seem a bit confusing. You might wonder why someone would create matrices, what's wrong with normal numbers? Before giving you an application of where matrices are used, you should know how to do some basic matrix operations.
 
 	\begin{definition}[Matrix Addition]
@@ -78,11 +78,11 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 		{{a_{m1}} + {b_{m1}}}&{{a_{m2}} + {b_{m2}}}& \cdots &{{a_{mn}} + {b_{mn}}}
 		\end{pmatrix}.
 		\end{align*}
-		
-		
+
+
 	\end{definition}
-	
-	
+
+
 	%\begin{definition}[Scalar Multiplication]
 	%	Let $A$ be an $m\times n$ matrix and let $r$ be a real number. Then
 	%	\begin{align*}
@@ -92,7 +92,7 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 	%			\vdots & \vdots & \ddots & \vdots \\
 	%			{{a_{m1}}}&{{a_{m2}}}& \cdots &{{a_{mn}}}
 	%			\end{pmatrix}
-	%		= 
+	%		=
 	%		\begin{pmatrix}
 	%			{{ra_{11}}}&{{ra_{12}}}& \cdots &{{ra_{1n}}}\\
 	%			{{ra_{21}}}&{{ra_{22}}}& \cdots &{{ra_{2n}}}\\
@@ -124,16 +124,16 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 			{{c_{m1}}}&{{c_{m2}}}& \cdots &{{c_{mp}}}
 		\end{pmatrix},
 		\end{align*}
-		
+
 		where $c_{ij}= \displaystyle\sum_{k=1}^{n} a_{ik}b_{kj}$. We denote this by $AB=C$.
 	\end{definition}
-	
-	
+
+
 	\begin{note}
 		The product $AB$ is defined only if the number of columns in $A$ equals the number of rows in $B$.
 	\end{note}
-	
-	
+
+
 Addition of matrices is easily done by adding corresponding entries. However, the product of two matrices may seem difficult to understand. We will clarify it with an example.
 
 	\begin{example}
@@ -155,7 +155,7 @@ Addition of matrices is easily done by adding corresponding entries. However, th
 				5 \& 1 \& 0 \& 1 \\
 				4 \& 0 \& 1 \& 1 \\
 			};
-		}.		
+		}.
 		\end{align*}
 		$A$ is $4\times 3$ and $B$ is $3 \times 4$, so we can multiply them together and the result is a $4\times 4$ matrix. Let's start calculating the product of $A$ and $B$. Let $AB=C$. We start by finding $c_{11}$. Note that
 				\begin{align*}
@@ -203,20 +203,20 @@ Addition of matrices is easily done by adding corresponding entries. However, th
 				\end{pmatrix}.
 			\end{align*}
 	\end{example}
-	
+
 	\begin{note}
 		Let $A$ and $B$ be square matrices of the same dimension. Then both $AB$ and $BA$ are defined. However, they are not necessarily equal, i.e., matrix multiplication is not \textit{commutative}.
 	\end{note}
-	
-	
+
+
 	\begin{definition}[Matrix Powers]
 		For a square matrix $A_{n\times n}$, we define $A^2$ as the multiplication of $A$ by itself. The definition of all higher powers of $A$ is followed. In fact, $A^k=A \cdot A^{k-1}$, for any positive integer $k$. We also assume that $A^{0}=I_n$, where $I_n$ is the $n-$dimensional identity matrix.
 	\end{definition}
-	
+
 	\begin{definition}[Matrix Determinant]
 		A determinant is a real number associated with every square matrix. For a square matrix $A$, its determinant is denoted by $\det(A)$ or $|A|$.
 	\end{definition}
-	
+
 For the simplest case when $A$ is $1\times 1$ (a single number), the determinant of $A$ equals $A$, which is sensible (what else would it be?). The definition above is not the exact definition of the determinant. We will first explain how to calculate the determinant of a $2\times 2$ matrix and then move to the precise definition of determinants.
 
 	\begin{definition}
@@ -227,7 +227,7 @@ For the simplest case when $A$ is $1\times 1$ (a single number), the determinant
 			c&d
 			\end{pmatrix},
 		\end{align*}
-		then $\det(A)=ad-bc$. This is also shown by 
+		then $\det(A)=ad-bc$. This is also shown by
 		\begin{align*}
 		\begin{vmatrix}
 		a&b\\
@@ -235,17 +235,17 @@ For the simplest case when $A$ is $1\times 1$ (a single number), the determinant
 		\end{vmatrix} = ad-bc
 		.\end{align*}
 	\end{definition}
-	
+
 	\begin{example}
 		 $\begin{vmatrix} 1&2\\ 3&4 \end{vmatrix} = 4-6=-2.$
 	\end{example}
-	
+
 We will now generalize the definition of determinant to $n\times n$ matrices. For this, you need to know what cofactors and minors are first.
 
 	\begin{definition}[Minor]
 		Let $A$ be an $n\times n$ matrix. The \textit{minor} for entry $a_{ij}$ is denoted by $M_{ij}$ and is the determinant that results when the $i^{th}$ row and the $j^{th}$ column of $A$ are deleted.
 	\end{definition}
-	
+
 	\begin{example}
 		Let's find $M_{21}$ for the matrix
 		\begin{align*}
@@ -261,63 +261,75 @@ We will now generalize the definition of determinant to $n\times n$ matrices. Fo
 		\end{align*}
 		 The corresponding row and column (which should be deleted in order to calculate the minor) are shown in the matrix. Therefore, $M_{21}= \begin{vmatrix} 1&5\\6&1 \end{vmatrix} = 1-30=-29.$
 	\end{example}
-	
+
 	\begin{definition}[Matrix of Minors]
 		Let $A$ be an $n\times n$ matrix. The matrix of minors is an $n\times n$ matrix in which each element is the minor for the corresponding entry of $A$.
 	\end{definition}
-	
+
 	\begin{example}
 		The matrix of minors for matrix $A$ in the previous example is
 		\begin{align*}
-			M= \begin{pmatrix}
-			3-6&2-4&12-12\\1-30&1-20&6-4\\1-15&1-10&3-2
-			\end{pmatrix}
-			= \begin{pmatrix}
-			-3&-2&0\\-29&-19&2\\-14&-9&1
-			\end{pmatrix}.
+			M
+				& =
+					\begin{pmatrix}
+						3-6&2-4&12-12\\1-30&1-20&6-4\\1-15&1-10&3-2
+					\end{pmatrix}\\
+				& =
+					\begin{pmatrix}
+						-3&-2&0\\-29&-19&2\\-14&-9&1
+					\end{pmatrix}.
 		\end{align*}
 	\end{example}
-	
+
 	\begin{definition}[Cofactor]
 		The \textit{cofactor} for any entry of a matrix is either the minor or the opposite of the minor, depending on where the element is placed in the original determinant. If the row and column of the entry add up to an even number, then the cofactor is the same as the minor. If the row and column of the entry add up to an odd number, then the cofactor is the opposite of the minor.
-		
+
 		In other words, if we denote $C_{ij}$ to be the cofactor of the corresponding entry $a_{i}$, then $C_{ij}=(-1)^{i+j} M_{ij}$.
 	\end{definition}
-	
+
 	\begin{example}
 		You are now be able to make sense of the definition of \textit{matrix of cofactors}. The matrix of cofactors of matrix $A$ in previous examples is
 			\begin{align*}
-			M= \begin{pmatrix}
-			(-1)^{2}(3-6)&(-1)^{3}(2-4)&(-1)^{4}(12-12)\\ (-1)^{3}(1-30)&(-1)^{4}(1-20)&(-1)^{5}(6-4)\\ (-1)^{4}(1-15)&(-1)^{5}(1-10)&(-1)^{6}(3-2)
-			\end{pmatrix}
-			= \begin{pmatrix}
-			-3&2&0\\29&-19&-2\\-14&9&1
-			\end{pmatrix}.
+				M
+					& =
+					\begin{pmatrix}
+						(-1)^{2}(3-6)&(-1)^{3}(2-4)&(-1)^{4}(12-12)\\ 	(-1)^{3}(1-30)&(-1)^{4}(1-20)&(-1)^{5}(6-4)\\ (-1)^{4}(1-15)&(-1)^{5}(1-10)&(-1)^{6}(3-2)
+					\end{pmatrix}\\
+					& =
+					\begin{pmatrix}
+						-3&2&0\\29&-19&-2\\-14&9&1
+					\end{pmatrix}.
 			\end{align*}
-		See the difference between the matrix of minors and the matrix of cofactors of $A$. 
+		See the difference between the matrix of minors and the matrix of cofactors of $A$.
 	\end{example}
-	
+
 Now you are ready to see a formula for determinant. Our method is computing larger determinants in terms of smaller ones.
 
 	\begin{definition}
 		Given the $n\times n$ matrix $A$ with entries $a_{ij}$, the determinant of $A$ can be written as the sum of the cofactors of any row or column of $A$ multiplied by the entries that generated them. In other words, the cofactor expansion along the $j^{th}$ column gives
 		\begin{align*}
-		\det(A) = a_{1j}C_{1j} + a_{2j}C_{2j} + a_{3j}C_{3j} + \cdots + a_{nj}C_{nj} = \sum_{i=1}^{n} a_{ij} C_{ij}.
+			\det(A)
+				& = a_{1j}C_{1j} + a_{2j}C_{2j} + a_{3j}C_{3j} + \cdots + a_{nj}C_{nj}\\
+				& = \sum_{i=1}^{n} a_{ij} C_{ij}
 		\end{align*}
 		The cofactor expansion along the $i^{th}$ row gives:
 		\begin{align*}
-		\det(A) = a_{i1}C_{i1} + a_{i2}C_{i2} + a_{i3}C_{i3} + \cdots + a_{in}C_{in} = \sum_{j=1}^{n} a_{ij} C_{ij}.
+			\det(A)
+				& = a_{i1}C_{i1} + a_{i2}C_{i2} + a_{i3}C_{i3} + \cdots + a_{in}C_{in}\\
+				& = \sum_{j=1}^{n} a_{ij} C_{ij}
 		\end{align*}
 	\end{definition}
-	
+
 	\begin{example}
 		Consider the matrix $A$ in the previous examples. If we use the cofactor expansion along the second column, we get
 		\begin{align*}
-			\det(A)=a_{12} C_{12} + a_{22}C_{22} + a_{32} C_{32} = 1 \cdot 2 + 3 \cdot (-19) + 6 \cdot 9 = -1. 
+			\det(A)=a_{12} C_{12} + a_{22}C_{22} + a_{32} C_{32} = 1 \cdot 2 + 3 \cdot (-19) + 6 \cdot 9 = -1.
 		\end{align*}
 		Also, if we use the cofactor expansion along the third row, we get
 		\begin{align*}
-		\det(A)=a_{31} C_{31} + a_{32}C_{32} + a_{33} C_{33} = 4 \cdot (-14) + 6 \cdot 9 + 1 \cdot 1 = -1. 
+			\det(A)
+				& =a_{31} C_{31} + a_{32}C_{32} + a_{33} C_{33}\\
+				& = 4 \cdot (-14) + 6 \cdot 9 + 1 \cdot 1 = -1
 		\end{align*}
 		Note that we used the matrix of cofactors found above for $C_{ij}$. As you see, the result of both calculations is the same.
 	\end{example}
@@ -332,17 +344,19 @@ We state two theorems without proof. If you are interested in seeing a proof, yo
 
 	\begin{theorem}\slshape
 	Let $A$ and $B$ be $n\times n$ matrices. The product of the determinant of $A$ and $B$ equals the determinant of their product, i.e.,
-	\begin{align*}
-	\det(A \cdot B)=\det(A)\det(B).
-	\end{align*}
+		\begin{align*}
+			\det(A \cdot B)
+				& =\det(A)\det(B).
+		\end{align*}
 	\end{theorem}
-	
+
 
 \begin{theorem}\slshape
-If $\mathcal A$ is a square matrix, then 
-\begin{align*}
-\mathcal A^{m+n}=\mathcal A^m \cdot \mathcal{A}^n.
-\end{align*}
+If $\mathcal A$ is a square matrix, then
+	\begin{align*}
+		\mathcal A^{m+n}
+			& =\mathcal A^m \cdot \mathcal{A}^n.
+	\end{align*}
 \end{theorem}
 
 Now let's see some of its applications.
@@ -352,39 +366,45 @@ The sum of two squares is called a \textit{bi-square}. Prove that product of two
 \end{problem}
 
 \begin{problem}
-Let $x$ and $y$ be two integers. Prove that the product of two number of the form $x^2+dy^2$ is of the same form for a  certain $d$. 
+Let $x$ and $y$ be two integers. Prove that the product of two number of the form $x^2+dy^2$ is of the same form for a  certain $d$.
 \end{problem}
 
 \begin{solution}
-We want to solve this problem using matrices. We already know that 
+We want to solve this problem using matrices. We already know that
 	\begin{align*}
-	\begin{vmatrix}
-	a&b\\
-	c&d
-	\end{vmatrix} = ad-bc,
+		\begin{vmatrix}
+			a&b\\
+			c&d
+		\end{vmatrix} = ad-bc,
 	.\end{align*}
 so we try to represent $x^2+dy^2$ in the form $ad-bc$, which is the determinant of some matrix. This is pretty simple. Assume the matrices
-\begin{align*}
-\mathcal{M}=\begin{pmatrix}
-x & yd\\
--y & x
-\end{pmatrix} \text{, and }
-\mathcal{N}=\begin{pmatrix}
-u & vd\\
--v & u
-\end{pmatrix}.
-\end{align*}
+	\begin{align*}
+		\mathcal{M}
+			& =
+			\begin{pmatrix}
+				x & yd\\
+				-y & x
+			\end{pmatrix}\\
+		\mathcal{N}
+			& =
+			\begin{pmatrix}
+				u & vd\\
+				-v & u
+			\end{pmatrix}
+	\end{align*}
 So $\det(\mathcal M)=x^2+yd^2$ and $\det(\mathcal{N})=u^2+dv^2$.
 Now, we multiply them as explained in Definition \eqref{def:matrixproduct} to get
+	\begin{align*}
+		\mathcal{M}\cdot\mathcal{N}
+			& =
+			\begin{pmatrix}
+				xu-dvy & dvx+duy\\
+				-(vx+uy) & xu-dvy
+			\end{pmatrix}.
+	\end{align*}
+Thus, $\det(\mathcal{M \cdot N})=(xu-dvy)^2+d(vx+uy)^2$. Therefore,
 \begin{align*}
-\mathcal{M}\cdot\mathcal{N}=\begin{pmatrix}
-xu-dvy & dvx+duy\\
--(vx+uy) & xu-dvy
-\end{pmatrix}.
-\end{align*}
-Thus, $\det(\mathcal{M \cdot N})=(xu-dvy)^2+d(vx+uy)^2$. Therefore, 
-\begin{align*}
-(x^2+dy^2)(u^2+dv^2)=(xu-dvy)^2+d(vx+uy)^2,
+(x^2+dy^2)(u^2+dv^2)=(xu-dvy)^2+d(vx+uy)^2
 \end{align*}
 which is of the same form.
 \end{solution}
@@ -419,7 +439,7 @@ But we present a different solution using matrices. In fact, we can prove that f
 \begin{align*}
 (a^2+ab+b^2)(c^2+cd+d^2)=(e^2+ef+f^2).
 \end{align*}
-Again, we need to choose a suitable matrix to prove our claim. We choose 
+Again, we need to choose a suitable matrix to prove our claim. We choose
 \begin{align*}
 \mathcal{A}=\begin{pmatrix}
 a & b\\
@@ -503,7 +523,7 @@ We can use induction. It's rather straight-forward.
 
 \begin{theorem}\slshape
 \begin{align*}
-G_{n+1}G_{n-1}-G_n^2=(-1)^{n-1}q^{n-1}\left(a^2p+abq-b^2\right).
+G_{n+1}G_{n-1}-G_n^2=(-1)^{n-1}q^{n-1}\left(a^2p+abq-b^2\right)
 \end{align*}
 \end{theorem}
 
@@ -513,21 +533,22 @@ Take determinant of both sides of equation \eqref{eqn:generalfibo}.
 Applying the above theorem for Fibonacci and Lucas sequences, we find the following corollaries.
 \begin{corollary}
 \begin{align*}
-F_{n+1}F_{n-1}-F_n^2=(-1)^n.
+F_{n+1}F_{n-1}-F_n^2=(-1)^n
 \end{align*}
 \end{corollary}
 
 \begin{corollary}
 \begin{align*}
-L_{n+1}L_{n-1}-L_n^2=5\cdot(-1)^{n-1}.
+L_{n+1}L_{n-1}-L_n^2=5\cdot(-1)^{n-1}
 \end{align*}
 \end{corollary}
 
 \begin{problem}
 Prove that
-\begin{equation}
-F_{m+n+1}=F_{m+1}F_{n+1}+F_mF_n.
-\end{equation}
+	\begin{align}
+	F_{m+n+1}
+		& =F_{m+1}F_{n+1}+F_mF_n
+	\end{align}
 \end{problem}
 
 \begin{solution}
@@ -535,23 +556,26 @@ Consider $I=\begin{pmatrix}
 1 & 1\\
 1 & 0
 \end{pmatrix}$. Then, $I^{m+n}=I^mI^n$. Note that
-\begin{eqnarray*}
-I^m & = &
-\begin{pmatrix}
-F_{m+1} & F_m\\
-F_m & F_{m-1}
-\end{pmatrix}, 
-I^n  = 
-\begin{pmatrix}
-F_{n+1} & F_n\\
-F_n & F_{n-1}
-\end{pmatrix} \text{, and }
- I^{m+n}  =
-\begin{pmatrix}
-F_{m+n+1} & F_{m+n}\\
-F_{m+n} & F_{m+n-1}
-\end{pmatrix}.
-\end{eqnarray*}
+	\begin{align*}
+	I^m
+		& =
+		\begin{pmatrix}
+			F_{m+1} & F_m\\
+			F_m & F_{m-1}
+		\end{pmatrix}\\
+	I^n
+		& =
+		\begin{pmatrix}
+			F_{n+1} & F_n\\
+			F_n & F_{n-1}
+		\end{pmatrix}\\
+	 I^{m+n}
+	 	& =
+		\begin{pmatrix}
+			F_{m+n+1} & F_{m+n}\\
+			F_{m+n} & F_{m+n-1}
+		\end{pmatrix}
+	\end{align*}
 Thus
 \begin{align*}
 \begin{pmatrix}
@@ -562,11 +586,12 @@ F_m & F_{m-1}
 \begin{pmatrix}
 F_{n+1} & F_n\\
 F_n & F_{n-1}
-\end{pmatrix}=
-\begin{pmatrix}
-F_{m+1}F_{n+1}+F_mF_n & F_{m+1}F_n+F_mF_{n-1}\\
-F_mF_{n+1}+F_{m-1}F_n & F_mF_n+F_{m-1}F_{n-1}
-\end{pmatrix}.
+\end{pmatrix}
+	& =
+	\begin{pmatrix}
+	F_{m+1}F_{n+1}+F_mF_n & F_{m+1}F_n+F_mF_{n-1}\\
+	F_mF_{n+1}+F_{m-1}F_n & F_mF_n+F_{m-1}F_{n-1}
+	\end{pmatrix}
 \end{align*}
 We finally find that
 \begin{align*}
@@ -577,11 +602,11 @@ F_mF_{n+1}+F_{m-1}F_n & F_mF_n+F_{m-1}F_{n-1}
 \begin{pmatrix}
 F_{m+n+1} & F_{m+n}\\
 F_{m+n} & F_{m+n-1}
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
-Equating the cells of these two matrices, we get 
+Equating the cells of these two matrices, we get
 \begin{align*}
-F_{m+n+1}=F_{m+1}F_{n+1}+F_mF_n.
+F_{m+n+1}=F_{m+1}F_{n+1}+F_mF_n
 \end{align*}
 \end{solution}
 
@@ -589,14 +614,14 @@ The following corollaries are immediately concluded.
 
 \begin{corollary}
 \begin{align*}
-F_{mk+n}=F_{mk+1}F_n+F_{mk}F_{n-1}.
+F_{mk+n}=F_{mk+1}F_n+F_{mk}F_{n-1}
 \end{align*}
 \end{corollary}
 
 \begin{corollary}
 Setting $m=n$, we have
 \begin{align*}
-F_{2n+1}=F_n^2+F_{n+1}^2.
+F_{2n+1}=F_n^2+F_{n+1}^2
 \end{align*}
 \end{corollary}
 
