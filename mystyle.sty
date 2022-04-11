@@ -15,11 +15,6 @@
 \RequirePackage{titlesec}
 \usepackage{xifthen}
 \usepackage{centernot}
-\usepackage{tocloft}
-\renewcommand{\cftsecfont}{\scshape}
-\renewcommand{\cftchapfont}{\scshape}
-\renewcommand{\cftsubsecfont}{\scshape}
-
 
 \newcommand\watermark[1]{%
 	#1%
@@ -37,8 +32,6 @@
 }
 
 \RequirePackage{csquotes}
-\RequirePackage{glossaries}
-%\usepackage[automake=true]{glossaries-extra}
 
 \renewcommand\appendixtocname{Glossary}
 \renewcommand\appendixpagename{Glossary}
@@ -120,7 +113,7 @@
 \newtheorem*{acknowledgement}{\textbf{\textsc{Acknowledgment}}}
 \newtheorem*{remark}{\textbf{\textsc{Remark}}}
 \newtheorem*{note}{\textbf{\textsc{Note}}}
-\newtheorem*{solution}{\textit{\textbf{Solution}}}
+\newtheorem*{solution}{\textit{{Solution}}}
 
 \theoremstyle{remark}
 \newtheorem*{hint}{Hint}

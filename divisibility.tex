@@ -21,7 +21,7 @@
 	\begin{note}[2]
 		When we talk about the the minimum absolute remainder in the division $b=aq+r$, note that if $a$ is odd, we will have a unique $r$. That is, there exist only one possible value for $r$ such that $|r| \leq \left|a/2\right|$. However, if $a$ and $b$ both are even, there can be two possible values for $r$. For example, if $a=20$ and $b=8$, the division can be done as both $20=8\cdot2+4$ and $20=3\cdot8-4$ and we would have two values for $r$: $4$ and $-4$. To force $r$ to be unique in this case, we will take the positive value of $r$ as the minimum absolute remainder. Therefore, in our example, $20=2\cdot8+4$ would be accepted as the division equation and $r=4$ is the minimum absolute remainder.
 	\end{note}
-	
+
 % Fixed it:
 % In the next definition, we have swapped $a$ and $b$ and written $b=aq+r$ instead of $a=bq+r$.
 
@@ -125,7 +125,7 @@
 			\setcounter{enumi}{11}
 		\end{enumerate}
 	\end{proof}
-	
+
 	\begin{note}
 	    You may think that it is straightforward to prove statement $(12)$ in the above Proposition. However, it is not so simple. The reason is we need to prove that if $$\frac{b^n}{a^n}=\left(\frac{b}{a}\right)^n$$ is an integer, then so is $\frac{b}{a}$. This is not obvious (try to make sense why).
 	\end{note}
@@ -1019,8 +1019,8 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	axis lines=middle,
 	restrict y to domain=-15:21,
 	enlargelimits]
-	\addplot[green, thick]  {pow(0.5,x)} node[pos=0.1, above]{$y=0.5^x$};
-	\addplot[blue,domain=1/2^6:20,samples=100, thick, dashed]  {ln(x)/ln(0.5)} node[pos=0.8,below] {$y=\log_{0.5}(x)$};
+	\addplot[, thick]  {pow(0.5,x)} node[pos=0.1, above]{$y=0.5^x$};
+	\addplot[,domain=1/2^6:20,samples=100, thick, dashed]  {ln(x)/ln(0.5)} node[pos=0.8,below] {$y=\log_{0.5}(x)$};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Plot of functions $y=\log_{0.5} x$ and $y=0.5^x$.}
@@ -1057,8 +1057,8 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	axis lines=middle,
 	restrict y to domain=-7:21,
 	enlargelimits]
-	\addplot[green, thick]  {pow(2,x)} node[right]{$y=2^x$};
-	\addplot[blue,domain=1/2^6:20,samples=100,thick, dashed]  {ln(x)/ln(2)} node[above left] {$y=\log_2(x)$};
+	\addplot[, thick]  {pow(2,x)} node[right]{$y=2^x$};
+	\addplot[,domain=1/2^6:20,samples=100,thick, dashed]  {ln(x)/ln(2)} node[above left] {$y=\log_2(x)$};
 	\end{axis}
 	\end{tikzpicture}
 	\caption{Plot of functions $y=\log_2 x$ and $y=2^x$.}

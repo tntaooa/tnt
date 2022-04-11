@@ -274,3 +274,4 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/linux,macos,windows
 main.pdf
 output.pdf
+tnt_old.pdf
