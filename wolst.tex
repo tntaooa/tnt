@@ -5,7 +5,11 @@
 			\sum_{k=1}^{p-1} \frac{1}{k} = 1+\frac{1}{2}+ \frac{1}{3}+\cdots+ \frac{1}{p-1}
 		\end{align*}
 
-	Well, not exactly. We are more interested in this sum modulo $p$ where $p$ is a prime. But how do we calculate fractions modulo $p$? The answer should be obvious by now. $\frac{a}{b}\pmod p$ is actually $ab^{-1}\pmod p$ where $b^{-1}\pmod p$ is the inverse of $b$ modulo $p$. So if $be\equiv1\pmod p$, then $$\frac{a}{b}\equiv ae\pmod p.$$ However, from modular cancellation property, we can take fractions modulo $p$ if $p\nmid b$. Moreover, we can introduce some sort of divisibility here.
+	Well, not exactly. We are more interested in this sum modulo $p$ where $p$ is a prime. But how do we calculate fractions modulo $p$? The answer should be obvious by now. $\frac{a}{b}\pmod p$ is actually $ab^{-1}\pmod p$ where $b^{-1}\pmod p$ is the inverse of $b$ modulo $p$. So if $be\equiv1\pmod p$, then
+		\begin{align*}
+			\frac{a}{b}\equiv ae\pmod p
+		\end{align*}
+	However, from modular cancellation property, we can take fractions modulo $p$ if $p\nmid b$. Moreover, we can introduce some sort of divisibility here.
 
 	Let $ \frac{a}{b}$ be a fraction and let $n$ be an integer such that $(n,b)=1$. If $a$ is divisible by $n$, we say that $ \frac{a}{b}$ is divisible by $n$. Following this convention, the congruence $\frac{a}{b} \equiv 0 \pmod n$ makes sense.
 		\begin{example}

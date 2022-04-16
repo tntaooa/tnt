@@ -148,7 +148,9 @@
 
 		We can now assume that $a\nmid b$. Then, $b$ must have a nonzero remainder upon division by $a$, say $r$. One can rewrite the equation $b=aq+r$ as $aq=b-r$ or $q=(b-r)/a$. This simply means that uniqueness of $r$ implies the uniqueness of $q$. Therefore, we only need to prove that $r$ is unique. Assume that there exist integers $q'$ and $r'$ so that
 		\begin{align*}
-			b=aq+r=aq'+r'.
+			b
+				& =aq+r\\
+				& =aq'+r'
 		\end{align*}
 		This implies $a(q-q')=r'-r$, which shows that $r'-r$ is divisible by $a$. Is it possible? The answer is clearly no. Since $r'$ and $r$ are both less than $a$, we have $|r'-r|<a$. By part $10$ of proposition \eqref{prop:basicdiv}, we must have $|r'-r|=0$, which gives $r'=r$. This means two remainders are the same and the minimum remainder is unique. The proof is complete.
 	\end{proof}
@@ -168,7 +170,9 @@
 	\begin{proof}
 		Since $a\mid b$, there is an integer $k$ so that $b=ak$. Similarly, there is an integer $\ell$ so that $c=a\ell$. Therefore,
 		\begin{align*}
-			bx+cy=akx+a\ell y=a(kx+\ell y),
+			bx+cy
+				& =akx+a\ell y\\
+				& =a(kx+\ell y)
 		\end{align*}
 		which is certainly divisible by $a$ since it has a factor $a$ in it.
 	\end{proof}
@@ -213,7 +217,7 @@
 	\begin{proof}
 		Since $n$ is composite, it has at least one proper prime divisor. {\it Consider the smallest prime factor $p$ of $n$} and write $n=pk$ for some integer $k$. Of course $p\leq k$, because otherwise according to Corollary \eqref{cor:smallestdivisor}, the smallest prime factor would be $k$ or one of its divisors. Therefore,
 		\begin{align*}
-			n=pk\geq p^2,
+			n=pk\geq p^2
 		\end{align*}
 		which in turn implies $p\leq \sqrt{n}$.
 	\end{proof}
@@ -229,12 +233,13 @@
 	\begin{theorem}[Fundamental Theorem of Arithmetic]\slshape
 		Every positive integer $n$ larger than $1$ can be written as a product of primes \textit{in a unique way}. We write this factorization as
 		\begin{equation}
-			n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k},\label{eqn:one}
+			n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}\label{eqn:one}
 		\end{equation}
 		where $p_1,p_2,\cdots p_k$ are different primes and $e_1,e_2,\cdots e_k$ are positive integers. Using product notation, we can write equation \eqref{eqn:one} as
 		\begin{align*}
 			n
-				&=\prod\limits_{i=1}^{k}p_i^{e_i}=\prod\limits_{p\mid n}p^e
+				&=\prod\limits_{i=1}^{k}p_i^{e_i}\\
+				& =\prod\limits_{p\mid n}p^e
 		\end{align*}
 		In the second product notation above, $p$ runs through all primes dividing $n$ and $e$ is the maximum power of $p$ that divides $n$.\footnote{Make sure you understand the notations $\sum$ and $\prod$.}
 	\end{theorem}
@@ -287,7 +292,9 @@ As soon as one is introduced to the concept of natural numbers, one can make sen
 	\begin{proof}
 		Suppose that one has the number $x = \overline{x_{k-1}x_{k-2} \ldots x_0}$, where $x_i$ ($0 \leq i \leq k-1$) are its digits (so the number has $k$ digits). One can write
 			\begin{align*}
-				x &= \overline{x_{k-1} x_{k-2} \ldots x_1 0} + x_0 = 10 \cdot \overline{x_{k-1} x_{k-2} \ldots x_1} + x_0
+				x
+					&= \overline{x_{k-1} x_{k-2} \ldots x_1 0} + x_0\\
+					& = 10 \cdot \overline{x_{k-1} x_{k-2} \ldots x_1} + x_0
 			\end{align*}
 		It is now clear that the first term in the right-hand side of the latest equation is divisible by $2$ (because $2 \mid 10$). So, $x$ is divisible by $2$ if and only if $x_0$ is even.
 	\end{proof}
@@ -396,7 +403,7 @@ If you have a curious mind, you should already notice a pattern in the divisibil
 	To prove this one, suppose that you have an $n$ digit number $x$, represented as $$x = \overline{x_{n-1} \cdots x_k x_{k-1} \cdots x_1 x_0 }.$$ Then, note that
 	\begin{align*}
 		x &= \overline{x_{n-1} \cdots x_{k+1} \underbrace{000\cdots 0}_{k \text{ times}}} + \overline{x_k x_{k-1} \cdots x_1 x_0} \\
-		&= 10^k \cdot \overline{x_{n-1} \cdots x_{k+1}} +  \overline{x_k x_{k-1} \cdots x_1 x_0}.
+		&= 10^k \cdot \overline{x_{n-1} \cdots x_{k+1}} +  \overline{x_k x_{k-1} \cdots x_1 x_0}
 	\end{align*}
 	Since $10^k=2^k \cdot 5^k$ is divisible by $2^k$, we get the conclusion.
 \end{proof}
@@ -442,13 +449,12 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		A number is divisible by $9$ if and only if the sum of its digits is divisible by $9$.
 	\end{proposition}
 
-
 	\begin{proposition}[Divisibility by $11$]
 		A number is divisible by $11$ if and only if the difference of sums of alternating digits is divisible by $11$.
 	\end{proposition}
 
 	\begin{example}
-		Take $12 \, 047 \, 816$. The sum of digits in even places is $2+4+8+6=20$ and sum of digits in odd places $1+0+7+1=9$. Their difference is $20-9=11$, which is divisible by $11$. You can easily check that $$12 \, 047 \, 816=11\cdot1 \,095\, 256,$$ which verifies our test.
+		Take $12 \, 047 \, 816$. The sum of digits in even places is $2+4+8+6=20$ and sum of digits in odd places $1+0+7+1=9$. Their difference is $20-9=11$, which is divisible by $11$. You can easily check that $$12 \, 047 \, 816=11\cdot1 \,095\, 256$$ which verifies our test.
 	\end{example}
 
 	\begin{proposition}[Divisibility by $13$]
@@ -503,7 +509,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\section{GCD and LCM}\label{sec:gcd-lcm}
 	Consider $18$ and list all its divisors in your mind. Do the same for $27$. What do these two lists have in common? If you have done the calculations correctly, you should come up with $1,3$, and $9$. Among these \textit{common divisors} of $18$ and $27$, $9$ is the largest. So, we say that $9$ is the \textit{greatest common divisor} of $18$ and $27$.
 
-	Consider $18$ and $27$ again. This time, list all their integral multiples mentally. The list of multiples of $18$ is $$18,36,54,72,90,108, \cdots,$$ whereas the list of multiples of $27$ is $$27,54,81,108, \cdots.$$ There are infinitely many common numbers shared by these two lists: $54, 108,\cdots$. The smallest number in the latter list is $54$, which we call the {\it least common multiple} of $18$ and $27$.
+	Consider $18$ and $27$ again. This time, list all their integral multiples mentally. The list of multiples of $18$ is $$18,36,54,72,90,108, \cdots$$ whereas the list of multiples of $27$ is $$27,54,81,108, \cdots$$ There are infinitely many common numbers shared by these two lists: $54, 108,\cdots$. The smallest number in the latter list is $54$, which we call the {\it least common multiple} of $18$ and $27$.
 
 	You may ask, what makes you think there will even be a common element in both sets? Well, we will have at least $1$ common as a divisor since it divides all the integers.
 	\begin{definition}[GCD and LCM]
@@ -883,13 +889,13 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		x =  2^{n} a_{n} + 2^{n-1} a_{n-1} + \cdots + 2^1a_1 + a_0
 	\end{align*}
 	Start clustering $a_i$ digits in groups of $3$, starting at the right. For convenience, assume that $n+1$ is divisible by $3$ (because there are $n+1$ digits $a_0, a_1, \cdots, a_n$ and we are putting them in groups of size $3$). Other cases when number of digits is not divisible by $3$ will be discussed later. Then, $x$ can be represented as
-	\begin{multline*}
+	\begin{align*}
 		 \left(2^{n} a_{n} + 2^{n-1} a_{n-1} + 2^{n-2} a_{n-2} \right) + \\ \left(2^{n-3}  a_{n-3} + 2^{n-4} a_{n-4} + 2^{n-5} a_{n-5} \right) +\cdots + \left( 2^2a_2 + 2^1a_1 + a_0 \right)
-	\end{multline*}
+	\end{align*}
 	which is equal to
-	\begin{multline*}
+	\begin{align*}
 		2^{n-2}\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right) + \\ 2^{n-5} \left(2^2 a_{n-3}  +  2 a_{n-4} + a_{n-5} \right)+  \cdots + 2^0\left( 2^2a_2 + 2a_1 + a_0 \right)
-	\end{multline*}
+	\end{align*}
 	Since $2^{a}=8^{a/3}$ for all real numbers $a$, we can write the above as
 	\begin{multline*}
    		8^{\frac{n-2}{3}} \underbrace{\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right)}_{b_m} + \\ 8^{\frac{n-5}{3}}  \underbrace{\left(2^2 a_{n-3} + 2 a_{n-4} + a_{n-5} \right)}_{b_{m-1}} + \cdots + 8^0 \underbrace{\left( 2^2a_2 + 2a_1 + a_0 \right)}_{b_0}

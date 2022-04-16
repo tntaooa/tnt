@@ -1688,20 +1688,25 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{solution}
 		Let $b=\prod\limits_{p|b}p^e$ be the prime factorization of $b$. Then, since $a|b$, the factorization of $a$ would be $a=\prod\limits_{p|b}p^f$ with $0\leq f\leq e$ for each prime $p$ dividing $b$. From \autoref{thm:sigmaformula},
 		\begin{align*}
-			\sigma(b)=\prod_{p|b}\dfrac{p^{e+1}-1}{p-1}\quad \text{and} \quad 	\sigma(a)=\prod_{p|b}\dfrac{p^{f+1}-1}{p-1}
+			\sigma(b)
+				& =\prod_{p\mid b}\dfrac{p^{e+1}-1}{p-1}\\
+			\sigma(a)
+				& =\prod_{p\mid b}\dfrac{p^{f+1}-1}{p-1}
 		\end{align*}
 		Thus, we need to show that
 		\begin{align*}
-			\prod_{p|b}\dfrac{p^{f+1}-1}{p^f(p-1)}
-			\leq\prod_{p|b}\dfrac{p^{e+1}-1}{p^e(p-1)}
+			\prod_{p\mid b}\dfrac{p^{f+1}-1}{p^f(p-1)}
+			\leq\prod_{p\mid b}\dfrac{p^{e+1}-1}{p^e(p-1)}
 		\end{align*}
 		Now it suffices to prove that
 
-		\begin{flalign*}
-			&& \dfrac{p^{e+1}-1}{p^e(p-1)} &\geq\dfrac{p^{f+1}-1}{p^f(p-1)} &\\
-			\iff && p^{e+f+1}(p-1)-p^f(p-1) &\geq p^{e+f+1}(p-1)-p^e(p-1) & 	\phantom{\iff}\\
-			\iff && p^e(p-1) &\geq p^f(p-1)
-		\end{flalign*}
+		\begin{align*}
+			\dfrac{p^{e+1}-1}{p^e(p-1)}
+				\geq\dfrac{p^{f+1}-1}{p^f(p-1)}\\
+			\iff p^{e+f+1}(p-1)-p^f(p-1)
+				&\geq p^{e+f+1}(p-1)-p^e(p-1)\\
+			\iff p^e(p-1) &\geq p^f(p-1)
+		\end{align*}
 		which is true since $e \geq f$.
 
 	\end{solution}
@@ -1712,11 +1717,11 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 
 	\begin{proof}
 		Since $n$ is composite, we know from proposition \ref{factorsqrt} that $n$ has a prime factor $p$ less than or equal to $\sqrt n$. Then, $n/p$ is a divisor of $n$ and $n/p \geq \sqrt n$. Since $n$ has at least three divisors $n$, $n/p$, and $1$,
-			\begin{eqnarray*}
-				\sigma(n) &\geq& n + \frac{n}{p} + 1\\
-						  &\geq& n + \sqrt n + 1\\
-						  &>& n+ \sqrt n
-			\end{eqnarray*}
+			\begin{align*}
+				\sigma(n) &\geq n + \frac{n}{p} + 1\\
+						  &\geq n + \sqrt n + 1\\
+						  &> n+ \sqrt n
+			\end{align*}
 	\end{proof}
 
 
@@ -2353,7 +2358,7 @@ $ $
 		\begin{proposition}\slshape
 			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of a positive integer $n$. Then, $\omega(n)=k$ and $\Omega(n)=\alpha_1 + \alpha_2 + \cdots + \alpha_k$. In other words,
 				\begin{align*}
-					\omega(n) & = \sum_{i=1}^{k} 1, \text{ and}\\
+					\omega(n) & = \sum_{i=1}^{k} 1\\
 					\Omega(n) & = \sum_{i=1}^{k} \alpha_i
 				\end{align*}
 		\end{proposition}
