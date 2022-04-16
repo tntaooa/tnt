@@ -64,7 +64,7 @@
 				a &\equiv 0 \pmod n,\\
 				a &\equiv 1 \pmod n,\\
 				  &\vdots\\
-				a &\equiv n-1 \pmod{n}.
+				a &\equiv n-1 \pmod{n}
 			\end{align*}
 	\end{proposition}
 
@@ -74,7 +74,7 @@
 		\begin{enumerate}[(a)]
 			\item If $ac \equiv bc \pmod m$ and $\gcd(c,m)=d$, then
 				\begin{align*}
-					 a & \equiv b \mod{\Big(\dfrac{m}{d}\Big)}.
+					 a & \equiv b \mod{\Big(\dfrac{m}{d}\Big)}
 				 \end{align*}
 			We will call this the \textit{cancellation rule} for congruence.
 			\item If $b \equiv c \pmod m$, then $\gcd(b,m)=\gcd(c,m)$.
@@ -97,12 +97,17 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 		\begin{enumerate}[(a)]
 			\item The greatest common factor of $c$ and $m$ is $d$, so  there exist integers $c_1$ and $m_1$ such that
 				\begin{align*}
-				 	c=c_1d, m = m_1 d & \mbox{and } \gcd(c_1,m_1) = 1.
+				 	c
+				 		& =c_1d\\
+				 	m
+				 		& = m_1 d\\
+				 	\gcd(c_1,m_1)
+				 		& = 1
 				\end{align*}
 			Since $ac \equiv bc \pmod m$, we have $m=m_1d\mid (a-b)c=(a-b)c_1d$. Canceling $d$ from both sides, we get $m_1\mid (a-b)c_1$. But $\gcd(c_1,m_1)=1$, and so by Proposition \ref{prop:cpdiv}, we get $m_1\mid a-b$. Thus,
 				\begin{align*}
 					a
-						& \equiv b \pmod{m_1},
+						& \equiv b \pmod{m_1}
 				\end{align*}
 			as desired.
 
@@ -136,12 +141,12 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 				a_1 & = a,\\
 				a_2 & = a+d,\\
 					& \vdots\\
-				a_n & = a+ (n-1)d,
+				a_n & = a+ (n-1)d
 			\end{align*}
 		where $n$ is a positive integer and $a$ and $d$ are reals. The sum of all elements of this AP is
 			\begin{align*}
 				\sum_{i=1}^{n} a_i
-					& = \frac{n}{2} \left(a_1+a_n\right) = \frac{n}{2} \big(2a_1 + (n-1)d\big).
+					& = \frac{n}{2} \left(a_1+a_n\right) = \frac{n}{2} \big(2a_1 + (n-1)d\big)
 			\end{align*}
 	\end{theorem}
 
@@ -151,11 +156,11 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 				\sum_{i=1}^{n} a_i
 					&= a_1 + a_2 + \ldots + a_n \\
 					&= a + (a+d) + \ldots + \Big(a+ (n-1)d\Big)\\
-					&= na + d\Big(1+2+\ldots+ (n-1)\Big).
+					&= na + d\Big(1+2+\ldots+ (n-1)\Big)
 			\end{align*}
 		From Identity \ref{id:sumofpowers} of Appendix, $1+2+\ldots+n = n(n-1)/2$. Therefore,
 			\begin{align*}
-				\sum_{i=1}^{n} a_i = \dfrac{n}{2} \big(2a_1 + (n-1)d\big).
+				\sum_{i=1}^{n} a_i = \dfrac{n}{2} \big(2a_1 + (n-1)d\big)
 			\end{align*}
 	\end{proof}
 
@@ -181,7 +186,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\end{align*}
 	This is not a finite sequence. But is the sum \textbf{divergent} or \textbf{convergent}? The terms of the above sequence are gradually decreasing and approach zero. To see this, notice that the ninth term is
 		\begin{align*}
-			\frac{1}{256} = 0.00390625,
+			\frac{1}{256} = 0.00390625
 		\end{align*}
 	which is very close to zero. So, on a second thought, we can guess that the given sum has a finite value. In general, when the absolute value of common ratio of a geometric progression is less than one, that is, when the absolute value of each term of the sequence is smaller that its preceding term, then the \textit{geometric series} (either finite or infinite) has a finite value\footnote{to put it differently, it \textit{converges} to a fixed value.}. We will see this from a different point of view. This is due to \textit{Chamok Hasan}, a teacher of the first author.
 
@@ -196,11 +201,11 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 					a_1 & = a,\\
 					a_2 & = ar,\\
 					& \vdots\\
-					a_n & = ar^{n-1},
+					a_n & = ar^{n-1}
 				\end{align*}
 			where $n$ is a positive integer and $a$ and $r \neq 1$ are reals. The sum of all elements of this GP is
 				\begin{align*}
-					\sum_{i=1}^{n} a_i &= \dfrac{a \left(r^n-1\right)}{r-1}.
+					\sum_{i=1}^{n} a_i &= \dfrac{a \left(r^n-1\right)}{r-1}
 				\end{align*}
 		\end{theorem}
 
@@ -209,7 +214,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 				\begin{align*}
 					(r-1)\sum_{i=1}^{n} a_i &= (r-1)(ar^0 + ar^1 + \cdots + ar^{n-1})\\
 											&= a(r-1)(1+r+ \cdots + r^{n-1})\\
-											&= a(r^n -1).
+											&= a(r^n -1)
 				\end{align*}
 			We have used Theorem \ref{id:fatandthin} to write the last line. Since $r \neq 1$, we can divide both sides by $r-1$ to get the desired result.
 		\end{proof}
@@ -217,14 +222,14 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\begin{corollary}
 			Take the geometric progression in \autoref{thm:GP}. If $|r|<1$, then the sum converges. More precisely,
 				\begin{align*}
-					\sum_{i\geq1} a_i &= \frac{a}{1-r}.
+					\sum_{i\geq1} a_i &= \frac{a}{1-r}
 				\end{align*}
 		\end{corollary}
 
 		\begin{proof}
 			If $|r|<1$, then $|r^n|$ decreases as we increase $n$. Therefore, when $n$ is very large, $|r^n|$ is almost zero. Here, we should borrow the idea of \textit{limit} from calculus but for now, let us convince ourselves that as $n\to\infty$, $r^n\to0$. This gives us
 				\begin{align*}
-					\sum_{i\geq1} a_i = \frac{a \left(0-1\right)}{r-1}= \frac{a}{1-r},
+					\sum_{i\geq1} a_i = \frac{a \left(0-1\right)}{r-1}= \frac{a}{1-r}
 				\end{align*}
 			which is what we wanted.
 		\end{proof}
@@ -234,7 +239,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\begin{itemize}
 				\item We can now compute $\displaystyle 	1 + \frac{1}{2}+ \frac{1}{4}+\frac{1}{8}+ \cdots$. In fact, this is an infinite geometric series with initial term $a=1$ and common ratio $r=\frac{1}{2}<1$. Thus,
 					\begin{align*}
-						\sum_{i\geq0} \left(\frac{1}{2}\right)^i = \dfrac{1}{1-\frac{1}{2}} = 2.
+						\sum_{i\geq0} \left(\frac{1}{2}\right)^i = \dfrac{1}{1-\frac{1}{2}} = 2
 					\end{align*}
 				\item Suppose that we want to find
 					\begin{align*}
@@ -242,7 +247,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 					\end{align*}
 				This is a geometric sequence with common ratio $-3$ and initial term $2$. The last term equals $2(-3)^{10}$. So,
 					\begin{align*}
-						\sum_{i=0}^{10} 2(-3)^{i} = \frac{2 \left((-3)^{11} -1\right)}{(-3) - 1} = 88,573.
+						\sum_{i=0}^{10} 2(-3)^{i} = \frac{2 \left((-3)^{11} -1\right)}{(-3) - 1} = 88,573
 					\end{align*}
 			\end{itemize}
 		\end{example}
@@ -340,11 +345,11 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\begin{example}
 		Let us calculate $5^{20} \pmod{751}$ this way. First, we need to find the binary representation of $20$, which is $(10100)_2$. Then, we can write
 			\begin{align*}
-				5^{20} \equiv  \underbrace{\Bigg(\underbrace{\bigg(\overbrace{\overbrace{\big(\underbrace{5^2}_{R_1}\big)^2}^{R_2} \cdot 5}^{R_3}\bigg)^2}_{R_4}\Bigg)^2}_{R_5} \pmod{751}.
+				5^{20} \equiv  \underbrace{\Bigg(\underbrace{\bigg(\overbrace{\overbrace{\big(\underbrace{5^2}_{R_1}\big)^2}^{R_2} \cdot 5}^{R_3}\bigg)^2}_{R_4}\Bigg)^2}_{R_5} \pmod{751}
 			\end{align*}
 		This is how we proceed: we want to construct $5^{20}$. The rightmost digit is zero. What happens if we remove this digit? The number gets divided by $2$. This is identical to writing $5^{20} = 5^2 \cdot 5^{10}$. Therefore, we first compute $R_1=5^2$. We now need to construct $5^{10}$. The binary representation of $10$ is $(1010)_2$. Again, divide it by two to remove the rightmost zero. This time, we are doing this operation:
 			\begin{align*}
-				5^{20} = R_1 \cdot 5^2 \cdot 5^5.
+				5^{20} = R_1 \cdot 5^2 \cdot 5^5
 			\end{align*}
 		We must compute $R_2 = R_1 \cdot 5^2$ at this stage. Now, how do we construct $5^5$ given its binary representation $(101)_2$, which does not end in zero? It's easy. We just have to write it as $1+(100)_2$. Now, we have $(100)_2$ which ends in zero. In other words,
 			\begin{align*}
@@ -418,7 +423,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\begin{enumerate}[(a)]
 			\item $\varphi$ is a multiplicative function. That is, if $m \bot n$, then
 			\begin{align*}
-				\varphi(mn)=\varphi(m) \cdot \varphi (n).
+				\varphi(mn)=\varphi(m) \cdot \varphi (n)
 			\end{align*}
 			\item For all $n \geq 3$, $\varphi(n)$ is even.
 			\item $\varphi$ is neither increasing\footnote{The function $f$ is increasing if for $a_1 >a_2$, we have  $f(a_1) > f(a_2)$.}, injective\footnote{The function $f$ is injective if for $a_1 \neq a_2$, we have $f(a_1) \neq f(a_2)$.} nor surjective\footnote{The function $f:X \to Y$ is surjective if for every $y \in Y$, there exists $x \in X$ such that $f(x)=y$.}.
@@ -426,7 +431,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 
 			\begin{align*}
 				\varphi(n) & =n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
-				& = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right) .
+				& = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
 			\end{align*}
 
 		\end{enumerate}
@@ -437,7 +442,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 
 	Consider the integers $\{1,2,3,4,5,6\}$ (complete set of residue class modulo $7$ except $0$). Now, take an integer, say $3$. Multiply the whole set with $3$ and find the residues again:
 		\begin{align*}
-			\{3,6,9,12,15,18\} & \equiv\{3,6,2,5,1,4\}\pmod7.
+			\{3,6,9,12,15,18\} & \equiv\{3,6,2,5,1,4\}\pmod7
 		\end{align*}
 	Does this look interesting? If not, take a look again. And try to understand what happened and why. Firstly, the products forms a residue class as well. Alternatively, it is a permutation of the residue class. Why? What if we multiplied by $5$? Check it out yourself and see if the conclusion holds. Check for some more integers like $10, 13,14$ etc. You will see the same is true for all integers except $0,7,14,\cdots$ i.e. multiples of $7$. Again, why? $7$ is a prime. So we know if an integer is not divisible by $7$, it is co-prime to $7$. Take $a$ such that $a\bot7$. Now, what does it mean that the set of products is a permutation of the original? We could state it this way: no two products leave the same remainder when divided by $7$. And you can see, if this is true, everything makes sense. If we can show that for $0<i<j<7$, $ia$ and $ja$ are not congruent modulo $7$, we are done! That is indeed the case. For the sake of contradiction, assume that,
 		\begin{align*}

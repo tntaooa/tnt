@@ -35,7 +35,7 @@
 \newcommand{\scale}{1}
 \newfontfamily\titlefont{Old Standard}
 \newcommand{\fakemathbold}{1}
-\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,ItalicFeatures={FakeBold=\fakebold,Scale=\scale},BoldItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp,Scale=\scale},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,Scale=\scale,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp,Scale=\scale}},BoldItalicFeatures={FakeBold=3},]{ModernMT-Extended-OldStandard.otf}
+\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,ItalicFeatures={FakeBold=\fakebold,Scale=\scale},BoldItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp,Scale=\scale},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,Scale=\scale,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp,Scale=\scale}},BoldItalicFeatures={FakeBold=3},]{ModernMT-Extended-OldStandard.otf}
 \setsansfont[FakeBold=1,Scale=\scale]{Latin Modern Sans}
 \setmonofont[FakeBold=1,Scale=\scale]{Latin Modern Mono}
 \setmathfont[FakeBold=\fakemathbold,Scale=\scale]{NewCMMath-Book.otf}
@@ -106,6 +106,11 @@
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
 \makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
 \fi
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@footnotetext}{\footnotesize}{\footnotesize\normalfont}{}{}
+\makeatother
 
 
 \title{\bf\Huge TOPICS IN NUMBER THEORY\\ {\vspace*{.3in}\it\LARGE An Olympiad--Oriented Approach}\\\vspace*{.3in}{\Large Second Edition\\\vspace*{.1in}\rule{\textwidth}{0.8pt}}}

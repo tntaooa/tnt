@@ -11,7 +11,7 @@
 			{{a_{21}}}&{{a_{22}}}& \cdots &{{a_{2n}}}\\
 			\vdots & \vdots & \ddots & \vdots \\
 			{{a_{m1}}}&{{a_{m2}}}& \cdots &{{a_{mn}}}
-			\end{pmatrix}.
+			\end{pmatrix}
 			\end{align*}
 		Here, $a_{ij}$ are the \textit{entries} of the $m\times n$ matrix $A$. Notice how the index of each entry is written. The entry $a_{ij}$ belongs to the $i^{th}$ row and $j^{th}$ column of the matrix.
 	\end{definition}
@@ -19,19 +19,27 @@
 	\begin{example}
 	Consider the matrices
 		\begin{align*}
-		A = \begin{pmatrix}
+		A
+			&
+			= \begin{pmatrix}
 			1&0&0\\
 			0&1&0\\
 			0&0&1
-			\end{pmatrix},\qquad B = \begin{pmatrix}
+			\end{pmatrix}\\
+		B
+			&
+			= \begin{pmatrix}
 			1&2\\
 			3&4\\
 			5&6\\
 			7&8
-			\end{pmatrix},\qquad C = \begin{pmatrix}
+			\end{pmatrix}\\
+		C
+			&
+			= \begin{pmatrix}
 			{ - 1}&0&1&{ - 1}\\
 			0&0&0&1
-			\end{pmatrix}.
+			\end{pmatrix}
 		\end{align*}
 
 	$A$ is $3\times 3$, $B$ is $4\times 2$, and $C$ is $2 \times 4$.
@@ -76,7 +84,7 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 		{{a_{21}} + {b_{21}}}&{{a_{22}} + {b_{22}}}& \cdots &{{a_{2n}} + {b_{2n}}}\\
 		\vdots & \vdots & \ddots & \vdots \\
 		{{a_{m1}} + {b_{m1}}}&{{a_{m2}} + {b_{m2}}}& \cdots &{{a_{mn}} + {b_{mn}}}
-		\end{pmatrix}.
+		\end{pmatrix}
 		\end{align*}
 
 
@@ -122,7 +130,7 @@ Matrices might seem a bit confusing. You might wonder why someone would create m
 			{{c_{21}}}&{{c_{22}}}& \cdots &{{c_{2p}}}\\
 			\vdots & \vdots & \ddots & \vdots \\
 			{{c_{m1}}}&{{c_{m2}}}& \cdots &{{c_{mp}}}
-		\end{pmatrix},
+		\end{pmatrix}
 		\end{align*}
 
 		where $c_{ij}= \displaystyle\sum_{k=1}^{n} a_{ik}b_{kj}$. We denote this by $AB=C$.
@@ -147,15 +155,14 @@ Addition of matrices is easily done by adding corresponding entries. However, th
 				4 \& 6 \& 1 \\
 				2 \& 1 \& 3 \\
 			};
-		}
-		, \quad B=
-		\tikz[baseline=(M.west)]{%
+		}\\
+		B=\tikz[baseline=(M.west)]{%
 			\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
 				3 \& 1 \& 0 \& 2 \\
 				5 \& 1 \& 0 \& 1 \\
 				4 \& 0 \& 1 \& 1 \\
 			};
-		}.
+		}
 		\end{align*}
 		$A$ is $4\times 3$ and $B$ is $3 \times 4$, so we can multiply them together and the result is a $4\times 4$ matrix. Let's start calculating the product of $A$ and $B$. Let $AB=C$. We start by finding $c_{11}$. Note that
 				\begin{align*}
@@ -187,11 +194,10 @@ Addition of matrices is easily done by adding corresponding entries. However, th
 					};
 					\node[draw,fit=(M-1-1),inner sep=-1pt] {};
 				}
-				.
 				\end{align*}
 			From the definition, the entry $c_{11}$ of $C$ is calculated by multiplying the corresponding entries of the first row of $A$ and the first column of $B$ (and you can now see why number of columns of $A$ must be equal to the number of rows of $B$). That is,
 				\begin{align*}
-					c_{11}=1 \cdot 3 + 1 \times 5 + 5 \times 4 = 28.
+					c_{11}=1 \cdot 3 + 1 \times 5 + 5 \times 4 = 28
 				\end{align*}
 			In general, the entry $c_{ij}$ is calculated by multiplying the corresponding entries of $i^{th}$ row of $A$ and $j^{th}$ column of $B$. Do the product yourself and check the result with the following:
 			\begin{align*}
@@ -200,7 +206,7 @@ Addition of matrices is easily done by adding corresponding entries. However, th
 				{25}&5&1&8\\
 				{46}&{10}&1&{15}\\
 				{23}&3&3&8
-				\end{pmatrix}.
+				\end{pmatrix}
 			\end{align*}
 	\end{example}
 
@@ -225,15 +231,14 @@ For the simplest case when $A$ is $1\times 1$ (a single number), the determinant
 		A = \begin{pmatrix}
 			a&b\\
 			c&d
-			\end{pmatrix},
+			\end{pmatrix}
 		\end{align*}
 		then $\det(A)=ad-bc$. This is also shown by
 		\begin{align*}
 		\begin{vmatrix}
 		a&b\\
 		c&d
-		\end{vmatrix} = ad-bc
-		.\end{align*}
+		\end{vmatrix} = ad-bc\end{align*}
 	\end{definition}
 
 	\begin{example}
@@ -257,7 +262,7 @@ We will now generalize the definition of determinant to $n\times n$ matrices. Fo
 				};
 				\draw[color=black] (M-2-1.north west) -- (M-2-3.north east) -- (M-2-3.south east) -- (M-2-1.south west) -- (M-2-1.north west);
 				\draw[color=black] (M-1-1.north west) -- (M-1-1.north east) -- (M-3-1.south east) -- (M-3-1.south west) -- (M-1-1.north west);
-			}.
+			}
 		\end{align*}
 		 The corresponding row and column (which should be deleted in order to calculate the minor) are shown in the matrix. Therefore, $M_{21}= \begin{vmatrix} 1&5\\6&1 \end{vmatrix} = 1-30=-29.$
 	\end{example}
@@ -277,7 +282,7 @@ We will now generalize the definition of determinant to $n\times n$ matrices. Fo
 				& =
 					\begin{pmatrix}
 						-3&-2&0\\-29&-19&2\\-14&-9&1
-					\end{pmatrix}.
+					\end{pmatrix}
 		\end{align*}
 	\end{example}
 
@@ -298,7 +303,7 @@ We will now generalize the definition of determinant to $n\times n$ matrices. Fo
 					& =
 					\begin{pmatrix}
 						-3&2&0\\29&-19&-2\\-14&9&1
-					\end{pmatrix}.
+					\end{pmatrix}
 			\end{align*}
 		See the difference between the matrix of minors and the matrix of cofactors of $A$.
 	\end{example}
@@ -323,13 +328,17 @@ Now you are ready to see a formula for determinant. Our method is computing larg
 	\begin{example}
 		Consider the matrix $A$ in the previous examples. If we use the cofactor expansion along the second column, we get
 		\begin{align*}
-			\det(A)=a_{12} C_{12} + a_{22}C_{22} + a_{32} C_{32} = 1 \cdot 2 + 3 \cdot (-19) + 6 \cdot 9 = -1.
+			\det(A)
+				& =a_{12} C_{12} + a_{22}C_{22} + a_{32} C_{32}\\
+				& = 1 \cdot 2 + 3 \cdot (-19) + 6 \cdot 9\\
+				& = -1
 		\end{align*}
 		Also, if we use the cofactor expansion along the third row, we get
 		\begin{align*}
 			\det(A)
 				& =a_{31} C_{31} + a_{32}C_{32} + a_{33} C_{33}\\
-				& = 4 \cdot (-14) + 6 \cdot 9 + 1 \cdot 1 = -1
+				& = 4 \cdot (-14) + 6 \cdot 9 + 1 \cdot 1\\
+				& = -1
 		\end{align*}
 		Note that we used the matrix of cofactors found above for $C_{ij}$. As you see, the result of both calculations is the same.
 	\end{example}
@@ -346,7 +355,7 @@ We state two theorems without proof. If you are interested in seeing a proof, yo
 	Let $A$ and $B$ be $n\times n$ matrices. The product of the determinant of $A$ and $B$ equals the determinant of their product, i.e.,
 		\begin{align*}
 			\det(A \cdot B)
-				& =\det(A)\det(B).
+				& =\det(A)\det(B)
 		\end{align*}
 	\end{theorem}
 
@@ -355,7 +364,7 @@ We state two theorems without proof. If you are interested in seeing a proof, yo
 If $\mathcal A$ is a square matrix, then
 	\begin{align*}
 		\mathcal A^{m+n}
-			& =\mathcal A^m \cdot \mathcal{A}^n.
+			& =\mathcal A^m \cdot \mathcal{A}^n
 	\end{align*}
 \end{theorem}
 
@@ -375,8 +384,8 @@ We want to solve this problem using matrices. We already know that
 		\begin{vmatrix}
 			a&b\\
 			c&d
-		\end{vmatrix} = ad-bc,
-	.\end{align*}
+		\end{vmatrix} = ad-bc
+	\end{align*}
 so we try to represent $x^2+dy^2$ in the form $ad-bc$, which is the determinant of some matrix. This is pretty simple. Assume the matrices
 	\begin{align*}
 		\mathcal{M}
@@ -400,7 +409,7 @@ Now, we multiply them as explained in Definition \eqref{def:matrixproduct} to ge
 			\begin{pmatrix}
 				xu-dvy & dvx+duy\\
 				-(vx+uy) & xu-dvy
-			\end{pmatrix}.
+			\end{pmatrix}
 	\end{align*}
 Thus, $\det(\mathcal{M \cdot N})=(xu-dvy)^2+d(vx+uy)^2$. Therefore,
 \begin{align*}
@@ -419,36 +428,36 @@ This is the same as previous one. The only difference is that the matrix would b
 \mathcal{M}=\begin{pmatrix}
 x & yd\\
 y & x
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
 \end{solution}
 
 \begin{problem}
 Prove that the following equation has infinitely many solutions for integers $a,b,c,d,e$, and $f$:
 \begin{align*}
-(a^2+ab+b^2)(c^2+cd+d^2)=(e^2+ef+f^2).
+(a^2+ab+b^2)(c^2+cd+d^2)=(e^2+ef+f^2)
 \end{align*}
 \end{problem}
 
 \begin{solution}
 The following identity gives an infinite family of solutions:
 \begin{align*}
-(x^2+x+1)(x^2-x+1)=x^4+x^2+1.
+(x^2+x+1)(x^2-x+1)=x^4+x^2+1
 \end{align*}
 But we present a different solution using matrices. In fact, we can prove that for any quartet $(a,b,c,d)$ there are integers $e$ and $f$ such that
 \begin{align*}
-(a^2+ab+b^2)(c^2+cd+d^2)=(e^2+ef+f^2).
+(a^2+ab+b^2)(c^2+cd+d^2)=(e^2+ef+f^2)
 \end{align*}
 Again, we need to choose a suitable matrix to prove our claim. We choose
 \begin{align*}
 \mathcal{A}=\begin{pmatrix}
 a & b\\
 -b & a+b
-\end{pmatrix}\text{, and }
+\end{pmatrix}\\
 \mathcal{B}=\begin{pmatrix}
 c & d\\
 -d & c+d
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
 After this, the process is analogous to previous problems.
 \end{solution}
@@ -464,7 +473,13 @@ The original Fibonacci sequence $F_n$ is defined by $F_0=0$, $F_1=1$, and $F_{n+
 \end{align*}
 We define general Fibonacci numbers $G_n$ by
 \begin{align*}
-G_0=a,G_1=b\text{, and } G_n=pG_{n-1}+qG_{n-2} \text{ for } n>1.
+	G_{n}
+		& =
+			\begin{cases}
+				a& \mbox{ if }n=0\\
+				b& \mbox{ if }n=1\\
+				n=pG_{n-1}+qG_{n-2}& \mbox{ if }n>1
+			\end{cases}
 \end{align*}
 The matrix representation for this sequence is
 \begin{align*}
@@ -479,7 +494,7 @@ G_{n-1} & G_{n-2}
 \begin{pmatrix}
 G_{n+1} & G_n\\
 G_n & G_{n-1}
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
 Special cases are:
 \begin{enumerate}
@@ -500,7 +515,7 @@ G_1 & G_0
 \begin{pmatrix}
 G_{n+1} & G_n\\
 G_n & G_{n-1}
-\end{pmatrix}.\label{eqn:generalfibo}
+\end{pmatrix}\label{eqn:generalfibo}
 \end{equation}
 \end{theorem}
 
@@ -513,7 +528,7 @@ G_n & G_{n-1}
 \begin{pmatrix}
 F_{n+1} & F_{n}\\
 F_n & F_{n-1}
-\end{pmatrix}.
+\end{pmatrix}
 \end{align*}
 \end{corollary}
 

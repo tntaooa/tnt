@@ -4,50 +4,50 @@
 	In this section, we discuss yet another lemma, which involves gcd like the previous one. The first author of this book finds it really useful for solving some types of problems. The lemma was proved in Theorem \eqref{thm:modgcd} of chapter \eqref{ch:congruence}.
 		\begin{lemma}
 			Let $a, b$, and $n$ be three positive integers such that $(a,n)=(b,n)=1$ and
-				\begin{eqnarray*}
-					a^x &\equiv& b^x\pmod n,\\
-					a^y &\equiv& b^y\pmod n,
-				\end{eqnarray*}
+				\begin{align*}
+					a^x &\equiv b^x\pmod n\\
+					a^y &\equiv b^y\pmod n
+				\end{align*}
 			then
-				\begin{eqnarray*}
-					a^{(x,y)} &\equiv& b^{(x,y)}\pmod n.
-				\end{eqnarray*}
+				\begin{align*}
+					a^{(x,y)} &\equiv b^{(x,y)}\pmod n
+				\end{align*}
 		\end{lemma}
 
 		\begin{corollary}
 			Let $p$ be a prime and let $a$ and $b$ be integers not divisible by $p$ so that
-				\begin{eqnarray*}
-					a^k &\equiv& b^k\pmod p.
-				\end{eqnarray*}
+				\begin{align*}
+					a^k &\equiv b^k\pmod p
+				\end{align*}
 			Then
-				\begin{eqnarray*}
-					a^{(k,p-1)} &\equiv& b^{(k,p-1)}\pmod n.
-				\end{eqnarray*}
+				\begin{align*}
+					a^{(k,p-1)} &\equiv b^{(k,p-1)}\pmod n
+				\end{align*}
 		\end{corollary}
 
 	The following corollary also proves theorem \eqref{thm:ordDiv} easily.
 		\begin{corollary}
 			Let $a, b$, and $n$ be three positive integers such that $(a,n)=(b,n)=1$. If $h$ is the smallest integer such that
-				\begin{eqnarray*}
-					a^h &\equiv& b^h\pmod n,
-				\end{eqnarray*}
+				\begin{align*}
+					a^h &\equiv b^h\pmod n
+				\end{align*}
 			and $k$ is an integer such that
-				\begin{eqnarray*}
-					a^k &\equiv& b^k\pmod n,
-				\end{eqnarray*}
-			then $h|k$.
+				\begin{align*}
+					a^k &\equiv b^k\pmod n
+				\end{align*}
+			then $h\mid k$.
 		\end{corollary}
 
 		\begin{proof}
-			From the lemma, we have $a^{(h,k)}\equiv b^{(h,k)}\pmod n$. We have $(h,k)\leq h$ and $(h,k)|k$. Now, if $(h,k)<h$ then $(h,k)$ is smaller than $h$ which satisfies the condition. So we must have $(h,k)=h$, or $h|k$.
+			From the lemma, we have $a^{(h,k)}\equiv b^{(h,k)}\pmod n$. We have $(h,k)\leq h$ and $(h,k)\mid k$. Now, if $(h,k)<h$ then $(h,k)$ is smaller than $h$ which satisfies the condition. So we must have $(h,k)=h$, or $h\mid k$.
 		\end{proof}
 
 		\begin{corollary}\label{cor:cor2}
-			Let $p$ be a prime and let $a$ be a positive integer. If $\ord_p(a)=d$ and $a^k\equiv1\pmod p$, then $d|(p-1,k)$.
+			Let $p$ be a prime and let $a$ be a positive integer. If $\ord_p(a)=d$ and $a^k\equiv1\pmod p$, then $d\mid (p-1,k)$.
 		\end{corollary}
 
 		\begin{proof}
-			From Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. From the theorem, $a^{(k,p-1)}\equiv1\pmod p$ and from corollary above, $d|(k,p-1)$.
+			From Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. From the theorem, $a^{(k,p-1)}\equiv1\pmod p$ and from corollary above, $d\mid (k,p-1)$.
 		\end{proof}
 	You should see that if a problem can be solved using the dividing property of order, then we can solve it using this lemma as well. Let's see some problems that this lemma is useful with. Sometimes, we have to couple this lemma with some other techniques such as the \textbf{smallest prime factor trick}.
 
@@ -58,7 +58,7 @@
 	\begin{solution}
 		Here, we consider the \textbf{smallest prime divisor} of $n$. Let's call this prime $p$. Since $n$ divides $2^n-1$, $p$ divides it too. Because $2^n-1$ is odd, both $n$ and $p$ must be odd. So
 		\begin{align*}
-			2^n & \equiv1\pmod p.
+			2^n & \equiv1\pmod p
 		\end{align*}
 		This equation alone does not say a lot, so we need more information. Remember Fermat's little theorem! This is another reason to find primes first. Only for primes we can get the power $a^{p-1}$, otherwise from Euler's Totient theorem, it would be $a^{\varphi(n)}$ which would bring troubles in this case. We have
 		\begin{align*}
@@ -76,7 +76,7 @@
 	\end{note}
 
 		\begin{problem}
-			Determine all pairs of primes $(p,q)$ such that $pq|p^p+q^q+1$.
+			Determine all pairs of primes $(p,q)$ such that $pq\mid p^p+q^q+1$.
 		\end{problem}
 
 		\begin{solution}
@@ -85,17 +85,17 @@
 		\end{solution}
 
 		\begin{problem}
-			Find all primes $p,q$ such that $pq|(5^p-2^p)(5^q-2^q)$.
+			Find all primes $p,q$ such that $pq\mid (5^p-2^p)(5^q-2^q)$.
 		\end{problem}
 
 		\begin{solution}
-			If  $p|5^p-2^p$, from FLT (Fermat's little theorem) we get
+			If  $p\mid 5^p-2^p$, from FLT (Fermat's little theorem) we get
 			\begin{align*}
-				5^p-2^p &\equiv5-2\equiv3\pmod p.
+				5^p-2^p &\equiv5-2\equiv3\pmod p
 			\end{align*}
-			So, $p$ must be $3$. Then if $p=q$, $q=3$. Otherwise, $q|5^p-2^p=5^3-2^3=117=3^2\cdot13$ so $q=13$.  Now, we can assume $p|5^q-2^q$ and $q|5^p-2^p$. It is obvious, none of $p$ or $q$ can be $2$ or $5$. From the lemma,
+			So, $p$ must be $3$. Then if $p=q$, $q=3$. Otherwise, $q\mid 5^p-2^p=5^3-2^3=117=3^2\cdot13$ so $q=13$.  Now, we can assume $p\mid 5^q-2^q$ and $q\mid 5^p-2^p$. It is obvious, none of $p$ or $q$ can be $2$ or $5$. From the lemma,
 			\begin{align*}
-				5^{(p,q-1)}&\equiv2^{(p,q-1)}\pmod q.
+				5^{(p,q-1)}&\equiv2^{(p,q-1)}\pmod q
 			\end{align*}
 			Here, $p>q-1$, so $p\bot q-1$. Therefore, $5^1\equiv2\pmod q$ or $q=3$.
 		\end{solution}

@@ -12,11 +12,11 @@
 
 	If you have come to the right conclusions, you will see that you can not pay any amount you want in the first case. But you can pay whatever you want with the second one. Let's say two units available value $a$ and $b$. So if you use $a$ unit $x$ times and $b$ unit $y$ times, the total amount of money you can pay is $ax+by$. Here, $x,y$ can be negative or non-negative integers. If $x>0$, it will mean you are paying, or if $x<0$ it will mean you are being paid (or getting the exchange). Therefore, if you need to pay exactly $n$ amount, you need integers $x$ and $y$ with
 		\begin{align*}
-			ax+by & = n.
+			ax+by & = n
 		\end{align*}
 	Play with some more values of $a$ and $b$. You will understand that you can pay $n$ amount with units $a$ and $b$ if and only $(a,b)$ divides $n$. Here is another intuitive fact: If we can pay just $1$, we can pay any amount we want with as many $1$s needed. So we should focus on when we can pay $1$ by $a$ and $b$. This tells us, $a$ and $b$ must be co-prime. And from B\'{e}zout's Identity, for any co-prime $a$ and $b$, we will get integers $x,y$ so that
 		\begin{align*}
-			ax+by & = 1.
+			ax+by & = 1
 		\end{align*}
 	In the problems above, we can't pay any amount with $4$ and $6$ because they are not co-prime. But we can pay any amount that is a multiple of $(4,6)=2$. But we can pay any amount with $3$ and $10$ because they are co-prime. This leads us to the following theorem.
 
@@ -37,7 +37,7 @@ The following theorem answers this question.
 	\end{theorem}
 If we can prove that for all $N>ab-a-b$, there are non-negative integers $x,y$ such that
 	\begin{align*}
-		N & = ax+by,
+		N & = ax+by
 	\end{align*}
 and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, let's prove the next lemma.
 	\begin{lemma}\slshape
@@ -47,21 +47,26 @@ and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, 
 	\begin{proof}
 		On the contrary, let's assume that
 			\begin{align*}
-				ab-a-b & = ax+by,
+				ab-a-b & = ax+by
 			\end{align*}
 		for some $x,y\in\mathbb{N}_0$. We can rewrite it as
 			\begin{align*}
-				a(x-b+1) & = -b(y+1).
+				a(x-b+1) & = -b(y+1)
 			\end{align*}
-		From this equation, $a|b(y+1)$ but $a\perp b$. So, $a|y+1$. Again, $b|a(x-b+1)$ but $b\perp a$ so $b|x-b+1$ or $b|x+1$. We get $x+1\geq b$ and $y+1\geq a$, and so
+		From this equation, $a\mid b(y+1)$ but $a\perp b$. So, $a|y+1$. Again, $b\mid a(x-b+1)$ but $b\perp a$ so $b\mid x-b+1$ or $b\mid x+1$. We get $x+1\geq b$ and $y+1\geq a$, and so
 			\begin{align*}
-				 x\geq b-1 \quad \text{and} \quad y \geq a-1.
+				 x
+				 	& \geq b-1\\
+				 y
+				 	& \geq a-1
 			\end{align*}
 		Using these inequalities,
 			\begin{align*}
-				 ax+by & \geq a(b-1)+b(a-1) \\
-				&= ab-a+ab-b\\
-				\implies   ab-a-b & \geq 2ab-a-b,
+				 ax+by
+				 	& \geq a(b-1)+b(a-1) \\
+					&= ab-a+ab-b\\
+				\implies ab-a-b
+					& \geq 2ab-a-b
 			\end{align*}
 		which is a contradiction.
 	\end{proof}
@@ -94,19 +99,34 @@ The above lemma shows that $F_2(a,b) \geq ab-a-b$. It only remains to prove the 
 	\begin{proof}
 		Since $(a,b)=1$, by B\'{e}zout's identity, there are integers $u$ and $v$ so that
 			\begin{align}
-				au+bv = 1 & \implies anu+bnv = n\nonumber\\
-				& \implies ax_0+by_0  = n.\label{eqn:syl1}
+				au+bv
+					& = 1\\
+				\implies anu+bnv
+					& = n\nonumber\\
+				\implies ax_0+by_0
+					& = n\label{eqn:syl1}
 			\end{align}
 		We need to show that such $x_0,y_0 \geq 0$ exist. If $(x_0,y_0)$ is a solution of equation \eqref{eqn:syl1}, then so is $(x_0-bt,y_0+at)$ for any integer $t$. Here, one can choose $t$ such that $0 \leq x_0-bt<b$. In case you don't understand how we can choose such $t$, just divide $x_0$ by $b$. Then $x_0=bq+r$, where $0\leq r <b$. This means that $0 \leq x_0 -bq <b$, so one choice for $t$ is $q$. So we know that there exists some $x_0$ such that $0 \leq x_0<b$. We will show that $y_0$ is also positive. Note that
 			\begin{align*}
-				& ax_0+by_0 = n > ab-a-b\\
-				\implies & b(y_0+1)  > a(b-x_0-1).
+				ax_0+by_0
+					& = n\\
+					& > ab-a-b\\
+				\implies b(y_0+1)
+					& > a(b-x_0-1)
 			\end{align*}
 		Since we know that $x_0<b$, we get $b-x_0-1\geq 0$. This means that $b(y_0+1) >0$, so $y_0+1>0$, i.e., $y\geq0$. Therefore, there is a valid solution $(x_0,y_0)$ and the proof is complete.
 	\end{proof}
 Now, the proof is complete. The same proof can be used for generalizing the case where $(a,b)>1$.
 	\begin{theorem}[Generalization of Sylvester's Theorem]\slshape
-		Let $a,b$ be positive integers with $(a,b)=g$. Then every integer \[n\geq\dfrac{(a-g)(b-g)}{g}\] such that $g|n$ is good. Also, \[F_2(a,b)=\dfrac{(a-g)(b-g)}{g}-g,\] i.e., $F_2(a,b)$ is the largest non-trivial bad integer.
+		Let $a,b$ be positive integers with $(a,b)=g$. Then every integer
+			\begin{align*}
+				n\geq\dfrac{(a-g)(b-g)}{g}
+			\end{align*}
+		such that $g|n$ is good. Also,
+			\begin{align*}
+				F_2(a,b)=\dfrac{(a-g)(b-g)}{g}-g
+			\end{align*}
+		i.e., $F_2(a,b)$ is the largest non-trivial bad integer.
 	\end{theorem}
 
 We see some problems related to this theorem. A classical example would be the following problem that appeared at the IMO $1983$.
@@ -117,13 +137,13 @@ We see some problems related to this theorem. A classical example would be the f
 	\begin{solution}
 		Clearly, we need to invoke Sylvester's theorem here. But the expression tells us, it can not be done in one step. Note that
 			\begin{align*}
-				xbc+yca+zab & = c(bx+ay)+zab.
+				xbc+yca+zab & = c(bx+ay)+zab
 			\end{align*}
-		Therefore, we should first focus only on $bx+ay$ first. From McNugger theorem, any integer greater than $ab-a-b$ is good. So we substitute $ab-a-b+1+t$ for some non-negative $t$ into the equation and get
+		Therefore, we should first focus only on $bx+ay$ first. From McNugget theorem, any integer greater than $ab-a-b$ is good. So we substitute $ab-a-b+1+t$ for some non-negative $t$ into the equation and get
 			\begin{align*}
 				xbc+yca+zab & = c(bx+ay)+zab\\
 							& = c(ab-a-b+1+t)+zab\\
-							& = abc-bc-ca+c+ct+zab.
+							& = abc-bc-ca+c+ct+zab
 			\end{align*}
 		This again calls for using the theorem for $c$ and $ab$. Again, every integer greater than $abc-ab-c$ is good. So we substitute $ct+zab=abc-ab-c+1+w$ for some non-negative $w$. Then
 			\begin{align*}
@@ -136,7 +156,7 @@ This shows that all integers greater than $2abc-ab-bc-ca$ are good.	Finally, in 
 	\begin{align*}
 		bc(x+1)+ca(y+1)+ab(z+1)=2abc
 	\end{align*}
-Clearly, $a|x+1$ because $a|bc(x+1)$ but $\gcd(a,bc)=1$. Similarly, $b|y+1$ and $c|z+1$. This gives us $bc(x+1)+ca(y+1)+ab(z+1)\geq bca+cab+abc$ or $2abc\geq3abc$ which is obviously wrong.
+Clearly, $a\mid x+1$ because $a|bc(x+1)$ but $\gcd(a,bc)=1$. Similarly, $b\mid y+1$ and $c\mid z+1$. This gives us $bc(x+1)+ca(y+1)+ab(z+1)\geq bca+cab+abc$ or $2abc\geq3abc$ which is obviously wrong.
 
 So, the problem is solved. As you can see, the theorem is fairly easy to understand and use in problems. There will be some related problems in the problem column. See if you can get how to solve those using this (first you have to understand that this theorem will come to the rescue though).
 

@@ -31,7 +31,7 @@ $y$ & 8 & none & none & none & none & 2 & none \\
 \label{table:diophantine}
 \end{table}
 
-			As seen in Table \ref{table:diophantine}, we need to do $13$ calculations to find the solutions $$(x, y)=(2,14), (7,8), (12, 2).$$
+			As seen in Table \ref{table:diophantine}, we need to do $13$ calculations to find the solutions $$(x, y)=(2,14), (7,8), (12, 2)$$
 
 			Now, consider the same linear equation $6x+5y = 82$ again. We are going to solve it using modular arithmetic this time. Take modulo $5$ from both sides of the equation. The left side would be $x$ while the right side is $2$, giving us the relation $x \equiv 2 \pmod 5$. Although this does not give us the solution directly, it helps us find the solutions much faster. Just notice that we already know $x$ must be less than or equal to $13$, and it must have a remainder of $2$ when divided by $5$. The only choices for $x$ then are $2, 7$, and $12$. We can now plug these values of $x$ into the equation and find the solutions with only three calculations (instead of thirteen).
 
@@ -139,7 +139,10 @@ $y$ & 8 & none & none & none & none & 2 & none \\
 				\end{problem}
 
 				\begin{solution}
-					You can usually use modular arithmetic to solve the problem when there is a factorial term in the given equation. The interesting property of $n!$ is that it is divisible by all integers less than or equal to $n$. In this problem, if we find the right modulo $k$, we can assume $n\geq k$ and take modulo $k$ from the equation (we will check the cases when $n < k$ later). It will be $10^{2014} \equiv m^4 \pmod k$. As said before, we guess the equation does not have any solutions. So, we are searching for a modulo $k$ for which $m^4$ cannot be congruent to $10^{2014}$. We should first try the simplest values for $k$, i.e., values of $k$ for which $m^4$ can have a few values. For $k=16$, we have $m^4 \equiv 0 \pmod{16}$, no contradiction. For $k=17$, we have $m^4 \equiv 8 \pmod{17}$, which is impossible because $m^4$ can only have the values $0, \pm 1$, or $\pm 4$ modulo $17$. We have found our desired contradiction, and we just have to check the values of $n < 17$. This is easy. Obviously, $n! + 10^{2014}$ is bigger than $10^{2014}$. However, the smallest perfect square bigger than $10^{2014}$ is \[\left(10^{1007}+1\right)^2 = 10^{2014} + 2 \cdot 10^{1007} + 1,\]
+					You can usually use modular arithmetic to solve the problem when there is a factorial term in the given equation. The interesting property of $n!$ is that it is divisible by all integers less than or equal to $n$. In this problem, if we find the right modulo $k$, we can assume $n\geq k$ and take modulo $k$ from the equation (we will check the cases when $n < k$ later). It will be $10^{2014} \equiv m^4 \pmod k$. As said before, we guess the equation does not have any solutions. So, we are searching for a modulo $k$ for which $m^4$ cannot be congruent to $10^{2014}$. We should first try the simplest values for $k$, i.e., values of $k$ for which $m^4$ can have a few values. For $k=16$, we have $m^4 \equiv 0 \pmod{16}$, no contradiction. For $k=17$, we have $m^4 \equiv 8 \pmod{17}$, which is impossible because $m^4$ can only have the values $0, \pm 1$, or $\pm 4$ modulo $17$. We have found our desired contradiction, and we just have to check the values of $n < 17$. This is easy. Obviously, $n! + 10^{2014}$ is bigger than $10^{2014}$. However, the smallest perfect square bigger than $10^{2014}$ is
+						\begin{align*}
+							\left(10^{1007}+1\right)^2 = 10^{2014} + 2 \cdot 10^{1007} + 1
+						\end{align*}
 					which is way bigger than $10^{2014} + 16!$. So, no solutions in this case as well.
 				\end{solution}
 
@@ -193,11 +196,11 @@ $y$ & 8 & none & none & none & none & 2 & none \\
 						\begin{itemize}
 							\item If $z-2^y=1$, then $z+2^y = z-2^y+2^{y+1}=1+2^{y+1}=21^x$. This implies $2^{y+1}=21^x-1$. But the right hand side of the latter equation is divisible by $20$, contradiction. So no solutions in this case.
 
-							\item If both $z-2^y$ and $z+2^y$ are divisible by $21$, then $21|(z-2^y, z+2^y)$. This is impossible because if $d=(z-2^y, z+2^y)$, then $d|(z+2^y) -(z-2^y)=2^{y+1}$, which means $d$ is a power of $2$.
+							\item If both $z-2^y$ and $z+2^y$ are divisible by $21$, then $21|(z-2^y, z+2^y)$. This is impossible because if $d=(z-2^y, z+2^y)$, then $d\mid (z+2^y) -(z-2^y)=2^{y+1}$, which means $d$ is a power of $2$.
 
 							\item If $z-2^y=3^x$ and $z+2^y=7^x$, then
 								\begin{align}\label{eq:romaniajbmotst2015}
-									7^x-3^x=2^{y+1}.
+									7^x-3^x=2^{y+1}
 								\end{align}
 							 $y=1$ gives the solution $(x,y,z)=(1,1,5)$. Assume $y \geq 2$. Take modulo $8$ from equation \eqref{eq:romaniajbmotst2015}. $2^{y+1}$ is divisible by $8$ and so $7^x-3^x \equiv 0 \pmod 8$. But this does not happen for any $x$ (just consider two cases when $x$ is even or odd). So the only solution in this case is $(x,y,z)=(1,1,5)$.
 						\end{itemize}

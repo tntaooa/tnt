@@ -40,19 +40,19 @@
 		We know that $(a,b)\mid a$ and also $(a,b)\mid b$, thus $(a,b)\mid m$ and we are done.
 
 		Conversely, if $(a,b)=d$ and $m$ is divisible by $d$, then we want to prove that there exist some positive integers $x$ and $y$ for which $ax+by=m$. First, we show that it's sufficient to show that there exist $x$ and $y$ such that
-		\begin{align*} ax + by = d.\end{align*}
+		\begin{align*} ax + by = d\end{align*}
 		The reason is simple: if there exist $x$ and $y$ such that $ax + by = d$, then
-		\begin{align*} a\left( x \frac{m}{d} \right)  + b \left( y \frac{m}{d} \right) = m.\end{align*}
+		\begin{align*} a\left( x \frac{m}{d} \right)  + b \left( y \frac{m}{d} \right) = m\end{align*}
 		Assume that $A$ is the set of all positive integer linear combinations of $a$ and $b$. $A$ is non-empty because if $a \neq 0$, then
-		\begin{align*}	0<|a| = a\frac{|a|}{a} + b\cdot 0, \end{align*}
+		\begin{align*}	0<|a| = a\frac{|a|}{a} + b\cdot 0\end{align*}
 		and if $b \neq 0$, then
-		\begin{align*}	0<|b| =  a\cdot 0 + b \frac{|b|}{b}. \end{align*}
+		\begin{align*}	0<|b| =  a\cdot 0 + b \frac{|b|}{b}\end{align*}
 		Because of well-ordering principle\footnote{The well-ordering principle states that every non-empty set of positive integers contains a least element.}, $A$ contains a least element. Let this smallest element be $t$. So there exist integers $x_0$ and $y_0$ such that
 		\begin{align*} ax_0 + by_0 = t.\end{align*}
 		We claim that $t\mid a$ and $t\mid b$. Using division theorem, divide $a$ by $t$:
 		\begin{align*}
 			a
-				& = tq+r\quad\mbox{ where}0 \leq r < t,
+				& = tq+r
 		\end{align*}
 		and thus
 		\begin{align*}
@@ -60,7 +60,7 @@
 				& =a-tq=r<t
 		\end{align*}
 		If $r \neq 0$, then $r$ is a positive integer written in the form $ax_1+by_1$, which is a positive integer linear combination of $a$ and $b$, so $r \in A$. But $r<t$, which is in contradiction with minimality of $t$. Therefore $r=0$ and $t\mid a$. We can prove that $t\mid b$ in a similar way. By Proposition \ref{prop:dividegcd}, we find that $t\mid d$. Also, according to the first part of the proof, we have $d\mid t$. Following Proposition \ref{prop:bothdivide}, $t=d$. This means that $d \in A$ and there exist integers $x$ and $y$ such that
-		\begin{align*} ax + by = d.\end{align*}
+		\begin{align*} ax + by = d\end{align*}
 	\end{proof}
 
 	B\'{e}zout's Identity has many interesting applications. We will see one such application in Chapter \ref{ch:special}, to prove \textit{Chicken McNugget Theorem}.
@@ -74,7 +74,7 @@
 	\begin{corollary} \slshape \label{cor:bezoutcoprime}
 		If $a \perp b$ for non-zero integers $a$ and $b$, then there exist integers $x$ and $y$ such that
 		\begin{align*}
-		ax+by=1.
+		ax+by=1
 		\end{align*}
 	\end{corollary}
 
@@ -103,13 +103,13 @@
 	\begin{solution}
 		By Corollary \ref{cor:bezoutcoprime}, there exist integers $x,y,z,$ and $t$ such that
 			\begin{align*}
-				ax+cy&=1, \text{ and}\\
-				bz+ct&=1.
+				ax+cy&=1\\
+				bz+ct&=1
 			\end{align*}
 		Multiply these two equations to get
 			\begin{align*}
 				1 &= (ax+cy)(bz+ct)\\
-				  &= ab(xz)+c(axt+byz+cyt).
+				  &= ab(xz)+c(axt+byz+cyt)
 			\end{align*}
 		This means that we have found a linear combination of $c$ and $ab$ which is equal to $1$. From Corollary \ref{cor:strongbezout} it follows that $(ab,c)=1$ (why?).
 	\end{solution}
@@ -134,7 +134,7 @@
 	\begin{definition}
 		Let $a$ be an integer and let $m$ be a positive integer. The \textit{modular multiplicative inverse} of $a$ modulo $m$ is an integer $x$ such that
 		\begin{align*}
-		ax \equiv 1 \pmod m.
+		ax \equiv 1 \pmod m
 		\end{align*}
 		Once defined, $x$ may be denoted by $a^{-1}$ and simply called \textit{inverse of $a$}.
 	\end{definition}
@@ -146,7 +146,7 @@
 	\begin{example}
 		An inverse for $3$ modulo $7$ is $5$:
 			\begin{align*}
-				3 \cdot 5 \equiv 1 \pmod 7.
+				3 \cdot 5 \equiv 1 \pmod 7
 			\end{align*}
 		We can easily generate other inverses of $3$ modulo $7$ by adding various multiples of $7$ to $5$. Thus, the numbers in the set $\{\cdots, -2, 5, 12, 19, \cdots \}$ are all inverses of $3$ modulo $7$.
 	\end{example}
@@ -154,7 +154,7 @@
 	\begin{example}
 		An inverse for $2^{16}+1$ modulo $2^{31}-1$ is $2^{16}-1$. In fact,
 			\begin{align*}
-				(2^{16} - 1)(2^{16} + 1) = 2^{32} -1 = 2(2^{31} - 1) + 1 \equiv 1 \pmod{2^{31} - 1}.
+				(2^{16} - 1)(2^{16} + 1) = 2^{32} -1 = 2(2^{31} - 1) + 1 \equiv 1 \pmod{2^{31} - 1}
 			\end{align*}
 	\end{example}
 
@@ -166,7 +166,10 @@
 	\begin{proof}
 		The proof is a straightforward result of corollary \eqref{cor:bezoutcoprime}. Since $a \perp m$, the equation $ax+my=1$ has solutions. Now take modulo $m$ from both sides to complete the proof of the first part. For the second part, assume that $x_1$ and $x_2$ are inverses of $a$ modulo $m$. Then,
 		\begin{align*}
-		ax_1 \equiv ax_2 \equiv 1 \pmod m \stackrel{(a,m)=1}{\implies} x_1 \equiv x_2 \pmod m,
+		ax_1
+			& \equiv ax_2 \equiv 1 \pmod m\\
+		\stackrel{(a,m)=1}{\implies} x_1
+			& \equiv x_2 \pmod m
 		\end{align*}
 		as desired.
 	\end{proof}
@@ -190,15 +193,19 @@ We are going to prove a very simple fact which will be very useful later (for in
 
 	\begin{proposition}\label{prop:inversepower}
 		For a prime $p\geq 3$ and any positive integer $a$ coprime to $p$,
-		\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p,\]
+		\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p\]
 		for all positive integers $n$.
 	\end{proposition}
 
 	\begin{proof}
 		Since $a$ is coprime to $p$, $a^{-1}$ exists. Therefore,
 			\begin{align*}
-				a \cdot a^{-1} \equiv 1 \pmod p &\implies a^n \cdot (a^{-1})^n \equiv 1 \pmod p\\
-				&\implies (a^{-1})^n \equiv (a^n)^{-1} \pmod p,
+				a \cdot a^{-1}
+					& \equiv 1 \pmod p\\
+				\implies a^n \cdot (a^{-1})^n
+					& \equiv 1 \pmod p\\
+				\implies (a^{-1})^n
+					& \equiv (a^n)^{-1} \pmod p
 			\end{align*}
 		as desired.
 	\end{proof}
@@ -208,7 +215,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 	\begin{theorem}\label{thm:modgcd}
 	Let $a,b$ be integers and $x,y,$ and $n$ be positive integers such that $(a,n)=(b,n)=1$,  $a^x\equiv b^x\pmod n$, and $a^y\equiv b^y\pmod n$. Then,
 	\begin{align*}
-		a^{(x,y)} & \equiv b^{(x,y)}\pmod n.
+		a^{(x,y)} & \equiv b^{(x,y)}\pmod n
 	\end{align*}
 \end{theorem}
 
@@ -216,8 +223,9 @@ We are going to prove a very simple fact which will be very useful later (for in
 	By B\'{e}zout's identity, we know there are integers $u$ and $v$ so that $ux+vy=(x,y)$. Therefore,
 	\begin{align}
 		a^{(x,y)} &\equiv a^{ux+vy}\nonumber\\
-		&\equiv \left(a^x\right)^u \cdot \left(a^y\right)^v \equiv \left(b^x\right)^u \cdot \left(b^y\right)^v\label{eq:modgcd}\\
-		&\equiv b^{ux+vy} \equiv b^{(x,y)} \pmod n.\nonumber
+		&\equiv \left(a^x\right)^u \cdot \left(a^y\right)^v\\
+		& \equiv \left(b^x\right)^u \cdot \left(b^y\right)^v\label{eq:modgcd}\\
+		&\equiv b^{ux+vy} \equiv b^{(x,y)} \pmod n\nonumber
 	\end{align}
 \end{proof}
 
@@ -239,7 +247,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 					& = \dfrac{mx+ny}{m}\binom{m}{n}\\
 					& = x\binom{m}{n}+\dfrac{ny}{m}\binom{m}{n}\\
 					& = x\binom{m}{n}+\dfrac{ny}{m}\cdot\dfrac{m}{n}\binom{m-1}{n-1}\\
-					& = x\binom{m}{n}+y\binom{m-1}{n-1}.
+					& = x\binom{m}{n}+y\binom{m-1}{n-1}
 			\end{align*}
 		This is obviously an integer.
 	\end{solution}
@@ -262,23 +270,23 @@ We are going to prove a very simple fact which will be very useful later (for in
 	\end{align*}
 	In other words, using divisibility notation, $7\mid n-2$ and $9\mid n-4$. We can not do the same now. But \textit{if} these two remainders were same, we could do that. Probably we should focus on that. That is, we want it to be something like
 		\begin{align*}
-			n & \equiv a\pmod 7,\\
-			n & \equiv a\pmod 9.
+			n & \equiv a\pmod 7\\
+			n & \equiv a\pmod 9
 		\end{align*}
 	The only thing we can do here is
 		\begin{align*}
-			n & \equiv2+7k\pmod7,\\
-			n & \equiv4+9l\pmod9,
+			n & \equiv2+7k\pmod7\\
+			n & \equiv4+9l\pmod9
 		\end{align*}
 	for some \textit{suitable} integer $k$ and $l$. Our aim is to find their values. Since both $2+7k$ and $4+9l$ must be the same modulo $7$ and $9$, if we can find a way to keep $9$ in $2+7k$ and $7$ is $4+9l$, that could work! One way around it is to do the following:
 		\begin{align*}
-			n & \equiv2\cdot1+7\cdot4\pmod7,\\
-			n & \equiv2\cdot9\cdot9^{-1}+7\cdot4\pmod{7}.
+			n & \equiv2\cdot1+7\cdot4\pmod7\\
+			n & \equiv2\cdot9\cdot9^{-1}+7\cdot4\pmod{7}
 		\end{align*}
 	Let's do the same for the other congruence.
 		\begin{align*}
-			n & \equiv4\cdot1+9\cdot2\pmod{9},\\
-			n & \equiv4\cdot7\cdot7^{-1}+2\cdot9\pmod{9}.
+			n & \equiv4\cdot1+9\cdot2\pmod{9}\\
+			n & \equiv4\cdot7\cdot7^{-1}+2\cdot9\pmod{9}
 		\end{align*}
 	Now you should understand what we can do to make those two equal. In the first congruence, no matter what we multiply with $7\cdot4$, the remainder won't change modulo $7$. The same for $9$ in the second congruence. We will exploit this fact. We need to rearrange it just a bit more. But here is a warning. We wouldn't be able to do it if $7$ and $9$ were not coprime, since then they would not have any multiplicative inverse. We could do that trick writing $1=7\cdot7^{-1}$ only because $7^{-1}$ modulo $9$ exists. For simplicity, let's assume $7^{-1}\equiv u\pmod{9}$ and $9^{-1}\equiv v\pmod{7}$.
 		\begin{align*}
@@ -287,26 +295,29 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\end{align*}
 	And now, we have what we want! We can say,
 		\begin{align*}
-			n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7\cdot9},
+			n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7\cdot9}
 		\end{align*}
 	since $7 \perp 9$. We have our solution! Think more on our approach and what led us to do this. Question is, is this $n$ the smallest solution? If we take $r$ with $0\leq r\leq mn$ so that
 		\begin{align*}
-			n & \equiv r\equiv18v+28u\pmod{63},
+			n & \equiv r\equiv18v+28u\pmod{63}
 		\end{align*}
 	where $u\equiv7^{-1}\equiv4\pmod9$ and $v\equiv9^{-1}\equiv4\pmod 7$. Therefore,
 		\begin{align*}
-			n = (18\cdot4+28\cdot4)\pmod{63}=184\pmod{63}=58.
+			n
+				& = (18\cdot4+28\cdot4)\pmod{63}\\
+				& =184\pmod{63}\\
+				& =58
 		\end{align*}
 	Since $58<63$, such a solution will be unique! Mathematically, we can write it this way. Let the inverse of $a$ modulo $n$ be $a^{-1}_n$.
 		\begin{theorem}[Chinese Remainder Theorem for Two Integers]\slshape
 			For two positive integers $a\bot b$,
 				\begin{align*}
-					x & \equiv m\pmod a,\\
-					x & \equiv n\pmod b,
+					x & \equiv m\pmod a\\
+					x & \equiv n\pmod b
 				\end{align*}
 			has a solution
 				\begin{align*}
-					x_0 \equiv (mbb^{-1}_a+naa^{-1}_b)\pmod{ab},
+					x_0 \equiv (mbb^{-1}_a+naa^{-1}_b)\pmod{ab}
 				\end{align*}
 			and all the solutions are given by $x=x_0+abk$.
 		\end{theorem}
@@ -314,23 +325,23 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\begin{theorem}[Refined CRT]\slshape
 			If $a_1\bot a_2$ and $M=a_1a_2$, then the congruences
 			\begin{align*}
-			x & \equiv r_1\pmod{a_1},\\
-			x & \equiv r_2\pmod{a_2},
+			x & \equiv r_1\pmod{a_1}\\
+			x & \equiv r_2\pmod{a_2}
 			\end{align*}
 			has the smallest solution
 			\begin{align*}
 			x_0 & \equiv
-			\left(r_1\left(\dfrac{M}{a_1}\right)\left(\dfrac{M}{a_1}\right)^{-1}_{a_2}+r_2\left(\dfrac{M}{a_2}\right)\left(\dfrac{M}{a_2}\right)^{-1}_{a_1}\right)\pmod{M}.
+			\left(r_1\left(\dfrac{M}{a_1}\right)\left(\dfrac{M}{a_1}\right)^{-1}_{a_2}+r_2\left(\dfrac{M}{a_2}\right)\left(\dfrac{M}{a_2}\right)^{-1}_{a_1}\right)\pmod{M}
 			\end{align*}
 		\end{theorem}
 	If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
 		\begin{theorem}[CRT]\slshape
 			For $n$ pairwise coprime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
 				\begin{align*}
-					x & \equiv r_1\pmod{a_1},\\
-					x & \equiv r_2\pmod{a_2},\\
+					x & \equiv r_1\pmod{a_1}\\
+					x & \equiv r_2\pmod{a_2}\\
 					   &\vdots\\
-					x & \equiv r_n\pmod{a_n}.
+					x & \equiv r_n\pmod{a_n}
 				\end{align*}
 			If $M=a_1a_2\cdots a_n$ and $M_i=\dfrac{M}{a_i}$ and $M_ie_i\equiv1\pmod{a_i}$, then the smallest  modulo $M$ is given by
 			\begin{align*}
@@ -341,7 +352,10 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\begin{proof}
 			Note that, for a fixed $i$, $M_j$ is divisible by $a_i$ if $i\neq j$. Therefore,
 			\begin{align*}
-			x_0 = \sum_{i=1}^{n} r_i M_ie_i \equiv r_iM_ie_i\equiv r_i\pmod{a_i}
+			x_0
+				& = \sum_{i=1}^{n} r_i M_ie_i\\
+				& \equiv r_iM_ie_i\\
+				& \equiv r_i\pmod{a_i}
 			\end{align*}
 			So $x_0$ is a solution to those congruences. Since $M_i\bot a_i$, there is a multiplicative inverse of $M_i$ modulo $a_i$ due to B\'{e}zout's identity. We leave it to the reader to prove that if $x,y$ are two solutions, then $x\equiv y\pmod M$. That would prove its uniqueness modulo $M$.
 		\end{proof}
@@ -349,14 +363,14 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\begin{theorem}[General CRT]\slshape
 			For $n$ integers $a_1,\cdots,a_n$ the system of congruences
 			\begin{align*}
-				x & \equiv r_1\pmod{a_1},\\
-				x & \equiv r_2\pmod{a_2},\\
+				x & \equiv r_1\pmod{a_1}\\
+				x & \equiv r_2\pmod{a_2}\\
 				&\vdots\\
-				x & \equiv r_n\pmod{a_n}.
+				x & \equiv r_n\pmod{a_n}
 			\end{align*}
 			has a solution if and only if
 			\begin{align*}
-				r_i & \equiv r_j\pmod{(a_i,a_j)},
+				r_i & \equiv r_j\pmod{(a_i,a_j)}
 			\end{align*}
 			for all $i$ and $j$. Any two solutions $x,y$ are congruent modulo the least common multiple of all $a_i$. That is, if $M=[a_1,\cdots,a_n]$ and $x,y$ are two solutions, then $x\equiv y\pmod M$.
 		\end{theorem}
@@ -368,10 +382,10 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\begin{solution}
 			We will use CRT here forcibly, even though it has a much easier solution. Consider the following congruences:
 				\begin{align*}
-					x & \equiv -1\pmod{p_1p_2},\\
-					x & \equiv -2\pmod{p_3p_4},\\
+					x & \equiv -1\pmod{p_1p_2}\\
+					x & \equiv -2\pmod{p_3p_4}\\
 					  & \vdots \\
-					x & \equiv -n\pmod{p_{2n-1}p_{2n}}.
+					x & \equiv -n\pmod{p_{2n-1}p_{2n}}
 				\end{align*}
 			Here, $p_1,\cdots,p_{2n}$ are distinct primes. Therefore, $M_1=p_1p_2,\cdots,M_n=p_{2n-1}p_{2n}$ are pair-wisely co-prime. So, by CRT, there is indeed such an $x$ which satisfies all of the congruences above. And our problem is solved. Notice that, $x+1$ is divisible by at least two primes $p_1,p_2$. Similarly, $x+i$ is divisible by $p_{2i-1}p_{2i}$.
 		\end{solution}

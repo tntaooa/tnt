@@ -2,7 +2,7 @@
 \begin{document}
 	The purpose of this section is to discuss the sum
 		\begin{align*}
-			\sum_{k=1}^{p-1} \frac{1}{k} = 1+\frac{1}{2}+ \frac{1}{3}+\cdots+ \frac{1}{p-1}.
+			\sum_{k=1}^{p-1} \frac{1}{k} = 1+\frac{1}{2}+ \frac{1}{3}+\cdots+ \frac{1}{p-1}
 		\end{align*}
 
 	Well, not exactly. We are more interested in this sum modulo $p$ where $p$ is a prime. But how do we calculate fractions modulo $p$? The answer should be obvious by now. $\frac{a}{b}\pmod p$ is actually $ab^{-1}\pmod p$ where $b^{-1}\pmod p$ is the inverse of $b$ modulo $p$. So if $be\equiv1\pmod p$, then $$\frac{a}{b}\equiv ae\pmod p.$$ However, from modular cancellation property, we can take fractions modulo $p$ if $p\nmid b$. Moreover, we can introduce some sort of divisibility here.
@@ -13,13 +13,13 @@
 				\begin{align*}
 					\frac{100}{3}   &\equiv 100 \cdot (3)^{-1} \\
 					&\equiv 100 \cdot 17\\
-					&\equiv 0 \pmod{25},
+					&\equiv 0 \pmod{25}
 				\end{align*}
 			Now, let's compute a non-zero fraction modulo $7$:
 				\begin{align*}
 					\frac{840}{77} &= \frac{120}{11} \equiv 120 \cdot (11)^{-1}\\
 					&\equiv 120 \cdot 2 \\
-					& \equiv 2 \pmod{7}.
+					& \equiv 2 \pmod{7}
 				\end{align*}
 		\end{example}
 
@@ -27,7 +27,10 @@
 		\begin{theorem}[Wolstenholme's Theorem]\slshape\label{thm:wolst}
 			Let $p>3$ be a prime. Then
 			\begin{align*}
-				S = \sum_{k=1}^{p-1} \frac{1}{k} = 1+\frac{1}{2}+ \frac{1}{3}+\cdots+ \frac{1}{p-1} \equiv 0 \pmod{p^2}.
+				S
+					& = \sum_{k=1}^{p-1} \frac{1}{k}\\
+					& = 1+\frac{1}{2}+ \frac{1}{3}+\cdots+ \frac{1}{p-1}\\
+					& \equiv 0 \pmod{p^2}
 			\end{align*}
 		\end{theorem}
 
@@ -42,8 +45,8 @@
 		\begin{theorem}\slshape\label{thm:origwolst}
 			If $p$ is a prime bigger than $3$, then
 			\begin{align*}
-				\binom{2p}{p} & \equiv2\pmod{p^3}, \text{ and}\\
-				\binom{2p-1}{p-1} & \equiv 1 \pmod{p^3}.
+				\binom{2p}{p} & \equiv2\pmod{p^3}\\
+				\binom{2p-1}{p-1} & \equiv 1 \pmod{p^3}
 			\end{align*}
 			This theorem is equivalent to \autoref{thm:wolst}.
 		\end{theorem}
@@ -51,7 +54,7 @@
 		\begin{theorem}\slshape
 			For any prime $p$,
 				\begin{align*}
-					\binom{2p}{p} & \equiv2\pmod{p^2}.
+					\binom{2p}{p} & \equiv2\pmod{p^2}
 				\end{align*}
 		\end{theorem}
 
@@ -60,7 +63,7 @@
 				\begin{align*}
 					\binom{2p}p & = \binom{p}0^2+\binom{p}{1}^2+\cdots+\binom{p}{p-1}^2+\binom{p}{p}^2\\
 								& = 2+\binom{p}{1}^2+\cdots+\binom{p}{p-1}^2\\
-								& \equiv2\pmod{p^2}.
+								& \equiv2\pmod{p^2}
 				\end{align*}
 			The last line is true because from \autoref{thm:binpdiv}, for $0<i<p$, we have
 				\begin{align*}
@@ -72,7 +75,10 @@
 		\end{proof}
 
 		\begin{lemma}\label{lem:wolstproof1}
-			Let $p>3$ be a prime and $S$ be defined as in \autoref{thm:wolst}. Then, $$S \equiv 0 \pmod p.$$
+			Let $p>3$ be a prime and $S$ be defined as in \autoref{thm:wolst}. Then,
+				\begin{align*}
+					S \equiv 0 \pmod p
+				\end{align*}
 		\end{lemma}
 
 		\begin{proof}
@@ -84,40 +90,43 @@
 					& = \sum_{k=1}^{\frac{p-1}{2}} \left(\frac{1}{k}+\frac{1}{p-k} \right)\\
 					& = \sum_{k=1}^{\frac{p-1}{2}} \frac{(k) + (p-k)}{k(p-k)}\\
 					& = \sum_{k=1}^{\frac{p-1}{2}} \frac{p}{k(p-k)}\\
-					& =p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)}\\ & \equiv 0 \pmod p.
+					& =p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)}\\
+					& \equiv 0 \pmod p
 			\end{align*}
 			In the last line of above equations, the sum can be written as $\frac{a}{(p-1)!}$, where $a$ is some integer. Note that $(p, (p-1)!)=1$ and that's why we can conclude
-				\begin{equation*}
-					p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)} \equiv 0 \pmod p.
-				\end{equation*}
+				\begin{align*}
+					p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)} \equiv 0 \pmod p
+				\end{align*}
 		\end{proof}
 
 		\begin{lemma}\label{lem:wolstproof2} For a prime $p>3$,
-			\[(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 0 \pmod p,\] where $i^{-1}$ is the multiplicative inverse of $i$ modulo $p$ for $i=1,2,\ldots,p-1$.
+			\[(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 0 \pmod p\] where $i^{-1}$ is the multiplicative inverse of $i$ modulo $p$ for $i=1,2,\ldots,p-1$.
 		\end{lemma}
 
 		\begin{proof}
 			We recommend you re-read section \eqref{sec:arithinverse} if you have forgotten the definition of multiplicative inverse. We already know that
 				\begin{align*}
-					1^2+2^2+\cdots+(p-1)^2 = \frac{(p-1)(p)(2p-1)}{6}.
+					1^2+2^2+\cdots+(p-1)^2 = \frac{(p-1)(p)(2p-1)}{6}
 				\end{align*}
 			Clearly, the sum is an integer. Therefore $(p-1)(p)(2p-1)$ is divisible by $6$. Now since $p>3$, we have $(p,6)=1$ and thus $p$ divides $(p-1)(p)(2p-1)/6$. Therefore,
 				\begin{align*}
-					1^2+2^2+\cdots+(p-1)^2 \equiv 0 \pmod p.
+					1^2+2^2+\cdots+(p-1)^2 \equiv 0 \pmod p
 				\end{align*}
 			In order to prove the lemma we should show that
 				\begin{align*}
-					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 1^2+2^2+\cdots+(p-1)^2 \pmod p.
+					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 1^2+2^2+\cdots+(p-1)^2 \pmod p
 				\end{align*}
 			We shall show that the sets $A=\{1,2,\ldots,p-1\}$ and $B=\{1^{-1}, 2^{-1},\ldots,(p-1)^{-1}\}$ are equal. A proof is as follows: from \autoref{thm:arithinverse}, for any $x \in A$, there exists some $y \in B$ such that $xy \equiv 1 \pmod p$. This $y$ is unique, because if there exists some other $z \in B$ for which $xz \equiv 1 \pmod p$, then $xy \equiv xz \pmod p$, and since $(x,p)=1$, we have $y \equiv z \pmod p$ which means $y=z$ (why?). So there exists a unique $y\in B$ for each $x \in A$, and thus $A=B$ since $A$ and $B$ have equal number of elements. Finally,
-				\begin{equation*}
-					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 1^2+2^2+\cdots+(p-1)^2 \equiv 0 \pmod p
-				\end{equation*}
+				\begin{align*}
+					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2
+						& \equiv 1^2+2^2+\cdots+(p-1)^2\\
+						& \equiv 0 \pmod p
+				\end{align*}
 		\end{proof}
 	We are going to re-state Proposition \ref{thm:modgcd} because, as we already mentioned, it is very useful:
 		\begin{lemma}\label{lem:wolstproof3}
 			For a prime $p\geq 3$ and any positive integer $a$ relatively prime to $p$,
-			\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p,\]
+			\[ (a^{-1})^n\equiv (a^n)^{-1} \pmod p\]
 			for all positive integers $n$.
 		\end{lemma}
 
@@ -128,7 +137,7 @@
 				\implies a^n
 					& \cdot (a^{-1})^n \equiv 1 \pmod p\\
 				\implies(a^{-1})^n
-					& \equiv (a^n)^{-1} \pmod p.
+					& \equiv (a^n)^{-1} \pmod p
 			\end{align*}
 
 		\end{proof}
@@ -145,42 +154,47 @@
 			Let's write the sum as
 				\begin{align*}
 					\sum_{i=1}^{\frac{p-1}{2}} \frac{1}{i(p-i)}
-						& = \sum_{i=1}^{\frac{p-1}{2}} \frac{\frac{(p-1)!}{i(p-i)}}{(p-1)!}
-						& = \frac{1}{(p-1)!} \cdot \sum_{i=1}^{\frac{p-1}{2}} \frac{(p-1)!}{i(p-i)}.
+						& = \sum_{i=1}^{\frac{p-1}{2}} \frac{\frac{(p-1)!}{i(p-i)}}{(p-1)!}\\
+						& = \frac{1}{(p-1)!} \cdot \sum_{i=1}^{\frac{p-1}{2}} \frac{(p-1)!}{i(p-i)}
 					%&= \frac{1}{1(p-1)}+\frac{1}{2(p-2)}+\cdots+\frac{1}{\frac{p-1}{2} \left(p - \frac{p-1}{2} \right)}\\
 					%&=\frac{\frac{(p-1)!}{1(p-1)} +\frac{(p-1)!}{2(p-2)}+\cdots+\frac{(p-1)!}{\frac{p-1}{2} \left(p - \frac{p-1}{2} \right)}}{(p-1)!}.
 				\end{align*}
-			Since $(p-1)!$ is relatively prime to $p$, we only need to show that $$\displaystyle \sum_{i=1}^{\frac{p-1}{2}} \frac{(p-1)!}{i(p-i)} \equiv 0 \pmod p.$$
+			Since $(p-1)!$ is relatively prime to $p$, we only need to show that
+				\begin{align*}
+					\sum_{i=1}^{\frac{p-1}{2}} \frac{(p-1)!}{i(p-i)}
+						& \equiv 0 \pmod p
+				\end{align*}
 			Define
 				\begin{align*}
-					a_i = \frac{(p-1)!}{i(p-i)}.
+					a_i = \frac{(p-1)!}{i(p-i)}
 				\end{align*}
 			for $i=1,2,\ldots,\frac{p-1}{2}$. From Wilson's theorem, we know that $(p-1)! \equiv -1 \pmod p$. Observe that
 				\begin{align*}
-					i\cdot (p-i) \cdot a_i = (p-1)! \equiv -1 \pmod p.
+					i\cdot (p-i) \cdot a_i = (p-1)! \equiv -1 \pmod p
 				\end{align*}
 			Replacing $p-i \equiv -i \pmod p$ in the above equation, we have
 				\begin{align}\label{eq:wolstproof1}
 					-i^2
 						& \cdot a_i = -1 \pmod p\\
 					\implies i^2
-						& \cdot a_i \equiv 1 \pmod p.
+						& \cdot a_i \equiv 1 \pmod p
 				\end{align}
 			Notice that the above equations are true for $i=1,2,\ldots,(p-1)/2$. Now, \eqref{eq:wolstproof1} means that $a_i$ is the multiplicative inverse of $i^2$ modulo $p$. So we have proved that
 				\begin{align}\label{eq:wolstproof2}
-					a_i = \frac{(p-1)!}{i(p-i)}
+					a_i
+						& = \frac{(p-1)!}{i(p-i)}
 						& \equiv (i^2)^{-1} \pmod p
 				\end{align}
 			for $i=1,2,\ldots,\frac{p-1}{2}$ where $(i^2)^{-1}$ means the multiplicative inverse of $i^2$ modulo $p$. We should now prove that the sum of all $a_i$s is divisible by $p$. Let $ a=\sum_{i=1}^{(p-1)/2} a_i$. According to \eqref{eq:wolstproof2},
 				\begin{align*}
 					a
 						& = \sum_{i=1}^{\frac{p-1}{2}} a_i\\
-						& = \sum_{i=1}^{\frac{p-1}{2}} (i^2)^{-1}.
+						& = \sum_{i=1}^{\frac{p-1}{2}} (i^2)^{-1}
 				\end{align*}
 			From Lemma \ref{lem:wolstproof3},  $(i^2)^{-1} \equiv (i^{-1})^{2} \pmod p$, and so
 				\begin{align}\label{eq:wolstproof3}
 					a \equiv
-						& \sum_{i=1}^{\frac{p-1}{2}} (i^{-1})^{2} \pmod p.
+						& \sum_{i=1}^{\frac{p-1}{2}} (i^{-1})^{2} \pmod p
 				\end{align}
 			We want to show that $a \equiv 0 \pmod p$. The trick is to convert \eqref{eq:wolstproof3} to what we proved in Lemma \ref{lem:wolstproof2}, using the fact that $-(a^{-1}) \equiv (-a)^{-1} \pmod p$:
 				\begin{align*}
@@ -191,7 +205,7 @@
 						& \equiv \sum_{i=1}^{\frac{p-1}{2}} (i^{-1})^{2} + \sum_{i=1}^{\frac{p-1}{2}} ((p-i)^{-1})^{2}\\
 						& \equiv \sum_{i=1}^{\frac{p-1}{2}} (i^{-1})^{2} + \sum_{i=\frac{p+1}{2}}^{p-1} (i^{-1})^{2}\\
 						& \equiv \sum_{i=1}^{p-1} (i^{-1})^{2}\\
-						& \equiv 0 \pmod p.
+						& \equiv 0 \pmod p
 				\end{align*}
 			Thus $a \equiv 0 \pmod p$ and we are done.
 		\end{proof}
@@ -200,7 +214,7 @@
 			According to Lemma \ref{lem:wolstproof1}, we can write $S$ as
 			\begin{align*}
 				S
-					& = p \cdot \sum_{i=1}^{\dfrac{p-1}{2}} \dfrac{1}{i(p-i)}.
+					& = p \cdot \sum_{i=1}^{\dfrac{p-1}{2}} \dfrac{1}{i(p-i)}
 			\end{align*}
 			From Lemma \ref{lem:wolstproof4}, we know that the above sum is divisible by $p$, so $S$ is divisible by $p^2$.
 		\end{proof}
@@ -208,7 +222,7 @@
 		\begin{problem}
 			Let $p \geq 5$ be a prime number, and
 				\begin{align*}
-					1 + \dfrac{1}{2} + \ldots + \dfrac{1}{p}=\dfrac{a}{b},
+					1 + \dfrac{1}{2} + \ldots + \dfrac{1}{p}=\dfrac{a}{b}
 				\end{align*}
 			where $a$ and $b$ are two relatively prime integers. Show that $p^4\mid ap-b$.
 		\end{problem}
@@ -217,14 +231,14 @@
 			From Wolstenholme's theorem, we have
 				\begin{align*}
 					1 + \dfrac{1}{2} + \cdots + \dfrac{1}{p-1}
-						& = p^2 \cdot \dfrac{x}{y},
+						& = p^2 \cdot \dfrac{x}{y}
 				\end{align*}
 			for some integers $x$ and $y$ such that $y \bot p$. Replacing this in the given equation,
 				\begin{align*}
 					p^2 \cdot \dfrac{x}{y}+ \dfrac{1}{p}
 						& = \frac{a}{b}\\
 					ap-b
-						& = p^3b \cdot \dfrac{x}{y}.
+						& = p^3b \cdot \dfrac{x}{y}
 				\end{align*}
 			Since $b$ is divisible by $p$, we have $p^4\mid ap-b$.
 		\end{solution}
@@ -233,7 +247,7 @@
 			Let $p \geq 5$ be a prime and
 				\begin{align*}
 					\dfrac{1}{p-1} + \dfrac{2}{p-2} + \ldots + \dfrac{p-1}{1}
-						& =\dfrac{a}{b},
+						& =\dfrac{a}{b}
 				\end{align*}
 			where $a$ and $b$ are two relatively prime integers. Show that $p^3\mid a-b+bp$.
 		\end{problem}
@@ -246,14 +260,14 @@
 						& =\sum_{i=1}^{p-1} \left(\frac{p}{i} -1 \right)\\
 						& =\sum_{i=1}^{p-1} \dfrac{p}{i} - (p-1)\\
 						& = p\cdot\left(\sum_{i=1}^{p-1} \dfrac{1}{i}\right)-(p-1)\\
-						& = p \cdot p^2 \dfrac{x}{y}-(p-1),
+						& = p \cdot p^2 \dfrac{x}{y}-(p-1)
 				\end{align*}
 			where $x$ and $y$ are relatively prime integers with $y \bot p$ (we have used Wolstenholme's theorem in the last line). Now,
 				\begin{align*}
 					\dfrac a b+p-1
 						& =p\cdot\dfrac{p^2x}y\\
 					\implies (a-b+bp)y
-						& =p^3xb,
+						& =p^3xb
 				\end{align*}
 			and since $y\bot p$, we have $p^3\mid a-b+bp$.
 		\end{solution}
@@ -263,7 +277,7 @@
 		\begin{problem}\label{prob:binom(p-1)(k)}
 			For any prime $p$ and a positive integer $k$ such that $1 \leq k \leq p-1$, prove that
 				\begin{align*}
-					\binom{p-1}{k} & \equiv(-1)^k\pmod p.
+					\binom{p-1}{k} & \equiv(-1)^k\pmod p
 				\end{align*}
 		\end{problem}
 
@@ -274,7 +288,7 @@
 						& = \dfrac{(p-1)(p-2)\cdots(p-1-k+1)}{1\times 2 \times \cdots \times k}\\
 						& \equiv \dfrac{(-1) \times (-2) \times \cdots \times (-k)}{1\times 2 \times \cdots \times k}\\
 						& \equiv\dfrac{(-1)^k \cdot 1\times 2 \times \cdots \times k}{1\times 2 \times \cdots \times k}\\
-						& \equiv(-1)^k\pmod p.
+						& \equiv(-1)^k\pmod p
 				\end{align*}
 
 		\end{solution}
@@ -282,7 +296,7 @@
 		\begin{problem}\slshape
 			For an odd prime $p$, show that
 				\begin{align*}
-					\dfrac{2^p-2}{p} & \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-1}\pmod p.
+					\dfrac{2^p-2}{p} & \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-1}\pmod p
 				\end{align*}
 		\end{problem}
 
@@ -291,19 +305,19 @@
 				\begin{align*}
 					2^p
 						& = (1+1)^p = 1+\binom{p}{1}+\cdots+\binom{p}{p-1}+1\\
-						& = 1+\dfrac{p}{1}\binom{p-1}{0}+\cdots+\dfrac{p}{p-1}\binom{p-1}{p-2}+1.
+						& = 1+\dfrac{p}{1}\binom{p-1}{0}+\cdots+\dfrac{p}{p-1}\binom{p-1}{p-2}+1
 				\end{align*}
 			So,
 				\begin{align*}
 					2^p-2
-						& = p\left(\frac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\right).
+						& = p\left(\frac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\right)
 				\end{align*}
 			Now, the problem is in a suitable shape and we can use the theorem above to write
 				\begin{align*}
 					\dfrac{2^p-2}{p}
 						& = \dfrac{1}{1}\binom{p-1}{0}+\dfrac{1}{2}\binom{p-1}{1}+\cdots+\dfrac{1}{p-1}\binom{p-1}{p-2}\\
 						& \equiv(-1)^0+\dfrac{1}{2}(-1)^1+\cdots+\dfrac{1}{p-1}(-1)^{p-3}\\
-						& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-1}\pmod p.
+						& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-1}\pmod p
 				\end{align*}
 
 		\end{solution}
@@ -312,7 +326,7 @@
 			For an odd prime $p$,
 				\begin{align*}
 					\dfrac{2^{p-1}-1}{p}
-						& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-2}\pmod p.
+						& \equiv1-\dfrac{1}{2}+\cdots-\dfrac{1}{p-2}\pmod p
 				\end{align*}
 		\end{corollary}
 
@@ -329,11 +343,11 @@
 				\begin{align*}
 					\binom{p^2}{p} - p
 						& =\dfrac{p^2(p^2-1)(p^2-2)\cdots(p^2-(p-1))}{p!}-p\\
-						& =\dfrac{p}{(p-1)!} \Big((p^2-1)(p^2-2)\cdots(p^2-(p-1)) - (p-1)!\Big).
+						& =\dfrac{p}{(p-1)!} \Big((p^2-1)(p^2-2)\cdots(p^2-(p-1)) - (p-1)!\Big)
 				\end{align*}
 			Since $(p, (p-1)!)=1$, it suffices to show that
 				\begin{align*}
-					(p^2-1)(p^2-2)\cdots(p^2-(p-1)) \equiv (p-1)! \pmod{p^4}.
+					(p^2-1)(p^2-2)\cdots(p^2-(p-1)) \equiv (p-1)! \pmod{p^4}
 				\end{align*}
 			Expand the left side to obtain
 				\begin{align*}
@@ -347,14 +361,14 @@
 			Let $p \geq 5$ be a prime and $n\geq 1$ be an integer. Then
 				\begin{align*}
 					\binom{p^{n+1}}{p}
-						& \equiv p^n \pmod{p^{2n+3}}.
+						& \equiv p^n \pmod{p^{2n+3}}
 				\end{align*}
 		\end{corollary}
 	A result from \textcite{carlitz_1954}.
 		\begin{problem}
 			Let $k$ be a non-negative integer and $p\geq 5$ be a prime. Prove that
 				\begin{align*}
-					\dfrac{1}{kp+1}+ \dfrac{1}{kp+2}+ \ldots+\dfrac{1}{kp+(p-1)}\equiv 0\pmod{p^2}.
+					\dfrac{1}{kp+1}+ \dfrac{1}{kp+2}+ \ldots+\dfrac{1}{kp+(p-1)}\equiv 0\pmod{p^2}
 				\end{align*}
 		\end{problem}
 
@@ -362,7 +376,7 @@
 			Use the following:
 				\begin{align*}
 					\sum_{i=1}^{p-1}\dfrac{1}{kp+i}
-						& = \dfrac{1}{2}\sum_{i=1}^{p-1}\Bigl(\dfrac{1}{kp+i}+\dfrac{1}{kp+p-i}\Bigr).
+						& = \dfrac{1}{2}\sum_{i=1}^{p-1}\Bigl(\dfrac{1}{kp+i}+\dfrac{1}{kp+p-i}\Bigr)
 				\end{align*}
 		\end{hint}
 
@@ -370,7 +384,7 @@
 			For a prime $p \geq 5$, show that
 				\begin{align*}
 					\binom{p^3}{p^2}
-						& \equiv \binom{p^2}{p} \pmod{p^8}.
+						& \equiv \binom{p^2}{p} \pmod{p^8}
 				\end{align*}
 		\end{problem}
 	The following problem appears in \textcite[D23]{vandendriessche_lee_2007}.
@@ -386,7 +400,7 @@
 			Let $p \geq 7$ be a prime and let $s$ be a positive integer such that $p-1 \nmid s$. Prove that
 			\begin{align*}
 				1 + \dfrac {1}{2^s} + \dfrac {1}{3^s} + \ldots + \dfrac {1}{(p - 1)^s}
-					& \equiv 0 \pmod p.
+					& \equiv 0 \pmod p
 			\end{align*}
 		\end{problem}
 
@@ -394,7 +408,7 @@
 			Let $n$ be a positive integer not divisible by $6$. Also, let $S$ be a reduced residue system modulo $n$ such that $1 \leq a <n$ for all $a \in S$. Prove that
 				\begin{align*}
 					\sum_{a \in S} \frac{1}{a}
-						& \equiv 0 \pmod{n^2}.
+						& \equiv 0 \pmod{n^2}
 				\end{align*}
 		\end{problem}
 

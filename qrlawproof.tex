@@ -3,7 +3,7 @@
 \begin{document}
 Law of quadratic reciprocity (theorem \eqref{thm:lawofqr}) states that for any two different odd primes $p$ and $q$, we have
 \begin{align*}
-\left(\dfrac{p}{q}\right)\left(\dfrac{q}{p}\right)=(-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}.
+\left(\dfrac{p}{q}\right)\left(\dfrac{q}{p}\right)=(-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}
 \end{align*}
 
 Mathematicians have provided many proofs for the law of quadratic reciprocity. Gauss himself proved this theorem as well. However, we will be showing arguably the most amazing proof of this theorem, which is due to \textit{Eisenstein}\footnote{Do not confuse it with Einstein.}.
@@ -16,7 +16,7 @@ Before explaining the proof, we should prove two lemmas.
 \begin{proof}\label{lem:lawofqrlem2}
 	We should prove that for any $k, t \in \left\{1, 2, \dots, \frac{p-1}{2}\right\}$, the numbers $ka$ and $ta$ are different members of the set $\left\{ \pm 1, \pm 2, \dots, \pm \frac{p-1}{2} \right\}$ when reduced modulo $p$ into the range $-\frac{p-1}{2}$ to $\frac{p-1}{2}$. Assume that $ka \equiv ta \pmod p$. Then $a(k-t) \equiv 0 \pmod p$ and since $a \bot p$, we get $k-t \equiv 0 \pmod p$. But since $k$ and $t$ are both at most $\frac{p-1}{2}$, we should have $k-t=0$ or $k=t$. On the other hand, if $ak \equiv -at \pmod p$, then $k+t \equiv 0 \pmod p$. But
 	\begin{align*}
-	k+t \leq \frac{p-1}{2} + \frac{p-1}{2} = p-1,
+	k+t \leq \frac{p-1}{2} + \frac{p-1}{2} = p-1
 	\end{align*}
 	so it's impossible to have $k+t \equiv 0$. This finishes the proof.
 \end{proof}
@@ -26,42 +26,55 @@ The second lemma uses the definition of $\mu(a,p)$ which we defined in Gauss's C
 \begin{lemma}
 	Let $p$ be a prime and let $a$ be an odd integer co-prime to $p$. Then
 	\begin{align*}
-	\displaystyle \sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor \equiv \mu(a,p) \pmod 2.
+		\sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor \equiv \mu(a,p) \pmod 2
 	\end{align*}
 \end{lemma}
 
 \begin{proof}
 	For each $k \in \left\{1, 2, \dots, \frac{p-1}{2} \right\}$, we can write $ka$ as
 	\begin{align*}
-	ka = pq_k + r_k, \quad -\frac{p-1}{2}<r_k< \frac{p-1}{2}.
+		ka
+			& = pq_k + r_k\\
+		-\frac{p-1}{2}<r_k
+			& < \frac{p-1}{2}
 	\end{align*}
 	Notice that this is different from the normal division (try to see why we can write $ka$ like that). Now divide both sides by $p$ to get
-	\begin{align*}
-	\Big\lfloor\frac{ka}{p} \Big\rfloor = q_k + \Big\lfloor\frac{r_k}{p}\Big\rfloor, \quad -\frac{1}{2}<\frac{r_k}{p}< \frac{1}{2}.
-	\end{align*}
+		\begin{align*}
+			\Big\lfloor\frac{ka}{p} \Big\rfloor
+				& = q_k + \Big\lfloor\frac{r_k}{p}\Big\rfloor\\
+			-\frac{1}{2}
+				& <\frac{r_k}{p}\\
+				& < \frac{1}{2}
+		\end{align*}
 	This means that $\Big\lfloor\frac{ka}{p} \Big\rfloor$ is either $q_k$ (when $r_k >0$) or $q_k -1$ (when $r_k<0$). Adding all the values of $\Big\lfloor\frac{ka}{p} \Big\rfloor$, we see that
 	\begin{align*}
-	\displaystyle \sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor = \sum_{k=1}^{\frac{p-1}{2}} q_k - X,
+		\sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor = \sum_{k=1}^{\frac{p-1}{2}} q_k - X
 	\end{align*}
 	where $X$ is the number of negative $r_k$s. If you look more closely, you see that $X= \mu(a,p)$ (why?), and so
 	\begin{align*}
-	\displaystyle \sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor = \sum_{k=1}^{\frac{p-1}{2}} q_k - \mu(a,p).
+	\sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor = \sum_{k=1}^{\frac{p-1}{2}} q_k - \mu(a,p)
 	\end{align*}
-	We just need to show that $\displaystyle\sum_{k=1}^{\frac{p-1}{2}} q_k$ is an even integer, because then
+	We just need to show that $\sum_{k=1}^{\frac{p-1}{2}} q_k$ is an even integer, because then
 	\begin{align*}
-	\sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor \equiv \sum_{k=1}^{\frac{p-1}{2}} q_k - \mu(a,p) \equiv 0 -  \mu(a,p) \equiv  \mu(a,p) \pmod 2,
+		\sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{ka}{p} \Big\rfloor
+			& \equiv \sum_{k=1}^{\frac{p-1}{2}} q_k - \mu(a,p)\\
+			& \equiv 0 -  \mu(a,p)\\
+			& \equiv  \mu(a,p) \pmod 2
 	\end{align*}
 	which is just what we want. The trick is to write the equation $ka = pq_k + r_k$ modulo $2$. Since both $a$ and $p$ are odd, $ka \equiv k \pmod 2$ and $pq_k \equiv q_k \pmod 2$, and so
 	\begin{align*}
-	k \equiv q_k + r_k \pmod 2.
+		k \equiv q_k + r_k \pmod 2
 	\end{align*}
 	Summing over $k$, we see that
 	\begin{align*}
-	\sum_{k=1}^{\frac{p-1}{2}}k \equiv \sum_{k=1}^{\frac{p-1}{2}} q_k + \sum_{k=1}^{\frac{p-1}{2}} r_k \pmod 2.
+		\sum_{k=1}^{\frac{p-1}{2}}k \equiv \sum_{k=1}^{\frac{p-1}{2}} q_k + \sum_{k=1}^{\frac{p-1}{2}} r_k \pmod 2
 	\end{align*}
 	From lemma \eqref{lem:lawofqrlem1}, we see that the numbers $r_1, r_2, \ldots, r_{\frac{p-1}{2}}$ are equal to the numbers $\pm 1, \pm 2, \ldots, \pm \frac{p-1}{2}$ in some order, with each number appearing once with either a plus sign or a minus sign. We also know that $x \equiv -x \pmod 2$ for any integer $x$. So, we can say that
 	\begin{align*}
-	\sum_{k=1}^{\frac{p-1}{2}} r_k \equiv \sum_{k=1}^{\frac{p-1}{2}}k \pmod 2 \implies \sum_{k=1}^{\frac{p-1}{2}} q_k \equiv 0 \pmod 2.
+		\sum_{k=1}^{\frac{p-1}{2}} r_k
+			& \equiv \sum_{k=1}^{\frac{p-1}{2}}k \pmod 2\\
+		\implies \sum_{k=1}^{\frac{p-1}{2}} q_k
+			& \equiv 0 \pmod 2
 	\end{align*}
 	The proof is complete.
 \end{proof}
@@ -119,17 +132,20 @@ We are now ready to provide a proof for the law of quadratic reciprocity.
 		\node [above] at (5.5,6.5) {$\displaystyle\left(\frac{p}{2},\frac{q}{2}\right)$};
 		\end{tikzpicture}
 	\end{center}
-	We can find the number of points with integer coordinates inside this triangle in a similar way to the previous one. This time, count the points horizontally and sum up the number of points with $y=1, y=2, \ldots$, and $y=\frac{p-1}{2}$. The result is \[ \sum_{k=1}^{\frac{q-1}{2}} \Big\lfloor\frac{kp}{q} \Big\rfloor.\]
-
+	We can find the number of points with integer coordinates inside this triangle in a similar way to the previous one. This time, count the points horizontally and sum up the number of points with $y=1, y=2, \ldots$, and $y=\frac{p-1}{2}$. The result is
+		\begin{align*}
+			\sum_{k=1}^{\frac{q-1}{2}} \Big\lfloor\frac{kp}{q} \Big\rfloor
+		\end{align*}
 	Now put these two triangles together to form a rectangle with vertices on $(0,0)$, $\left(0,q/2\right)$, $\left(p/2,0\right)$, and $\left(p/2,q/2\right)$.
 
 	Let $x$ be number of the points with integer coordinates inside this rectangle. Obviously, $x$ is equal to the sum of such points in triangles (notice that since $p$ and $q$ are different, there is no point with integer coordinates on the hypotenuse of triangles). So
 	\begin{align*}
-	x = \sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{kq}{p} \Big\rfloor+ \sum_{k=1}^{\frac{q-1}{2}} \Big\lfloor\frac{kp}{q} \Big\rfloor.
+		x
+			& = \sum_{k=1}^{\frac{p-1}{2}} \Big\lfloor\frac{kq}{p} \Big\rfloor+ \sum_{k=1}^{\frac{q-1}{2}} \Big\lfloor\frac{kp}{q} \Big\rfloor
 	\end{align*}
 	According to lemma \eqref{lem:lawofqrlem2}, it follows that
 	\begin{align}\label{eq:qrlawproof1}
-	x \equiv \mu(q,p)+\mu(p,q) \pmod 2.
+	x \equiv \mu(q,p)+\mu(p,q) \pmod 2
 	\end{align}
 	Let's count $x$ in another way.
 	\begin{center}
@@ -157,17 +173,21 @@ We are now ready to provide a proof for the law of quadratic reciprocity.
 	\end{center}
 	Clearly, number of points with integer coordinates inside this rectangle is
 	\begin{align}\label{eq:qrlawproof2}
-	x=\Big\lfloor\frac{p}{2} \Big\rfloor \cdot \Big\lfloor\frac{q}{2} \Big\rfloor = \frac{p-1}{2}\cdot\frac{q-1}{2}.
+		x
+			& =\Big\lfloor\frac{p}{2} \Big\rfloor \cdot \Big\lfloor\frac{q}{2} \Big\rfloor\\
+			& = \frac{p-1}{2}\cdot\frac{q-1}{2}
 	\end{align}
 	Combining equations \eqref{eq:qrlawproof1} and \eqref{eq:qrlawproof2},
 	\begin{align*}
-	\mu(q,p)+\mu(p,q) \equiv \frac{p-1}{2}\cdot\frac{q-1}{2} \pmod 2.
+		\mu(q,p)+\mu(p,q)
+			& \equiv \frac{p-1}{2}\cdot\frac{q-1}{2} \pmod 2
 	\end{align*}
 	Now apply Gauss's criterion to finish the proof:
 	\begin{align*}
-	\left(\dfrac{p}{q}\right)\left(\dfrac{q}{p}\right) &=(-1)^{\mu(p,q)} \cdot (-1)^{\mu(q,p)} \\
-	&= (-1)^{\mu(p,q)+\mu(q,p)}\\
-	&=(-1)^{\frac{p-1}{2}\cdot\frac{q-1}{2}}.
+	\left(\dfrac{p}{q}\right)\left(\dfrac{q}{p}\right)
+		&=(-1)^{\mu(p,q)} \cdot (-1)^{\mu(q,p)} \\
+		&= (-1)^{\mu(p,q)+\mu(q,p)}\\
+		&=(-1)^{\frac{p-1}{2}\cdot\frac{q-1}{2}}
 	\end{align*}
 \end{proof}
 

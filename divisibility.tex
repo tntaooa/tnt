@@ -242,17 +242,21 @@
 	\begin{proof}
 		We first prove by induction that the factorization indeed exists. Suppose that all numbers $k$ such that $1<k<n$ have a factorization. If $n$ is a prime, its factorization is obvious. Otherwise, there exist positive integers $a$ and $b$ both less than $n$ such that $ab=n$. By induction hypothesis, $a$ and $b$ both have factorizations. Let $a=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$ and $b=q_1^{\beta_1}q_2^{\beta_2}\cdots q_l^{\beta_l}$ be the prime factorizations of $a$ and $b$. Then,
 		\begin{align*}
-			n = ab = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}q_1^{\beta_1}q_2^{\beta_2}\cdots q_l^{\beta_l}.
+			n
+				& = ab\\
+				& = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}q_1^{\beta_1}q_2^{\beta_2}\cdots q_l^{\beta_l}
 		\end{align*}
 		This is a prime factorization for $n$ and the induction is complete.
 
 		Now, let us prove that the prime factorization of $n$ is unique. Suppose that there are two factorizations for $n$. That is,
 		\begin{align}
-			p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}=q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t} \label{eq:fundamentalarith-eq1}
+			p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}
+				& =q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t} \label{eq:fundamentalarith-eq1}
 		\end{align}
 		are two factorization of $n$, where $p_i$ and $q_j$ are primes and $\alpha_i$ and $\beta_j$ are positive integers ($1 \leq i \leq s, 1 \leq j \leq t$). The above equation implies that $p_1$ divides $q_1^{\beta_1}q_2^{\beta_2}\cdots q_t^{\beta_t}$. By generalization of Euclid's lemma (Corollary \eqref{cor:euclidgeneral}), $p_1$ must divide at least one of $q_1^{\beta_1},q_2^{\beta_2},\dots,$ or $q_t^{\beta_t}$. Without loss of generality, suppose that $p_1\mid q_1^{\beta_1}$. Since $q_1$ is a prime, the only prime divisor of $q_1^{\beta_1}$ is $q_1$. This means that $p_1=q_1$ and $\alpha_1=\beta_1$. Divide both sides of equation \eqref{eq:fundamentalarith-eq1} by $p_1$ to obtain
 		\begin{align*}
-			p_2^{\alpha_2}p_3^{\alpha_3}\cdots p_s^{\alpha_s}=q_2^{\beta_2}q_3^{\beta_3}\cdots q_t^{\beta_t}.
+			p_2^{\alpha_2}p_3^{\alpha_3}\cdots p_s^{\alpha_s}
+				& =q_2^{\beta_2}q_3^{\beta_3}\cdots q_t^{\beta_t}
 		\end{align*}
 		With similar reasoning, we can deduce that $p_2^{\alpha_2}$ is equal to some other $q_j^{\beta_j}$, say $q_{2}^{\beta_2}$. Continuing this process, one soon realizes that $t=s$ and all prime powers in the left side of equation \eqref{eq:fundamentalarith-eq1} appear in the right side, but maybe in a different order. In other words, the two factorizations of $n$ are the same and the uniqueness of factorization is implied.
 	\end{proof}
@@ -260,8 +264,8 @@
 	\begin{example}
 		Try to understand the following examples and match them with the factorization formula:
 		\begin{itemize}
-			\item $12=2^2\cdot3$. Here, $p_1=2,e_1=2,p_2=3,e_2=1$.
-			\item $180=2^2\cdot 3^2\cdot 5$. So,  $p_1=2,e_1=2,p_2=3,e_2=2,p_3=5,e_3=1$.
+			\item $12=2^2\cdot3$. Here, $p_1=2,e_1=2,p_2=3,e_2=1$
+			\item $180=2^2\cdot 3^2\cdot 5$. So,  $p_1=2,e_1=2,p_2=3,e_2=2,p_3=5,e_3=1$
 		\end{itemize}
 		The factorization of $n$ is unique no matter in what order you factor out the primes. Also, note that all the powers are positive. We could bring primes with power zero but that does not make any sense (because any number to the power of zero yields $1$ and the product would not be changed).
 	\end{example}
@@ -283,7 +287,7 @@ As soon as one is introduced to the concept of natural numbers, one can make sen
 	\begin{proof}
 		Suppose that one has the number $x = \overline{x_{k-1}x_{k-2} \ldots x_0}$, where $x_i$ ($0 \leq i \leq k-1$) are its digits (so the number has $k$ digits). One can write
 			\begin{align*}
-				x &= \overline{x_{k-1} x_{k-2} \ldots x_1 0} + x_0 = 10 \cdot \overline{x_{k-1} x_{k-2} \ldots x_1} + x_0.
+				x &= \overline{x_{k-1} x_{k-2} \ldots x_1 0} + x_0 = 10 \cdot \overline{x_{k-1} x_{k-2} \ldots x_1} + x_0
 			\end{align*}
 		It is now clear that the first term in the right-hand side of the latest equation is divisible by $2$ (because $2 \mid 10$). So, $x$ is divisible by $2$ if and only if $x_0$ is even.
 	\end{proof}
@@ -409,12 +413,12 @@ Let's find a divisibility rule for $7$.
 		\begin{align*}
 			x &= \overline{x_{n-1} \cdots x_1 x_0 }\\
 			  &= \overline{x_{n-1} \cdots x_3 000 } +  \overline{x_{2} x_1 x_0 }\\
-			  &= 10^3 \cdot \overline{x_{n-1} \cdots x_3} +  \overline{x_{2} x_1 x_0 }.
+			  &= 10^3 \cdot \overline{x_{n-1} \cdots x_3} +  \overline{x_{2} x_1 x_0 }
 		\end{align*}
 	The remainder of division of $1000$ by $7$ is $6$. So, there exists a positive integer $q$ such that $1000 = 7q - 1$ (why is that? find $q$). Hence,
 		\begin{align*}
 			x &= (7q-1) \cdot \overline{x_{n-1} \cdots x_3} +  \overline{x_{2} x_1 x_0 }\\
-			  &= 7q \cdot \overline{x_{n-1} \cdots x_3} + \left(\overline{x_{2} x_1 x_0 } - \overline{x_{n-1} \cdots x_3}\right).
+			  &= 7q \cdot \overline{x_{n-1} \cdots x_3} + \left(\overline{x_{2} x_1 x_0 } - \overline{x_{n-1} \cdots x_3}\right)
 		\end{align*}
 	Now, if $x$ is divisible by $7$, then so must be $\overline{x_{2} x_1 x_0 } - \overline{x_{n-1} \cdots x_3}$ and vice versa. The proof is complete.
 \end{proof}
@@ -428,7 +432,7 @@ There are other rules for divisibility as well, and we are just suggesting a sel
 	\begin{align*}
 		13\, 111 & \implies 1\,311 - 2 = 1\, 309\\
 		1\, 309  & \implies 130 - 18 = 112\\
-		112 &\implies 11 - 4 = 7,
+		112 &\implies 11 - 4 = 7
 	\end{align*}
 and this verifies that $13\, 111$ is divisible by $7$. Try to prove this new divisibility rule for $7$.
 
@@ -455,7 +459,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\begin{align*}
 			8658 & \implies \ 865 + 4 \cdot 8 = 897 \\
 			897 & \implies  \ 89 + 4 \cdot 7 =   117 \\
-			117 & \implies \ 11 + 4 \cdot 7 =  39.
+			117 & \implies \ 11 + 4 \cdot 7 =  39
 		\end{align*}
 		And $39 = 13 \cdot 3$, so $8658$ is divisible by $13$.
 	\end{example}
@@ -468,7 +472,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\begin{align*}
 			11\, 322 & \implies \ 1\, 132 - 5 \cdot 2 = 1\, 122 \\
 			1\, 122 & \implies  \ 112 - 5 \cdot 2 =   102 \\
-			102 & \implies \ 10 - 5 \cdot 2 =  0.
+			102 & \implies \ 10 - 5 \cdot 2 =  0
 		\end{align*}
 		So $11\, 322$ is divisible by $17$.
 	\end{example}
@@ -481,7 +485,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\begin{align*}
 			12 \, 654 & \implies \ 1\, 265 + 2 \cdot 4 = 1\, 273 \\
 			1\, 273 & \implies  \ 127 + 2 \cdot 3 =   133 \\
-			133 & \implies \ 13 + 2 \cdot 3 =  19.
+			133 & \implies \ 13 + 2 \cdot 3 =  19
 		\end{align*}
 		Therefore $12\, 654$ is divisible by $19$.
 	\end{example}
@@ -616,8 +620,8 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		First, factorize both $20$ and $112$:
 		\begin{align*}
-			20  &= 2^2\cdot5,\\
-			112 &= 2^4\cdot7.
+			20  &= 2^2\cdot5\\
+			112 &= 2^4\cdot7
 		\end{align*}
 		You can easily find that since the prime factor $5$ does not appear in the factoring of $112$, $5$ cannot appear in $(20,112)$. For the same reason, $7$ will not appear in the $\gcd$ as well. In other words, we just have to consider the primes that are in both $112$ and $20$. We are left with the only prime $2$. The point is to pay attention to the power of $2$ that divides the numbers. $112$ is divisible by $2^4$. However, $20$ is divisible by $2^2$ but not by any higher power of $2$. Therefore, $(20, 112)$ cannot have a power of $2$ greater than $2^2$ (otherwise it will not divide $20$). Since we are looking for the \textit{greatest} common divisor, we will take $2^2$ as proper power of $2$ in the $\gcd$. Since there is no other prime to take care of, we have $(112,20)=2^2$.
 	\end{example}
@@ -631,13 +635,13 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proposition}\slshape\label{prop:gcdfactorization}
 		Let $a$ and $b$ be two positive integers. If $a=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and $b=p_1^{f_1}\cdot p_2^{f_2}\cdots p_k^{f_k}$, where $p_i$ are primes and $e_i,f_i\geq0$ are integers for $1\leq i\leq k$, then: \footnote{Try to find out why $e_i\geq0$ whereas we consider only $e_i\geq1$ when we first introduced prime factorization.}
 		\begin{align*}
-			(a,b) & =p_1^{\min(e_1,f_1)}p_2^{\min(e_2,f_2)}\cdots p_k^{\min(e_k,f_k)}, \\
-			[a,b] &= p_1^{\max(e_1,f_1)}p_2^{ \max (e_2,f_2)}\cdots p_k^{\max(e_k,f_k)}.
+			(a,b) & =p_1^{\min(e_1,f_1)}p_2^{\min(e_2,f_2)}\cdots p_k^{\min(e_k,f_k)}\\
+			[a,b] &= p_1^{\max(e_1,f_1)}p_2^{ \max (e_2,f_2)}\cdots p_k^{\max(e_k,f_k)}
 		\end{align*}
 		In other words, using  the product notation,
 		\begin{align*}
-			(a,b) & =\prod_{i=1}^kp_i^{\min(e_i,f_i)},\\
-			[a,b] & =\prod_{i=1}^kp_i^{\max(e_i,f_i)}.
+			(a,b) & =\prod_{i=1}^kp_i^{\min(e_i,f_i)}\\
+			[a,b] & =\prod_{i=1}^kp_i^{\max(e_i,f_i)}
 		\end{align*}
 	\end{proposition}
 
@@ -673,17 +677,20 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}[Second Proof (Using Prime Factorization)]
 		Assume that we have the prime factorization of $a$ and $b$ (as in proposition \eqref{prop:gcdfactorization}):
 		\begin{align*}
-			a =p_1^{e_1}\cdots p_k^{e_k} \quad \text{and} \quad b =p_1^{f_1}\cdots p_k^{f_k}.
+			a
+				& =p_1^{e_1}\cdots p_k^{e_k}\\
+			b
+				& =p_1^{f_1}\cdots p_k^{f_k}
 		\end{align*}
 		Now, can you understand the simple fact that $\min(x,y)+\max(x,y)=x+y$? If so, then the proof should be clear to you. In fact,
-		\[ab=p_1^{e_1}\cdots p_k^{e_k}\cdot p_1^{f_1}\cdots p_k^{f_k}=p_1^{e_1+f_1}\cdots p_k^{e_k+f_k}.\]
+		\[ab=p_1^{e_1}\cdots p_k^{e_k}\cdot p_1^{f_1}\cdots p_k^{f_k}=p_1^{e_1+f_1}\cdots p_k^{e_k+f_k}\]
 		On the other hand, from proposition \eqref{prop:gcdfactorization},
 		\begin{align*}
 			(a,b)\cdot[a,b]
 			& = p_1^{\min(e_1)}\cdots p_k^{\min(e_k)}\cdot p_1^{\max(e_1,f_1)}\cdots p_k^{\max(e_k,f_k)}\\
 			& = p_1^{\min(e_1,f_1)+\max(e_1+f_1)}\cdots p_k^{\min(e_k,f_k)+\max(e_k,f_k)}\\
 			& = p_1^{e_1+f_1}\cdots p_k^{e_k+f_k}\\
-			& = ab.
+			& = ab
 		\end{align*}
 	\end{proof}
 
@@ -705,7 +712,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 			Consider the number $573$. Have you ever thought why we write digits in this way to denote a number? The reason is that every digit in the number represents the coefficient of a power of ten. That is,
 			\begin{align*}
 				573
-					& = 5 \cdot 10^2 + 7 \cdot 10^1 + 3 \cdot 10^0.
+					& = 5 \cdot 10^2 + 7 \cdot 10^1 + 3 \cdot 10^0
 			\end{align*}
 		\end{example}
 	Rigorously talking, each integer has to be written in a \textit{base} for it to make sense. For example, the number $15$ has different values when expressed in base $6$ and in base $10$. Actually, $15$ in base $6$ is equal to $11$ in base $10$. Probably it still does not make sense. If so, just keep reading.
@@ -715,7 +722,9 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{definition}[Base $b$ Representation]\label{def:base}
 		Let $x$ and $b$ be positive integers such that $b>1$. In a numeral system\footnote{A numeral system (or system of numeration) is a writing system for expressing numbers using digits or symbols.}, the number $x$ and its \textit{base} $b$ are written together as $(x)_b$. If the digits of an $n$-digits number $x$ are represented as $\overline{x_{n-1}x_{n-2}\cdots x_0}$ in base $b$, then
 		\begin{align*}
-			(x)_b = (x_{n-1}x_{n-2}\cdots x_1x_0)_b=b^{n-1} x_{n-1} + b^{n-2} x_{n-2} + \cdots + b^1x_1 + x_0,
+			(x)_b
+				& = (x_{n-1}x_{n-2}\cdots x_1x_0)_b\\
+				& =b^{n-1} x_{n-1} + b^{n-2} x_{n-2} + \cdots + b^1x_1 + x_0
 		\end{align*}
 		where $x_0, x_1, \cdots, x_{n-1}$ are non-negative integers less than $b$.
 	\end{definition}
@@ -724,7 +733,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		The number $(327)_8$ is calculated as
 		\begin{align*}
-			(327)_8 = 3 \cdot 8^2 + 2 \cdot 8 + 7 = 215.
+			(327)_8 = 3 \cdot 8^2 + 2 \cdot 8 + 7 = 215
 		\end{align*}
 	\end{example}
 
@@ -760,24 +769,24 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\begin{align*}
 			(2\mathtt{F}\mathtt{E}05)_{16} & = 2 \cdot 16^4 + 15 \cdot 16^3 + 14 \cdot 16^2 + 0 \cdot 16 + 5 \\
 			& = 131,072 + 61,440 + 3,584 + 5\\
-			& = 196,101.
+			& = 196,101
 		\end{align*}
 	\end{example}
 	We know how to convert numbers in any base to a number in base $10$. The next step is exactly the opposite: converting numbers in decimal system to other bases. This is quite interesting as well. Even it is possible that you have learned the method from school. However, instead of focusing on the method, let us focus on finding a way to do it.
 	\subsubsection{Conversion from Base $10$ to Base $b$}
 	Suppose that we want to convert the number $y$ in decimal system to a number in base $b$. In other words, we want to write $y$ as $(x_{n}x_{n-1}\cdots x_1x_0)_b$ so that $x_0, x_1, \cdots x_n$ are the digits of $y$ when represented in base $b$. By definition, we know that $y$ can be written as
 	\begin{align}\label{representation_in_base_b}
-		y = b^{n} x_{n} + b^{n-1} x_{n-1} + \cdots + b^1x_1 + x_0,
+		y = b^{n} x_{n} + b^{n-1} x_{n-1} + \cdots + b^1x_1 + x_0
 	\end{align}
 	where $0 \leq x_i < b$ for $0 \leq i \leq n$. Our aim is to find the value of $x_i$'s. Look at the equation carefully and try to understand how we can retrieve the digits in base $b$. If you are stuck, then go forward. Rewrite equation \eqref{representation_in_base_b} as
 	\begin{align*}
-		y = b \cdot \underbrace{\left( b^{n-1} x_{n} + b^{n-2} x_{n-1} + \cdots + x_1  \right)}_{y_1} + x_0.
+		y = b \cdot \underbrace{\left( b^{n-1} x_{n} + b^{n-2} x_{n-1} + \cdots + x_1  \right)}_{y_1} + x_0
 	\end{align*}
 	We have written $y$ as $y=by_1 + x_0$, which means that the remainder of $y$ when divided by $b$ is $x_0$. In fact, the rightmost digit of $y$ in base $b$ ($x_0$ here) is the remainder of $y$ when divided by $b$. As you can see, we are simply using the division theorem here (does it make sense now?). Bases are related to divisibility after all!
 
 	To find the next digit, $x_1$, we have to divide the quotient of the above division, $y_1$, by $b$. The reason is the same as above: rewrite $y_1$ as
 	\begin{align*}
-		y_1 = b \cdot \underbrace{\left( b^{n-2} x_{n} + b^{n-3} x_{n-1} + \cdots + x_2  \right)}_{y_2} + x_1.
+		y_1 = b \cdot \underbrace{\left( b^{n-2} x_{n} + b^{n-3} x_{n-1} + \cdots + x_2  \right)}_{y_2} + x_1
 	\end{align*}
 	Therefore, $x_1$ is the remainder of $y_1$ when divided by $b$. We can find the next digit $x_2$ by finding the remainder of $y_2$ when divided by $b$. The digits $x_3, x_4, \cdots, x_{n-1}$ can be found similarly by continuing this process. The leftmost digit, $x_n$, is the \textbf{quotient} of the last division because we can no longer divide it by $b$ (since the digits are all less than $b$).
 
@@ -863,7 +872,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 \end{figure}
 		If you write down the divisions like we did\footnote{Thanks to Andr\' eC for writing the LaTeX code for the figure.} in figure \eqref{fig:base16}, you can see that the last quotient is the most significant digit and the remainders of the divisions (from right to left) form the other digits (as you move from the last remainder to the first one, the significance of the digits decreases). We have drawn circles around those digits. Finally, writing $15$ as $\mathtt{F}$ and $14$ as $\mathtt{E}$, we have
 		\begin{align*}
-			196\,101 = (2\mathtt{F}\, \mathtt{E}05)_{16}.
+			196\,101 = (2\mathtt{F}\, \mathtt{E}05)_{16}
 		\end{align*}
 	\end{example}
 	\subsubsection{Conversion Rules for Certain Bases}
@@ -871,23 +880,27 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 	Let $x = (a_{n}a_{n-1}\cdots a_1a_0)_2$ be our binary number, where $a_i$ is either $0$ or $1$ for $0\leq i \leq n$. Assume that we have converted this number to base $8$ and the result is $x = (b_{m}b_{m-1}\cdots b_1b_0)_8$, where $0\leq b_j \leq 7$ for $0 \leq j \leq m$. Our aim is to find the relation between $a_i$'s and $b_j$'s. It might seem a bit difficult to find a relation, but it will be clear if you write the expansion of $x$ in both bases. For base $2$, we can represent $x$ as
 	\begin{align*}
-		x =  2^{n} a_{n} + 2^{n-1} a_{n-1} + \cdots + 2^1a_1 + a_0.
+		x =  2^{n} a_{n} + 2^{n-1} a_{n-1} + \cdots + 2^1a_1 + a_0
 	\end{align*}
 	Start clustering $a_i$ digits in groups of $3$, starting at the right. For convenience, assume that $n+1$ is divisible by $3$ (because there are $n+1$ digits $a_0, a_1, \cdots, a_n$ and we are putting them in groups of size $3$). Other cases when number of digits is not divisible by $3$ will be discussed later. Then, $x$ can be represented as
 	\begin{multline*}
-		 \left(2^{n} a_{n} + 2^{n-1} a_{n-1} + 2^{n-2} a_{n-2} \right) + \\ \left(2^{n-3}  a_{n-3} + 2^{n-4} a_{n-4} + 2^{n-5} a_{n-5} \right) +\cdots + \left( 2^2a_2 + 2^1a_1 + a_0 \right),
+		 \left(2^{n} a_{n} + 2^{n-1} a_{n-1} + 2^{n-2} a_{n-2} \right) + \\ \left(2^{n-3}  a_{n-3} + 2^{n-4} a_{n-4} + 2^{n-5} a_{n-5} \right) +\cdots + \left( 2^2a_2 + 2^1a_1 + a_0 \right)
 	\end{multline*}
 	which is equal to
 	\begin{multline*}
-		2^{n-2}\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right) + \\ 2^{n-5} \left(2^2 a_{n-3}  +  2 a_{n-4} + a_{n-5} \right)+  \cdots + 2^0\left( 2^2a_2 + 2a_1 + a_0 \right).
+		2^{n-2}\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right) + \\ 2^{n-5} \left(2^2 a_{n-3}  +  2 a_{n-4} + a_{n-5} \right)+  \cdots + 2^0\left( 2^2a_2 + 2a_1 + a_0 \right)
 	\end{multline*}
 	Since $2^{a}=8^{a/3}$ for all real numbers $a$, we can write the above as
 	\begin{multline*}
-   		8^{\frac{n-2}{3}} \underbrace{\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right)}_{b_m} + \\ 8^{\frac{n-5}{3}}  \underbrace{\left(2^2 a_{n-3} + 2 a_{n-4} + a_{n-5} \right)}_{b_{m-1}} + \cdots + 8^0 \underbrace{\left( 2^2a_2 + 2a_1 + a_0 \right)}_{b_0}.
+   		8^{\frac{n-2}{3}} \underbrace{\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right)}_{b_m} + \\ 8^{\frac{n-5}{3}}  \underbrace{\left(2^2 a_{n-3} + 2 a_{n-4} + a_{n-5} \right)}_{b_{m-1}} + \cdots + 8^0 \underbrace{\left( 2^2a_2 + 2a_1 + a_0 \right)}_{b_0}
 	\end{multline*}
 	The power of $8$ in all of the terms in the above sum is an integer (why?). Note that the number $2^2 a_i + 2 a_{i-1} + a_{i-2}$ is actually $(a_{i}a_{i-1}a_{i-2})_2$, and so it is a non-negative integer less than or equal to $(111)_2 = 7$. This means that $2^2 a_i + 2 a_{i-1} + a_{i-2}$ is acceptable as a digit in base $8$ (remember that digits in base $b$ should be less than $b$ and non-negative). Now look at the last line of the above equations. It is of the form $8^m b_m + 8^{m-1}b_{m-1} + \cdots + 8b_1+b_0$. We have therefore found a relation between digits in base $2$ and base $8$:
 	\begin{align*}
-		m=\frac{n-2}{3}, \quad b_j = 2^2a_{3j+2} + 2a_{3j+1} + a_{3j} = (a_{3j+2}a_{3j+1}a_{3j})_2 \text{ for } 0 \leq j \leq m.
+		m
+			& =\frac{n-2}{3}\\
+		b_j
+			& = 2^2a_{3j+2} + 2a_{3j+1} + a_{3j}\\
+			& = (a_{3j+2}a_{3j+1}a_{3j})_2
 	\end{align*}
 	There is only one point remaining: we first assumed the number of digits of the binary number is divisible by $3$ so that we can group them. What if number of digits is not divisible by $3$? It is not actually a problem. Put one or two zeros at the left side of the binary number and make the number of digits divisible by $3$, then continue the process.
 
@@ -900,7 +913,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		Let us convert $({1\,010\,011\,010})_2$ to base $8$. Number of digits is $10$, which is not divisible by $3$. So we add two zeros to the left and start the process with the number $({001\,010\,011\,010})_2$. Now,
 		\begin{align*}
-			({001})_2 = (\textbf{1})_8, \quad ({010})_2 = (\textbf{2})_8,  \quad ({011})_2 = (\textbf{3})_8, \quad ({010})_2 = (\textbf{2})_8.
+			({001})_2 = (\textbf{1})_8, \quad ({010})_2 = (\textbf{2})_8,  \quad ({011})_2 = (\textbf{3})_8, \quad ({010})_2 = (\textbf{2})_8
 		\end{align*}
 		Hence, $({1\,010\,011\,010})_2 = ({1232})_8$.
 	\end{example}
@@ -912,11 +925,11 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		Let us convert $(2051)_8$ to a binary number. We have
 		\begin{align*}
-			(2)_8=(\textbf{010})_2, \quad (0)_8=(\textbf{000})_2, \quad (5)_8=(\textbf{101})_2, \quad (1)_8=(\textbf{001})_2,
+			(2)_8=(\textbf{010})_2, \quad (0)_8=(\textbf{000})_2, \quad (5)_8=(\textbf{101})_2, \quad (1)_8=(\textbf{001})_2
 		\end{align*}
 		and the result is
 		\begin{align*}
-			(2051)_8 = (10\,000\,101\,001)_2.
+			(2051)_8 = (10\,000\,101\,001)_2
 		\end{align*}
 		Notice that the zero as the most significant digit is meaningless and must be removed after the conversion is done. We suggest you to do the conversion in a two-step method (from base $8$ to base $10$ and then to base $2$) to verify the answer.
 	\end{example}
@@ -933,7 +946,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{definition}
 		Let $x$ and $b$ be positive real numbers such that $b \neq 1$. The logarithm of $x$ to base $b$ is the exponent by which $b$ must be raised to yield $x$.  In other words, the logarithm of $x$ to base $b$ is the solution $y$ to the equation
 		\begin{align*}
-			b^y = x.
+			b^y = x
 		\end{align*}
 		We denote this by $y = \log_b x$.
 	\end{definition}
@@ -978,14 +991,16 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		The proofs are rather straightforward. We prove the first and the last parts and leave others as exercises for the reader. For the first part, let $\log_a x= m$ and $\log_a y =n$. Then by definition, $x=a^m$ and $y=a^n$. Thus,
 			\begin{align*}
-				xy=a^{m+n},
+				xy=a^{m+n}
 			\end{align*}
 			which in turn gives $\log_a xy = m+n$. For the last part, assume $\log_b x = m$ and $\log_b a=n$. Then $x=b^m$ and $a=b^n$ and so by part $3$,
 			\begin{align*}
-				\log_a x &= \log_{b^n} b^m = \frac{m}{n} \log_b b =\frac{m}{n} \\
-				&=\dfrac{\log_b x}{\log_b a},
+				\log_a x
+					& = \log_{b^n} b^m\\
+					& = \frac{m}{n} \log_b b =\frac{m}{n} \\
+					& =\dfrac{\log_b x}{\log_b a}
 			\end{align*}
-			since $\log_b b =1$.
+		since $\log_b b =1$.
 	\end{proof}
 
 	\begin{note}
@@ -995,7 +1010,10 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		Suppose that you know the logarithm of every number to base $e$. How would you find $\log_3 5$? The answer would be to use the last part of proposition \eqref{prop:log_laws}:
 		\begin{align*}
-			\log_3 5 &= \frac{\ln 5}{\ln 3} \approx \frac{1.6094}{1.0986} \approx 1.4649.
+			\log_3 5
+				& = \frac{\ln 5}{\ln 3}\\
+				& \approx \frac{1.6094}{1.0986}\\
+				& \approx 1.4649
 		\end{align*}
 		You can easily find the values of $\ln 5$ and $\ln 3$ using a simple scientific calculator.
 	\end{example}
@@ -1003,9 +1021,12 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		Given that $\log_2 3 \approx 1.5849$, let's find $\log_{0.125} 36$. Notice that $0.125=1/8=2^{-3}$ and $36=2^2 \cdot 3^2$. Therefore,
 		\begin{align*}
-			\log_{0.125} 36 &= \log_{2^{-3}} \left(2^2 \cdot 3^2\right)= \log_{2^{-3}} 2^2 + \log_{2^{-3}} 3^2\\
-			&= \frac{2}{-3} \log_2 2 + \frac{2}{-3} \log_2 3 \approx -\frac{2}{3}(1+1.5849)\\
-			&\approx -1.7232.
+			\log_{0.125} 36
+				&= \log_{2^{-3}} \left(2^2 \cdot 3^2\right)\\
+				& = \log_{2^{-3}} 2^2 + \log_{2^{-3}} 3^2\\
+				& = \frac{2}{-3} \log_2 2 + \frac{2}{-3} \log_2 3\\
+				& \approx -\frac{2}{3}(1+1.5849)\\
+				& \approx -1.7232
 		\end{align*}
 	\end{example}
 
@@ -1038,11 +1059,14 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		We illustrate the proof with two sample cases. In Figure \ref{fig:log_exp_2}, you can see the plot of $y=\log_2 x$ for $x \in [0, 10]$. As seen in the figure, logarithm to the base $2$ is strictly increasing. That is, if $x_1>x_2$, then $\log_2 x_1 > \log_2 x_2$. Now, let's prove that if $\log_2 x_1 > \log_2 x_2$, then $x_1>x_2$. In the same figure, you can see the plot of $y=2^x$, which is, again, strictly increasing. It means that for any two reals $x_1$ and $x_2$, if $x_1>x_2$, then $2^{x_1} > 2^{x_2}$. By definition, we can find positive reals $y_1$ and $y_2$ such that $x_1 = \log_2 y_1$ and $x_2=\log_2 y_2$. Now, the relation
 		\begin{align*}
-			x_1>x_2 \implies 2^{x_1} > 2^{x_2},
+			x_1>x_2 \implies 2^{x_1} > 2^{x_2}
 		\end{align*}
 		transforms to
 		\begin{align*}
-			\log_2 y_1 > \log_2 y_2 \implies y_1 > y_2,
+			\log_2 y_1
+				& > \log_2 y_2\\
+			\implies y_1
+				& > y_2
 		\end{align*}
 		which is what we wanted. Analogously, as shown in Figure \ref{fig:log_exp_0.5}, the functions $y=\log_{0.5} x$ and $y=0.5^x$ are both strictly decreasing and the proof of part $2$ is almost the same as the previous part.
 		\end{proof}
@@ -1087,7 +1111,9 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		As stated in the above solution, suppose that $m$ is the unique integer for which $b^m < n <b^{m+1}$. Then, the number of digits of $n$ in base $b$ is $m+1$. That is, it suffices to prove that $m=\lfloor \log_b n\rfloor$. Since $b$ is larger than $1$, we know from proposition \eqref{prop:log_strict} that logarithm to base $b$ is a strictly increasing function. This means that we can take logarithm to base $b$ from $b^m < n <b^{m+1}$ and the direction of the inequalities will not change. In other words,
 		\begin{align*}
-		\log_b b^m < \log_b n < \log_b b^{m+1},
+		\log_b b^m
+			& < \log_b n\\
+			& < \log_b b^{m+1}
 		\end{align*}
 		which gives $m<\log_b n<m+1$. Since $m$ is an integer, by definition of floor function, $m=\lfloor \log_b n \rfloor$.
 	\end{proof}
@@ -1117,7 +1143,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{problem}
 		Let $n$ be a positive integer and let $S=\{1,2,\cdots,2n\}$. Choose $n+1$ numbers $a_1,a_2,\cdots, a_{n+1}$ out of $S$ so that
 		\begin{align*}
-			a_1<a_2<\cdots <a_{n+1}.
+			a_1<a_2<\cdots <a_{n+1}
 		\end{align*}
 		Prove that $a_i\mid a_j$ for some integers $1 \leq i,j \leq n+1$ with $i\neq j$.
 	\end{problem}
@@ -1125,7 +1151,10 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{solution}
 		Write all members of $S$ in the form $2^{\alpha}\beta$, where $\alpha$ is non-negative and $\beta$ is the odd factor. There are exactly $n$ odd numbers among $1,2,\cdots,2n$. Therefore, by pigeonhole principle\footnote{The pigeonhole principle states that if $n$ items are put into $m$ containers, with $n > m$, then at least one container must contain more than one item.}, among $n+1$ selected numbers $a_1,a_2,\cdots, a_{n+1}$, there exist at least two numbers $a_i$ and $a_j$ (with $i\neq j$) which have the same odd factor. In other words,
 		\begin{align*}
-			a_i = 2^{\alpha_1}\beta \quad \text{and} \quad a_j = 2^{\alpha_2}\beta.
+			a_i
+				& = 2^{\alpha_1}\beta\\
+			a_j
+				& = 2^{\alpha_2}\beta
 		\end{align*}
 		Now, $a_i\mid a_j$ if $\alpha_1\leq \alpha_2$, and $a_j\mid a_j$ otherwise.
 	\end{solution}
@@ -1145,14 +1174,21 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{theorem}[Four Numbers Theorem]\slshape
 		Let $a, b, c$, and $d$ be four positive integers such that $ab=cd$. Then there exist four positive integers $r,s,t$ and $u$ so that
 		\begin{align*}
-			a = rs, \quad b = tu, \quad	c = rt, \quad \text{and}\quad d = su.
+			a
+				& = rs\\
+			b
+				& = tu\\
+			c
+				& = rt\\
+			d
+				& = su
 		\end{align*}
 	\end{theorem}
 
 	\begin{proof}
 		Let $(a,c)=g_1$. By proposition \eqref{prop:gcduncommon}, there exist integers $x_1$ and $y_1$ such that $a=g_1x_1$ and $c=g_1y_1$ with $x_1\perp y_1$. Also, let $(b,d)=g_2$, then there exist integers $x_2$ and $y_2$ such that $b=g_2x_2$ and $d=g_2y_2$ with $x_2\perp y_2$. Substitute these equations into the given equation $ab=cd$ to get
 		\begin{align*}
-			g_1g_2x_1x_2 & =g_1g_2y_1y_2,
+			g_1g_2x_1x_2 & =g_1g_2y_1y_2
 		\end{align*}
 		or simply $x_1x_2 =y_1y_2$. We claim that $x_1=y_2$ and $x_2=y_1$. To prove this claim, we use a trick. Observe that $x_1x_2=y_1y_2$ means $x_1\mid y_1y_2$. The second part of Proposition \eqref{prop:cpdiv} tells us that since $x_1 \perp y_1$, we must have $x_1\mid y_2$. With the same reasoning, one can show that $y_2\mid x_1$. It follows by proposition \eqref{prop:bothdivide} that $x_1 =y_2$. One can similarly show that $x_2=y_1$. Compare the  parameters in the theorem with the ones we just used and take $r=g_1, s=x_1, t=x_2 $, and $u=g_2$. The proof is complete.
 	\end{proof}
@@ -1164,23 +1200,29 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		Let us consider the prime factorization of $a$ and $b$ as the following.
 		\begin{align*}
-			a  = p_1^{e_1}\cdots p_k^{e_k}\quad \text{and} \quad b = q_1^{f_1}\cdots q_\ell^{f_\ell}.
+			a
+				& = p_1^{e_1}\cdots p_k^{e_k}\\
+			b
+				& = q_1^{f_1}\cdots q_\ell^{f_\ell}
 		\end{align*}
 		Then,
 		\begin{align*}
-			ab &= p_1^{e_1}\cdots p_k^{e_k}q_1^{f_1}\cdots q_\ell^{f_\ell}.\\
+			ab &= p_1^{e_1}\cdots p_k^{e_k}q_1^{f_1}\cdots q_\ell^{f_\ell}
 		\end{align*}
 		From uniqueness of prime factorization, the only prime factors of $n$ must be $p_1,\cdots,p_k$ and $q_1,\cdots,q_\ell$. Let $n = p_1^{a_1}\cdots p_k^{a_k}q_1^{b_1}\cdots q_\ell^{b_\ell}$. Then
 		\begin{align*}
-			n^e  = p_1^{a_1e}\cdots p_k^{a_ke}q_1^{b_1e}\cdots q_\ell^{b_\ell e}.
+			n^e  = p_1^{a_1e}\cdots p_k^{a_ke}q_1^{b_1e}\cdots q_\ell^{b_\ell e}
 		\end{align*}
 		Since $ab=n^e$, we get
 		\begin{align*}
-			p_1^{e_1}\cdots p_k^{e_k}q_1^{f_1}\cdots q_\ell^{f_\ell} & = p_1^{a_1e}\cdots p_k^{a_ke}q_1^{b_1e}\cdots q_\ell^{b_\ell e}.
+			p_1^{e_1}\cdots p_k^{e_k}q_1^{f_1}\cdots q_\ell^{f_\ell} & = p_1^{a_1e}\cdots p_k^{a_ke}q_1^{b_1e}\cdots q_\ell^{b_\ell e}
 		\end{align*}
 		The exponents of the primes in both sides must be equal. Therefore, $e_i=a_ie$ (for $i=1,2,\ldots,k$) and $f_j=b_je$ (for $j=1,2,\ldots,\ell$). Therefore,
 		\begin{align*}
-			a = \Big(p_1^{a_1}\cdots p_k^{a_k}\Big)^e \quad \text{and} \quad b = \left(q_1^{b_1}\cdots q_\ell^{b_\ell}\right)^e,
+			a
+				& = \Big(p_1^{a_1}\cdots p_k^{a_k}\Big)^e\\
+			b
+				& = \left(q_1^{b_1}\cdots q_\ell^{b_\ell}\right)^e
 		\end{align*}
 		which proves the claim.
 	\end{proof}
@@ -1196,7 +1238,11 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{theorem}\slshape
 		Let $a,b$, and $c$ be positive integers such that $ab=c^2$. Then there exist integers $g,u,$ and $v$ with $u\perp v$ so that
 		\begin{align*}
-			a = gu^2,\quad b = gv^2, \quad \text{and} \quad c = guv.
+			a
+				& = gu^2\\
+			b
+				& = gv^2\\
+			c = guv
 		\end{align*}
 	\end{theorem}
 
@@ -1207,19 +1253,26 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proposition}[SFFT]
 		For any real numbers $x,y, j$, and $k$, the following relation holds:
 		\begin{align*}
-			xy+xk+yj+jk=(x+j)(y+k).
+			xy+xk+yj+jk=(x+j)(y+k)
 		\end{align*}
-		Two special common cases are $$xy + x + y + 1 = (x+1)(y+1),$$ and $$xy - x - y +1 = (x-1)(y-1).$$
+		Two special common cases are
+			\begin{align*}
+				xy + x + y + 1
+					& = (x+1)(y+1)\\
+				xy - x - y +1
+					& = (x-1)(y-1)
+			\end{align*}
 	\end{proposition}
 	Let's see the motivation behind this trick. Once Mr. Simon was studying number theory, he found this problem: find all positive integers $x$ and $y$ such that $xy-x+y=49$. Simon probably hates expressions of this form because he cannot factorize them. However, if he adds $-1$ to both sides of his equation, he finds the nice and factored form $(x+1)(y-1)=48$, which is much easier to solve than the original equation. In fact, to solve the factorized equation, he only needs to find the divisors of $48$ (see theorem \autoref{thm:nos} for more details). If you look closely, SFFT is inspired by the so-called \textbf{Completing the Square Method}:
 	\begin{align*}
-		x^2+kx+\frac{k^2}{4}=\left(x+\frac{k}{2}\right)^2.
+		x^2+kx+\frac{k^2}{4}
+			& =\left(x+\frac{k}{2}\right)^2
 	\end{align*}
 	In fact, the act of adding ${jk}$ to ${xy}+{xk}+{yj}$ in order to be able to factor it could be called \textbf{completing the rectangle} in analogy to the famous \textit{completing the square} trick.
 	\begin{theorem}\slshape\label{thm:lcmfactor}
 		If $N$ is the least common multiple of positive integers upto $n$, that is, $N=[1,2,\cdots,n]$, then for a prime $p$, the maximum  integer $\alpha$ for which $p^\alpha\mid N$ is the unique non-negative integer $\alpha$ so that $p^\alpha\leq n<p^{\alpha+1}$. In other words, if $p_i$ is a prime less than or equal to $n$, and for that prime, $\alpha_i$ is the unique integer such that $p_i^{\alpha _i}\leq n<p_i^{\alpha_i+1}$ then,
 		\begin{align*}
-			N & = p_1^{\alpha _1}\cdots p_k^{\alpha_i}.
+			N & = p_1^{\alpha _1}\cdots p_k^{\alpha_i}
 		\end{align*}\label{thm:lcm}
 		We can write $\alpha _i$ in terms of $n$ and $p_i$ using logarithm. Actually, $\alpha_i$ is the greatest non-negative integer less than or equal to $\log_{p_i}(n)$.
 	\end{theorem}
@@ -1232,7 +1285,10 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		We can write each odd integer $n$ in the form $n=2k-1$ for some $k\in\mathbb{Z}$. Then
 		\begin{align*}
-			n^2 = (2k-1)^2  = 4k^2-4k+1 = 4k(k-1)+1.
+			n^2
+				& = (2k-1)^2\\
+				& = 4k^2-4k+1\\
+				& = 4k(k-1)+1
 		\end{align*}
 		Since one of $k$ or $k-1$ must be even (why?), we can write $k(k-1)=2\ell$ for some integer $\ell$. Then $n^2=8\ell+1$, and so $n^2$ leaves a remainder of $1$ when divided by $8$.
 	\end{proof}
@@ -1244,7 +1300,9 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		The idea comes from the fact that if we multiply two numbers of the form $4k+1$, say $4a+1$ and $4b+1$, the result will be
 		\begin{align*}
-			(4a+1)(4b+1)=16ab+4a+4b+1=4(4ab+a+b)+1,
+			(4a+1)(4b+1)
+				& =16ab+4a+4b+1\\
+				& =4(4ab+a+b)+1
 		\end{align*}
 		which is, again, of the form $4k+1$. Clearly, all prime factors of a number $n$ of the form $4k+3$ are odd, and therefore are either of the form $4k+1$ or $4k+3$. If all prime factors of $n$ are of the form $4k+1$, then by the logic represented in above lines, any product of powers of these primes, including $n$, should be of the form $4k+1$. So, we get a contradiction and there exists at least one prime factor of $n$ which is of the form $4k+3$.
 	\end{proof}
@@ -1271,7 +1329,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		Consider an integer $n$. By definition \eqref{def:remainder}, the minimum absolute remainder $r$ of $n$ upon division by $6$ has the property that $|r| \leq 6/2=3$. In other words, $r$ can have the values $1,2,3,-1,-2$, and $-3$. For this reason, we can write an integer in exactly one of the following forms:
 		\begin{align*}
-			6k-2,6k-1,6k,6k+1,6k+2,6k+3.
+			6k-2,6k-1,6k,6k+1,6k+2,6k+3
 		\end{align*}
 		Numbers of the form $6k-2, 6k+2, 6k, 6k+3$ cannot be prime because the first two are divisible by $2$ and the last two are divisible by $3$. Thus, if $n$ is a prime, it must be either $6k-1$ or $6k+1$.
 	\end{proof}
@@ -1283,7 +1341,10 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		We can assume $p=6k\pm1$ for some integer $k$. So
 		\begin{align*}
-			p^2 = (6k\pm1)^2 = 36k^2\pm12k+1 = 12k(3k\pm1)+1.
+			p^2
+				& = (6k\pm1)^2\\
+				& = 36k^2\pm12k+1\\
+				& = 12k(3k\pm1)+1
 		\end{align*}
 		Note that $(k)+(3k\pm1)$ is odd. From corollary \eqref{cor:sumparity}, $k$ and $3k\pm1$ have different parity and $k(3k\pm1)$ is divisible by $2$. Let $k(3k\pm1)=2\ell$, then $p^2=24\ell+1$, or $p^2-1=24\ell$, which proves the theorem.
 	\end{proof}
@@ -1295,7 +1356,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		Assume that $a+b=p$, where $p$ is a prime. If $(a,b)=g$ then there exist relatively prime positive integers $x$ and $y$ for which $a=gx$ and $b=gy$. So,
 		\begin{align*}
-			p = a+b = g(x+y),
+			p = a+b = g(x+y)
 		\end{align*}
 		which means $g$ divides $p$. Since $p$ is a prime, its only divisors are itself and $1$. Hence, the only possible values for $g$ are $1$ and $p$. However, $g=p$ cannot happen since otherwise $x+y=1$ would lead to one of $x$ or $y$ being zero. Thus, $(a,b)=g=1$.
 	\end{proof}
@@ -1304,22 +1365,24 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{theorem}\slshape\label{id:fatandthin}
 		For any positive integer $n$,
 		\begin{align*}
-			a^n-b^n=(a-b)\Big(a^{n-1}+a^{n-2}b+\cdots+b^{n-1}\Big).
+			a^n-b^n
+				& =(a-b)\Big(a^{n-1}+a^{n-2}b+\cdots+b^{n-1}\Big)
 		\end{align*}
 		Furthermore, if $n$ is odd, then
 		\begin{align*}
-			a^n+b^n=(a+b)\Big(a^{n-1}-a^{n-2}b+\cdots+b^{n-1}\Big).
+			a^n+b^n
+				& =(a+b)\Big(a^{n-1}-a^{n-2}b+\cdots+b^{n-1}\Big)
 		\end{align*}
 		\label{thm:powDiv}
 	\end{theorem}
 	\begin{proof}
 		We can just use induction on $n$, but we will try to avoid using induction as much as possible. For the first identity, define
 		\begin{align*}
-			S & =a^{n-1}+a^{n-2}b+\cdots+b^{n-1}.
+			S & =a^{n-1}+a^{n-2}b+\cdots+b^{n-1}
 		\end{align*}
 		Then, $aS=a^n+a^{n-1}b+\cdots+b^{n-1}a$ and $bS=a^{n-1}b+a^{n-2}b^2+\cdots+b^n$. Subtracting, we obtain
 		\begin{align*}
-			(a-b)S & =a^n-b^n,
+			(a-b)S & =a^n-b^n
 		\end{align*}
 		which finishes the proof. The second identity can be proved by using the first identity and the fact that when $n$ is odd, we have $a^n+b^n=a^n-(-b)^n$.
 	\end{proof}
@@ -1337,13 +1400,15 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		We will first show that if $m\mid n$, then $a^m-1\mid a^n-1$. Notice that if $m\mid n$, that there exists a positive integer $h$ such that $n=mh$, and so,
 		\begin{align*}
-			a^n-1 = a^{mh}-1 = \left( a^m\right)^h -1.
+			a^n-1
+				& = a^{mh}-1\\
+				& = \left( a^m\right)^h -1
 		\end{align*}
 		Let $x=a^m$. By corollary \eqref{cor:a-b|a^n-b^n}, $x-1=a^m-1$ divides $x^h-1=a^n-1$, as desired.
 
 		Let us now show the other side. If $a^m-1\mid a^n-1$, then,
 		\begin{align*}
-			a^m-1\mid a^n-1-(a^m-1)=a^n-a^m=a^m(a^{n-m}-1).
+			a^m-1\mid a^n-1-(a^m-1)=a^n-a^m=a^m(a^{n-m}-1)
 		\end{align*}
 		Since $a^n-1\perp a^m$ (why?), we have $a^n-1\mid a^{n-m}-1$ by second part of proposition \eqref{prop:cpdiv}. Repeating the same process, we find $a^n-1\mid a^{n-2m}-1$. This suggests us to take $n=mq+r$ so that $0\leq r<m$. Then, we will have $a^n-1\mid a^{n-mq}-1=a^r-1$. Evidently, $a^r-1<a^m-1\leq a^n-1$, which forces $a^r-1=0$. So, $r=0$ and $n=mq$. The proof is complete.
 	\end{proof}
@@ -1356,12 +1421,12 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{proof}
 		As we already know,
 		\begin{align*}
-			a^k-1 & = (a-1)(a^{k-1}+a^{k-2}+\cdots+a+1).
+			a^k-1 & = (a-1)(a^{k-1}+a^{k-2}+\cdots+a+1)
 		\end{align*}
 		If $a>2$, then $a-1$ will divide $a^k-1$ which is absurd because $a^k-1$ is a prime. So, $a$ must be $2$. Suppose that $k$ is composite. Then, $k=p\ell$ for some prime $p$ and integer $\ell>1$. Therefore,
 		\begin{align*}
 			a^k-1&=\left(a^p\right)^\ell -1\\
-			&= (a^p-1)\left(a^{p(\ell-1)}+a^{p(\ell-2)}+\cdots+1\right),
+			&= (a^p-1)\left(a^{p(\ell-1)}+a^{p(\ell-2)}+\cdots+1\right)
 		\end{align*}
 		which is impossible. Hence, $k$ must be a prime.
 	\end{proof}
@@ -1379,32 +1444,33 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{remark}
 		For the particular case when $a=2$, the numbers $2^{2^n}+1$ are called \textit{Fermat numbers} and denoted by $F_n$. Notice that the reverse of the above theorem does \textit{not} hold. That is, not all Fermat numbers are primes. For instance,
 		\begin{align*}
-			F_5 = 2^{2^5}+1 = 4\, 294\, 967\, 297 = 641 \times 6\, 700\, 417.
+			F_5 = 2^{2^5}+1 = 4\, 294\, 967\, 297 = 641 \times 6\, 700\, 417
 		\end{align*}
 	\end{remark}
 
 	\begin{theorem}\slshape
 		For two relatively prime positive integers $a$ and $b$,
 		\begin{align*}
-			(a^m-b^m,a^n-b^n)=a^{(m,n)}-b^{(m,n)}.
+			(a^m-b^m,a^n-b^n)=a^{(m,n)}-b^{(m,n)}
 		\end{align*}
 	\end{theorem}
 
 	\begin{proof}
 		Here, we will use Euclidean algorithm as the idea is applicable to many similar problems. If $m=n$, the result is trivial since both sides are $a^m-b^m$. So, we can take $m>n$ without loss of generality\footnote{Wherever there is symmetry, don't forget to use this trick!}. Then we can write $m=n+k$ for some $k\in\mathbb{N}$. Therefore,
-		\begin{eqnarray*}
-			a^m-b^m & = & a^{n+k}-b^{n+k}\\
-			& = & a^n(a^k-b^k)+b^k(a^n-b^n)
-		\end{eqnarray*}
+		\begin{align*}
+			a^m-b^m
+				& = a^{n+k}-b^{n+k}\\
+				& = a^n(a^k-b^k)+b^k(a^n-b^n)
+		\end{align*}
 		Thus, by Euclidean algorithm,
 		\begin{align*}
 			(a^m-b^m,a^n-b^n) & = (a^n(a^k-b^k)+b^k(a^n-b^n),a^n-b^n)\\
-			&=(a^n(a^k-b^k),a^n-b^n).
+			&=(a^n(a^k-b^k),a^n-b^n)
 		\end{align*}
 		Since $a$ and $b$ are relatively prime, $a^n\bot a^n-b^n$ (why?). This gives us
-		\begin{eqnarray*}
-			(a^m-b^m,a^n-b^n) & = & (a^n-b^n,a^k-b^k).
-		\end{eqnarray*}
+		\begin{align*}
+			(a^m-b^m,a^n-b^n) & = (a^n-b^n,a^k-b^k)
+		\end{align*}
 		Note that, this is the descending step of Euclidean algorithm! If we repeat the same process a couple of times, we would eventually reach $(m,n)$ in the exponent.
 	\end{proof}
 
@@ -1413,7 +1479,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{definition}[Factorial]
 			Let $n$ be a positive integer. The \textit{factorial} of $n$, denoted by $n!$, is the product of all positive integers less than or equal to $n$. That is,
 				\begin{align*}
-					n! = 1 \times 2 \times \cdots \times n.
+					n! = 1 \times 2 \times \cdots \times n
 				\end{align*}
 			For convenience, we define $0!$ to be one.
 		\end{definition}
@@ -1421,7 +1487,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{definition}[Binomial Coefficient]
 			Let $n$ and $k$ be non-negative integers such that $k \leq n$. The \textit{Binomial Coefficient} indexed by $n$ and $k$ is denoted by $\displaystyle \binom{n}{k}$ (read ``\textit{$n$ choose $k$}'') and is equal to
 				\begin{align*}
-					\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+					\binom{n}{k} = \frac{n!}{k!(n-k)!}
 				\end{align*}
 		\end{definition}
 
@@ -1440,7 +1506,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{theorem}[Binomial Theorem]\slshape
 			For any positive integer $n$,
 				\begin{align*}
-					(a+b)^n & = a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n.
+					(a+b)^n & = a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n
 				\end{align*}
 		\end{theorem}
 
@@ -1453,7 +1519,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{proof}
 			From identity number \autoref{id:binomreduction} of theorem \autoref{thm:binom} in Appendix \autoref{ch:null}, we know that
 				\begin{align*}
-					k\binom{p}{k} & = p\binom{p-1}{k-1}.
+					k\binom{p}{k} & = p\binom{p-1}{k-1}
 				\end{align*}
 			Obviously, the right side is divisible by $p$, so must be the left side. From the definition of prime numbers, $p\bot k$. So, by the second part of the previous proposition, we can say $p$ must divide $\binom{p}{k}$.
 		\end{proof}
@@ -1505,7 +1571,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			The left side contains more than just a $n$, but it does not make any difference. We have $n+1 \mid 3(n+1)=3n+3$ and it is given in the problem that $n+1 \mid 3n+4$. Subtracting,
 				\begin{align*}
 					n+1
-						&\mid 3n+4-(3n+3)=1,
+						&\mid 3n+4-(3n+3)=1
 				\end{align*}
 			which means $n+1$ must be $1$. This is impossible because $n+1$ is a positive integer greater than $1$.
 		\end{solution}
@@ -1521,7 +1587,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			There are coefficients on both sides of divisibility now. Still it can be overridden but it is a bit tricky. See that $4n+2\mid 3(4n+2)=12n+6$ and also $4n+2 \mid 2(6n+5)=12n+10$. Now that the coefficients are matched, we can subtract and find
 				\begin{align*}
-					4n+2\mid 12n+10-(12n+6)=4.
+					4n+2\mid 12n+10-(12n+6)=4
 				\end{align*}
 			So, $4n+2$ must be one of $1,2$, or $4$. None of these values give a valid solution for $n$.
 		\end{solution}
@@ -1533,8 +1599,8 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			Our working principle is: we want to eliminate the variables on the right side so we get a constant value. That is, we want the right side to be a number, not a variable. In order to do this, we must construct two divisibility relations to subtract from each other and get a constant value. In other words, we have to find $a$ and $b$ such that the difference of right sides of $8n+9 \mid a(8n+9)$ and $8n+9 \mid b(12n+5)$ does not include $n$. So, the coefficients of $n$ must be equal in the two. The minimum value for this common coefficient will be the $\lcm$ of $8$ and $12$, which is $[8,12]=24$. Therefore, $a=3$ and $b=2$ and hence,
 				\begin{align*}
-					8n+9 & \mid 3(8n+9) =24n+27,\\
-					8n+9 & \mid 2(12n+5) =24n+10.
+					8n+9 & \mid 3(8n+9) =24n+27\\
+					8n+9 & \mid 2(12n+5) =24n+10
 				\end{align*}
 			Thus, $8n+9\mid 24n+27-(24n+10)=17$ and $8n+9$ is either $1$ or $17$. The equation $8n+9=1$ does give a valid solution. So, the only solution is obtained from $8n+9=17$, which gives $n=1$.
 		\end{solution}
@@ -1546,8 +1612,12 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			We are asked to find positive integers which would divide $n+4$ and $n+12$ both, no matter what. If $d$ is such a positive integer then
 				\begin{align*}
-					d\mid n+4 & , d\mid n+12\\
-					d\mid (n+12)&-(n+4)=8
+					d
+						& \mid n+4\\
+					d
+						& \mid n+12\\
+					d
+						& \mid (n+12)-(n+4)=8
 				\end{align*}
 			We immediately get that $d\in\{1,2,4,8\}$.
 		\end{solution}
@@ -1567,8 +1637,8 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			Since $[8,7]=56$, the two required relations would be
 				\begin{align*}
-					7n+1 & \mid 8(7n+1)=56n+8,\\
-					7n+1 & \mid 7(8n+55)=56n+385.
+					7n+1 & \mid 8(7n+1)=56n+8\\
+					7n+1 & \mid 7(8n+55)=56n+385
 				\end{align*}
 			By subtracting, we find $7n+1\mid 377$. Now, we have to find divisors of $377$. When you are stuck with finding divisors, instead of trying random numbers or testing the numbers $2,3,4,5,\ldots$ serially to find if they divide $377$, try a more efficient approach which reduces your effort significantly. By proposition \eqref{factorsqrt}, if $n$ is composite, then it must have a prime factor less than or equal to $\sqrt{n}$.  Since $\sqrt{377} \approx 19.4$, it suffices to check which primes less than or equal to $19$ divide $377$. These primes are $2,3,5,7,11,13,17,19$.
 				\begin{itemize}
@@ -1589,15 +1659,18 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}[First Solution]
 			 First, multiply $n+3$ by $n$ to get
 				\begin{align*}
-					n+3 \mid n^2+3n.
+					n+3 \mid n^2+3n
 				\end{align*}
 			Now, subtract this from the given relation to find
 				\begin{align*}
-					n+3 \mid 3n-2.
+					n+3 \mid 3n-2
 				\end{align*}
 			The problem is now similar to the ones we solved earlier. In fact, subtracting
 				\begin{align*}
-					n+3 \mid 3n+9 \text{ and } n+3 \mid 3n-2,
+					n+3
+						& \mid 3n+9\\
+					n+3
+						& \mid 3n-2
 				\end{align*}
 			we obtain $n+3\mid 11$ which immediately gives $n=8$ as the only solution.
 		\end{solution}
@@ -1606,7 +1679,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			This one is more elegant. In order to avoid the second step, we can directly multiply $n+3$ by $n-3$ to obtain
 			\begin{align*}
 				n+3
-					& \mid n^2-9.
+					& \mid n^2-9
 			\end{align*}
 			Subtracting from the original relation, $n+3 \mid n^2+2-(n^2-9)$ or $n+3\mid 11$, and we find the same solution as before.
 		\end{solution}
@@ -1615,7 +1688,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			Find the greatest positive integer $x$ for which
 				\begin{align*}
 					x+10
-						& \mid x^3+10.
+						& \mid x^3+10
 				\end{align*}
 		\end{problem}
 
@@ -1623,7 +1696,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			Since $3$ is odd, we can use corollary \eqref{cor:a-b|a^n-b^n} to write $x+10 \mid x^3+10^3$. So,
 				\begin{align*}
 					x+10
-						& \mid (x^3+1000)-(x^3+10)=990,
+						& \mid (x^3+1000)-(x^3+10)=990
 				\end{align*}
 			and the answer is $x=980$.
 		\end{solution}
@@ -1641,7 +1714,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			\end{displayquote}
 			This is another common  mistake new problem solvers make. You can check this using an example: $14$ divides $28=7\times4$ but $14$ does not divide $7$. But in this problem, we can still take $n^4$ off because $n^4$ is relatively prime to $7n+1$. Just notice that $7n+1$ leaves a remainder of $1$ when divided by $n$, so $n\perp7n+1$. Evidently, $n^4\perp7n+1$ by part $4$ of proposition \eqref{prop:cpdiv}. Using part $2$ of the same proposition, we can cancel out $n^4$ and get
 				\begin{align*}
-					7n+1  \mid n^2+1.
+					7n+1  \mid n^2+1
 				\end{align*}
 			Multiply $n^2+1$ by $49$ to find $ 7n+1 \mid 49n^2+49$. On the other hand, $7n+1$ divides $(7n+1)(7n-1)=49n^2-1$, and so,
 				\begin{align*}
@@ -1653,7 +1726,10 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{remark}
 			We could handle the last part in another way. Write $7n+1\mid (n^2+1)-(7n+1)$, so that
 				\begin{align*}
-					7n+1  \mid n^2-7n \implies 7n+1\mid  n(n-7).
+					7n+1
+						& \mid n^2-7n\\
+					\implies 7n+1
+						& \mid  n(n-7)
 				\end{align*}
 			Again, $n\perp7n+1$ implies $7n+1\mid n-7$. If $n=7$, we have a solution. Otherwise, $7n+1$ would have a larger value than $|n-7|$ and we get a contradiction.
 		\end{remark}
@@ -1681,11 +1757,11 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			We can rewrite the equation as
 				\begin{align*}
-					\dfrac{x+y}{xy} & = \dfrac{1}{2015}.
+					\dfrac{x+y}{xy} & = \dfrac{1}{2015}
 				\end{align*}
 			Multiplying both sides by $2015xy$, we find $xy=2015(x+y)$. This can be represented as
 				\begin{align*}
-					(x-2015)(y-2015) & = 2015^2.
+					(x-2015)(y-2015) & = 2015^2
 				\end{align*}
 			According to theorem \autoref{thm:nos}, we get that the number of solutions is the number of positive divisors of $2015^2$, $\tau(2015^2)$.
 		\end{solution}
@@ -1704,7 +1780,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 					2^n+n   & \mid (2^n)^3+n^3 \\
 					\implies  2^n+n & \mid 8^n+n^3\\
 					\implies 2^n+n	& \mid (8^n+n^3)-(8^n+n)\\
-					\implies 2^n+n & \mid n^3-n.
+					\implies 2^n+n & \mid n^3-n
 				\end{align*}
 			Now we need to find all $n$ such that $2^n+n\mid n^3-n$. If you play around with the small values of $n$, you will clearly see that $2^n$ grows a lot faster than $n^3$. Since $2^n+n\mid n^3-n$, we must have
 				\begin{align*}
@@ -1726,19 +1802,19 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{enumerate}
 			\item Let $g=(14n+3,21n+4)$. Then,
 			\begin{align*}
-				g & \mid 14n+3,\\
-				g & \mid 21n+4.
+				g & \mid 14n+3\\
+				g & \mid 21n+4
 			\end{align*}
 		We already know we have to prove that $g=1$. So, let us try to remove the $n$ on the right side. Since $[14,21]=42$ and $42=14\cdot3=21\cdot2$, we can make use of the following two relations:
 			\begin{align*}
-				g & \mid 3(14n+3) = 42n+9,\\
-				g & \mid  2(21n+4)= 42n+8.
+				g & \mid 3(14n+3) = 42n+9\\
+				g & \mid  2(21n+4)= 42n+8
 			\end{align*}
 		Thus, $g\mid (42n+9)-(42n+8)=1$ and $g=1$.
 
 			\item Take $14n+3=gx$ and $21n+4=gy$ for some integers $x$ and $y$. Note that $3(14n+3)-2(21n+4) = 1$, and so
 			\begin{align*}
-				 3gx-2gy  & = 1,
+				 3gx-2gy  & = 1
 			\end{align*}
 		or $g(3x-2y) = 1.$ So, $g\mid 1$ and this gives us the same result $g=1$.
 		\end{enumerate}
@@ -1756,7 +1832,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		According to theorem \autoref{thm:factorizeintopowersoftwo}, write $n=2^ms$, where $s$ is an odd positive integer. By theorem \eqref{id:fatandthin}, we can write
 			\begin{align*}
 				p = 2^n+1 &= 2^{2^{m}s}+1 = \left(2^{2^{m}}\right)^s+1\\
-				   		  &=\left(2^{2^m}+1\right)\left(2^{2^{m}(s-1)}+2^{2^{m}(s-2)}+ \cdots + 2^{2^{m}}+1\right).
+				   		  &=\left(2^{2^m}+1\right)\left(2^{2^{m}(s-1)}+2^{2^{m}(s-2)}+ \cdots + 2^{2^{m}}+1\right)
 			\end{align*}
 		Clearly, as $p$ is a prime, this is impossible unless $s=1$. So $n=2^m$.
 	\end{solution}
@@ -1764,29 +1840,33 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Find all integer solutions to the equation
 			\begin{align*}
-				a(b+1)+b(c+1)+c(a+1)+abc=0.
+				a(b+1)+b(c+1)+c(a+1)+abc=0
 			\end{align*}
 	\end{problem}
 
 	\begin{solution}
 		Yes, this looks similar to \textbf{SFFT}. It has three variables instead of two, so we cannot directly use Simon's trick. However, if you already learned the motivation behind that trick, the form of the problem does not matter. Here, $1$ is missing! Add it to both sides to get
 			\begin{align*}
-				abc+ab+bc+ca+a+b+c+1=1.
+				abc+ab+bc+ca+a+b+c+1=1
 			\end{align*}
 		The left hand side shows you how SFFT looks like for three variables. Try to compute $(a+j)(b+k)(c+\ell)$ and remember it. You will soon realize that the left hand side of the above equation factors as $(a+1)(b+1)(c+1)$. Therefore,
 			\begin{align*}
-				(a+1)(b+1)(c+1)=1.
+				(a+1)(b+1)(c+1)=1
 			\end{align*}
 		The rest of the solution is just case work. If the product of three integers equals $1$, what can they be? The solutions are
 			\begin{align*}
-				(a,b,c)=(0,0,0), (-2,-2,0), (-2,0,-2), (0,-2,-2).
+				(a,b,c)
+					& \in\{(0,0,0), (-2,-2,0), (-2,0,-2), (0,-2,-2)\}
 			\end{align*}
 	\end{solution}
 
 	\begin{problem}[Turkey TST 2014, Day 2, Problem 4]
 		Find all odd positive integers $m$ and $n$ such that
 			\begin{align*}
-				n\mid 3m+1 \mbox{ and } m\mid n^2+3.
+				n
+					& \mid 3m+1\\
+				m
+					& \mid n^2+3
 			\end{align*}
 	\end{problem}
 
@@ -1795,17 +1875,17 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 
 		Write $n\mid 3m+1$ as $3m+1=nk$ or $m=\frac{nk-1}{3}$. Now try to rewrite the second divisibility relation as
 			\begin{align*}
-				& \frac{nk-1}{3} \bigg| n^2 + 3 \\
+				& \frac{nk-1}{3} \mid n^2 + 3 \\
 				\stackrel{\times 3}{\implies} & nk-1\mid 3n^2+9 \\
-				\stackrel{\times k}{\implies} & nk-1\mid 3n^2k+9k.
+				\stackrel{\times k}{\implies} & nk-1\mid 3n^2k+9k
 			\end{align*}
 		On the other hand, we know that $nk-1\mid 3n(nk-1)=3n^2k-3n$. Subtract these two last divisibility relations to find
 			\begin{align*}
-				nk-1 \mid 3n+9k,
+				nk-1 \mid 3n+9k
 			\end{align*}
 		which in turn implies $nk-1 \leq 3n+9k$. This inequality can be simplified using \textbf{SFFT} in this way:
 			\begin{align*}
-				nk-3n-9k\leq 1 \stackrel{\text{add }27}{\implies} (n-9)(k-3) \leq 28.
+				nk-3n-9k\leq 1 \stackrel{\text{add }27}{\implies} (n-9)(k-3) \leq 28
 			\end{align*}
 		Notice that we have found the limit we wanted! The solution is almost obvious from here on, because one can manually put all possible values for $n$ and $k$ such that $(n-9)(k-3) \leq 28$ and pick those which satisfy the problem conditions ($n\mid 3m+1$ and $m\mid n^2+3$). In order to avoid this tedious endeavor, we start a proper case work.
 
@@ -1814,27 +1894,29 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				\item If $k=2$, then from $nk-1\mid 3n+9k$ we have $2n-1\mid 3n+18$, and thus
 					\begin{align*}
 						2n-1
-							& \mid 2(3n+18)-3(2n-1)=39.
+							& \mid 2(3n+18)-3(2n-1)=39
 					\end{align*}
 				 This means that $2n-1=1, 3, 13$, or $39$. None of these values make a solution for the problem.
 
 				\item If $k=4$, then from $nk-1\mid 3n+9k$ we have $4n-1\mid 3n+36$, and thus
 					\begin{align*}
 						4n-1
-							& \mid 4(3n+36)-3(4n-1)=147.
+							& \mid 4(3n+36)-3(4n-1)=147
 					\end{align*}
 				This means that $4n-1=1, 3, 7, 21, 49$, or $147$. Checking the values of $n$, we find that $n=1$ and $n=37$ satisfy the conditions of the problem and give us the solutions $(m,n)=(1,1)$ and $(m,n)=(49,37)$.
 
 				\item If $k\geq 6$, then the inequality $(n-9)(k-3) \leq 28$ can be transformed to
 					\begin{align*}
-						(n-9) \leq \frac{28}{k-3} \leq \frac{28}{3},
+						(n-9)
+							& \leq \frac{28}{k-3}\\
+							& \leq \frac{28}{3}
 					\end{align*}
 				which means $n\leq 9+28/3$. Since $n$ is a positive integer, the latter inequality simplifies to $n \leq 18$ (why?). Also, $n$ is odd, so we have to check only the numbers $n=1, 3, 5, 7, 9, 11, 13, 15$, and $17$. In this case, only $n=13$ gives a valid solution (check it) and it is $(m,n)=(43,13)$.
 			\end{enumerate}
 		Finally, the solutions are
 			\begin{align*}
 				(m,n)
-					& =(1,1), (49,37), (43,13).
+					& \in\{(1,1), (49,37), (43,13)\}
 			\end{align*}
 	\end{solution}
 \newpage
@@ -1857,7 +1939,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Let $x, y$, and $z$ be integers such that
 			\begin{align*}
-				(x-y)^2+(y-z)^2+(z-x)^2 = xyz.
+				(x-y)^2+(y-z)^2+(z-x)^2 = xyz
 			\end{align*}
 		Prove that $(x+y+z+6)$ divides $(x^3+y^3+z^3)$.
 	\end{problem}
@@ -1884,7 +1966,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Let $F(n) = 13^{6n+1} + 30^{6n+1} + 100^{6n+1} + 200^{6n+1}$ and define
 			\begin{align*}
-				G(n) = 2F(n) + 2n(n - 2)F(1) - n(n - 1)F(2).
+				G(n) = 2F(n) + 2n(n - 2)F(1) - n(n - 1)F(2)
 			\end{align*}
 		Prove by induction that for all integers $n \geq 0$, $G(n)$ is divisible by $7^3$. %42
 	\end{problem}
@@ -2043,7 +2125,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}[IMO 1979, Problem 1]
 		If $p$ and $q$ are positive integers so that
 			\begin{align*}
-				\frac{p}{q}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+ \cdots -\frac{1}{1318}+\frac{1}{1319},
+				\frac{p}{q}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+ \cdots -\frac{1}{1318}+\frac{1}{1319}
 			\end{align*}
 		prove that $p$ is divisible with $1979$. %760
 	\end{problem}
@@ -2290,7 +2372,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Determine all pairs $(m, n)$ of positive integers such that $m>n$ and
 			\begin{align*}
-				1 = \gcd(n+1,m+1) = \gcd(n+2,m+2) = \cdots = \gcd(m,2m-n).
+				1 = \gcd(n+1,m+1) = \gcd(n+2,m+2) = \cdots = \gcd(m,2m-n)
 			\end{align*}
 	\end{problem}
 
@@ -2360,7 +2442,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Find all pairs of positive integers $(a, b)$ such that
 			\begin{align*}
-				ab=160 + 90 \gcd(a,b).
+				ab=160 + 90 \gcd(a,b)
 			\end{align*}
 		 %146
 	\end{problem}
@@ -2387,7 +2469,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Let $\{a_n\}_{n\geq 1}$ be a sequence of positive integers such that if $i \neq j$, then
 			\begin{align*}
-				\gcd(a_i,a_j)=\gcd(i,j).
+				\gcd(a_i,a_j)=\gcd(i,j)
 			\end{align*}
 		Prove that $a_n=n$ for all positive integers $n$. %291
 	\end{problem}
@@ -2453,7 +2535,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		A function $f:\mathbb{N}\to\mathbb{N}$ is \textit{multiplicative} if $f(mn)=f(m)f(n)$ for all relatively prime positive integers $m$ and $n$. Define the function $f: \mathbb{N}\to\mathbb{N}$ as follows:
 			\begin{align*}
-				f\left(n\right)=\sum_{i=1}^n\gcd\left(i, n\right).
+				f\left(n\right)=\sum_{i=1}^n\gcd\left(i, n\right)
 			\end{align*}
 		\begin{itemize}
 			\item Prove that the function $f$ is multiplicative.
@@ -2630,7 +2712,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}[British Mathematical Olympiad 2005] %https://artofproblemsolving.com/community/c6h624387
 		The integer $N$ is positive. There are exactly $2005$ ordered pairs $(x, y)$ of positive integers satisfying
 			\begin{align*}
-				\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{N}.
+				\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{N}
 			\end{align*}
 		Prove that $N$ is a perfect square.
 	\end{problem}
@@ -2642,21 +2724,21 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem} %https://artofproblemsolving.com/community/c6h582419
 		Determine all positive integer numbers $m$ and $n$ such that
 			\begin{align*}
-				\dfrac{1}{m}+\dfrac{1}{n}-\dfrac{1}{mn}=\dfrac{2}{5}.
+				\dfrac{1}{m}+\dfrac{1}{n}-\dfrac{1}{mn}=\dfrac{2}{5}
 			\end{align*}
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h455343
 		Find all triples $(a,b,c)$ of positive integers such that
 			\begin{align*}
-				\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}=1.
+				\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}=1
 			\end{align*}
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1069822
 		Find all triples $(x,y,z)$ of positive integers which satisfy
 			\begin{align*}
-				\dfrac{1}{x}+\dfrac{2}{y}+\dfrac{3}{z}=1.
+				\dfrac{1}{x}+\dfrac{2}{y}+\dfrac{3}{z}=1
 			\end{align*}
 	\end{problem}
 

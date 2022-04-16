@@ -1,14 +1,15 @@
 \documentclass[12pt]{subfile}
 
 \begin{document}
-	Lagrange's theorem in polynomial congruency is a really influential result in number theory. It has many implications and applications. And it is so important that we decided to keep it in this book even though we are not discussing polynomials or polynomial congruency in the current book. We just need the following simple definition.
+	Lagrange's theorem in polynomial congruence is a really influential result in number theory. It has many implications and applications. And it is so important that we decided to keep it in this book even though we are not discussing polynomials or polynomial congruence in the current book. We just need the following simple definition.
 
 		\begin{definition}
 			A polynomial is an expression consisting of variables and coefficients which only employs the operations of addition, subtraction, multiplication, and non-negative integer exponents.
 		\end{definition}
 
 		\begin{example}
-			An example of a polynomial of a single variable $x$ and with integer coefficients is $P(x)=x^4+3x^2 + x -8$. An example in three variables and rational coefficients is $$P(x,y,z)=2x^3 + \frac{4}{5}xy- 7xyz + 3zy^2 - 6.$$
+			An example of a polynomial of a single variable $x$ and with integer coefficients is $P(x)=x^4+3x^2 + x -8$. An example in three variables and rational coefficients is
+				$$P(x,y,z)=2x^3 + \dfrac{4}{5}xy- 7xyz + 3zy^2 - 6$$
 		\end{example}
 
 		\begin{note}
@@ -18,7 +19,7 @@
 		\begin{definition}
 			Consider a polynomial $P(x)$ with integer coefficients. The \textit{degree} of $P(x)$ is the largest exponent of $x$ in $P(x)$. That is, if
 				\begin{align*}
-					P(x)=a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1 x +a_0,
+					P(x)=a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1 x +a_0
 				\end{align*}
 			 where $a_i$, $0 \leq i \leq n$ are integers and $a_n \neq 0$, then the degree of $P(x)$ is $n$. We show this by $\deg P(x)=n$.
 		\end{definition}
@@ -168,7 +169,7 @@
 		\begin{proof}[Proof of Wilson's Theorem]
 			The theorem is true when $p=2$. Therefore, it is safe to assume that $p$ is odd. Put $x=1$ in \autoref{thm:lag2} to obtain
 				\begin{align*}
-					2\times 3 \times \cdots \times p & = 1+(a_1+\cdots+a_{p-2})+(p-1)!,
+					2\times 3 \times \cdots \times p & = 1+(a_1+\cdots+a_{p-2})+(p-1)!
 				\end{align*}
 			and so,
 				\begin{align*}
@@ -184,7 +185,7 @@
 				\end{align*}
 			Here, left side is divisible by $p$ so must be right side. Again, since $a_1,\ldots,a_{p-2}$ are multiples of $p$, we have $x^{p-1}+(p-1)!$ is a multiple of $p$.
 				\begin{align*}
-					x^{p-1} & \equiv-(p-1)!\pmod p.
+					x^{p-1} & \equiv-(p-1)!\pmod p
 				\end{align*}
 			Hence, by Wilson's theorem, $x^{p-1} \equiv 1 \pmod p$, which finishes the proof.
 		\end{proof}

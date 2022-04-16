@@ -14,20 +14,20 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{problem}
     	Show that there exist no positive integers $x$ and $y$ such that
     	\begin{align*}
-    		2^{6x+1} + 1 = 3^{2y}.
+    		2^{6x+1} + 1 = 3^{2y}
     	\end{align*}
     \end{problem}
 
     \begin{solution}
     	The idea is that the largest power of $3$ which divides the right side of the given equation, should be the same as that of the left side. Clearly, $v_3(3^{2y})=2y$. Let's find $v_3\left(2^{6x+1} + 1\right)$. Since $6x+1= 2 \cdot 3 \cdot x +1$ is odd, we can write
     	\begin{align*}
-    		2^{6x+1} + 1 = \left(2+1\right) \left(2^{6x} - 2^{6x-1} + 2^{6x-2} - \cdots - 2 + 1\right).
+    		2^{6x+1} + 1 = \left(2+1\right) \left(2^{6x} - 2^{6x-1} + 2^{6x-2} - \cdots - 2 + 1\right)
     	\end{align*}
     	$\left(2^{6x} - 2^{6x-1} + 2^{6x-2} - \cdots - 2 + 1\right)$ is not divisible by $3$ (try to figure out why, using induction on $x$). Therefore
     	\begin{align*}
     		v_3\left(2^{6x+1} + 1\right) &= v_3\left(2+1\right) + v_3\left(2^{6x} - 2^{6x-1} + 2^{6x-2} - \cdots - 2 + 1\right)\\
     		& = 1 + 0\\
-    		& = 1.
+    		& = 1
     	\end{align*}
     	This means that $2y=1$, which is impossible since $y$ is an integer.
     \end{solution}
@@ -37,7 +37,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{lemma}\label{lem:lte-firstlemma}
          Let $x$ and $y$ be (not necessarily positive) integers and let $n$ be a positive integer. Given an arbitrary prime $p$ (in particular, we can have $p=2$) such that $ \gcd(n,p) = 1$, $p \mid  x - y$ and neither $x$, nor $y$ is divisible by $p$ (i.e., $p \nmid x$ and $p \nmid y$).  We have
            \begin{align*}
-	            v_p\big(  x^n - y^n \big) = v_p(  x - y ).
+	            v_p\big(  x^n - y^n \big) = v_p(  x - y )
            \end{align*}
     \end{lemma}
 
@@ -45,7 +45,7 @@ Here is a problem which will explain the main idea behind LTE.
         We use the fact that
 
         \begin{align*}
-        x^n - y^n = (x - y)\big(x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}\big).
+        x^n - y^n = (x - y)\big(x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}\big)
         \end{align*}
         Now if we show that $p \nmid x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}$, then we are done.
         In order to show this, we use the assumption $p \mid x-y.$  So we have $x-y \equiv 0 \pmod p,$
@@ -54,7 +54,7 @@ Here is a problem which will explain the main idea behind LTE.
         x^{n - 1} + & x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1} \\
         & \equiv x^{n-1} +x^{n-2}  \cdot x +x^{n - 3} \cdot x^2 +\cdots +x \cdot x^{n-2} + x^{n-1} \\
         & \equiv n x^{n-1} \\
-        & \not\equiv 0 \pmod p.
+        & \not\equiv 0 \pmod p
         \end{align*}
         This completes the proof.
        \end{proof}
@@ -63,14 +63,17 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{lemma}\label{secondlemma}
         Let $ x$ and $y$ be (not necessarily positive) integers and let $n$ be an odd positive integer. Given an arbitrary prime $p$ (in particular, we can have $p=2$) such that $ \gcd(n,p) = 1$, $p\mid x + y$ and neither $x$, nor $y$ is divisible by $p$, we have
         \begin{align*}
-	        v_p\big(  x^n + y^n \big) = v_p ( x + y ).
+	        v_p\big(  x^n + y^n \big) = v_p ( x + y )
         \end{align*}
     \end{lemma}
 
     \begin{proof}
         Since $x$ and $y$ can be negative in lemma \eqref{lem:lte-firstlemma} we only need to put $(-y)^n$ instead of $y^n$ in the formula to obtain
 	         \begin{align*}
-		         v_p\big( x^n - (-y)^n \big) = v_p ( x - (-y)) \implies v_p\big(x^n + y^n\big) = v_p(x+y).
+		         v_p\big( x^n - (-y)^n \big)
+		         	& = v_p ( x - (-y))\\
+		         \implies v_p\big(x^n + y^n\big)
+		         	& = v_p(x+y)
 	         \end{align*}
         Note that since $n$ is an odd positive integer we can replace $(-y)^n$ with $-y^n$.
     \end{proof}
@@ -80,14 +83,14 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{theorem}[First Form of LTE]\label{theorem1}
         Let $ x$ and $y$ be (not necessarily positive) integers, let $n$ be a positive integer, and let $p$ be an odd prime such that $ p \mid x - y$ and none of
         $x$ and $y$ is divisible by $p$ (i.e., $p \nmid x$ and $p \nmid y$).  We have
-        \[ v_p(  x^n - y^n ) = v_p(  x - y ) + v_p  (n ).\]
+        \[ v_p(  x^n - y^n ) = v_p(  x - y ) + v_p  (n )\]
     \end{theorem}
 
 
     \begin{proof}
         We may use induction on $v_p(n).$ First, let us prove the following statement:
             \begin{equation}\label{equation1}
-                v_p(  x^p - y^p ) = v_p  ( x - y ) + 1.
+                v_p(  x^p - y^p ) = v_p  ( x - y ) + 1
             \end{equation}
         In order to prove this, we will show that
             \begin{equation}\label{equation2}
@@ -95,23 +98,24 @@ Here is a problem which will explain the main idea behind LTE.
             \end{equation}
         and
             \begin{equation}\label{equation3}
-                p^2 \nmid x^{p-1}+x^{p-2}y+\cdots+xy^{p-2}+y^{p-1}.
+                p^2 \nmid x^{p-1}+x^{p-2}y+\cdots+xy^{p-2}+y^{p-1}
             \end{equation}
         For \eqref{equation2}, we note that
         \begin{align*}
-        x^{p-1}+x^{p-2}y+\cdots+xy^{p-2}+y^{p-1} \equiv px^{p-1} \equiv 0 \pmod p .
+        x^{p-1}+x^{p-2}y+\cdots+xy^{p-2}+y^{p-1} \equiv px^{p-1} \equiv 0 \pmod p
         \end{align*}
-        Now, let $y=x+kp,$ where $k$ is an integer. For an integer $ 1  \leq t <p$ we have
+        Now, let $y=x+kp$ where $k$ is an integer. For an integer $ 1  \leq t <p$ we have
             \begin{align*}
-                y^t x^{p-1-t} & \equiv (x+kp)^t x^{p-1-t} \\
-                & \equiv x^{p-1-t} \left( x^t + t(kp)(x^{t-1})+ \frac{t(t-1)}{2} (kp)^2 (x^{t-2}) +\cdots \right) \\
-                & \equiv x^{p-1-t} \left( x^t + t(kp)(x^{t-1}) \right) \\
-                & \equiv x^{p-1}+tkpx^{p-2} \pmod{p^2}.
+                y^t x^{p-1-t}
+                	& \equiv (x+kp)^t x^{p-1-t} \\
+	                & \equiv x^{p-1-t} \left( x^t + t(kp)(x^{t-1})+ \frac{t(t-1)}{2} (kp)^2 (x^{t-2}) +\cdots \right) \\
+	                & \equiv x^{p-1-t} \left( x^t + t(kp)(x^{t-1}) \right) \\
+	                & \equiv x^{p-1}+tkpx^{p-2} \pmod{p^2}
             \end{align*}
         This means
-            \[
-            y^t x^{p-1-t} \equiv x^{p-1}+tkpx^{p-2} \pmod{p^2}, \ \ t=1,2,\ldots,p-1.
-            \]
+            \begin{align*}
+            	y^t x^{p-1-t} \equiv x^{p-1}+tkpx^{p-2} \pmod{p^2}
+            \end{align*}
         Using this fact, we have
             \begin{align*}
                 x^{p-1}& +x^{p-2}y+\cdots+xy^{p-2}+y^{p-1} \\
@@ -119,11 +123,12 @@ Here is a problem which will explain the main idea behind LTE.
                 & \equiv px^{p-1} + \big(1+2+\cdots+p-1\big)kpx^{p-2} \\
                 & \equiv px^{p-1} + \left( \frac{p(p-1)}{2} \right) kpx^{p-2} \\
                 & \equiv px^{p-1} + \left( \frac{p-1}{2} \right) kp^2x^{p-1} \\
-                & \equiv px^{p-1} \not \equiv 0 \pmod{p^2}.
+                & \equiv px^{p-1}\\
+                & \not \equiv 0 \pmod{p^2}
             \end{align*}
         So we proved the relation \eqref{equation3} and the proof of equation \eqref{equation1} is complete.  Now let us return to our problem. We want to show that
             \begin{align*}
-            v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n ).
+            	v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n )
             \end{align*}
         Suppose that $n=p^{\alpha}b$ where $\gcd(p,b)=1.$ Then
             \begin{align*}
@@ -133,7 +138,7 @@ Here is a problem which will explain the main idea behind LTE.
                 & = v_p\big(  x^{p^{\alpha-2}} - y^{p^{\alpha-2}} \big) + 2 \\
                 & \phantom{=} \vdots \\
                 & = v_p\big(  (x^{p^{1}})^1 - (y^{p^{1}})^1  \big) + \alpha -1  = v_p\big(  x-y \big) + \alpha \\
-                & =v_p\big(  x-y \big) + v_p\big(  n \big) .
+                & =v_p\big(  x-y \big) + v_p\big(  n \big)
             \end{align*}
 
         Note that we used the fact that if $p \mid x-y,$ then we have $p \mid x^k -y^k,$ because we have $x-y \mid x^k-y^k$ for all positive integers $k.$ The proof is complete.
@@ -144,7 +149,9 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{theorem}[Second Form of LTE]\label{theorem2}
         Let $ x,y$ be two integers, $n$ be an odd positive integer, and $p$ be an odd prime such that $ p\mid x + y$ and none of
         $x$ and $y$ is divisible by $p.$  We have
-        \[ v_p(  x^n + y^n ) = v_p(  x + y ) + v_p(  n ). \]
+        	\begin{align*}
+        		v_p(  x^n + y^n ) = v_p(  x + y ) + v_p(  n )
+        	\end{align*}
     \end{theorem}
 
     \begin{proof}
@@ -172,7 +179,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{theorem}[LTE for $p = 2$]
         Let $x$ and $y$ be two odd integers such that $4 \mid x-y.$ Then
          \begin{align*}
-         v_2  \big(x^n - y^n \big) = v_2  (x-y ) + v_2  (n ).
+         	v_2  \big(x^n - y^n \big) = v_2  (x-y ) + v_2  (n )
          \end{align*}
     \end{theorem}
 
@@ -180,7 +187,7 @@ Here is a problem which will explain the main idea behind LTE.
         We showed that for any prime $p$ such that $\gcd(p,n)=1, p \mid x-y$ and  none of $x$ and $y$ is divisible by $p,$ we have
             \[v_p(  x^n - y^n ) = v_p(  x - y )\]
         So it suffices to show that
-            \[v_2(  x^{2^{n}} - y^{2^{n}} ) = v_2(  x-y ) + n.\]
+            \[v_2(  x^{2^{n}} - y^{2^{n}} ) = v_2(  x-y ) + n\]
         Factorization gives
             \[x^{2^{n}} - y^{2^{n}} = (x^{2^{n-1}} + y^{2^{n-1}})(x^{2^{n-2}} + y^{2^{n-2}}) \cdots (x^2 + y^2 )(x + y)(x - y) \]
         Now since $x \equiv y \equiv \pm 1\pmod 4$ then we have $x^{2^{k}}  \equiv  y^{2^{k}} \equiv 1 \pmod 4$ for all positive integers $k$ and so $x^{2^{k}} + y^{2^{k}} \equiv 2 \pmod 4, k=1,2,3,\ldots.$ Also, since $x$ and $y$ are odd and $4\mid x-y$, we have $x+y \equiv 2\pmod 4$.
@@ -191,7 +198,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{theorem}
         Let $x$ and $y$ be two odd integers and let $n$ be an even positive integer. Then
         \begin{align*}
-        v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1.
+        v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1
         \end{align*}
     \end{theorem}
 
@@ -203,7 +210,7 @@ Here is a problem which will explain the main idea behind LTE.
                 & = v_2\big((x^2)^{2^{k-1}}-(y^2)^{2^{k-1}}\big) \\
                 & \phantom{=} \vdots \\
                 & =  v_2 \big( x^{2} - y^{2} \big) + k-1  \\
-                & = v_2 ( x - y )+v_2 ( x + y )+v_2 ( n )-1.
+                & = v_2 ( x - y )+v_2 ( x + y )+v_2 ( n )-1
             \end{align*}
     \end{proof}
 
@@ -216,32 +223,32 @@ Here is a problem which will explain the main idea behind LTE.
             \begin{itemize}
                 \item if $p \neq 2$ and $p \mid x-y,$ then
                  \begin{align*}
-                 v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n ).
+                 v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n )
                  \end{align*}
 
                 \item if $p=2$ and $4 \mid x-y,$ then
                 \begin{align*}
-                 v_2\big(  x^n - y^n \big) = v_2(  x-y ) + v_2(  n ).
+                 v_2\big(  x^n - y^n \big) = v_2(  x-y ) + v_2(  n )
                 \end{align*}
 
                 \item if $p=2$, $n$ is even, and $2\mid x-y,$ then
                 \begin{align*}
-                v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1.
+                v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1
                 \end{align*}
             \end{itemize}
 
         \item For an odd positive integer $n,$ if $p \mid x+y,$ then
 	            \begin{align*}
-                 v_p\big(  x^n + y^n \big) = v_p(  x + y ) + v_p(  n ).
+                 v_p\big(  x^n + y^n \big) = v_p(  x + y ) + v_p(  n )
                  \end{align*}
 
         \item For a positive integer $n$ with $\gcd(p,n)=1,$ if $p\mid x-y$, we have
          \begin{align*}
-         v_p\big(  x^n - y^n \big) = v_p(  x - y )  .
+         v_p\big(  x^n - y^n \big) = v_p(  x - y )
          \end{align*}
         \par If $n$ is odd, $\gcd(p,n)=1,$ and $p\mid x+y$, then we have
 		\begin{align*}
-		v_p\big(  x^n + y^n \big) = v_p(  x + y )  .
+		v_p\big(  x^n + y^n \big) = v_p(  x + y )
 		\end{align*}
 
     \end{enumerate}
@@ -267,13 +274,20 @@ Here is a problem which will explain the main idea behind LTE.
 	                &  >3^m \cdot 5^{k-2}\\
 	                & \geq 3^{m+k-2} \\
 	                & \geq 3^{m + v_3(k)}\\
-	                & = 3^n,
+	                & = 3^n
                 \end{align*}
                 which is a contradiction.
 
                 \item $m=1$. Then $x+y=3$, so $x=1, y=2$ (or $x=2, y=1$). Thus $3^{1+v_3(k)}= 1+2^k$. But note that
                 $3^{v_3(k)} \mid k$ so $3^{v_3(k)} \leq k$. Thus
-                \[1+2^k = 3^{v_3(k)+1} = 3 \cdot \underbrace{3^{v_3(k)}}_{\leq k} \leq 3k \implies 2^k +1 \leq 3k .\]
+                	\begin{align*}
+                		1+2^k
+                			& = 3^{v_3(k)+1}\\
+                			& = 3 \cdot \underbrace{3^{v_3(k)}}_{\leq k}\\
+                			& \leq 3k\\
+                		\implies 2^k +1
+                			& \leq 3k
+                	\end{align*}
                 And one can check that the only odd value of $k>1$ that satisfies the above inequality is $k=3$. So $(x,y,n,k)=(1,2,2,3), (2,1,2,3)$ in this case.
             \end{enumerate}
     Thus, the final answer is $n=2.$
@@ -283,7 +297,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{problem}[Balkan 1993]
         Let $p$ be a prime number and $m>1$ be a positive integer. Show that if for some positive integers $x>1, y>1$ we have
         \begin{align*}
-	        \frac{x^p+y^p}{2}= \left( \frac{x+y}{2} \right)^m,
+	        \frac{x^p+y^p}{2}= \left( \frac{x+y}{2} \right)^m
         \end{align*}
         then $m=p.$
     \end{problem}
@@ -295,26 +309,29 @@ Here is a problem which will explain the main idea behind LTE.
         	\end{align*}
         for all positive integers $p$. Now since
         	\begin{align*}
-        		\frac{x^p+y^p}{2}= \left( \frac{x+y}{2} \right)^m,
+        		\frac{x^p+y^p}{2}= \left( \frac{x+y}{2} \right)^m
         	\end{align*}
         we should have $ m \geq p$. Let $d=\gcd(x,y)$, so there exist positive integers
         $x_1$ and $y_1$ with $\gcd(x_1,y_1)=1$ such that $x=dx_1$, $y=dy_1$, and
         	\begin{align*}
-        		2^{m-1}(x_1^p+y_1^p)=d^{m-p}(x_1+y_1)^m.
+        		2^{m-1}(x_1^p+y_1^p)=d^{m-p}(x_1+y_1)^m
         	\end{align*}
         There are two cases:
 
         \begin{enumerate}
         	\item Assume that $p$ is odd. Take any prime divisor $q$ of $x_1+y_1$ and let $v=v_q(x_1+y_1)$. If $q$ is odd, we see that
         		\begin{align*}
-        			v_q(x_1^p +y_1^p)=v+v_q(p) \text{ and } v_q(d^{m-p}(x_1+y_1)^m) \geq mv
+        			v_q(x_1^p +y_1^p)
+        				& =v+v_q(p)\\
+        			v_q(d^{m-p}(x_1+y_1)^m)
+        				& \geq mv
         		\end{align*}
         	(because $q$  may also be a factor of $d$).
         	Thus $m\le 2$ and $p\le 2$, giving an immediate contradiction. If $q=2$, then $m-1+v\ge mv$, so $v\le 1$ and $x_1+y_1=2$, i.e., $x=y$, which immediately implies $m=p$.
 
         	\item Assume that $p=2$. We notice that for $x+y \geq 4$ we have
         		\begin{align*}
-        			\frac{x^2+y^2}2< 2\left(\frac{x+y}2\right)^2\le \left(\frac{x+y}2\right)^3,
+        			\frac{x^2+y^2}2< 2\left(\frac{x+y}2\right)^2\le \left(\frac{x+y}2\right)^3
         		\end{align*}
         	so $m=2$. It remains to check that the remaining cases $(x,y)=(1,2),(2,1)$ are impossible.
         \end{enumerate}
@@ -324,22 +341,28 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{problem}
         Find all positive integers $a,b$ that are greater than $1$ and satisfy
         	\begin{align*}
-	        	b^a | a^b-1.
+	        	b^a
+	        		& \mid a^b-1
         	\end{align*}
     \end{problem}
 
     \begin{solution}
         Let $p$ be the least prime divisor of $b$. Let $m$ be the least positive integer for which $p|a^m-1$. Then $m|b$ and $m\mid p-1$, so any prime divisor of $m$ divides $b$ and is less than $p$. Thus, not to run into a contradiction, we must have $m=1$. Now, if $p$ is odd, we have $av_p(b)\le v_p(a-1)+v_p(b)$, so
         	\begin{align*}
-	        	a-1\le (a-1)v_p(b)\le v_p(a-1),
+	        	a-1
+	        		& \le (a-1)v_p(b)\\
+	        		& \le v_p(a-1)
         	\end{align*}
         which is impossible. Thus $p=2$, $b$ is even, $a$ is odd, and
         	\begin{align*}
-        		av_2(b)\le v_2(a-1)+v_2(a+1)+v_2(b)-1
+        		av_2(b)
+        			& \le v_2(a-1)+v_2(a+1)+v_2(b)-1
         	\end{align*}
         whence
         	\begin{align*}
-        		a\le (a-1)v_2(b)+1\le v_2(a-1)+v_2(a+1)
+        		a
+        			& \le (a-1)v_2(b)+1\\
+        			& \le v_2(a-1)+v_2(a+1)
         	\end{align*}
         which is possible only if $a=3$ and $v_2(b)=1$. Put $b=2B$ with odd $B$ and rewrite the condition as $2^3B^3\mid 3^{2B}-1$. Let $q$ be the least prime divisor of $B$ (now, surely, odd). Let $n$ be the least positive integer such that $q\mid 3^n-1$. Then $n\mid 2B$ and $n\mid q-1$ whence $n$ must be $1$ or $2$ (or $B$ has a smaller prime divisor), so $q\mid 3-1=2$ or $q\mid 3^2-1=8$, which is impossible. Thus $B=1$ and $b=2$.
     \end{solution}
@@ -351,7 +374,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{solution}
         Factor 2009. We have $2009 = 7^2\cdot 41$. Since $x+y\mid x^{2009}+y^{2009}$ and $x+y>1$, we must have $7 \mid x+ y$. Removing the highest possible power of $7$ from $x, y$, we get
         	\begin{align*}
-        		v_7(x^{2009} + y^{2009}) = v_7(x + y)+ v_7(2009) = v_7(x +y) +2,
+        		v_7(x^{2009} + y^{2009}) = v_7(x + y)+ v_7(2009) = v_7(x +y) +2
         	\end{align*}
         so $x^{2009} + y^{2009} = 49\cdot k\cdot (x + y)$ where $7\nmid k$. But we have $x^{2009} + y^{2009} = 7^z$, which means the only prime factor of $x^{2009} + y^{2009}$ is $7$, so $k=1$. Thus $x^{2009} + y^{2009} = 49(x + y)$.  But in this equation the left hand side is much larger than the right hand one if $\max(x, y) > 1$, and, clearly, $(x, y) = (1, 1)$ is not a solution. Thus the given equation does not have any solutions in the set of positive integers.
     \end{solution}

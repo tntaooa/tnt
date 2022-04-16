@@ -10,7 +10,9 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 	\begin{example}
 		The $5$-reduced factorial of $10$, $(10!)_5$, is
 			\begin{align*}
-				(10!)_5 = 9 \times 8 \times 7 \times 6 \times 4 \times 3 \times 2 \times 1 = 72,576.
+				(10!)_5
+					& = 9 \times 8 \times 7 \times 6 \times 4 \times 3 \times 2 \times 1\\
+					& = 72,576
 			\end{align*}
 	\end{example}
 
@@ -18,7 +20,7 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 	\begin{theorem}\label{thm:reducedfactorialmodp}
 		Let $p$ be a prime number and let $(n_k n_{k-1}\cdots n_1 n_0)_p$ be a positive integer. Then
 			\begin{align*}
-				(n!)_p\equiv (-1)^{\left[\frac{n}{p}\right]} \cdot n_0!\pmod p.
+				(n!)_p\equiv (-1)^{\left[\frac{n}{p}\right]} \cdot n_0!\pmod p
 			\end{align*}
 	\end{theorem}
 
@@ -39,12 +41,12 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 		\end{align*}
 	which is equal to
 		\begin{align*}
-			&=\Bigg(\prod_{k=0}^{[\frac np]-1}\!\!\bigl(1\cdot2\cdots(p-1)\bigr)\Bigg)  \cdot
+			& \Bigg(\prod_{k=0}^{[\frac np]-1}\!\!\bigl(1\cdot2\cdots(p-1)\bigr)\Bigg)  \cdot
 			\bigl([\tfrac np]p+1\bigl)\bigl([\tfrac np]p+2\bigl)\dots\bigl([\tfrac np]p+n_0\bigl)\\
 			&\equiv \Bigg(\prod_{k=0}^{[\frac np]-1}\!\!\bigl(-1\bigr) \Bigg) \cdot \left(
 			1 \cdot 2 \cdots n_0\right)\\
 			&\equiv
-			(-1)^{[\frac np]} n_0!\pmod p.
+			(-1)^{[\frac np]} n_0!\pmod p
 		\end{align*}
 	\end{proof}
 
@@ -59,7 +61,10 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 	\begin{proof}
 		This is exactly the same as the proof of Wilson's theorem. All numbers in the product $(p^n!)_p$ have a multiplicative inverse modulo $p^n$. If the inverse of a number $a$ among these numbers is $b \neq a$, then $a b \equiv 1 \pmod{p^n}$ and we can remove $a$ and $b$ from the product $(p^n!)_p$. Our only concern is when the inverse of $a$ equals $a$ itself. But if that's the case, we have
 			\begin{align*}
-				a^2 \equiv 1 \pmod{p^n} \implies p^n| (a-1)(a+1).
+				a^2
+					& \equiv 1 \pmod{p^n}\\
+				\implies p^n
+					& \mid (a-1)(a+1)
 			\end{align*}
 		But since $(a-1,a+1)=2$, we should have $a \equiv \pm 1 \pmod{p^n}$, which means $a$ is either $1$ or $p^n-1$. All in all, we see that the product of all numbers in $(p^n!)_p$ except $p^n-1$ equals $1$ modulo $p^n$, and if we multiply this number by $p^n-1$, the result will be $-1$ modulo $p^n$.
 	\end{proof}
@@ -73,15 +78,16 @@ We are ready to prove the following theorem.
 	\begin{theorem}[Generalization of Wilson's Theorem]\label{thm:wilsongeneral}
 		Let $p$ be a prime number and let $(n_k n_{k-1}\cdots n_1 n_0)_p$ be the representation of a positive integer $n$ in base $p$. Then
 			\begin{align}\label{eq:wilsongeneral}
-				\dfrac{n!}{p^{v_p(n!)}}\equiv (-1)^{v_p(n!)} n_0!n_1!\dots n_k!\pmod p.
+				\dfrac{n!}{p^{v_p(n!)}}\equiv (-1)^{v_p(n!)} n_0!n_1!\dots n_k!\pmod p
 			\end{align}
 	\end{theorem}
 
 	\begin{proof}
 		According to theorem \eqref{thm:reducedfactorialmodp}, one can write
 			\begin{align*}
-				n! &= (n!)_p \cdot p^{\left\lfloor n/p\right\rfloor}\left(\left\lfloor\frac{n}{p}\right\rfloor\right)!\\
-				&\equiv (-1)^{\lfloor n/p\rfloor} n_0! \cdot p^{\lfloor n/p \rfloor}\left(\left\lfloor\frac{n}{p}\right\rfloor\right)!.
+				n!
+					& = (n!)_p \cdot p^{\left\lfloor n/p\right\rfloor}\left(\left\lfloor\frac{n}{p}\right\rfloor\right)!\\
+					& \equiv (-1)^{\lfloor n/p\rfloor} n_0! \cdot p^{\lfloor n/p \rfloor}\left(\left\lfloor\frac{n}{p}\right\rfloor\right)!
 			\end{align*}
 		Now write $(\lfloor \frac np\rfloor)!$ in the same way and continue this process. The result is concluded.
 	\end{proof}
@@ -92,29 +98,31 @@ We are ready to prove the following theorem.
 	\begin{theorem}[Generalization of Lucas' Theorem]
 		Let $p$ be a prime number and $m, n$, and $r$ be non-negative integers such that $r=m-n$ and
 			\begin{align*}
-				m&=m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0,\\
-				n&=k_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0,\\
-				r&=r_kp^k+r_{k-1}p^{k-1}+\cdots +r_1p+r_0.
+				m&=m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0\\
+				n&=k_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0\\
+				r&=r_kp^k+r_{k-1}p^{k-1}+\cdots +r_1p+r_0
 			\end{align*}
 		Also, let $\ell = v_p\left(\binom{m}{n}\right)$. Then
 			\begin{align*}
 				\frac1{p^\ell}\binom{m}{n}\equiv (-1)^\ell
-				\Bigl(\frac{m_0!}{n_0!r_0!}\Bigr) \Bigl(\frac{m_1!}{n_1!r_1!}\Bigr) \dots \Bigl(\frac{m_d!}{n_d!r_d!}\Bigr) \pmod p.
+				\Bigl(\frac{m_0!}{n_0!r_0!}\Bigr) \Bigl(\frac{m_1!}{n_1!r_1!}\Bigr) \dots \Bigl(\frac{m_d!}{n_d!r_d!}\Bigr) \pmod p
 			\end{align*}
 	\end{theorem}
 
 	\begin{proof}
 		Note that
 			\begin{align*}
-				\ell &= v_p\left(\binom{m}{n}\right) = v_p\left(\frac{m!}{n!r!}\right) = v_p(n!)-v_p(n!)-v_p(r!)\\
-				&=\sum_{i=1}^{k}\left\lfloor\dfrac{m}{p^i}\right\rfloor - \sum_{i=1}^{k}\left\lfloor\dfrac{n}{p^i}\right\rfloor -\sum_{i=1}^{k}\left\lfloor\dfrac{r}{p^i}\right\rfloor\\
-				&=\sum_{i=1}^{k}\left(\left\lfloor\dfrac{m}{p^i}\right\rfloor - \left\lfloor\dfrac{n}{p^i}\right\rfloor - \left\lfloor\dfrac{r}{p^i}\right\rfloor \right).
+				\ell
+					&= v_p\left(\binom{m}{n}\right) = v_p\left(\frac{m!}{n!r!}\right) = v_p(n!)-v_p(n!)-v_p(r!)\\
+					&=\sum_{i=1}^{k}\left\lfloor\dfrac{m}{p^i}\right\rfloor - \sum_{i=1}^{k}\left\lfloor\dfrac{n}{p^i}\right\rfloor -\sum_{i=1}^{k}\left\lfloor\dfrac{r}{p^i}\right\rfloor\\
+					&=\sum_{i=1}^{k}\left(\left\lfloor\dfrac{m}{p^i}\right\rfloor - \left\lfloor\dfrac{n}{p^i}\right\rfloor - \left\lfloor\dfrac{r}{p^i}\right\rfloor \right)
 			\end{align*}
 		Just like the proof of theorem \eqref{thm:wilsongeneral}, we can write
 			\begin{align*}
-				\binom {m}{n}=\frac{(m!)_p}{(n!)_p (r!)_p}\cdot
+				\binom {m}{n}
+					& =\frac{(m!)_p}{(n!)_p (r!)_p}\cdot
 				\frac{p^{\lfloor m/p\rfloor}}{p^{\lfloor n/p\rfloor} \cdot p^{\lfloor r/p\rfloor}}\cdot
-				\frac{\left\lfloor\dfrac{m}{p}\right\rfloor!}{\left\lfloor\dfrac{n}{p}\right\rfloor! \cdot \left\lfloor\dfrac{r}{p}\right\rfloor!}.
+				\frac{\left\lfloor\dfrac{m}{p}\right\rfloor!}{\left\lfloor\dfrac{n}{p}\right\rfloor! \cdot \left\lfloor\dfrac{r}{p}\right\rfloor!}
 			\end{align*}
 		Use induction and generalization of Wilson's theorem to finish the proof.
 	\end{proof}

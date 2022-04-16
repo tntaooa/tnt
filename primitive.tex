@@ -3,7 +3,7 @@
 \begin{document}
 Recall the examples we took while discussing Fermat's little theorem. We were working with something like $2^6\pmod7$ or $6^6\pmod7$. While calculating, we found that $6^2\equiv1\pmod7$ or $2^3\equiv1\pmod7$ which eventually led to $6^6\equiv1\pmod7$ and $2^6\pmod7$. Along with the ideas we used there, did you conjecture anything else? We left a hint when we said that since $6^2\equiv1\pmod7$, $6^4\equiv1\pmod7$ and $6^6\equiv1\pmod7$ as well. We hope that this is sort of obvious by now. But it should also trigger you to think of something. If we can find the smallest exponent for which $2^x\equiv1\pmod7$, then we can say $2^y\equiv1\pmod7$ for all multiples of $x$ ($y$ here). We will shortly prove this formally. Moreover, it also encourages us to study these \textit{smallest }values for which we get $1$. The motivation is obvious. Whenever we get $1$, we get a cycle of remainders from which point, the remainders repeat. Just finish the examples above if you did not entirely understand what we meant. We call this smallest integer order. And it should be clear to you why the study of order is important.
 	\begin{definition}[Order Modulo Integers]
-		Let $a$ and $n$ be co-prime positive integers. If $x$ is the smallest positive integer such that  \[a^x\equiv1\pmod n,\] then $x$ is called the \textit{order} of $a$ modulo $n$. We denote this by $\ord_n(a)=x$.
+		Let $a$ and $n$ be co-prime positive integers. If $x$ is the smallest positive integer such that  \[a^x\equiv1\pmod n\] then $x$ is called the \textit{order} of $a$ modulo $n$. We denote this by $\ord_n(a)=x$.
 	\end{definition}
 
 	\begin{example}
@@ -11,7 +11,7 @@ Recall the examples we took while discussing Fermat's little theorem. We were wo
 	\end{example}
 
 
-	\begin{theorem}\slshape\label{thm:ordDiv}
+	\begin{theorem}\label{thm:ordDiv}
 		Let $a$ and $n$ be positive integers. If $\ord_n(a)=d$ and $a^x\equiv1\pmod n$, then $d|x$.
 	\end{theorem}
 
@@ -43,7 +43,7 @@ We can use this result to find orders in practice. We only need to check for div
 		$a^k\equiv a^l\pmod n$ implies $a^{k-l} \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, we have $\ord_n(a) | k-l$. The reverse of this approach can be applied to prove the other part of the corollary.
 	\end{proof}
 One could ask if we know the order of $a$ modulo $n$, how do we find the order of other powers of $a$. Or, if we know order of $a$ modulo two positive integers $m$ and $n$, then what would be the order of $a$ modulo $mn$?
-	\begin{theorem}\slshape
+	\begin{theorem}
 		If $m$ and $n$ are relatively prime positive integers such that $\ord_m(a)=d$ and $\ord_n(a)=e$, then $\ord_{mn}(a)=[d,e]$.\label{thm:ordL}
 	\end{theorem}
 
@@ -51,7 +51,7 @@ One could ask if we know the order of $a$ modulo $n$, how do we find the order o
 		Let $\ord_{mn}(a)=h$, so
 			\begin{align*}
 				a^h
-					& \equiv1\pmod {mn},
+					& \equiv1\pmod {mn}
 			\end{align*}
 		which gives $a^h\equiv1\pmod m$ and $a^h\equiv1\pmod n$ as well. By \autoref{thm:ordDiv}, since $d$ and $e$ are order of $a$ modulo $m$ and $n$, respectively, we have $d|h$ and $e|h$. Therefore, for the minimum $h$, we must have $h=[d,e]$ to satisfy the conditions.
 	\end{proof}
@@ -78,7 +78,7 @@ One could ask if we know the order of $a$ modulo $n$, how do we find the order o
 		Again, by Theorem \eqref{thm:ordDiv}, we have $h|kl$. This finishes the proof.
 	\end{proof}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		If the order of $a$ modulo $n$ is $d$, then the order of $a^k$ modulo $n$ is $d/{(d,k)}$.
 	\end{theorem}
 
@@ -89,16 +89,18 @@ One could ask if we know the order of $a$ modulo $n$, how do we find the order o
 			\end{align*}
 		and since $l\bot e$, $e$ must divide $h$. Since $dl=ke=gel$,
 			\begin{align*}
-				\left(a^k\right)^{e} & \equiv \left(a^d\right)^{l} \equiv 1\pmod n.
+				\left(a^k\right)^{e}
+					& \equiv \left(a^d\right)^{l}\\
+					& \equiv 1\pmod n
 			\end{align*}
 		This means that the order of $a^k$ modulo $n$ must divide $e$. So, $h$ divides $e$ as well. We get that $$h=e=\dfrac{d}{(d,k)}$$ must hold.
 	\end{proof}
 The previous theorem also implies the following one.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		The order of $a$ modulo $n$ is the same as the order of $a^k$ modulo $n$ if and only if $(k,n)=1$.
 	\end{theorem}
 Here is a very useful theorem, often used to solve Diophantine equations.
-	\begin{theorem}\label{thm:cyclodiv}\slshape
+	\begin{theorem}\label{thm:cyclodiv}
 		Let $q$ be a prime and $x$ be a positive integer. Every prime divisor of the number
 			\begin{align*}
 				1+x+\cdots+x^{q-1}
@@ -142,7 +144,7 @@ These two notes tell us that if $g$ is a primitive root of $n$, then the set $\{
 
 In algebraic words, $g$ is a \textit{generator} of $\mathbb U_n$. Moreover, the generators of $\mathbb U_n$ are exactly the primitive roots of $n$ (if there is any). We will summarize this result in the following theorem.
 
-	\begin{theorem}\slshape\label{thm:prequalsU}
+	\begin{theorem}\label{thm:prequalsU}
 		A primitive root $g$ modulo $n$ (if existing) is a generator of $\mathbb U_n$. That is, for any $a\in\mathbb{U}$, there is a unique $k$ with $0< k\leq\varphi(n)$ such that $g^k \equiv a \pmod n$.
 	\end{theorem}
 
@@ -163,9 +165,13 @@ In algebraic words, $g$ is a \textit{generator} of $\mathbb U_n$. Moreover, the 
 			\end{align*}
 			where all the congruences are taken modulo $7$.
 			\item Let's see if there exists a primitive root modulo $15$. To show this, a possible way is to start from $a=2$ and compute all the powers $a^i$ for $i=2,\ldots,\varphi(15)-1=7$ modulo $15$ one by one:
-			$$ 2^2 \equiv 4, \quad 2^3 \equiv 8, \quad 2^4 \equiv 1.$$
+				\begin{align*}
+					2^2 \equiv 4, \quad 2^3 \equiv 8, \quad 2^4 \equiv 1
+				\end{align*}
 			We stop at $2^4$ because we got $1$ mod $15$, and this shows that $2$ is not a primitive root modulo $15$. Then, we should do the same process, but this time for $a=4$ (we don't check $3$ because it's not relatively prime to $15$). Now you should be able to do the math much faster, and come up with $4^2 \equiv 1 \pmod{15}$, which shows $a=4$ is not a primitive root modulo $15$. Fortunately, we don't need to check $a=5$ and $a=6$. For $a=7$, the computations are not as easy as $a=2$ and $a=4$, but still not hard
-			$$7^2 \equiv 4, \quad 7^3 \equiv 13, \quad 7^4 \equiv 1.$$
+				\begin{align*}
+					7^2 \equiv 4, \quad 7^3 \equiv 13, \quad 7^4 \equiv 1
+				\end{align*}
 			So, $7$ is not a primitive root mod $15$ either. Now, we don't need to do the computations for $a=8$ because in this case, $a^{-1}$ is $2$ and we showed that $2$ is not a primitive root (why is that enough?). The next values for $a$ to check are $11, 13$, and $14$. Since $13=7^{-1}$, we don't need to worry about $13$. Check $11$ and $14$ for yourself and verify that neither of them are primitive roots mod $15$ (we can't do the modular arithmetic invers trick here because $11$ and $14$ are the inverse of themselves modulo $15$). This shows that there is no primitive root mod $15$.
 
 			\item Let's assume that elements $g_i$ of $\mathbb U_n$ are sorted in ascending order. That is, $g_1<\cdots<g_{\varphi(n)}$. Then we  have $g_1=1$ and $g_{\varphi(n)}=n-1$.
@@ -179,7 +185,7 @@ In algebraic words, $g$ is a \textit{generator} of $\mathbb U_n$. Moreover, the 
 		forms a complete residue system modulo $p$.
 	\end{corollary}
 
-	\begin{theorem}\slshape\label{prd}
+	\begin{theorem}\label{prd}
 		Let $n$ be a positive integer and let $a$ be a quadratic non-residue modulo $n$ such that $a\bot n$. Assume that $\mathbb U_n = \{g_1, g_2, \ldots, g_{\varphi(n)}\}$. Then
 		\[g_1g_2\cdots g_{\varphi(n)}\equiv a^{\frac{\varphi(n)}{2}}\pmod n\]
 	\end{theorem}
@@ -187,7 +193,7 @@ In algebraic words, $g$ is a \textit{generator} of $\mathbb U_n$. Moreover, the 
 	\begin{proof}
 		According to \autoref{thm:ax=b}, for any $g_i$, there exists some $x$ such that
 			\begin{align}
-				g_i x\equiv a\pmod n.
+				g_i x\equiv a\pmod n
 			\end{align}
 		It is clear that $x \bot n$ because if $(x,n)=d$, then $d\mid n$ and $n\mid g_{i}x-a$, so $d\mid g_ix-a$ implies $d\mid a$. Since $\gcd(a,d)=1$, we have $d=1$. So $x=g_j$ for some $j$. We have $g_i \neq g_j$ since $a$ is a quadratic non-residue. Moreover, $g_j$ is unique because if $g_ig_k \equiv a \pmod n$ for some $k$, then $g_k \equiv g_j \pmod n$ and since $g_k$ and $g_j$ are both less than $n$, this forces $g_k=g_j$. Thus, we can pair up the $\varphi(n)$ elements of $\mathbb{U}_n$ into $\varphi(n)/2$ pairs $(g_i, g_j)$, such that $g_ig_j \equiv a \pmod n$. Hence,
 			\begin{align*}
@@ -196,7 +202,7 @@ In algebraic words, $g$ is a \textit{generator} of $\mathbb U_n$. Moreover, the 
 			\end{align*}
 	\end{proof}
 Here is a nice theorem which relates primitive roots and quadratic residues modulo a prime $p$.
-	\begin{theorem}\slshape\label{thm:pr+qr}
+	\begin{theorem}\label{thm:pr+qr}
 		If $g$ is a primitive root modulo a prime $p$, then the quadratic residues of $p$ are $g^2,g^4,\ldots,g^{p-1}$.
 	\end{theorem}
 
@@ -209,7 +215,7 @@ Here is a nice theorem which relates primitive roots and quadratic residues modu
 		Using Fermat's little theorem, it follows that $g^2,g^4,\ldots,g^{p-1}$ are all quadratic residues modulo $p$. Since the set $\{g^1,g^2,\ldots,g^{p-1}\}$ is a complete residue set modulo $p$ and we know by \autoref{thm:primeresidue} that there are exactly $\frac{p-1}{2}$ incongruent quadratic residues modulo $p$, we find that $g^2,g^4,\ldots,g^{p-1}$ are the only quadratic residues.
 	\end{proof}
 It is a natural question whether there exists a primitive root $g$ modulo an arbitrary positive integer $n$. If the answer is negative, one might ask for which $n$ there exists a primitive root. We will answer these questions shortly.
-	\begin{theorem}\slshape\label{thm:prTest}
+	\begin{theorem}\label{thm:prTest}
 		A positive integer $g$ is a primitive root modulo $n$ if and only if
 			\begin{align*}
 				g^{\frac{\varphi(n)}{p}}
@@ -270,7 +276,7 @@ It is a natural question whether there exists a primitive root $g$ modulo an arb
 
 Assume that some positive integer $n$ has a primitive root. An interesting question is to find the number of primitive roots which are incongruent modulo $n$. The next theorem answers this question.
 
-	\begin{theorem}\slshape\label{thm:npr}
+	\begin{theorem}\label{thm:npr}
 		For any positive integer $n$, if there exists a primitive root modulo $n$, then there are exactly $\varphi(\varphi(n))$ incongruent primitive roots modulo $n$.
 	\end{theorem}
 
@@ -302,7 +308,7 @@ We are back to the first question: for which integers $n$ do we have a primitive
 		By Fermat's theorem, all integers $1, 2, \ldots, p-1$ are solutions to $x^{p-1}-1 \equiv 0 \pmod p$. So, this equation has exactly $p-1=dk$ solutions. From \eqref{eq:exactlyDsolutions}, each of these $dk$ solutions is either a solution of $P(x) \equiv 0 \pmod p$ or a solution of $x^d-1 \equiv 0 \pmod p$. However, Lagrange's theorem says that $P(x) \equiv 0 \pmod p$ has at most $d(k-1)$ solutions and that $x^d-1 \equiv 0 \pmod p$ has at most $d$ solutions. Since $dk=d(k-1)+d$, this is only possible when $x^d-1 \equiv 0 \pmod p$ has exactly $d$ solutions and also $P(x) \equiv 0 \pmod p$ has exactly $d(k-1)$ solutions.
 	\end{proof}
 
-	\begin{theorem}\slshape\label{thm:primeprimitive}
+	\begin{theorem}\label{thm:primeprimitive}
 		Let $p$ be a prime. There are exactly $\varphi(p-1)$ incongruent primitive roots modulo $p$.
 	\end{theorem}
 
@@ -332,11 +338,21 @@ We are back to the first question: for which integers $n$ do we have a primitive
 The next step is to find what other numbers have a primitive root. We will show, by the help of the following lemma, that all powers of an odd prime number have a primitive root.
 
 	\begin{lemma}
-		Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ such that $g^{p-1} \not \equiv 1 \pmod{p^2}$. Then, $$g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}$$ for any integer $k \geq 1$.
+		Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ such that $g^{p-1} \not \equiv 1 \pmod{p^2}$. Then,
+			\begin{align*}
+				g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}
+			\end{align*}
+		for any integer $k \geq 1$.
 	\end{lemma}
 
 	\begin{proof}
-		We will induct on $k$. The base case $k=1$ is immediately followed from the assumption that $g^{p-1} \not \equiv 1 \pmod{p^2}$. As the induction hypothesis, consider that $g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}$ for some $k\geq 1$. From Euler's theorem, $g^{\varphi(p^k)} \equiv 1 \pmod{p^k}$, which means $$g^{\varphi(p^k)} = 1+mp^k$$ for some $m$. The induction hypothesis implies that $p \nmid m$. By Proposition \ref{prop:phiproperties}, we know that $$\varphi(p^{k+1})=p^{k+1}-p^k=p\left(p^k - p^{k-1}\right)=p\cdot \varphi(p^k).$$
+		We will induct on $k$. The base case $k=1$ is immediately followed from the assumption that $g^{p-1} \not \equiv 1 \pmod{p^2}$. As the induction hypothesis, consider that $g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}$ for some $k\geq 1$. From Euler's theorem, $g^{\varphi(p^k)} \equiv 1 \pmod{p^k}$, which means $$g^{\varphi(p^k)} = 1+mp^k$$ for some $m$. The induction hypothesis implies that $p \nmid m$. By Proposition \ref{prop:phiproperties}, we know that
+			\begin{align*}
+				\varphi(p^{k+1})
+					& =p^{k+1}-p^k\\
+					& =p\left(p^k - p^{k-1}\right)\\
+					& =p\cdot \varphi(p^k)
+			\end{align*}
 		Hence,
 			\begin{align*}
 				g^{\varphi(p^{k+1})}
@@ -352,7 +368,7 @@ The next step is to find what other numbers have a primitive root. We will show,
 		as desired.
 	\end{proof}
 
-	\begin{theorem}\slshape\label{thm:primepowerprimitive}
+	\begin{theorem}\label{thm:primepowerprimitive}
 		Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ (as we know exists from \autoref{thm:primeprimitive}). Then, either $g$ or $g+p$ is a primitive root modulo $p^k$ for any integer $k\geq 1$.
 	\end{theorem}
 
@@ -393,7 +409,7 @@ The next step is to find what other numbers have a primitive root. We will show,
 
 Finally, we are ready to answer our question.
 
-	\begin{theorem}[Primitive Root Theorem]\slshape
+	\begin{theorem}[Primitive Root Theorem]
 		Let $n>1$ be a positive integer. There exists a primitive root modulo $n$ if and only if $n\in\{2,4,p^k,2p^k\}$ for some odd prime $p$ and a positive integer $k$.
 		\label{thm:pr:wh}
 	\end{theorem}
@@ -456,7 +472,7 @@ Here is a generalization of Wilson's theorem, though it can be generalized even 
 		Combine Theorems \ref{thm:pr:wh} and \ref{thm:prTest} along with the fact that if $p$ is an odd prime and $k$ is a positive integer, then $p^k \mid a^2-1$ implies $p^k \mid a+1$ or $p^k\mid a-1$.
 	\end{hint}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $g$ be a primitive root modulo $n$. Then $n-g$ is a primitive root modulo $n$ as well if $4$ divides $\varphi(n)$.
 	\end{theorem}
 

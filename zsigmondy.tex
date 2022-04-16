@@ -30,18 +30,25 @@
 		\begin{proof}
 			Since $n+1\leq k\leq2n$, for $k=n+l$, we get $1\leq l\leq n$. $p$ does not divide any of $a$ or $b$. For the sake of contradiction, let's assume, $p$ divides $a^k+b^k$.
 				\begin{align*}
-					p | a^l(a^n+b^n) &= a^k+a^lb^n\text {, and}\\
-					p |b^l(a^n+b^n) &= a^nb^l+b^k.
+					p
+						& \mid a^l(a^n+b^n)\\
+						& = a^k+a^lb^n\\
+					p
+						& \mid b^l(a^n+b^n)\\
+						& = a^nb^l+b^k
 				\end{align*}
 			Therefore
 			\begin{align*}
-				p |a^k+a^lb^n+a^nb^l+b^k.
+				p
+					& \mid a^k+a^lb^n+a^nb^l+b^k
 			\end{align*}
 			We already know $p|a^k+b^k$, so if $n=l+m$ (since $l\leq n$), then
 				\begin{align*}
-					p|a^lb^n+a^nb^l & = a^lb^l(a^m+b^m).
+					p
+						& \mid a^lb^n+a^nb^l\\
+						& = a^lb^l(a^m+b^m)
 				\end{align*}
-			Since $p\bot ab$, we have $p\bot a^lb^l$. So $p|a^m+b^m$ where $m< n$, which is a contradiction.
+			Since $p\bot ab$, we have $p\bot a^lb^l$. So $p\mid a^m+b^m$ where $m< n$, which is a contradiction.
 		\end{proof}
 	In a similar fashion, we can prove the following theorem.
 		\begin{theorem}[Second Extension]\slshape
@@ -52,7 +59,7 @@
 		\begin{problem}[Japanese Math Olympiad, 2011]
 			Find all $5-$tuples $(a,n,x,y,z)$ of positive integers so that
 				\begin{align*}
-					a^n-1 & = (a^x-1)(a^y-1)(a^z-1).
+					a^n-1 & = (a^x-1)(a^y-1)(a^z-1)
 				\end{align*}
 		\end{problem}
 
@@ -61,7 +68,7 @@
 
 			Now, either $a<3$ or $n<3$. If $a<3$, then $a=2$ and
 				\begin{align*}
-					2^n-1 & = (2^x-1)(2^y-1)(2^z-1).
+					2^n-1 & = (2^x-1)(2^y-1)(2^z-1)
 				\end{align*}
 			Here, the only exception is $n=6$ and $2^6-1=63=3\cdot3\cdot7=(2^2-1)(2^2-1)(2^3-1)$. So, $\{x,y,z\}=\{2,2,3\}$. Only $n<3$ is left to deal with and it is easy to check that there are no solutions in this case.
 		\end{solution}
@@ -78,18 +85,18 @@
 		\begin{problem}[Hungary 2000, Problem 1]
 			Find all $4-$tuples $(a,b,p,n)$ of positive integers with $p$ a prime number such that
 				\begin{align*}
-					a^3+b^3=p^n.
+					a^3+b^3=p^n
 				\end{align*}
 		\end{problem}
 
 		\begin{solution}
 			To apply the theorem, first we need to make $a$ and $b$ co-prime. If $q$ is a prime divisor of $(a,b)=g$, then $q|p$. Therefore, $g=p^r$ for some $r$. Let, $a=p^rx,b=p^ry$ with $x\bot y$. Then,
 				\begin{align*}
-					x^3+y^3 & = p^{n-3r}.
+					x^3+y^3 & = p^{n-3r}
 				\end{align*}
 			Assume that $m=n-3r$. Since the power is three, we need to consider the exceptional case first. The case $x=2$ and $y=1$ when $p=3$ and $n-3r=2$ produces infinitely many solutions. Otherwise, $x^3+y^3$ has a prime divisor that does not divide $x+y$. Obviously $x+y$ is divisible by $p$ since $x+y>1$. This is a contradiction. Therefore, the only families of solutions are
 				\begin{align*}
-					(a,b,p,n)=(2\cdot 3^r,3^r,3,3r+2) \text{ and }(3^r,2\cdot 3^r,3,3r+2),
+					(a,b,p,n)\in\{(2\cdot 3^r,3^r,3,3r+2),(3^r,2\cdot 3^r,3,3r+2)\}
 				\end{align*}
 			for any positive integer $r$.
 		\end{solution}
@@ -110,7 +117,7 @@
 		\begin{proof}
 			The number $M=p_1p_2\dots p_n$ has $\underbrace{(1+1)(1+1)\dots(1+1)}_{n\text{ times}}=2^n$ divisors. Say the divisors are
 				\begin{align*}
-					1=d_1<d_2<\cdots<d_{2^n}=p_1\cdots p_n.
+					1=d_1<d_2<\cdots<d_{2^n}=p_1\cdots p_n
 				\end{align*}
 			Then first $2^{d_1}+1$ has the prime divisor $3$. $2^{d_2}+1$ has a divisor that is not $3$. Generally, each $d_i>d_{i-1}$ gives us a new primitive divisor that was not in $2^{d_{i-1}}+1$. Therefore, we have at least $2^n$ distinct prime divisors.
 		\end{proof}
@@ -118,7 +125,7 @@
 		\begin{proof}
 			Let's assume that these $2^n$ primes are $q_1, q_2, \dots, q_{2^n}$. Then,
 				\begin{align*}
-					N & = q_1q_2\dots q_{2^n}K,
+					N & = q_1q_2\dots q_{2^n}K
 				\end{align*}
 			for some integer $K\geq1$. Thus, every divisor of $D=q_1q_2\dots q_{2^n}$ is a divisor of $N$ and so, $N$ has at least $2^{2^n}$ divisors.
 		\end{proof}
@@ -128,11 +135,11 @@
 				\begin{enumerate}[i.]
 					\item If $3\nmid n$, $a^n+b^n$ has at least $2^{\tau(n)}$ divisors. That is,
 						\begin{align*}
-							\tau(a^n+b^n) &\geq2^{\tau(n)}.
+							\tau(a^n+b^n) &\geq2^{\tau(n)}
 						\end{align*}
 					\item If $n$ is odd and $a-b>1$, $a^n-b^n$ has at least $2^{\tau(n)}$ divisors. That is,
 						\begin{align*}
-							\tau(a^n-b^n) & \geq2^{\tau(n)}.
+							\tau(a^n-b^n) & \geq2^{\tau(n)}
 						\end{align*}
 				\end{enumerate}
 		\end{theorem}
@@ -144,7 +151,7 @@
 		\begin{solution}
 			Assume to the contrary, $a_n^2=a_ma_k$, since they are in geometric progression. So
 				\begin{align*}
-					(3^n-2^n)^2 & = (3^k-2^k)(3^m-2^m).
+					(3^n-2^n)^2 & = (3^k-2^k)(3^m-2^m)
 				\end{align*}
 			Since $k,m,n$ are distinct, we must have $k<n<m$. If not, we can not have $n<k<m$ or $n>m>k$ because that would make one side larger. But due to the fact $m>n$, we get that, $3^m-2^m$ has a prime divisor that does not divide $3^n-2^n$.
 		\end{solution}
@@ -153,7 +160,7 @@
 		\begin{problem}[IMO Shortlist 2000]
 			Find all positive integers $a,m$, and $n$ such that
 				\begin{align*}
-					a^m+1 & |(a+1)^n.
+					a^m+1 & \mid (a+1)^n
 				\end{align*}
 		\end{problem}
 
