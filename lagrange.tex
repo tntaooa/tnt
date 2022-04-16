@@ -2,19 +2,19 @@
 
 \begin{document}
 	Lagrange's theorem in polynomial congruency is a really influential result in number theory. It has many implications and applications. And it is so important that we decided to keep it in this book even though we are not discussing polynomials or polynomial congruency in the current book. We just need the following simple definition.
-	
+
 		\begin{definition}
 			A polynomial is an expression consisting of variables and coefficients which only employs the operations of addition, subtraction, multiplication, and non-negative integer exponents.
 		\end{definition}
-		
+
 		\begin{example}
 			An example of a polynomial of a single variable $x$ and with integer coefficients is $P(x)=x^4+3x^2 + x -8$. An example in three variables and rational coefficients is $$P(x,y,z)=2x^3 + \frac{4}{5}xy- 7xyz + 3zy^2 - 6.$$
 		\end{example}
-		
+
 		\begin{note}
 			We only work with polynomials of a single variable and with integer coefficients in this book.
 		\end{note}
-	
+
 		\begin{definition}
 			Consider a polynomial $P(x)$ with integer coefficients. The \textit{degree} of $P(x)$ is the largest exponent of $x$ in $P(x)$. That is, if
 				\begin{align*}
@@ -22,64 +22,82 @@
 				\end{align*}
 			 where $a_i$, $0 \leq i \leq n$ are integers and $a_n \neq 0$, then the degree of $P(x)$ is $n$. We show this by $\deg P(x)=n$.
 		\end{definition}
-		
+
 		\begin{definition}
-			Let 
+			Let
 				\begin{align*}
 					P(x)=a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1 x +a_0
 				\end{align*}
 			be a polynomial with integer coefficients. Assume that at least one coefficient of $P(x)$ is not divisible by $p$. For any prime $p$, the degree of $P(x)$ modulo $p$ is the largest integer $k$, $0 \leq k \leq n$,  for which $p \nmid a_k$. We denote this by $\deg_p P(x)=k$.
 		\end{definition}
-		
+
 		\begin{example}
 			The degree of $P(x)=7x^4 + 14x^3 - 5x^2 + 5x + 3$ is $4$. However, the degree of $P(x)$ is $2$ modulo $7$.
 		\end{example}
-		
-		
+
+
 		\begin{theorem}[Lagrange's Theorem]\slshape\label{thm:lagrange}
 			Let $p$ be a prime and let $P(x)$ be a polynomial with integer coefficients not all divisible by $p$. Also, let $\deg_p P(x) = k$. The congruence equation $P(x)\equiv0\pmod p$ has at most $k$ incongruent solutions modulo $p$.
 		\end{theorem}
-		
+
 		\begin{note}
 			Assume that
 				\begin{align*}
-				P(x)=a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1 x +a_0.
+					P(x)
+						& =a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1 x +a_0
 				\end{align*}
 			If $P(x) \equiv 0 \pmod p$ for some $x$, then since
 				\begin{align*}
-					(x+kp)^i \equiv x^i + (kp)^i \equiv x^i \pmod p, \quad \forall i,k \in \mathbb N,
+					(x+kp)^i
+						& \equiv x^i + (kp)^i\\
+						& \equiv x^i \pmod p
 				\end{align*}
-			we have $P(x+kp) \equiv 0 \pmod p$ as well. This means that we only need to search for solutions in the set $\{0, 1, \ldots, p-1\}$. The term \textit{incongruent solutions} in the above theorem is there just for the same reason.
+			$\forall i,k \in \mathbb N$, we have $P(x+kp) \equiv 0 \pmod p$ as well. This means that we only need to search for solutions in the set $\{0, 1, \ldots, p-1\}$. The term \textit{incongruent solutions} in the above theorem is there just for the same reason.
 		\end{note}
-		
-		
+
+
 		\begin{example}
 			Let $P(x)=10x^3+3x^2 + 12x+17$.  The degree of $P(x)$ modulo $5$ is $2$. According to Lagrange's theorem, the equation $P(x) \equiv 0 \pmod 5$ has at most $2$ solutions modulo $5$. To check this, note that
 				\begin{align*}
-					P(x) = 10x^3+3x^2 + 12x+17 \equiv 3x^2 + 12x+12 \equiv 3(x+2)^2 \equiv 0 \pmod 5,
+					P(x)
+						& = 10x^3+3x^2 + 12x+17\\
+						& \equiv 3x^2 + 12x+12\\
+						& \equiv 3(x+2)^2\\
+						& \equiv 0 \pmod 5
 				\end{align*}
 			has only one solution $x \equiv -2$ modulo $5$.
 		\end{example}
-	
+
 	We will prove Lagrange's theorem in the following.
-	
+
 		\begin{proof}
 			We induct on $k$. Since $\deg_p P(x) = k$, we can write
 				\begin{align*}
-				P(x) \equiv a_kx^k + a_{k-1}x^{k-1} + \cdots + a_1 x +a_0,
+					P(x)
+						& \equiv a_kx^k + a_{k-1}x^{k-1} + \cdots + a_1 x +a_0
 				\end{align*}
 			where $a_k, a_{k-1}, \ldots, a_0$ are coefficients of $P(x)$. It is clear that for $k=0$, the equation $f(x)=a_0$ has no solutions modulo $p$ because $p \nmid a_0$. Assume that the claim is true for all polynomials of degree up to $k-1$ modulo $p$. Assume that $P(x) \equiv 0 \pmod p$ has $d$ solutions. If $d < k$, we are done. Otherwise, if $d\geq k$, take $x_1, x_2, \ldots, x_k$ to be $k$ arbitrary incongruent solutions of $P(x) \equiv 0 \pmod p$. Define
 				\begin{align*}
-					Q(x) = P(x) - a_k(x-x_1)(x-x_2)\cdots (x-x_k).
+					Q(x)
+						& = P(x) - a_k(x-x_1)(x-x_2)\cdots (x-x_k)
 				\end{align*}
-			Clearly, $\deg_p Q(x) < \deg_p P(x)=k$. However, $$Q(x_1) \equiv Q(x_2) \equiv \cdots \equiv Q(x_k) \equiv 0 \pmod p,$$ which means $Q(x) \equiv 0 \pmod p$ has at least $k$ solutions. The induction hypothesis forces that $Q(x) \equiv 0 \pmod p$ for all $x$. It follows that
+			Clearly, $\deg_p Q(x) < \deg_p P(x)=k$. However,
 				\begin{align*}
-					P(x) \equiv a_k(x-x_1)(x-x_2)\cdots (x-x_k) \pmod p.
+					Q(x_1)
+						& \equiv Q(x_2)\\
+						& \equiv \cdots \\
+						& \equiv Q(x_k)\\
+						& \equiv 0 \pmod p
+				\end{align*}
+			which means $Q(x) \equiv 0 \pmod p$ has at least $k$ solutions. The induction hypothesis forces that $Q(x) \equiv 0 \pmod p$ for all $x$. It follows that
+				\begin{align*}
+					P(x)
+						& \equiv a_k(x-x_1)(x-x_2)\cdots (x-x_k) \pmod p
 				\end{align*}
 			This means that $P(x) \equiv 0 \pmod p$ if and only if $x-x_i \equiv 0 \pmod p$ for some $i \in \{1,2,\ldots, k\}$. So, $x_1, x_2, \ldots, x_k$ are the only solutions to $P(x) \equiv 0 \pmod p$. The induction is complete.
 		\end{proof}
-		
-		
+
+
 	In this section, we will discuss only the following result and see how to apply it to prove some other theorems.
 		\begin{theorem}[Lagrange]\slshape
 			If $p$ is a prime and\label{thm:lag2}
@@ -90,67 +108,71 @@
 		\end{theorem}
 
 	The term $x^{p-1}$ is produced by multiplying all $x$ terms. Multiplying all the constant terms, we get $1\cdot2\cdots(p-1)=(p-1)!$, which explains the reasoning behind the terms on the right side of the equation. The proof is an intuitive one. Though there maybe other proofs, we prefer this one.
-	
+
 		\begin{proof}[Proof]
 			Assume that $f(x)=(x+1)(x+2)\cdots(x+p-1)$. We start by noticing that $f(x+1)  = (x+2) (x+3) \cdots (x+p)$. We can write
 				\begin{align*}
-					(x+p)f(x) &=(x+1)f(x+1),
+					(x+p)f(x) &=(x+1)f(x+1)
 				\end{align*}
 			or equivalently,
 				\begin{align}\label{eq:lagrangeproof1}
-					 pf(x) &=(x+1)f(x+1)-xf(x).
+					 pf(x) &=(x+1)f(x+1)-xf(x)
 				\end{align}
 			Substituting the expressions for $f(x)$ and $f(x+1)$ in equation \eqref{eq:lagrangeproof0}, we see that
 				\begin{align*}
-					pf(x) & = px^{p-1}+pa_1x^{p-2}+\cdots+pa_{p-2}x+p!,\\
-					(x+1)f(x+1) & = (x+1)^p+a_1(x+1)^{p-1}\\ & \quad +\cdots+a_{p-2}(x+1)^2+(x+1)(p-1)!,\\
-					xf(x) & = x^p+a_1x^{p-1}+\cdots+a_{p-2}x^2+x(p-1)!.
+					pf(x) & = px^{p-1}+pa_1x^{p-2}+\cdots+pa_{p-2}x+p!\\
+					(x+1)f(x+1) & = (x+1)^p+a_1(x+1)^{p-1}\\ & \quad +\cdots+a_{p-2}(x+1)^2+(x+1)(p-1)!\\
+					xf(x) & = x^p+a_1x^{p-1}+\cdots+a_{p-2}x^2+x(p-1)!
 				\end{align*}
 			Replace these values into \eqref{eq:lagrangeproof1},
 				\begin{align}\label{eq:lagrangeproof2}
-					(x+1)f(x+1)-xf(x) & = (x+1)^p-x^p+a_1((x+1)^{p-1}-x^{p-1}) \nonumber\\
-					& \quad +\cdots+a_{p-2}((x+1)^2-x^2)+(x+1-x)(p-1)!.
+					(x+1)f(x+1)-xf(x)
+						& = (x+1)^p-x^p+a_1((x+1)^{p-1}-x^{p-1}) \nonumber\\
+						& \quad +\cdots+a_{p-2}((x+1)^2-x^2)+(x+1-x)(p-1)!
 				\end{align}
 			We need to expand the terms $(x+1)^i - x^i$ (for $1 \leq i \leq p$) using binomial theorem so we can collect the terms with same degree (exponent).
 				\begin{align}\label{eq:lagrangeproof3}
-					(x+1)^i-x^i & = \left(x^i+\binom{i}{1}x^{i-1} + \binom{i}{2} x^{i-2}+\cdots+ \binom{i}{i-1} x + 1\right)-x^i \nonumber\\
-								& = \binom{i}{1}x^{i-1} + \binom{i}{2} x^{i-2}+\cdots+ \binom{i}{i-1} x + 1.
+					(x+1)^i-x^i
+						& = \left(x^i+\binom{i}{1}x^{i-1} + \binom{i}{2} x^{i-2}+\cdots+ \binom{i}{i-1} x + 1\right)-x^i \nonumber\\
+						& = \binom{i}{1}x^{i-1} + \binom{i}{2} x^{i-2}+\cdots+ \binom{i}{i-1} x + 1
 				\end{align}
 			Since $pf(x) = (x+1)f(x+1)-xf(x)$, the coefficients of same exponents of $x$ should be the same for both sides. The coefficient of $x^{p-2}$ in $pf(x)$ is $pa_1$, while that of $(x+1)f(x+1)-xf(x)$ comes from the first two terms of \eqref{eq:lagrangeproof2} (that is, $(x+1)^p-x^p$ and $a_1((x+1)^{p-1}-x^{p-1})$). Using \eqref{eq:lagrangeproof3} to calculate these two terms, we get
 				\begin{align*}
-					pa_1 & = \binom{p}{2}+\binom{p-1}{1}a_1.
+					pa_1 & = \binom{p}{2}+\binom{p-1}{1}a_1
 				\end{align*}
-			From Theorem \ref{thm:binpdiv}, we know that $p$ divides $\binom{p}{k}$ for any $0<k<p$. So, $p$ divides $\binom{p}{2}$, therefore $p$ divides $a_1$.
-			
+			From \autoref{thm:binpdiv}, we know that $p$ divides $\binom{p}{k}$ for any $0<k<p$. So, $p$ divides $\binom{p}{2}$, therefore $p$ divides $a_1$.
+
 			Equating coefficient of $x^{p-3}$, we find
 				\begin{align*}
-					pa_2 & = \binom{p}{3}+\binom{p-1}{2}a_1+\binom{p-2}{1}a_2.
+					pa_2
+						& = \binom{p}{3}+\binom{p-1}{2}a_1+\binom{p-2}{1}a_2
 				\end{align*}
 			Here, $p$ divides $\binom{p}{3}$ and $a_1$, so $p$ divides $a_2$. Continuing this process in a similar way, we find that $a_1, a_2, \ldots, a_{p-2}$ are divisible by $p$. To check correctness of this, we can equate the coefficient of $x$ and find
 				\begin{align*}
-					pa_{p-2} & = \binom{p}{p-1}+\binom{p-1}{p-2}a_1+\cdots+\binom{2}{1}a_{p-2}.
+					pa_{p-2}
+						& = \binom{p}{p-1}+\binom{p-1}{p-2}a_1+\cdots+\binom{2}{1}a_{p-2}
 				\end{align*}
 			This equation implies $p$ divides $a_{p-2}$, as claimed. The proof is complete.
 		\end{proof}
 	Before we describe some applications, let's try to understand the coefficients $a_1$, $a_2$, $\ldots,a_{p-2}$ in a better way. By investigating \eqref{eq:lagrangeproof0}, one can easily obtain
-		\begin{eqnarray*}
-			a_1 & = & 1+2+\cdots+p-1\\
-			a_2 & = & 1\cdot2+\cdots+1\cdot(p-1)+2\cdot3+\cdots+2\cdot(p-1)+\cdots\\
-				&  \vdots &
-		\end{eqnarray*}
-	You should already guess what $a_1,\ldots,a_{p-2}$ are. $a_1$ is the sum of all $1,\cdots,p-1$. $a_2$ is the sum of products of two numbers from $1,\cdots,p-1$ (all possible $\binom{p-1}{2}$ combinations). Similarly, $a_{p-2}$ is the sum of products of $p-2$ numbers taken at a time. In general $a_i$ the sum of all possible products of $i$ numbers taken from $1,2,\cdots,p-1$. Therefore, we can state Theorem \ref{thm:lag2} as
+		\begin{align*}
+			a_1 & = 1+2+\cdots+p-1\\
+			a_2 & = 1\cdot2+\cdots+1\cdot(p-1)+2\cdot3+\cdots+2\cdot(p-1)+\cdots\\
+				&  \vdots
+		\end{align*}
+	You should already guess what $a_1,\ldots,a_{p-2}$ are. $a_1$ is the sum of all $1,\cdots,p-1$. $a_2$ is the sum of products of two numbers from $1,\cdots,p-1$ (all possible $\binom{p-1}{2}$ combinations). Similarly, $a_{p-2}$ is the sum of products of $p-2$ numbers taken at a time. In general $a_i$ the sum of all possible products of $i$ numbers taken from $1,2,\cdots,p-1$. Therefore, we can state \autoref{thm:lag2} as
 		\begin{theorem}\slshape
 			If $p$ is an odd prime and $0<k<p-1$, then the sum of all possible products of $k$ numbers taken at a time from $1,2,\ldots,p-1$ is divisible by $p$.
 		\end{theorem}
 	Let's see just how powerful this theorem can be, if used properly. We can take advantage of the fact that the theorem is actually an identity, so we can choose $x$ freely as we wish.
 		\begin{proof}[Proof of Wilson's Theorem]
-			The theorem is true when $p=2$. Therefore, it is safe to assume that $p$ is odd. Put $x=1$ in Theorem \ref{thm:lag2} to obtain
+			The theorem is true when $p=2$. Therefore, it is safe to assume that $p$ is odd. Put $x=1$ in \autoref{thm:lag2} to obtain
 				\begin{align*}
 					2\times 3 \times \cdots \times p & = 1+(a_1+\cdots+a_{p-2})+(p-1)!,
 				\end{align*}
 			and so,
 				\begin{align*}
-					p! & = 1+a_1+\cdots+a_{p-2}+(p-1)!.
+					p! & = 1+a_1+\cdots+a_{p-2}+(p-1)!
 				\end{align*}
 			Clearly, $p!$ is divisible by $p$, and so are $a_1,\cdots,a_{p-2}$. Thus, $1+(p-1)!$ must be divisible by $p$ too, which is exactly what we want.
 		\end{proof}
@@ -168,23 +190,26 @@
 		\end{proof}
 	As for the last demonstration, we will use it to prove Wolstenholme's theorem, which we also proved before. The theorem requires us to show that for $p>3$ a prime, the numerator of $$1+\dfrac{1}{2}+\cdots+\dfrac{1}{p-1}$$ is divisible by $p^2$ in its reduced form.
 		\begin{proof}[Proof of Wolstenholme's Theorem]
-			The numerator is the sum of products of $p-2$ numbers taken from $1, 2, \ldots, p-1$. So, it is $a_{p-2}$. Since the denominator of the fraction is $(p-1)!$, which is not divisible by $p$, we only need to show that $p^2|a_{p-2}$. 
-			
-			Set $x=-p$ in Theorem \ref{thm:lag2} to obtain
+			The numerator is the sum of products of $p-2$ numbers taken from $1, 2, \ldots, p-1$. So, it is $a_{p-2}$. Since the denominator of the fraction is $(p-1)!$, which is not divisible by $p$, we only need to show that $p^2|a_{p-2}$.
+
+			Set $x=-p$ in \autoref{thm:lag2} to obtain
 				\begin{align*}
-					(-p+1)\cdots(-p+p-1) & = p^{p-1}-a_1p^{p-2}+\cdots-a_{p-2}p+(p-1)!.
+					(-p+1)\cdots(-p+p-1)
+						& = p^{p-1}-a_1p^{p-2}+\cdots-a_{p-2}p+(p-1)!
 				\end{align*}
 			The left hand side of the above equation equals $(p-1)!$. So
 				\begin{align*}
-					p^{p-1}-a_1p^{p-2}+\cdots-a_{p-2}p & = 0,
+					p^{p-1}-a_1p^{p-2}+\cdots-a_{p-2}p
+						& = 0
 				\end{align*}
 			which gives
 				\begin{align*}
-					a_{p-2} & = p^{p-2}+a_1p^{p-3}+\cdots+a_{p-3}p^2.
+					a_{p-2}
+						& = p^{p-2}+a_1p^{p-3}+\cdots+a_{p-3}p^2
 				\end{align*}
 			If $p>3$, then $p-2\geq 2$ and all the terms on the right side are divisible by $p^2$.
 		\end{proof}
-		
+
 		\begin{note}
 			You should try to guess what motivates us to set exactly those values of $x$ to get nice results.
 		\end{note}

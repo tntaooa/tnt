@@ -5,7 +5,7 @@
 \begin{document}
 	By now, \textit{Vietta jumping} has become a standard technique for solving some particular type of olympiad number theory problems. It is also known as \textit{Root Jumping} or \textit{Root Flipping}. Though it involves Diophantine equations and for now, it is out of our scope, many divisibility or congruence problems can be turned into one that can be solved using this tactic. Hence, this section.
 	To understand just how popular it has been, let's just mention that there are at least two IMO problems that have standard solutions using this particular technique. And surely, there are many other olympiad problems that fall into the same category. Now, let's see what it is and what it actually does.
-	
+
 	Consider the following quadratic equation
 		\begin{align*}
 		 	ax^2+bx+c & = 0.
@@ -25,11 +25,11 @@
 		\begin{quote}\slshape
 			Nobody of the six members of the Australian problem committee could solve it. Two of the members were George Szekeres and his wife Esther Klein, both famous problem solvers and problem creators. Since it was a number theoretic problem it was sent to the four most renowned Australian number theorists. They were asked to work on it for six hours. None of them could solve it in this time. The problem committee submitted it to the jury of the XXIX IMO marked with a double asterisk, which meant a superhard problem, possibly too hard to pose. After a long discussion, the jury finally had the courage to choose it as the last problem of the competition. Eleven students gave perfect solutions.
 		\end{quote}
-	
+
 	\begin{problem}[IMO 1988, Problem 6]
 		Let $ a$ and $ b$ be two positive integers such that $ab + 1$ divides $ a^{2} + b^{2}$. Show that $\dfrac{a^{2}+b^{2}}{ab+1}$ is a perfect square.
 	\end{problem}
-	
+
 	\begin{solution}
 		Let $k$ be an integer so that
 			\begin{align*}
@@ -59,11 +59,11 @@
 			\end{align*}
 		Therefore, we must have a solution $(0,b)$ for the equation which gives us $k=b^2$.
 	\end{solution}
-	
+
 	\begin{problem}
 		Let $a$ and $b$ be positive integers such that $ab$ divides $a^2 + b^2 + 1$. Prove that $a^2 + b^2 + 1=3ab$.
 	\end{problem}
-	
+
 	\begin{solution}
 		Again, let $k=\frac{a^2+b^2+1}{ab}$ and among all the solutions of the equation, consider the solution that minimizes the sum $a+b$. We can also assume that, $a\geq b$. Now for applying Vietta, we rewrite it as
 			\begin{align*}
@@ -84,11 +84,11 @@
 			\end{align*}
 		which again produces a smaller sum $x+b<a+b$. This is a contradiction, so $a=b$ must happen.
 	\end{solution}
-	
+
 	\begin{problem}[Romanian TST 2004]
 		Find all integer values the expression $\dfrac{a^2+b^2+1}{ab-1}$ can assume for $ab\neq1$ where $a$ and $b$ are positive integers.
 	\end{problem}
-	
+
 	\begin{solution}
 		Take \[k=\dfrac{a^2+ab+b^2}{ab-1},\] or $a^2-a(kb-b)+k+b^2=0$ and fix $b$, when we consider the smallest sum $a+b$ for a solution $(a,b)$ where $a\geq b$. Consider it as a quadratic in $x$ again which has a solution $a$:
 			\begin{align*}
@@ -122,7 +122,7 @@
 	\end{solution}
 
 	\begin{problem}[Mathlinks Contest]
-		Let $ a,b,c,d$ be four distinct positive integers in arithmetic progression. Prove that $ abcd$ is not a perfect square.	
+		Let $ a,b,c,d$ be four distinct positive integers in arithmetic progression. Prove that $ abcd$ is not a perfect square.
 	\end{problem}
-	
+
 \end{document}

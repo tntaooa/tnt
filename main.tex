@@ -126,9 +126,12 @@
 \titleformat{\section}[display]{\bfseries\scshape\LARGE}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S$\thesection\;}{}}[\titlerule]
 \titleformat{\subsection}[display]{\bfseries\scshape\Large}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S\S$\thesection\;}{}}[\titlerule]
 
-\renewcommand*{\chapterautorefname}{$\S$}
-\renewcommand*{\sectionautorefname}{$\S$}
-\renewcommand*{\subsectionautorefname}{$\S$}
+\newcommand{\lemmaautorefname}{\textit{Lemma}}
+%\renewcommand{\theoremautorefname}{\textit{Theorem}}
+
+\renewcommand*{\chapterautorefname}{Chapter}
+\renewcommand*{\sectionautorefname}{Section}
+\renewcommand*{\subsectionautorefname}{Subsection}
 
 
 \begin{document}

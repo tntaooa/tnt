@@ -35,7 +35,7 @@
 
 		\begin{proof}
 			We divide the proof of this theorem into two parts. First, we show that if $p$ is a prime, then $(p-1)! \equiv -1 \pmod p$.
-			The result is obvious for $p=2$ and $3$. So we assume that $p \geq 5$. According to the Theorem \ref{thm:selfinverse}, the only two numbers among  $\{1, 2, \ldots, p-1\}$ which have their inverse equal themselves are $1$ and $p-1$. Put them away and consider the set  $A=\{2, 3 \ldots, p-2\}$. There are $p-3$ elements in this set, and each of them has an inverse modulo $p$, as proved in Theorem \ref{thm:arithinverse}. Furthermore, inverse of each number is congruent to $p$. This means that the inverses of elements of $A$ are distinct. So we can divide the elements of $A$ into $(p-3)/2$ inverse pairs. Thus
+			The result is obvious for $p=2$ and $3$. So we assume that $p \geq 5$. According to the \autoref{thm:selfinverse}, the only two numbers among  $\{1, 2, \ldots, p-1\}$ which have their inverse equal themselves are $1$ and $p-1$. Put them away and consider the set  $A=\{2, 3 \ldots, p-2\}$. There are $p-3$ elements in this set, and each of them has an inverse modulo $p$, as proved in \autoref{thm:arithinverse}. Furthermore, inverse of each number is congruent to $p$. This means that the inverses of elements of $A$ are distinct. So we can divide the elements of $A$ into $(p-3)/2$ inverse pairs. Thus
 			\begin{align*}
 			2 \cdot 3  \cdots  (p-2) \equiv 1 \pmod p.
 			\end{align*}
@@ -130,9 +130,9 @@
 				\end{align*}
 			So, we find that
 				\begin{align}
-					a^{p-1} \cdot (p-1)! \equiv (p-1)! \pmod p. \label{eq:factorialcoprime}
+					a^{p-1} \cdot (p-1)! \equiv (p-1)! \pmod p. \label{eq:factorialrelatively prime}
 				\end{align}
-			In congruence equation \eqref{eq:factorialcoprime}, we can use the fact that $(p, (p-1)!)=1$ to divide both sides by $(p-1)!$ and obtain $a^{p-1} \equiv 1 \pmod p$.
+			In congruence equation \eqref{eq:factorialrelatively prime}, we can use the fact that $(p, (p-1)!)=1$ to divide both sides by $(p-1)!$ and obtain $a^{p-1} \equiv 1 \pmod p$.
 		\end{proof}
 
 	You can find some other proofs for Fermat's Little Theorem that use either number theoretic techniques or even combinatorial approaches. For a very strange yet interesting proof of this theorem, read the proof by counting necklaces in \textcite{engel_1997}.
@@ -140,7 +140,7 @@
 		 \begin{corollary}
 		 	If $p$ is a prime and $a$ is an arbitrary positive integer (not necessarily co-prime with $p$), then
 		 	\begin{align*}
-		 	a^p \equiv a \pmod p.
+		 	a^p \equiv a \pmod p
 		 	\end{align*}
 		 \end{corollary}
 	Fermat's little theorem comes in handy in so many situations, but it only handles prime numbers. So we present the Euler's theorem which is a more general form of Fermat's little theorem. The proof is similar as well. Let's take the following example.
@@ -157,7 +157,7 @@
 				\end{align*}
 			We can apply the same method to find $4^{20} \equiv 3 \pmod{13}$. Finally,
 				\begin{align*}
-					4^{20} + 6^{40} + 12^{60} \equiv 3+9+1 \equiv 0 \pmod{13}.
+					4^{20} + 6^{40} + 12^{60} \equiv 3+9+1 \equiv 0 \pmod{13}
 				\end{align*}
 		\end{solution}
 	Here \textcite[Page $29$, Example $1.29$]{andreescuandricafeng2007} is an easy consequence of Fermat's little theorem.
@@ -178,7 +178,7 @@
 				\begin{align*}
 					(2^{2n}+1 )^2+4 &\equiv (2^{2\cdot (28k+1)}+1 )^2+4\\
 									&\equiv (2^{2}+1 )^2+4\\
-									&\equiv 0 \pmod{29}.
+									&\equiv 0 \pmod{29}
 				\end{align*}
 
 		\end{solution}
@@ -186,19 +186,19 @@
 		\begin{theorem}[Euler's \footnote{Sometimes called Fermat-Euler theorem or Euler's totient theorem, proposed by Euler in $1763$.} Theorem]\slshape
 			If $a$ and $n$ are positive integers such that $a \bot n$. Then
 			\begin{align*}
-			a^{\varphi(n)} \equiv 1 \pmod n,
+			a^{\varphi(n)} \equiv 1 \pmod n
 			\end{align*}
-			where $\varphi(.)$ is the Euler's totient function.
+			where $\varphi$ is the Euler's totient function.
 		\end{theorem}
 
 		\begin{proof}
-			Before we start the proof, remember Definition \ref{def:totient} where we defined Euler's totient function. The proof is very similar to the proof of Fermat's theorem and you only need to apply Proposition \ref{prop:generalreducedsystem} once. Let $A=\{a_1, a_2, \cdots, a_{\varphi(m)}\}$ be a reduced residue set mod $m$. Then so is $B=\{aa_1, aa_2, \cdots, aa_{\varphi(m)}\}$. From the definition of reduced systems, any number which is coprime to $m$ is congruent to exactly one element of $A$ and exactly one element of $B$. Thus, the product of all elements of $A$ must be congruent to that of $B$, modulo $B$. Therefore
+			Before we start the proof, remember Definition \ref{def:totient} where we defined Euler's totient function. The proof is very similar to the proof of Fermat's theorem and you only need to apply Proposition \ref{prop:generalreducedsystem} once. Let $A=\{a_1, a_2, \cdots, a_{\varphi(m)}\}$ be a reduced residue set mod $m$. Then so is $B=\{aa_1, aa_2, \cdots, aa_{\varphi(m)}\}$. From the definition of reduced systems, any number which is relatively prime to $m$ is congruent to exactly one element of $A$ and exactly one element of $B$. Thus, the product of all elements of $A$ must be congruent to that of $B$, modulo $B$. Therefore
 			\begin{align}
 			& (aa_1) (aa_2) \cdots (aa_{\varphi(m)}) && \equiv && a_1 a_2 \cdots a_{\varphi(m)} &&&  \pmod m\nonumber\\
 			\implies & a^{\varphi(m)} \cdot \left( a_1 a_2 \cdots a_{\varphi(m)}\right) && \equiv && a_1 a_2 \cdots a_{\varphi(m)} &&&  \pmod m\nonumber\\
-			\label{eq:productcoprime}\implies & a^{\varphi(m)} && \equiv && 1 &&& \pmod m.
+			\label{eq:productrelatively prime}\implies & a^{\varphi(m)} && \equiv && 1 &&& \pmod m
 			\end{align}
-			Note that in equation \eqref{eq:productcoprime} we have used the fact that $a_i \perp m$ for $1 \leq i \leq \varphi(m)$, which results in $a_1 a_2 \cdots a_{\varphi(m)} \perp m$.
+			Note that in equation \eqref{eq:productrelatively prime} we have used the fact that $a_i \perp m$ for $1 \leq i \leq \varphi(m)$, which results in $a_1 a_2 \cdots a_{\varphi(m)} \perp m$.
 		\end{proof}
 	We can easily conclude the Fermat's little theorem from Euler's theorem: for a prime $p$, we have $\varphi(p)=p-1$ and so $a^{\varphi(p)} \equiv a^{p-1} \equiv 1 \pmod p$ for any integer $a$ not divisible by $p$.
 
@@ -219,13 +219,13 @@
 					a(ct_n+1) + b &= da_1(ct_n+1) + (dc-da_1)\\
 								  &= dc(t_na_1 + 1)\\
 								  &= dc \left(c^{n\varphi(a_1)}\right)\\
-								  &= dc^{n\varphi(a_1)+1}.
+								  &= dc^{n\varphi(a_1)+1}
 				\end{align*}
 			Therefore, the only prime divisors of the term $a(ct_n+1) + b$ in the progression are prime divisors of $dc$, which are fixed (because $d$ and $c$ depend only on $a$ and $b$, which are fixed). This means that there exist infinitely many terms in the sequence which have the same prime divisors and we are done.
 		\end{solution}
 	Here is an exercise for you.
 		\begin{problem}
-			Find all primes $p$ such that $p^2$ divides $5^{p^2}+1$.
+			Find all primes $p$ such that $p^2$ divides $5^{p^2}+1$
 		\end{problem}
 
 
@@ -253,11 +253,11 @@
 		Consider the following progression:
 			\begin{align*}
 				u_0 &= \dfrac{1}{2},\\
-				u_{n+1} &= \dfrac{u_n}{3-2u_n} \quad \mbox{ for } n=1,2,3,\cdots
+				u_{n+1} &= \dfrac{u_n}{3-2u_n}
 			\end{align*}
-		Let $a$ be a real number. We define the series $\{w_n\}$ as
+		for $n\in\mathbb{N}$. Let $a$ be a real number. We define the series $\{w_n\}$ as
 			\begin{align*}
-				w_n &= \dfrac{u_n}{u_n + a} \quad \text{ for } n=1,2,3,\cdots
+				w_n &= \dfrac{u_n}{u_n + a}
 			\end{align*}
 		Find all values of $a$ such that $w_n$ is a geometric progression.
 	\end{problem}
@@ -277,7 +277,10 @@
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1310199
 		Prove that for any two positive integers $m$ and $n$, there exists a positive integer $x$, such that
 			\begin{align*}
-				\left\{\begin{matrix} 2^x \equiv 1999 \text{ (mod }3^m), & & \\ 2^x \equiv 2009 \text{ (mod }5^n). & & \end{matrix}\right.
+				2^x
+					& \equiv 1999 \pmod{3^m}\\
+				2^x
+					& \equiv 2009\pmod{5^n}
 			\end{align*}
 	\end{problem}
 
@@ -298,13 +301,13 @@
 	\end{problem}
 
 	\begin{problem}[ELMO 2000] %https://artofproblemsolving.com/community/c6h1344240
-		Let $a$ be a positive integer and let $p$ be a prime. Prove that there exists an integer $m$ such that \[ m^{m^m} \equiv a \pmod p. \]
+		Let $a$ be a positive integer and let $p$ be a prime. Prove that there exists an integer $m$ such that \[ m^{m^m} \equiv a \pmod p\]
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1450695
 		Find all pairs of prime numbers $(p,q)$ for which
 		\begin{align*}
-		7pq^2 + p = q^3 + 43p^3 + 1.
+		7pq^2 + p = q^3 + 43p^3 + 1
 		\end{align*}
 	\end{problem}
 
@@ -317,15 +320,22 @@
 	\end{problem}
 
 	\begin{problem}[Ukraine 2014] %https://artofproblemsolving.com/community/c6h610667p36302840
-		Find all pairs of prime numbers $(p,q)$ that satisfy the equation $$3p^{q}-2q^{p-1}=19.$$
+		Find all pairs of prime numbers $(p,q)$ that satisfy the equation $$3p^{q}-2q^{p-1}=19$$
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1191622
-		Let $p$ be an odd prime and let $\omega$ be the $p^{th}$ root of unity (that is, $\omega$ is some complex number such that $\omega^p = 1$). Let $$X=\sum \omega^i \quad \text{and} \quad Y=\sum \omega^j,$$ where $i$ in the first sum runs through quadratic residues and $j$ in the second sum runs over quadratic non-residues modulo $p$ and $0<i,j<p$. Prove that $XY$ is an integer.
+		Let $p$ be an odd prime and let $\omega$ be the $p^{th}$ root of unity (that is, $\omega$ is some complex number such that $\omega^p = 1$). Let
+			\begin{align*}
+				X
+					& =\sum \omega^i\\
+				Y
+					& =\sum \omega^j
+			\end{align*}
+		where $i$ in the first sum runs through quadratic residues and $j$ in the second sum runs over quadratic non-residues modulo $p$ and $0<i,j<p$. Prove that $XY$ is an integer.
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1194731
-		Let $p>2$ be a prime number. Prove that in the set $$\left\{1,2, \cdots ,\lfloor{\sqrt{p}}\rfloor+1\right\},$$ there exists an element which is not a quadratic residue mod $p$.
+		Let $p>2$ be a prime number. Prove that in the set $$\left\{1,2, \cdots ,\lfloor{\sqrt{p}}\rfloor+1\right\}$$ there exists an element which is not a quadratic residue mod $p$.
 	\end{problem}
 
 	%	\begin{solution}
@@ -369,7 +379,7 @@
 
 	%	\begin{solution}
 	%		We will use the following lemma which is an easy corollary of the chinese remainder theorem and Dirichlet's theorem on primes in arithmetic progressions:
-	%		Lemma: Let $m_1,...,m_r,M$ be pairwise coprime integers, let $\varphi_1,...,\varphi_r \in \{ \pm 1 \}$ and let $a$ be an integer coprime to $M$. Then there exists a prime $p$ such that $\left( \frac{p}{m_i} \right)=\varphi_i$ for all $i$ and auch that $p \equiv a \mod M$.\\
+	%		Lemma: Let $m_1,...,m_r,M$ be pairwise relatively prime integers, let $\varphi_1,...,\varphi_r \in \{ \pm 1 \}$ and let $a$ be an integer relatively prime to $M$. Then there exists a prime $p$ such that $\left( \frac{p}{m_i} \right)=\varphi_i$ for all $i$ and auch that $p \equiv a \mod M$.\\
 	%		We will now construct two sequences $a_n$ and $b_n$ such that $a_n$ contains every prime $\equiv 1 \mod 4$ exactly once and $b_n$ does the same for the primes $\equiv 1 \mod 8$ in such a way that mapping $a_i$ to $b_i$ induces an isomorphism of the graphs induced by being quadratic residues:\\
 	%		Assume we have found $a_1,...,a_n$ and $b_1,...,b_n$ such that mapping $a_i$ to $b_i$ induces an isomorphism of these finite graphs of $n$ vertices. Then continue in the following way:\\
 	%		-- If $n$ is even, take $a_{n+1}$ to be the smallest prime $\equiv 1 \mod 4$ not in the set $\{a_1,...,a_n\}$. Then the lemma allows us to find a prime $b_{n+1} \equiv 1 \mod 8$ such that $\left( \frac{b_{n+1}}{b_i} \right) = \left( \frac{a_{n+1}}{a_i} \right) $ for all $i$ (note that especially $b_{n+1} \neq b_i$). By construction, the graphs therefore remain isomorphic after adding these new vertices.\\
@@ -392,16 +402,16 @@
 	%		Assume that $n$ isn't a square, but a square $\mod $ all primes $>n$.\\
 	%		Let $n=2^s b = 2^s p_1^{v_1} p_2^{v_k} ... p_k^{v_k}$ be the prime factorisation and $b$ it's greatest odd factor. Since $n$ is not a square, either (w.l.o.g.) $v_1$ is odd or $s$ is odd.\\
 	%		1. case: all $v_i$ are even, so $s$ is odd.
-	%		Then simply taking an integer $q$ (coprime to all primes $\leq n$) not dividing $n$ and $\equiv 3\mod 8$ gives $\left( \frac{n}{q} \right) = \left( \frac{2^s}{q} \right) \left( \frac{b}{q} \right) = (-1)^s = -1$.\\
+	%		Then simply taking an integer $q$ (relatively prime to all primes $\leq n$) not dividing $n$ and $\equiv 3\mod 8$ gives $\left( \frac{n}{q} \right) = \left( \frac{2^s}{q} \right) \left( \frac{b}{q} \right) = (-1)^s = -1$.\\
 	%		2. case: $v_1$ is odd.
-	%		Now let $c$ be a quadratic non-residue $\mod p_1$ and take an integer $q$ (coprime to all primes $\leq n$) such that $q \equiv 1 \mod 8$, $q \equiv c \mod p_1$ and $q \equiv 1 \mod p_i$ for all other $p_i$.
+	%		Now let $c$ be a quadratic non-residue $\mod p_1$ and take an integer $q$ (relatively prime to all primes $\leq n$) such that $q \equiv 1 \mod 8$, $q \equiv c \mod p_1$ and $q \equiv 1 \mod p_i$ for all other $p_i$.
 	%		Then we get:\\
 	%		$\left( \frac{n}{q} \right) = \left( \frac{2}{q} \right)^s \left( \frac{p_1}{q} \right)^{v_1} \left( \frac{p_2}{q} \right)^{v_2} ... \left( \frac{p_k}{q} \right)^{v_n} = \left( \frac{q}{p_1} \right)^{v_1} \left( \frac{q}{p_2} \right)^{v_2} ... \left( \frac{q}{p_k} \right)^{v_k}=(-1)^{v_1}=-1$.\\
 	%		In both cases, $n$ is not a quadratic residue $\mod q$, thus not for at least one of it's prime divisors. This contradicts the assumption of $n$ being a square $\mod$ all primes $>n$.
 	%	\end{solution}
 
 	\begin{problem}
-		Let $k$ be an even positive integer and $k\ge 3$. Define $$n=\frac{2^k-1}{3}.$$ Find all $k$ such that $(-1)$ is a quadratic residue modulo $n$.
+		Let $k$ be an even positive integer and $k\ge 3$. Define $$n=\frac{2^k-1}{3}$$ Find all $k$ such that $(-1)$ is a quadratic residue modulo $n$.
 	\end{problem}
 
 	%	\begin{solution}
@@ -421,7 +431,7 @@
 	%	\begin{solution}
 	%		Let $2, p_1,p_2,\cdots,p_l$ be those prime numbers $\le n$. If $-1,2,p_1,\cdots, p_l$ are all quadratic residues, so are $\pm 1,\pm 2,\cdots,\pm n$. We want $\bigg(\frac {-1}{p}\bigg)=1$, $\bigg(\frac {2}{p}\bigg)=1$, so we set $p=1\pmod{8}$. By reciprocity, $\bigg(\frac {p_i}{p}\bigg)=(-1)^{\frac{(p-1)(p_i-1)}{4}}\bigg(\frac {p}{p_i}\bigg)=\bigg(\frac {p}{p_i}\bigg)$. We set $p=1\pmod{p_i}$. Now the question is, are there infinitely many $p$ such that
 	%		\[p=1\pmod{8}, \qquad p=1\pmod{p_i}, \ \ i=1,2,\cdots,l?\]
-	%		We need a simple lemma: suppose that $(a_n)$, $(b_n)$ are two arithmetic progressions of positive integers, their common differences $d_1$, $d_2$ being coprime. Then their intersection (terms appearing in both progressions) is an arithmetic progression with common difference $d_1d_2$.\\
+	%		We need a simple lemma: suppose that $(a_n)$, $(b_n)$ are two arithmetic progressions of positive integers, their common differences $d_1$, $d_2$ being relatively prime. Then their intersection (terms appearing in both progressions) is an arithmetic progression with common difference $d_1d_2$.\\
 	%		According to this lemma, the intersect of arithmetic progressions $(8n+1),(p_1n+1),\cdots,(p_ln+1)$ is again an arithmetic progression. So it does contain infinitely many primes $p$ by Dirichlet.
 	%	\end{solution}
 
@@ -460,7 +470,7 @@
 
 
 	\begin{problem}
-		Prove that there are no positive integers $k$ such that for the first $k$ odd prime numbers $p_1,p_2,\cdots,p_k$, there are $a,n\in\mathbb{Z}^+$ $(n>1)$ satisfying \[ p_1p_2\cdots p_k=a^n+1.\] %http://www.artofproblemsolving.com/community/q2h1173055p5644203
+		Prove that there are no positive integers $k$ such that for the first $k$ odd prime numbers $p_1,p_2,\cdots,p_k$, there are $a,n\in\mathbb{Z}^+$ $(n>1)$ satisfying \[ p_1p_2\cdots p_k=a^n+1\] %http://www.artofproblemsolving.com/community/q2h1173055p5644203
 	\end{problem}
 
 	%	\begin{solution}
@@ -532,7 +542,7 @@
 	%	\end{solution}
 
 	\begin{problem}[China 2009]
-		Find all the pairs of prime numbers $ (p,q)$ such that $$ pq \mid 5^p+5^q.$$ %http://artofproblemsolving.com/community/q2h250256p6448384
+		Find all the pairs of prime numbers $ (p,q)$ such that $$ pq \mid 5^p+5^q$$ %http://artofproblemsolving.com/community/q2h250256p6448384
 	\end{problem}
 
 	%	\begin{solution}
@@ -568,7 +578,7 @@
 	%	\end{solution}
 
 	\begin{problem}
-		Let $a$ and $b$ be coprime integers and let $d$ be an odd prime that divides $a^{2^{k}}+b^{2^{k}}$. Prove that $d-1$ is divisible by $2^{k+1}$. %http://artofproblemsolving.com/community/q2h1177972p5694239
+		Let $a$ and $b$ be relatively prime integers and let $d$ be an odd prime that divides $a^{2^{k}}+b^{2^{k}}$. Prove that $d-1$ is divisible by $2^{k+1}$. %http://artofproblemsolving.com/community/q2h1177972p5694239
 	\end{problem}
 
 	%	\begin{solution}
@@ -591,11 +601,11 @@
 	\begin{problem}
 		$ $
 		\begin{enumerate}
-			\item Show that if $p$ is a prime and $\text{ord}_p(a)=3$, then \[\left(\sum_{j=0}^{2}a^{j^{2}}\right)^{2}\equiv{-3}\pmod{p}.\]
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=3$, then \[\left(\sum_{j=0}^{2}a^{j^{2}}\right)^{2}\equiv{-3}\pmod{p}\]
 
-			\item Show that if $p$ is a prime and $\text{ord}_p(a)=4$, then \[\left(\sum_{j=0}^{3}a^{j^{2}}\right)^{2}\equiv{8a}\pmod{p}.\]
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=4$, then \[\left(\sum_{j=0}^{3}a^{j^{2}}\right)^{2}\equiv{8a}\pmod{p}\]
 
-			\item Show that if $p$ is a prime and $\text{ord}_p(a)=6$, then \[\sum_{j=0}^{5}a^{j^{2}}\equiv{0}\pmod{p}.\]
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=6$, then \[\sum_{j=0}^{5}a^{j^{2}}\equiv{0}\pmod{p}\]
 		\end{enumerate}
 		%http://artofproblemsolving.com/community/q2h470104p2631974
 	\end{problem}
@@ -630,12 +640,17 @@
 
 	\begin{problem}
 		Find all primes $p$ and $q$ that satisfy
-		\[\left\{\begin{matrix} p^2+1\mid 2003^q+1,\\ q^2+1\mid 2003^p+1. \end{matrix}\right.\]
+			\begin{align*}
+				p^2+1
+					& \mid 2003^q+1\\
+				q^2+1
+					& \mid 2003^p+1
+			\end{align*}
 		%http://artofproblemsolving.com/community/q2h1230409p6217580
 	\end{problem}
 
 	\begin{problem}
-		Prove that there do not exist non-negative integers $a,b$, and $c$ such that $$(2^a-1)(2^b-1)=2^{2^c}+1.$$ %http://artofproblemsolving.com/community/q2h454381p2553548
+		Prove that there do not exist non-negative integers $a,b$, and $c$ such that $$(2^a-1)(2^b-1)=2^{2^c}+1$$ %http://artofproblemsolving.com/community/q2h454381p2553548
 	\end{problem}
 
 	%	\begin{solution}
@@ -647,7 +662,7 @@
 	%	\end{solution}
 
 	\begin{problem}
-		Find all triples $(x,y,z)$ of positive integers which satisfy the equation $$2^x+1=z(2^y-1).$$ %http://artofproblemsolving.com/community/q2h525122p2971275
+		Find all triples $(x,y,z)$ of positive integers which satisfy the equation $$2^x+1=z(2^y-1)$$ %http://artofproblemsolving.com/community/q2h525122p2971275
 	\end{problem}
 
 	%	\begin{solution}
@@ -756,7 +771,7 @@
 	%	\end{solution}
 
 	\begin{problem}
-		For a given prime $p > 2$ and a positive integer $k$, let \[ S_k = 1^k + 2^k + \cdots + (p - 1)^k.\] Find those values of $k$ for which $p \mid S_k$. %http://www.artofproblemsolving.com/community/c6h295883p1602380
+		For a given prime $p > 2$ and a positive integer $k$, let \[ S_k = 1^k + 2^k + \cdots + (p - 1)^k\] Find those values of $k$ for which $p \mid S_k$. %http://www.artofproblemsolving.com/community/c6h295883p1602380
 	\end{problem}
 
 	%	\begin{solution}
@@ -791,7 +806,8 @@
 	\begin{problem} %https://artofproblemsolving.com/community/c6h486495
 		Let $n$ be a positive integer. Prove that
 		\begin{align*}
-		n\le 4\lambda(n)\left(2^{\lambda(n)}-1\right),
+			n
+				& \le 4\lambda(n)\left(2^{\lambda(n)}-1\right)
 		\end{align*}
 		where $\lambda(n)$ denotes the Carmichael function of $n$.
 	\end{problem}
@@ -811,7 +827,7 @@
 	\begin{problem} %https://artofproblemsolving.com/community/c3h1309261
 		Given three integers $a,b,c$ satisfying $a\cdot b\cdot c=2015^{2016}$. Find the remainder when we divide $A$ by $24$, knowing that
 		\begin{align*}
-		A=19a^2+5b^2+1890c^2.
+		A=19a^2+5b^2+1890c^2
 		\end{align*}
 	\end{problem}
 
@@ -823,8 +839,8 @@
 		%https://artofproblemsolving.com/community/c7h592336p3511046
 		Let $p$ be a prime greater than $3$. Prove that
 		\begin{align*}
-		p^2
-			& \mid \sum_{i=1}^{\left\lfloor\frac{2p}{3}\right\rfloor}\dbinom{p}{i}.
+			p^2
+				& \mid \sum_{i=1}^{\left\lfloor\frac{2p}{3}\right\rfloor}\dbinom{p}{i}
 		\end{align*}
 	\end{problem}
 
@@ -832,16 +848,16 @@
 		Let $a$ and $b$ be two positive integers satisfying $0<b\leq a.$ Let $p$ be any prime number. Show that
 		\begin{align*}
 			\binom{pa}{pb}
-				& \equiv \binom{a}{b} \pmod{p^3}.
+				& \equiv \binom{a}{b} \pmod{p^3}
 		\end{align*}
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h380812
 		The sequence $a_n$ is defined as follows: $a_1 = 0$ and
 		\begin{align*}
-		a_{n+1}=\frac{\ensuremath{(4n+2).n^{3}}}{(n+1)^{4}}a_{n}+\frac{3n+1}{(n+1)^{4}} \quad \text{for } n=1,2,3,\cdots
+			a_{n+1}=\frac{\ensuremath{(4n+2).n^{3}}}{(n+1)^{4}}a_{n}+\frac{3n+1}{(n+1)^{4}}
 		\end{align*}
-		Prove that there are infinitely many positive integers $n$ such that $a_n$ is an integer.
+		for $n\ge1 $. Prove that there are infinitely many positive integers $n$ such that $a_n$ is an integer.
 	\end{problem}
 
 	\begin{hint}
@@ -861,7 +877,7 @@
 		Let $p$ be an odd prime number. Define $q = \frac{3p-5}{2}$ and
 		\begin{align*}
 			S_q
-				& = \dfrac{1}{2 \cdot 3 \cdot 4} + \dfrac {1}{5 \cdot 6 \cdot 7} + \cdots + \dfrac{1}{q(q+1)(q+2)}.
+				& = \dfrac{1}{2 \cdot 3 \cdot 4} + \dfrac {1}{5 \cdot 6 \cdot 7} + \cdots + \dfrac{1}{q(q+1)(q+2)}
 		\end{align*}
 		If we write $\frac{1}{p} - 2S_q $ as an irreducible fraction, prove that $p$ divides the difference between numerator and denominator of this fraction.
 	\end{problem}
@@ -870,7 +886,7 @@
 		Find the largest power of a prime $p$ which divides
 		\begin{align*}
 			S_p
-				& =\binom{p^{n+1}}{p^n}-\binom{p^{n}}{p^{n-1}}.
+				& =\binom{p^{n+1}}{p^n}-\binom{p^{n}}{p^{n-1}}
 		\end{align*}
 	\end{problem}
 
@@ -885,7 +901,7 @@
 	\begin{problem} %https://math.stackexchange.com/q/1259840/6715
 		Let $p\geq 3$ be a prime number and let
 			\begin{align*}
-				\sum_{j=1}^{p-1}\frac{(-1)^{j}}{j} \binom{p-1}{j} =\frac{a}{b},
+				\sum_{j=1}^{p-1}\frac{(-1)^{j}}{j} \binom{p-1}{j} =\frac{a}{b}
 			\end{align*}
 		where $a$ and $b$ are relatively prime integers. Prove that $p^2\mid a$.
 	\end{problem}
@@ -897,7 +913,7 @@
 	\begin{problem} %https://math.stackexchange.com/q/597334/6715
 		How many of the following numbers are divisible by $3$?
 		\begin{align*}
-		\binom{200}{0}, \binom{200}{1}, \binom{200}{2}, \cdots, \binom{200}{200}.
+		\binom{200}{0}, \binom{200}{1}, \binom{200}{2}, \cdots, \binom{200}{200}
 		\end{align*}
 	\end{problem}
 
@@ -906,7 +922,7 @@
 	\begin{problem} %https://artofproblemsolving.com/community/c4h1367798
 		Find all pairs $(p,q)$ prime numbers such that
 			\begin{align*}
-				7 p^3 - q^3 = 64.
+				7 p^3 - q^3 = 64
 			\end{align*}
 	\end{problem}
 
@@ -935,6 +951,6 @@
 	\end{hint}
 
 	\begin{problem}[Putnam 2001] %https://artofproblemsolving.com/community/c7h466477p2612329
-		Prove that there are unique positive integers $a$ and $n$ such that $$a^{n+1}-(a+1)^n=2001.$$
+		Prove that there are unique positive integers $a$ and $n$ such that $$a^{n+1}-(a+1)^n=2001$$
 	\end{problem}
 \end{document}

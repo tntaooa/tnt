@@ -5,12 +5,12 @@
 		\begin{problem}
 			You are in a strange country where only two units are available for exchange: $4$ and $6$. Can you pay any amount you want?
 		\end{problem}
-		
+
 		\begin{problem}
 			In another country, you see that only two units are available for exchange: $3$ and $10$. Can you pay any amount you want?
 		\end{problem}
-		
-	If you have come to the right conclusions, you will see that you can not pay any amount you want in the first case. But you can pay whatever you want with the second one. Let's say two units available value $a$ and $b$. So if you use $a$ unit $x$ times and $b$ unit $y$ times, the total amount of money you can pay is $ax+by$. Here, $x,y$ can be negative or non-negative integers. If $x>0$, it will mean you are paying, or if $x<0$ it will mean you are being paid (or getting the exchange). Therefore, if you need to pay exactly $n$ amount, you need integers $x$ and $y$ with 
+
+	If you have come to the right conclusions, you will see that you can not pay any amount you want in the first case. But you can pay whatever you want with the second one. Let's say two units available value $a$ and $b$. So if you use $a$ unit $x$ times and $b$ unit $y$ times, the total amount of money you can pay is $ax+by$. Here, $x,y$ can be negative or non-negative integers. If $x>0$, it will mean you are paying, or if $x<0$ it will mean you are being paid (or getting the exchange). Therefore, if you need to pay exactly $n$ amount, you need integers $x$ and $y$ with
 		\begin{align*}
 			ax+by & = n.
 		\end{align*}
@@ -19,7 +19,7 @@
 			ax+by & = 1.
 		\end{align*}
 	In the problems above, we can't pay any amount with $4$ and $6$ because they are not co-prime. But we can pay any amount that is a multiple of $(4,6)=2$. But we can pay any amount with $3$ and $10$ because they are co-prime. This leads us to the following theorem.
-	
+
 	\begin{theorem}\slshape
 		Any integer can be written as a linear combination of $a$ and $b$ if and only if $a\perp b$.
 	\end{theorem}
@@ -27,7 +27,7 @@ By linear combination, we mean using only $a$ and $b$ as many times as we want. 
 	\begin{problem}
 		A shop sells nuggets in packages of two sizes, $3$ nuggets and $10$ nuggets. What is the maximum number of nuggets that cannot be expressed as a nonnegative combination of these package sizes?
 	\end{problem}
-	
+
 	\begin{definition}[Frobenius Number]
 		For two integers $a$ and $b$, the largest bad integer is the \textit{Frobenius number}. In fact, it can be generalized for $n$ natural numbers. If $a_1,\ldots,a_n$ are natural numbers so that $(a_1,\ldots,a_n)=1$, the largest natural number that can not be written as $a_1x_1+\ldots a_nx_n$ for nonnegative $x_1,\ldots,x_n$ is the Frobenius number. It is denoted as $F_n(a_1,\ldots,a_n)$. Here, we will deal with the case $n=2$, $F_2(a,b)$.
 	\end{definition}
@@ -43,7 +43,7 @@ and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, 
 	\begin{lemma}\slshape
 		$ab-a-b$ is a bad number.
 	\end{lemma}
-	
+
 	\begin{proof}
 		On the contrary, let's assume that
 			\begin{align*}
@@ -65,11 +65,11 @@ and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, 
 			\end{align*}
 		which is a contradiction.
 	\end{proof}
-	
+
 %	\begin{lemma}
 %		If $m$ and $n$ both are good, then so is $m+n$.
 %	\end{lemma}
-%	
+%
 %	\begin{proof}
 %		If $m$ and $n$ are good, then there are nonnegative integers $x,y,u$ and $v$ so that
 %			\begin{align*}
@@ -78,11 +78,11 @@ and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, 
 %			\end{align*}
 %		Therefore, $m+n= a(x+u)+b(y+v)$ is good.
 %	\end{proof}
-%	
+%
 %	\begin{lemma}\slshape
 %		If $m+n=ab-a-b$, then exactly one of $m$ and $n$ is good.
 %	\end{lemma}
-%	
+%
 %	\begin{proof}
 %		If both $m$ and $n$ are good, then according to the lemma above, $m+n$ is good too. But that would contradict the fact that $ab-a-b$ is bad. So, one of $m$ or $n$ must be bad.
 %	\end{proof}
@@ -90,13 +90,13 @@ The above lemma shows that $F_2(a,b) \geq ab-a-b$. It only remains to prove the 
 	\begin{lemma}\slshape
 		Any integer $n>ab-a-b$ is good.
 	\end{lemma}
-	
+
 	\begin{proof}
 		Since $(a,b)=1$, by B\'{e}zout's identity, there are integers $u$ and $v$ so that
 			\begin{align}
 				au+bv = 1 & \implies anu+bnv = n\nonumber\\
 				& \implies ax_0+by_0  = n.\label{eqn:syl1}
-			\end{align} 
+			\end{align}
 		We need to show that such $x_0,y_0 \geq 0$ exist. If $(x_0,y_0)$ is a solution of equation \eqref{eqn:syl1}, then so is $(x_0-bt,y_0+at)$ for any integer $t$. Here, one can choose $t$ such that $0 \leq x_0-bt<b$. In case you don't understand how we can choose such $t$, just divide $x_0$ by $b$. Then $x_0=bq+r$, where $0\leq r <b$. This means that $0 \leq x_0 -bq <b$, so one choice for $t$ is $q$. So we know that there exists some $x_0$ such that $0 \leq x_0<b$. We will show that $y_0$ is also positive. Note that
 			\begin{align*}
 				& ax_0+by_0 = n > ab-a-b\\
@@ -113,7 +113,7 @@ We see some problems related to this theorem. A classical example would be the f
 	\begin{problem}[IMO 1983]
 		Let $a,b,c\in\mathbb{N}$ with $(a,b)=(b,c)=(c,a)=1$. Prove that, $2abc-ab-bc-ca$ is the largest integer that can not be expressed as $xbc+yca+zab$ for non-negative $x,y,z$.
 	\end{problem}
-	
+
 	\begin{solution}
 		Clearly, we need to invoke Sylvester's theorem here. But the expression tells us, it can not be done in one step. Note that
 			\begin{align*}
@@ -129,7 +129,7 @@ We see some problems related to this theorem. A classical example would be the f
 			\begin{align*}
 				xbc+yca+zab & = abc-bc-ca+c+ct+zab\\
 							& = abc-bc-ca+c+abc-ab-c+1+w\\
-							& = 2abc-ab-bc-ca+1+w			
+							& = 2abc-ab-bc-ca+1+w
 			\end{align*}
 	\end{solution}
 This shows that all integers greater than $2abc-ab-bc-ca$ are good.	Finally, in order to prove the claim, we just have to show that $2abc-ab-bc-ca$ is bad. To the contrary, assume that $2abc-ab-bc-ca=xbc+yca+zab$ for some non-negative $x,y,z$. We have
@@ -137,7 +137,7 @@ This shows that all integers greater than $2abc-ab-bc-ca$ are good.	Finally, in 
 		bc(x+1)+ca(y+1)+ab(z+1)=2abc
 	\end{align*}
 Clearly, $a|x+1$ because $a|bc(x+1)$ but $\gcd(a,bc)=1$. Similarly, $b|y+1$ and $c|z+1$. This gives us $bc(x+1)+ca(y+1)+ab(z+1)\geq bca+cab+abc$ or $2abc\geq3abc$ which is obviously wrong.
-	
+
 So, the problem is solved. As you can see, the theorem is fairly easy to understand and use in problems. There will be some related problems in the problem column. See if you can get how to solve those using this (first you have to understand that this theorem will come to the rescue though).
 
 

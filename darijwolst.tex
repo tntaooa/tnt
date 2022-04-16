@@ -2,32 +2,32 @@
 
 \begin{document}
 	The following theorem is a generalization of Wolstenholme's theorem. It was proposed and proved by Darij Grinberg on the \textit{Art of Problem Solving} website. Before stating the theorem, we need to define $v_p(x)$ for a rational number $x$.
-	
+
 	Recall section \eqref{sec:powerofprimes} where we defined $v_p(x)$ for $x$ being an \textit{integer} as the greatest power of $p$ which divides $x$. Now, since we are working with fractions, we need to generalize this concept to include rational numbers.
-	
+
 	\begin{definition}
 		Let $p$ be a prime and let $x = \frac{a}{b} \neq 0$ be a rational number reduced to lowest terms. Define the \textit{$p$-adic evaluation of $x$} as $v_p(x) = v_p(a)-v_p(b)$, where $v_p(n)$ is the notation defined in definition \eqref{def:vp}.
 	\end{definition}
-	
+
 	\begin{example}
 		$v_3\left(\frac{9}{16}\right) = 2$, and $v_5\left(\frac{34}{25}\right) = -2$.
 	\end{example}
-	
+
 	\begin{note}
 		We can easily check the sign of $v_p(x)$ for any rational number $x=\frac{a}{b}$. If $p|a$, then $v_p(x)>0$. If $p$ divides none of $a$ and $b$, then $v_p(x)=0$. And if $p|b$, then $v_p(x)<0$. Also,  $ v_{p}\left(xy\right) = v_{p}\left(x\right) + v_{p}\left(y\right)$ and $ v_{p}\left(x + y\right)\geq\min\left(v_{p}\left(x\right),v_{p}\left(y\right)\right)$ for all rationals $x$ and $y$.
 	\end{note}
-	
+
 	We can now generalize the concept of congruency to include rational numbers.
 	\begin{definition}
 		If $x$ and $y$ are two rational numbers such that $ v_{p}\left(x\right)\geq 0$ and $ v_{p}\left(y\right)\geq 0$, then we say that $ x\equiv y\pmod p$ if and only if $ v_{p}\left(x - y\right) > 0$.
 	\end{definition}
-	
+
 	The following problem gives you a good sight of the above notation.
-	
+
 	\begin{problem}
 		Let $p \geq 3$ be a prime. Prove that $p|2^{p-2}+3^{p-2}+6^{p-2}-1$.
 	\end{problem}
-	
+
 	\begin{solution}
 		Let $a \bot p$ be an integer. We can write $a^{p-2} \equiv \frac{1}{a} \pmod p$ because
 			\begin{align*}
@@ -38,23 +38,23 @@
 		2^{p-2}+3^{p-2}+6^{p-2}-1 \equiv \frac{1}{2}+\frac{1}{3}+\frac{1}{6}-1 \equiv 0 \pmod p.
 		\end{align*}
 	\end{solution}
-	
+
 	\begin{theorem}[Darij-Wolstenholme Theorem]
 		Let $p>3$ be a prime and let $u$ be a non-negative and odd integer such that $p \geq u+3$. Then
 		\begin{align*}
 		v_{p}\left(\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}\right)\geq 2.
 		\end{align*}
 	\end{theorem}
-	
+
 	The idea of the proof is similar to the proof of Wolstenholme's theorem. We need to prove a lemma first.
-	
+
 	\begin{lemma}\label{lem:darijwolstproof}
 		Let $p$ be a prime and let $n$ be an integer such that $1 \leq n \leq p-2$. Then
 		\begin{align*}
 		\sum_{k = 1}^{p - 1} k^n \equiv 0 \pmod p.
 		\end{align*}
 	\end{lemma}
-	
+
 	\begin{proof}
 		There exists an integer $a$ co-prime to $p$ such that $p \nmid a^n -1$. The set $A= \{0, 1^n, 2^n, \ldots, (p-1)^n\}$ forms a compete residue system modulo $p$ (why?). Proposition \eqref{prop:generalcompletesystem} says that the set $B=\{0, a^n, (2a)^n, \ldots, ((p-1)a)^n\}$ also forms a complete residue system modulo $p$. Therefore, the sum of elements of both sets are equivalent modulo $p$. So
 		\begin{align*}
@@ -72,11 +72,11 @@
 			\begin{align*}
 				1^n+2^n+\cdots+(p-1)^n & = 1^n+g^n+g^{2n}+\cdots+\left(g^{p-2}\right)^n\\
 										&= \dfrac{(g^n)^{p-1}-1}{g^n-1}\\
-										& = \dfrac{g^{(p-1)n}-1}{g^n-1}	
+										& = \dfrac{g^{(p-1)n}-1}{g^n-1}
 			\end{align*}
 		From Fermat's little theorem, $g^{p-1}\equiv1\pmod p$, so the conclusion follows.
 	\end{proof}
-	
+
 	\begin{proof}[Proof of Darij-Wolstenholme Theorem]
 		The idea is to use the trick explained in lemma \eqref{lem:wolstproof1}. That is, we write the given sum as a sum of terms of the form $\frac{1}{k^u}+\frac{1}{(p-k)^u}$. We have
 		\begin{align*}
@@ -112,14 +112,14 @@
 		\end{align*}
 		which follows directly from lemma \eqref{lem:darijwolstproof} because $ 1\leq p - u - 2\leq p - 2$. The proof is complete.
 	\end{proof}
-	
+
 	\begin{problem}
 		Let $p>3$ be a prime. Prove that
 		\begin{align*}
 		\sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {\left( - 1\right)^{i - 1}}{i} \equiv 0 \pmod p.
 		\end{align*}
 	\end{problem}
-	
+
 	\begin{solution}
 		First, let us prove that
 		\begin{align}\label{eq:primefloor}
@@ -141,7 +141,7 @@
 			p - \left\lfloor\left\lfloor\frac {2p}{3}\right\rfloor /2\right\rfloor = p - \frac {p - 1}{3} = 2\cdot\frac {p - 1}{3} + 1 = \left\lfloor\frac {2p}{3}\right\rfloor + 1,
 			\end{align*}
 			as desired.
-			
+
 			\item If $p \equiv 2 \pmod 3$, then $\frac{p-2}{3}$ is an integer and
 			\begin{align*}
 			2\cdot\frac {p - 2}{3} + 1\leq\frac {2p}{3} < \left(2\cdot\frac {p - 2}{3} + 1\right) + 1.
@@ -185,5 +185,5 @@
 		&\equiv 0 \pmod p.
 		\end{align*}
 		This finishes the proof of the problem.
-	\end{solution}	
+	\end{solution}
 \end{document}

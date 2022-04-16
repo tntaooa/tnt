@@ -13,11 +13,19 @@ In general, a \textit{Pseudoprime} is an integer which shares a common property 
 		\begin{example}
 			Fermat pseudoprime to base $2$ are called \textit{Poulet numbers}. $341=11\times 31$ is the smallest Poulet number. The reason is that
 				\begin{align*}
-					2^{340} \equiv \left(2^5\right)^{68} \equiv (32)^{68} \equiv 1^{68} \equiv 1 \pmod{31},
+					2^{340}
+						& \equiv \left(2^5\right)^{68}\\
+						& \equiv (32)^{68}\\
+						& \equiv 1^{68}\\
+						& \equiv 1 \pmod{31}
 				\end{align*}
 			and
 				\begin{align*}
-					2^{340} \equiv \left(2^{10}\right)^{34} \equiv (1024)^{34} \equiv (1)^{34} \equiv 1 \pmod{11},
+					2^{340}
+						& \equiv \left(2^{10}\right)^{34}\\
+						& \equiv (1024)^{34}\\
+						& \equiv (1)^{34}\\
+						& \equiv 1 \pmod{11}
 				\end{align*}
 			which yields $2^{340} \equiv 1 \pmod{341}$.
 		\end{example}
@@ -30,15 +38,19 @@ In general, a \textit{Pseudoprime} is an integer which shares a common property 
 		\begin{proof}
 			Let $p\geq 3$ be any prime number such that $p \nmid a^2-1$. We show that
 				\begin{align*}
-					n = \frac{a^{2p}-1}{a^2-1}
+					n
+						& = \frac{a^{2p}-1}{a^2-1}
 				\end{align*}
 			is a Fermat pseudoprime to base $a$. First, $n$ is composite because
 				\begin{align*}
-					n = \frac{a^p-1}{a-1}\cdot \frac{a^p+1}{a+1}.
+					n
+						& = \frac{a^p-1}{a-1}\cdot \frac{a^p+1}{a+1}
 				\end{align*}
 			By Fermat's little theorem, $a^{2p} \equiv a^2 \pmod p$ and therefore $p\mid a^{2p}-a^2$. Since $p$ does not divide $a^2-1$, it divides
 				\begin{align*}
-					n-1 = \frac{a^{2p}-a^2}{a^2-1} = a^{2p-2}+a^{2p-4}+\cdots+a^4+a^2,
+					n-1
+						& = \frac{a^{2p}-a^2}{a^2-1}\\
+						& = a^{2p-2}+a^{2p-4}+\cdots+a^4+a^2
 				\end{align*}
 			which is an even integer. We can now deduce that $2p \mid n-1$ because $p$ is odd. Now, $a^{2p}-1 = n\left(a^2-1\right)$ which means $a^{2p} \equiv 1 \pmod n$. Thus $a^{n-1}\equiv 1 \pmod n$ and $n$ is a Fermat pseudoprime to base $a$.
 		\end{proof}
@@ -70,14 +82,14 @@ The following theorem shows us a way to determine if an integer is a Carmichael 
 
 		Now we will prove the third one. To prove this, we will use a classical technique. Let $p$ be a prime divisor of $n$. Since $a^n\equiv a\pmod n$, we can say $a^n\equiv a\pmod p$ for all $a$. Choose $a$ so that $a\bot p$. Then $p$ divides $a^n-a=a(a^{n-1}-1)$, thus $p \mid a^{n-1}-1$. Also from Fermat's little theorem, $p \mid a^{p-1}-1$.
 
-		Here is the crucial part. From Theorem \ref{thm:primeprimitive}, we know that \textit{there is a primitive root for all primes} $p$, i.e., there is a positive integer $g$ with $\ord_p(g)=p-1$. For that $g$,
+		Here is the crucial part. From \autoref{thm:primeprimitive}, we know that \textit{there is a primitive root for all primes} $p$, i.e., there is a positive integer $g$ with $\ord_p(g)=p-1$. For that $g$,
 		\begin{align*}
 			g^{n-1}
 				& \equiv1\pmod p\\
 			g^{p-1}
 				& \equiv1\pmod p
 		\end{align*}
-		Since $p-1$ is the order, by Theorem \ref{thm:ordDiv}, $p-1 \mid n-1$ must hold.
+		Since $p-1$ is the order, by \autoref{thm:ordDiv}, $p-1 \mid n-1$ must hold.
 	\end{proof}
 
 	\begin{note}
@@ -107,14 +119,14 @@ You may wonder if there exist \textit{absolute Euler pseudoprimes}, numbers whic
 		$121$ is an $\epsp(3)$. To see why, note that
 			\begin{align*}
 				\left(\dfrac{3}{121}\right)
-					& = \left(\dfrac{3}{11}\right)^2 = 1,
+					& = \left(\dfrac{3}{11}\right)^2 = 1
 			\end{align*}
 		by the definition of Jacobi symbol (Definition \ref{def:jacobi}). Now,
 			\begin{align*}
 				3^{60}
 					& = \left(3^5\right)^{12}\\
 					& =\left(243\right)^{12}\\
-					& \equiv 1^{12} \equiv 1 \pmod{121}.
+					& \equiv 1^{12} \equiv 1 \pmod{121}
 			\end{align*}
 	\end{example}
 
@@ -139,8 +151,9 @@ It can be proved that every $\spsp(a)$ is also a $\epsp(a)$ (and hence a $\psp(a
 		If $n$ is a Fermat pseudoprime to base $2$, then $2^{n-1} \equiv 1 \pmod n$ and so $2^{n-1}-1=nk$ for some integer $k$. Choose $m=2^{n}-1$. We will show that $m$ is a strong pseudoprime to base $2$. To proceed, notice that $m-1=2^n-2=2\left(2^{n-1}-1\right)$ and $2^{n-1}-1$ is an odd integer. So it suffices to show that $2^{2^{n-1}-1} \equiv 1 \pmod m$. Now,
 			\begin{align*}
 				2^{2^{n-1}-1}
-					& = 2^{nk}= \left(2^n\right)^k\\
-					& \equiv 1^k \equiv 1 \pmod{m}.
+					& = 2^{nk}\\
+					& = \left(2^n\right)^k\\
+					& \equiv 1^k \equiv 1 \pmod{m}
 			\end{align*}
 		The proof is complete.
 	\end{proof}

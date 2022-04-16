@@ -10,7 +10,7 @@
 	\begin{theorem}[Invariance Theorem]\slshape
 		Let $f$ be an arithmetic function and $I$ be the identity function. Then
 			\begin{align*}
-				f\ast I=I\ast f=f.
+				f\ast I=I\ast f=f
 			\end{align*}
 	\end{theorem}
 
@@ -18,7 +18,7 @@
 		\label{thm:dirichmobi}
 		Let $f$ be an arithmetic function and $F$ is its summation function. Then
 			\begin{align*}
-				f=\mu\ast F.
+				f=\mu\ast F
 			\end{align*}
 	\end{theorem}
 
@@ -29,7 +29,7 @@
 	\begin{definition}[Dirichlet Derivative]
 		For an arithmetic function $f$, we define its \textit{Dirichlet derivative} as
 			\begin{align*}
-				f^\prime(n) & =f(n)\ln n.
+				f^\prime(n) & =f(n)\ln n
 			\end{align*}
 	\end{definition}
 
@@ -40,8 +40,8 @@ We can easily check that some usual properties of differentiation hold true for 
 	\begin{proposition}
 		Let $f$ and $g$ be arithmetic functions. Then\footnote{You can see it follows some properties of the usual derivative (if you are familiar with calculus, you should know what derivative is. However, for this purpose you do not need any calculus.)}
 			\begin{align*}
-				(f+g)^\prime & =f^\prime+g^\prime,\\
-				(f\ast g)^\prime& =f^\prime \ast g + f\ast g^\prime.
+				(f+g)^\prime & =f^\prime+g^\prime\\
+				(f\ast g)^\prime& =f^\prime \ast g + f\ast g^\prime
 			\end{align*}
 	\end{proposition}
 	\begin{proof}
@@ -53,7 +53,7 @@ We can easily check that some usual properties of differentiation hold true for 
 					&= \left(\sum_{d\mid n} f(d)g\left(\dfrac{n}{d}\right)\right) \cdot \ln d + \left(\sum_{d\mid n} f(d)g\left(\dfrac{n}{d}\right)\right) \cdot \ln \dfrac{n}{d}\\
 					&= \sum_{d\mid n} f(d)\cdot \ln d \cdot g\left(\dfrac{n}{d}\right)+ \sum_{d\mid n} f(d) g\left(\dfrac{n}{d}\right) \cdot \ln \dfrac{n}{d}\\
 					&= \sum_{d\mid n} f^\prime(d) \cdot g\left(\dfrac{n}{d}\right)+ \sum_{d\mid n} f(d) g^\prime\left(\dfrac{n}{d}\right)\\
-					&= (f^\prime \ast g)(n) + (f\ast g^\prime)(n).
+					&= (f^\prime \ast g)(n) + (f\ast g^\prime)(n)
 			\end{align*}
 
 	\end{proof}
@@ -61,7 +61,7 @@ We can easily check that some usual properties of differentiation hold true for 
 		For any positive integer $n$, the von Mangoldt function, denoted by $\Lambda(n)$\footnote{$\Lambda$ is the upper case of the symbol lambda ($\lambda$) in Greek.} is defined as
 			\begin{align*}
 				\Lambda(n) & =
-					\begin{cases}\ln p &\mbox{ if }n=p^m\mbox{ for  some prime }p\mbox{ and positive integer }m,\\0&\mbox{ otherwise}.\end{cases}
+					\begin{cases}\ln p &\mbox{ if }n=p^m\mbox{ for  some prime }p\mbox{ and positive integer }m\\0&\mbox{ otherwise}\end{cases}
 			\end{align*}
 	\end{definition}
 
@@ -75,11 +75,11 @@ We can easily check that some usual properties of differentiation hold true for 
 			\begin{align*}
 				\ln n  & =\ln\left(\prod_{i=1}^kp_i^{e_i}\right)\\
 						&=\sum_{i=1}^k\ln{p_i^{e_i}}\\
-						&=\sum_{i=1}^ke_i\ln p_i.
+						&=\sum_{i=1}^ke_i\ln p_i
 			\end{align*}
 		On the other hand, if $p$ is a prime, for $d\neq p^m$ we have $\Lambda(d)=0$ by definition. Therefore, only prime powers $p^e$ contribute a $\ln p$ to the sum $\sum_{d\mid n}\Lambda(d)$. So, if $p_i$ is a prime divisor of $n$, $p_i^1,\ldots,p_i^{e_i}$ contribute $e_i \cdot \ln p_i$ to the sum. Thus,
 			\begin{align*}
-				\sum_{d\mid n}\Lambda(d) = \sum\limits_{i=1}^ke_i\ln p_i.
+				\sum_{d\mid n}\Lambda(d) = \sum\limits_{i=1}^ke_i\ln p_i
 			\end{align*}
 
 	\end{proof}
@@ -88,34 +88,34 @@ We can easily check that some usual properties of differentiation hold true for 
 	\begin{theorem}[Selberg's Identity]
 		Let $n$ be a positive integer. Then
 			\begin{align*}
-				\Lambda(n)\ln n+\sum_{d\mid n}\Lambda(d)\Lambda\left(\frac nd\right)=\sum_{d\mid n}\mu(d)\ln^2\frac nd.
+				\Lambda(n)\ln n+\sum_{d\mid n}\Lambda(d)\Lambda\left(\frac nd\right)=\sum_{d\mid n}\mu(d)\ln^2\frac nd
 			\end{align*}
 	\end{theorem}
 	\begin{proof}
 		We proved in theorem \eqref{thm:vonmangoldt} that $\ln n=\sum_{d\mid n}\Lambda(d)$. We also found that $u^\prime(n) = \ln n$. This can be written as
 			\begin{align*}
-				\Lambda\ast u & =u^\prime.
+				\Lambda\ast u & =u^\prime
 			\end{align*}
 		Take derivative of both sides of the above equation to obtain
 			\begin{align*}
-				\Lambda^\prime\ast u+\Lambda\ast u^\prime & =u^{\prime\prime}.
+				\Lambda^\prime\ast u+\Lambda\ast u^\prime & =u^{\prime\prime}
 			\end{align*}
 		Using $\Lambda\ast u  =u^\prime$ again,
 			\begin{align*}
-				\Lambda^\prime\ast u+\Lambda\ast(\Lambda\ast u) & =u^{\prime\prime}.
+				\Lambda^\prime\ast u+\Lambda\ast(\Lambda\ast u) & =u^{\prime\prime}
 			\end{align*}
 		Now multiply both side by $u^{-1}=\mu$ (as proved in theorem \eqref{thm:mobiusinverse}) to get
 			\begin{align*}
 				\Lambda^\prime\ast(u\ast u^{-1})+\Lambda\ast(\Lambda\ast(u\ast u^{-1}))
-					& =u^{\prime\prime}\ast u^\prime.
+					& =u^{\prime\prime}\ast u^\prime
 			\end{align*}
 		Now, since $u \ast u^{-1} = I$ and $f \ast I = f$ for any arithmetic function $f$, we have
 			\begin{align*}
-				\Lambda^\prime+\Lambda\ast\Lambda & =u^{\prime\prime}\ast\mu.
+				\Lambda^\prime+\Lambda\ast\Lambda & =u^{\prime\prime}\ast\mu
 			\end{align*}
 		Replacing the functions with their definitions, one easily finds
 			\begin{align*}
-				\Lambda(n)\log n+\sum_{d\mid n}\Lambda(d)\Lambda\left(\dfrac nd\right) & =\sum_{d\mid n}\mu(d)\log^2\dfrac nd,
+				\Lambda(n)\log n+\sum_{d\mid n}\Lambda(d)\Lambda\left(\dfrac nd\right) & =\sum_{d\mid n}\mu(d)\log^2\dfrac nd
 			\end{align*}
 		as desired.
 	\end{proof}

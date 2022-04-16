@@ -35,7 +35,7 @@
 	\begin{proof}
 		The integers relatively prime to $2^k$ are all odd numbers. We will prove by induction that $x^{2^{k-2}} \equiv1\pmod{2^k}$ holds for all odd positive integers $x$. The base case $k=3$ is obvious. Assume that for some $k\geq 3$, we have
 			\begin{align*}
-				x^{2^{k-2}} & \equiv1\pmod{2^k},
+				x^{2^{k-2}} & \equiv1\pmod{2^k}
 			\end{align*}
 		or equivalently, $x^{2^{k-2}} -1=2^kt$ for some $t$. Using the identity $a^2-b^2=(a-b)(a+b)$, we can write
 			\begin{align}
@@ -46,7 +46,7 @@
 			\end{align}
 		This gives $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$, and the induction is complete.
 
-		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\lambda(2^l)=2^{l-2}$. Let $\lambda(2^{k+1})=\lambda$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from Theorem \ref{thm:carDiv} that $\lambda \mid 2^{k-1}$. So $\lambda$ is a power of $2$. If $\lambda = 2^{k-1}$, we are done. Otherwise, let $\lambda=2^\alpha$, where $1 \leq \alpha <k-1$. Then for every $x$, one can write
+		Now, we should prove that $2^{k-2}$ indeed is the smallest such integer. Again, by induction, the base case is to find an $x$ for which $\ord_8(x)=2$. Obviously, any $x=8j\pm3$ satisfies this condition. Assume that for all numbers $t$ from $1$ up to $k$, we have $\lambda(2^l)=2^{l-2}$. Let $\lambda(2^{k+1})=\lambda$. Since we proved that $x^{2^{k-1}} \equiv 1\pmod{2^{k+1}}$ for all odd $x$, it follows from \autoref{thm:carDiv} that $\lambda \mid 2^{k-1}$. So $\lambda$ is a power of $2$. If $\lambda = 2^{k-1}$, we are done. Otherwise, let $\lambda=2^\alpha$, where $1 \leq \alpha <k-1$. Then for every $x$, one can write
 			\begin{align}\label{eq:x^2^k+1}
 				x^{2^\alpha}
 					& \equiv 1 \pmod{2^{k+1}}
@@ -63,7 +63,8 @@
 		For any prime $p$ and any positive integer $k$,
 			\begin{align*}
 				\lambda(p^k)
-					& =\lambda(2p^k)=\varphi(p^k)
+					& =\lambda(2p^k)\\
+					& =\varphi(p^k)
 			\end{align*}
 	\end{theorem}
 
@@ -73,7 +74,7 @@
 
 	\begin{theorem}\slshape
 		Let $a$ and $b$ be relatively prime positive integers. Then
-		 \[\lambda(ab)=\lcm(\lambda(a),\lambda(b)).\]
+		 \[\lambda(ab)=\lcm(\lambda(a),\lambda(b))\]
 	\end{theorem}
 
 	\begin{proof}
@@ -101,7 +102,7 @@
 	\begin{theorem}\slshape
 		For any two positive integers $a$ and $b$,
 		\begin{align*}
-		\lcm(\lambda(a),\lambda(b)) & = \lambda(\lcm(a,b)).
+		\lcm(\lambda(a),\lambda(b)) & = \lambda(\lcm(a,b))
 		\end{align*}
 	\end{theorem}
 	The next theorem combines the above results and finds $\lambda(n)$ for all $n$.
@@ -110,9 +111,9 @@
 		\begin{align*}
 			\lambda(n) & =
 				\begin{cases}
-					\varphi(n)& \mbox{ if } n = 2,4,p^k, \mbox{ or } 2p^k,\\
+					\varphi(n)& \mbox{ if } n\in\{2,4,p^k,2p^k\}\\
 					\dfrac{\varphi(n)}{2}& \mbox{ if }n=2^k\mbox{ with }k>2\\
-					\lcm(\lambda(p_1^{e_1}),\cdots,\lambda(p_r^{e_r}))& \mbox{ otherwise.}
+					\lcm(\lambda(p_1^{e_1}),\cdots,\lambda(p_r^{e_r}))& \mbox{ otherwise}
 				\end{cases}
 		\end{align*}
 	\end{theorem}
@@ -126,7 +127,7 @@
 	\end{theorem}
 
 	\begin{proof}
-		The ``if'' part is true by Theorem \ref{thm:ordDiv}. For the ``only if'' part, assume that $g$ is an integer with $\ord_n(g)=\lambda(n)$ and $\lambda(n)=de$. Then $\ord_n(g^e)=d$, as desired.
+		The ``if'' part is true by \autoref{thm:ordDiv}. For the ``only if'' part, assume that $g$ is an integer with $\ord_n(g)=\lambda(n)$ and $\lambda(n)=de$. Then $\ord_n(g^e)=d$, as desired.
 	\end{proof}
 
 	We finish this section by proposing a theorem. We will leave the proof for the reader as an exercise.
@@ -165,23 +166,29 @@
 	\end{problem}
 
 	\begin{hint}
-		Use the formula for $\lambda(n)$ in Theorem \ref{thm:CarmichaelFormula}.
+		Use the formula for $\lambda(n)$ in \autoref{thm:CarmichaelFormula}.
 	\end{hint}
 
 	\begin{problem}
 		If $\lambda(n)>2$, the number of primitive $\lambda$-roots modulo $n$ is even.
 	\end{problem}
 
-	The next theorem generalizes Theorem \ref{thm:genWilson}, which itself was a generalization to Wilson's theorem.
+	The next theorem generalizes \autoref{thm:genWilson}, which itself was a generalization to Wilson's theorem.
 	\begin{theorem}\slshape
 		Let $n$ be a positive integer such that $\lambda(n)>2$. Also, suppose that $g$ is a primitive $\lambda$-root modulo $n$. The product of primitive $\lambda$-roots of $n$ is congruent to $1$ modulo $n$.
 	\end{theorem}
 
 	\begin{proof}
-		Since $\lambda(n)>2$, we can easily argue that it must be even. If $g$ is a primitive $\lambda$-root modulo $n$, all the primitive $\lambda$-roots are $$\{g^{e_1}, g^{e_2}, \cdots, g^{e_{k}}\},$$ where $e_i$ (for $1 \leq i \leq k$) are all (distinct) positive integers with $(e_i, \lambda(n))=1$. Also, note that we can pair them up since $\lambda(n)$ is even if $n>2$. In fact, we can pair $g^{e_i}$ with $g^{\lambda(n)-e_i}$ for all $i$. Then,
-		\begin{equation*}
-			g^{e_1}\cdot g^{e_2}\cdots g^{e_k}  \equiv g^{\lambda(n)}\cdots g^{\lambda(n)}  \equiv 1\pmod n.
-		\end{equation*}
+		Since $\lambda(n)>2$, we can easily argue that it must be even. If $g$ is a primitive $\lambda$-root modulo $n$, all the primitive $\lambda$-roots are
+			\begin{align*}
+				\{g^{e_1}, g^{e_2}, \cdots, g^{e_{k}}\}
+			\end{align*}
+		where $e_i$ (for $1 \leq i \leq k$) are all (distinct) positive integers with $(e_i, \lambda(n))=1$. Also, note that we can pair them up since $\lambda(n)$ is even if $n>2$. In fact, we can pair $g^{e_i}$ with $g^{\lambda(n)-e_i}$ for all $i$. Then,
+		\begin{align*}
+			g^{e_1}\cdot g^{e_2}\cdots g^{e_k}
+				& \equiv g^{\lambda(n)}\cdots g^{\lambda(n)}\\
+				& \equiv 1\pmod n
+		\end{align*}
 	\end{proof}
 
 	\begin{corollary}

@@ -23,7 +23,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 	\begin{definition}
 		Let $x>0$ be a real number. We define \textit{Chebyshev's $\vartheta$-function} as
 			\begin{align*}
-				\vartheta(x)= \sum_{p \leq x} \ln p,
+				\vartheta(x)= \sum_{p \leq x} \ln p
 			\end{align*}
 		where the sum extends over all primes $p$ less than or equal to $x$.
 	\end{definition}
@@ -38,7 +38,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 	\begin{corollary}
 		If $p_1, p_2, \ldots, p_k$ are primes less than or equal to $x$, then
 			\begin{align*}
-			\vartheta(x)= \ln \left( p_1p_2\cdots p_k\right).
+			\vartheta(x)= \ln \left( p_1p_2\cdots p_k\right)
 			\end{align*}
 	\end{corollary}
 
@@ -46,7 +46,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 		\label{lem:binomialprimeinequality}
 		Let $k$ and $n$ be positive integers such that $k<n < 2k+1 $. Then
 			\begin{align*}
-				\binom{n}{k} \geq \prod_{k < p \leq n} p,
+				\binom{n}{k} \geq \prod_{k < p \leq n} p
 			\end{align*}
 		where the product extends over all primes $p$ between $k$ and $n$.
 	\end{lemma}
@@ -55,7 +55,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 		Write $\binom{n}{k}$ as
 			\begin{align}
 				\label{eqn:binomialprimeinequality1}
-				\binom{n}{k} = \frac{n(n-1)(n-2) \cdots (k+2)(k+1)}{(n-k)!}.
+				\binom{n}{k} = \frac{n(n-1)(n-2) \cdots (k+2)(k+1)}{(n-k)!}
 			\end{align}
 		Let $p_1, p_2, \ldots, p_m$ be the primes between $k+1$ and $n$ (including). Since $n \leq 2k+1$ can be represented as $n-k < k+1$, we have
 			\begin{align*}
@@ -63,7 +63,11 @@ We will start with some functions and analyzing their properties. The obvious qu
 			\end{align*}
 		for $i=1,2,\ldots,m$. So $n-k < p_i$, which means that $p_i$ is relatively prime to all positive integers less than or equal to $n-k$. In other words, $(p_i, (n-k)!)=1$ for all $i$. The rest is easy: the numerator of \eqref{eqn:binomialprimeinequality1} can be regarded as the product of $p_1p_2\cdots p_m$ and another integer, say, $s$. Since $\binom{n}{k}$ is an integer and also $(p_i, (n-k)!)=1$ for all $i$, we conclude that $s$ must be divisible by $(n-k)!$. Thus,
 			\begin{align*}
-			\binom{n}{k} & = \frac{p_1p_2\cdots p_m \cdot s}{(n-k)!}= p_1p_2\cdots p_m \cdot \frac{s}{(n-k)!}  \geq p_1p_2\cdots p_m  = \prod_{k < p \leq n} p,
+			\binom{n}{k}
+				& = \frac{p_1p_2\cdots p_m \cdot s}{(n-k)!}\\
+				& = p_1p_2\cdots p_m \cdot \frac{s}{(n-k)!}\\
+				& \geq p_1p_2\cdots p_m\\
+				& = \prod_{k < p \leq n} p
 			\end{align*}
 		as claimed.
 	\end{proof}
@@ -72,8 +76,8 @@ We will start with some functions and analyzing their properties. The obvious qu
 		\label{prop:chebyshevthetainequality}
 		Let $x >0$ be a real number. Then
 			\begin{align}
-			\label{eqn:chebyshevthetainequality1}
-				\vartheta(x) \leq 2x \ln 2.
+				\vartheta(x)
+					& \leq 2x \ln 2\label{eqn:chebyshevthetainequality1}
 			\end{align}
 	\end{proposition}
 
@@ -82,19 +86,23 @@ We will start with some functions and analyzing their properties. The obvious qu
 
 		Now suppose that $x \geq 2$. Let $n = \lfloor x \rfloor$ and suppose that the inequality holds for all reals $y$ such that $\lfloor y \rfloor <n$. Note that
 			\begin{align*}
-				2^x \geq 2^n &= (1+1)^n = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{\lfloor n/2 \rfloor} + \cdots + \binom{n}{n-1}+\binom{n}{n}\\
-					&\geq  \binom{n}{\lfloor n/2 \rfloor} \geq \prod_{\lfloor n/2 \rfloor < p \leq n} p,
+				2^x
+					& \geq 2^n\\
+					& = (1+1)^n\\
+					& = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{\lfloor n/2 \rfloor} + \cdots + \binom{n}{n-1}+\binom{n}{n}\\
+					& \geq \binom{n}{\lfloor n/2 \rfloor}\\
+					& \geq \prod_{\lfloor n/2 \rfloor < p \leq n} p
 			\end{align*}
 		where we have used lemma \eqref{lem:binomialprimeinequality} to write the last line. Taking logarithms from the above inequality, we find
 			\begin{align*}
 				x \ln 2 &\geq \sum_{\lfloor n/2 \rfloor < p \le n} \ln p \\
 						 &= \vartheta(x) - \vartheta(\lfloor n/2 \rfloor) \\
 						 &\geq \vartheta(x) - 2\lfloor n/2 \rfloor \ln 2 \\
-						 &\geq \vartheta(x) - x \ln 2,
+						 &\geq \vartheta(x) - x \ln 2
 			\end{align*}
 		by the inductive hypothesis. Therefore
 			\begin{align*}
-				2x \ln 2 \ge \vartheta(x),
+				2x \ln 2 \ge \vartheta(x)
 			\end{align*}
 		as desired.
 	\end{proof}
@@ -102,7 +110,8 @@ We will start with some functions and analyzing their properties. The obvious qu
 	\begin{definition}
 		Let $x>0$ be a real number. We define \textit{Chebyshev's $\psi$-function} as
 			\begin{align*}
-				\psi(x) = \sum_{p^a \leq x} \ln p,
+				\psi(x)
+					& = \sum_{p^a \leq x} \ln p
 			\end{align*}
 		where $p^a$ ranges over all the powers of primes $p_1, p_2, \ldots, p_k$ which do not exceed $x$. In other words, $\ln p$ appears in the sum each time a power of $p$ is less than or equal to $x$.
 	\end{definition}
@@ -113,21 +122,23 @@ We will start with some functions and analyzing their properties. The obvious qu
 				\psi(10.5) &= \ln 2 + \ln 2 + \ln 2 +\ln 3 + \ln 3+ \ln 5 + \ln 7\\
 						   &= \ln(2^3 \times  3^2 \times 5 \times 7)\\
 						   &=\ln(2520)\\
-						   &\approx 7.83.
+						   &\approx 7.83
 			\end{align*}
 	\end{example}
 
 	\begin{corollary}
 		Let $p_1, p_2, \ldots, p_k$ be primes not exceeding a positive real number $x$. Also, assume that $p_1^{a_1}, p_2^{a_2}, \ldots, p_k^{a_k}$ are the largest powers of these primes which do not exceed $x$. Then
 			\begin{align*}
-				\psi(x)=\ln \left( p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k} \right).
+				\psi(x)
+					& =\ln \left( p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k} \right)
 			\end{align*}
 	\end{corollary}
 
 	\begin{corollary}
 		Let $x$ be a positive real number. Then
 			\begin{align*}
-				\psi(x) = \lcm([1, 2, \ldots, \lfloor x \rfloor]).
+				\psi(x)
+					& = \lcm([1, 2, \ldots, \lfloor x \rfloor])
 			\end{align*}
 	\end{corollary}
 
@@ -139,7 +150,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 		\label{prop:chebyshevpsiinequality}
 		For any real $x>0$, we have
 			\begin{align*}
-				\psi(x) & = \sum_{p \leq x} \Big\lfloor\frac{\ln x}{\ln p} \Big\rfloor \ln p.
+				\psi(x) & = \sum_{p \leq x} \Big\lfloor\frac{\ln x}{\ln p} \Big\rfloor \ln p
 			\end{align*}
 	\end{proposition}
 
@@ -154,19 +165,19 @@ Chebyshev attempted to prove the Prime Number Theorem, and he succeeded in provi
 		If the following limits exist, they are all equal to $1$.
 		\begin{align}
 			&\lim_{x \to \infty} \frac{\vartheta(x)}{x}, \quad \lim_{x \to \infty} \frac{\psi(x)}{x}, \quad \text{and} \quad
-			\lim_{x \to \infty} \frac{\pi(x) \ln(x)}{x}. \label{eq:chebyshevestimates:eq1}
+			\lim_{x \to \infty} \frac{\pi(x) \ln(x)}{x} \label{eq:chebyshevestimates:eq1}
 		\end{align}
 	\end{theorem}
 
 
 The inequalities in the next theorem show that $n/\ln(n)$ is the correct order of magnitude for $\pi(n)$. In fact, these inequalities are pretty weak and better inequalities can be obtained with greater effort but the following theorem is of our interest because of its elementary proof.
 
-	\begin{theorem}\slshape
+	\begin{theorem}shape
 	\label{thm:pi(n)approximation}
 		For all integers $m\geq2$,
 		\begin{align}
-		\label{eq:pi(n)approximation:0}
-		\dfrac{1}{6}\dfrac{m}{\ln m}<\pi(m)<4\dfrac{m}{\ln m}.
+			\dfrac{1}{6}\dfrac{m}{\ln m}
+				& <\pi(m)<4\dfrac{m}{\ln m}\label{eq:pi(n)approximation:0}
 		\end{align}
 	\end{theorem}
 
@@ -174,49 +185,69 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 		Let's prove the leftmost inequality first. Assume that $n \geq 1$ is an intger. One can easily show by induction that
 		\begin{align}
 		\label{eq:pi(n)approximation:1}
-		2^n \leq \binom{2n}{n} < 4^n.
+		2^n
+			& \leq \binom{2n}{n} < 4^n
 		\end{align}
 		Using the fact that $\binom{2n}{n} = (2n)!/(n!)^2$, we can take logarithms from \eqref{eq:pi(n)approximation:1} to obtain
 		\begin{align}
 		\label{eq:pi(n)approximation:2}
-		n \ln 2 \leq \ln (2n)! - 2 \ln n! < n \ln 4.
+		n \ln 2
+			& \leq \ln (2n)! - 2 \ln n!\\
+			& < n \ln 4
 		\end{align}
 		We must now find a way to compute $\ln(2n)!$ and $\ln n!$. Let $k$ be a positive integer. By theorem \eqref{thm:legendre}, we have
 		\begin{align}
 		\label{eq:pi(n)approximation:3}
-		v_p(k!) = \sum_{i=1}^{\alpha}\left\lfloor\dfrac{k}{p^i}\right\rfloor,
+		v_p(k!)
+			& = \sum_{i=1}^{\alpha}\left\lfloor\dfrac{k}{p^i}\right\rfloor
 		\end{align}
 		where $\alpha$ is some positive integer. Here, we need to find $\alpha$. See proof of theorem \eqref{thm:legendre} to realize that $\alpha+1$ is actually the number of digits of $k$ in base $p$. On the other hand, we know that the number of digits of a positive integer $x$ in base $y$ is $\lfloor\log_y x\rfloor+1$ (prove this as an exercise). So, in our case, $\alpha+1=\lfloor\log_p k\rfloor+1$, or simply $\alpha = \lfloor\log_p k\rfloor$. Since we are working with natural logarithms (i.e., logarithms in base $e$), it would be better to write $a = \left\lfloor \frac{\ln k}{\ln p}\right\rfloor$. Finally, substituting $n$ and $2n$ for $k$ in equation \eqref{eq:pi(n)approximation:3}, we get
 			\begin{align*}
-				v_p(n!) = \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor, \quad v_p\left((2n)!\right) = \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor.
+				v_p(n!)
+					& = \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
+				v_p\left((2n)!\right)
+					& = \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor
 			\end{align*}
 		It is clear that $n! = \prod\limits_{p\leq n} p^{v_p(n!)}$, where the product is extended over all primes $p$ less than or equal to $n$. After taking logarithms in the latter equation, the product turns into a sum:
 			\begin{align*}
-			\ln n! = \sum_{p \leq n} v_p(n!) \ln p = \sum_{p \leq n}  \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p.
+				\ln n!
+					& = \sum_{p \leq n} v_p(n!) \ln p\\
+					& = \sum_{p \leq n}  \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p
 			\end{align*}
 		Similarly,
 			\begin{align*}
-				\ln (2n)! = \sum_{p \leq n} v_p\left((2n)!\right) \ln p = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p.
+				\ln (2n)!
+					& = \sum_{p \leq n} v_p\left((2n)!\right) \ln \\
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p
 			\end{align*}
 		Hence, the left hand side of inequality \eqref{eq:pi(n)approximation:2} becomes
 			\begin{align}
-			n \ln 2 \leq \ln (2n)! - 2 \ln n! &= \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p - 2  \sum_{p \leq n} \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor} \left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p \nonumber\\
-											  &= \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p -  \sum_{p \leq 2n} \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} 2 \left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p \nonumber\\
-										   	  &= \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} \Bigg(\left\lfloor\dfrac{2n}{p^i}\right\rfloor - 2 \left\lfloor\dfrac{n}{p^i}\right\rfloor\Bigg) \ln p. 		\label{eq:pi(n)approximation:4}
+				n \ln 2 \leq \ln (2n)! - 2 \ln n!
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p - 2  \sum_{p \leq n} \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor} \left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p \nonumber\\
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p -  \sum_{p \leq 2n} \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} 2 \left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p \nonumber\\
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} \Bigg(\left\lfloor\dfrac{2n}{p^i}\right\rfloor - 2 \left\lfloor\dfrac{n}{p^i}\right\rfloor\Bigg) \ln p \label{eq:pi(n)approximation:4}
 			\end{align}
 		Since for all rationals $x$, $\lfloor2x\rfloor-2\lfloor x\rfloor$ is either $0$ or $1$, we can write
 			\begin{align*}
 			n \ln 2 &\leq \sum_{p \leq 2n}  \Bigg(\sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} 1\Bigg) \ln p\\
 					&\leq \sum_{p \leq 2n} \ln 2n\\
-					&=\pi(2n)\ln 2n.
+					&=\pi(2n)\ln 2n
 			\end{align*}
 		The proof is almost finished. Note that $\ln 2 \approx 0.6931 > 1/2$ and therefore
 			\begin{align*}
-				\pi(2n) \geq \frac{n \ln 2}{\ln 2n} > \frac{1}{2}\frac{n}{\ln 2n} = \frac{1}{4}\frac{2n}{\ln 2n} > \frac{1}{6}\frac{2n}{\ln 2n}.
+				\pi(2n)
+					& \geq \frac{n \ln 2}{\ln 2n}\\
+					& > \frac{1}{2}\frac{n}{\ln 2n}\\
+					& = \frac{1}{4}\frac{2n}{\ln 2n}\\
+					& > \frac{1}{6}\frac{2n}{\ln 2n}
 			\end{align*}
 		So the left side inequality of \eqref{eq:pi(n)approximation:0} is proved for even positive integers $m=2n$. We now prove it for $m=2n+1$. Since $2n/(2n+1)\geq 2/3$, we get
 			\begin{align*}
-				\pi(2n+1) \geq \pi(2n) > \frac{1}{4}\frac{2n}{\ln 2n} > \frac{1}{4} \frac{2n}{2n+1}\frac{2n+1}{\ln (2n+1)} \geq \frac{1}{6}\frac{2n+1}{\ln (2n+1)},
+				\pi(2n+1)
+					& \geq \pi(2n)\\
+					& > \frac{1}{4}\frac{2n}{\ln 2n}\\
+					& > \frac{1}{4} \frac{2n}{2n+1}\frac{2n+1}{\ln (2n+1)}\\
+					& \geq \frac{1}{6}\frac{2n+1}{\ln (2n+1)}
 			\end{align*}
 		and this proves the left hand inequality of \eqref{eq:pi(n)approximation:0} for all $m \geq 2$.
 
@@ -250,22 +281,23 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 %			\end{align}
 		Let $\alpha$ be an arbitrary real number such that $0 < \alpha < 1$. Then $n> n^{\alpha}$ and so $\pi(n) \geq \pi(n^{\alpha})$. Using equation \eqref{eqn:chebyshevthetainequality1}, one can write
 			\begin{align*}
-				\Big(\pi(n) - \pi(n^{\alpha})\Big) \ln n^{\alpha} &= \Big(\sum_{p \leq n} 1 - \sum_{p \leq n^{
-						\alpha}} 1\Big) \ln n^{\alpha}\\
-														  &=\sum_{n^{\alpha} \leq p \leq n} \ln n^{\alpha}\\
-														  &\leq \sum_{n^{\alpha} \leq p \leq n} p\\
-														  &\leq \vartheta(n)\\
-														  &< 2n \ln 2.
+				\Big(\pi(n) - \pi(n^{\alpha})\Big) \ln n^{\alpha}
+					& = \Big(\sum_{p \leq n} 1 - \sum_{p \leq n^{\alpha}} 1\Big) \ln n^{\alpha}\\
+					& =\sum_{n^{\alpha} \leq p \leq n} \ln n^{\alpha}\\
+					& \leq \sum_{n^{\alpha} \leq p \leq n} p\\
+					& \leq \vartheta(n)\\
+					& < 2n \ln 2
 			\end{align*}
 		This already means that
 			\begin{align*}
-				\pi(n) &< \frac{2n \ln 2}{\alpha \ln n} + \pi(n^{\alpha})\\
-					   &< \frac{2n \ln 2}{\alpha \ln n} + n^{\alpha}\\
-					   &= \frac{n}{\ln n} \Big(\frac{2 \ln 2}{\alpha} + \frac{\ln n}{n^{1-\alpha}} \Big).
+				\pi(n)
+					& < \frac{2n \ln 2}{\alpha \ln n} + \pi(n^{\alpha})\\
+					& < \frac{2n \ln 2}{\alpha \ln n} + n^{\alpha}\\
+					& = \frac{n}{\ln n} \Big(\frac{2 \ln 2}{\alpha} + \frac{\ln n}{n^{1-\alpha}} \Big)
 			\end{align*}
 		We use a bit calculus to finish the proof. Let $ f(x)=\frac{\ln x}{x^{1-\alpha}}$. You can easily calculate the derivative $f'(x)$ of $f$ and find that it equals zero for $x=e^{1/1-\alpha}$. Putting this value into $f$, you will see that $\frac{\ln n}{n^{1-\alpha}} \leq 1/e(1-\alpha)$. Since $\alpha$ is an arbitrary number, choosing $\alpha = 2/3$ helps us finish the proof:
 			\begin{align*}
-				\pi(n) < \frac{n}{\ln n} \Big(3 \ln 2 + \frac{3}{e} \Big)< 4 \frac{n}{\ln n}.
+				\pi(n) < \frac{n}{\ln n} \Big(3 \ln 2 + \frac{3}{e} \Big)< 4 \frac{n}{\ln n}
 			\end{align*}
 	\end{proof}
 
@@ -274,7 +306,9 @@ Here is an interesting problem which combines several concepts. This problem app
 \begin{problem}\label{prob:nasehpour}
 	Let $r$ be a real number whose decimal representation is
 	\begin{align*}
-	r & = 0.r_1r_2\ldots r_n \ldots = 0.011010100010\ldots,
+	r
+		& = 0.r_1r_2\ldots r_n \ldots\\
+		& = 0.011010100010\ldots
 	\end{align*}
 	where $r_n=1$ if when $n$ is prime and $r_n=0$ otherwise. Show that $r$ is irrational.
 \end{problem}
@@ -282,16 +316,25 @@ Here is an interesting problem which combines several concepts. This problem app
 \begin{solution}
 	We will prove a more general statement: such a number $r$ in any base $b>1$ is irrational. First, we define the \textit{average of digits of $r$ in base $b$}, denoted by $\text{Av}_b(r)$, as
 	\begin{align*}
-	\text{Av}_b(r) &= \lim_{n\to \infty} \frac{r_1+r_2+\cdots+r_n}{n}.
+		\text{Av}_b(r) &= \lim_{n\to \infty} \frac{r_1+r_2+\cdots+r_n}{n}
 	\end{align*}
 	It is clear that $\text{Av}_b(r)$ is well-defined if the above limit exists. It is a good exercise for you to prove that if $\text{Av}_b(r)=0$, then $r$ is irrational. The latter result is true because if $r$ is rational, $\text{Av}_b(r)$ exists and is positive. Now, by the definition of $r$ and Prime Number Theorem,
 	\begin{align*}
-	\text{Av}_b(r) &= \lim_{n\to \infty} \frac{\pi(n)}{n} =  \lim_{n\to \infty} \frac{n/\log n}{n} =  \lim_{n\to \infty} \frac{1}{\log n} = 0,
+	\text{Av}_b(r)
+		& = \lim_{n\to \infty} \frac{\pi(n)}{n}\\
+		& =  \lim_{n\to \infty} \frac{n/\log n}{n}\\
+		& =  \lim_{n\to \infty} \frac{1}{\log n} = 0
 	\end{align*}
 	and so $r$ is irrational!
 \end{solution}
-	\begin{theorem}[Euler]\sl
-		The sum $S=\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{5}+\ldots=\sum\limits_{p\in\P }\dfrac{1}{p}$ diverges i.e. does not have a finite summation.
+	\begin{theorem}[Euler]
+		The sum
+			\begin{align*}
+				S
+					& =\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{5}+\ldots\\
+					& =\sum\limits_{p\in\mathcal{P} }\dfrac{1}{p}
+			\end{align*}
+		diverges i.e. does not have a finite summation.
 	\end{theorem}
 The proof is due to \textcite{mixon_2013}.
 	\begin{proof}
@@ -313,7 +356,8 @@ The proof is due to \textcite{mixon_2013}.
 				\sum_{b\in B}\dfrac{1}{b}
 					& =
 					\sum_{i=0}^{\infty}\sum_{b\in B_i}\dfrac{1}{b}\\
-					& \leq \sum_{i=1}^{\infty}\left(\sum_{j=k+1}^{\infty}\dfrac{1}{p_{j}}\right)^j<\infty
+					& \leq \sum_{i=1}^{\infty}\left(\sum_{j=k+1}^{\infty}\dfrac{1}{p_{j}}\right)^j\\
+					& <\infty
 			\end{align*}
 		Since every positive integer greater than $1$ belongs to exactly one of $A$ or $B$, we have
 			\begin{align*}
@@ -321,7 +365,7 @@ The proof is due to \textcite{mixon_2013}.
 					& = \sum_{n=2}^{\infty}\dfrac{1}{n}\\
 					& = \sum_{a\in A}\sum_{b\in B}\dfrac{1}{ab}\\
 					& = \sum_{a\in A}\dfrac{1}{a}\sum_{b\in B}\dfrac{1}{b}\\
-					& < \infty.
+					& < \infty
 			\end{align*}
 		The claim follows from this (how?).
 
