@@ -942,158 +942,287 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	You can convert a binary number to base $16$ just by clustering the digits into groups of $4$ and convert each group to a hexadecimal number. In general, one can use a similar approach to convert a binary number to base $2^n$ (and vice versa). However, the cases where $n$ is larger than $4$ are rarely used.
 
 	Similar approaches can be used for conversion between other numbers as well. For example, to convert base $3$ to base $9$, one should start grouping the digits in groups of $2$ and then do the conversion. The theorems are pretty similar to the above and we do not mention them here.
+\section{Floor and Ceiling}
+Let us discuss a classical problem.
+\begin{problem} \label{floorproblem}
+	How many integers between $10$ and $100$ are divisible by $7$?
+\end{problem}
+First, we count the multiples of $7$ less than $100$: $7, 14, 21, 28, 35, 42, 49, 56, 63, 70$, $77$, $84$, $91$, and $98$. We don't need go any further since it will make the multiple larger than $100$. Among these multiples, we should not consider $7$ since we are asked between $10$ and $100$. This gives us the intuition behind the problem. We first find the number of multiples of $7$ between $1$ and $100$, which is $14$. Then, subtract the number of multiples that are less than $10$, i.e., those which are between $1$ and $9$. In this case, only $7$ itself would be such a multiple. Therefore, the answer to the problem is $14-1=13$. In fact, the problem is converted into two sub-problems:
+\begin{enumerate}
+	\item how many integers from $1$ to $100$ are divisible by $7$?
+	\item how many integers from $1$ to $10$ are divisible by $7$?
+\end{enumerate}
+These two sub-problems are basically the same. Therefore, we only need to answer the general question that how many integers in the interval $[1:x]$ are divisible by $n$. The result is actually the quotient of the division $x/n$ (why?). Consequently, rises the definition of the \textit{floor function}.
 
-\subsection{Logarithms}\label{sec:logarithm}
-	\subsubsection{Introduction}
-	You are already familiar with the concept of \textit{exponentiation}, which means raising a number to an exponent. Take for example $16=2^4$. Here, $2$ is called the \textit{base} and $4$ is called the \textit{exponent} or \textit{power}.
+\begin{definition}[\bfseries Floor Function and Fractional Part]
+	We call the function $\lfloor x \rfloor: \mathbb{R} \to \mathbb Z$ the \textit{floor function} and for every real $x$, $\lfloor x\rfloor$ (read \textit{floor of $x$}) is the largest integer less than or equal to $x$. Moreover, we denote by $\{x\}$ the \textit{fractional part of $x$}, which is equal to $x-\lfloor x\rfloor$.
 
-	The \textit{logarithm}, first introduced by \textit{John Napier} in $1614$, is the inverse operation of exponentiation. For instance, the logarithm of $64$ in base $2$ is $6$ because $64=2^6$.
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[axis lines=middle,
+				xtick={-2, -1, 0, 1, 2},
+				ytick={-2, -1, 0, 1, 2},
+				xticklabel style={below left},
+				yticklabel style={below left},
+				xmin=-3, xmax=3,
+				ymin=-3, ymax=3,
+				ylabel={$\lfloor x \rfloor$},
+				xlabel={$x$},
+				grid,
+				every axis x label/.style={
+					at={(ticklabel* cs:1.105)},
+					anchor= west,
+				},
+				every axis y label/.style={
+					at={(ticklabel* cs:1.05)},
+					anchor= south,
+				},
+				]
+				\addplot [
+				jump mark mid,
+				domain=-2:2,
+				samples=100,
+				ultra thick,
+				] {floor(x)};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{The floor function $\lfloor x \rfloor$ for $-2 \leq x \leq 2$.}
+		\label{fig:floorfunction}
+	\end{figure}
 
-	\begin{definition}
-		Let $x$ and $b$ be positive real numbers such that $b \neq 1$. The logarithm of $x$ to base $b$ is the exponent by which $b$ must be raised to yield $x$.  In other words, the logarithm of $x$ to base $b$ is the solution $y$ to the equation
+\end{definition}
+
+\begin{example}
+	$\lfloor 3.1415\rfloor=3$, $\lfloor-2\rfloor=-2$, and $\lfloor5\rfloor=5$. \autoref{fig:floorfunction} shows the value of $\lfloor x \rfloor$ for $x$ between $-2$ and $2$. For positive real numbers, the fractional part is simply the the non-integer part of the number. For example, the fractional part of  $3.14$ is $0.14$. However, the definition of fractional part for negative real numbers may be deceptive. For instance, the fractional part of $-3.14$ is not $0.14$, but
+	\begin{align*}
+		\{-3.14\} &= -3.14 - (-4)\\
+		&= 0.86
+	\end{align*}
+\end{example}
+
+We can generalize the above problem now. The number of integers between two natural numbers $a$ and $b$ (inclusive) which are divisible by $n$ is
+\begin{align*}
+	\left\lfloor\dfrac{b}{n}\right\rfloor-\left\lfloor\dfrac{a-1}{n}\right\rfloor+1
+\end{align*}
+(Can you see why we are using $a-1$ in the second fraction?) Here, we have assumed that $b\geq a$.
+
+\begin{proposition}[Properties of Floor Function]\slshape \label{prop:floor}
+	For any two reals $x$ and $y$ and any two integers $m$ and $n$,
+	\begin{enumerate}[1.]
+		\item $x\geq\lfloor x\rfloor>x-1$,
+		%				\item $0 \leq \{x\} <1$,
+		\item if $n \leq x$, then $n \leq \lfloor x \rfloor$,
+		\item $\lfloor x+n\rfloor=\lfloor x\rfloor+n$,
+		\item if $x <y$, then $\lfloor x \rfloor \leq \lfloor y \rfloor$,
+		\item $\lfloor x\rfloor+\lfloor y \rfloor\leq \lfloor x+y\rfloor \leq \lfloor x\rfloor+\lfloor y\rfloor+1$,
+		\item $\lfloor \lfloor x\rfloor\rfloor  =  \lfloor x\rfloor$,
+		\item if $x$ is an integer, $\lfloor x\rfloor+\lfloor -x\rfloor=0$. Otherwise, it equals $1$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{example}
+	The inequality $\lfloor x\rfloor+\lfloor y\rfloor \leq \lfloor x+y\rfloor$ (as seen in part $5$) is sometimes referred to as the \textit{triangle inequality of floor function}. You can easily check why this inequality holds and find the condition in which it becomes an equality. Put $x=3.6$ and $y=2.5$. Then, $\lfloor x\rfloor+\lfloor y\rfloor = 5$, which is strictly less than $\lfloor x+y\rfloor=6$. The reason why we have a strict inequality here is somewhat obvious now: $0.6$ and $0.5$ add up to $1.1$, which is more than one. You can easily check that only when $\{x\} + \{y\}$ is less than one, the equality case occurs. Otherwise, the inequality is strict.
+\end{example}
+
+\begin{proof}
+	\begin{enumerate}[1.]
+		\item Let $\lfloor x \rfloor=k$. By definition, $k$ is the greatest integer not exceeding $x$, so $x \geq k$ and $x<k+1$.
+		%				\item This is immediately followed by the first part because $\{x\}=x-\lfloor x \rfloor$. Note that $\{x\}=0$ happens only when $x$ is an integer.
+		\item $n \leq x = \lfloor x \rfloor + \{x\} <\lfloor x \rfloor +1$, and since $n$ is an integer, $n \leq \lfloor x \rfloor$.
+		\item By definition, $\lfloor x \rfloor \leq x$ and so $\lfloor x \rfloor+n \leq x+n$. On the other hand, again by definition, $x < \lfloor x \rfloor+1$. Therefore
 		\begin{align*}
-			b^y = x
+			\lfloor x \rfloor +n \leq x+n < \lfloor x \rfloor + n+ 1
 		\end{align*}
-		We denote this by $y = \log_b x$.
-	\end{definition}
-
-	\begin{remark}
-		$ $
-		\begin{enumerate}
-			\item The base of the logarithm cannot be equal to $1$. The reason is simple: the equation $1^x = 1^y$ holds for all the values of $x$ and $y$, and the definition of logarithm to base $1$ would be pointless\watermark.
-
-			\item Some books use the notation $\log x$ (no base presented) to mean \textit{common logarithm}\footnote{or decimal logarithm.}. That is, logarithm to base $10$. For example, $\log 1000=3$.
-
-			\item The logarithm to the base of mathematical constant $e$ is called the \textit{natural logarithm}.\footnote{$e\approx 2.71828.$} The natural logarithm of $x$ is generally written as $\ln x$.
-		\end{enumerate}
-	\end{remark}
-
-	\begin{example}
-		$ $
-		\begin{enumerate}
-			\item Let $a \neq 1$ be a positive real number. Then $\log_a a=1$ and $\log_a 1 = 0$.
-			\item $\log_5 \dfrac{1}{125}=-3$.
-			\item $\log_{1/7} 49 = -2$.
-			\item $\log_{49} \sqrt 7 = 0.25$.
-			\item $\log 0.0001 = -4$.
-		\end{enumerate}
-	\end{example}
-\subsubsection{Laws of Logarithms}
-
-
-	As in exponentiation where you can write $a^x \cdot a^y = a^{x+y}$, a similar relation for logarithms can be written. This, along with a few other properties of logarithms, are introduced in the following proposition.
-
-	\begin{proposition}[Laws of Logarithms]\label{prop:log_laws}
-		Let $a$ and $b$ be positive reals not equal to $1$. For any two positive reals $x$ and $y$, we have
-		\begin{enumerate}
-			\item $\log_a xy = \log_a x + \log_a y$.
-			\item $\log_a \dfrac{x}{y} = \log_a x - \log_a y$.
-			\item $\log_{a^n} x^m = \dfrac{m}{n}\log_a x$ for any real $m$ and $n$ (with $n \neq 0$).
-			\item $\log_a b = \dfrac{1}{\log_b a}$.
-			\item $\log_a x = \dfrac{\log_b x}{\log_b a}$.
-		\end{enumerate}
-	\end{proposition}
-
-	\begin{proof}
-		The proofs are rather straightforward. We prove the first and the last parts and leave others as exercises for the reader. For the first part, let $\log_a x= m$ and $\log_a y =n$. Then by definition, $x=a^m$ and $y=a^n$. Thus,
-			\begin{align*}
-				xy=a^{m+n}
-			\end{align*}
-			which in turn gives $\log_a xy = m+n$. For the last part, assume $\log_b x = m$ and $\log_b a=n$. Then $x=b^m$ and $a=b^n$ and so by part $3$,
-			\begin{align*}
-				\log_a x
-					& = \log_{b^n} b^m\\
-					& = \frac{m}{n} \log_b b =\frac{m}{n} \\
-					& =\dfrac{\log_b x}{\log_b a}
-			\end{align*}
-		since $\log_b b =1$.
-	\end{proof}
-
-	\begin{note}
-		Both $\log_a (x+y) = \log_a x + \log_a y$ and $\log_a (x+y) = \log_a x \cdot \log_a y$ are \textbf{false}. Do not use them.
-	\end{note}
-
-	\begin{example}
-		Suppose that you know the logarithm of every number to base $e$. How would you find $\log_3 5$? The answer would be to use the last part of proposition \eqref{prop:log_laws}:
+		This means that $\lfloor x \rfloor +n$ is the largest integer less than or equal to $x+n$ and hence $\lfloor x+n\rfloor=\lfloor x\rfloor+n$.
+		\item Write $x<y$ as $\lfloor x \rfloor + \{x\} < \lfloor y \rfloor + \{y\}$ and then $\lfloor x \rfloor < \lfloor y \rfloor +\{y\}-\{x\}$. Now by parts $2$ and $3$,
 		\begin{align*}
-			\log_3 5
-				& = \frac{\ln 5}{\ln 3}\\
-				& \approx \frac{1.6094}{1.0986}\\
-				& \approx 1.4649
+			\lfloor x \rfloor &\leq \bigg\lfloor\lfloor y \rfloor +\{y\}-\{x\}\bigg\rfloor\\
+			&= \lfloor y \rfloor + \bigg\lfloor\overbrace{\{y\}-\{x\}}^{<1}\bigg\rfloor\\
+			&= \lfloor y \rfloor
 		\end{align*}
-		You can easily find the values of $\ln 5$ and $\ln 3$ using a simple scientific calculator.
-	\end{example}
-
-	\begin{example}
-		Given that $\log_2 3 \approx 1.5849$, let's find $\log_{0.125} 36$. Notice that $0.125=1/8=2^{-3}$ and $36=2^2 \cdot 3^2$. Therefore,
+		\item Let $	\lfloor x \rfloor=a, \lfloor y \rfloor=b, \{x\}=a_1$, and $\{y\}=b_1$. By $2$, $a_1, b_1 \geq 0$ and so
 		\begin{align*}
-			\log_{0.125} 36
-				&= \log_{2^{-3}} \left(2^2 \cdot 3^2\right)\\
-				& = \log_{2^{-3}} 2^2 + \log_{2^{-3}} 3^2\\
-				& = \frac{2}{-3} \log_2 2 + \frac{2}{-3} \log_2 3\\
-				& \approx -\frac{2}{3}(1+1.5849)\\
-				& \approx -1.7232
+			a+b \leq a+a_1+b+b_1
 		\end{align*}
-	\end{example}
-
-\begin{figure}[t]
-	\centering
-	\begin{tikzpicture}[scale = 1.6]
-	\begin{axis}[grid=both,
-	xmin=-10,xmax=20,ymin=-10,ymax=25,
-	yticklabels={,,},
-	xticklabels={,,},
-	axis lines=middle,
-	restrict y to domain=-15:21,
-	enlargelimits]
-	\addplot[, thick]  {pow(0.5,x)} node[pos=0.1, above]{$y=0.5^x$};
-	\addplot[,domain=1/2^6:20,samples=100, thick, dashed]  {ln(x)/ln(0.5)} node[pos=0.8,below] {$y=\log_{0.5}(x)$};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Plot of functions $y=\log_{0.5} x$ and $y=0.5^x$.}
-	\label{fig:log_exp_0.5}
-\end{figure}
-
-	\begin{proposition}\label{prop:log_strict}
-		Let $b, x_1, x_2$ be positive real numbers such that $b\neq 1$. Then
-		\begin{enumerate}
-			\item if $b>1$, $x_1>x_2$ if and only if $\log_b x_1 > \log_b x_2$,
-			\item if $b<1$, $x_1>x_2$ if and only if $\log_b x_1 < \log_b x_2$.
-		\end{enumerate}
-	\end{proposition}
-
-	\begin{proof}
-		We illustrate the proof with two sample cases. In Figure \ref{fig:log_exp_2}, you can see the plot of $y=\log_2 x$ for $x \in [0, 10]$. As seen in the figure, logarithm to the base $2$ is strictly increasing. That is, if $x_1>x_2$, then $\log_2 x_1 > \log_2 x_2$. Now, let's prove that if $\log_2 x_1 > \log_2 x_2$, then $x_1>x_2$. In the same figure, you can see the plot of $y=2^x$, which is, again, strictly increasing. It means that for any two reals $x_1$ and $x_2$, if $x_1>x_2$, then $2^{x_1} > 2^{x_2}$. By definition, we can find positive reals $y_1$ and $y_2$ such that $x_1 = \log_2 y_1$ and $x_2=\log_2 y_2$. Now, the relation
+		Sine $a+b$ is an integer, applying part $2$ we find
 		\begin{align*}
-			x_1>x_2 \implies 2^{x_1} > 2^{x_2}
+			\lfloor x \rfloor + \lfloor y \rfloor &= a+b \\
+			&\leq \lfloor a+a_1+b+b_1 \rfloor\\
+			&= \lfloor x+y \rfloor
 		\end{align*}
-		transforms to
+		On the other hand, by part $3$ we observe that
 		\begin{align*}
-			\log_2 y_1
-				& > \log_2 y_2\\
-			\implies y_1
-				& > y_2
+			\lfloor x+y \rfloor &= \lfloor a+a_1+b+b_1 \rfloor\\
+			&= a + b + \lfloor a_1+b_1 \rfloor\\
+			&= \lfloor x \rfloor + \lfloor y \rfloor + \lfloor \overbrace{a_1+b_1}^{<2} \rfloor\\
+			&\leq \lfloor x \rfloor + \lfloor y \rfloor + 1
 		\end{align*}
-		which is what we wanted. Analogously, as shown in Figure \ref{fig:log_exp_0.5}, the functions $y=\log_{0.5} x$ and $y=0.5^x$ are both strictly decreasing and the proof of part $2$ is almost the same as the previous part.
-		\end{proof}
 
-\begin{figure}[t]
-	\centering
-	\begin{tikzpicture}[scale = 1.6]
-	\begin{axis}[grid=both,
-	xmax=20,ymax=20,
-	yticklabels={,,},
-	xticklabels={,,},
-	axis lines=middle,
-	restrict y to domain=-7:21,
-	enlargelimits]
-	\addplot[, thick]  {pow(2,x)} node[right]{$y=2^x$};
-	\addplot[,domain=1/2^6:20,samples=100,thick, dashed]  {ln(x)/ln(2)} node[above left] {$y=\log_2(x)$};
-	\end{axis}
-	\end{tikzpicture}
-	\caption{Plot of functions $y=\log_2 x$ and $y=2^x$.}
-	\label{fig:log_exp_2}
-\end{figure}
+		\item $\lfloor x\rfloor$ is an integer and the floor of every integer is equal to itself.
+		\item This is immediately implied from definition.
+	\end{enumerate}
+\end{proof}
+
+\begin{proposition}[Properties of Fractional Part]
+	For any real $x$,
+	\begin{enumerate}[1.]
+		\item $0\leq\{x\}<1$,
+		\item  $\{ x+n\}=\{ x\}$,
+		\item $\{\{x\}\} =  \{x\}$,
+		\item if $x$ is an integer, $\{ x\}+\{ -x\}$ is zero, otherwise it equals $1$.
+	\end{enumerate}
+\end{proposition}
+
+Proofs are straightforward and we leave them for the reader as an exercise.
+
+
+Now, we get to the other way of solving problem \ref{floorproblem}. First, we subtracted the number of multiples less than $10$. This time we find out the first multiple of $7$ that is \textit{greater than or equal to} $10$, and the greatest multiple less than or equal to $100$ (this part is same as before). $14=7\cdot2$ is the first multiple of $7$ greater than $10$. Since $98=7\cdot14$ is the largest multiple of $7$ less than $100$, the answer to the problem would be the number of integers between $2$ and $14$ (inclusive). There are $14-2+1=13$ such integers. Consequently, this makes us define \textit{ceiling}. Try to make sense how this relates to the properties of this function.
+
+\begin{definition}[\bfseries Ceiling Function]
+	We call the function $\lceil x \rceil: \mathbb{R} \to \mathbb Z$ the \textit{ceiling function} and for every real $x$, $\lceil x\rceil$ (read \textit{ceiling of $x$}) is the smallest integer greater than or equal to $x$.
+
+	\begin{figure}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[axis lines=middle,
+				xtick={-2, -1, 0, 1, 2},
+				ytick={-2, -1, 0, 1, 2},
+				xticklabel style={below left},
+				yticklabel style={below left},
+				xmin=-3, xmax=3,
+				ymin=-3, ymax=3,
+				ylabel={$\lceil x \rceil$},
+				xlabel={$x$},
+				grid,
+				every axis x label/.style={
+					at={(ticklabel* cs:1.105)},
+					anchor= west,
+				},
+				every axis y label/.style={
+					at={(ticklabel* cs:1.05)},
+					anchor= south,
+				},
+				]
+				\addplot [
+				jump mark mid,
+				domain=-2:2,
+				samples=100,
+				ultra thick,
+				] {ceil(x)};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{The ceiling function $\lceil x \rceil$ for $-2 \leq x \leq 2$.}
+		\label{fig:ceilingfunction}
+	\end{figure}
+\end{definition}
+
+\begin{example}
+	$\lceil3.14\rceil=4$ and $\lceil4\rceil=4$. Also $\lceil-4.1\rceil=-4$ whereas $\lceil4.1\rceil=5$. As seen in \autoref{fig:ceilingfunction}, similar to the floor function, the plot of the ceiling is like a chain of steps. Every two real numbers which lie between two consecutive integers have the same ceiling and floor value. Compare the plots of these two functions.
+\end{example}
+
+\begin{proposition}[Properties of Ceiling Function]\slshape \label{prop:ceiling}
+	For any two reals $x, y$ and any two integers $m,n$,
+	\begin{enumerate}[1.]
+		\item $x\leq \lceil x\rceil < x+1$
+		\item if $n \geq x$, then $n \geq \lceil x \rceil$
+		\item $\lceil x+n\rceil=\lceil x\rceil+n$
+		\item if $x <y$, then $\lceil x \rceil \leq \lceil y \rceil$
+		\item $\lceil x\rceil+\lceil y \rceil - 1 \leq \lceil x+y\rceil \leq \lceil x\rceil+\lceil y\rceil$
+		\item $\lceil \lceil x\rceil\rceil  =  \lceil x\rceil$
+		\item if $x$ is an integer, $\lceil x\rceil+\lceil -x\rceil=0$. Otherwise, it equals $1$
+		\item $\lceil x \rceil \geq x \geq \lfloor x \rfloor$
+	\end{enumerate}
+\end{proposition}
+
+The proofs are pretty much the same as those of floor function and we do not provide them here.
+
+\begin{problem}\slshape\label{thm:floor-k|n+1}
+	For any two positive integers $n$ and $k$, the following equation holds
+	\begin{align*}
+		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor &=
+		\begin{cases}
+			1&\mbox{if }k|n+1\\
+			0&\mbox{otherwise}
+		\end{cases}\\
+		\left\lfloor \frac{n+1}{k} \right\rfloor^2 - \left\lfloor \frac{n}{k} \right\rfloor^2 &=
+		\begin{cases}
+			2\frac{n+1}{k}-1&\mbox{if }k|n+1\\
+			0&\mbox{otherwise}
+		\end{cases}
+	\end{align*}
+\end{problem}
+
+\begin{solution}
+	We will prove the first identity. The second one can be proved in a similar way. Let $n+1=kq+r$ for some positive integers $q$ and $r$ such that $0 \leq r <k$. Then,
+	\begin{align*}
+		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor
+		&=\left\lfloor \frac{kq+r}{k} \right\rfloor - \left\lfloor \frac{kq+r-1}{k} \right\rfloor\\
+		&= \left\lfloor q+\frac{r}{k} \right\rfloor - \left\lfloor q+\frac{r-1}{k} \right\rfloor\\
+		&= \left(q+\left\lfloor \frac{r}{k} \right\rfloor\right) - \left(q+\left\lfloor \frac{r-1}{k} \right\rfloor\right)\\
+		&= \left\lfloor \frac{r}{k} \right\rfloor - \left\lfloor \frac{r-1}{k} \right\rfloor
+	\end{align*}
+	Now, since $r<k$, if $r \neq 0$, both $\lfloor r/k \rfloor$ and $\lfloor (r-1)/k \rfloor$ are zero and so is their difference. However, when $r=0$, we have $\lfloor r/k \rfloor=0$ and $\lfloor (r-1)/k \rfloor=-1$ and in this case,
+	\begin{align*}
+		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor
+		& = 1
+	\end{align*}
+	The proof is complete.
+\end{solution}
+
+\subsection{Fractions and Increasing Functions}
+\begin{theorem}\slshape
+	Let $x$ be a real number. Then for every positive integers $n$ and any integer $m$,
+	\begin{align*}
+		\bigg\lfloor \frac{x+n}{m}\bigg\rfloor
+		& = \bigg\lfloor \frac{\lfloor x \rfloor+n}{m}\bigg\rfloor\\
+		\bigg\lceil \frac{x+n}{m}\bigg\rceil
+		& = \bigg\lceil \frac{\lceil x \rceil+n}{m}\bigg\rceil
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \ref{prop:floor},
+	\begin{align*}
+		\bigg\lfloor f(\lfloor x \rfloor)\bigg\rfloor  \leq \bigg\lfloor f(x) \bigg\rfloor.
+	\end{align*}
+	We will show that $\lfloor f(\lfloor x \rfloor)\rfloor  < \lfloor f(x) \rfloor$ does not happen. Suppose on the contrary that it does happen. Let $k =  \lfloor f(x) \rfloor$ and $y=km-n$. Then,
+	\begin{align*}
+		f(y) &= \dfrac{y+n}{m}\\
+		&= \dfrac{(km-n)+n}{m}\\
+		&= k\\
+		&= \lfloor f(x) \rfloor
+	\end{align*}
+	So $f(y)=\lfloor f(x) \rfloor \leq f(x)$, which implies $y \leq x$ (because $f$ is strictly increasing). Also, $y > \lfloor x \rfloor$ because otherwise $\lfloor f(x) \rfloor = f(y) \leq  f(\lfloor x \rfloor)$ and by part $2$ of proposition \ref{prop:floor}, $\lfloor f(x) \rfloor \leq \lfloor f(\lfloor x \rfloor)\rfloor$, which is in contradiction with our assumption. This means that we have found an integer $y$ such that $\lfloor x \rfloor < y \leq x$. This is obviously in contradiction with the definition of $\lfloor x \rfloor$ (since $x$ is non-integer). Therefore, $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$ and we are done.
+\end{proof}
+
+\begin{corollary}
+	For any given real numbers $x, a_1, a_2, \ldots, a_n$, we have
+	\begin{align*}
+		\Bigg\lfloor \ldots \Big\lfloor \big\lfloor x/a_1 \big\rfloor/a_2 \Big\rfloor \ldots/a_n \Bigg\rfloor
+		&= \Bigg\lfloor \dfrac{x}{a_1a_2\ldots a_n}\Bigg\rfloor\\
+		\Bigg\lceil \ldots \Big\lceil \big\lceil x/a_1 \big\rceil/a_2 \Big\rceil \ldots/a_n \Bigg\rceil &= \Bigg\lceil \dfrac{x}{a_1a_2\ldots a_n}\Bigg\rceil
+	\end{align*}
+\end{corollary}
+
+The above theorem can be generalized in this way:
+\begin{theorem}
+	Let $f$ be any continuous and strictly increasing function with the property that if $f(x)$ is an integer, then so is $x$. Then,
+	\begin{align*}
+		\bigg\lfloor f(\lfloor x \rfloor)\bigg\rfloor
+		& = \bigg\lfloor f(x) \bigg\rfloor\\
+		\bigg\lceil f(\lceil x \rceil)\bigg\rceil
+		& = \bigg\lceil f(x) \bigg\rceil
+	\end{align*}
+\end{theorem}
+
+\begin{problem}
+	Prove that for every positive real $x$, the following relations hold
+	\begin{align*}
+		\big\lfloor \sqrt {\lfloor x \rfloor} \big\rfloor &= \lfloor x \rfloor\\
+		\big\lceil \sqrt{ \lceil x \rceil} \big\rceil &= \lceil x \rceil
+	\end{align*}
+\end{problem}
 
 
 \subsection{Number of Digits}
@@ -1123,6 +1252,220 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		\end{align*}
 		which gives $m<\log_b n<m+1$. Since $m$ is an integer, by definition of floor function, $m=\lfloor \log_b n \rfloor$.
 	\end{proof}
+\subsection{Power of a Prime in a Number} \label{sec:powerofprimes}
+In a lot of cases, it just happens that we need to calculate the highest power of a prime $p$ that divides an integer $n$. We denote this by $v_p(n)$. Determining how many zeros there are at the end of $n!$ is a famous problem. Clearly, the number of zeros at the end of any number equals the highest power of $10$ which divides that number, and this is an example of where we need to use this function.
+
+\begin{definition}\label{def:vp}
+	We define $v_p(x)$ to be the greatest power in which a prime $p$ divides $x$. In particular, if $v_p(x)=\alpha$, then $p^{\alpha} \mid x$ but $p^{\alpha+1} \nmid x$. We also write $p^{\alpha} \|  x, $ if and only if $v_p(x) = \alpha$.
+\end{definition}
+
+\begin{example}
+	The greatest power of $3$ that divides $63$ is $3^2.$ because $3^2=9 \mid 63$ but $3^3 =27 \nmid 63.$
+	in particular, $ 3^2 \|  63$ or $v_3(63)=2.$
+\end{example}
+
+\begin{example}
+	If $p$ and $q$ are two different prime numbers, then $ v_p( p^ \alpha q^ \beta) = \alpha$. This can also be shown as $p^\alpha \|  p^ \alpha q^ \beta$.
+\end{example}
+
+\begin{proposition} \label{prop:v_p-rule}
+	For any two positive integers $x$ and $y$, and any prime $p$, we have
+	\begin{align*}
+		v_p(xy)
+		& =v_p(x)+v_p(y)\\
+		v_p(x+y)
+		& \geq\min\left\{v_p(x),v_p(y)\right\}
+	\end{align*}
+\end{proposition}
+
+\begin{proof}
+	The first equation follows from the product rule of exponentiation ($a^{s} \cdot a^{t} = a^{s+t}$). To make sense the other equation, you can think of a simple example: take $x=9$ and $y=18$. Obviously, $3^3$ does not divide any of $x$ or $y$, but it divides their sum.
+\end{proof}
+
+\begin{note}
+	$v_p(0)=\infty$ for all primes $p.$
+\end{note}
+
+\begin{theorem}[Legendre's Theorem]\label{thm:legendre}\slshape
+	Let $p$ be a prime and $n$ be a positive integer. Then
+	\begin{align*}
+		v_p(n!) & =\sum_{i=1}^{\infty}\left\lfloor\dfrac{n}{p^i}\right\rfloor
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	By definition, $n!$ is the product of first $n$ positive integers. Therefore, by proposition \ref{prop:v_p-rule},
+	\begin{align*}
+		v_p(n!) = v_p(1) v_p(2) \cdots v_p(n)
+	\end{align*}
+	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \ref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
+\end{proof}
+There is another way for finding $v_p(n!)$ using bases. Before we state the alternative version of Legendre's theorem, we need a definition.
+\begin{definition}
+	Let $n$ be a positive integer and let $p$ be a prime number.  We denote by $s_p(n)$  the sum of the standard base $p$ digits of $n$. That is, if $n=(n_k n_{k-1}\ldots n_1 n_0)_p$, then $s_p(n)=n_k+ n_{k-1}+\cdots +n_1+ n_0$.
+\end{definition}
+
+\begin{example}
+	$10=(20)_5$, and so $s_5(10)=2$.
+\end{example}
+
+
+\begin{theorem}\label{thm:legendrealternative}
+	Let $p$ be a prime number and let $n$ be a positive integer. Then
+	\begin{align*}
+		v_p(n!) & =\frac{n-s_p(n)}{p-1}
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	Assume that the base $p$ representation of $n$ is $(n_k n_{k-1}\ldots n_1 n_0)_p$. So $n=n_kp^k + n_{k-1}p^{k-1} + \cdots + n_1 p +n_0$ and
+	\begin{align*}
+		\left\lfloor\dfrac{n}{p^i}\right\rfloor
+		&=	\left\lfloor\dfrac{n_kp^k + n_{k-1}p^{k-1} + \cdots + n_1 p +n_0}{p^i}\right\rfloor \\
+		&= n_kp^{k-i} + n_{k-1}p^{k-i-1} + \cdots + n_{i+1} p + n_i
+	\end{align*}
+	for any integer $1 \leq i \leq k$. Now by Legendre's theorem,
+	\begin{align*}
+		v_p(n!) & = \sum_{i=1}^{k}\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
+		&= \left\lfloor\dfrac{n}{p}\right\rfloor+\left\lfloor\dfrac{n}{p^2}\right\rfloor+\cdots+\left\lfloor\dfrac{n}{p^k}\right\rfloor\\
+		&= \ \ \ n_kp^{k-1} + n_{k-1}p^{k-2} + \cdots + n_{2} p + n_1 \\  &\ \ \ + n_kp^{k-2} + n_{k-1}p^{k-3} + \cdots + n_{2}\\ &\ \ \ \ \ \ \ \vdots \qquad\qquad \vdots\\  &\ \ \ + n_kp  \ \ \ \ + n_{k-1} \\&\ \ \ + n_k\\
+		&=\sum_{i=1}^k n_i(p^{i-1}+p^{i-2}+\cdots+p+1)\\
+		&= \sum_{i=1}^k n_i\frac{p^i-1}{p-1}\\
+		&=\displaystyle \frac{\displaystyle \sum\limits_{i=0}^k n_i p^i - \sum\limits_{i=0}^k n_i}{p-1}\\
+		&=\frac{n-s_p(n)}{p-1}
+	\end{align*}
+\end{proof}
+
+\subsection{Kummer's Theorem}
+It may seem difficult to find a relation for the largest power of a prime $p$ that divides a binomial coefficient $\binom{m}{n}$. In $1852$, Kummer published an article in which he introduced a very simple way to find $v_p\left(\binom{m}{n}\right)$.
+
+\begin{theorem}[Kummer's Theorem]
+	Let $p$ be a prime and let $m$ and $n$ be positive integers such that $n \leq m$. Take $s$ to be the number of \textit{carries} when $n$ is added to $m-n$ in base $p$. Then $s = v_p\left( \binom{m}{n}\right)$.
+\end{theorem}
+
+To make a good sense of this theorem, we provide an example and then move to the proof.
+
+\begin{example}
+	Let us find $v_3\left( \binom{28}{11}\right)$. First, find the base-$3$ representation of $11$ and $28-11=17$:
+	\begin{align*}
+		11
+		& = (102)_3\\
+		17
+		& = (122)_3
+	\end{align*}
+	Now we do the columnar addition to see how many carries happen when we add $(1001)_3$ and $(122)_3$:
+	\begin{center}
+		\begin{tabular}{c*{4}{@{\,}c}}
+			&  $\overset{1}{\phantom{1}}$   & $\overset{1}{1}$ & $\overset{1}{0}$ & $2$\\
+			+& 		& $1$				   & $2$ 			  	  & $2$\\ \hline
+			& $1$	& $0$				   & $0$ 			      & $1$\\
+		\end{tabular}
+	\end{center}
+	We see that three carries happen. Therefore, Kummer's theorem tells us that $\binom{28}{11}$ is divisible by $3^3$ but not by $3^4$. If we calculate the value of this binomial coefficient, we obtain
+	\begin{align*}
+		\binom{28}{11} &= 21474180\\
+		&= 2^2 \times 3^3 \times 5 \times 7 \times 13 \times 19 \times 23
+	\end{align*}
+	which verifies our result.
+
+	Let us prove Kummer's theorem now.
+
+\end{example}
+\begin{proof}
+	Let the representation of $m, n$, and $m-n$ in base $p$ be
+	\begin{align*}
+		m   &= m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0\\
+		n   &= n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0\\
+		m-n &= q_kp^k+q_{k-1}p^{k-1}+\cdots +q_1p+q_0
+	\end{align*}
+	Let's find the number of carriers in addition of $m$ and $m-n$ in base $p$. We can write
+	\begin{align*}
+		q_0+n_0  &= m_0 + x_1 p\\
+		q_1+n_1+x_1&= m_1 + x_2p\\
+		&\phantom{=}\vdots\\
+		q_k+n_k+x_k&= m_k
+	\end{align*}
+	where $x_i$ denotes the carry at the $(i-1)^{th}$ digit from the right (it's either one or zero). Adding all the above equations, we find
+	\begin{align*}
+		(q_k+q_{k-1}+\cdots+q_0)+(n_k+n_{k-1}+\cdots+n_0) &= (m_k+m_{k-1}+ \cdots+m_0)\\&+(p-1)(x_k+x_{k-1}+\cdots+x_0)
+	\end{align*}
+	Therefore, the number of carries in the addition is
+	\begin{align*}
+		s &= x_k+x_{k-1}+\cdots+x_0 \\
+		&= \frac{(q_k+q_{k-1}+\cdots+q_0) + (n_k+n_{k-1}+\cdots+n_0) - (m_k+m_{k-1}+\cdots+m_0)}{p-1}
+	\end{align*}
+	We will use the fact that
+	\begin{align*}
+		v_p\left( \binom{m}{n}\right) &= v_p(m!)-v_p(n!)-v_p((m-n)!)
+	\end{align*}
+	along with \autoref{thm:legendrealternative} to show that $s=v_p\left( \binom{m}{n}\right)$. By \autoref{thm:legendrealternative}, we know that for every positive integer $a$,
+	\begin{align*}
+		v_p(a!) & =\frac{a-s_p(a)}{p-1}
+	\end{align*}
+	where $s_p(a)$ denotes the sum of the standard base $p$ digits of $a$. Therefore,
+	\begin{align*}
+		v_p\left( \binom{m}{n}\right)
+		& = \frac{m-s_p(m)}{p-1}-\frac{n-s_p(n)}{p-1}-\frac{(m-n)-s_p(m-n)}{p-1}\\
+		& = \frac{m-(m_k+m_{k-1}+\cdots+m_0)}{p-1}\\
+		& \phantom{=}-\frac{n-(n_k+n_{k-1}+\cdots+n_0)}{p-1}\\
+		& \phantom{=}-\frac{(m-n)-(q_k+q_{k-1}+\cdots+q_0)}{p-1}\\
+		& = \frac{(q_k+q_{k-1}+\cdots+q_0) + (n_k+n_{k-1}+\cdots+n_0) - (m_k+m_{k-1}+\cdots+m_0)}{p-1}\\
+		&=s
+	\end{align*}
+	The proof is complete.
+\end{proof}
+
+\begin{corollary}\label{cor:kummer-corollary}
+	Let $p$ be a prime and let $n$ be a positive integer. For any positive integer $k$ such that $0<k\leq p^n$,
+	\begin{align*}
+		v_p\left( \binom{p^n}{k}\right)	= n - v_p(k)
+	\end{align*}
+\end{corollary}
+
+\begin{proof}
+	When you add $p^n - k$ and $k$ in base $p$, you get a $1$ followed by $n$ zeros. Starting the addition from the rightmost digits and moving to the left, you get a carry as soon as both digits in the column are not zero. In other words, the first carry happens at the first (rightmost) non-zero of $k$ in base $p$ and you will have a carry for all digits after that. So, we are searching for the rightmost non-zero digit of $k$ in base $p$. This is exactly the $(v_p(k)+1)^{th}$ digit (why?). Thus, the number of carries would be
+	\begin{align*}
+		(n+1)-(v_p(k)+1) = n-v_p(k),
+	\end{align*}
+	which is what we wanted.
+\end{proof}
+\begin{problem}
+	Let $p$ be a prime and let $m,n$ be positive integers. If $p^m < n < p^{m+1}$, prove that $v_p\left(\binom{n}{k}\right) \leq m$ for every positive integer $k\leq n$.
+\end{problem}
+
+\begin{solution}
+	The condition $p^m < n < p^{m+1}$ means that $n$ has $m+1$ digits when represented in base $p$. By Kummer's theorem, $v_p\left(\binom{n}{k}\right)$ is the number of carries in addition $k+(n-k)$ in base $p$. Obviously, the number of carries must be less than number of digits of $n$ in base $p$ (why?). The conclusion follows.
+\end{solution}
+We will provide another solution for problem \ref{prob:china2015-bertrand} stated in section \ref{sec:bertrand}.
+
+\begin{problem}[China 2015]
+	Determine all integers $k$ such that there exists infinitely many positive integers $n$ satisfying
+	\begin{align*}
+		n+k \nmid \binom{2n}{n}
+	\end{align*}
+\end{problem}
+
+\begin{solution}
+	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4|n$, thus $	n \nmid\binom{2n}{n}$.
+
+	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_2\left(\binom{2n}{n}\right) \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \nmid\binom{2n}{n}$ for our choice of $n$.
+\end{solution}
+
+\begin{problem}
+	Let $n$ be a positive integer. Show that $n$ divides $\binom{n}{k}$ for all $k$ such that $1 \leq k \leq n-1$ if and only if $n$ is a prime.
+\end{problem}
+
+\begin{solution}
+	We will first prove that $n$ must be a power of a prime. Suppose the contrary. Take any prime divisor $p$ of $n$ and let $v=v_p(n)$. By Lucas' theorem, it follows that $p \nmid\binom{n}{p^v}$, which contradicts the assumption that $n \nmid\binom{n}{p^v}$. Thus, $n$ must be a power of a prime.
+
+	Write $n=p^r$ for some prime $p$ and positive integer $r$. if $r>1$, then from corollary \ref{cor:kummer-corollary},
+	\begin{align*}
+		p^2\nmid\binom{n}{p^{r-1}}
+	\end{align*}
+	which is a contradiction. Therefore, $r=1$ and $n$ must be a prime.
+
+\end{solution}
+
 	\section{Some Useful Facts}\label{sec:theoremsindiv}
 	In this section, we provide some theorems which may help you solve problems more easily. Though you will find that we have emphasized not to be dependent on theorems or making them the core of solving problems, they help us a great deal and make our lives a lot easier. Therefore, you will find a lot of theorems in this book. But it does not mean in any way that theorems are the best way to improve in number theory. They merely help us speed up the process of solving problems. Nothing more. One could rediscover all the theorems while solving a problem and the end result would still be the same. The point is: you can get to the top of a mountain in many ways and the view is same. But the pleasure might be different based on the approach you take. If you use a helicopter to reach the peak of the mountain or climb all the way to the top. But definitely the latter approach brings you more pleasure. Anyway, we hope you understand our primary intention.
 

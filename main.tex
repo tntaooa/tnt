@@ -5,7 +5,7 @@
 \usepackage{subfiles}
 \usepackage{bookmark,rotating}
 
-\usepackage[style=philosophy-verbose,backend=biber,sortcites=true,classical=true,scauthors=true, scauthorscite=true,scauthorsbib=true,volnumformat=strings,volumeformat=romansc,]{biblatex}
+\usepackage[style=philosophy-verbose,backend=biber,sortcites=true,classical=true,volnumformat=strings,volumeformat=romansc,]{biblatex}
 \interfootnotelinepenalty=10000
 
 \usepackage{iftex}
@@ -31,23 +31,22 @@
 \newcommand{\rad}{\mbox{rad}}
 
 \ifxetex
-\newcommand{\fakebold}{1}
+\newcommand{\fakebold}{2}
 \newcommand{\scale}{1}
-\newfontfamily\titlefont{Old Standard}
-\newcommand{\fakemathbold}{1}
-\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic.otf,ItalicFeatures={FakeBold=\fakebold,Scale=\scale},BoldItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp,Scale=\scale},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,Scale=\scale,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp,Scale=\scale}},BoldItalicFeatures={FakeBold=3},]{ModernMT-Extended-OldStandard.otf}
+\newcommand{\fakemathbold}{2}
+\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,ItalicFeatures={FakeBold=\fakebold,Scale=\scale},BoldItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp,Scale=\scale},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,Scale=\scale,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp,Scale=\scale}},BoldItalicFeatures={FakeBold=3},]{ModernMT-Extended-OldStandard.otf}
 \setsansfont[FakeBold=1,Scale=\scale]{Latin Modern Sans}
 \setmonofont[FakeBold=1,Scale=\scale]{Latin Modern Mono}
 \setmathfont[FakeBold=\fakemathbold,Scale=\scale]{NewCMMath-Book.otf}
+\setmathfont[range={it},FakeBold=\fakemathbold,Scale=\scale]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
 %\setmathfont[FakeBold=\fakemathbold,range={"0000,"FFFF}]{ModernMT-Extended-OldStandard.otf}
-\setmathfont[range={65-90,97-122},FakeBold=\fakebold,Scale=\scale]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
-\setmathfont[range={\symit},FakeBold=\fakemathbold,Scale=\scale]{Old Standard Italic}
-\setmathfont[range={up/{num,latin}},FakeBold=\fakebold,Scale=\scale]{ModernMT-Extended-OldStandard.otf}
-\setmathfont[range={\symfrak},FakeBold=\fakemathbold,Scale=\scale]{Asana Math}
-%\setmathfont[range={up/{greek}},FakeBold=\fakemathbold,Scale=\scale]{TheanoModern-Regular.ttf}
-%\setmathfont[range={\symbb,},FakeBold=\fakemathbold,Scale=\scale]{Old Standard Italic}
+%\setmathfont[range={65-90,97-122},FakeBold=\fakebold,Scale=\scale]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
+%\setmathfont[range={\symit},FakeBold=\fakemathbold,Scale=\scale]{Old Standard Italic}
+%\setmathfont[range={up/{latin,greek}},FakeBold=\fakemathbold,Scale=\scale]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
+%\setmathfont[range={it/{num,latin,greek}},FakeBold=\fakemathbold,Scale=\scale]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
+%\setmathfont[range={\symfrak},FakeBold=\fakemathbold,Scale=\scale]{Asana Math}
 
-\newfontfamily{\bask}{TheanoModern-Regular.ttf}
+\newfontfamily{\bask}{ModernExtT-Theano.otf}
 
 \makeatletter
 \RenewDocumentCommand{\sum@}{}{\DOTSB\baskervillesum}
@@ -80,7 +79,7 @@
 \NewDocumentCommand{\makebaskervilleprod}{m}{%
 	\vcenter{\hbox{\scalebox{#1}{\bask ∏}}}%
 }
-
+\newfontfamily\intfont{Old Standard Italic}
 \makeatletter
 \NewDocumentCommand{\int@}{}{\DOTSB\baskervilleint}
 \AtBeginDocument{%
@@ -94,13 +93,9 @@
 	{\makebaskervilleint{0.7}}% scriptscriptstyle
 }
 \NewDocumentCommand{\makebaskervilleint}{m}{%
-	\vcenter{\hbox{\scalebox{#1}{\bask ∫}}}%
+	\vcenter{\hbox{\scalebox{#1}{\intfont ∫}}}%
 }
 
-%\setmathfont[range={"0028,"0029,},FakeBold=0]{TheanoModern-Regular.ttf}
-\usepackage{mathspec}
-%\setmathsfont(Digits)[Scale=MatchUppercase,FakeBold=\fakebold]{ModernMTStd-Extended.otf}
-\setmathsfont(Latin)[Uppercase=Italic,Lowercase=Italic,FakeBold=\fakebold,Scale=\scale]{ModernMTStd-ExtendedItalic.otf}
 \defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \else
 \usepackage{pdfrender}
@@ -124,6 +119,11 @@
 \date{}
 
 \addbibresource{ref.bib}
+
+\renewcommand{\mkbibnamelast}[1]{\mkbibemph{#1}}
+\AtBeginBibliography{\renewcommand{\mkbibnamelast}[1]{#1}}
+\renewcommand{\mkbibnamefirst}[1]{\mkbibemph{#1}}
+\AtBeginBibliography{\renewcommand{\mkbibnamefirst}[1]{#1}}
 
 \newcommand*{\problemautorefname}{\textit{Problem}}
 \newcommand{\identityautorefname}{Identity}
