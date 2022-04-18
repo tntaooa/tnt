@@ -8,7 +8,7 @@
 
 	\section{Wilson's Theorem}
 	We have probably discussed that if $n>4$ is a composite integer, then $(n-1)!$ is divisible by $n$. What if $n$ is a prime? Take $n=3$, then $(n-1)!=2$, not divisible by $3$. Take $n=5$. $(n-1)!=24$, which is not divisible by $5$. Take $n=7$, then $(n-1)!=120$ which is not divisible by $7$. Take $n=11$, $(n-1)!=3\, 628\, 800$ and this is not divisible by $11$ either. Since they are not divisible by the primes (as expected), we should check for remainders. $2!$ leaves a remainder $2$ when divided by $3$. $4!$ leaves $4$ when divided by $5$, $6!$ leaves $6$ when divided by $7$. If you calculate further, you will see the pattern goes on. So it suggests us to conjecture that the remainder of $(p-1)!$ when divided by the prime $p$ is $p-1$. In fact, this is what we call \textit{Wilson's theorem}.
-		\begin{theorem} \label{thm:selfinverse} \slshape
+		\begin{theorem} \label{thm:selfinverse}
 			Let $p$ be a prime number and $a$ is a positive integer. Show that if the inverse of $a$ modulo $p$ is equal to $a$, then $a \equiv 1$ or $p-1 \pmod p$.
 		\end{theorem}
 
@@ -29,7 +29,7 @@
 	Does it make sense now why the theorem above is necessary? If not, think a little bit more. Then proceed and you will realize we have actually found the crucial step to prove Wilson's theorem.
 
 	According to this theorem, the only two numbers in the set $\{1, 2, \ldots, p-1\}$ which have their inverse equal themselves are $1$ and $p-1$. This will help us to prove the Wilson's theorem.
-		\begin{theorem}[Wilson's Theorem]  \slshape
+		\begin{theorem}[Wilson's Theorem]
 			The positive integer $p>1$ is a prime if and only if $(p-1)! \equiv -1 \pmod p$.
 		\end{theorem}
 
@@ -103,7 +103,7 @@
 			6^2 & \equiv \phantom{-}1\pmod7
 		\end{align*}
 	We already have $1$. Is it clear to you that we will reach $1$ in $6^4$ and $6^6$ as well? If not, just calculate them by hand and see if this is true or false. We will come back to this topic later. But it seems we have the result $1$. Now, do this for $4^4\pmod5$ and $10^{10}\pmod{11}$. After you have done all the work, you should realize, like in Wilson's theorem, we are getting $1$ again. This should encourage you to experiment with some further values such as $2^4\pmod5$, $3^6\pmod7$ etc. Surprisingly, the result is always $1$ when the exponent is $1$. \textit{Pierre De Fermat} was the first one to observe and propose this.
-		\begin{theorem}[Fermat's Little \footnote{Fermat proposed (but did not prove) another theorem in number theory which is much more difficult than this one. So they call this theorem the ``little" one. The other theorem is called \slshape{Fermat's Last Theorem}.} Theorem]\slshape
+		\begin{theorem}[Fermat's Little \footnote{Fermat proposed (but did not prove) another theorem in number theory which is much more difficult than this one. So they call this theorem the ``little" one. The other theorem is called {Fermat's Last Theorem}.} Theorem]
 			If $p$ is a prime and $a$ is a positive integer such that $a \bot p$. Then
 			\begin{align*}
 				a^{p-1} \equiv 1 \pmod p
@@ -183,7 +183,7 @@
 
 		\end{solution}
 
-		\begin{theorem}[Euler's \footnote{Sometimes called Fermat-Euler theorem or Euler's totient theorem, proposed by Euler in $1763$.} Theorem]\slshape
+		\begin{theorem}[Euler's \footnote{Sometimes called Fermat-Euler theorem or Euler's totient theorem, proposed by Euler in $1763$.} Theorem]
 			If $a$ and $n$ are positive integers such that $a \bot n$. Then
 			\begin{align*}
 			a^{\varphi(n)} \equiv 1 \pmod n

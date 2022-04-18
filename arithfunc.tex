@@ -177,7 +177,7 @@
 				Assume that we want to construct a regular quadrilateral $P_1P_iP_jP_k$. What can we say about $i, j$ or $k$? The length $P_1P_i$ must be equal to $P_iP_j$, and $P_jP_k$. This implies that $j$ must be $i+i$. Because if $j<i$ then $P_iP_j$ would be less than $P_1P_i$ (if you are confused about it, just rotate $P_iP_j$ back to $P_1P_i$). Then we also must have $k=3i$. This in turn implies that if there are $m$ points we must have $2016=mq$ for some integer $q$. That is, $m$ must be a divisor of $2016$. Therefore, the number of distinct polygons is the number of distinct divisors of $2016$. But we must consider divisors greater than $2$ only. Because we can not create a polygon with one or two points. We have found the solution, but it would be a lot nicer if we actually knew the value of that.
 			\end{solution}
 		We will see how to compute number of divisors for a positive integer $n$. Take $n=12$. If $d$ is a divisor of $n$, then it is evident that $d$ can not have any prime factor that is not in $n$. But the opposite might be true. $n$ might have some prime factor that is not in $d$. In this case, a divisor of $12$ must have prime factor of $2$ and $3$ only. Second observation is: we have $n=2^2\cdot3^1$. Thus, $d$ can not have the exponent of $2$ greater than $2$ or the exponent of $3$ greater than $1$. If $d=2^a3^b$ then $a\leq2$ and $b\leq1$. The most interesting part is that, we can actually generate all the divisors this way. Set $a=0,1,2$ and $b=0,1$. Consider the sets $A=\{2^0,2^1,2^2\}$ and $B=\{3^0,3^1\}$. If we multiply an element of $A$ with an element of $B$, we get a divisor of $12$. And for each multiplication, we get a distinct divisor each time. And certainly, this can be generalized. If the prime factorization of $n$ is $p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$, then the divisors can be generated multiplying elements from sets $A_1=\{p_1^0,\ldots,p_1^{e_1}\},A_2=\{p_2^{0},\ldots,p_2^{e_2}\},A_k=\{p_k^0,\ldots,p_k^{e_k} \}$. $A_i$ has $e_i+1$ elements because the exponent ranges from $0$ to $e_1$. Then clearly, the number of divisors of $n$ would be the product of number of elements in all $A_i$, that is, $(e_1+1)\cdots(e_k+1)$. However, we will have to prove something even though it is clear from the example. That is, we will not get a duplicate divisor in this process. This will be left as an exercise for the readers.
-			\begin{theorem}\slshape
+			\begin{theorem}
 				Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Then,
 				\begin{align}
 				\tau(n) &= \prod_{i=1}^{k} (1+e_i)\label{eq:dformula-eq1}
@@ -203,7 +203,7 @@
 					\end{align*}
 			\end{proof}
 
-			\begin{theorem}\slshape
+			\begin{theorem}
 				$\tau(n)$ is odd if and only if $n$ is a perfect square.
 			\end{theorem}
 
@@ -260,7 +260,7 @@
 			Just like the number-of-divisors function, $\sigma$ is not completely multiplicative. Can you think of an example which shows this?
 		\end{note}
 
-		\begin{theorem}\slshape\label{thm:sodfrac}
+		\begin{theorem}\label{thm:sodfrac}
 			For any positive integer $n$,
 				\begin{align*}
 					\dfrac{\sigma (n)}{n} & = \sum_{d\mid n}\dfrac{1}{d}
@@ -281,7 +281,7 @@
 
 	As for the case of $\tau(n)$, one can express $\sigma(n)$ explicitly as well.
 
-		\begin{theorem}\slshape \label{thm:sigmaformula}
+		\begin{theorem} \label{thm:sigmaformula}
 			Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$. Then,
 			\begin{align*}
 			\sigma(n) &= \prod_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}
@@ -400,7 +400,7 @@
 		\end{theorem}
 		We already stated (but did not prove) some properties of Euler's totient function in proposition \ref{prop:phiproperties}. Here, we are going to prove them beside a few more.
 
-		\begin{theorem}[Properties of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]\slshape\label{thm:phiproperties-ch:arith}
+		\begin{theorem}[Properties of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]\label{thm:phiproperties-ch:arith}
 			Let $m$ and $n$ be positive integers. Then,
 				\begin{enumerate}[(a)]
 					\item $\varphi$ is a multiplicative function. That is, if $m \bot n$, then
@@ -576,7 +576,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			where $\sigma(n)$ is the sum of divisors of $n$. If we show the constant $1$ function by $1(n)$, we can write $(\text{id} \ast 1)(n)=\sigma(n)$ or simply $\text{id} \ast 1 = \sigma$.
 		\end{example}
 
-		\begin{proposition}[Properties of Dirichlet Convolution]\slshape \label{prop:convolutionproperties}
+		\begin{proposition}[Properties of Dirichlet Convolution] \label{prop:convolutionproperties}
 			Let $f, g$, and $h$ be any arithmetic functions. The Dirichlet product is
 			\begin{enumerate}
 				\item \textit{commutative}, that is, $f\ast g = g \ast f$,
@@ -722,7 +722,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 	As you can observe, the $\mu$ function is defined to help us find an arithmetic function $f$ given its summatory function $F$. In fact, $f=F \ast \mu$. This was first introduced by M\"{o}bius in $19^{th}$ century and is known as the \textit{M\"{o}bius Inversion Formula}.
 
-		\begin{theorem}[M\"{o}bius Inversion Formula]\slshape
+		\begin{theorem}[M\"{o}bius Inversion Formula]
 			\label{thm:mobinv}
 			If the summatory function of an arithmetic function $f$ is $\displaystyle F(n)=\sum\limits_{d\mid n}f(d)$, then
 			\begin{align*}
@@ -734,7 +734,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 	When we first discussed Dirichlet inverse of a function, you might have wondered if this inverse always exists. The following theorem sheds light on this issue.
 
-		\begin{theorem}\slshape \label{thm:dirichletinverse}
+		\begin{theorem} \label{thm:dirichletinverse}
 			For an arithmetic function $f$ with $f(1)\neq0$, the Dirichlet inverse $f^{-1}$ exists and is unique. In fact, $f^{-1}$ can be defined recursively as
 				\begin{align*}
 				f^{-1}(n) & = \begin{cases}
@@ -752,7 +752,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			\end{align*}
 		\end{theorem}
 
-		\begin{theorem}\slshape\label{thm:sum-of-sum-function}
+		\begin{theorem}\label{thm:sum-of-sum-function}
 			Let $f$ be an arithmetic function and denote by $F$ its summatory function. That is, for all positive integers $n$,
 				\begin{align*}
 					F(n) &= \sum_{d\mid n} f(d)
@@ -789,7 +789,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 \section{More on Multiplicative Functions}
 The most interesting feature of Dirichlet product is that it preserves multiplicativity. That is, if two arithmetic functions are multiplicative, their Dirichlet product is also multiplicative. Before we prove this, we show a simple case. As we saw in previous sections, the summatory function $F$ of an arithmetic function $f$ is defined by $F=f\ast 1$. So, if $f$ is multiplicative, so is $F$.
 
-		\begin{theorem}\slshape\label{thm:sumfunction}
+		\begin{theorem}\label{thm:sumfunction}
 			Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$. If $f$ is a multiplicative function with summatory function $F(n)=\sum\limits_{d\mid n}f(d)$, then
 				\begin{align}
 					F(n)
@@ -828,7 +828,7 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 				\end{align*}
 		\end{corollary}
 
-		\begin{theorem}[Multiplicative Function Theorem (MFT)] \slshape \label{thm:mft}
+		\begin{theorem}[Multiplicative Function Theorem (MFT)]  \label{thm:mft}
 			Let $f,g$, and $h$ be arithmetic functions.
 				\begin{enumerate}
 					\item If $f$ and $g$ are both multiplicative, then so is $f\ast g$.
@@ -883,7 +883,7 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 
 	In proposition \ref{prop:phiproperties}, we stated that Euler's totient function $\varphi$ is multiplicative. We can now prove this result.
 
-		\begin{proposition}\slshape\label{prop:multiplicativephi}
+		\begin{proposition}\label{prop:multiplicativephi}
 			Prove that $\varphi$ is multiplicative.
 		\end{proposition}
 
@@ -894,7 +894,7 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 
 Although it is not always easy to find the Dirichlet inverse of an arithmetic function, there is an exception for completely multiplicative functions.
 
-		\begin{theorem}[Inverse of Completely Multiplicative Functions]\slshape\label{thm:completelymultiplicative}
+		\begin{theorem}[Inverse of Completely Multiplicative Functions]\label{thm:completelymultiplicative}
 			Let $f$ be a multiplicative function. Then $f$ is completely multiplicative if and only if
 				\begin{align*}
 					f^{-1}(n) = \mu(n) f(n) \quad \text{for all } n \geq 1
@@ -1279,7 +1279,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		as desired.
 	\end{proof}
 
-	\begin{theorem}\slshape\label{thm:oddsigma}
+	\begin{theorem}\label{thm:oddsigma}
 		$\sigma (n)$ is odd if and only if $n=k^2$ or $n=2k^2$ for some integer $k$.
 	\end{theorem}
 
@@ -1299,7 +1299,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		If $n$ is an odd positive integer, then $n$ is a square if and only if $\sigma (n)$ is odd.
 	\end{corollary}
 
-	\begin{proposition}\slshape
+	\begin{proposition}
 		Let $n$ be a positive integer. The number of positive integers less than or equal to $n$ with even sum of divisors is
 		\begin{align*}
 			n-\left\lfloor\sqrt{n}\right\rfloor-\left\lfloor\sqrt{\dfrac{n}{2}}\right\rfloor
@@ -1418,7 +1418,7 @@ We can generalize the concept of number-of-divisors and sum-of-divisors function
 
 According to this definition, the number-of-divisors function $\tau$ is equal to $\sigma_0$ and the sum-of-divisors function $\sigma$ is equal to $\sigma_1$.
 
-	\begin{theorem}[Properties of Divisor Functions]\slshape
+	\begin{theorem}[Properties of Divisor Functions]
 		For every non-negative integer $\alpha$ and positive integer $n$,
 			\begin{enumerate}
 				\item $\sigma_\alpha$ is multiplicative (but not completely multiplicative),
@@ -1461,7 +1461,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 
 
 \subsection{More on \texorpdfstring{$\boldsymbol{\varphi(n)}$}{\textphi(n)} and \texorpdfstring{$\boldsymbol{J_k(n)}$}{Jk(n)}}\label{sec:euler-jordan}
-		\begin{theorem} \slshape \label{thm:phi=n*sigma(mu/k)}
+		\begin{theorem}  \label{thm:phi=n*sigma(mu/k)}
 			Let $n$ be a positive integer. Prove that
 			\begin{align*}
 			\varphi(n)= n\sum_{d\mid n} \frac{\mu(d)}{d}
@@ -1485,7 +1485,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 
 In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We will now prove that the converse of this theorem is also true. That is, $\varphi$ is the only arithmetic function with this property.
 
-		\begin{theorem}\slshape \label{thm:sumofphicon}
+		\begin{theorem} \label{thm:sumofphicon}
 			If $f$ is an arithmetic function such that for all $n\in\mathbb{N} $,
 				\begin{align*}
 					\sum_{d\mid n}f(d) & = n
@@ -1497,7 +1497,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 			By M\"{o}bius inversion formula, $f = \mu \ast F$, where $F(n)=\sum\limits_{d\mid n}f(d)$. So, in this case $f=\mu \ast \text{id}$. On the other hand, we already know from corollary \ref{cor:phi=mu*id} that $\varphi=\mu \ast \text{id}$. Thus, $f=\varphi$.
 		\end{proof}
 
-		\begin{theorem}\slshape
+		\begin{theorem}
 			Let $n$ be a positive integer. Prove that
 %				\begin{flalign*}
 %					1. && \sum_{d\mid n}\mu(d)\varphi(d) &= \prod_{p|n} (2-p) &\\
@@ -1544,7 +1544,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 				\end{align*}
 		\end{proof}
 
-		\begin{theorem}\slshape
+		\begin{theorem}
 			Let $k$ be an arbitrary positive integer. Show that there exists a positive integer $n_0$ such that for any $n>n_0$,
 				\begin{align*}
 						\varphi(n)
@@ -1587,7 +1587,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 			Let $k$ be an arbitrary integer. The number of positive integers $n$ for which $\varphi(n) = k$ is finite.
 		\end{corollary}
 
-		\begin{theorem}\slshape
+		\begin{theorem}
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
 					\sum_{k=1}^{n} \varphi(k) = \frac{1}{2} + \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2
@@ -1625,7 +1625,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 			The proof is complete.
 		\end{proof}
 
-		\begin{theorem}\slshape
+		\begin{theorem}
 			For all positive integers $n$,
 				\begin{align*}
 					\sum_{k=1}^{n} \frac{\varphi(k)}{k}
@@ -1667,7 +1667,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 		\end{proof}
 
 
-		\begin{theorem}[Properties of Jordan's Totient Function] \slshape
+		\begin{theorem}[Properties of Jordan's Totient Function]
 			Let $n$ and $k$ be positive integers. Then,
 				\begin{enumerate}
 					\item $\displaystyle J_k(n) = n^k \prod\limits_{p|n} \left(1 - \frac{1}{p^k}\right)$
@@ -1770,7 +1770,7 @@ $ $
 		\end{proof}
 
 
-		\begin{theorem}\slshape \label{thm:menon-lemma}
+		\begin{theorem} \label{thm:menon-lemma}
 			Given integers $r,d, k$, and $n$ so that $n=dk, d, k>0,n\geq1$, and $\gcd(r,d)=1$. Then the number of integers of the form $r+id$ (for $1 \leq i \leq k$) which are co-prime to $n$ is $\dfrac{\varphi(n)}{\varphi(d)}$.
 		\end{theorem}
 
@@ -1815,7 +1815,7 @@ $ $
 			With the exact same reasoning as above, we can reduce the problem to showing that there are $\dfrac{\varphi(k_2)}{\varphi(s_1)}$ integers co-prime to $k_2$ in the first row of above numbers. If $s_1=1$, we are done. Otherwise, we have $k_2<k_1$ and we can take $s_2=(s_1,k_2)$, $k_2=k_3s_2$, and $s_1=d_3s_2$. If we continue this process, we will finally reach a point where the $\gcd$ becomes one. That is, the sequence $s, s_1, s_2, \cdots$ will eventually reach $1$. The reason is that the sequence $k, k_1, k_2, \cdots$ is strictly decreasing and contains only positive integers. This means that for some $m$, we will have $k_m=1$ and then the sequence stops. In that point, $k_{m-1} = k_m$, which in turn means $s_{m-1}$, the $\gcd$ of $k_{m}$ and $s_{m-1}$, equals one. We have already showed that when this $\gcd$ is one, the theorem is true. The proof is complete.
 		\end{proof}
 
-		\begin{theorem}[Menon's Identity]\slshape
+		\begin{theorem}[Menon's Identity]
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
 					\sum_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)=\tau(n)\varphi(n)
@@ -1862,7 +1862,7 @@ $ $
 		\end{align*}
 	\end{definition}
 
-		\begin{proposition}\slshape
+		\begin{proposition}
 			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of a positive integer $n$. Then, $\omega(n)=k$ and $\Omega(n)=\alpha_1 + \alpha_2 + \cdots + \alpha_k$. In other words,
 				\begin{align*}
 					\omega(n) & = \sum_{i=1}^{k} 1\\
@@ -1876,7 +1876,7 @@ $ $
 
 
 
-		\begin{proposition}\slshape
+		\begin{proposition}
 			For a natural number $n$, $\Omega(n)=\omega(n)$ if and only if $n$ is square-free.
 		\end{proposition}
 
@@ -1888,7 +1888,7 @@ $ $
 			Notice that all $\alpha_i$ are positive integers ($1 \leq i \leq k$) and the above equation only occurs when all of them are equal to $1$. In other words, $n$ is not divisible by the square of any prime and is therefore square-free.
 		\end{proof}
 
-		\begin{proposition}\slshape\label{prop:additiveomega}
+		\begin{proposition}\label{prop:additiveomega}
 			$ $
 			\begin{itemize}
 				\item $\omega$ is an additive function,
@@ -1896,7 +1896,7 @@ $ $
 			\end{itemize}
 		\end{proposition}
 	The reader should have a decent idea of what to use in order to prove it!
-		\begin{theorem}\slshape
+		\begin{theorem}
 			Prove that the Dirichlet inverse of Liouville function is the absolute value of M\"{o}bius function.
 		\end{theorem}
 
@@ -1914,7 +1914,7 @@ $ $
 		\end{proof}
 	The following theorem is due to \textcite[Chapter $\S$IV, Section $11$, Page $196-197$]{sierpinski_schinzel_1988}.
 
-		\begin{theorem}\slshape\label{thm:liouville-sum-general}
+		\begin{theorem}\label{thm:liouville-sum-general}
 			Let $s$ be an arbitrary integer. Then, for all integers $n >1$ with prime factorization $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$,
 				\begin{align*}
 					\sum_{d\mid n} \lambda(d) d^s = \prod_{i=1}^{k} \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1}
@@ -1943,7 +1943,7 @@ $ $
 
 	The previous theorem is pretty strong. The following theorem, which is an example case of the preceding theorem, is useful and important.
 
-		\begin{theorem}\slshape \label{thm:liouville-sum-function}
+		\begin{theorem} \label{thm:liouville-sum-function}
 			Let $\kappa$ be the summatory function of $\lambda$. That is, let $\kappa$ be an arithmetic function such that
 				\begin{align*}
 					\kappa (n) & = \sum_{d\mid n}\lambda(d)
@@ -1969,7 +1969,7 @@ $ $
 		\begin{remark}
 			The sum $L(n)= \sum\limits_{k=1}^{n} \lambda(k)$ has been investigated for a long time. It was first conjectured that $L(n) <0$ for all integers $n >1$. You can check and see that it is true for small integers. However, in $1980$, Minoru Tanaka found that $n=906150257$ is the smallest counter-example to this conjecture.
 		\end{remark}
-		\begin{theorem}\slshape
+		\begin{theorem}
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
 					\lambda(n) = \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right)
@@ -1986,7 +1986,7 @@ $ $
 			because $\kappa(d)$ is $1$ whenever $d$ is a perfect square (i.e., $d=k^2$ for some $k$), and zero otherwise.
 		\end{proof}
 
-		\begin{theorem}\slshape\label{thm:liouville-square-floor}
+		\begin{theorem}\label{thm:liouville-square-floor}
 			Prove that for every positive integer $n$,
 				\begin{align*}
 					\sum_{k=1}^{n} \lambda(k) \left\lfloor \frac{n}{k}\right\rfloor = \left\lfloor \sqrt n\right \rfloor

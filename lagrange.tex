@@ -37,7 +37,7 @@
 		\end{example}
 
 
-		\begin{theorem}[Lagrange's Theorem]\slshape\label{thm:lagrange}
+		\begin{theorem}[Lagrange's Theorem]\label{thm:lagrange}
 			Let $p$ be a prime and let $P(x)$ be a polynomial with integer coefficients not all divisible by $p$. Also, let $\deg_p P(x) = k$. The congruence equation $P(x)\equiv0\pmod p$ has at most $k$ incongruent solutions modulo $p$.
 		\end{theorem}
 
@@ -100,7 +100,7 @@
 
 
 	In this section, we will discuss only the following result and see how to apply it to prove some other theorems.
-		\begin{theorem}[Lagrange]\slshape
+		\begin{theorem}[Lagrange]
 			If $p$ is a prime and\label{thm:lag2}
 				\begin{align}\label{eq:lagrangeproof0}
 					(x+1)(x+2)\cdots(x+p-1) & = x^{p-1}+a_1x^{p-2}+\cdots+a_{p-2}x+(p-1)!
@@ -162,7 +162,7 @@
 				&  \vdots
 		\end{align*}
 	You should already guess what $a_1,\ldots,a_{p-2}$ are. $a_1$ is the sum of all $1,\cdots,p-1$. $a_2$ is the sum of products of two numbers from $1,\cdots,p-1$ (all possible $\binom{p-1}{2}$ combinations). Similarly, $a_{p-2}$ is the sum of products of $p-2$ numbers taken at a time. In general $a_i$ the sum of all possible products of $i$ numbers taken from $1,2,\cdots,p-1$. Therefore, we can state \autoref{thm:lag2} as
-		\begin{theorem}\slshape
+		\begin{theorem}
 			If $p$ is an odd prime and $0<k<p-1$, then the sum of all possible products of $k$ numbers taken at a time from $1,2,\ldots,p-1$ is divisible by $p$.
 		\end{theorem}
 	Let's see just how powerful this theorem can be, if used properly. We can take advantage of the fact that the theorem is actually an identity, so we can choose $x$ freely as we wish.

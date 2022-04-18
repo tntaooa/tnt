@@ -20,7 +20,7 @@
 		\end{align*}
 	In the problems above, we can't pay any amount with $4$ and $6$ because they are not co-prime. But we can pay any amount that is a multiple of $(4,6)=2$. But we can pay any amount with $3$ and $10$ because they are co-prime. This leads us to the following theorem.
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Any integer can be written as a linear combination of $a$ and $b$ if and only if $a\perp b$.
 	\end{theorem}
 By linear combination, we mean using only $a$ and $b$ as many times as we want. Now we see the same problem from another perspective. Consider the following problem. If $n$ can be written as $ax+by$ for non-negative $x,y$, we will call $n$ a \textit{good} number. Otherwise, $n$ is \textit{bad}. But to do that, we can't change the values of $a$ and $b$ simultaneously. Therefore, we fix two co-prime integers $a$ and $b$. Next, let's see why we are only considering $a\perp b$. If $(a,b)=g$ and $g>1$, then we already know that only multiples of $g$ can be good. But we want as many integers to be good as possible, and not skipping some integers is better.
@@ -32,7 +32,7 @@ By linear combination, we mean using only $a$ and $b$ as many times as we want. 
 		For two integers $a$ and $b$, the largest bad integer is the \textit{Frobenius number}. In fact, it can be generalized for $n$ natural numbers. If $a_1,\ldots,a_n$ are natural numbers so that $(a_1,\ldots,a_n)=1$, the largest natural number that can not be written as $a_1x_1+\ldots a_nx_n$ for nonnegative $x_1,\ldots,x_n$ is the Frobenius number. It is denoted as $F_n(a_1,\ldots,a_n)$. Here, we will deal with the case $n=2$, $F_2(a,b)$.
 	\end{definition}
 The following theorem answers this question.
-	\begin{theorem}[Sylvester's Theorem, 1882]\slshape
+	\begin{theorem}[Sylvester's Theorem, 1882]
 		Let $a$ and $b$ be two co-prime positive integers greater than $1$. Then the maximum integer that can not be expressed as $ax+by$ for non-negative integer $x,y$ is $ab-a-b$.
 	\end{theorem}
 If we can prove that for all $N>ab-a-b$, there are non-negative integers $x,y$ such that
@@ -40,7 +40,7 @@ If we can prove that for all $N>ab-a-b$, there are non-negative integers $x,y$ s
 		N & = ax+by
 	\end{align*}
 and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, let's prove the next lemma.
-	\begin{lemma}\slshape
+	\begin{lemma}
 		$ab-a-b$ is a bad number.
 	\end{lemma}
 
@@ -84,7 +84,7 @@ and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, 
 %		Therefore, $m+n= a(x+u)+b(y+v)$ is good.
 %	\end{proof}
 %
-%	\begin{lemma}\slshape
+%	\begin{lemma}
 %		If $m+n=ab-a-b$, then exactly one of $m$ and $n$ is good.
 %	\end{lemma}
 %
@@ -92,7 +92,7 @@ and that for $N\leq ab-a-b$, there are no such $x$ and $y$, we are done. First, 
 %		If both $m$ and $n$ are good, then according to the lemma above, $m+n$ is good too. But that would contradict the fact that $ab-a-b$ is bad. So, one of $m$ or $n$ must be bad.
 %	\end{proof}
 The above lemma shows that $F_2(a,b) \geq ab-a-b$. It only remains to prove the following lemma:
-	\begin{lemma}\slshape
+	\begin{lemma}
 		Any integer $n>ab-a-b$ is good.
 	\end{lemma}
 
@@ -117,7 +117,7 @@ The above lemma shows that $F_2(a,b) \geq ab-a-b$. It only remains to prove the 
 		Since we know that $x_0<b$, we get $b-x_0-1\geq 0$. This means that $b(y_0+1) >0$, so $y_0+1>0$, i.e., $y\geq0$. Therefore, there is a valid solution $(x_0,y_0)$ and the proof is complete.
 	\end{proof}
 Now, the proof is complete. The same proof can be used for generalizing the case where $(a,b)>1$.
-	\begin{theorem}[Generalization of Sylvester's Theorem]\slshape
+	\begin{theorem}[Generalization of Sylvester's Theorem]
 		Let $a,b$ be positive integers with $(a,b)=g$. Then every integer
 			\begin{align*}
 				n\geq\dfrac{(a-g)(b-g)}{g}

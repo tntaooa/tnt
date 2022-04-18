@@ -92,7 +92,7 @@
 
 	We usually deal only with positive integers in divisibility relations. However, sometimes negative integers or zero also come into play.
 
-	\begin{proposition}[Basic Properties of Divisibility]\slshape\label{prop:basicdiv}
+	\begin{proposition}[Basic Properties of Divisibility]\label{prop:basicdiv}
 		For any three integers $a,b$, and $c$, the following statements are true.
 		\begin{enumerate}
 			\item $a\mid 0$.
@@ -130,7 +130,7 @@
 	    You may think that it is straightforward to prove statement $(12)$ in the above Proposition. However, it is not so simple. The reason is we need to prove that if $$\frac{b^n}{a^n}=\left(\frac{b}{a}\right)^n$$ is an integer, then so is $\frac{b}{a}$. This is not obvious (try to make sense why).
 	\end{note}
 
-	\begin{proposition}\slshape\label{prop:bothdivide}
+	\begin{proposition}\label{prop:bothdivide}
 		If $a \mid b$ and $b \mid a$, then  $|a|=|b|$. In other words, $a=\pm b$.
 	\end{proposition}
 
@@ -139,7 +139,7 @@
 	\end{proof}
 	The above proposition often comes handy when you want to prove that two expressions are equal. If you can show that each expressions divides the other one and that they have the same sign (both positive or both negative), you can imply that their values are equal.
 
-	\begin{proposition}\slshape
+	\begin{proposition}
 		For fixed positive integers $a$ and $b$, there are unique integers $q$ and $r$ so that $b=aq+r$ with $0\leq r<a$. In other words, the quotient and the minimum remainder of the division are unique.
 	\end{proposition}
 
@@ -155,7 +155,7 @@
 		This implies $a(q-q')=r'-r$, which shows that $r'-r$ is divisible by $a$. Is it possible? The answer is clearly no. Since $r'$ and $r$ are both less than $a$, we have $|r'-r|<a$. By part $10$ of proposition \eqref{prop:basicdiv}, we must have $|r'-r|=0$, which gives $r'=r$. This means two remainders are the same and the minimum remainder is unique. The proof is complete.
 	\end{proof}
 
-	%	\begin{corollary}\slshape
+	%	\begin{corollary}
 	%		If $b$ leaves a remainder of $r$ when divided by $a$, then we can write $b=aq+r$ for some integer $q$.
 	%	\end{corollary}
 
@@ -163,7 +163,7 @@
 		We know that $4\mid 20$ and $4\mid 16$. Do they imply $4\mid 20+16$? Again, this is not too obvious. Try to prove it first.
 	\end{question}
 
-	\begin{proposition}\slshape\label{prop:a|bx+cy}
+	\begin{proposition}\label{prop:a|bx+cy}
 		If $a\mid b$ and $a\mid c$, then $a\mid bx+cy$ for any arbitrary integers $x$ and $y$. In particular, we have $a\mid b\pm ak,a\mid b+c$, and $a\mid b-c$.
 	\end{proposition}
 
@@ -188,7 +188,7 @@
 
 	In general, the answer is a big NO. Try to find a few more counterexamples and then find the condition when we can be certain that $ab \mid n$ if $a\mid n$ and $b\mid n$. We will now focus on prime divisors.
 
-	\begin{proposition}\slshape
+	\begin{proposition}
 		Any integer $n$ greater than $1$ has a prime divisor.
 	\end{proposition}
 
@@ -196,13 +196,13 @@
 		If $n$ itself is a prime, we are done. So, assume $n$ is composite. By definition, $n$ has a proper divisor, i.e., there is an integer greater than $1$ and less than $n$ which divides $n$. Call this divisor $d$. Now, if $d$ is not a prime, then $d$ has a divisor too. We can continue like this until we reach a point where $d$ does not have a proper divisor greater than $1$. We know by definition that only a prime number does not have a proper divisor other than $1$. Therefore, that divisor must be a prime.
 	\end{proof}
 
-	\begin{corollary}\slshape\label{cor:smallestdivisor}
+	\begin{corollary}\label{cor:smallestdivisor}
 		Let $n$ be a positive integer larger than $1$. The smallest divisor of $n$ is a prime.
 	\end{corollary}
 
 	You should be able to prove the following proposition by yourself. Even if you can not prove it formally, at least make sense of why this is true. We will not prove it here. Try not to skip it and move on. Can you use induction\footnote{The traditional induction process. Prove the claim for a base case, say $n_0$. Assume the claim is true for $n=m$, then prove it for $n=m+1$.} to prove it? How about using the facts you already know?
 
-	\begin{proposition}[Euclid's Lemma]\slshape\label{prop:euclidslemma}
+	\begin{proposition}[Euclid's Lemma]\label{prop:euclidslemma}
 		Let $a$ and $b$ be two integers. If $p$ is a prime and $p\mid ab$, then either $p\mid a$ or $p\mid b$.
 	\end{proposition}
 
@@ -210,7 +210,7 @@
 		If a prime divides the product of some integers, it divides at least one of them.
 	\end{corollary}
 
-	\begin{proposition}\slshape\label{factorsqrt}
+	\begin{proposition}\label{factorsqrt}
 		Every composite $n$ has a prime factor less than or equal to $\sqrt{n}$.
 	\end{proposition}
 
@@ -230,7 +230,7 @@
 
 	The fact that every positive integer greater than $1$ has a prime factorization gives birth to the \textit{Fundamental Theorem of Arithmetic}.
 
-	\begin{theorem}[Fundamental Theorem of Arithmetic]\slshape
+	\begin{theorem}[Fundamental Theorem of Arithmetic]
 		Every positive integer $n$ larger than $1$ can be written as a product of primes \textit{in a unique way}. We write this factorization as
 		\begin{equation}
 			n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}\label{eqn:one}
@@ -395,7 +395,7 @@ What about $2^3=8$?
 
 If you have a curious mind, you should already notice a pattern in the divisibility rules for $2,4$, and $8$. For $2$, we only check the last digit. For $4$, we check the last two digits and for $8$, the last three digits. Do you see the pattern now? $2=2^1,4=2^2$ and $8=2^3$. You can easily check that the same is true if we take $16=2^4$. To check divisibility by $16$, it suffices to test the number formed by the last $4$ digits. We can generalize this result for $2^k$.
 
-\begin{theorem}[Divisibility by $2^k$]\slshape
+\begin{theorem}[Divisibility by $2^k$]
 	Let $k$ be a positive integer. A number $x$ is divisible by $2^k$ if and only if the number formed by the last $k$ digits of $x$ is divisible by $2^k$.
 \end{theorem}
 
@@ -528,7 +528,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		The above definition of $\gcd$ is equivalent to the following: if $(a, b)$ equals $g$, then $g$ divides both $a$ and $b$. Furthermore, if there is a positive integer $c$ for which $c\mid a$ and $c\mid b$, then $g \geq c$. Analogously, if $[a, b]$ equals $\ell$, then $\ell$ is divisible by both $a$ and $b$. Moreover, if there is a positive integer $c$ for which $a\mid c$ and $b\mid c$, then $c \geq \ell$.
 	\end{note}
 
-	\begin{proposition}[Properties of \texorpdfstring{$\boldsymbol{\gcd}$}{gcd} and \texorpdfstring{$\boldsymbol{\lcm}$}{lcm}]\slshape\label{prop:basicgcd}
+	\begin{proposition}[Properties of \texorpdfstring{$\boldsymbol{\gcd}$}{gcd} and \texorpdfstring{$\boldsymbol{\lcm}$}{lcm}]\label{prop:basicgcd}
 		Let $a$ and $b$ be two positive integers. The following statements are true.
 		\begin{enumerate}
 			\item 	$(a, b) = (b, a) = (a, -b) = (-a, -b)$ and $[a, b]=[b, a] = [a, -b] = [-a, -b]$.
@@ -565,7 +565,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 	\end{solution}
 
-	\begin{proposition}\slshape\label{prop:dividegcd}
+	\begin{proposition}\label{prop:dividegcd}
 		For positive integers $a, b$, and $c$, if $c \mid a$ and $c\mid b$, then $c\mid (a,b)$. Analogously, if $a\mid c$ and $b\mid c$ then $[a,b]\mid c$.
 	\end{proposition}
 
@@ -577,7 +577,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		$3\perp4$, but $4\not\perp6$ since $2$ divides both $4$ and $6$.
 	\end{example}
 
-	\begin{proposition}\slshape\label{prop:cpdiv}
+	\begin{proposition}\label{prop:cpdiv}
 		Let $a, b$, and $c$ be three integers. The following statements hold true.
 		\begin{enumerate}
 			\item If $a\perp b$, $a\mid c$, and $b\mid c$, then $ab\mid c$.
@@ -600,7 +600,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 	Given integers $a$ and $b$, how can we calculate $(a,b)$? Chances are you already know how to do this from elementary school. There are two common ways to do that. The first way is to factorize both numbers and find their common factors. Although we use this method a lot, it may not be wise to factorize very large numbers just to find their $\gcd$. In such cases, the second way comes helpful: the Euclidean algorithm.
 
-	\begin{theorem}[Euclidean Algorithm]\slshape
+	\begin{theorem}[Euclidean Algorithm]
 		Let $a$ and $b$ be two positive integers. Divide $b$ by $a$ and write $b=aq+r$, where $q$ is an integer and $0\leq r<a$. Then $(a,b)=(a,r)$.
 	\end{theorem}
 
@@ -638,7 +638,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{example}
 	Do the simulation for a few more examples to convince yourself. The following proposition formalizes this method.
 
-	\begin{proposition}\slshape\label{prop:gcdfactorization}
+	\begin{proposition}\label{prop:gcdfactorization}
 		Let $a$ and $b$ be two positive integers. If $a=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and $b=p_1^{f_1}\cdot p_2^{f_2}\cdots p_k^{f_k}$, where $p_i$ are primes and $e_i,f_i\geq0$ are integers for $1\leq i\leq k$, then: \footnote{Try to find out why $e_i\geq0$ whereas we consider only $e_i\geq1$ when we first introduced prime factorization.}
 		\begin{align*}
 			(a,b) & =p_1^{\min(e_1,f_1)}p_2^{\min(e_2,f_2)}\cdots p_k^{\min(e_k,f_k)}\\
@@ -654,7 +654,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{note}
 		This idea can be generalized for finding $\gcd$ or $\lcm$ of $n$ integers. Just factorize the numbers and select the proper powers of primes.
 	\end{note}
-	\begin{proposition}\slshape\label{prop:gcduncommon}
+	\begin{proposition}\label{prop:gcduncommon}
 		For two integers $a$ and $b$ with $g=(a,b)$, there exist integers $m$ and $n$ such that $a=gm$ and $b=gn$. Moreover, $m$ and $n$ are relatively prime.
 	\end{proposition}
 
@@ -666,11 +666,11 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 		Consider $18$ and $27$. $(18,27)=9$ and we can write $18=9\cdot2$ and $27=9\cdot3$. Now, $9$ is the largest common factor. Here, $2$ is the uncommon factor from $18$ which $27$ does not have besides $9$, and $3$ is the uncommon factor of $27$ which $18$ does not have apart from $9$. Thinking about $m$ and $n$ in this way may make more sense to you.
 	\end{example}
 
-	\begin{proposition}\slshape\label{prop:lcmvalue}
+	\begin{proposition}\label{prop:lcmvalue}
 		Let $g$ and $\ell$ be the greatest common divisor and the least common multiple of positive integers $a$ and $b$, respectively. If we write $a=gm$ and $b=gn$ with $(m,n)=1$, then $\ell=gmn$.
 	\end{proposition}
 
-	\begin{proposition}\slshape
+	\begin{proposition}
 		Let $g=(a,b)$ and $\ell = [a,b]$. Then $ab=g\ell$. In words, the product of two positive integers is equal to the product of their $\gcd$ and $\lcm$.
 	\end{proposition}
 
@@ -912,7 +912,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 	The above result looks a bit scary, but it is really simple in plain English, explained in the following theorem.
 
-	\begin{theorem}[Base $2$ to $8$ Conversion Rule]\slshape
+	\begin{theorem}[Base $2$ to $8$ Conversion Rule]
 		To convert a binary number to base $8$ directly, start grouping the $0$ and $1$ digits of the number in groups of $3$. If number of digits of the binary number is not divisible by $3$, put one or two zeros at the left side of the number to make it so, and then group the digits. Then convert each of these groups into one octal digit (a digit in base $8$)and rewrite the number. Conversion is done.
 	\end{theorem}
 
@@ -1007,7 +1007,7 @@ We can generalize the above problem now. The number of integers between two natu
 \end{align*}
 (Can you see why we are using $a-1$ in the second fraction?) Here, we have assumed that $b\geq a$.
 
-\begin{proposition}[Properties of Floor Function]\slshape \label{prop:floor}
+\begin{proposition}[Properties of Floor Function] \label{prop:floor}
 	For any two reals $x$ and $y$ and any two integers $m$ and $n$,
 	\begin{enumerate}[1.]
 		\item $x\geq\lfloor x\rfloor>x-1$,
@@ -1121,7 +1121,7 @@ Now, we get to the other way of solving problem \ref{floorproblem}. First, we su
 	$\lceil3.14\rceil=4$ and $\lceil4\rceil=4$. Also $\lceil-4.1\rceil=-4$ whereas $\lceil4.1\rceil=5$. As seen in \autoref{fig:ceilingfunction}, similar to the floor function, the plot of the ceiling is like a chain of steps. Every two real numbers which lie between two consecutive integers have the same ceiling and floor value. Compare the plots of these two functions.
 \end{example}
 
-\begin{proposition}[Properties of Ceiling Function]\slshape \label{prop:ceiling}
+\begin{proposition}[Properties of Ceiling Function] \label{prop:ceiling}
 	For any two reals $x, y$ and any two integers $m,n$,
 	\begin{enumerate}[1.]
 		\item $x\leq \lceil x\rceil < x+1$
@@ -1137,7 +1137,7 @@ Now, we get to the other way of solving problem \ref{floorproblem}. First, we su
 
 The proofs are pretty much the same as those of floor function and we do not provide them here.
 
-\begin{problem}\slshape\label{thm:floor-k|n+1}
+\begin{problem}\label{thm:floor-k|n+1}
 	For any two positive integers $n$ and $k$, the following equation holds
 	\begin{align*}
 		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor &=
@@ -1171,7 +1171,7 @@ The proofs are pretty much the same as those of floor function and we do not pro
 \end{solution}
 
 \subsection{Fractions and Increasing Functions}
-\begin{theorem}\slshape
+\begin{theorem}
 	Let $x$ be a real number. Then for every positive integers $n$ and any integer $m$,
 	\begin{align*}
 		\bigg\lfloor \frac{x+n}{m}\bigg\rfloor
@@ -1286,7 +1286,7 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 	$v_p(0)=\infty$ for all primes $p.$
 \end{note}
 
-\begin{theorem}[Legendre's Theorem]\label{thm:legendre}\slshape
+\begin{theorem}[Legendre's Theorem]\label{thm:legendre}
 	Let $p$ be a prime and $n$ be a positive integer. Then
 	\begin{align*}
 		v_p(n!) & =\sum_{i=1}^{\infty}\left\lfloor\dfrac{n}{p^i}\right\rfloor
@@ -1469,15 +1469,15 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\section{Some Useful Facts}\label{sec:theoremsindiv}
 	In this section, we provide some theorems which may help you solve problems more easily. Though you will find that we have emphasized not to be dependent on theorems or making them the core of solving problems, they help us a great deal and make our lives a lot easier. Therefore, you will find a lot of theorems in this book. But it does not mean in any way that theorems are the best way to improve in number theory. They merely help us speed up the process of solving problems. Nothing more. One could rediscover all the theorems while solving a problem and the end result would still be the same. The point is: you can get to the top of a mountain in many ways and the view is same. But the pleasure might be different based on the approach you take. If you use a helicopter to reach the peak of the mountain or climb all the way to the top. But definitely the latter approach brings you more pleasure. Anyway, we hope you understand our primary intention.
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Two integers $a$ and $b$ are of the same parity if and only if their sum and difference is even. Equivalently, they are of different parity if their sum and difference is odd.
 	\end{theorem}
 
-	\begin{corollary}\slshape\label{cor:sumparity}
+	\begin{corollary}\label{cor:sumparity}
 		Exactly one of the two integers $a$ and $b$ is even if and only if $a\pm b$ is odd.
 	\end{corollary}
 
-	\begin{theorem}\slshape\label{thm:factorizeintopowersoftwo}
+	\begin{theorem}\label{thm:factorizeintopowersoftwo}
 		Every positive integer $n$ can be written in the form $n=2^ks$, where $k$ is a non-negative integer and $s$ is an odd positive integer.
 	\end{theorem}
 
@@ -1508,11 +1508,11 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		Now, $a_i\mid a_j$ if $\alpha_1\leq \alpha_2$, and $a_j\mid a_j$ otherwise.
 	\end{solution}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Every composite positive integer $n$ can be written as $ab$ where $a$ and $b$ are relatively prime positive integers larger than $1$.
 	\end{theorem}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		$(n-1)!$ is divisible by $n$ if and only if $n>4$ is a composite integer or $n=1$.\label{thm:cpfct}
 	\end{theorem}
 
@@ -1520,7 +1520,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		The case $n=1$ is trivial. For $n=2,3,4$ we can check by hand. For $n>4$, if $n$ is a prime, $n$ does not share a factor with any of $1,2,\cdots,n-1$. Consequently, $n$ does not divide their product $(n-1)!$. If $n$ is composite, we can write $n=ab$ with $a$ and $b$ larger than $n$ and $a\neq b$. Since $a\neq b$ and $(n-1)!$ contains both $a$ and $b$ in the product, $n=ab\mid (n-1)!$.
 	\end{proof}
 
-	\begin{theorem}[Four Numbers Theorem]\slshape
+	\begin{theorem}[Four Numbers Theorem]
 		Let $a, b, c$, and $d$ be four positive integers such that $ab=cd$. Then there exist four positive integers $r,s,t$ and $u$ so that
 		\begin{align*}
 			a
@@ -1542,7 +1542,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		or simply $x_1x_2 =y_1y_2$. We claim that $x_1=y_2$ and $x_2=y_1$. To prove this claim, we use a trick. Observe that $x_1x_2=y_1y_2$ means $x_1\mid y_1y_2$. The second part of Proposition \eqref{prop:cpdiv} tells us that since $x_1 \perp y_1$, we must have $x_1\mid y_2$. With the same reasoning, one can show that $y_2\mid x_1$. It follows by proposition \eqref{prop:bothdivide} that $x_1 =y_2$. One can similarly show that $x_2=y_1$. Compare the  parameters in the theorem with the ones we just used and take $r=g_1, s=x_1, t=x_2 $, and $u=g_2$. The proof is complete.
 	\end{proof}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For positive integers $a, b, n$, and $e$, suppose that $a\perp b$ and $ab=n^e$. Then there exist positive integers $x$ and $y$ such that $a=x^e$ and $b=y^e$. In other  words, if product of two relatively prime positive integers is a perfect $e^{th}$ power, then both of them should be perfect $e^{th}$ powers. \label{thm:copower}
 	\end{theorem}
 
@@ -1580,11 +1580,11 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		You should think about why we considered the prime factorization and try to understand what led us into that way of thinking.
 	\end{note}
 
-	\begin{corollary}\slshape
+	\begin{corollary}
 		If $a$ and $b$ are relatively prime positive integers such that $ab$ is a perfect square, then $a$ and $b$ both are perfect squares.\label{cor:sqr}
 	\end{corollary}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $a,b$, and $c$ be positive integers such that $ab=c^2$. Then there exist integers $g,u,$ and $v$ with $u\perp v$ so that
 		\begin{align*}
 			a
@@ -1618,7 +1618,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 			& =\left(x+\frac{k}{2}\right)^2
 	\end{align*}
 	In fact, the act of adding ${jk}$ to ${xy}+{xk}+{yj}$ in order to be able to factor it could be called \textbf{completing the rectangle} in analogy to the famous \textit{completing the square} trick.
-	\begin{theorem}\slshape\label{thm:lcmfactor}
+	\begin{theorem}\label{thm:lcmfactor}
 		If $N$ is the least common multiple of positive integers upto $n$, that is, $N=[1,2,\cdots,n]$, then for a prime $p$, the maximum  integer $\alpha$ for which $p^\alpha\mid N$ is the unique non-negative integer $\alpha$ so that $p^\alpha\leq n<p^{\alpha+1}$. In other words, if $p_i$ is a prime less than or equal to $n$, and for that prime, $\alpha_i$ is the unique integer such that $p_i^{\alpha _i}\leq n<p_i^{\alpha_i+1}$ then,
 		\begin{align*}
 			N & = p_1^{\alpha _1}\cdots p_k^{\alpha_i}
@@ -1627,7 +1627,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\end{theorem}
 	The proof in fact follows from the definition of least common multiple. Try some examples yourself and prove it. Also, we often use this kind of argument using logarithm to find some boundaries in some problems.
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		The square of every odd integer leaves a remainder of $1$ when divided by $8$.
 	\end{theorem}
 
@@ -1655,7 +1655,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		\end{align*}
 		which is, again, of the form $4k+1$. Clearly, all prime factors of a number $n$ of the form $4k+3$ are odd, and therefore are either of the form $4k+1$ or $4k+3$. If all prime factors of $n$ are of the form $4k+1$, then by the logic represented in above lines, any product of powers of these primes, including $n$, should be of the form $4k+1$. So, we get a contradiction and there exists at least one prime factor of $n$ which is of the form $4k+3$.
 	\end{proof}
-	\begin{theorem}\slshape\label{thm:nos}
+	\begin{theorem}\label{thm:nos}
 		Let $n$ be a positive integer. The number of pairs $(a,b)$ of positive integers which satisfy the equation
 		\begin{align*}
 			ab & = n
@@ -1671,7 +1671,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 
 	We will study $\tau(n)$ in details in Chapter \autoref{ch:arithfunc}.
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Every prime greater than $3$ is either of the form $6k+1$ or of the form $6k-1$.
 	\end{theorem}
 
@@ -1683,7 +1683,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		Numbers of the form $6k-2, 6k+2, 6k, 6k+3$ cannot be prime because the first two are divisible by $2$ and the last two are divisible by $3$. Thus, if $n$ is a prime, it must be either $6k-1$ or $6k+1$.
 	\end{proof}
 	Using the above theorem, we can prove the following.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For a prime $p>3$, $24\mid p^2-1$.
 	\end{theorem}
 
@@ -1698,7 +1698,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		Note that $(k)+(3k\pm1)$ is odd. From corollary \eqref{cor:sumparity}, $k$ and $3k\pm1$ have different parity and $k(3k\pm1)$ is divisible by $2$. Let $k(3k\pm1)=2\ell$, then $p^2=24\ell+1$, or $p^2-1=24\ell$, which proves the theorem.
 	\end{proof}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		If the sum of two positive integers is a prime, they are relatively prime to each other.
 	\end{theorem}
 
@@ -1711,7 +1711,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\end{proof}
 
 
-	\begin{theorem}\slshape\label{id:fatandthin}
+	\begin{theorem}\label{id:fatandthin}
 		For any positive integer $n$,
 		\begin{align*}
 			a^n-b^n
@@ -1736,13 +1736,13 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		which finishes the proof. The second identity can be proved by using the first identity and the fact that when $n$ is odd, we have $a^n+b^n=a^n-(-b)^n$.
 	\end{proof}
 
-	\begin{corollary}\slshape
+	\begin{corollary}
 		\label{cor:a-b|a^n-b^n}
 		Let $a$ and $b$ be any two integers. Then $a-b$ divides $a^n-b^n$ for all positive integers $n$. Also, $a+b$ divides $a^n+b^n$ for odd $n$.
 	\end{corollary}
 
 
-	\begin{theorem}\slshape\label{thm:powerdiv}
+	\begin{theorem}\label{thm:powerdiv}
 		Let $a,m,$ and $n$ be positive integers. Then, $a^m-1\mid a^n-1$ if and only if $m\mid n$.
 	\end{theorem}
 
@@ -1762,7 +1762,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		Since $a^n-1\perp a^m$ (why?), we have $a^n-1\mid a^{n-m}-1$ by second part of proposition \eqref{prop:cpdiv}. Repeating the same process, we find $a^n-1\mid a^{n-2m}-1$. This suggests us to take $n=mq+r$ so that $0\leq r<m$. Then, we will have $a^n-1\mid a^{n-mq}-1=a^r-1$. Evidently, $a^r-1<a^m-1\leq a^n-1$, which forces $a^r-1=0$. So, $r=0$ and $n=mq$. The proof is complete.
 	\end{proof}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		\label{thm:a^k-1prime}
 		If $a^k-1$ is a prime for positive integers $a$ and $k>1$, then $a=2$ and $k$ must be a prime.
 	\end{theorem}
@@ -1784,7 +1784,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		The numbers of the form $2^n-1$ are called \textit{Mersenne numbers} and denoted by $M_n$. According to the theorem, if $M_n$ is a prime, then $n$ must also be a prime.
 	\end{remark}
 
-	\begin{theorem}\slshape\label{thm:primec}
+	\begin{theorem}\label{thm:primec}
 		Let $a$ and $k$ be positive integers. If $a^k+1$ is an odd prime, then $a$ is even and $k$ is a power of $2$.
 	\end{theorem}
 
@@ -1797,7 +1797,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		\end{align*}
 	\end{remark}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For two relatively prime positive integers $a$ and $b$,
 		\begin{align*}
 			(a^m-b^m,a^n-b^n)=a^{(m,n)}-b^{(m,n)}
@@ -1852,14 +1852,14 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			Use Problem \ref{prob:productdividesfactorial} in chapter \autoref{ch:solved}.
 		\end{hint}
 	You are probably familiar with the \textit{binomial theorem}. We state this theorem here because of its high importance but do not prove it. Interested reader may see a proof of binomial theorem along with several useful related identities in Appendix \autoref{ch:null}.
-		\begin{theorem}[Binomial Theorem]\slshape
+		\begin{theorem}[Binomial Theorem]
 			For any positive integer $n$,
 				\begin{align*}
 					(a+b)^n & = a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n
 				\end{align*}
 		\end{theorem}
 
-		\begin{theorem}\slshape\label{thm:binpdiv}
+		\begin{theorem}\label{thm:binpdiv}
 			Let $n$ be a positive integer. Then, $n$ is a prime if and only if $n$ divides $\binom{n}{k}$ for all $0<k<n$.
 		\end{theorem}% requires the only if part.
 

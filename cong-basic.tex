@@ -37,7 +37,7 @@
 			\end{enumerate}
 	\end{proposition}
 
-	\begin{proposition}\slshape\label{prop:powercong}
+	\begin{proposition}\label{prop:powercong}
 		If $n$ is a positive integer and $a \equiv b \pmod m$, then $a^n \equiv b^n \pmod m$.
 	\end{proposition}
 
@@ -49,7 +49,7 @@
 		This gives $a-b\mid a^n-b^n$. So $m\mid a^n - b^n$, or $a^n \equiv b^n \pmod m$.
 	\end{proof}
 
-	\begin{proposition}\slshape
+	\begin{proposition}
 		If $f(x)$ is a polynomial with integer coefficients and $a \equiv b \pmod m$, then $f(a) \equiv f(b) \pmod m$.
 	\end{proposition}
 
@@ -58,7 +58,7 @@
 	\end{proof}
 
 
-	\begin{proposition}\slshape
+	\begin{proposition}
 		If $a$ is an integer and $n$ is a positive integer, then exactly one of the following relations holds.
 			\begin{align*}
 				a &\equiv 0 \pmod n,\\
@@ -69,7 +69,7 @@
 	\end{proposition}
 
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $m$ be a positive integer and $a, b$, and $c$ be integers. Then
 		\begin{enumerate}[(a)]
 			\item If $ac \equiv bc \pmod m$ and $\gcd(c,m)=d$, then
@@ -135,7 +135,7 @@ which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we 
 		All terms of an arithmetic progression are equivalent modulo the common difference.
 	\end{corollary}
 What is the sum of the terms of an arithmetic progression? Obviously, if the sequence has \textit{infinite} number of terms, that is, if it has infinitely many terms, then the sum is not a finite number as the common difference is constant\footnote{we say that it \textit{diverges}.}. However, when the arithmetic progression is finite (such as, a portion of the sequence), the sum of all its elements is finite as well. Often we consider partial sum of such a series.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $(a_1,a_2,\cdots,a_n)$ be a finite arithmetic sequence such that
 			\begin{align*}
 				a_1 & = a,\\
@@ -195,7 +195,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\dfrac{1}{16}+\ldots=1.
 		\end{align*}
 	Now you should be able to make sense how a sequence with infinite terms can have a finite sum.
-		\begin{theorem}\slshape\label{thm:GP}
+		\begin{theorem}\label{thm:GP}
 			Let be given the finite geometric sequence
 				\begin{align*}
 					a_1 & = a,\\
@@ -376,13 +376,13 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\subsubsection{Complete Residue Systems}
 	The definitions and theorems below assume that $m$ is a positive integer.
 		\begin{definition}
-			Two integers $a$ and $b$ are said to be members of the same \slshape{residue class} modulo $m$, if and only if $a \equiv b \pmod m$.
+			Two integers $a$ and $b$ are said to be members of the same {residue class} modulo $m$, if and only if $a \equiv b \pmod m$.
 		\end{definition}
 
 		Clearly, there are $m$ distinct residues modulo $m$.
 
 		\begin{definition}\label{def:completeresiduesystem}
-			Let $m$ be a positive integer. The set $A$ is called a \slshape{complete residue system modulo $m$} if and only if every number is congruent to a unique element of $A$ modulo $m$. In other words, $A$ should be representing all the residue classes modulo $m$.
+			Let $m$ be a positive integer. The set $A$ is called a {complete residue system modulo $m$} if and only if every number is congruent to a unique element of $A$ modulo $m$. In other words, $A$ should be representing all the residue classes modulo $m$.
 		\end{definition}
 
 		\begin{example}
@@ -410,7 +410,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	Another example would be a function that takes a real number $x$ as its input and gives $x^2$ as its output. For convenience, we can call this function $f: \mathbb R \to \mathbb R$ and write its \textit{relation} as $f(x) = x^2$ for all $x \in \mathbb R$. The notation $f: \mathbb S \to \mathbb T$ means that the function $f$ takes its inputs from the \textit{domain} $S$ (the set of inputs) and assigns them an output from the \textit{codomain} $T$ (the set of outputs and maybe some additional elements). For the previous example, we see that both domain and codomain of $f$ are $\mathbb R$. However, the \textit{range} (or \textit{image}) of $f$, which is the set containing only outputs of $f$, is $\mathbb R^{+}$, the set of all positive real numbers.
 
 	\begin{definition}[Euler's Totient Function]\label{def:totient}
-		For every positive integer $n>1$, $\varphi(n)$ is the number of positive integers less than or equal to $n$ which are relatively prime to $n$. We call this function Euler's phi function (or totient\footnote{You might be wondering what \slshape{totient} means. In Latin, \slshape{tot} means so many. The suffix of \slshape{iens} is probably from the Sanskrit.} function).
+		For every positive integer $n>1$, $\varphi(n)$ is the number of positive integers less than or equal to $n$ which are relatively prime to $n$. We call this function Euler's phi function (or totient\footnote{You might be wondering what {totient} means. In Latin, {tot} means so many. The suffix of {iens} is probably from the Sanskrit.} function).
 	\end{definition}
 
 	\begin{example}
@@ -418,7 +418,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\end{example}
 
 	We will investigate properties of this function in details in Chapter \ref{ch:arithfunc}. For now let's just assume the following claims are true.
-	\begin{proposition}[Properties of Euler's Totient Function]\label{prop:phiproperties}\slshape
+	\begin{proposition}[Properties of Euler's Totient Function]\label{prop:phiproperties}
 		Let $m$ and $n$ be two positive integers.
 		\begin{enumerate}[(a)]
 			\item $\varphi$ is a multiplicative function. That is, if $m \bot n$, then
@@ -452,7 +452,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	Here $a\bot7$, so we have $7\mid i-j$. But remember that, $i<j<7$ so $|i-j|<7$. This yields the contradiction we were looking for. This claim was true mainly because $a\bot7$. What if we did not take a prime $7$? Well, we could still do something similar. And that is why Euler's totient function comes to the play. This is more valuable than you may realize.
 
 	\begin{definition}
-		Let $m$ be a positive integer. The set $A$ is called a \slshape{reduced residue system modulo $m$} if all elements of $A$ are relatively prime to $m$, and also every integer which is relatively prime to $m$ is congruent to a unique element of $A$ modulo $m$.
+		Let $m$ be a positive integer. The set $A$ is called a {reduced residue system modulo $m$} if all elements of $A$ are relatively prime to $m$, and also every integer which is relatively prime to $m$ is congruent to a unique element of $A$ modulo $m$.
 	\end{definition}
 
 	\begin{example}

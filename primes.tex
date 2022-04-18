@@ -58,7 +58,7 @@
 			We are done if we can show that there is a strictly increasing infinite sequence of positive integers $a_1,a_2,a_3\ldots$ so that they are pair-wisely relatively prime. Since no prime can divide two terms of the sequence, each time a new term appears it will produce a new prime factor. So, all we have to do is find such a sequence. One way to do it is using \textit{Fermat numbers}. The $n^{th}$ Fermat number, $F_n$, is defined as $F_n=2^{2^n}+1$. In the following lemma, we will show that any two Fermat numbers are relatively prime to each other.
 		\end{proof}
 
-		\begin{lemma}shape
+		\begin{lemma}
 			If $m\neq n$, then $(F_m,F_n)=1$.\label{lem:fermatcp}
 		\end{lemma}
 
@@ -155,7 +155,7 @@
 			Rewriting the above inequality, we get $Nm  <  2^k$. Note that $2^k$ is fixed, whereas we can make $Nm$ as large as we want since $N$ can be any integer larger than $n$. So, for those $N$, we get a contradiction, $W^5$ (Which Was What We Wanted).
 		\end{proof}
 	The next proof uses Zeta function. But we need some more theorems to state it. The following theorem is due to Euler.
-		\begin{theorem}shape
+		\begin{theorem}
 			\[\zeta(1)=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots=\prod_{p\in\mathbb{P}}\dfrac{p}{p-1}\]\label{thm:zeta1}
 		\end{theorem}
 
@@ -188,7 +188,7 @@
 				\end{align*}
 		\end{proof}
 	Euler found a general result for $\zeta(s)$ for any positive integer $s$. We have stated this result in the following theorem. The proof is analogous to the proof of the previous theorem.
-		\begin{theorem}[Euler's theorem]shape
+		\begin{theorem}[Euler's theorem]
 			\begin{align*}
 				\zeta(s)
 					& =1+\dfrac{1}{2^s}+\dfrac{1}{3^s}+\cdots\\
@@ -196,7 +196,7 @@
 			\end{align*}
 		\end{theorem}
 
-		\begin{theorem}shape
+		\begin{theorem}
 			The series $S=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots$ diverges, i.e., it does not have a finite sum.\label{thm:zeta1div}
 		\end{theorem}
 
@@ -211,7 +211,7 @@
 			So the sum diverges.
 		\end{proof}
 	You may think that $\zeta(2),\zeta(3),\ldots$ all diverge too. Wrong! Using calculus Euler also proved the following theorem:
-		\begin{theorem}[Euler]\label{thm:zeta2}shape
+		\begin{theorem}[Euler]\label{thm:zeta2}
 			$\zeta(2)=\frac{\pi^2}{6}$. In other words,
 				\begin{align*}
 					1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots & = \dfrac{\pi^2}{6}
@@ -235,7 +235,7 @@
 			if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\varphi(P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are relatively prime to $P$. If we discard $1$, there is at least one other positive integer which is relatively prime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
 		\end{proof}
 	In the previous discussion, we have shown that there are infinitely many primes in several different ways.
-		\begin{theorem}shape
+		\begin{theorem}
 			There are infinitely many primes of the form $4m+3$.
 		\end{theorem}
 
@@ -243,7 +243,7 @@
 			We proceed the same way as Euclid did. Let $p_1,p_2,\ldots,p_k$ be all the primes of the form $4m+3$. Consider the number $N=4p_1p_2\cdots p_k-1$. Clearly, $N\equiv3\pmod4$. According to \autoref{thm:4k+3prime} in chapter \eqref{ch:divisibility}, $N$ has at least one prime factor $p$ which is of the form $4m+3$. This prime $p$ divides $N$, so it is relatively prime to $N-1=4p_1p_2\cdots p_k$, which means that $p$ is none of those $p_1,p_2,\ldots,p_k$. Therefore, another prime $p$ of the form $4m+3$ exists. This is a contradiction. So, the number of such primes is infinite.
 		\end{proof}
 
-		\begin{theorem}shape
+		\begin{theorem}
 			There are infinitely many primes of the form $4n+1$.
 		\end{theorem}
 
@@ -251,7 +251,7 @@
 			Let's say the number of primes of this form is finite. Call these primes $p_1,p_2,\ldots,p_k$. Consider the number $N=4p_1^2\cdots p_k^2+1$. Using corollary \eqref{cor:4n+1}, we get that every divisor of $N$ is of the form $4t+1$. Thus, a prime divisor $p$ of $N$ must be of the same form. The contradiction follows.
 		\end{proof}
 
-		\begin{theorem}shape
+		\begin{theorem}
 			Let $p$ be a prime. There are infinitely many primes of the form $pn+1$.
 		\end{theorem}
 
@@ -266,7 +266,7 @@
 			$N$ is an integer which is not divisible by any of the $q_{i}$ or $p$ and is greater than $1$. So $N$ has a prime divisor, say $r$. This $r$ must be congruent to $1$ modulo $p$. Contradiction!
 		\end{proof}
 
-		\begin{theorem}shape
+		\begin{theorem}
 			let $p>2$ is a prime, then there are infinitely many primes $q$ such that $q$ is a quadratic residue modulo $p$.
 		\end{theorem}
 
@@ -274,7 +274,7 @@
 			According to previous theorem, there are infinitely many primes $q$ such that $q \equiv 1 \pmod p$. So, all these primes are quadratic residues modulo $p$ and we are done.
 		\end{proof}
 	You might have already conjectured that there are infinitely many primes of the form $an+1$. Even more generally $an+b$, where $a$ and $b$ are relatively prime positive integers. And luckily, this is true and \textit{Dirichlet} was the first one to prove it. Though the proof of this theorem is way beyond the scope of this book. It is even accepted in many mathematics competitions. You should still try to avoid using it. Use it only if you find no other way. For most of the problems, there is a solution to that does not require a high level theorem like this. Readers are highly encouraged to try for a different solution even if it makes their  lives a lot harder.
-		\begin{theorem}[Dirichlet's Theorem on Arithmetic Progressions]shape
+		\begin{theorem}[Dirichlet's Theorem on Arithmetic Progressions]
 			If $a$ and $b$ are two relatively prime positive integers, then there are infinitely many primes the arithmetic progression
 				\begin{align*}
 					a+b, 2a+b, 3a+b, \cdots
@@ -283,7 +283,7 @@
 		\end{theorem}
 	\section{Number of Primes}
 		Mathematicians have been trying to find a closed form for primes for a long time. But this was such a mystery that many mathematicians thought it is not possible to find a formula for primes. You may have thought so too! Whenever someone tries to find a formula for primes, they tend to go for polynomials first. Our sympathies for them. Because the following theorem tells us that we can not find a non-constant polynomial which will always output a prime (for positive integer inputs of course).
-			\begin{theorem}shape
+			\begin{theorem}
 				There is no non-constant polynomial $P(x)$ with integer coefficients such that $P(n)$ is a prime for all integers $n$.
 			\end{theorem}
 
@@ -295,7 +295,7 @@
 				Put $x=kp$ in the above equation. We find that $p\mid P(kp)$ for all integers $k$. However, since $P(kp)$ is a prime, we must have $P(kp)=p$ for all integers $k$. Now consider the polynomial $Q(x)=P(px)-p$. All integers are roots of $Q(x)$, which is impossible unless $Q(x)$ is the zero polynomial. So $P(px)=p$ for all real numbers $x$. Hence, $P(x)$ is constant.
 			\end{proof}
 		Back to the original question: are there any closed form for $p_n$? Is there an expression which always generates a prime? The answer is yes for both of them. However, here we will concentrate on the number of primes mostly\footnote{We would like to discuss the second question as well but it requires some analytical number theory, which of course is out of our scope. If you are an interested reader, you can study \textcite{ingham_1937}, \textcite{mills_1947} and \textcite{niven_1951}.}. It makes sense that the formula for primes and the prime counting function are close to each other. Because if you get a good formula for $\pi(n)$, the number of primes less than or equal to $n$, you can replace $n$ with $p_k$ for some $k$ and get a recursive formula for primes, that is in terms of previous primes or positive integers less than $p_k$. However, recursive formulas do not look pretty at all. Therefore, we focus on finding $\pi(n)$ rather than a direct formula for $p_n$.
-			\begin{theorem}[]shape
+			\begin{theorem}[]
 				The number of primes less than or equal to $n$ can be obtained as
 					\begin{align*}
 						\pi(n) & =
@@ -370,14 +370,13 @@
 
 	While on the topic, we should mention the \textit{Meissel-Lehmer Method}. It is a sieve method based on this theorem, that ultimately provides a way to compute $p_n$ in $O(\sqrt{n})$ complexity i.e. a function that does not grow faster than $\sqrt{n}$. This is a very good improvement for computing $\pi(x)$ and $p_n$.
 
-	\section{Bertrand's Postulate and A Proof}\label{sec:bertrand}
-		\subfile{bertrand.tex}
-		There are still many open questions left regarding prime numbers. We will describe some later. You don't have to necessarily find an answer to them, just try them! You may learn something new by yourself, or even find new theorems. In many cases, mathematicians develop theories this way.
+	\subfile{bertrand.tex}
+	There are still many open questions left regarding prime numbers. We will describe some later. You don't have to necessarily find an answer to them, just try them! You may learn something new by yourself, or even find new theorems. In many cases, mathematicians develop theories this way.
 
 	\section{Miscellaneous}
 	\label{sec:theoremsinprimes}
 
-	\begin{theorem}shape
+	\begin{theorem}
 		For any positive integer $n$, there are $n$ consecutive integers none of which are prime. In other words, there are arbitrarily large gaps in the sequence of primes.
 	\end{theorem}
 
@@ -385,7 +384,7 @@
 		Let's just look at the numbers $(n+1)!+2,\ldots,(n+1)!+n+1$. These are $(n+1)-(2)+1=n$ consecutive integers and none of them are prime since $(n+1)!+i$ is divisible by $i$ for $1<i<n+2$.
 	\end{proof}
 
-	\begin{theorem}shape
+	\begin{theorem}
 		For any positive integer $n$, there are $n$ consecutive integers so that none of them are prime powers (not necessarily the power of same prime).
 	\end{theorem}
 
@@ -400,7 +399,7 @@
 		If we write shortly, we need $x\equiv-i\pmod{p_{2i-1}p_{2i}}$ for $0\leq i\leq n-1$. By CRT, we do have such an $x$ as a solution to those congruences. So, none of $n$ consecutive integers $x, x+1, \ldots, x+(n-1)$ are prime powers and the claim is proved.
 	\end{proof}
 
-	\begin{theorem}shape
+	\begin{theorem}
 		Let $a,n$, and $d$ be positive integers so that $a,a+d,\ldots,a+(n-1)d$ are all primes. Then any prime $p$ less than $n$ divides $d$.
 	\end{theorem}
 
@@ -533,7 +532,7 @@
 		Note that $2^{k-1}$ is a constant and $2^{k/n}$ decreases as $n$ increases. However, by lemma \eqref{lem:n!/2}, $\sqrt[n]{\dfrac{n!}{2}}$ increases when $n$ gets larger. This means that the expression on the left hand side of above inequality is a strictly increasing sequence, however the right hand side sequence is strictly decreasing. It is obvious there is a smallest $n_0$ so that the left hand side gets bigger than the right hand side for all $n\geq n_0$. The proof is complete.
 	\end{proof}
 
-	\begin{theorem}shape
+	\begin{theorem}
 		The probability of two random positive integers being relatively prime is $\dfrac{6}{\pi^2}$.
 	\end{theorem}
 
@@ -570,7 +569,7 @@
 			If $n$ is a composite number, it has at least one prime factor $q$ with $q\leq\sqrt{n}$.
 		\end{theorem}
 	This is the simplest way to check whether a positive integer $n$ is a prime. That is, given $n$, you check weather any prime $2 \leq p \leq \sqrt n$ divides $n$. If $n$ is not divisible by any such $p$, it is a prime. We take this opportunity to introduce a notion of \textbf{runtime}, which will roughly mean the number of operations someone or a computer will have to do in order to determine whether $n$ is prime or not using a particular algorithm. In this algorithm, you can see that we are dividing $n$ by primes less than $\sqrt{n}$ and so, if the number of such primes is $k$ then we could say, runtime is $R(k)$. Here, assume that $R(k)$ denotes the runtime of the whole operation, though it is not rigorous at all. But it will do for our purpose very nicely. Let's look at the following theorem now.
-		\begin{theorem}[Lucas Test]shape
+		\begin{theorem}[Lucas Test]
 			\label{thm:lucastest}
 			Let $n >1$ be a positive integer. Then $n$ is a prime if and only if there is an integer $1<a<n$ for which
 				\begin{align*}
@@ -587,12 +586,15 @@
 
 			On the other hand, assume that given conditions hold for a positive integer $n$. The first condition asserts that $(a,n)=1$. Let $d$ be the order of $a$ modulo $n$. That is, $d$ is the smallest positive integer less than $n$ such that $a^d \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, $d\mid n-1$. This means that $dx = n-1$ for some $x$. Choose a prime $q$ which divides $x$ so that $x=qy$ for some integer $y$. Therefore, $n-1=dqy$ or $(n-1)/q=dy$. But then
 				\begin{align*}
-					a^{(n-1)/q} \equiv a^{dy} \equiv \left(a^d\right)^y \equiv 1 \pmod n,
+					a^{(n-1)/q}
+						& \equiv a^{dy}\\
+						& \equiv \left(a^d\right)^y\\
+						& \equiv 1 \pmod n
 				\end{align*}
 			which is in contradiction with the second condition since $q$ is a prime such that $q\mid x\mid n-1$. Thus the order of $a$ modulo $n$ is $n-1$. So $\varphi(n)=n-1$ which implies that $n$ is a prime.
 		\end{proof}
 	The next theorem appears in \textcite[Chapter $\S$VI, section $6.3$, proposition $6.3.1$, Page $187$]{koblitz_2012}.
-		\begin{theorem}[Pocklington's Theorem]shape
+		\begin{theorem}[Pocklington's Theorem]
 			Let $n>1$ be an integer and suppose that there exist an integer $a$ and a prime $q$ such that the following conditions hold:
 				\begin{enumerate}
 					\item $q\mid n-1$ and $q > \sqrt n -1$,
@@ -655,9 +657,10 @@
 		\begin{definition}
 			Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Let $a>1$ be an integer relatively prime to $n$. Then $a$ is said to be a \textit{witness for compositeness of $n$}, or simply a witness for $n$ when
 				\begin{align*}
-				a^d &\not\equiv \phantom{-} 1 \pmod n, \text{ and}\\
-				a^{2^rd} &\not\equiv -1 \pmod n, \text{ for every integer } 0 \leq r <s.
+				a^d &\not\equiv \phantom{-} 1 \pmod n\\
+				a^{2^rd} &\not\equiv -1 \pmod n
 				\end{align*}
+			for $0\leq r<s$.
 		\end{definition}
 
 		\begin{theorem}[Miller--Rabin Primality Test]
@@ -768,7 +771,7 @@
 		\begin{theorem}[Pepin's Primality Test for Fermat Numbers]
 			Let $n \geq 2$ be an integer and assume $F_n$ denotes the $n^{th}$ Fermat number. Also, let $k \geq 2$ be any integer. Then the following conditions are equivalent:
 				\begin{enumerate}[1.]
-					\item $F_n$ is prime and $\displaystyle \left(\dfrac{k}{F_n}\right)=-1$.
+					\item $F_n$ is prime and $\left(\frac{k}{F_n}\right)=-1$.
 					\item $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$.
 				\end{enumerate}
 		\end{theorem}
@@ -813,7 +816,7 @@
 		\begin{theorem}
 				Let $q>2$ be a prime. For every divisor $n$ of $M_q$, we have
 					\begin{align*}
-						n &\equiv \pm 1 \pmod 8, \text{ and }\\
+						n &\equiv \pm 1 \pmod 8\\
 						n &\equiv 1 \pmod q
 					\end{align*}
 		\end{theorem}
@@ -922,7 +925,7 @@
 		\begin{lemma}
 			Let $a, b$ and $n$  be positive integers such that $0<a \leq b+1$ and $n=ab+1$. Assume that for every prime divisor $p$ of $b$ there exists an integer $x$ for which
 				\begin{align*}
-					x^{n-1} &\equiv 1 \pmod n, \text{ and}\\
+					x^{n-1} &\equiv 1 \pmod n\\
 					x^{(n-1)/p} &\not \equiv 1 \pmod n
 				\end{align*}
 			Then $n$ is prime.
@@ -931,8 +934,8 @@
 		\begin{proof}
 			Assume on the contrary that $n$ is composite and take the smallest prime factor $q$ of $n$. \autoref{thm:trialdivision} implies that $q \leq \sqrt n$. Let $p$ be a prime factor of $b$. Write $b=p^ks$, where $k\geq 1$ and $s$ are positive integer such that $(s,p)=1$. Let $x$ be an integer which satisfies the given conditions. Then
 					\begin{align}
-						x^{n-1} &\equiv 1 \pmod q, \text{ and} \label{eq:proth-eq1}\\
-						x^{(n-1)/p} &\not \equiv 1 \pmod q.\label{eq:proth-eq2}
+						x^{n-1} &\equiv 1 \pmod q\label{eq:proth-eq1}\\
+						x^{(n-1)/p} &\not \equiv 1 \pmod q\label{eq:proth-eq2}
 					\end{align}
 			because $q\mid n$. We claim that $\ord_q(x^a)=b$. To prove the claim, we notice that
 				\begin{align*}
@@ -1064,7 +1067,7 @@
 	therefore $x_{i+k} \equiv x_{j+k} \pmod n $ for any $k$. Thus $T=j-i$ is the period of the sequence. It is clear now that $T \leq n$.
 
 	The only thing that needs clarification is how to choose $g(x)$ and $x_0$. It has been practically shown that taking $g(x)=x^2+a$ (for some integer $a$) is a good choice for finding a non-trivial factor quickly.
-	In $1975$, John Pollard developed \emph{Pollard's rho method of factorization} which takes $g(x)=x^2-1$ and $x_0=2$. \footnote{Mathematicians later found out that $g(x)=x^2+1$ work better for almost all the cases.}
+	In $1975$, John Pollard developed \emph{Pollard's rho method of factorization} which takes $g(x)=x^2-1$ and $x_0=2$. \footnote{It was later found out that $g(x)=x^2+1$ usually work for almost all the cases.}
 
 	Here is how Pollard's rho method of factorization work: assume that $n=st$, where $s$ and $t$ are unknown factors of $n$ such that $t>s>1$. Suppose that we have found integers $j>i\geq 0$ such that $x_i \equiv x_j \pmod s$ but $x_i \not \equiv x_j \pmod n$. Since $s$ divides both $n$ and $x_i-x_j$, it must also divide $(x_i-x_j, n)$. So $(x_i-x_j, n) \geq s >1$. On the other hand, $(x_i-x_j, n)$ is a factor of $n$ and since it is larger than $1$, it is a proper factor of $n$ (it is not equal to $1$ or $n$). This means that we have found $(x_i-x_j, n)$ to be a factor of $n$.
 
@@ -1271,11 +1274,11 @@ The next example, taken from Patrick Stein's website, takes a different polynomi
 
 
 \section{Open Questions In Primes}
-	\begin{conjecture}[Twin Prime Conjecture]shape
+	\begin{conjecture}[Twin Prime Conjecture]
 		There exists infinitely many primes $p$ so that $p+2$ is a prime too.
 	\end{conjecture}
 
-	\begin{conjecture}[Goldbach's Conjecture]shape
+	\begin{conjecture}[Goldbach's Conjecture]
 		For all even number $n$ greater than $4$, $n$ is a sum of two primes.
 	\end{conjecture}
 
@@ -1289,39 +1292,39 @@ The next example, taken from Patrick Stein's website, takes a different polynomi
 	\end{conjecture}
 
 	Another variation was proposed by \textit{Oppermann}.
-	\begin{conjecture}[Oppermann's Conjecture]shape
+	\begin{conjecture}[Oppermann's Conjecture]
 		For all integer $x>1$, there exists at least one prime between $x(x-1)$ and $x^2$ and another prime between $x^2$ and $x(x+1)$.
 	\end{conjecture}
 	An improved version was conjectured by Brocard.
-	\begin{conjecture}[Brocard's conjecture]shape\label{open:brocard}
+	\begin{conjecture}[Brocard's conjecture]\label{open:brocard}
 		There exists at least $4$ primes between $p_n^2$ and $p_{n+1}^2$ where $p_n$ is the $n$th prime number.
 	\end{conjecture}
 	Andrica's inequality is worthy of mentioning while we are on the subject.
-	\begin{conjecture}[Andrica's Inequality]shape
+	\begin{conjecture}[Andrica's Inequality]
 		For all $n\geq1$,
 		\begin{align*}
 		\sqrt{p_{n+1}}-\sqrt{p_n} & < 1
 		\end{align*}
 	\end{conjecture}
 
-	\begin{conjecture}[$n^2+1$ Problem]shape
+	\begin{conjecture}[$n^2+1$ Problem]
 		Does there exist infinitely primes of the form $n^2+1$?
 	\end{conjecture}
 
-	\begin{conjecture}[Polignac Conjecture]shape
+	\begin{conjecture}[Polignac Conjecture]
 		For every even integer $2n$ are there infinitely many pairs of consecutive primes which differ by $2n$.
 	\end{conjecture}
 
-	\begin{conjecture}[Sophie Germain Primes]shape
+	\begin{conjecture}[Sophie Germain Primes]
 		A prime is called a \textit{Sophie Germain prime} if $2p+1$ is a prime too. Does there exist infinitely many Sophie Germain primes?
 	\end{conjecture}
 
-	\begin{conjecture}[Mersenne Prime Problem]shape
+	\begin{conjecture}[Mersenne Prime Problem]
 		Is the number of Mersenne primes infinite?
 	\end{conjecture}
 
 
-	\begin{conjecture}[Rassias Conjecture]shape
+	\begin{conjecture}[Rassias Conjecture]
 		For a prime $p>2$, there exists two primes $p_1,p_2$ such that,
 			\begin{align*}
 				p & = \dfrac{p_1+p_2+1}{p_1}

@@ -16,7 +16,7 @@
 		For a positive integer $n$, $\lambda(n)$ is the smallest positive integer for which $a^{\lambda(n)}\equiv1\pmod n$ holds for any positive integer $a$ relatively prime to $n$. This number $\lambda(n)$ is called the \textit{Carmichael function} of $n$. Sometimes, it is also called the \textit{lambda function} of $n$ or the \textit{minimum universal exponent} $\pmod m$ \textcite[Chapter $\S$VI, Section $4$, Page $265$]{sierpinski_schinzel_1988}.
 	\end{definition}
 	Note that Theorem \eqref{thm:ordDiv} implies the following theorem.
-	\begin{theorem}\slshape\label{thm:carDiv}
+	\begin{theorem}\label{thm:carDiv}
 		If $a^d\equiv1\pmod n$ holds for all $a$ relatively prime to $n$, then $\lambda(n)\mid d$.
 	\end{theorem}
 
@@ -24,11 +24,11 @@
 		For any positive integer $n$, $\lambda(n)\mid \varphi(n)$.
 	\end{corollary}
 	The following theorem is self-implicating and solves the first problem, if we can prove that $\lambda(n)$ exists. For now, let's assume it does.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $n$ be a positive integer. There exists a positive integer $a$ relatively prime to $n$ such that $\ord_n(a)=\lambda(n)$.
 	\end{theorem}
 	Let's focus on finding $\lambda(n)$. First, consider the case $n=2^k$.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		If $k>2$ then $\lambda(2^k)=2^{k-2}$.
 	\end{theorem}
 
@@ -59,7 +59,7 @@
 		In \eqref{eq:x^2^a}, the highest power of $2$ which divides $x^{2^{\alpha}} -1$ is $2^{\alpha+2}$ (since $2^{\alpha}t+1$ is odd). But $$\alpha+2 <(k-1)+2=k+1$$, which contradicts \eqref{eq:x^2^k+1}. The induction is complete.
 	\end{proof}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For any prime $p$ and any positive integer $k$,
 			\begin{align*}
 				\lambda(p^k)
@@ -72,7 +72,7 @@
 		Consider the congruence equation $x^d\equiv1\pmod{p^k}$ and let $d=\lambda(p^k)$. By Corollary \ref{cor:LambdaDividesPhi}, $d \mid \varphi(p^k)$. Take $x=g$ where $g$ is a primitive root modulo $p^k$. Then, $\ord_{p^k}(g)=\varphi(p^k)$ and we immediately have $\varphi(p^k)|d$. Thus, $d=\varphi(p^k)$. A very similar proof can be stated to show that $\lambda (2p^k)=\varphi (2p^k) = \varphi(p^k)$.
 	\end{proof}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $a$ and $b$ be relatively prime positive integers. Then
 		 \[\lambda(ab)=\lcm(\lambda(a),\lambda(b))\]
 	\end{theorem}
@@ -99,14 +99,14 @@
 		We also have $x^h\equiv1\pmod a$ and $x^h\equiv1\pmod b$ as well. Hence, $d \mid h$ and $e \mid h$. This means that $[d,e]=h$ since $[d,e]$ is the smallest positive integer that is divisible by both $d$ and $e$.
 	\end{proof}
 	Generalization of this theorem is as follows.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For any two positive integers $a$ and $b$,
 		\begin{align*}
 		\lcm(\lambda(a),\lambda(b)) & = \lambda(\lcm(a,b))
 		\end{align*}
 	\end{theorem}
 	The next theorem combines the above results and finds $\lambda(n)$ for all $n$.
-	\begin{theorem}\slshape\label{thm:CarmichaelFormula}
+	\begin{theorem}\label{thm:CarmichaelFormula}
 		Let $n$ be a positive integer with prime factorization $n=p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$. Also, let $p$ be a prime and $k$ be a positive integer. Then
 		\begin{align*}
 			\lambda(n) & =
@@ -118,11 +118,11 @@
 		\end{align*}
 	\end{theorem}
 
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For positive integers $a$ and $b$, if $a \mid b$, then $\lambda(a) \mid \lambda(b)$.
 	\end{theorem}
 	The proof is left as an exercise for the reader. We are now ready to fully solve Problem \ref{prob:CarmichaelQuestion1}.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		For fixed positive integers $n$ and $d$, there exists a positive integer $a$  relatively prime to $n$ so that $\ord_n(a)=d$ if and only if $d \mid \lambda(n)$.
 	\end{theorem}
 
@@ -131,7 +131,7 @@
 	\end{proof}
 
 	We finish this section by proposing a theorem. We will leave the proof for the reader as an exercise.
-		\begin{theorem}\slshape
+		\begin{theorem}
 			If $\lambda(n)$ is relatively prime to $n$, then $n$ is square-free.
 		\end{theorem}
 	Recall that $n$ is square-free if it is not divisible by any perfect square other than $1$.
@@ -151,7 +151,7 @@
 	\end{proposition}
 
 	Now, the existence of a primitive root is generalized to the following theorem from Carmichael's original paper.
-	\begin{theorem}[Carmicahel]\slshape
+	\begin{theorem}[Carmicahel]
 		For any positive integer $n$, the congruence equation
 			\begin{align*}
 				x^{\lambda(n)} & \equiv1\pmod n
@@ -174,7 +174,7 @@
 	\end{problem}
 
 	The next theorem generalizes \autoref{thm:genWilson}, which itself was a generalization to Wilson's theorem.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		Let $n$ be a positive integer such that $\lambda(n)>2$. Also, suppose that $g$ is a primitive $\lambda$-root modulo $n$. The product of primitive $\lambda$-roots of $n$ is congruent to $1$ modulo $n$.
 	\end{theorem}
 

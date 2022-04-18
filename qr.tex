@@ -41,7 +41,7 @@
 		Whenever we say that an integer $a$ is a quadratic residue (non-residue) modulo $n$, it is clear that $a+kn$ is also a quadratic residue(non-residue) modulo $n$. Therefore, in order to find which numbers are quadratic residues modulo $n$, we only need to check the numbers $1, 2, \ldots, n-1$. Obviously, $a=0$ is a quadratic residue modulo any $n$, and we omit this case in our calculations.
 	\end{note}
 
-	\begin{theorem}\slshape\label{thm:primeresidue}
+	\begin{theorem}\label{thm:primeresidue}
 		Let $p$ be an odd prime number. There are exactly $\displaystyle \frac{p-1}{2}$ quadratic residues modulo $p$ (excluding zero). Furthermore, the residues come from the numbers $1^2, 2^2, \ldots, \displaystyle \left(\frac{p-1}{2}\right)^2$.
 	\end{theorem}
 
@@ -66,7 +66,7 @@
 		\end{align*}
 	\end{proof}
 
-	\begin{theorem}\slshape\label{thm:qrnr}
+	\begin{theorem}\label{thm:qrnr}
 		Let $p$ be an odd prime. Then,
 		\begin{enumerate}[(i)]
 			\item the product of two quadratic residues is also a quadratic residue,
@@ -160,7 +160,7 @@
 	\subsection{Euler's Criterion}
 	In the last example of previous section, we provided a method for computing $ \left(\frac{a}{p}\right)$. However, this method only works when $p$ and $a$ are small enough to make the calculations. Fortunately, Euler developed a criteria  to find out whether an integer is a quadratic residue or a quadratic non-residue. After we explain and prove Euler's criterion, we will explore some special cases, e.g., we will find the value of $ \left(\frac{2}{p}\right)$ and $ \left(\frac{-1}{p}\right)$ for all primes $p$.
 
-	\begin{theorem}[Euler's Criterion]\slshape
+	\begin{theorem}[Euler's Criterion]
 		\label{thm:eulerscriterion}
 		Let $p$ be an odd prime and let $a$ be an integer relatively prime to $p$. Then
 		\begin{align*}
@@ -216,7 +216,7 @@ Let's find $\left(\frac{a}{p}\right)$ for some small values of $a$.
 		Each prime has either the form $p \equiv 1 \pmod 4$ or $p \equiv 3 \pmod 4$, so these primes together make all primes. All in all,
 	\end{solution}
 
-	\begin{theorem}\slshape\label{thm:-1qr} For all primes $p$,
+	\begin{theorem}\label{thm:-1qr} For all primes $p$,
 		\begin{align*}
 		\left(\dfrac{-1}{p}\right)
 		& =
@@ -227,11 +227,11 @@ Let's find $\left(\frac{a}{p}\right)$ for some small values of $a$.
 		\end{align*}
 	\end{theorem}
 This infers the following theorem and the next.
-	\begin{theorem}\slshape
+	\begin{theorem}
 		$-1$ is a quadratic residue of a prime $p$ if and only if $p\equiv1\pmod4$.
 	\end{theorem}
 
-	\begin{theorem}\slshape \label{thm:a^2+b^2}
+	\begin{theorem} \label{thm:a^2+b^2}
 		Let $a$ and $b$ be relatively prime positive integers. Then every prime divisor of $a^2+b^2$ is either $2$ or of the form $4k+1$.
 	\end{theorem}
 
@@ -332,7 +332,7 @@ Back to quadratic residues, the next step is to determine if $2$ is a quadratic 
 
 		After all this work, we are finally done computing $ \left(\frac{2}{p}\right)$. The final result is stated in the following theorem.
 
-		\begin{theorem}\slshape\label{thm:2qr}
+		\begin{theorem}\label{thm:2qr}
 			\begin{align*}
 			\left(\dfrac{2}{p}\right)
 			& =
@@ -345,7 +345,7 @@ Back to quadratic residues, the next step is to determine if $2$ is a quadratic 
 
 	\end{solution}
 We can generalize the method used in the solution of Problem \ref{pr:qr2p} to find $ \left(\frac{a}{p}\right)$ for all integers $a$ and primes $p$.
-	\begin{theorem}[Gauss' Criterion]\slshape\label{thm:gausscriterion}
+	\begin{theorem}[Gauss' Criterion]\label{thm:gausscriterion}
 		Let $p$ be a prime number and let $a$ be an integer relatively prime to $p$. Let $\mu(a,p)$ denote the number of integers $x$ among
 		\begin{align*}
 		a, 2a, \ldots, \frac{p-1}{2}a
@@ -357,7 +357,7 @@ We can generalize the method used in the solution of Problem \ref{pr:qr2p} to fi
 	\end{theorem}
 
 The proof is left as an exercise for the reader.
-		\begin{theorem}\slshape
+		\begin{theorem}
 			The smallest quadratic non-residue of a prime $p$ is a prime less than $\sqrt{p}+1$.
 		\end{theorem}
 
@@ -486,11 +486,11 @@ The proof is left as an exercise for the reader.
 			\end{enumerate}
 		\end{theorem}
 
-		\begin{theorem}\slshape
+		\begin{theorem}
 			If a positive integer is a quadratic residue modulo every prime, then it is a perfect square.
 		\end{theorem}
 	This is a really cool theorem. However, proving this might be challenging!\footnote{A popular proof for this uses Dirichlet's theorem: For two co-prime positive integers $a$ and $b$, there are infinitely many primes in the sequence $\{an+b\}_{n\geq1}$. This theorem is very famous for being difficult to prove and it is well beyond our scope.} Give it a try.
-		\begin{theorem}\slshape
+		\begin{theorem}
 			Let $b,n > 1$ be integers. Suppose that for each $k > 1$ there exists an integer $a_k$ such that $b - a^n_k$ is divisible by $k$. Prove that $b = A^n$ for some integer $A$.
 		\end{theorem}
 

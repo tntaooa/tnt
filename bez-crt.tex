@@ -16,7 +16,7 @@
 
 	For example, $2a+3b$ and $-4a$ are both linear combinations of $a$ and $b$, but $a^2-b$ is not. The \textit{B\'{e}zout's lemma} (sometimes called \textit{B\'{e}zout's identity} states that for every two integers $a$ and $b$, there exists a linear combination of $a$ and $b$ which is equal to $(a,b)$. For example if $a=18$ and $b=27$, then $18 \cdot (-1) + 27 \cdot 1 = 9 =(18,27)$.
 
-	\begin{theorem} [B\'{e}zout's Identity] \slshape
+	\begin{theorem} [B\'{e}zout's Identity]
 		For two nonzero integers $a$ and $b$, there exists $x, y \in \mathbb Z$ such that
 		\begin{align*}
 		ax+by = (a,b)
@@ -25,7 +25,7 @@
 
 	You are probably familiar with this theorem. A simple proof uses Euclidean division, but it doesn't show you where exactly to use this identity. So, we prove a stronger theorem and the proof of B\'{e}zout's identity is immediately implied from it.
 
-	\begin{theorem}\slshape \label{thm:equationgcd}
+	\begin{theorem} \label{thm:equationgcd}
 		Let $a,b,m$ be integers such that $a, b$ are not zero at the same time. Then the equation
 		\begin{align*} ax + by = m\end{align*}
 		has solutions for $x$ and $y$ in positive integers if and only if $(a,b)\mid m$.
@@ -67,18 +67,18 @@
 
 	We are now ready to represent a stronger version and also a generalization of B\'{e}zout's lemma.
 
-	\begin{corollary} \slshape  [Stronger Form of B\'{e}zout's Identity]\label{cor:strongbezout}
+	\begin{corollary}   [Stronger Form of B\'{e}zout's Identity]\label{cor:strongbezout}
 		The smallest positive integer linear combination of $a$ and $b$ is $(a,b)$.
 	\end{corollary}
 
-	\begin{corollary} \slshape \label{cor:bezoutcoprime}
+	\begin{corollary}  \label{cor:bezoutcoprime}
 		If $a \perp b$ for non-zero integers $a$ and $b$, then there exist integers $x$ and $y$ such that
 		\begin{align*}
 		ax+by=1
 		\end{align*}
 	\end{corollary}
 
-	\begin{theorem} [Generalization of B\'{e}zout's Identity] \slshape
+	\begin{theorem} [Generalization of B\'{e}zout's Identity]
 		If $a_1, a_2, \cdots, a_n$ are integers with $(a_1, a_2, \cdots, a_n)=d$, then the equation
 		\begin{align*}
 		a_1x_1 + a_2x_2 + \cdots + a_n x_n = m
@@ -86,7 +86,7 @@
 		has a solution $(x_1, x_2, \cdots, x_n)$ in integers if and only if $d\mid m$.
 	\end{theorem}
 
-	\begin{theorem}\slshape\label{thm:ax=b}
+	\begin{theorem}\label{thm:ax=b}
 		Let $m$ be a positive integer and let $a$ and $b$ be positive integers. Then the modular arithmetic equation
 		\begin{align*} ax \equiv b \pmod m\end{align*}
 		has a solution for $x$ in integers if and only if $(m,a)\mid b$.
@@ -159,7 +159,7 @@
 	\end{example}
 
 
-	\begin{theorem} \label{thm:arithinverse} \slshape
+	\begin{theorem} \label{thm:arithinverse}
 		Let $a$ be an integer and let $m$ be a positive integer such that $a \perp m$. Then $a$ has an inverse modulo $m$. Also, every two inverses of $a$ are congruent modulo $m$.
 	\end{theorem}
 
@@ -309,7 +309,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 				& =58
 		\end{align*}
 	Since $58<63$, such a solution will be unique! Mathematically, we can write it this way. Let the inverse of $a$ modulo $n$ be $a^{-1}_n$.
-		\begin{theorem}[Chinese Remainder Theorem for Two Integers]\slshape
+		\begin{theorem}[Chinese Remainder Theorem for Two Integers]
 			For two positive integers $a\bot b$,
 				\begin{align*}
 					x & \equiv m\pmod a\\
@@ -322,7 +322,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			and all the solutions are given by $x=x_0+abk$.
 		\end{theorem}
 	But this form is not that convenient. We will give it a better shape. Let $M=ab$, then $\frac{M}{a}\bot b$ and $\frac{M}{b}\bot b$. Rewrite the theorem in the following form.
-		\begin{theorem}[Refined CRT]\slshape
+		\begin{theorem}[Refined CRT]
 			If $a_1\bot a_2$ and $M=a_1a_2$, then the congruences
 			\begin{align*}
 			x & \equiv r_1\pmod{a_1}\\
@@ -335,7 +335,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			\end{align*}
 		\end{theorem}
 	If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
-		\begin{theorem}[CRT]\slshape
+		\begin{theorem}[CRT]
 			For $n$ pairwise coprime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
 				\begin{align*}
 					x & \equiv r_1\pmod{a_1}\\
@@ -360,7 +360,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			So $x_0$ is a solution to those congruences. Since $M_i\bot a_i$, there is a multiplicative inverse of $M_i$ modulo $a_i$ due to B\'{e}zout's identity. We leave it to the reader to prove that if $x,y$ are two solutions, then $x\equiv y\pmod M$. That would prove its uniqueness modulo $M$.
 		\end{proof}
 	We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\cdots,p_k$ are pairwise coprime integers. By the way, we could generalize CRT the following way.
-		\begin{theorem}[General CRT]\slshape
+		\begin{theorem}[General CRT]
 			For $n$ integers $a_1,\cdots,a_n$ the system of congruences
 			\begin{align*}
 				x & \equiv r_1\pmod{a_1}\\
