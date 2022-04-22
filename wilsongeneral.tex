@@ -20,7 +20,8 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 	\begin{theorem}\label{thm:reducedfactorialmodp}
 		Let $p$ be a prime number and let $(n_k n_{k-1}\cdots n_1 n_0)_p$ be a positive integer. Then
 			\begin{align*}
-				(n!)_p\equiv (-1)^{\left[\frac{n}{p}\right]} \cdot n_0!\pmod p
+				(n!)_p
+					& \equiv (-1)^{\left[\frac{n}{p}\right]} \cdot n_0!\pmod p
 			\end{align*}
 	\end{theorem}
 
@@ -30,23 +31,22 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 				1&2& \cdots &{{n_0}}& \cdots &{p - 1}\\
 				{p + 1}&{p + 2}& \cdots &{p + {n_0}}& \cdots &{2p - 1}\\
 				\vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
-				{( {[{\textstyle{n \over p}}] - 1} )p + 1}&{( {[{\textstyle{n \over p}}] - 1} )p + 2}& \cdots &{( {[{\textstyle{n \over p}}]p - 1} )p + {n_0}}& \cdots &{[{\textstyle{n \over p}}]p - 1}\\
-				{[{\textstyle{n \over p}}]p + 1}&{[{\textstyle{n \over p}}]p + 2}& \cdots &{[{\textstyle{n \over p}}]p + {n_0}}&{}&{}
+				{( {[\frac{n}{p}] - 1} )p + 1}&{( {[\frac{n}{p}] - 1} )p + 2}& \cdots &{( {[\frac{n}{p}]p - 1} )p + {n_0}}& \cdots &{[\frac{n}{p}]p - 1}\\
+				{[\frac{n}{p}]p + 1}&{[\frac{n}{p}]p + 2}& \cdots &{[\frac{n}{p}]p + {n_0}}&{}&{}
 			\end{array}\]
 
 	Product of these numbers, $(n!)_p$ is
 		\begin{align*}
-			\Bigg(\prod_{k=0}^{[\frac np]-1}\!\!\bigl((kp+1)\cdot(kp+2)\cdots(kp+p-1)\bigr)\Bigg)  \cdot
-			\bigl([\tfrac np]p+1\bigl)\bigl([\tfrac np]p+2\bigl)\dots\bigl([\tfrac np]p+n_0\bigl),
+			\left(\prod_{k=0}^{[\frac np]-1}\!\!\left((kp+1)\cdot(kp+2)\cdots(kp+p-1)\right)\right)  \cdot
+			\left([\tfrac np]p+1\right)\left([\tfrac np]p+2\right)\dots\left([\tfrac np]p+n_0\right)
 		\end{align*}
 	which is equal to
 		\begin{align*}
-			& \Bigg(\prod_{k=0}^{[\frac np]-1}\!\!\bigl(1\cdot2\cdots(p-1)\bigr)\Bigg)  \cdot
-			\bigl([\tfrac np]p+1\bigl)\bigl([\tfrac np]p+2\bigl)\dots\bigl([\tfrac np]p+n_0\bigl)\\
-			&\equiv \Bigg(\prod_{k=0}^{[\frac np]-1}\!\!\bigl(-1\bigr) \Bigg) \cdot \left(
-			1 \cdot 2 \cdots n_0\right)\\
-			&\equiv
-			(-1)^{[\frac np]} n_0!\pmod p
+			\left(\prod_{k=0}^{[\frac np]-1}\!\!\left(1\cdot2\cdots(p-1)\right)\right)  \cdot
+			\left([\tfrac np]p+1\right)\left([\tfrac np]p+2\right)\dots\left([\tfrac np]p+n_0\right)
+				& \equiv \left(\prod_{k=0}^{[\frac np]-1}\!\!\left(-1\right) \right) \cdot \left(
+				1 \cdot 2 \cdots n_0\right)\\
+				& \equiv(-1)^{[\frac np]} n_0!\pmod p
 		\end{align*}
 	\end{proof}
 
@@ -54,7 +54,7 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 	\begin{proposition}
 		Let $p\geq 3$ be a prime and $n$ be a positive integer. Then
 			\begin{align*}
-				(p^n!)_p \equiv -1 \pmod{p^n}.
+				(p^n!)_p \equiv -1 \pmod{p^n}
 			\end{align*}
 	\end{proposition}
 
@@ -105,7 +105,7 @@ We are ready to prove the following theorem.
 		Also, let $\ell = v_p\left(\binom{m}{n}\right)$. Then
 			\begin{align*}
 				\frac1{p^\ell}\binom{m}{n}\equiv (-1)^\ell
-				\Bigl(\frac{m_0!}{n_0!r_0!}\Bigr) \Bigl(\frac{m_1!}{n_1!r_1!}\Bigr) \dots \Bigl(\frac{m_d!}{n_d!r_d!}\Bigr) \pmod p
+				\left(\frac{m_0!}{n_0!r_0!}\right) \left(\frac{m_1!}{n_1!r_1!}\right) \dots \left(\frac{m_d!}{n_d!r_d!}\right) \pmod p
 			\end{align*}
 	\end{theorem}
 

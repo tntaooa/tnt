@@ -19,7 +19,7 @@
 			With the above definition, $f(n)$ is an arithmetic function even though it does not represent any specific property of $n$. In this chapter, we want to study functions that present some \textit{number theoric} properties. One example of such a function would be $\varphi(n)$. As you already know, the Euler's totient function takes a positive integer $n$ as its input and gives the number of positive integers less than $n$ and relatively prime to $n$ as its output.
 		\end{remark}
 	Here are some examples of arithmetic functions.
-		\begin{definition}[\bfseries Unit Function]
+		\begin{definition}[Unit Function]
 			The \textit{unit function} is defined as below for all positive integers $n$:
 				\begin{align*}
 					\varepsilon(n) & =\left[\dfrac 1n\right] =\begin{cases}1&\mbox{ if }n=1\\0&\mbox{ if }n>1\end{cases}
@@ -58,7 +58,7 @@
 			Here, we call $\varepsilon(n)$ the unit function because it acts like $1$ when multiplying arithmetic functions. That is, $\varepsilon$ is the multiplicative identity of arithmetic functions. In section \ref{sec:dirichletmobius}, we will discuss the process of finding the result of multiplication of two arithmetic functions (called the \text{Dirichlet product}) and explain why $\varepsilon(n)$ has this property.
 		\end{note}
 
-		\begin{definition}[\bfseries Identity Function]
+		\begin{definition}[Identity Function]
 			The \textit{identity function}, $\text{id}$, maps every positive integer to itself so $\text{id}(n)=n$ for all positive integers $n$. %You can see the plot of this function in \autoref{fig:identityfunction}.%figure necessary?
 			\begin{figure}
 				\centering
@@ -118,7 +118,7 @@
 				\label{fig:constantfunction}
 			\end{figure}
 		\end{definition}
-		\begin{definition}[\bfseries Additive Function]
+		\begin{definition}[Additive Function]
 			An arithmetic function $f$ is called an \textit{additive function} if and only if
 				\begin{align}
 					f(mn)=f(m)+f(n)\label{eqn:af1}
@@ -126,7 +126,7 @@
 			for all $m,n\in\mathbb{N}$ such that $m\perp n$. The condition $m\perp n$ is particularly significant for a lot of arithmetic functions as we will see later. The case where equation \ref{eqn:af1} is true for all $m,n\in\mathbb{N}$, $f$ is called a \textit{completely additive function}.
 		\end{definition}
 
-		\begin{definition}[\bfseries Multiplicative Function]
+		\begin{definition}[Multiplicative Function]
 			An arithmetic function $f$ is called a \textit{multiplicative function} if and only if
 				\begin{align}
 				f(mn)=f(m)f(n)\label{eqn:af2}
@@ -156,7 +156,7 @@
 	\subsection{Number of Divisors}\label{sec:number-of-divisors}
 		We first introduced $\tau(n)$ in chapter \autoref{ch:divisibility}. To be precise, in \autoref{thm:nos}, we explained that there are $\tau(n)$ positive integer solutions $(a,b)$ to the equation $ab=n$. For example, $ab=12$ has $\tau(12)=6$ solutions $(1,12), (2, 6), (3,4), (4,3), (6,2), (12,1)$ in positive integers.
 
-			\begin{definition}[\bfseries Number-of-divisors Function]
+			\begin{definition}[Number-of-divisors Function]
 				Let $n$ be a positive integer. The number of positive divisors of $n$ is denoted by $\tau(n)$. In other words, the \textit{number-of-divisors} function is defined as
 					\begin{align*}
 						\tau(n)=\sum_{d\mid n} 1
@@ -235,7 +235,7 @@
 	\subsection{Sum of Divisors}\label{sec:sum-of-divisors}
 		The sum of divisors of a number is another important property of each positive integer.
 
-		\begin{definition}[\bfseries Sum-of-divisors Function]
+		\begin{definition}[Sum-of-divisors Function]
 			Let $n$ be a positive integer. The sum of positive divisors of $n$ is denoted by $\sigma(n)$.\footnote{Read ``sigma of $n$''.} In other words, the \textit{sum-of-divisors} function is defined as
 			\begin{align*}
 			\sigma(n)=\sum_{d\mid n} d
@@ -410,10 +410,10 @@
 					\item For all $n \geq 3$, $\varphi(n)$ is even.
 					\item $\varphi$ is neither increasing, injective, nor surjective.
 					\item If $n$ is factorized as $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, then
-						\begin{eqnarray*}
-							\varphi(n) & = & n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
-									   & = & p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
-						\end{eqnarray*}
+						\begin{align*}
+							\varphi(n) & =  n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
+									   & =  p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
+						\end{align*}
 				\end{enumerate}
 		\end{theorem}
 
@@ -447,16 +447,16 @@
 						&= p^{\alpha -1} (p-1)
 					\end{align*}
 				Now, if we factorize $n$ as $p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, we can write
-					\begin{eqnarray*}
-						\varphi(n) &=& \varphi(p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k})\\
-								   &=& \varphi(p_1^{\alpha_1}) \varphi(p_2^{\alpha_2}) \cdots \varphi(p_k^{\alpha_k})\\
-								   &=& p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
-					\end{eqnarray*}
+					\begin{align*}
+						\varphi(n) & = \varphi(p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k})\\
+								   & = \varphi(p_1^{\alpha_1}) \varphi(p_2^{\alpha_2}) \cdots \varphi(p_k^{\alpha_k})\\
+								   & = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
+					\end{align*}
 			\end{enumerate}
 		\end{proof}
 
 		\begin{corollary}\label{cor:phidiv}
-			If $a|b$, then $\varphi(a)|\varphi(b)$.
+			If $a\mid b$, then $\varphi(a)\mid \varphi(b)$.
 		\end{corollary}
 
 		\begin{theorem}\label{thm:phi*1}
@@ -542,11 +542,11 @@
 We will state and prove the properties of Jordan's totient function later in section \ref{sec:euler-jordan}.
 \section{Dirichlet Product and M\" {o}bius Inversion}\label{sec:dirichletmobius}
 	When working with arithmetic functions, we are mostly interested in the \textit{Dirichlet product} of two functions rather than their normal product. As you keep reading this section, you find out why Dirichlet products are important when studying arithmetic functions.
-
-		\begin{definition}[\bfseries Dirichlet Product or Dirichlet Convolution]
+		\begin{definition}[Dirichlet Product or Dirichlet Convolution]
 			For two arithmetic functions $f$ and $g$, we define their Dirichlet product as
 				\begin{align*}
-					h(n)=\sum_{d\mid n}f(d)g\left(\frac nd\right),
+					h(n)
+						& =\sum_{d\mid n}f(d)g\left(\frac nd\right)
 				\end{align*}
 			where the sum extends over all positive divisors $d$ of $n$. We denote this by $h=f\ast g$. In other words,
 				\begin{align*}
@@ -557,22 +557,22 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 		\begin{example}
 			Let $f$ be the constant $1$ function. Let us find $(f \ast f)(n)$. By definition,
-				\begin{eqnarray*}
-					(f \ast f)(n) & = & \sum_{d\mid n}f(d)f\left(\frac nd\right)\\
-								  & = & \sum_{d\mid n} 1\\
-								  & = & \underbrace{1 + 1 + \cdots + 1}_{\text{repeated } \tau(n) \text{ times}}\\
-								  & = & \tau(n)
-				\end{eqnarray*}
+				\begin{align*}
+					(f \ast f)(n) & =  \sum_{d\mid n}f(d)f\left(\frac nd\right)\\
+								  & =  \sum_{d\mid n} 1\\
+								  & =  \underbrace{1 + 1 + \cdots + 1}_{\text{repeated } \tau(n) \text{ times}}\\
+								  & =  \tau(n)
+				\end{align*}
 			where $\tau(n)$ is the number of divisors of $n$. More details about this function will be explained in section \ref{sec:d(n)}.
 		\end{example}
 
 		\begin{example}
 			This time, we aim to find the convolution of constant $1$ function $f$ with the identity function. Again, by definition,
-				\begin{eqnarray*}
-					(\text{id} \ast f )(n) &=& \sum_{d\mid n}\text{id}(d)f\left(\frac nd\right)\\
-									       &=& \sum_{d\mid n} d\\
-										   &=& \sigma(n)
-					\end{eqnarray*}
+				\begin{align*}
+					(\text{id} \ast f )(n) & = \sum_{d\mid n}\text{id}(d)f\left(\frac nd\right)\\
+									       & = \sum_{d\mid n} d\\
+										   & = \sigma(n)
+					\end{align*}
 			where $\sigma(n)$ is the sum of divisors of $n$. If we show the constant $1$ function by $1(n)$, we can write $(\text{id} \ast 1)(n)=\sigma(n)$ or simply $\text{id} \ast 1 = \sigma$.
 		\end{example}
 
@@ -588,41 +588,41 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 		\begin{proof}
 			The proof for commutativity of Dirichlet convolution is pretty straightforward using the definition $(f\ast g)(n)=\displaystyle\sum_{ab=n}f(a)g(b)$. Obviously, since there is no difference between $a$ and $b$ in the latter formula, we can write it as
-				\begin{eqnarray*}
-					(f\ast g)(n) &=& \sum_{ab=n}f(a)g(b)= \sum_{ab=n}f(b)g(a)\\
-								 &=& \sum_{ab=n}g(a)f(b)\\
-								 &=& (g\ast f)(n)
-				\end{eqnarray*}
+				\begin{align*}
+					(f\ast g)(n)
+						& = \sum_{ab=n}f(a)g(b)\\
+						& = \sum_{ab=n}f(b)g(a)\\
+						& =\sum_{ab=n}g(a)f(b)\\
+						& =(g\ast f)(n)
+				\end{align*}
 			Let us prove the associativity property now. By definition,
-				\begin{eqnarray*}
-					((f \ast g) \ast h)(n) &=& \sum_{cd=n} (f\ast g)(d) h(c)\\
-										   &=& \sum_{cd=n} \left(\sum_{ab=d} f(a)g(b)\right) h(c)\\
-										   &=& \sum_{cd=n} \left(\sum_{ab=d} f(a)g(b) h(c)\right)\\
-										   &=& \sum_{abc=n} f(a)g(b) h(c)
-				\end{eqnarray*}
+				\begin{align*}
+					((f \ast g) \ast h)(n) & = \sum_{cd=n} (f\ast g)(d) h(c)\\
+										   & = \sum_{cd=n} \left(\sum_{ab=d} f(a)g(b)\right) h(c)\\
+										   & = \sum_{cd=n} \left(\sum_{ab=d} f(a)g(b) h(c)\right)\\
+										   & = \sum_{abc=n} f(a)g(b) h(c)
+				\end{align*}
 			Again, since there is a symmetry between $a,b$, and $c$, we find that the order of $f,g$, and $h$ in the expression $(f \ast g) \ast h$ does not change the result. Hence, the Dirichlet product is associative.
 			The proof for distributivity is similar and is left for the reader. It is also trivial by definition that $\varepsilon$ is the unit element of Dirichlet convolution.
 		\end{proof}
 
-
 		We are going define the M\"{o}bius function $\mu(n)$, which doesn't seem very natural at first sight. As we go deeper in this chapter and in chapter \autoref{ch:primes} on primes, we will find out why this is in fact very important. It will help us a lot when solving problems concerning inclusion and exclusion. In other words, the definition of the M\"{o}bius function is natural in the way that it's trying to alternate positive and negative signs in an inclusion-exclusion argument.
 
-		\begin{definition}[\bfseries M\"{o}bius Function]\label{def:mobius}
+		\begin{definition}[M\"{o}bius Function]\label{def:mobius}
 			The M\"{o}bius function $\mu(n)$ is defined as
 				\begin{align*}
-					\mu(n) & =
+					\mu(n)
+						& =
 						\begin{cases}
-						1&\mbox{ if }n=1\\
-						0&\mbox{ if }n
-						\mbox{ is divisible by }p^2
-						\mbox{ for some prime }p\\
-						(-1)^k&\mbox{ if }n=p_1p_2\cdots p_k
+							1&\mbox{ if }n=1\\
+							0&\mbox{ if }n\mbox{ is divisible by }p^2\mbox{ for some prime }p\\
+							(-1)^k&\mbox{ if }n=p_1p_2\cdots p_k
 						\end{cases}
 				\end{align*}
 		\end{definition}
 
 		\begin{example}
-			$\mu(20)=0$ because $2^2|20$. Also, $\mu(105)=(-1)^3=-1$ since $105=3\cdot5 \cdot 7$. The values of $\mu(n)$ for $n=1,2,\cdots,100$ can be found in table \ref{table:mu(n)}.
+			$\mu(20)=0$ because $2^2\mid 20$. Also, $\mu(105)=(-1)^3=-1$ since $105=3\cdot5 \cdot 7$. The values of $\mu(n)$ for $n=1,2,\cdots,100$ can be found in table \ref{table:mu(n)}.
 			\begin{table}
 				\centering
 				\begin{tabular}{ | l | l | l | l | l | l | l | l | }
@@ -680,7 +680,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 	You may be wonder why would someone define such a not-very-nice-looking function? What is the motivation behind M\"{o}bius function? In fact, this function is the \textit{inverse} of a specific arithmetic function. Before going further, we must define the Dirichlet inverse of an arithmetic function.
 
-		\begin{definition}[\bfseries Dirichlet Inverse Function]
+		\begin{definition}[Dirichlet Inverse Function]
 			Let $f$ be an arithmetic function. The arithmetic function $g$ for which
 				\begin{align*}
 					f \ast g = \varepsilon
@@ -706,7 +706,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\end{align*}
 	On the other hand, by definition of Dirichlet product and using the fact that the only divisors of $p^\alpha$ are $1,p,\cdots,p^\alpha$,
 		\begin{align*}
-			(\mu \ast 1)(p^\alpha) &= \sum_{d|p^\alpha}\mu(d)\\
+			(\mu \ast 1)(p^\alpha) &= \sum_{d\mid p^\alpha}\mu(d)\\
 							   &= \mu(1) + \mu(p) + \cdots + \mu(p^\alpha)\\
 							   &= 0
 		\end{align*}
@@ -737,19 +737,21 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\begin{theorem} \label{thm:dirichletinverse}
 			For an arithmetic function $f$ with $f(1)\neq0$, the Dirichlet inverse $f^{-1}$ exists and is unique. In fact, $f^{-1}$ can be defined recursively as
 				\begin{align*}
-				f^{-1}(n) & = \begin{cases}
-				\dfrac1{f(1)}&\mbox{ if }n=1\\ \\
-				\displaystyle\dfrac{-1}{f(1)}\sum_{\substack{d\mid n\\d<n}}f^{-1}(d)f\left(\dfrac nd\right)&\mbox{ if }n>1\\
-				\end{cases}
+					f^{-1}(n)
+						& =
+						\begin{cases}
+							\dfrac1{f(1)}&\mbox{ if }n=1\\ \\
+							\displaystyle\dfrac{-1}{f(1)}\sum_{\substack{d\mid n\\d<n}}f^{-1}(d)f\left(\dfrac nd\right)&\mbox{ if }n>1\\
+						\end{cases}
 		\end{align*}
 		\end{theorem}
 	As discussed above, $\mu(n)$ is the Dirichlet inverse of the simplest arithmetic function, $1(n)$. The next theorem follows.
 		\begin{theorem}
 			\label{thm:mobiusinverse}
 			The Dirichlet inverse of the M\"{o}bius function is the constant $1$ function. In other words, $1=\mu^{-1}$ or
-			\begin{align*}
-			\sum_{d\mid n}\mu(n) & =\varepsilon(n)
-			\end{align*}
+				\begin{align*}
+					\sum_{d\mid n}\mu(n) & =\varepsilon(n)
+				\end{align*}
 		\end{theorem}
 
 		\begin{theorem}\label{thm:sum-of-sum-function}
@@ -767,8 +769,8 @@ We will state and prove the properties of Jordan's totient function later in sec
 			By definition of $F$, we can write
 				\begin{align*}
 					\sum_{k=1}^{n} F(k)
-						& = \sum_{k=1}^{n} \sum_{d|k} f(d)\\
-						& = \sum_{d|1} f(d) + \sum_{d|2} f(d)+\cdots + \sum_{d\mid n-1} f(d)+\sum_{d\mid n} f(d)
+						& = \sum_{k=1}^{n} \sum_{d\mid k} f(d)\\
+						& = \sum_{d\mid 1} f(d) + \sum_{d\mid 2} f(d)+\cdots + \sum_{d\mid n-1} f(d)+\sum_{d\mid n} f(d)
 				\end{align*}
 			In the last formula, $f(1)$ is repeated $n$ times because $1$ divides all integers. Also, $f(2)$ is repeated $\lfloor n/2 \rfloor$ times because there are exactly $\lfloor n/2 \rfloor$ numbers between $1$ and $n$ (inclusive) which are even. Analogously, there are exactly $\lfloor n/k \rfloor$ multiples of $k$ ($1 \leq k \leq n$) in this interval and thus $f(k)$ is repeated $\lfloor n/k \rfloor$ times. The proof is complete.
 		\end{proof}
@@ -794,7 +796,7 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 				\begin{align}
 					F(n)
 					& =
-					\Big(1+f(p_1)+\ldots+f\left(p_1^{e_1}\right)\Big)\cdots\Big(1+f(p_k)+\ldots+f\left(p_k^{e_k}\right)\Big) \label{eq:multiplicative-eq1}\\
+					\left(1+f(p_1)+\ldots+f\left(p_1^{e_1}\right)\right)\cdots\left(1+f(p_k)+\ldots+f\left(p_k^{e_k}\right)\right) \label{eq:multiplicative-eq1}\\
 					& =
 					\prod_{i=1}^k\sum_{j=0}^{e_i}f\left(p_i^j\right) \nonumber\\
 					& = \prod_{i=1}^kF\left(p_i^{e_i}\right)\nonumber
@@ -804,10 +806,10 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 		\begin{proof}
 			The proof somewhat follows from the unique prime factorization. Assume $T$ is the expansion of the right side of equation \ref{eq:multiplicative-eq1}.
 			If $d$ is a divisor of $n$, then $d=p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}$, where $0\leq w_i\leq e_i$ for $i=1,2,\cdots,k$. Therefore,
-				\begin{eqnarray*}
-					f(d)    & = & f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)\\
-							& = & f\left(p_1^{w_1}\right) f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right)
-				\end{eqnarray*}
+				\begin{align*}
+					f(d)    & =  f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)\\
+							& =  f\left(p_1^{w_1}\right) f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right)
+				\end{align*}
 			which is a term that is present in $T$. Thus, we conclude that each term in the sum $F(n)=\sum\limits_{d\mid n}f(d)$ appears in $T$. We can easily find that the converse is also true. After expanding the right side of equation \ref{eq:multiplicative-eq1}, we see that every term in $T$ is of the form
 				\begin{align*}
 					f\left(p_1^{w_1}\right)	f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right)
@@ -845,30 +847,30 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 					\begin{align*}
 						h(a)h(b)
 							& = \left[(f\ast g)(a)\right] \cdot \left[(f\ast g)(b)\right]\\
-							& = \sum\limits_{d_1|a}f(d_1)g\left(\frac{a}{d_1}\right)\cdot \sum\limits_{d_2|b}f(d_2)g\left(\frac{b}{d_2}\right)\\
-							& = \sum\limits_{d_1|a, d_2|b}f(d_1)f(d_2)g\left(\frac{a}{d_1}\right)g\left(\frac{b}{d_2}\right)\\
-							& = \sum\limits_{d_1|a, d_2|b}f(d_1d_2)g\left(\frac{ab}{d_1d_2}\right)\\
-							& = \sum\limits_{d|ab}f(d)g\left(\frac{ab}{d}\right)\\
+							& = \sum\limits_{d_1\mid a}f(d_1)g\left(\frac{a}{d_1}\right)\cdot \sum\limits_{d_2\mid b}f(d_2)g\left(\frac{b}{d_2}\right)\\
+							& = \sum\limits_{d_1\mid a, d_2\mid b}f(d_1)f(d_2)g\left(\frac{a}{d_1}\right)g\left(\frac{b}{d_2}\right)\\
+							& = \sum\limits_{d_1\mid a, d_2\mid b}f(d_1d_2)g\left(\frac{ab}{d_1d_2}\right)\\
+							& = \sum\limits_{d\mid ab}f(d)g\left(\frac{ab}{d}\right)\\
 							& = (f\ast g)(ab)\\
 							& =h(ab)
 					\end{align*}
 				which is what we wanted.
 
 				\item $f$ is multiplicative, hence $f(mn)=f(m)f(n)$ for all co-prime positive integers $m$ and $n$. Put $m=n=1$ in this equation to get $f(1)=f(1)^2$, which immediately gives $f(1)=1$ because $f$ only accepts positive integer values. Let $g$ be the Dirichlet inverse of $f$. By \autoref{thm:dirichletinverse}, $g(1)=1$. We will prove by induction that $g$ is multiplicative. The base case $n=1$ is true. Suppose that $n>1$ and whenever $ab<n$ with $(a,b)=1$, then $g(ab)=g(a)g(b)$. Also, suppose that $xy=n$ with $(x,y)=1$. We will show that $g(xy)=g(x)g(y)$. Since $g$ is the inverse of $f$, we have $(f \ast g)(n) = \varepsilon(n)$. Also, $\varepsilon(n)=0$ for $n>1$. Therefore,
-					\begin{eqnarray}
-						0 &=& \sum_{d\mid n} f(d) g\left(\frac{n}{d}\right)\nonumber\\
-						  &=& \sum_{d|xy} f(d) g\left(\frac{xy}{d}\right) \nonumber\\
-						  &=& g(xy) + \sum\limits_{\substack{d|xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\label{eq:dirichinverse-eq1}
-					\end{eqnarray}
-				The sum in equation \ref{eq:dirichinverse-eq1} includes terms of te form $f(d)g(xy/d)$, and since $d$ is larger than $1$, $xy/d$ is less than $xy=n$. Since $x \bot y$, there exist positive integers $d_1$ and $d_2$ such that $d=d_1d_2$, $d_1|x$, and $d_2|y$. As a result,
-					\begin{eqnarray*}
-						g(xy) &=& - \sum\limits_{\substack{d|xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\\
-							  &=& - \sum\limits_{\substack{d_1|x, d_2|y \\ d_1d_2>1}} f(d_1d_2) g\left(\frac{x}{d_1} \frac{y}{d_2}\right)\\
-							  &=& - \sum\limits_{\substack{d_1|x, d_2|y \\ d_1d_2>1}} f(d_1)f(d_2) g\left(\frac{x}{d_1}\right) g\left(\frac{y}{d_2}\right)\\
-							  &=& - \bigg[\sum\limits_{d_1|x, d_2|y} f(d_1)f(d_2) g\left(\frac{x}{d_1}\right) g\left(\frac{y}{d_2}\right)\bigg] + g(x)g(y)\\
-							  &=& - \bigg[\underbrace{\sum\limits_{d_1|x} f(d_1) g\left(\frac{x}{d_1}\right)}_{=(f \ast g)(x)} \underbrace{\sum\limits_{d_2|y} f(d_2) g\left(\frac{y}{d_2}\right)}_{=(f \ast g)(y)} \bigg] + g(x)g(y)\\
-							  &=& -\left[(f \ast g)(x)\right] \left[(f\ast g)(y)\right] + g(x)g(y)
-					\end{eqnarray*}
+					\begin{align}
+						0 & = \sum_{d\mid n} f(d) g\left(\frac{n}{d}\right)\nonumber\\
+						  & = \sum_{d\mid xy} f(d) g\left(\frac{xy}{d}\right) \nonumber\\
+						  & = g(xy) + \sum\limits_{\substack{d\mid xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\label{eq:dirichinverse-eq1}
+					\end{align}
+				The sum in equation \ref{eq:dirichinverse-eq1} includes terms of te form $f(d)g(xy/d)$, and since $d$ is larger than $1$, $xy/d$ is less than $xy=n$. Since $x \bot y$, there exist positive integers $d_1$ and $d_2$ such that $d=d_1d_2$, $d_1\mid x$, and $d_2\mid y$. As a result,
+					\begin{align*}
+						g(xy) &= - \sum\limits_{\substack{d\mid xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\\
+							  &= - \sum\limits_{\substack{d_1\mid x, d_2\mid y \\ d_1d_2>1}} f(d_1d_2) g\left(\frac{x}{d_1} \frac{y}{d_2}\right)\\
+							  &= - \sum\limits_{\substack{d_1\mid x, d_2\mid y \\ d_1d_2>1}} f(d_1)f(d_2) g\left(\frac{x}{d_1}\right) g\left(\frac{y}{d_2}\right)\\
+							  &= - \bigg[\sum\limits_{d_1\mid x, d_2\mid y} f(d_1)f(d_2) g\left(\frac{x}{d_1}\right) g\left(\frac{y}{d_2}\right)\bigg] + g(x)g(y)\\
+							  & = - \bigg[\underbrace{\sum\limits_{d_1\mid x} f(d_1) g\left(\frac{x}{d_1}\right)}_{=(f \ast g)(x)} \underbrace{\sum\limits_{d_2\mid y} f(d_2) g\left(\frac{y}{d_2}\right)}_{=(f \ast g)(y)} \bigg] + g(x)g(y)\\
+							  & = -\left[(f \ast g)(x)\right] \left[(f\ast g)(y)\right] + g(x)g(y)
+					\end{align*}
 				So, $g(xy)= -(f \ast g)(x) \cdot (f\ast g)(y) + g(x)g(y)$. Note that since $xy>1$, at least one of $x$ or $y$ is larger than $1$. Therefore, since $g$ is the Dirichlet inverse of $f$, at least one of $(f \ast g)(x)$ or $(f \ast g)(y)$ is equal to zero. Finally, $g(xy)=g(x)g(y)$ and we are done.
 
 				\item Let $f\ast g=h$. Multiply both sides by $f^{-1}$, the Dirichlet inverse of $f$, to get $g = h \ast f^{-1}$ (why?). Multiplicativity of $f$ implies the multiplicativity of $f^{-1}$ by part $2$. Now, from part $1$, since both $h$ and $f^{-1}$ are multiplicative, their product, $g$ must also be multiplicative.
@@ -897,8 +899,10 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 		\begin{theorem}[Inverse of Completely Multiplicative Functions]\label{thm:completelymultiplicative}
 			Let $f$ be a multiplicative function. Then $f$ is completely multiplicative if and only if
 				\begin{align*}
-					f^{-1}(n) = \mu(n) f(n) \quad \text{for all } n \geq 1
+					f^{-1}(n)
+						& = \mu(n) f(n)
 				\end{align*}
+			for all $n\in\mathbb{N}$.
 		\end{theorem}
 
 		\begin{note}
@@ -907,14 +911,14 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 
 		\begin{proof}
 			First, if $f$ is completely multiplicative, define $g(n) = \mu(n) f(n)$. Then, by definition of Dirichlet product,
-				\begin{eqnarray*}
-					(g \ast f)(n) &=& \sum_{d\mid n} g(d) f\left(\frac{n}{d}\right)\\
-								  &=& \sum_{d\mid n} \mu(d) f(d) f\left(\frac{n}{d}\right)\\
-								  &=& \sum_{d\mid n} \mu(d) f\left(d \cdot \frac{n}{d}\right) \quad \text{since } f \text{ is multiplicative}\\
-								  &=& f(n) \sum_{d\mid n} \mu(d)\\
-								  &=& f(n) \varepsilon(n) \quad \text{by \autoref{thm:mobiusinverse}}\\
-								  &=& \varepsilon(n)
-				\end{eqnarray*}
+				\begin{align*}
+					(g \ast f)(n) & = \sum_{d\mid n} g(d) f\left(\frac{n}{d}\right)\\
+								  & = \sum_{d\mid n} \mu(d) f(d) f\left(\frac{n}{d}\right)\\
+								  & = \sum_{d\mid n} \mu(d) f\left(d \cdot \frac{n}{d}\right)\\
+								  & = f(n) \sum_{d\mid n} \mu(d)\\
+								  & = f(n) \varepsilon(n)\\
+								  & = \varepsilon(n)
+				\end{align*}
 			The last equality holds because $f(1)=\varepsilon(1)=1$ (why?) and $\varepsilon(n)=0$ for all $n \geq 2$. This means that $g$ is the Dirichlet inverse of $f$.
 
 			For the converse, suppose that $f^{-1}(n) = \mu(n) f(n)$ and we want to prove that $f$ is completely multiplicative. It suffices to prove that $f(p^\alpha)=f(p)^\alpha$ for every prime $p$ and any positive integer $\alpha$ (why?). We will proceed by induction. The base case $\alpha =1$ is obvious. Suppose that we know $f(p^{\alpha-1})=f(p)^{\alpha-1}$ and we want to show that $f(p^\alpha)=f(p)^\alpha$. For any $n \geq 2$, $(f\ast f^{-1})(n)=\varepsilon(n)=0$. Therefore,
@@ -922,13 +926,13 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 					\sum_{d\mid n} \mu(d) f(d) f\left(\frac{n}{d}\right) &= 0
 				\end{align*}
 			Put $n=p^\alpha$ in the above equation to obtain
-				\begin{eqnarray*}
-					\sum_{d|p^\alpha} \mu(d) f(d) f\left(\frac{n}{d}\right)
-						&=& \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1}) + \cdots +\mu(p^\alpha) f(p^\alpha)f(1)\\
-						&=& \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1})\\
-						&=& f(p^\alpha) - f(p) f(p^{\alpha -1}) \\
-						&=& 0
-				\end{eqnarray*}
+				\begin{align*}
+					\sum_{d\mid p^\alpha} \mu(d) f(d) f\left(\frac{n}{d}\right)
+						& = \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1}) + \cdots +\mu(p^\alpha) f(p^\alpha)f(1)\\
+						& = \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1})\\
+						& = f(p^\alpha) - f(p) f(p^{\alpha -1}) \\
+						& = 0
+				\end{align*}
 			That is, $f(p^\alpha) = f(p) f(p^{\alpha -1})$. Using induction hypothesis, we immediately get the result.
 		\end{proof}
 
@@ -941,12 +945,12 @@ We provide two proofs for this theorem. The first one uses the concept of multip
 
 	\begin{proof}
 		Since $d$ is multiplicative, it suffices to find $\tau(n)$ only when $n$ is a power of a prime. Let $n=p^\alpha$ for some prime $p$ and a positive integer $\alpha$. There exist $\alpha+1$ divisors $1, p, p^2, \cdots, p^\alpha$ for $n$. Therefore, $d(p^\alpha)=\alpha + 1$. To prove the theorem in the general case, take $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ and write
-			\begin{eqnarray*}
-				d(n) &=& d(p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k})\\
-					 &=& d(p_1^{e_1}) d(p_2^{e_2})\cdots d(p_k^{e_k})\\
-					 &=& (e_1+1)(e_2+1)\cdots (e_k+1)\\
-					 &=& \prod_{i=1}^{k} (1+e_i)
-			\end{eqnarray*}
+			\begin{align*}
+				d(n) & = d(p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k})\\
+					 & = d(p_1^{e_1}) d(p_2^{e_2})\cdots d(p_k^{e_k})\\
+					 & = (e_1+1)(e_2+1)\cdots (e_k+1)\\
+					 & = \prod_{i=1}^{k} (1+e_i)
+			\end{align*}
 	\end{proof}
 
 	\begin{example}
@@ -1046,11 +1050,12 @@ From what we have already found,
 
 As you observe in the above example, it would be a tedious job to calculate $T(x)$ by summing up the $\tau$ values. There is another way to compute $T(x)$. Let $a$ be a fixed positive integer. The inequality $ab \leq x$ is equivalent to
 	\begin{align*}
-		b \leq \frac{x}{a}.
+		b \leq \frac{x}{a}
 	\end{align*}
 Since $b$ is a positive integer, it can take the values $1, 2, \cdots, \lfloor \frac{x}{a}\rfloor$. These are $\lfloor \frac{x}{a}\rfloor$ numbers. Since $a$ can take all the values $1, 2, \cdots, \lfloor x \rfloor$, we have
 	\begin{align*}
-		T(x) = \left\lfloor \frac{x}{1}\right\rfloor + \left\lfloor \frac{x}{2}\right\rfloor + \cdots + \left\lfloor \frac{x}{\lfloor x \rfloor}\right\rfloor
+		T(x)
+			& = \left\lfloor \frac{x}{1}\right\rfloor + \left\lfloor \frac{x}{2}\right\rfloor + \cdots + \left\lfloor \frac{x}{\lfloor x \rfloor}\right\rfloor
 	\end{align*}
 
 	\begin{example}
@@ -1065,7 +1070,8 @@ Since $b$ is a positive integer, it can take the values $1, 2, \cdots, \lfloor \
 
 The formula
 	\begin{align}
-		T(x) = \sum_{k=1}^{\lfloor x \rfloor} \left\lfloor \frac{x}{k} \right\rfloor \label{eq:T(x)-2}
+		T(x)
+			& = \sum_{k=1}^{\lfloor x \rfloor} \left\lfloor \frac{x}{k} \right\rfloor \label{eq:T(x)-2}
 	\end{align}
 is more convenient than \ref{eq:T(x)-1}. That is, we can find $T(x)$ using equation \ref{eq:T(x)-2} with less number of calculations. In fact, to compute $T(x)$ from \ref{eq:T(x)-1}, we need to calculate the number of divisors of $\lfloor x \rfloor$ numbers, which obviously needs more computations than $\lfloor x \rfloor$  computations needed in formula \ref{eq:T(x)-2}. However, this can be refined even more.
 
@@ -1095,20 +1101,19 @@ Obviously, since the product of $a$ and $b$ is less than or equal to $x$ and $a 
 	\end{align*}
 These are $\lfloor \frac{x}{b}\rfloor - \lfloor \sqrt x \rfloor$ numbers. So, since $b$ can take all values $1, 2, \cdots, \lfloor \sqrt x \rfloor$, we have
 	\begin{align}
-		T_2(x) &= \sum_{b=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{b}\right\rfloor - \lfloor \sqrt x \rfloor\right). \label{eq:T(x)-3}
+		T_2(x) &= \sum_{b=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{b}\right\rfloor - \lfloor \sqrt x \rfloor\right) \label{eq:T(x)-3}
 	\end{align}
 In order to add $T_1(x)$ and $T_2(x)$ to obtain $T(x)$, we have to make their summation parameter the same. We already know that changing the summation parameter does not change the value of the sum. Therefore, we can change $b$ to $a$ in equation \ref{eq:T(x)-3} and write $T_2(x)$ as
 	\begin{align*}
 		T_2(x) &= \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right)
 	\end{align*}
 We can now add up $T_1(x)$ and $T_2(x)$ and write
-	\begin{eqnarray*}
-		T(x) &=&  T_1(x) + T_2(x)\\
-			 &=& \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor + \left(\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right)\right)\\
-			 &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \lfloor\sqrt x\rfloor\\
-		     &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \left(\underbrace{\lfloor \sqrt x \rfloor + \lfloor \sqrt x \rfloor + \cdots +‌\lfloor \sqrt x \rfloor}_{\lfloor \sqrt x \rfloor \text{ times}}\right)\\
-		     &=& 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2
-	\end{eqnarray*}
+	\begin{align*}
+		T(x) & =  T_1(x) + T_2(x)\\
+			 & = \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor + \left(\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right)\right)\\
+			 & = 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \left(\underbrace{\lfloor \sqrt x \rfloor + \lfloor \sqrt x \rfloor + \cdots +‌\lfloor \sqrt x \rfloor}_{\lfloor \sqrt x \rfloor \text{ times}}\right)\\
+		     & = 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2
+	\end{align*}
 Finally, we have the formula
 	\begin{align}
 		T(x) &= 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2\label{eq:T(x)-4}
@@ -1119,7 +1124,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		We will calculate the number of positive integer solutions to $ab \leq 100.2$. Since $x=100.2$ is large in this case, the best way to calculate $T(x)$ is from formula \ref{eq:T(x)-4}. We find
 			\begin{align*}
 				T(100.2) &= 2\sum_{a=1}^{10} \left\lfloor\frac{100.2}{a}\right\rfloor - 100\\
-						 &= 2\big(100 + 50 + 33 + 25 + 20 + 16 + 14 + 12 + 11 + 10\big) - 100\\
+						 &= 2\left(100 + 50 + 33 + 25 + 20 + 16 + 14 + 12 + 11 + 10\right) - 100\\
 						 &= 482
 			\end{align*}
 	\end{example}
@@ -1127,7 +1132,8 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{theorem}[An Approximation for Average Value of $\tau(n)$]
 		Let $n$ be a positive integer. Prove that
 			\begin{align*}
-				\frac{\tau(1) + \tau(2) + \cdots + \tau(n)}{n} = \frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n} - e
+				\frac{\tau(1) + \tau(2) + \cdots + \tau(n)}{n}
+					& = \frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n} - e
 			\end{align*}
 		where $e$ is a number between zero and one.
 	\end{theorem}
@@ -1164,55 +1170,51 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 				\frac{\tau(1) + \tau(2) + \cdots + \tau(n)}{n} \sim \frac{1}{1} + \frac{1}{2} + \cdots + \frac{1}{n}
 			\end{align*}
 	\end{note}
-
-
 \subsection{More on \texorpdfstring{$\boldsymbol{\sigma}$}{\textsigma(n)} and its Generalization}
-
 	Let us prove that $\sigma$ is multiplicative.
-
 	\begin{proposition}\label{prop:multiplicative-sigma}
 		The sum-of-divisors function $\sigma$ is a multiplicative arithmetic function.
 	\end{proposition}
 
 	\begin{proof}
 		If you look more closely, you will observe that
-			\begin{eqnarray*}
-				\sigma(n) &=& \sum_{d\mid n} d\\
-						  &=& \sum_{d\mid n} d \cdot 1\left(\frac{n}{d}\right)\\
-						  &=& (\text{id} \ast 1)(n)
-			\end{eqnarray*}
+			\begin{align*}
+				\sigma(n) & = \sum_{d\mid n} d\\
+						  & = \sum_{d\mid n} d \cdot 1\left(\frac{n}{d}\right)\\
+						  & = (\text{id} \ast 1)(n)
+			\end{align*}
 		Now, since both $\text{id}$ and constant $1$ function are multiplicative, part $1$ of \autoref{thm:mft} implies that $\sigma$ is also multiplicative.
 	\end{proof}
 
-
 	\begin{problem} %http://artofproblemsolving.com/community/q1h547420p3171512
 		Prove that for two positive integers $a$ and $b$, if $a\mid b$, then
-		\begin{align*}
-			\frac{\sigma(a)}{a}\leq \frac{\sigma(b)}{b}
-		\end{align*}
+			\begin{align*}
+				\frac{\sigma(a)}{a}
+					& \leq \frac{\sigma(b)}{b}
+			\end{align*}
 	\end{problem}
 
 	\begin{solution}
-		Let $b=\prod\limits_{p|b}p^e$ be the prime factorization of $b$. Then, since $a|b$, the factorization of $a$ would be $a=\prod\limits_{p|b}p^f$ with $0\leq f\leq e$ for each prime $p$ dividing $b$. From \autoref{thm:sigmaformula},
-		\begin{align*}
-			\sigma(b)
-				& =\prod_{p\mid b}\dfrac{p^{e+1}-1}{p-1}\\
-			\sigma(a)
-				& =\prod_{p\mid b}\dfrac{p^{f+1}-1}{p-1}
-		\end{align*}
+		Let $b=\prod\limits_{p\mid b}p^e$ be the prime factorization of $b$. Then, since $a\mid b$, the factorization of $a$ would be $a=\prod\limits_{p\mid b}p^f$ with $0\leq f\leq e$ for each prime $p$ dividing $b$. From \autoref{thm:sigmaformula},
+			\begin{align*}
+				\sigma(b)
+					& =\prod_{p\mid b}\dfrac{p^{e+1}-1}{p-1}\\
+				\sigma(a)
+					& =\prod_{p\mid b}\dfrac{p^{f+1}-1}{p-1}
+			\end{align*}
 		Thus, we need to show that
-		\begin{align*}
-			\prod_{p\mid b}\dfrac{p^{f+1}-1}{p^f(p-1)}
-			\leq\prod_{p\mid b}\dfrac{p^{e+1}-1}{p^e(p-1)}
-		\end{align*}
+			\begin{align*}
+				\prod_{p\mid b}\dfrac{p^{f+1}-1}{p^f(p-1)}
+					& \leq\prod_{p\mid b}\dfrac{p^{e+1}-1}{p^e(p-1)}
+			\end{align*}
 		Now it suffices to prove that
-
 		\begin{align*}
 			\dfrac{p^{e+1}-1}{p^e(p-1)}
-				\geq\dfrac{p^{f+1}-1}{p^f(p-1)}\\
+				& \geq\dfrac{p^{f+1}-1}{p^f(p-1)}\\
 			\iff p^{e+f+1}(p-1)-p^f(p-1)
 				&\geq p^{e+f+1}(p-1)-p^e(p-1)\\
-			\iff p^e(p-1) &\geq p^f(p-1)
+			\iff p^e(p-1)
+				&\geq p^f(p-1)
 		\end{align*}
 		which is true since $e \geq f$.
 
@@ -1231,7 +1233,6 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 			\end{align*}
 	\end{proof}
 
-
 	\begin{theorem}
 		Let $k>1$ be a given positive integer. Show that the equation
 			\begin{align*}
@@ -1244,13 +1245,17 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		Suppose that $\sigma(n)=n+k$ holds for some positive integer $n$. Since $k>1$, $n$ must be composite (otherwise $\sigma(n)=n+1$). According to theorem \ref{prop:sigma(n)>n+sqrt(n)}, $\sigma(n) > n + \sqrt n$. As a result, we find $\sqrt n < k$ or $n < k^2$. Obviously, there are at most $k^2$ values $1,2,\cdots,k^2$ possible for $n$. This finishes the proof.
 	\end{proof}
 
-
 	\begin{theorem}
 		Let $k$ be an arbitrary positive integer. Show that there exists a positive integer $n_0$ such that for any $n>n_0$,
 			\begin{align*}
-			\frac{\sigma(n!)}{n!} > k
+				\frac{\sigma(n!)}{n!}
+					& > k
 			\end{align*}
-		In other words, prove that $\lim\limits_{n \to \infty} \frac{\sigma(n!)}{n!}= \infty$.
+		In other words, prove that
+			\begin{align*}
+				\lim\limits_{n \to \infty} \frac{\sigma(n!)}{n!}
+					& = \infty
+			\end{align*}
 	\end{theorem}
 
 	\begin{proof}
@@ -1285,9 +1290,9 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 
 	\begin{proof}
 		Let $n=p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}$ be the factorization of $n$ and suppose that $\sigma(n)$ is odd. We will prove that $n$ is either a perfect square or twice a perfect square. According to \autoref{thm:sigmaformula}, since $\sigma(n)$ is odd, all the terms in the product $\prod\limits_{i=1}^{k} \frac{p_i^{e_i+1}-1}{p-1}$ must be odd. That is,
-		\begin{align}
-			1+p_i+p_i^2+\cdots+p_i^{e_i} \label{eq:sigma-eq1}
-		\end{align}
+			\begin{align}
+				1+p_i+p_i^2+\cdots+p_i^{e_i} \label{eq:sigma-eq1}
+			\end{align}
 		must be odd for $i=1,2,\cdots,k$. There are two cases: if $p_i\neq 2$ for all $i$, then the number of terms in the expression \ref{eq:sigma-eq1} must be odd so that their sum is also odd (they are all odd). That is, $e_i$ must be even for $i=1,2,\cdots,k$. Hence, $n$ is a perfect square.
 
 		The other case is when some $p_i$, say $p_1$ is equal to $2$. The expression \ref{eq:sigma-eq1} is odd for $p_1=2$. Now, in order for expression \ref{eq:sigma-eq1} to be odd, all $e_i$ must be even for $2 \leq i \leq k$ (exactly like the previous case). Now, if the power of $2$ that divides $n$ is even, $n$ is of the form $k^2$ and if it is odd, $n$ is of the form $2k^2$.
@@ -1327,10 +1332,12 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{proof}
 		First, suppose that $p=2^k-1$ is a prime. We will prove that $n=2^{k-1}(2^k-1)$ is perfect. Notice that $\sigma(p)=p+1=2^k$ and since $\sigma$ is multiplicative,
 		\begin{align*}
-			\sigma(n) &= \sigma\left(2^{k-1}(2^k-1)\right) = \sigma(2^{k-1}) \sigma(p)\\
-					  &= \left(1+2+2^2+\cdots+2^{k-1}\right) \left(2^k\right)\\
-					  &= \left(2^k-1\right) 2^k\\
-					  &= 2n
+			\sigma(n)
+				&= \sigma\left(2^{k-1}(2^k-1)\right)\\
+				& = \sigma(2^{k-1}) \sigma(p)\\
+				&= \left(1+2+2^2+\cdots+2^{k-1}\right) \left(2^k\right)\\
+				&= \left(2^k-1\right) 2^k\\
+				&= 2n
 		\end{align*}
 		Now, suppose that $n$ is an even perfect number. We want to show that it is of the form $2^{k-1}(2^k-1)$. We will use the trick stated in \autoref{thm:factorizeintopowersoftwo}. One can write $n$ as $2^ks$ for a positive integer $k$ and an odd integer $s$. Again by multiplicativity of $\sigma$,
 		\begin{align*}
@@ -1343,7 +1350,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		\begin{align}
 			2^{k+1}s = \left(2^{k+1}-1\right) \sigma(s)\label{eq:perfect-eq1}
 		\end{align}
-		This means that $2^{k+1}-1$ divides $2^{k+1}s$, but since $(2^{k+1}, 2^{k+1}-1)= 1$, we have $2^{k+1}-1|s$. Consequently, there exists an integer $t$ such that $s = \left(2^{k+1}-1\right) t$.  Substituting this in equation \ref{eq:perfect-eq1}, one realizes that
+		This means that $2^{k+1}-1$ divides $2^{k+1}s$, but since $(2^{k+1}, 2^{k+1}-1)= 1$, we have $2^{k+1}-1\mid s$. Consequently, there exists an integer $t$ such that $s = \left(2^{k+1}-1\right) t$.  Substituting this in equation \ref{eq:perfect-eq1}, one realizes that
 		\begin{align*}
 			2^{k+1}t
 				& = \sigma(s)\\
@@ -1368,12 +1375,12 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 			\end{align*}
 		This means that $\alpha$ is odd. Take $\alpha= 2\beta+ 1$. Then we can factorize the right hand side as
 			\begin{align}
-				2^k &= (1+p)\Big(1 + p^2 + p^4 + \cdots + p^{2\beta}\Big) \label{eq:sigma-power-of-2}
+				2^k &= (1+p)\left(1 + p^2 + p^4 + \cdots + p^{2\beta}\right) \label{eq:sigma-power-of-2}
 			\end{align}
 		This leads us to the conclusion that $1+p$ is a power of $2$, which means $p$ is a Mersenne prime. Now suppose that $\alpha > 1$. From equation \ref{eq:sigma-power-of-2}, we observe that $\beta$ must be odd. Take $\beta = 2 \gamma + 1$ and write
 			\begin{align*}
 				2^t &= 1 + p^2 + p^4 + \cdots + p^{2\beta}\\
-					&= \left(1+p^2\right)\Big(1+p^4 + p^8 + \cdots + p^{4 \gamma}\Big)
+					&= \left(1+p^2\right)\left(1+p^4 + p^8 + \cdots + p^{4 \gamma}\right)
 			\end{align*}
 		for some natural $t$. This means that $1+p^2$ is a power of $2$. However, since $p$ is a Mersenne prime, there exists some $s$ for which $p=2^s - 1$. Therefore,
 			\begin{align*}
@@ -1394,7 +1401,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{solution}
 		Let $f(n)=\mu(n)\sigma(n)/n$. Sine all three functions $\mu, \sigma$, and $\text{id}$ are multiplicative, so is $f$. \autoref{thm:sumfunction} implies that the summatory function of $f$ is also multiplicative. Therefore, it suffices to prove the given inequality only when $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. Since $\mu(p^x)$ is zero for $x \geq 2$, $\mu(1)=1$, and $\mu(p)=-1$,
 			\begin{align*}
-				\left|\sum_{d|p^\alpha}\frac{\mu(d)\sigma(d)}{d}\right|
+				\left|\sum_{d\mid p^\alpha}\frac{\mu(d)\sigma(d)}{d}\right|
 						&= \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p} + \cdots + \frac{\mu(p^\alpha)\sigma(p^a)}{p^a}\right| \\
 						&= \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p}\right|\\
 						&= \left|\frac{1}{1} - \frac{p+1}{p}\right|\\
@@ -1403,11 +1410,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 			\end{align*}
 		The reader is supposed to draw the conclusion and finish the proof.
 	\end{solution}
-
-
-
 We can generalize the concept of number-of-divisors and sum-of-divisors functions to define \textit{divisor functions}.
-
 	\begin{definition}
 		Let $n$ be a positive integer and $\alpha \geq 0$ be an integer\footnote{More generally, one can assume that $\alpha$ is any non-negative real number.}. The sum of $\alpha^{th}$ powers of positive divisors of $n$ is denoted by $\sigma_\alpha(n)$. In other words,
 			\begin{align*}
@@ -1415,9 +1418,7 @@ We can generalize the concept of number-of-divisors and sum-of-divisors function
 			\end{align*}
 		The functions $\sigma_\alpha$ are called \textit{divisor functions}.
 	\end{definition}
-
 According to this definition, the number-of-divisors function $\tau$ is equal to $\sigma_0$ and the sum-of-divisors function $\sigma$ is equal to $\sigma_1$.
-
 	\begin{theorem}[Properties of Divisor Functions]
 		For every non-negative integer $\alpha$ and positive integer $n$,
 			\begin{enumerate}
@@ -1443,7 +1444,8 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 				\item Notice that
 					\begin{align*}
 						(1 \ast \text{id}^\alpha)(n)
-							&= ( \text{id}^\alpha\ast 1)(n) = \sum_{d\mid n} \text{id}^\alpha (d) \cdot 1\left(\frac{n}{d}\right)\\
+							&= ( \text{id}^\alpha\ast 1)(n)\\
+							& = \sum_{d\mid n} \text{id}^\alpha (d) \cdot 1\left(\frac{n}{d}\right)\\
 							&= \sum_{d\mid n} d^\alpha \\
 							&= \sigma_\alpha (n)
 					\end{align*}
@@ -1464,7 +1466,8 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 		\begin{theorem}  \label{thm:phi=n*sigma(mu/k)}
 			Let $n$ be a positive integer. Prove that
 			\begin{align*}
-			\varphi(n)= n\sum_{d\mid n} \frac{\mu(d)}{d}
+				\varphi(n)
+					& = n\sum_{d\mid n} \frac{\mu(d)}{d}
 			\end{align*}
 		\end{theorem}
 
@@ -1500,21 +1503,21 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 		\begin{theorem}
 			Let $n$ be a positive integer. Prove that
 %				\begin{flalign*}
-%					1. && \sum_{d\mid n}\mu(d)\varphi(d) &= \prod_{p|n} (2-p) &\\
-%					2. && \sum_{d\mid n}\mu(d)^2\varphi(d)^2 &= \prod_{p|n}(1+(p-1)^2) & \phantom{\iff}\\
-%					3. && \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)} &= \prod_{p|n}\left(1-\frac{1}{p-1}\right).
+%					1. && \sum_{d\mid n}\mu(d)\varphi(d) &= \prod_{p\mid n} (2-p) &\\
+%					2. && \sum_{d\mid n}\mu(d)^2\varphi(d)^2 &= \prod_{p\mid n}(1+(p-1)^2) & \phantom{\iff}\\
+%					3. && \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)} &= \prod_{p\mid n}\left(1-\frac{1}{p-1}\right).
 %				\end{flalign*}
 			\begin{enumerate}
-				\item $\displaystyle \sum_{d\mid n}\mu(d)\varphi(d) = \prod_{p|n} (2-p)$
-				\item $\displaystyle \sum_{d\mid n}\mu(d)^2\varphi(d)^2=\prod_{p|n}(1+(p-1)^2)$
-				\item $\displaystyle \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)} = \prod_{p|n}\left(1-\frac{1}{p-1}\right)$
+				\item $\displaystyle \sum_{d\mid n}\mu(d)\varphi(d) = \prod_{p\mid n} (2-p)$
+				\item $\displaystyle \sum_{d\mid n}\mu(d)^2\varphi(d)^2=\prod_{p\mid n}(1+(p-1)^2)$
+				\item $\displaystyle \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)} = \prod_{p\mid n}\left(1-\frac{1}{p-1}\right)$
 			\end{enumerate}
 		\end{theorem}
 
 		\begin{proof}
 			We will only prove $1$ here. The other two parts are similar. Let $f(n)=\mu(n)\varphi(n)$. Since $\mu$ and $\varphi$ are both multiplicative, their product $f$ is also multiplicative. By \autoref{thm:sumfunction}, the summatory function of $f$ is multiplicative as well. Therefore, it suffices to find the sum $F(n)=\sum\limits_{d\mid n}\mu(d)\varphi(d)$ only when $n$ is a power of a prime. Let $n=p^\alpha$. Then, since $\mu(p^\beta)=0$ for integer $\beta > 1$,
 				\begin{align*}
-				\sum\limits_{d|p^\alpha}\mu(d)\varphi(d)
+				\sum\limits_{d\mid p^\alpha}\mu(d)\varphi(d)
 					&= \mu(1)\varphi(1) + \mu(p) \varphi(p) + \cdots + \mu(p^\alpha) \varphi(p^\alpha)\\
 					&= \mu(1)\varphi(1) + \mu(p) \varphi(p) \\
 					&= 1 - (p-1)\\
@@ -1604,24 +1607,24 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 				\begin{align*}
 					f(n+1)-f(n) &= \frac{1}{2}\sum_{k=1}^{n+1} \mu(k) \left\lfloor \frac{n+1}{k} \right\rfloor^2 - \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2\\
 								&= \frac{1}{2}\sum_{k=1}^{n+1} \mu(k) \left(\left\lfloor \frac{n+1}{k} \right\rfloor^2 - \left\lfloor \frac{n}{k} \right\rfloor^2\right)\\
-								&= \frac{1}{2}\sum_{k|(n+1)}\mu(k) \left(2 \frac{n+1}{k}-1\right)\\
-								&= (n+1)\sum_{k|(n+1)} \frac{\mu(k)}{k} - \frac{1}{2} \sum_{k|(n+1)} \mu(k)
+								&= \frac{1}{2}\sum_{k\mid (n+1)}\mu(k) \left(2 \frac{n+1}{k}-1\right)\\
+								&= (n+1)\sum_{k\mid (n+1)} \frac{\mu(k)}{k} - \frac{1}{2} \sum_{k\mid (n+1)} \mu(k)
 				\end{align*}
 			By \autoref{thm:phi=n*sigma(mu/k)}, the first term in the last line of above equations equals $\varphi(n+1)$, and by \autoref{thm:mobiusinverse}, the second term is $\frac{1}{2} \varepsilon(n+1)$. Therefore,
 				\begin{align*}
 					f(n+1)-f(n) &= \varphi(n+1) - \frac{1}{2}\varepsilon(n+1)
 				\end{align*}
-			Now, by identity \autoref{id:sumofdif} in appendix \autoref{ch:null},
-				\begin{eqnarray*}
+			Now, from \gls{sumofdifference},
+				\begin{align*}
 					\frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2
 						& = f(n)\\
-						&=& f(1) + \sum_{k=1}^{n-1} \left(f(k+1)-f(k)\right)\\
-						&=& \frac{1}{2} + \sum_{k=1}^{n-1} \left(\varphi(k+1) - \frac{1}{2}\varepsilon(k+1)\right)\\
-						&=& \frac{1}{2} + \sum_{k=1}^{n-1} \varphi(k+1) - \frac{1}{2} \underbrace{\sum_{k=1}^{n-1} \varepsilon(k+1)}_{=0}\\
-						&=& \frac{1}{2} + \sum_{k=1}^{n-1} \varphi(k+1)\\
-						&=& \frac{1}{2} + \sum_{k=1}^{n} \varphi(k) - \varphi(1)\\
-						&=& \sum_{k=1}^{n} \varphi(k) - \frac{1}{2}
-				\end{eqnarray*}
+						& = f(1) + \sum_{k=1}^{n-1} \left(f(k+1)-f(k)\right)\\
+						& = \frac{1}{2} + \sum_{k=1}^{n-1} \left(\varphi(k+1) - \frac{1}{2}\varepsilon(k+1)\right)\\
+						& = \frac{1}{2} + \sum_{k=1}^{n-1} \varphi(k+1) - \frac{1}{2} \underbrace{\sum_{k=1}^{n-1} \varepsilon(k+1)}_{=0}\\
+						& = \frac{1}{2} + \sum_{k=1}^{n-1} \varphi(k+1)\\
+						& = \frac{1}{2} + \sum_{k=1}^{n} \varphi(k) - \varphi(1)\\
+						& = \sum_{k=1}^{n} \varphi(k) - \frac{1}{2}
+				\end{align*}
 			The proof is complete.
 		\end{proof}
 
@@ -1638,7 +1641,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 				\begin{align*}
 					f(n+1)-f(n) &= \sum_{k=1}^{n+1} \frac{\mu(k)}{k} \left\lfloor \frac{n+1}{k} \right\rfloor - \sum_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor\\
 								&= \sum_{k=1}^{n+1} \frac{\mu(k)}{k} \left(\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor\right)\\
-								&= \sum_{k|(n+1)} \frac{\mu(k)}{k}\\
+								&= \sum_{k\mid (n+1)} \frac{\mu(k)}{k}\\
 								&= \frac{\varphi(n+1)}{n+1}
 				\end{align*}
 			by \autoref{thm:phi=n*sigma(mu/k)}. Consequently,
@@ -1670,7 +1673,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 		\begin{theorem}[Properties of Jordan's Totient Function]
 			Let $n$ and $k$ be positive integers. Then,
 				\begin{enumerate}
-					\item $\displaystyle J_k(n) = n^k \prod\limits_{p|n} \left(1 - \frac{1}{p^k}\right)$
+					\item $\displaystyle J_k(n) = n^k \prod\limits_{p\mid n} \left(1 - \frac{1}{p^k}\right)$
 					\item $J_k$ is multiplicative
 					\item $\displaystyle \sum_{d\mid n} J_k(d) = n^k$
 					\item $J_k = \text{id}^k \ast \mu$
@@ -1696,7 +1699,7 @@ $ $
 				It is now obvious that $J_k(n)=n_m$, thus
 					\begin{align*}
 						J_k(n) &= n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\cdots \left(1 - \frac{1}{p_m^k}\right)\\
-							   &= n^k \prod\limits_{p|n} \left(1 - \frac{1}{p^k}\right)
+							   &= n^k \prod\limits_{p\mid n} \left(1 - \frac{1}{p^k}\right)
 					\end{align*}
 
 				\item Let $m$ and $n$ be co-prime positive integers. We will show that $J_k(mn)=J_k(m)J_k(n)$. Suppose that
@@ -1708,14 +1711,14 @@ $ $
 					\end{align*}
 				are the prime factorizations of  $m$ and $n$, respectively. Then, according to part $1$ of this theorem,
 					\begin{align*}
-						J_k(mn) &= (mn)^{k} \prod\limits_{p|mn} \left(1 - \frac{1}{p^k}\right)\\
-								&= \Bigg(m^k \prod\limits_{p|m} \left(1 - \frac{1}{p^k}\right)\Bigg) \Bigg(n^k \prod\limits_{p|n} \left(1 - \frac{1}{p^k}\right)\Bigg) \\
+						J_k(mn) &= (mn)^{k} \prod\limits_{p\mid mn} \left(1 - \frac{1}{p^k}\right)\\
+								&= \Bigg(m^k \prod\limits_{p\mid m} \left(1 - \frac{1}{p^k}\right)\Bigg) \Bigg(n^k \prod\limits_{p\mid n} \left(1 - \frac{1}{p^k}\right)\Bigg) \\
 								&= J_k(m)J_k(n)
 					\end{align*}
 
 				\item Since Jordan's totient function is multiplicative, it suffices to prove that
 					\begin{align*}
-						\sum\limits_{d|p^\alpha} J_k(d) = (p^{\alpha})^k
+						\sum\limits_{d\mid p^\alpha} J_k(d) = (p^{\alpha})^k
 					\end{align*}
 				where $p$ is a prime and $\alpha$ is a positive integer. According to part $2$ of this theorem, for any positive integer $i$,
 					\begin{align*}
@@ -1723,23 +1726,21 @@ $ $
 					\end{align*}
 				Therefore,
 					\begin{align*}
-						\sum_{d|p^\alpha} J_k(d) &= J_k(1) + J_k(p) + \cdots + J_k(p^\alpha)\\
+						\sum_{d\mid p^\alpha} J_k(d) &= J_k(1) + J_k(p) + \cdots + J_k(p^\alpha)\\
 											 &= 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)
 					\end{align*}
-				Now, from identity \autoref{id:sumofdif} in appendix,
+				Now, from \gls{sumofdifference},
 					\begin{align*}
-						\sum_{d|p^\alpha} J_k(d) &= 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)\\
+						\sum_{d\mid p^\alpha} J_k(d) &= 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)\\
 											 &= 1 + \left(p^{k \alpha}-1\right)\\
 											 &= (p^{\alpha})^k
 					\end{align*}
-
 				\item The equation $\displaystyle \sum_{d\mid n} J_k(d) = n^k$ can be represented as $1 \ast J_k = \text{id}^k$. Then, since the inverse of function $1$ is $\mu$ (\autoref{thm:mobiusinverse}),
 					\begin{align*}
 						J_k &= 1^{-1} \ast (1 \ast J_k)\\
 							&= 1^{-1} \ast \text{id}^k\\
 							&= \mu \ast \text{id}^k
 					\end{align*}
-
 				\item Let $n = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_m}$ be the prime factorization of $n$. One can write the formula in part $1$ of this theorem as
 					\begin{align*}
 						J_k(n) &= n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\cdots \left(1 - \frac{1}{p_m^k}\right)\\
@@ -1755,12 +1756,13 @@ $ $
 		\begin{lemma}\label{lem:phigcd}
 			Let $m$ and $n$ be positive integers such that $(m,n)=d$. Prove that
 				\begin{align*}
-					\varphi (mn) = \varphi (m) \varphi (n) \cdot \frac{d}{\varphi (d)}
+					\varphi (mn)
+						& = \varphi (m) \varphi (n) \cdot \frac{d}{\varphi (d)}
 				\end{align*}
 		\end{lemma}
 
 		\begin{proof}
-			Using part (d) of \autoref{thm:phiproperties-ch:arith}, we know that $\varphi(x) = x \prod\limits_{p|x} \left(1 - \frac{1}{p}\right)$, where $x$ is a positive integer and $p$ ranges over all prime divisors of $x$. So,
+			Using part (d) of \autoref{thm:phiproperties-ch:arith}, we know that $\varphi(x) = x \prod\limits_{p\mid x} \left(1 - \frac{1}{p}\right)$, where $x$ is a positive integer and $p$ ranges over all prime divisors of $x$. So,
 				\begin{align*}
 					\varphi(mn) &= mn \prod\limits_{p \mid mn} \left( 1 - \frac 1p \right)\\
 								&= mn \cdot\frac{\prod\limits_{p \mid m} \left( 1 - \frac 1p \right) \cdot \prod\limits_{p \mid n} \left( 1 - \frac 1p \right)}{\prod\limits_{p \mid d} \left( 1 - \frac 1p \right)}\\
@@ -1781,7 +1783,7 @@ $ $
 										   &= \dfrac{\frac{\varphi(k) \varphi(d) s}{\varphi(s)}}{\varphi(d)}\\
 										   &= s \dfrac{\varphi(k)}{\varphi(s)}
 				\end{align*}
-			Notice that if $(r+id , n)=1$ for some $i$, then $(r+id , k) = 1$. The reason is that if $(r+id , k) = g$, then $g | k$, which in turn means $g|n$. Now, $g$ divides $r+id$ and $n$ and hence it also divides their $\gcd$, which is $1$. So, $g=1$. On the other hand, if $(r+id, k)=1$ for some $i$, then $(r+id, n)=1$ since $r \perp d$.
+			Notice that if $(r+id , n)=1$ for some $i$, then $(r+id , k) = 1$. The reason is that if $(r+id , k) = g$, then $g \mid  k$, which in turn means $g\mid n$. Now, $g$ divides $r+id$ and $n$ and hence it also divides their $\gcd$, which is $1$. So, $g=1$. On the other hand, if $(r+id, k)=1$ for some $i$, then $(r+id, n)=1$ since $r \perp d$.
 
 			Therefore, the problem reduces to showing that the number of integers of the form $r+id$ ($1 \leq i \leq k$) which are co-prime to $k$ is $s \dfrac{\varphi(k)}{\varphi(s)}$.
 
@@ -1831,31 +1833,31 @@ $ $
 					& = \sum\limits_{d\mid n}\varphi(d)\sum\limits_{\substack{i=1\\(i,n)=1\\i\equiv 1\pmod d}}^n 1
 				\end{align*}
 			According to \autoref{thm:menon-lemma}, the second sum in the last line equals $\varphi(n)/\varphi(d)$. Therefore,
-				\begin{eqnarray*}
+				\begin{align*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)
-					& = & \sum\limits_{d\mid n}\varphi(d)\dfrac{\varphi(n)}{\varphi(d)}\\
-					& = & \sum\limits_{d\mid n}\varphi(n)
-				\end{eqnarray*}
+					& =  \sum\limits_{d\mid n}\varphi(d)\dfrac{\varphi(n)}{\varphi(d)}\\
+					& =  \sum\limits_{d\mid n}\varphi(n)
+				\end{align*}
 			Since $\varphi(n)$ is independent from $d$ in the last summation, we have
-				\begin{eqnarray*}
+				\begin{align*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)
-					& = & \varphi(n)\sum\limits_{d\mid n}1\\
-					& = & \tau(n)\varphi(n)
-				\end{eqnarray*}
+					& =  \varphi(n)\sum\limits_{d\mid n}1\\
+					& =  \tau(n)\varphi(n)
+				\end{align*}
 			which is what we wanted.
 		\end{proof}
 \section{Liouville Function}
 	Liouville function is of high interest in many sections of number theory. As a reminder, we are going to state the definitions of the functions $\omega(n)$, $\Omega(n)$, and $\lambda(n)$ once again.
 
-	\begin{definition}[\bfseries Big Omega Function]
+	\begin{definition}[Big Omega Function]
 		Let $n$ be a positive integer. The number of prime factors of $n$ (with multiplicity) is denoted by $\Omega(n)$.
 	\end{definition}
 
-	\begin{definition}[\bfseries Small Omega Function]
+	\begin{definition}[Small Omega Function]
 		Let $n$ be a positive integer. The number of distinct prime factors of $n$ is denoted by $\omega(n)$.
 	\end{definition}
 
-	\begin{definition}[\bfseries Liouville Function]
+	\begin{definition}[Liouville Function]
 		For a natural number $n$, the Liouville function $\lambda (n)$ is defined as
 		\begin{align*}
 			\lambda (n) =  (-1)^{\Omega(n)}
@@ -1873,8 +1875,6 @@ $ $
 		\begin{note}
 			$\omega(1) = \Omega(1)=0$, as $1$ does not have any prime factors.
 		\end{note}
-
-
 
 		\begin{proposition}
 			For a natural number $n$, $\Omega(n)=\omega(n)$ if and only if $n$ is square-free.
@@ -1904,7 +1904,7 @@ $ $
 			We want to prove that $\lambda\ast |\mu| = \varepsilon$. From \autoref{thm:mft}, since both $\lambda$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\lambda\ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\lambda\ast |\mu|)(p^\alpha)=0$. We have
 				\begin{align*}
 					(\lambda\ast |\mu|)(p^\alpha)
-						&= \sum_{d|p^\alpha} |\mu(d)| \lambda\left(\frac{p^\alpha}{d}\right)\\
+						&= \sum_{d\mid p^\alpha} |\mu(d)| \lambda\left(\frac{p^\alpha}{d}\right)\\
 						&= |\mu(1)|\lambda(p^{\alpha}) + |\mu(p)|\lambda(p^{\alpha -1}) + \cdots + |\mu(p^{\alpha})| \lambda(1)\\
 						&= |\mu(1)|\lambda(p^{\alpha-1}) + |\mu(p)|\lambda(p^{\alpha -2})\\
 						&= (-1)^{\alpha} + (-1)^{\alpha -1}\\
@@ -1913,7 +1913,6 @@ $ $
 			as desired.
 		\end{proof}
 	The following theorem is due to \textcite[Chapter $\S$IV, Section $11$, Page $196-197$]{sierpinski_schinzel_1988}.
-
 		\begin{theorem}\label{thm:liouville-sum-general}
 			Let $s$ be an arbitrary integer. Then, for all integers $n >1$ with prime factorization $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$,
 				\begin{align*}
@@ -1924,25 +1923,25 @@ $ $
 		\begin{proof}
 			Since both $\lambda(d)$ and $d^s$ are completely multiplicative functions, their product is a multiplicative function. We find from \autoref{thm:sumfunction} that $\sum\limits_{d\mid n} \lambda(d) d^s$ is also multiplicative. Therefore, it suffices to prove the theorem for the case when $n$ is a power of a prime. Take $n=p^\alpha$ for some prime $p$ and positive integer $\alpha$. Then,
 				\begin{align*}
-					\sum_{d|p^\alpha} \lambda(d) d^s &= \lambda(1) 1^s + \lambda(p) p^s + \lambda(p^2) \left(p^2\right)^s +\lambda(p^3) \left(p^3\right)^s+ \cdots + \lambda(p^\alpha) \left(p^\alpha \right)^s\\
+					\sum_{d\mid p^\alpha} \lambda(d) d^s &= \lambda(1) 1^s + \lambda(p) p^s + \lambda(p^2) \left(p^2\right)^s +\lambda(p^3) \left(p^3\right)^s+ \cdots + \lambda(p^\alpha) \left(p^\alpha \right)^s\\
 											 &= 1^s - p^s + p^{2s} - p^{3s} +\cdots + \left(-1\right)^{\alpha} p^{\alpha s}
 				\end{align*}
-			This is a geometric progression with initial term $1$ and common ratio $-p^s$. Therefore, by \autoref{thm:GP} which gives the formula for geometric series,
+			This is a geometric progression with initial term $1$ and common ratio $-p^s$. Therefore, by the formula for geometric series,
 				\begin{align*}
-					\sum_{d|p^\alpha} \lambda(d) d^s &= \sum_{i=0}^{\alpha} (-1)^{si}p^{si}\\
-											 &= \frac{\left(-p^s\right)^{\alpha + 1} -1}{-p^s -1}\\
-											 &= \frac{(-1)^\alpha p^{(\alpha + 1)s} + 1}{p^s + 1}
+					\sum_{d\mid p^\alpha} \lambda(d) d^s
+						& = \sum_{i=0}^{\alpha} (-1)^{si}p^{si}\\
+						& = \frac{\left(-p^s\right)^{\alpha + 1} -1}{-p^s -1}\\
+						& = \frac{(-1)^\alpha p^{(\alpha + 1)s} + 1}{p^s + 1}
 				\end{align*}
 			Applying this result to $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, using multiplicativity of the functions as discussed,
 				\begin{align*}
-					\sum_{d\mid n} \lambda(d) d^s  &= \prod_{i=1}^{k}\sum_{d|p_i^{\alpha_i}} \lambda(d) d^s \\
-										   &= \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1}
+					\sum_{d\mid n} \lambda(d) d^s
+						&= \prod_{i=1}^{k}\sum_{d\mid p_i^{\alpha_i}} \lambda(d) d^s\\
+						&= \frac{(-1)^{\alpha_i} p_i^{(\alpha_i+1)s} + 1}{p_i^s + 1}
 				\end{align*}
 			as desired.
 		\end{proof}
-
 	The previous theorem is pretty strong. The following theorem, which is an example case of the preceding theorem, is useful and important.
-
 		\begin{theorem} \label{thm:liouville-sum-function}
 			Let $\kappa$ be the summatory function of $\lambda$. That is, let $\kappa$ be an arithmetic function such that
 				\begin{align*}
@@ -1972,7 +1971,7 @@ $ $
 		\begin{theorem}
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
-					\lambda(n) = \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right)
+					\lambda(n) = \sum_{k^2\mid n}  \mu \left(\frac{n}{k^2}\right)
 				\end{align*}
 		\end{theorem}
 
@@ -1981,7 +1980,7 @@ $ $
 				\begin{align*}
 					\lambda(n) &= \sum_{d\mid n}\mu(d)\kappa\left(\frac nd\right)\\
 						  &= \sum_{d\mid n}\kappa(d)\mu\left(\frac nd\right)\\
-						  &= \sum_{k^2|n}  \mu \left(\frac{n}{k^2}\right)
+						  &= \sum_{k^2\mid n}  \mu \left(\frac{n}{k^2}\right)
 				\end{align*}
 			because $\kappa(d)$ is $1$ whenever $d$ is a perfect square (i.e., $d=k^2$ for some $k$), and zero otherwise.
 		\end{proof}
@@ -2028,14 +2027,16 @@ $ $
 	\begin{problem}
 		Prove for any positive integer $n$ that
 			\begin{align*}
-				\sum_{d\mid n} \frac{\mu(d)^2}{\varphi(d)} = \frac{n}{\varphi(n)}
+				\sum_{d\mid n} \frac{\mu(d)^2}{\varphi(d)}
+					& = \frac{n}{\varphi(n)}
 			\end{align*}
 	\end{problem}
 
 	\begin{problem}
 		Let $n$ be a positive integer. Show that
 			\begin{align*}
-				\sum_{d\mid n} d^2 \mu\left(\frac{n}{d}\right) = n \varphi(n) \prod_{p|n} \left(1+ \frac{1}{p}\right)
+				\sum_{d\mid n} d^2 \mu\left(\frac{n}{d}\right)
+					& = n \varphi(n) \prod_{p\mid n} \left(1+ \frac{1}{p}\right)
 			\end{align*}
 	\end{problem}
 
@@ -2109,7 +2110,7 @@ $ $
 		Show for any three positive integers $\alpha$, $m$, and $n$ that
 			\begin{align*}
 				\sigma_{\alpha} (m)\sigma_{\alpha} (n)
-					& = \sum_{d|(m,n)} d^2 \sigma_{\alpha} \left(\frac{mn}{d^2}\right)
+					& = \sum_{d\mid (m,n)} d^2 \sigma_{\alpha} \left(\frac{mn}{d^2}\right)
 			\end{align*}
 	\end{problem}
 	\begin{problem}%[From \textcite{ch:arithfunc-kahan}]

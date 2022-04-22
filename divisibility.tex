@@ -342,7 +342,7 @@ Let's see the mathematical idea behind the divisibility rule for $3$.
 				x & = 10^{k-1}x_{k-1} + 10^{k-2}x_{k-2} + \cdots + 10x_1 + x_0\\
 				&= (3 \cdot 3 + 1)^{k-1}x_{k-1} + (3 \cdot 3 + 1)^{k-2}x_{k-2} + \cdots + (3 \cdot 3 + 1)x_1 + x_0
 			\end{align*}
-		Try to show as an exercise that the remainder of division of $(3 \cdot 3 + 1)^{i}$ (for $1 \leq i \leq k-1$) is always equal to $1$ (hint: you might want to use theorem \autoref{thm:binomial-theorem} (binomial theorem)). In other words, there exist integers $q_i$ (for $1 \leq i \leq k-1$) such that $(3 \cdot 3 + 1)^{i} = 3q_i + 1$. Therefore,
+		Try to show as an exercise that the remainder of division of $(3 \cdot 3 + 1)^{i}$ (for $1 \leq i \leq k-1$) is always equal to $1$ (hint: you might want to use theorem \gls{binomial}). In other words, there exist integers $q_i$ (for $1 \leq i \leq k-1$) such that $(3 \cdot 3 + 1)^{i} = 3q_i + 1$. Therefore,
 			\begin{align*}
 				x &= (3 \cdot 3 + 1)^{k-1}x_{k-1} + (3 \cdot 3 + 1)^{k-2}x_{k-2} + \cdots + (3 \cdot 3 + 1)x_1 + x_0\\
 				&= (3q_{k-1}+1)x_{k-1} + (3q_{k-2}+1)x_{k-2} + \cdots  + (3q_{1}+1)x_{1} + x_{0}\\
@@ -1037,8 +1037,8 @@ We can generalize the above problem now. The number of integers between two natu
 		This means that $\lfloor x \rfloor +n$ is the largest integer less than or equal to $x+n$ and hence $\lfloor x+n\rfloor=\lfloor x\rfloor+n$.
 		\item Write $x<y$ as $\lfloor x \rfloor + \{x\} < \lfloor y \rfloor + \{y\}$ and then $\lfloor x \rfloor < \lfloor y \rfloor +\{y\}-\{x\}$. Now by parts $2$ and $3$,
 		\begin{align*}
-			\lfloor x \rfloor &\leq \bigg\lfloor\lfloor y \rfloor +\{y\}-\{x\}\bigg\rfloor\\
-			&= \lfloor y \rfloor + \bigg\lfloor\overbrace{\{y\}-\{x\}}^{<1}\bigg\rfloor\\
+			\lfloor x \rfloor &\leq \left\lfloor \lfloor y \rfloor +\{y\}-\{x\}\right\rfloor \\
+			&= \lfloor y \rfloor + \left\lfloor \overbrace{\{y\}-\{x\}}^{<1}\right\rfloor \\
 			&= \lfloor y \rfloor
 		\end{align*}
 		\item Let $	\lfloor x \rfloor=a, \lfloor y \rfloor=b, \{x\}=a_1$, and $\{y\}=b_1$. By $2$, $a_1, b_1 \geq 0$ and so
@@ -1137,7 +1137,7 @@ Now, we get to the other way of solving problem \ref{floorproblem}. First, we su
 
 The proofs are pretty much the same as those of floor function and we do not provide them here.
 
-\begin{problem}\label{thm:floor-k|n+1}
+\begin{theorem}\label{thm:floor-k|n+1}
 	For any two positive integers $n$ and $k$, the following equation holds
 	\begin{align*}
 		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor &=
@@ -1147,13 +1147,13 @@ The proofs are pretty much the same as those of floor function and we do not pro
 		\end{cases}\\
 		\left\lfloor \frac{n+1}{k} \right\rfloor^2 - \left\lfloor \frac{n}{k} \right\rfloor^2 &=
 		\begin{cases}
-			2\frac{n+1}{k}-1&\mbox{if }k|n+1\\
+			2\frac{n+1}{k}-1&\mbox{if }k\mid n+1\\
 			0&\mbox{otherwise}
 		\end{cases}
 	\end{align*}
-\end{problem}
+\end{theorem}
 
-\begin{solution}
+\begin{proof}
 	We will prove the first identity. The second one can be proved in a similar way. Let $n+1=kq+r$ for some positive integers $q$ and $r$ such that $0 \leq r <k$. Then,
 	\begin{align*}
 		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor
@@ -1168,23 +1168,23 @@ The proofs are pretty much the same as those of floor function and we do not pro
 		& = 1
 	\end{align*}
 	The proof is complete.
-\end{solution}
+\end{proof}
 
 \subsection{Fractions and Increasing Functions}
 \begin{theorem}
 	Let $x$ be a real number. Then for every positive integers $n$ and any integer $m$,
 	\begin{align*}
-		\bigg\lfloor \frac{x+n}{m}\bigg\rfloor
-		& = \bigg\lfloor \frac{\lfloor x \rfloor+n}{m}\bigg\rfloor\\
-		\bigg\lceil \frac{x+n}{m}\bigg\rceil
-		& = \bigg\lceil \frac{\lceil x \rceil+n}{m}\bigg\rceil
+		\left\lfloor  \frac{x+n}{m}\right\rfloor
+		& = \left\lfloor  \frac{\lfloor x \rfloor+n}{m}\right\rfloor \\
+		\left\lceil \frac{x+n}{m}\right\rceil
+		& = \left\lceil \frac{\lceil x \rceil+n}{m}\right\rceil
 	\end{align*}
 \end{theorem}
 
 \begin{proof}
 	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \ref{prop:floor},
 	\begin{align*}
-		\bigg\lfloor f(\lfloor x \rfloor)\bigg\rfloor  \leq \bigg\lfloor f(x) \bigg\rfloor.
+		\left\lfloor  f(\lfloor x \rfloor)\right\rfloor   \leq \left\lfloor  f(x) \right\rfloor .
 	\end{align*}
 	We will show that $\lfloor f(\lfloor x \rfloor)\rfloor  < \lfloor f(x) \rfloor$ does not happen. Suppose on the contrary that it does happen. Let $k =  \lfloor f(x) \rfloor$ and $y=km-n$. Then,
 	\begin{align*}
@@ -1199,9 +1199,10 @@ The proofs are pretty much the same as those of floor function and we do not pro
 \begin{corollary}
 	For any given real numbers $x, a_1, a_2, \ldots, a_n$, we have
 	\begin{align*}
-		\Bigg\lfloor \ldots \Big\lfloor \big\lfloor x/a_1 \big\rfloor/a_2 \Big\rfloor \ldots/a_n \Bigg\rfloor
-		&= \Bigg\lfloor \dfrac{x}{a_1a_2\ldots a_n}\Bigg\rfloor\\
-		\Bigg\lceil \ldots \Big\lceil \big\lceil x/a_1 \big\rceil/a_2 \Big\rceil \ldots/a_n \Bigg\rceil &= \Bigg\lceil \dfrac{x}{a_1a_2\ldots a_n}\Bigg\rceil
+		\left\lfloor  \ldots \left\lfloor  \left\lfloor  x/a_1 \right\rfloor /a_2 \right\rfloor  \ldots/a_n \right\rfloor
+			&= \left\lfloor  \dfrac{x}{a_1a_2\ldots a_n}\right\rfloor \\
+		\left\lceil \ldots \left\lceil \left\lceil x/a_1 \right\rceil /a_2 \right\rceil  \ldots/a_n \right\rceil
+			&= \left\lceil \dfrac{x}{a_1a_2\ldots a_n}\right\rceil
 	\end{align*}
 \end{corollary}
 
@@ -1209,18 +1210,18 @@ The above theorem can be generalized in this way:
 \begin{theorem}
 	Let $f$ be any continuous and strictly increasing function with the property that if $f(x)$ is an integer, then so is $x$. Then,
 	\begin{align*}
-		\bigg\lfloor f(\lfloor x \rfloor)\bigg\rfloor
-		& = \bigg\lfloor f(x) \bigg\rfloor\\
-		\bigg\lceil f(\lceil x \rceil)\bigg\rceil
-		& = \bigg\lceil f(x) \bigg\rceil
+		\left\lfloor  f(\lfloor x \rfloor)\right\rfloor
+			& = \left\lfloor  f(x) \right\rfloor \\
+		\left\lceil f(\lceil x \rceil)\right\rceil
+			& = \left\lceil f(x) \right\rceil
 	\end{align*}
 \end{theorem}
 
 \begin{problem}
 	Prove that for every positive real $x$, the following relations hold
 	\begin{align*}
-		\big\lfloor \sqrt {\lfloor x \rfloor} \big\rfloor &= \lfloor x \rfloor\\
-		\big\lceil \sqrt{ \lceil x \rceil} \big\rceil &= \lceil x \rceil
+		\left\lfloor  \sqrt {\lfloor x \rfloor} \right\rfloor  &= \lfloor x \rfloor\\
+		\left\lceil \sqrt{ \lceil x \rceil} \right\rceil  &= \lceil x \rceil
 	\end{align*}
 \end{problem}
 
@@ -1244,12 +1245,12 @@ The above theorem can be generalized in this way:
 	\end{proposition}
 
 	\begin{proof}
-		As stated in the above solution, suppose that $m$ is the unique integer for which $b^m < n <b^{m+1}$. Then, the number of digits of $n$ in base $b$ is $m+1$. That is, it suffices to prove that $m=\lfloor \log_b n\rfloor$. Since $b$ is larger than $1$, we know from proposition \eqref{prop:log_strict} that logarithm to base $b$ is a strictly increasing function. This means that we can take logarithm to base $b$ from $b^m < n <b^{m+1}$ and the direction of the inequalities will not change. In other words,
-		\begin{align*}
-		\log_b b^m
-			& < \log_b n\\
-			& < \log_b b^{m+1}
-		\end{align*}
+		As stated in the above solution, suppose that $m$ is the unique integer for which $b^m < n <b^{m+1}$. Then, the number of digits of $n$ in base $b$ is $m+1$. That is, it suffices to prove that $m=\lfloor \log_b n\rfloor$. Since $b$ is larger than $1$, we know that logarithm to base $b$ is a strictly increasing function. This means that we can take logarithm to base $b$ from $b^m < n <b^{m+1}$ and the direction of the inequalities will not change. In other words,
+			\begin{align*}
+				\log_b b^m
+					& < \log_b n\\
+					& < \log_b b^{m+1}
+			\end{align*}
 		which gives $m<\log_b n<m+1$. Since $m$ is an integer, by definition of floor function, $m=\lfloor \log_b n \rfloor$.
 	\end{proof}
 \subsection{Power of a Prime in a Number} \label{sec:powerofprimes}
@@ -1446,7 +1447,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 \end{problem}
 
 \begin{solution}
-	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4|n$, thus $	n \nmid\binom{2n}{n}$.
+	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4\mid n$, thus $	n \nmid\binom{2n}{n}$.
 
 	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_2\left(\binom{2n}{n}\right) \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \nmid\binom{2n}{n}$ for our choice of $n$.
 \end{solution}
@@ -1840,10 +1841,6 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 				\end{align*}
 		\end{definition}
 
-		\begin{note}
-			It can be proved combinatorially that there are $\binom{n}{k}$ ways to choose $k$ elements, disregarding their order, from a set of $n$ elements. Although we may use this combinatorial fact in some problems, we only deal with the number theoric definition of binomial coefficients in this book.
-		\end{note}
-
 		\begin{proposition}
 			The binomial coefficient is an integer.
 		\end{proposition}
@@ -1851,7 +1848,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{hint}
 			Use Problem \ref{prob:productdividesfactorial} in chapter \autoref{ch:solved}.
 		\end{hint}
-	You are probably familiar with the \textit{binomial theorem}. We state this theorem here because of its high importance but do not prove it. Interested reader may see a proof of binomial theorem along with several useful related identities in Appendix \autoref{ch:null}.
+	You are probably familiar with the \textit{binomial theorem}. We state this theorem here because of its high importance but do not prove it. Interested reader may see some related identities in \gls{binomial} and \gls{binomialidentities}.
 		\begin{theorem}[Binomial Theorem]
 			For any positive integer $n$,
 				\begin{align*}
@@ -1862,27 +1859,22 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{theorem}\label{thm:binpdiv}
 			Let $n$ be a positive integer. Then, $n$ is a prime if and only if $n$ divides $\binom{n}{k}$ for all $0<k<n$.
 		\end{theorem}% requires the only if part.
-
 	For now, we will be proving only the first part.
-
 		\begin{proof}
-			From identity number \autoref{id:binomreduction} of theorem \autoref{thm:binom} in Appendix \autoref{ch:null}, we know that
+			We already know that
 				\begin{align*}
 					k\binom{p}{k} & = p\binom{p-1}{k-1}
 				\end{align*}
 			Obviously, the right side is divisible by $p$, so must be the left side. From the definition of prime numbers, $p\bot k$. So, by the second part of the previous proposition, we can say $p$ must divide $\binom{p}{k}$.
 		\end{proof}
-
 \section{Solved Problems}
 	Well, now that we have a basic understanding of how divisibility relations work, it is the time to see how to apply those propositions to solve problems. Let us start with some really easy problems so that the reader has a firm idea about how to approach a problem. We will gradually discuss more difficult problems. Most importantly, we will not focus on how to use theorems to solve problems or implement them. We want to improve the intuitive ability of the reader instead.
-
 		\begin{problem}
 			Find all positive integers $n$ so that $n$ divides $n+3$.
 		\end{problem}
-
 	This can be solved in a variety of ways. Before we solve this, it would be pleasant to share some experience. This may not directly help readers understand how to solve the problem, but it may help them understand how different people think when they encounter a problem.
 
-	Masum was coaching a group of average students who barely had the idea of problem solving back in $2014$. After showing them some basic facts about divisibility, he threw this problem at them. Here is how they approached it: most of them started trial and error to find the solution. They were checking different values for $n$ to see if they satisfy the condition. Not all student could realize that this method will not work in general \textit{for all numbers} even if you find some initial solutions. One or two of the students went for the idea that if $n$ divides $n+3$, then $n+3$ is at least twice $n$. However, when increasing $n$, $2n$ becomes larger than $n+3$ after some $n$, and this leads to a solution. Another student solved the problem in the old fashioned way: by division process. That is, he divided $n+3$ by $n$ and found out that $n$ must divide $3$. Other than those few students, most of them got that $n=1$ and $n=3$ work but could not prove that these are the only solutions. In fact, that is the most difficult part of solving a number theory problem.
+	The first author was coaching a group of average students who barely had the idea of problem solving back in $2014$. After showing them some basic facts about divisibility, he threw this problem at them. Here is how they approached it: most of them started trial and error to find the solution. They were checking different values for $n$ to see if they satisfy the condition. Not all student could realize that this method will not work in general \textit{for all numbers} even if you find some initial solutions. One or two of the students went for the idea that if $n$ divides $n+3$, then $n+3$ is at least twice $n$. However, when increasing $n$, $2n$ becomes larger than $n+3$ after some $n$, and this leads to a solution. Another student solved the problem in the old fashioned way: by division process. That is, he divided $n+3$ by $n$ and found out that $n$ must divide $3$. Other than those few students, most of them got that $n=1$ and $n=3$ work but could not prove that these are the only solutions. In fact, that is the most difficult part of solving a number theory problem.
 
 	When you encounter a problem in mathematics, you probably come up with an assumption. For instance, in this problem, you may assume that the only solutions are $1$ and $3$. Most of the times our observations are true, but in many cases there are counter examples or some cases where our assumption fails. In our problem, if we just say the only solutions to the problem are $1$ and $3$ without proving it, we must tolerate comments such as ``How do you know there is not any large $n$ which is also a solution?'' That is why we have to prove everything we claim is true. Of course, if our claim is implied from a well-known theorem in mathematics, we can skip the proof and refer to the theorem. However, if the claim is totally new or relies on theorems which are not well known, we have to provide a proof. Obviously, the reader of your proof defines the famousness of the theorems you are allowed to use. There must be a huge difference in the way you solve a problem when you are explaining it to a math teacher or to a sixth grade student. By the way, when writing a solution to a problem at an olympiad test (or any other sophisticated exam), be careful not to consider every theorem obvious or well known. Whatever the problem is, try to prove every claim that you make.
 
@@ -2360,7 +2352,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}[ILL 1990, THA1]
 		Let $m$ be an odd positive integer not divisible by $3$. Prove that
 			\begin{align*}
-				\big\lfloor 4^m -(2+\sqrt 2)^m \big\rfloor
+				\left\lfloor  4^m -(2+\sqrt 2)^m \right\rfloor
 			\end{align*}
 		is divisible by $112.$ %196
 

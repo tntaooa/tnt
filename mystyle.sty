@@ -10,7 +10,8 @@
 }
 
 \RequirePackage{appendix}
-\RequirePackage{amsbsy, mathtools, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
+\RequirePackage{amsbsy, color, graphicx, fullpage, float, wasysym, titling, enumerate, fancyhdr, geometry, xlop, tikz, cancel, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
+%\RequirePackage{mathtools}
 \RequirePackage{xparse}
 \RequirePackage{titlesec}
 \usepackage{xifthen}
@@ -30,11 +31,9 @@
 					}%
 	}}}}%
 }
+\newcommand{\rad}{\mbox{rad}}
 
 \RequirePackage{csquotes}
-
-\renewcommand\appendixtocname{Glossary}
-\renewcommand\appendixpagename{Glossary}
 
 \providecommand{\HUGE}{\Huge}% if not using memoir
 \newlength{\drop}
@@ -79,7 +78,7 @@
 \titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
 
 %fixing margins
-\geometry{left=3cm,right=3cm,top=1.6cm,bottom=3cm,headheight=4pt,headsep=0.3in}
+\geometry{left=3cm,right=3cm,top=1.6cm,bottom=3cm,headheight=15pt,headsep=0.3in}
 
 \makeatletter
 \usepackage{etoolbox}
@@ -110,7 +109,7 @@
 \newtheorem{notation}[theorem]{\textbf{\textsc{Notation}}}
 \newtheorem{problem}[theorem]{\textbf{\textsc{Problem}}}
 \newtheorem{question}[theorem]{\textbf{\textsc{Question}}}
-\newtheorem*{acknowledgement}{\textbf{\textsc{Acknowledgment}}}
+\newtheorem*{acknowledgment}{\textbf{\textsc{Acknowledgment}}}
 \newtheorem*{remark}{\textbf{\textsc{Remark}}}
 \newtheorem*{note}{\textbf{\textsc{Note}}}
 \newtheorem*{solution}{\textit{{Solution}}}

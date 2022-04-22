@@ -25,9 +25,12 @@
 
 	You are probably familiar with this theorem. A simple proof uses Euclidean division, but it doesn't show you where exactly to use this identity. So, we prove a stronger theorem and the proof of B\'{e}zout's identity is immediately implied from it.
 
-	\begin{theorem} \label{thm:equationgcd}
+	\begin{theorem}\label{thm:equationgcd}
 		Let $a,b,m$ be integers such that $a, b$ are not zero at the same time. Then the equation
-		\begin{align*} ax + by = m\end{align*}
+		\begin{align*}
+			ax + by
+				& = m
+		\end{align*}
 		has solutions for $x$ and $y$ in positive integers if and only if $(a,b)\mid m$.
 	\end{theorem}
 
@@ -40,27 +43,41 @@
 		We know that $(a,b)\mid a$ and also $(a,b)\mid b$, thus $(a,b)\mid m$ and we are done.
 
 		Conversely, if $(a,b)=d$ and $m$ is divisible by $d$, then we want to prove that there exist some positive integers $x$ and $y$ for which $ax+by=m$. First, we show that it's sufficient to show that there exist $x$ and $y$ such that
-		\begin{align*} ax + by = d\end{align*}
+		\begin{align*}
+			ax + by
+				& = d
+		\end{align*}
 		The reason is simple: if there exist $x$ and $y$ such that $ax + by = d$, then
-		\begin{align*} a\left( x \frac{m}{d} \right)  + b \left( y \frac{m}{d} \right) = m\end{align*}
+		\begin{align*}
+			a\left( x \frac{m}{d} \right)  + b \left( y \frac{m}{d} \right)
+				& = m
+		\end{align*}
 		Assume that $A$ is the set of all positive integer linear combinations of $a$ and $b$. $A$ is non-empty because if $a \neq 0$, then
-		\begin{align*}	0<|a| = a\frac{|a|}{a} + b\cdot 0\end{align*}
+		\begin{align*}
+			0<|a| = a\frac{|a|}{a} + b\cdot 0
+		\end{align*}
 		and if $b \neq 0$, then
 		\begin{align*}	0<|b| =  a\cdot 0 + b \frac{|b|}{b}\end{align*}
 		Because of well-ordering principle\footnote{The well-ordering principle states that every non-empty set of positive integers contains a least element.}, $A$ contains a least element. Let this smallest element be $t$. So there exist integers $x_0$ and $y_0$ such that
-		\begin{align*} ax_0 + by_0 = t.\end{align*}
+			\begin{align*}
+				ax_0 + by_0
+					& = t
+			\end{align*}
 		We claim that $t\mid a$ and $t\mid b$. Using division theorem, divide $a$ by $t$:
-		\begin{align*}
-			a
-				& = tq+r
-		\end{align*}
+			\begin{align*}
+				a
+					& = tq+r
+			\end{align*}
 		and thus
-		\begin{align*}
-			a\underbrace{(1-qx_0)}_{=x_1}+b\underbrace{(-qy_0)}_{=y_1}
-				& =a-tq=r<t
-		\end{align*}
+			\begin{align*}
+				a\underbrace{(1-qx_0)}_{=x_1}+b\underbrace{(-qy_0)}_{=y_1}
+					& =a-tq=r<t
+			\end{align*}
 		If $r \neq 0$, then $r$ is a positive integer written in the form $ax_1+by_1$, which is a positive integer linear combination of $a$ and $b$, so $r \in A$. But $r<t$, which is in contradiction with minimality of $t$. Therefore $r=0$ and $t\mid a$. We can prove that $t\mid b$ in a similar way. By Proposition \ref{prop:dividegcd}, we find that $t\mid d$. Also, according to the first part of the proof, we have $d\mid t$. Following Proposition \ref{prop:bothdivide}, $t=d$. This means that $d \in A$ and there exist integers $x$ and $y$ such that
-		\begin{align*} ax + by = d\end{align*}
+		\begin{align*}
+			ax + by
+				& = d
+		\end{align*}
 	\end{proof}
 
 	B\'{e}zout's Identity has many interesting applications. We will see one such application in Chapter \ref{ch:special}, to prove \textit{Chicken McNugget Theorem}.
@@ -73,27 +90,31 @@
 
 	\begin{corollary}  \label{cor:bezoutrelatively prime}
 		If $a \perp b$ for non-zero integers $a$ and $b$, then there exist integers $x$ and $y$ such that
-		\begin{align*}
-		ax+by=1
-		\end{align*}
+			\begin{align*}
+				ax+by
+					& = 1
+			\end{align*}
 	\end{corollary}
 
 	\begin{theorem} [Generalization of B\'{e}zout's Identity]
 		If $a_1, a_2, \cdots, a_n$ are integers with $(a_1, a_2, \cdots, a_n)=d$, then the equation
-		\begin{align*}
-		a_1x_1 + a_2x_2 + \cdots + a_n x_n = m
-		\end{align*}
+			\begin{align*}
+				a_1x_1 + a_2x_2 + \cdots + a_n x_n = m
+			\end{align*}
 		has a solution $(x_1, x_2, \cdots, x_n)$ in integers if and only if $d\mid m$.
 	\end{theorem}
 
 	\begin{theorem}\label{thm:ax=b}
 		Let $m$ be a positive integer and let $a$ and $b$ be positive integers. Then the modular arithmetic equation
-		\begin{align*} ax \equiv b \pmod m\end{align*}
+		\begin{align*}
+			ax
+				& \equiv b \pmod m
+		\end{align*}
 		has a solution for $x$ in integers if and only if $(m,a)\mid b$.
 	\end{theorem}
 
 	\begin{proof}
-		Rewrite the congruence equation as $ax-my = b$ for some integer $y$. Now it is the same as \autoref{fig:equationgcd}. The equation $ax-by=m$ has solutions if and only if $(m,a)\mid b$, which is what we want.
+		Rewrite the congruence equation as $ax-my = b$ for some integer $y$. Now it is the same as \autoref{thm:equationgcd}. The equation $ax-by=m$ has solutions if and only if $(m,a)\mid b$, which is what we want.
 	\end{proof}
 
 	\begin{problem}
@@ -146,7 +167,8 @@
 	\begin{example}
 		An inverse for $3$ modulo $7$ is $5$:
 			\begin{align*}
-				3 \cdot 5 \equiv 1 \pmod 7
+				3 \cdot 5
+					& \equiv 1 \pmod 7
 			\end{align*}
 		We can easily generate other inverses of $3$ modulo $7$ by adding various multiples of $7$ to $5$. Thus, the numbers in the set $\{\cdots, -2, 5, 12, 19, \cdots \}$ are all inverses of $3$ modulo $7$.
 	\end{example}

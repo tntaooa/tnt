@@ -4,54 +4,29 @@
 \noappendicestocpagenum
 \addappheadtotoc
 \begin{appendix}\label{ch:appendices}
-	\chapter*{Identities and Well-Known Theorems}\label{ch:null}
 
-	We suppose that $a,b$ are real numbers in the following results\watermark.
+	\begin{identity}[]
 
-	\begin{identity}\label{id:diffsqr}
-		\begin{align*}
-			(a+b)^2+(a-b)^2 &= 2(a^2+b^2)\\
-			(a+b)^2-(a-b)^2 & = 4ab
-		\end{align*}
-	\end{identity}
-
-	\begin{identity}[Sophie Germain Identity]
-		\begin{align*}
-			a^4+4b^4=(a^2+2ab+2b^2)(a^2-2ab+2b^2)
-		\end{align*}
 	\end{identity}
 
 	\begin{identity}
 		\begin{align*}
-			(a+b)^3 - a^3 - b^3 &= 3ay(a+b)\\
-			(a+b)^5 - a^5 - b^5 &= 5ay(a+b)(a^2+ab+b^2)\\
-			(a+b)^7 - a^7 - b^7 &= 7ay(a+b)(a^2+ab+b^2)^2
+			(a+b)^3 - a^3 - b^3 &= 3ab(a+b)\\
+			(a+b)^5 - a^5 - b^5 &= 5ab(a+b)(a^2+ab+b^2)\\
+			(a+b)^7 - a^7 - b^7 &= 7ab(a+b)(a^2+ab+b^2)^2
 		\end{align*}
 	\end{identity}
 
-	\begin{identity}[Binomial Theorem]\label{thm:binomial-theorem}
-		For any positive integer $n$,
-		\begin{eqnarray*}
-			(a+b)^n & = & a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{1}ab^{n-1}+b^n\\
-			& = & \sum_{i=0}^{n}\binom{n}{i}a^{n-i}b^i\\
-			& = & \sum_{i=0}^{n}\binom{n}{i}a^ib^{n-i}
-		\end{eqnarray*}
+	\begin{identity}[]\label{thm:binomial-theorem}
+
 	\end{identity}
 
 	\begin{identity} \label{thm:binom}
-		For positive integers $n$ and $k$ such that $k \leq n$,
-		\begin{enumerate}
-			\item $\displaystyle\binom{n}{k}=\binom{n}{n-k}$,
-			\item $\displaystyle\binom{n}{k}=\binom{n-1}k+\binom{n-1}{k-1}$ (Pascal's recurrence),
-			\item $\displaystyle\binom{n}{k}=\dfrac{n}{k}\binom{n-1}{k-1}$ (absorption property), \label{id:binomreduction}
-			\item $\displaystyle\binom{n}{0}+\binom{n}{1}+\cdots+\binom{n}{n-1}+\binom{n}{n} = 2^n$,
-			\item $\displaystyle \binom{0}{k} + \binom{1}{k} + \cdots +\binom{n-1}{k} + \binom{n}{k} = \binom{n+1}{k+1}$,
-			\item $\displaystyle\binom{n}0^2+\binom{n}{1}^2+\cdots+\binom{n}{n-1}^2+\binom{n}{n}^2 = \binom{2n}{n}$. \label{id:binomsquaressum}
-		\end{enumerate}
+
 	\end{identity}
 
 	\begin{identity}
-		If $n$ and $k$ are coprime, then $n$ divides $\binom nk$ and $k$ divides $\binom{n-1}{k-1}$.
+
 	\end{identity}
 
 	\begin{identity}[Sum of Powers of Consecutive Integers]\label{id:sumofpowers}
@@ -64,69 +39,38 @@
 			\end{enumerate}
 	\end{identity}
 
-	\begin{identity}[Sum of Differences]\label{id:sumofdif}
-		Let $a_1, a_2, a_3, \cdots$ be an infinite sequence of numbers. Then, for any positive integer $n$,
-			\begin{align*}
-				a_n  = a_1 + \sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right)
-			\end{align*}
+	\begin{identity}[]\label{id:sumofdif}
+
 	\end{identity}
 
 	\begin{proof}
-		Expand the sum on the right side to obtain
-			\begin{align*}
-				\sum_{k=1}^{n-1} \left(a_{k+1} - a_{k}\right)
-					&=  \left(a_{n} - a_{n-1}\right) +  \left(a_{n-1} - a_{n-2}\right) + \cdots +  \left(a_{2} - a_{1}\right)\\
-					&= a_n - a_1
-			\end{align*}
-		The conclusion follows.
+
 	\end{proof}
 
 
-	\begin{identity}[Fibonacci-Brahmagupta Identity]\label{id:fibbr}
-		For any reals $a,b,c,d$, and any integer $n$,
-		\begin{align*}
-			(a^2+nb^2)(c^2+nd^2)&=(ac-nbd)^2+n(ad+bc)^2\\
-			&=(ac+nbd)^2+n(ad-bc)^2
-		\end{align*}
-		In other words, the product of two numbers of the form $a^2+nb^2$ is of the same form. Particularly, for $n=1$,
-		\begin{align*}
-			(a^2+b^2)(c^2+d^2)&=(ac+bd)^2+(ad-bc)^2\\
-			&=(ad+bc)^2+(ac-bd)^2
-		\end{align*}
+	\begin{identity}[y]\label{id:fibbr}
+
 	\end{identity}
 
-	The following identity is a generalization of Fibonacci-Brahmagupta Identity. \textit{Lagrange} used this identity to prove the \textit{Sum of Four Squares Theorem}.
 
-	\begin{identity}[Euler's Four Square Identity]\label{id:foursqr}
-		Let $a_1,a_2,\ldots,a_4$ and $b_1,b_2,\ldots,b_4$ be reals. Then,
-		\begin{align*}
-			(a_1^2+a_2^2+a_3^2+a_4^2)(b_1^2+b_2^2+b_3^2+b_4^2)
-				& =(a_1 b_1 + a_2 b_2 + a_3 b_3 + a_4 b_4)^2 +(a_1 b_2 - a_2 b_1 + a_3 b_4 - a_4 b_3)^2\\
-				& +(a_1 b_3 - a_2 b_4 - a_3 b_1 + a_4 b_2)^2 +(a_1 b_4 + a_2 b_3 - a_3 b_2 - a_4 b_1)^2
-		\end{align*}
-	\end{identity}
-	An interested reader can see \textit{Degen's eight-square identity} or \textit{Pfister's sixteen-square identity}, but they do not look pretty at all so we do not include them here.
 
-	\begin{identity}[Lebesgue Identity]\label{id:lebesgue}
-		\begin{align*}
-			(a^2+b^2-c^2-d^2)^2 + (2ac+2bd)^2 + (2ad-2bc)^2 & = (a^2+b^2+c^2+d^2)^2
-		\end{align*}
+	\begin{identity}[]\label{id:foursqr}
+
 	\end{identity}
 
-	\begin{identity}[Euler-Aida Ammei Identity]\label{id:euleraida}
-		Let $x_1,x_2,\cdots,x_n$ be reals. Then,
-		\begin{align*}
-			(x_1^2-x_2^2-\cdots-x_n)^2 + \sum_{i=2}^{n}(2x_1x_i)^2 & = (x_1^2+x_2^2+\cdots+x_n^2)^2
-		\end{align*}
+
+	\begin{identity}[]\label{id:lebesgue}
+
 	\end{identity}
 
-	\begin{identity}[Bhaskara's Lemma]
-		Let $m,x,y,n$ and $k$ be integers such that $k \neq 0$. If $y^2-nx^2=k$, then
-		\begin{align*}
-			\left( \dfrac{mx+ny}{k}\right) ^2-n\left( \dfrac{mx+y}{k}\right)^2= \dfrac{m^2-n}{k}
-		\end{align*}
+	\begin{identity}[]\label{id:euleraida}
+
 	\end{identity}
-	This identity is used in {\it Chakravala method} to find the solutions to {\it Pell-Fermat equation}.
+
+	\begin{identity}[]
+
+	\end{identity}
+
 \end{appendix}
 
 \end{document}

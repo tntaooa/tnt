@@ -2,9 +2,9 @@
 
 %SALAAM
 \begin{document}
-\textit{Lifting The Exponent Lemma} is a powerful method for solving exponential Diophantine equations. It is pretty well-known in the literature though its origins are hard to trace. Mathematically, it is a close relative of \textit{Hensel's lemma} in number theory (in both the statement and the idea of the proof). This is a technique that has been used a lot in recent olympiad problems.
+\textit{Lifting The Exponent Lemma} is a powerful method for solving exponential Diophantine equations. It is pretty well-known in the literature though its origins are hard to trace. Mathematically, it is a close relative of \textit{Hensel's lemma} in number theory (in both the statement and the idea of the proof). This is a technique that has been used a lot in recent Olympiad problems.
 
-One can use the Lifting The Exponent Lemma (this is a long name, let's call it \textbf{LTE}!) in problems involving exponential equations, especially when there are some prime numbers (and actually in some cases overkills the problems). This lemma shows how to find the greatest power of a prime $p$ -- which is often $\geq 3$ -- that divides $a^n \pm b^n$ for some positive integers $a$ and $b$. The advantage of this lemma is that, it is quite simple to understand and if in some contest, it is refrained from being used, the proof is not hard as well.
+One can use the Lifting The Exponent Lemma (this is a long name, let's call it \textbf{LTE}!) in problems involving exponential equations, especially when there are some prime numbers (and is actually an overkill for many problems). This lemma shows how to find the greatest power of a prime $p$ -- which is often $\geq 3$ -- that divides $a^n \pm b^n$ for some positive integers $a$ and $b$. The advantage of this lemma is that, it is quite simple to understand and if in some contest, it is refrained from being used, the proof is not hard as well.
 
 
 In section \eqref{sec:powerofprimes} of chapter \eqref{ch:arithfunc}, we defined $v_p(n)$. Recall that $v_p(n)$ is the highest power of a prime $p$ which divides a positive integer $n$. Here, we will make use of this function to solve Diophantine equations.
@@ -37,16 +37,17 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{lemma}\label{lem:lte-firstlemma}
          Let $x$ and $y$ be (not necessarily positive) integers and let $n$ be a positive integer. Given an arbitrary prime $p$ (in particular, we can have $p=2$) such that $ \gcd(n,p) = 1$, $p \mid  x - y$ and neither $x$, nor $y$ is divisible by $p$ (i.e., $p \nmid x$ and $p \nmid y$).  We have
            \begin{align*}
-	            v_p\big(  x^n - y^n \big) = v_p(  x - y )
+	            v_p\left(  x^n - y^n \right)
+	            	& = v_p(  x - y )
            \end{align*}
     \end{lemma}
 
     \begin{proof}
         We use the fact that
-
-        \begin{align*}
-        x^n - y^n = (x - y)\big(x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}\big)
-        \end{align*}
+	        \begin{align*}
+	      	  x^n - y^n
+	      	  	& = (x - y)\left(x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}\right)
+	        \end{align*}
         Now if we show that $p \nmid x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}$, then we are done.
         In order to show this, we use the assumption $p \mid x-y.$  So we have $x-y \equiv 0 \pmod p,$
         or $x \equiv y \pmod p.$  Thus
@@ -63,16 +64,16 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{lemma}\label{secondlemma}
         Let $ x$ and $y$ be (not necessarily positive) integers and let $n$ be an odd positive integer. Given an arbitrary prime $p$ (in particular, we can have $p=2$) such that $ \gcd(n,p) = 1$, $p\mid x + y$ and neither $x$, nor $y$ is divisible by $p$, we have
         \begin{align*}
-	        v_p\big(  x^n + y^n \big) = v_p ( x + y )
+	        v_p\left(  x^n + y^n \right) = v_p ( x + y )
         \end{align*}
     \end{lemma}
 
     \begin{proof}
         Since $x$ and $y$ can be negative in lemma \eqref{lem:lte-firstlemma} we only need to put $(-y)^n$ instead of $y^n$ in the formula to obtain
 	         \begin{align*}
-		         v_p\big( x^n - (-y)^n \big)
+		         v_p\left( x^n - (-y)^n \right)
 		         	& = v_p ( x - (-y))\\
-		         \implies v_p\big(x^n + y^n\big)
+		         \implies v_p\left(x^n + y^n\right)
 		         	& = v_p(x+y)
 	         \end{align*}
         Note that since $n$ is an odd positive integer we can replace $(-y)^n$ with $-y^n$.
@@ -119,8 +120,8 @@ Here is a problem which will explain the main idea behind LTE.
         Using this fact, we have
             \begin{align*}
                 x^{p-1}& +x^{p-2}y+\cdots+xy^{p-2}+y^{p-1} \\
-                & \equiv x^{p-1}+\big(x^{p-1}+kpx^{p-2}\big)+\big(x^{p-1}+2kpx^{p-2}\big)+\cdots+\big(x^{p-1} +(p-1)kpx^{p-2}\big) \\
-                & \equiv px^{p-1} + \big(1+2+\cdots+p-1\big)kpx^{p-2} \\
+                & \equiv x^{p-1}+\left(x^{p-1}+kpx^{p-2}\right)+\left(x^{p-1}+2kpx^{p-2}\right)+\cdots+\left(x^{p-1} +(p-1)kpx^{p-2}\right) \\
+                & \equiv px^{p-1} + \left(1+2+\cdots+p-1\right)kpx^{p-2} \\
                 & \equiv px^{p-1} + \left( \frac{p(p-1)}{2} \right) kpx^{p-2} \\
                 & \equiv px^{p-1} + \left( \frac{p-1}{2} \right) kp^2x^{p-1} \\
                 & \equiv px^{p-1}\\
@@ -128,17 +129,17 @@ Here is a problem which will explain the main idea behind LTE.
             \end{align*}
         So we proved the relation \eqref{equation3} and the proof of equation \eqref{equation1} is complete.  Now let us return to our problem. We want to show that
             \begin{align*}
-            	v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n )
+            	v_p\left(  x^n - y^n \right) = v_p(  x - y ) + v_p(  n )
             \end{align*}
         Suppose that $n=p^{\alpha}b$ where $\gcd(p,b)=1.$ Then
             \begin{align*}
-                v_p(x^n-y^n) & =  v_p\big((x^{p^{\alpha}})^b - (y^{p^{\alpha}})^b \big)  \\
-                & =   v_p\big(  x^{p^{\alpha}} -y^{p^{\alpha}}\big) =v_p\big(  (x^{p^{\alpha-1}})^p - (y^{p^{\alpha-1}})^p \big) \\
-                & = v_p\big(  x^{p^{\alpha-1}} - y^{p^{\alpha-1}} \big) + 1 =v_p\big(  (x^{p^{\alpha-2}})^p - (y^{p^{\alpha-2}})^p\big) +1  \\
-                & = v_p\big(  x^{p^{\alpha-2}} - y^{p^{\alpha-2}} \big) + 2 \\
+                v_p(x^n-y^n) & =  v_p\left((x^{p^{\alpha}})^b - (y^{p^{\alpha}})^b \right)  \\
+                & =   v_p\left(  x^{p^{\alpha}} -y^{p^{\alpha}}\right) =v_p\left(  (x^{p^{\alpha-1}})^p - (y^{p^{\alpha-1}})^p \right) \\
+                & = v_p\left(  x^{p^{\alpha-1}} - y^{p^{\alpha-1}} \right) + 1 =v_p\left(  (x^{p^{\alpha-2}})^p - (y^{p^{\alpha-2}})^p\right) +1  \\
+                & = v_p\left(  x^{p^{\alpha-2}} - y^{p^{\alpha-2}} \right) + 2 \\
                 & \phantom{=} \vdots \\
-                & = v_p\big(  (x^{p^{1}})^1 - (y^{p^{1}})^1  \big) + \alpha -1  = v_p\big(  x-y \big) + \alpha \\
-                & =v_p\big(  x-y \big) + v_p\big(  n \big)
+                & = v_p\left(  (x^{p^{1}})^1 - (y^{p^{1}})^1  \right) + \alpha -1  = v_p\left(  x-y \right) + \alpha \\
+                & =v_p\left(  x-y \right) + v_p\left(  n \right)
             \end{align*}
 
         Note that we used the fact that if $p \mid x-y,$ then we have $p \mid x^k -y^k,$ because we have $x-y \mid x^k-y^k$ for all positive integers $k.$ The proof is complete.
@@ -179,7 +180,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{theorem}[LTE for $p = 2$]
         Let $x$ and $y$ be two odd integers such that $4 \mid x-y.$ Then
          \begin{align*}
-         	v_2  \big(x^n - y^n \big) = v_2  (x-y ) + v_2  (n )
+         	v_2  \left(x^n - y^n \right) = v_2  (x-y ) + v_2  (n )
          \end{align*}
     \end{theorem}
 
@@ -198,7 +199,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{theorem}
         Let $x$ and $y$ be two odd integers and let $n$ be an even positive integer. Then
         \begin{align*}
-        v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1
+        v_2\left(  x^n - y^n \right) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1
         \end{align*}
     \end{theorem}
 
@@ -206,10 +207,10 @@ Here is a problem which will explain the main idea behind LTE.
         We know that the square of an odd integer is of the form $4k+1.$ So for odd $x$ and $y$ we have $4 \mid x^2-y^2.$ Now let $m$ be an odd integer and $k$ be a positive integer such that $n=m \cdot 2^k.$ Then
 
             \begin{align*}
-                v_2 \big( x^{n} - y^{n} \big)  & = v_2\big( x^{m \cdot 2^{k}} - y^{m \cdot 2^{k}} \big)   \\
-                & = v_2\big((x^2)^{2^{k-1}}-(y^2)^{2^{k-1}}\big) \\
+                v_2 \left( x^{n} - y^{n} \right)  & = v_2\left( x^{m \cdot 2^{k}} - y^{m \cdot 2^{k}} \right)   \\
+                & = v_2\left((x^2)^{2^{k-1}}-(y^2)^{2^{k-1}}\right) \\
                 & \phantom{=} \vdots \\
-                & =  v_2 \big( x^{2} - y^{2} \big) + k-1  \\
+                & =  v_2 \left( x^{2} - y^{2} \right) + k-1  \\
                 & = v_2 ( x - y )+v_2 ( x + y )+v_2 ( n )-1
             \end{align*}
     \end{proof}
@@ -223,32 +224,32 @@ Here is a problem which will explain the main idea behind LTE.
             \begin{itemize}
                 \item if $p \neq 2$ and $p \mid x-y,$ then
                  \begin{align*}
-                 v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n )
+                 v_p\left(  x^n - y^n \right) = v_p(  x - y ) + v_p(  n )
                  \end{align*}
 
                 \item if $p=2$ and $4 \mid x-y,$ then
                 \begin{align*}
-                 v_2\big(  x^n - y^n \big) = v_2(  x-y ) + v_2(  n )
+                 v_2\left(  x^n - y^n \right) = v_2(  x-y ) + v_2(  n )
                 \end{align*}
 
                 \item if $p=2$, $n$ is even, and $2\mid x-y,$ then
                 \begin{align*}
-                v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1
+                v_2\left(  x^n - y^n \right) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1
                 \end{align*}
             \end{itemize}
 
         \item For an odd positive integer $n,$ if $p \mid x+y,$ then
 	            \begin{align*}
-                 v_p\big(  x^n + y^n \big) = v_p(  x + y ) + v_p(  n )
+                 v_p\left(  x^n + y^n \right) = v_p(  x + y ) + v_p(  n )
                  \end{align*}
 
         \item For a positive integer $n$ with $\gcd(p,n)=1,$ if $p\mid x-y$, we have
          \begin{align*}
-         v_p\big(  x^n - y^n \big) = v_p(  x - y )
+         v_p\left(  x^n - y^n \right) = v_p(  x - y )
          \end{align*}
         \par If $n$ is odd, $\gcd(p,n)=1,$ and $p\mid x+y$, then we have
 		\begin{align*}
-		v_p\big(  x^n + y^n \big) = v_p(  x + y )
+		v_p\left(  x^n + y^n \right) = v_p(  x + y )
 		\end{align*}
 
     \end{enumerate}
