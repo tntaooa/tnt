@@ -4,6 +4,7 @@
 \usepackage{mystyle}
 \usepackage{subfiles}
 \usepackage{bookmark,rotating}
+%\usepackage{relsize}
 
 \usepackage[style=philosophy-verbose,backend=biber,sortcites=true,classical=true,volnumformat=strings,volumeformat=romansc,]{biblatex}
 \interfootnotelinepenalty=10000
@@ -14,8 +15,8 @@
 \usepackage[no-math]{fontspec}
 \usepackage{unicode-math}
 \else
-\usepackage[LGR,T2A,LY1]{fontenc}
-\usepackage{OldStandard}
+%\usepackage[LGR,T2A,LY1]{fontenc}
+%\usepackage{OldStandard}
 \usepackage{pdfrender, xcolor}
 \fi
 
@@ -98,9 +99,13 @@
 
 \defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \else
-\usepackage{pdfrender}
-\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
-\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\renewcommand*\rmdefault{cmdh}
+\usepackage[T1]{fontenc}
+%\usepackage{pdfrender}
+%\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
+%\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
 \fi
 
 \usepackage{etoolbox}
@@ -145,6 +150,7 @@
 \begin{tikzpicture}[remember picture,overlay]
 	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\pdfpagewidth,height=\pdfpageheight]{TNT_Cover/FrontCover.jpg}};
 \end{tikzpicture}
+%\relsize{1.1}
 \maketitle
 \pagestyle{empty}
 \frontmatter

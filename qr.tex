@@ -178,14 +178,14 @@
 		So either $a^{\frac{p-1}{2}} \equiv 1$ or $a^{\frac{p-1}{2}} \equiv -1 \pmod p$.
 		Assume that $a$ is a quadratic residue modulo $p$. That is, $ \left(\frac{a}{p}\right)=1$. We should prove that $a^{\frac{p-1}{2}} \equiv 1$. Since $a$ is a residue, there exists some integer $x$ for which $a \equiv x^2 \pmod p$. So, from Fermat's theorem,
 		\begin{align*}
-			a^{\frac{p-1}{2}} \equiv x^{p-1} \equiv 1 \pmod p.
+			a^{\frac{p-1}{2}} \equiv x^{p-1} \equiv 1 \pmod p
 		\end{align*}
 		Now assume the case where $a$ is a quadratic non-residue modulo $p$. Then we should prove that $a^{\frac{p-1}{2}} \equiv -1$. We will use an interesting approach here. Let $b \in \{1,2,\ldots,p-1\}$. Since $(b,p)=1$, the congruence equation $bx \equiv a$ has a unique solution $x \equiv a \cdot b^{-1} \pmod p$. Also, $x \not \equiv b \pmod p$ because otherwise $b^2 \equiv a \pmod p$ which is in contradiction with $a$ being a non-residue. This means that the set $\{1,2,\ldots,p-1\}$ can be divided into $\displaystyle \frac{p-1}{2}$ pairs $(b,x)$ such that $bx \equiv a \pmod p$. So
 		\begin{align*}
 			(p-1)!
 				& = 1 \times 2 \times \cdots \times (p-1)\\
 				& \equiv \underbrace{a \times a \times \cdots \times a}_{\frac{p-1}{2}\text{ times}}\\
-				& \equiv a^{\frac{p-1}{2}} \pmod p.
+				& \equiv a^{\frac{p-1}{2}} \pmod p
 		\end{align*}
 		By Wilson's theorem, $(p-1)! \equiv -1 \pmod p$ and therefore $a^{\frac{p-1}{2}} \equiv -1 \pmod p$, as desired. The proof is complete.
 	\end{proof}
@@ -299,7 +299,11 @@ Back to quadratic residues, the next step is to determine if $2$ is a quadratic 
 			2 \times 4 \times \cdots \times (p-1) &= 2^\frac{p-1}{2} \times 1 \times 2 \times \cdots \times \frac{p-1}{2} \nonumber\\
 			& = 2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)!
 		\end{align}
-		In order to get rid of the term $ \left(\frac{p-1}{2}\right)!$, we have to compute the product of elements of $A$ in some other way. Notice that we are looking for $2 \times 4 \times \cdots \times (p-1)$ and we want to make it as close as possible to $ \left(\frac{p-1}{2}\right)!$ so that we can cancel out this term and find the value of $2^\frac{p-1}{2} \pmod p$. To construct this factorial, we need all the numbers in the set $$B=\displaystyle \left\{1, 2, \ldots, \frac{p-1}{2}\right\}.$$ However, we only have even integers in $A$. For example, take $p=11$. Then $A=\{2,4,6,8,10\}$ and $B=\{1,2,3,4,5\}$. Now, we want to construct $5!$ using the product of elements of $A$. Clearly, the elements $2$ and $4$ are directly chosen from $A$. Now it remains to somehow construct the product $1\times 3 \times 5$ with the elements $6,8,10$. The trick is pretty simple: just notice that $10 \equiv -1, 8 \equiv -3$, and $6 \equiv -5 \pmod{11}$. This means that $ 6 \times 8 \times 10 \equiv (-1)^3  \cdot 1 \times 3 \times 5$, and so
+		In order to get rid of the term $ \left(\frac{p-1}{2}\right)!$, we have to compute the product of elements of $A$ in some other way. Notice that we are looking for $2 \times 4 \times \cdots \times (p-1)$ and we want to make it as close as possible to $ \left(\frac{p-1}{2}\right)!$ so that we can cancel out this term and find the value of $2^\frac{p-1}{2} \pmod p$. To construct this factorial, we need all the numbers in the set
+			\begin{align*}
+				B=\left\{1, 2, \ldots, \frac{p-1}{2}\right\}
+			\end{align*}
+		However, we only have even integers in $A$. For example, take $p=11$. Then $A=\{2,4,6,8,10\}$ and $B=\{1,2,3,4,5\}$. Now, we want to construct $5!$ using the product of elements of $A$. Clearly, the elements $2$ and $4$ are directly chosen from $A$. Now it remains to somehow construct the product $1\times 3 \times 5$ with the elements $6,8,10$. The trick is pretty simple: just notice that $10 \equiv -1, 8 \equiv -3$, and $6 \equiv -5 \pmod{11}$. This means that $ 6 \times 8 \times 10 \equiv (-1)^3  \cdot 1 \times 3 \times 5$, and so
 		\begin{align}\label{eq:factorialqr2}
 		2 \times 4 \times 6 \times 8 \times 10 \equiv (-1)^3 \cdot 5!
 		\end{align}
@@ -394,14 +398,14 @@ The proof is left as an exercise for the reader.
 	\begin{theorem}[Law of Quadratic Reciprocity]\label{thm:lawofqr}
 		Let $p$ and $q$ be different odd primes. Then
 		\begin{align*}
-		\left(\dfrac{p}{q}\right)\left(\dfrac{q}{p}\right)=(-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}
+			\left(\dfrac{p}{q}\right)\left(\dfrac{q}{p}\right)=(-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}
 		\end{align*}
 	\end{theorem}
 
 	\begin{example}
 		Let's find $\left(\frac{11}{6661}\right)$. We have
 		\begin{align}\label{eq:qrex}
-		\left(\dfrac{11}{6661}\right) \left(\dfrac{6661}{11}\right)=(-1)^{5\cdot 3330}=-1
+			\left(\dfrac{11}{6661}\right) \left(\dfrac{6661}{11}\right)=(-1)^{5\cdot 3330}=-1
 		\end{align}
 		Now, since $6661 \equiv 6 \pmod{11}$, we obtain
 		\begin{align*}

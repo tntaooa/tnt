@@ -71,7 +71,7 @@
 		The smallest positive integer linear combination of $a$ and $b$ is $(a,b)$.
 	\end{corollary}
 
-	\begin{corollary}  \label{cor:bezoutcoprime}
+	\begin{corollary}  \label{cor:bezoutrelatively prime}
 		If $a \perp b$ for non-zero integers $a$ and $b$, then there exist integers $x$ and $y$ such that
 		\begin{align*}
 		ax+by=1
@@ -101,7 +101,7 @@
 	\end{problem}
 
 	\begin{solution}
-		By Corollary \ref{cor:bezoutcoprime}, there exist integers $x,y,z,$ and $t$ such that
+		By Corollary \ref{cor:bezoutrelatively prime}, there exist integers $x,y,z,$ and $t$ such that
 			\begin{align*}
 				ax+cy&=1\\
 				bz+ct&=1
@@ -164,7 +164,7 @@
 	\end{theorem}
 
 	\begin{proof}
-		The proof is a straightforward result of corollary \eqref{cor:bezoutcoprime}. Since $a \perp m$, the equation $ax+my=1$ has solutions. Now take modulo $m$ from both sides to complete the proof of the first part. For the second part, assume that $x_1$ and $x_2$ are inverses of $a$ modulo $m$. Then,
+		The proof is a straightforward result of corollary \eqref{cor:bezoutrelatively prime}. Since $a \perp m$, the equation $ax+my=1$ has solutions. Now take modulo $m$ from both sides to complete the proof of the first part. For the second part, assume that $x_1$ and $x_2$ are inverses of $a$ modulo $m$. Then,
 		\begin{align*}
 		ax_1
 			& \equiv ax_2 \equiv 1 \pmod m\\
@@ -192,13 +192,13 @@ The uniqueness of inverse of an integer $a$ modulo $m$ gives us the following co
 We are going to prove a very simple fact which will be very useful later (for instance, in the next theorem or in the proof of Wolstenholme's theorem, where we re-state the same result as Lemma \ref{lem:wolstproof3}).
 
 	\begin{proposition}\label{prop:inversepower}
-		For a prime $p\geq 3$ and any positive integer $a$ coprime to $p$,
+		For a prime $p\geq 3$ and any positive integer $a$ relatively prime to $p$,
 		\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p\]
 		for all positive integers $n$.
 	\end{proposition}
 
 	\begin{proof}
-		Since $a$ is coprime to $p$, $a^{-1}$ exists. Therefore,
+		Since $a$ is relatively prime to $p$, $a^{-1}$ exists. Therefore,
 			\begin{align*}
 				a \cdot a^{-1}
 					& \equiv 1 \pmod p\\
@@ -225,7 +225,8 @@ We are going to prove a very simple fact which will be very useful later (for in
 		a^{(x,y)} &\equiv a^{ux+vy}\nonumber\\
 		&\equiv \left(a^x\right)^u \cdot \left(a^y\right)^v\\
 		& \equiv \left(b^x\right)^u \cdot \left(b^y\right)^v\label{eq:modgcd}\\
-		&\equiv b^{ux+vy} \equiv b^{(x,y)} \pmod n\nonumber
+		&\equiv b^{ux+vy}\\
+		& \equiv b^{(x,y)} \pmod n\nonumber
 	\end{align}
 \end{proof}
 
@@ -288,7 +289,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			n & \equiv4\cdot1+9\cdot2\pmod{9}\\
 			n & \equiv4\cdot7\cdot7^{-1}+2\cdot9\pmod{9}
 		\end{align*}
-	Now you should understand what we can do to make those two equal. In the first congruence, no matter what we multiply with $7\cdot4$, the remainder won't change modulo $7$. The same for $9$ in the second congruence. We will exploit this fact. We need to rearrange it just a bit more. But here is a warning. We wouldn't be able to do it if $7$ and $9$ were not coprime, since then they would not have any multiplicative inverse. We could do that trick writing $1=7\cdot7^{-1}$ only because $7^{-1}$ modulo $9$ exists. For simplicity, let's assume $7^{-1}\equiv u\pmod{9}$ and $9^{-1}\equiv v\pmod{7}$.
+	Now you should understand what we can do to make those two equal. In the first congruence, no matter what we multiply with $7\cdot4$, the remainder won't change modulo $7$. The same for $9$ in the second congruence. We will exploit this fact. We need to rearrange it just a bit more. But here is a warning. We wouldn't be able to do it if $7$ and $9$ were not relatively prime, since then they would not have any multiplicative inverse. We could do that trick writing $1=7\cdot7^{-1}$ only because $7^{-1}$ modulo $9$ exists. For simplicity, let's assume $7^{-1}\equiv u\pmod{9}$ and $9^{-1}\equiv v\pmod{7}$.
 		\begin{align*}
 			n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7}\\
 			n & \equiv4\cdot7\cdot u+2\cdot9\cdot v\pmod{9}
@@ -336,7 +337,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\end{theorem}
 	If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
 		\begin{theorem}[CRT]
-			For $n$ pairwise coprime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
+			For $n$ pairwise relatively prime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
 				\begin{align*}
 					x & \equiv r_1\pmod{a_1}\\
 					x & \equiv r_2\pmod{a_2}\\
@@ -359,7 +360,7 @@ We are going to prove a very simple fact which will be very useful later (for in
 			\end{align*}
 			So $x_0$ is a solution to those congruences. Since $M_i\bot a_i$, there is a multiplicative inverse of $M_i$ modulo $a_i$ due to B\'{e}zout's identity. We leave it to the reader to prove that if $x,y$ are two solutions, then $x\equiv y\pmod M$. That would prove its uniqueness modulo $M$.
 		\end{proof}
-	We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\cdots,p_k$ are pairwise coprime integers. By the way, we could generalize CRT the following way.
+	We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\cdots,p_k$ are pairwise relatively prime integers. By the way, we could generalize CRT the following way.
 		\begin{theorem}[General CRT]
 			For $n$ integers $a_1,\cdots,a_n$ the system of congruences
 			\begin{align*}
@@ -401,14 +402,14 @@ We are going to prove a very simple fact which will be very useful later (for in
 		\begin{solution}
 			We claim that the given set is a reduced residue system modulo $m$ if and only if $a$ is divisible by each prime factor of $m$.
 
-			First, suppose that $m$ has a factor $p$ and $a$ is not divisible by $p$. Let $m=p^{\alpha}n$ for some positive integer $n$ coprime to $p$. Since $n \bot p$, by CRT, there exists some integer $k$ such that
+			First, suppose that $m$ has a factor $p$ and $a$ is not divisible by $p$. Let $m=p^{\alpha}n$ for some positive integer $n$ relatively prime to $p$. Since $n \bot p$, by CRT, there exists some integer $k$ such that
 				\begin{align*}
 					k &\equiv -a \pmod p\\
 					k &\equiv \phantom{-}1  \pmod n
 				\end{align*}
-			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d\mid k$, meaning $d\mid 1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not coprime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
+			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d\mid k$, meaning $d\mid 1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not relatively prime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
 
-			For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\cdots , s_{\varphi(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is coprime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is co-prime to $p$, so is $s+a$. Thus $s+a$ is co-prime to all prime factors of $m$, making it relatively prime to $m$ as well.
+			For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\cdots , s_{\varphi(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is relatively prime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is co-prime to $p$, so is $s+a$. Thus $s+a$ is co-prime to all prime factors of $m$, making it relatively prime to $m$ as well.
 		\end{solution}
 
 		\begin{problem}[$1997$ Czech and Slovak Mathematical Olympiad]

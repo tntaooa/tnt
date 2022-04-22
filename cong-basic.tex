@@ -44,7 +44,7 @@
 	\begin{proof}
 		From the definition, $a \equiv b \pmod m$ means $m\mid a-b$. We know from Theorem \ref{id:fatandthin} that
 		\begin{align*}
-			a^n-b^n & = (a-b)\Big(a^{n-1}+a^{n-2}b+\cdots+b^{n-1}\Big).
+			a^n-b^n & = (a-b)\left(a^{n-1}+a^{n-2}b+\cdots+b^{n-1}\right)
 		\end{align*}
 		This gives $a-b\mid a^n-b^n$. So $m\mid a^n - b^n$, or $a^n \equiv b^n \pmod m$.
 	\end{proof}
@@ -61,8 +61,8 @@
 	\begin{proposition}
 		If $a$ is an integer and $n$ is a positive integer, then exactly one of the following relations holds.
 			\begin{align*}
-				a &\equiv 0 \pmod n,\\
-				a &\equiv 1 \pmod n,\\
+				a &\equiv 0 \pmod n\\
+				a &\equiv 1 \pmod n\\
 				  &\vdots\\
 				a &\equiv n-1 \pmod{n}
 			\end{align*}
@@ -74,7 +74,7 @@
 		\begin{enumerate}[(a)]
 			\item If $ac \equiv bc \pmod m$ and $\gcd(c,m)=d$, then
 				\begin{align*}
-					 a & \equiv b \mod{\Big(\dfrac{m}{d}\Big)}
+					 a & \equiv b \mod{\left(\dfrac{m}{d}\right)}
 				 \end{align*}
 			We will call this the \textit{cancellation rule} for congruence.
 			\item If $b \equiv c \pmod m$, then $\gcd(b,m)=\gcd(c,m)$.
@@ -85,11 +85,11 @@ Before we prove it, let us see some examples. Usually, $ac=bc$ implies $a=c$ in 
 Since $15$ divides $35-20$, $5\cdot7\equiv5\cdot4\pmod{15}$. If we could just do division, this would give us
 	\begin{align*}
 		7
-			& \equiv4\pmod{15},
+			& \equiv4\pmod{15}
 	\end{align*}
 which is clearly false. But, why? Here is the reason: $15=5\cdot3$. And when we canceled $5$ without thinking where that $5$ came from in $15$, we accidentally took out the only portion where $5$ came from. So we can not do that recklessly. However, this also means that if we took out $5$ from all sides, it would be true:
 	\begin{align*}
-		7\equiv4\pmod{3}.
+		7\equiv4\pmod{3}
 	\end{align*}
 
 	\begin{proof}
@@ -138,15 +138,15 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\begin{theorem}
 		Let $(a_1,a_2,\cdots,a_n)$ be a finite arithmetic sequence such that
 			\begin{align*}
-				a_1 & = a,\\
-				a_2 & = a+d,\\
+				a_1 & = a\\
+				a_2 & = a+d\\
 					& \vdots\\
 				a_n & = a+ (n-1)d
 			\end{align*}
 		where $n$ is a positive integer and $a$ and $d$ are reals. The sum of all elements of this AP is
 			\begin{align*}
 				\sum_{i=1}^{n} a_i
-					& = \frac{n}{2} \left(a_1+a_n\right) = \frac{n}{2} \big(2a_1 + (n-1)d\big)
+					& = \frac{n}{2} \left(a_1+a_n\right) = \frac{n}{2} \left(2a_1 + (n-1)d\right)
 			\end{align*}
 	\end{theorem}
 
@@ -155,12 +155,12 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\begin{align*}
 				\sum_{i=1}^{n} a_i
 					&= a_1 + a_2 + \ldots + a_n \\
-					&= a + (a+d) + \ldots + \Big(a+ (n-1)d\Big)\\
-					&= na + d\Big(1+2+\ldots+ (n-1)\Big)
+					&= a + (a+d) + \ldots + \left(a+ (n-1)d\right)\\
+					&= na + d\left(1+2+\ldots+ (n-1)\right)
 			\end{align*}
 		From Identity \ref{id:sumofpowers} of Appendix, $1+2+\ldots+n = n(n-1)/2$. Therefore,
 			\begin{align*}
-				\sum_{i=1}^{n} a_i = \dfrac{n}{2} \big(2a_1 + (n-1)d\big)
+				\sum_{i=1}^{n} a_i = \dfrac{n}{2} \left(2a_1 + (n-1)d\right)
 			\end{align*}
 	\end{proof}
 
@@ -192,14 +192,14 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 
 	Consider a pumpkin. Let us assume that it is totally symmetrical. Now, divide it in half and put aside half of it. You have half of the pumpkin to yourself. Divide it in half again. Keep one to yourself and discard the other half. So now you have one fourth of the pumpkin. Again, cut it in half. Keep one, discard one. Now you have one eighth. See that if you keep going this way, you end up getting $\frac{1}{2},\frac{1}{4},\frac{1}{8},\frac{1}{16},\cdots$ and dividing them. And the fun fact is, you can keep doing this for as many times as you want. Obviously, if we put together all the parts again, we get the whole pumpkin. That is, if we take all the discarded portions and put them back, the pumpkin becomes whole again. This shows us without any rigorous proof that
 		\begin{align*}
-			\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\dfrac{1}{16}+\ldots=1.
+			\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\dfrac{1}{16}+\ldots=1
 		\end{align*}
 	Now you should be able to make sense how a sequence with infinite terms can have a finite sum.
 		\begin{theorem}\label{thm:GP}
 			Let be given the finite geometric sequence
 				\begin{align*}
-					a_1 & = a,\\
-					a_2 & = ar,\\
+					a_1 & = a\\
+					a_2 & = ar\\
 					& \vdots\\
 					a_n & = ar^{n-1}
 				\end{align*}
@@ -345,7 +345,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\begin{example}
 		Let us calculate $5^{20} \pmod{751}$ this way. First, we need to find the binary representation of $20$, which is $(10100)_2$. Then, we can write
 			\begin{align*}
-				5^{20} \equiv  \underbrace{\Bigg(\underbrace{\bigg(\overbrace{\overbrace{\big(\underbrace{5^2}_{R_1}\big)^2}^{R_2} \cdot 5}^{R_3}\bigg)^2}_{R_4}\Bigg)^2}_{R_5} \pmod{751}
+				5^{20} \equiv  \underbrace{\left(\underbrace{\left(\overbrace{\overbrace{\left(\underbrace{5^2}_{R_1}\right)^2}^{R_2} \cdot 5}^{R_3}\right)^2}_{R_4}\right)^2}_{R_5} \pmod{751}
 			\end{align*}
 		This is how we proceed: we want to construct $5^{20}$. The rightmost digit is zero. What happens if we remove this digit? The number gets divided by $2$. This is identical to writing $5^{20} = 5^2 \cdot 5^{10}$. Therefore, we first compute $R_1=5^2$. We now need to construct $5^{10}$. The binary representation of $10$ is $(1010)_2$. Again, divide it by two to remove the rightmost zero. This time, we are doing this operation:
 			\begin{align*}
@@ -482,7 +482,6 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 	\end{proposition}
 
 	The proof of this theorem is pretty easy, try it for yourself. Pay attention to the difference between this proposition and the similar Proposition \ref{prop:generalcompletesystem} for complete systems.
-
 
 	The latest theorem says that there are infinitely many reduced residue systems for any $m$. So, it makes sense to define a set as the original reduced residue system for any positive integer $m$. We call this set $\mathbb U_m$.
 

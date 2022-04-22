@@ -15,7 +15,7 @@ Here, we will focus on a generalized version of such problems. In problems like 
 			\end{align*}
 		where
 			\begin{align*}
-				m & =m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0, \text{ and}\\
+				m & =m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0\\
 				n & =n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0
 			\end{align*}
 		are the base $p$ expansions of $m$ and $n$ respectively. This uses the convention that $\binom{m}{n}=0$ if $m<n$.
@@ -145,7 +145,9 @@ In order to prove Lucas's theorem, we need to prove the following first.
 	\begin{solution}
 		Since $2pq-1 = (2q-1)p+p-1$, the rightmost digit of $2pq-1$ when represented in base $p$ is $p-1$ and the other digits form $2q-1$. Analogously, the rightmost digit of $pq-1$ when represented in base $p$ is $p-1$ and the other digits form $q-1$. Applying corollary \eqref{cor:lucas}, we find
 			\begin{align}
-				\binom{2pq-1}{pq-1}\equiv \binom{2q-1}{q-1} \binom{p-1}{p-1}\equiv \binom{2q-1}{q-1} \pmod p.\label{eq:lucasproblem}
+				\binom{2pq-1}{pq-1}
+					& \equiv \binom{2q-1}{q-1} \binom{p-1}{p-1}\\
+					& \equiv \binom{2q-1}{q-1} \pmod p\label{eq:lucasproblem}
 			\end{align}
 		The if part is obvious since $p$ and $q$ are different primes. We will prove the only if part now.
 

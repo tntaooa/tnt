@@ -120,13 +120,13 @@
 		\end{align*}
 	Since $1,2,\ldots, 6$ are all co-prime to $7$, we can divide both sides of the above equation by $1\cdot 2 \cdots 6$ to obtain
 		\begin{align*}
-			3^6 \equiv 1 \pmod 7.
+			3^6 \equiv 1 \pmod 7
 		\end{align*}
 	 It is now clear that the same argument works for the general case\watermark.
 		\begin{proof}
 			From the Definition \ref{def:completeresiduesystem}, it is clear that the set $A=\{0, 1, \ldots, p-1\}$ is a complete residue system modulo $p$. We know that $a \bot p$, so from Proposition \ref{prop:generalcompletesystem} the set $A'=\{0 \cdot a, 1 \cdot a, \ldots, (p-1) \cdot a\}$ is also a complete residue system modulo $p$. Putting aside the first element, $0$, it is clear that the product of the elements of $A$ and $A'$ are congruent modulo $p$:
 				\begin{align*}
-				1 \times a \cdot 2 \times a \cdots (p-1) \times a  \equiv 1 \cdot 2 \cdots (p-1) \pmod py
+					1 \times a \cdot 2 \times a \cdots (p-1) \times a  \equiv 1 \cdot 2 \cdots (p-1) \pmod py
 				\end{align*}
 			So, we find that
 				\begin{align}
@@ -153,11 +153,17 @@
 		\begin{solution}
 			Obviously, $12^{60}\equiv (-1)^{60} \equiv 1 \pmod {13}$. By Fermat's little theorem, $6^{12} \equiv 1 \pmod{13}$, hence
 				\begin{align*}
-					6^{40} \equiv 6^{36} \cdot 6^4 \equiv \left(6^{12}\right)^3 \cdot 6^4 \equiv 6^4 \equiv 9 \pmod{13}
+					6^{40}
+						& \equiv 6^{36} \cdot 6^4\\
+						& \equiv \left(6^{12}\right)^3 \cdot 6^4\\
+						& \equiv 6^4\\
+						& \equiv 9 \pmod{13}
 				\end{align*}
 			We can apply the same method to find $4^{20} \equiv 3 \pmod{13}$. Finally,
 				\begin{align*}
-					4^{20} + 6^{40} + 12^{60} \equiv 3+9+1 \equiv 0 \pmod{13}
+					4^{20} + 6^{40} + 12^{60}
+						& \equiv 3+9+1\\
+						& \equiv 0 \pmod{13}
 				\end{align*}
 		\end{solution}
 	Here \textcite[Page $29$, Example $1.29$]{andreescuandricafeng2007} is an easy consequence of Fermat's little theorem.
@@ -186,7 +192,7 @@
 		\begin{theorem}[Euler's \footnote{Sometimes called Fermat-Euler theorem or Euler's totient theorem, proposed by Euler in $1763$.} Theorem]
 			If $a$ and $n$ are positive integers such that $a \bot n$. Then
 			\begin{align*}
-			a^{\varphi(n)} \equiv 1 \pmod n
+				a^{\varphi(n)} \equiv 1 \pmod n
 			\end{align*}
 			where $\varphi$ is the Euler's totient function.
 		\end{theorem}

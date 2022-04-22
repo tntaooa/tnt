@@ -12,7 +12,7 @@ Recall the examples we took while discussing Fermat's little theorem. We were wo
 
 
 	\begin{theorem}\label{thm:ordDiv}
-		Let $a$ and $n$ be positive integers. If $\ord_n(a)=d$ and $a^x\equiv1\pmod n$, then $d|x$.
+		Let $a$ and $n$ be positive integers. If $\ord_n(a)=d$ and $a^x\equiv1\pmod n$, then $d\mid x$.
 	\end{theorem}
 
 	\begin{proof}
@@ -28,11 +28,11 @@ Recall the examples we took while discussing Fermat's little theorem. We were wo
 	\end{proof}
 
 	\begin{corollary}\label{cor:phiDiv}
-		If $a\perp n$, then $\ord_n(a)|\varphi (n)$.
+		If $a\perp n$, then $\ord_n(a)\mid \varphi (n)$.
 	\end{corollary}
 
 	\begin{proof}
-		If $d=\ord_n(a)$, then $a^d\equiv1\pmod n$. From Euler's theorem, $a^{\varphi (n)}\equiv1\pmod n$. Then using \autoref{thm:ordDiv}, we can say that $d|\varphi (n)$.
+		If $d=\ord_n(a)$, then $a^d\equiv1\pmod n$. From Euler's theorem, $a^{\varphi (n)}\equiv1\pmod n$. Then using \autoref{thm:ordDiv}, we can say that $d\mid \varphi (n)$.
 	\end{proof}
 We can use this result to find orders in practice. We only need to check for divisors of $\varphi(n)$ and find the smallest divisor for which the relation $a^d\equiv1\pmod n$ holds.
 	\begin{corollary}
@@ -40,7 +40,7 @@ We can use this result to find orders in practice. We only need to check for div
 	\end{corollary}
 
 	\begin{proof}
-		$a^k\equiv a^l\pmod n$ implies $a^{k-l} \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, we have $\ord_n(a) | k-l$. The reverse of this approach can be applied to prove the other part of the corollary.
+		$a^k\equiv a^l\pmod n$ implies $a^{k-l} \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, we have $\ord_n(a) \mid  k-l$. The reverse of this approach can be applied to prove the other part of the corollary.
 	\end{proof}
 One could ask if we know the order of $a$ modulo $n$, how do we find the order of other powers of $a$. Or, if we know order of $a$ modulo two positive integers $m$ and $n$, then what would be the order of $a$ modulo $mn$?
 	\begin{theorem}
@@ -53,7 +53,7 @@ One could ask if we know the order of $a$ modulo $n$, how do we find the order o
 				a^h
 					& \equiv1\pmod {mn}
 			\end{align*}
-		which gives $a^h\equiv1\pmod m$ and $a^h\equiv1\pmod n$ as well. By \autoref{thm:ordDiv}, since $d$ and $e$ are order of $a$ modulo $m$ and $n$, respectively, we have $d|h$ and $e|h$. Therefore, for the minimum $h$, we must have $h=[d,e]$ to satisfy the conditions.
+		which gives $a^h\equiv1\pmod m$ and $a^h\equiv1\pmod n$ as well. By \autoref{thm:ordDiv}, since $d$ and $e$ are order of $a$ modulo $m$ and $n$, respectively, we have $d\mid h$ and $e\mid h$. Therefore, for the minimum $h$, we must have $h=[d,e]$ to satisfy the conditions.
 	\end{proof}
 
 	\begin{theorem}\label{thm:prproduct}
@@ -69,13 +69,13 @@ One could ask if we know the order of $a$ modulo $n$, how do we find the order o
 					& \equiv \left((ab)^h\right)^l\pmod{n}\\
 					& \equiv 1 \pmod n
 			\end{align*}
-		So, by \autoref{thm:ordDiv}, we have $k|lh$ and since $(k,l)=1$, it follows that $k|h$. We can similarly prove that $l|h$. So $kl|h$. On the other hand,
+		So, by \autoref{thm:ordDiv}, we have $k\mid lh$ and since $(k,l)=1$, it follows that $k\mid h$. We can similarly prove that $l\mid h$. So $kl\mid h$. On the other hand,
 			\begin{align*}
 				(ab)^{kl}
 					& \equiv (a^k)^l \cdot (b^l)^k\pmod{n}\\
 					& \equiv 1 \pmod n
 			\end{align*}
-		Again, by Theorem \eqref{thm:ordDiv}, we have $h|kl$. This finishes the proof.
+		Again, by Theorem \eqref{thm:ordDiv}, we have $h\mid kl$. This finishes the proof.
 	\end{proof}
 
 	\begin{theorem}
@@ -83,9 +83,9 @@ One could ask if we know the order of $a$ modulo $n$, how do we find the order o
 	\end{theorem}
 
 	\begin{proof}
-		Let the order of $a^k$ modulo $n$ be $h$. Then $\left(a^k\right)^h \equiv a^{kh} \equiv 1\pmod n$. \autoref{thm:ordDiv} says that $d$ must divide $kh$. Assume that $(k,d)=g$, so there exist relatively prime positive integers $l$ and $e$ such that $k=gl$ and $d=ge$. Rewriting $d | kh$ implies
+		Let the order of $a^k$ modulo $n$ be $h$. Then $\left(a^k\right)^h \equiv a^{kh} \equiv 1\pmod n$. \autoref{thm:ordDiv} says that $d$ must divide $kh$. Assume that $(k,d)=g$, so there exist relatively prime positive integers $l$ and $e$ such that $k=gl$ and $d=ge$. Rewriting $d \mid  kh$ implies
 			\begin{align*}
-				ge|glh \implies e|lh
+				ge\mid glh \implies e\mid lh
 			\end{align*}
 		and since $l\bot e$, $e$ must divide $h$. Since $dl=ke=gel$,
 			\begin{align*}
@@ -117,7 +117,7 @@ Here is a very useful theorem, often used to solve Diophantine equations.
 			\begin{align*}
 				x^q & \equiv1\pmod p
 			\end{align*}
-		If the order of $x$ modulo $p$ is $d$, we have $d|q$. Since $q$ is a prime, either $d=1$ or $d=q$. If $d=1$, then $x\equiv1\pmod p$. In that case,
+		If the order of $x$ modulo $p$ is $d$, we have $d\mid q$. Since $q$ is a prime, either $d=1$ or $d=q$. If $d=1$, then $x\equiv1\pmod p$. In that case,
 			\begin{align*}
 				S & \equiv 1+1+\cdots+1\pmod p
 			\end{align*}
@@ -388,7 +388,7 @@ The next step is to find what other numbers have a primitive root. We will show,
 					\implies g^m
 						& \equiv 1 \pmod{p^{k}}
 				\end{align*}
-			Since we know that order of $g$ modulo $p^k$ is $\varphi(p^k)$, we should have $\varphi(p^k)=p^{k-1}(p-1)|m$. On the other hand, since $m$ is the order of $g$ modulo $p^{k+1}$, by corollary \eqref{cor:phiDiv}, we get $m|\varphi(p^{k+1})=p^k(p-1)$. Therefore, $m$ equals either $\varphi(p^k)=p^{k-1}(p-1)$ or $\varphi(p^{k+1})=p^{k}(p-1)$. Previous lemma states that it is impossible to have $m=\ord_{p^{k+1}} (g)=\varphi(p^k)$. So, $m=\varphi(p^{k+1})$ and we are done.
+			Since we know that order of $g$ modulo $p^k$ is $\varphi(p^k)$, we should have $\varphi(p^k)=p^{k-1}(p-1)\mid m$. On the other hand, since $m$ is the order of $g$ modulo $p^{k+1}$, by corollary \eqref{cor:phiDiv}, we get $m\mid \varphi(p^{k+1})=p^k(p-1)$. Therefore, $m$ equals either $\varphi(p^k)=p^{k-1}(p-1)$ or $\varphi(p^{k+1})=p^{k}(p-1)$. Previous lemma states that it is impossible to have $m=\ord_{p^{k+1}} (g)=\varphi(p^k)$. So, $m=\varphi(p^{k+1})$ and we are done.
 
 			\item If $g^{p-1} \equiv 1 \pmod{p^2}$, then we will show that $g+p$ is a primitive root modulo $p^k$ for any integer $k\geq 1$. Note that
 				\begin{align*}
