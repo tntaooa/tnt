@@ -5,7 +5,26 @@
 \usepackage{subfiles}
 \usepackage{bookmark,rotating}
 
-\usepackage[style=philosophy-verbose,backend=biber,sortcites=true,classical=true,volnumformat=strings,volumeformat=romansc,]{biblatex}
+%\usepackage[citestyle=verbose,backend=biber,]{biblatex}
+\usepackage[citestyle=verbose,bibstyle=numeric,sorting=none]{biblatex}
+
+\makeatletter
+
+\renewbibmacro*{cite:full}{%
+	\usebibmacro{cite:full:citepages}%
+	\printtext[bibhypertarget]{%
+		\usedriver
+		{\DeclareNameAlias{sortname}{default}}
+		{\thefield{entrytype}}}%
+	%  \usebibmacro{shorthandintro}}% DELETED
+\usebibmacro{shorthandintro}% NEW
+\csxdef{cbx@\thefield{entrykey}@footnotenumber}{\the\value{footnote}}% NEW
+}% NEW
+
+\DeclareFieldFormat{prefixnumber}{}
+\DeclareFieldFormat{labelnumber}{\csuse{cbx@\thefield{entrykey}@footnotenumber}}
+
+\makeatother
 \interfootnotelinepenalty=10000
 
 \usepackage{iftex}
