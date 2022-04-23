@@ -433,7 +433,7 @@
 			\end{align*}
 	\end{theorem}
 
-	In 1960, P\'{o}sa proved a more general form of Bonse's theorems:
+	\textcite{posa_1960} proved a more general form of Bonse's theorems:
 
 	\begin{theorem}[P\'{o}sa's Inequality on Primes]
 		\label{thm:posa}
@@ -552,6 +552,14 @@
 		In the last line, we used \autoref{thm:zeta2}.
 	\end{proof}
 
+	An improvement on this result is \textcite{panaitopol_2000}.
+		\begin{theorem}
+			For $n\geq 2$,
+				\begin{align*}
+					p_{1}\cdots p_{n}
+						& \geq p_{n+1}^{n-\pi(n)}
+				\end{align*}
+		\end{theorem}
 \section{Distribution of Prime Numbers}
 	\subfile{dist.tex}
 
@@ -559,8 +567,8 @@
 \section{Primality Testing}\label{sec:primalitytesting}
 	Depending on the guarantee whether our algorithm can say for sure if a number is a prime or not, we can divide the algorithms for prime testing in two:
 		\begin{enumerate}
-			\item Deterministic Primality Test
-			\item Non-deterministic or Probabilistic or Randomized Primality Test
+			\item Deterministic primality Test
+			\item Non-deterministic or Probabilistic or Randomized primality Test
 		\end{enumerate}
 	First we will discuss some deterministic approach, then some probabilistic approach.
 
