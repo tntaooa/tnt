@@ -513,9 +513,9 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 	You may ask, what makes you think there will even be a common element in both sets? Well, we will have at least $1$ common as a divisor since it divides all the integers.
 	\begin{definition}[GCD and LCM]
-		For two integers $a$ and $b$ which are not zero at the same time, the \textbf{g}reatest \textbf{c}ommon \textbf{d}ivisor of $a$ and $b$, denoted by $\gcd(a,b)$, is the greatest positive integer which divides both $a$ and $b$. For brevity, we denote this by $(a,b)$ in this book.
+		For two integers $a$ and $b$ which are not zero at the same time, the \textit{g}reatest \textit{c}ommon \textit{d}ivisor of $a$ and $b$, denoted by $\gcd(a,b)$, is the greatest positive integer which divides both $a$ and $b$. For brevity, we denote this by $(a,b)$ in this book.
 
-		The \textbf{l}east \textbf{c}ommon \textbf{m}ultiple of $a$ and $b$, denoted by $\lcm(a,b)$, is the smallest positive integer that is divisible by both $a$ and $b$. Again, for brevity, we denote this by $[a,b]$ in this book.
+		The \textit{l}east \textit{c}ommon \textit{m}ultiple of $a$ and $b$, denoted by $\lcm(a,b)$, is the smallest positive integer that is divisible by both $a$ and $b$. Again, for brevity, we denote this by $[a,b]$ in this book.
 	\end{definition}
 
 	The concept of $\gcd$ and $\lcm$ is the same for more than two integers. The greatest common divisor of $a_1,a_2,\cdots,a_n$ is the largest positive integer which divides them all. We denote this by $(a_1,a_2,\cdots,a_n)$. One can define $[a_1,a_2,\cdots,a_n]$ in a similar way.
@@ -711,7 +711,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 
 	\section{Numeral Systems}
 	\subsection{Introduction}
-	There is a rumor that \textbf{Pascal} once promised $1000000$ dollars to anyone who marries his daughter. Later, when the son-in-law asked for the money, Pascal gave him only $64$ dollars. Poor guy! If you got the joke, you are probably good with bases. If not, do not worry, keep reading and you will get the point.
+	There is a rumor that \textit{Pascal} once promised $1000000$ dollars to anyone who marries his daughter. Later, when the son-in-law asked for the money, Pascal gave him only $64$ dollars. Poor guy! If you got the joke, you are probably good with bases. If not, do not worry, keep reading and you will get the point.
 
 	In daily mathematics, meaning the math you face in real life, you unconsciously express numbers in decimal system. That is, when you say you have $15$ apples, you are using base $10$ without ever realizing it. The question here is that what is this \textit{base} actually? Let us start with a simple example.
 		\begin{example}
@@ -751,7 +751,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 			\centering
 		\begin{tabular}{ | c | c | }
 			\hline
-			\textbf{Base} & \textbf{System Name} \\ \hline
+			\textit{Base} & \textit{System Name} \\ \hline
 			2 & Binary \\ \hline
 			3 & Ternary \\ \hline
 			4 & Quaternary \\ \hline
@@ -794,7 +794,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{align*}
 		y_1 = b \cdot \underbrace{\left( b^{n-2} x_{n} + b^{n-3} x_{n-1} + \cdots + x_2  \right)}_{y_2} + x_1
 	\end{align*}
-	Therefore, $x_1$ is the remainder of $y_1$ when divided by $b$. We can find the next digit $x_2$ by finding the remainder of $y_2$ when divided by $b$. The digits $x_3, x_4, \cdots, x_{n-1}$ can be found similarly by continuing this process. The leftmost digit, $x_n$, is the \textbf{quotient} of the last division because we can no longer divide it by $b$ (since the digits are all less than $b$).
+	Therefore, $x_1$ is the remainder of $y_1$ when divided by $b$. We can find the next digit $x_2$ by finding the remainder of $y_2$ when divided by $b$. The digits $x_3, x_4, \cdots, x_{n-1}$ can be found similarly by continuing this process. The leftmost digit, $x_n$, is the \textit{quotient} of the last division because we can no longer divide it by $b$ (since the digits are all less than $b$).
 
 	\begin{example}
 		Let us find the representation of $215$ in base $8$ and base $2$. Start with base $8$ first. We initialize the process by dividing the given number by $8$. The remainder of this division is the rightmost digit of $215$ in base $8$. Then we divide the quotient by $8$ again. The remainder of this division is the digit before the rightmost one. Since the quotient of this division is less than $8$, the process is over. Using long division:
@@ -919,7 +919,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		Let us convert $({1\,010\,011\,010})_2$ to base $8$. Number of digits is $10$, which is not divisible by $3$. So we add two zeros to the left and start the process with the number $({001\,010\,011\,010})_2$. Now,
 		\begin{align*}
-			({001})_2 = (\textbf{1})_8, \quad ({010})_2 = (\textbf{2})_8,  \quad ({011})_2 = (\textbf{3})_8, \quad ({010})_2 = (\textbf{2})_8
+			({001})_2 = (\textit{1})_8, \quad ({010})_2 = (\textit{2})_8,  \quad ({011})_2 = (\textit{3})_8, \quad ({010})_2 = (\textit{2})_8
 		\end{align*}
 		Hence, $({1\,010\,011\,010})_2 = ({1232})_8$.
 	\end{example}
@@ -931,7 +931,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\begin{example}
 		Let us convert $(2051)_8$ to a binary number. We have
 		\begin{align*}
-			(2)_8=(\textbf{010})_2, \quad (0)_8=(\textbf{000})_2, \quad (5)_8=(\textbf{101})_2, \quad (1)_8=(\textbf{001})_2
+			(2)_8=(\textit{010})_2, \quad (0)_8=(\textit{000})_2, \quad (5)_8=(\textit{101})_2, \quad (1)_8=(\textit{001})_2
 		\end{align*}
 		and the result is
 		\begin{align*}
@@ -1599,7 +1599,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	\begin{proof}
 		Let $g=(a,b)$. Then there exist relatively prime integers $x$ and $y$ such that $a=gx$ and $b=gy$. Then $g^2xy=c^2$ so that $g^2\mid c^2$, or $g\mid c$ (see the example provided right after proposition \eqref{prop:basicgcd} for a proof). This implies that there exists some positive integer $k$ for which $c=gk$. Substituting this into the equation, we find $k^2=xy$ with $x\perp y$. From corollary \eqref{cor:sqr}, there exist integers $u$ and $v$ such that $x=u^2$ and $y=v^2$. Thus, $a=gu^2,b=gv^2$, and $c=guv$.
 	\end{proof}
-	Now, we introduce a simple but really useful method for factorization: \textbf{Simon's Favorite Factorization Trick}\footnote{Named after Simon Rubinstein-Salzedo, a member of AoPS.}, or \textbf{SFFT} in brief.
+	Now, we introduce a simple but really useful method for factorization: \textit{Simon's Favorite Factorization Trick}\footnote{Named after Simon Rubinstein-Salzedo, a member of AoPS.}, or \textit{SFFT} in brief.
 	\begin{proposition}[SFFT]
 		For any real numbers $x,y, j$, and $k$, the following relation holds:
 		\begin{align*}
@@ -1613,12 +1613,12 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 					& = (x-1)(y-1)
 			\end{align*}
 	\end{proposition}
-	Let's see the motivation behind this trick. Once Mr. Simon was studying number theory, he found this problem: find all positive integers $x$ and $y$ such that $xy-x+y=49$. Simon probably hates expressions of this form because he cannot factorize them. However, if he adds $-1$ to both sides of his equation, he finds the nice and factored form $(x+1)(y-1)=48$, which is much easier to solve than the original equation. In fact, to solve the factorized equation, he only needs to find the divisors of $48$ (see theorem \autoref{thm:nos} for more details). If you look closely, SFFT is inspired by the so-called \textbf{Completing the Square Method}:
+	Let's see the motivation behind this trick. Once Mr. Simon was studying number theory, he found this problem: find all positive integers $x$ and $y$ such that $xy-x+y=49$. Simon probably hates expressions of this form because he cannot factorize them. However, if he adds $-1$ to both sides of his equation, he finds the nice and factored form $(x+1)(y-1)=48$, which is much easier to solve than the original equation. In fact, to solve the factorized equation, he only needs to find the divisors of $48$ (see theorem \autoref{thm:nos} for more details). If you look closely, SFFT is inspired by the so-called \textit{Completing the Square Method}:
 	\begin{align*}
 		x^2+kx+\frac{k^2}{4}
 			& =\left(x+\frac{k}{2}\right)^2
 	\end{align*}
-	In fact, the act of adding ${jk}$ to ${xy}+{xk}+{yj}$ in order to be able to factor it could be called \textbf{completing the rectangle} in analogy to the famous \textit{completing the square} trick.
+	In fact, the act of adding ${jk}$ to ${xy}+{xk}+{yj}$ in order to be able to factor it could be called \textit{completing the rectangle} in analogy to the famous \textit{completing the square} trick.
 	\begin{theorem}\label{thm:lcmfactor}
 		If $N$ is the least common multiple of positive integers upto $n$, that is, $N=[1,2,\cdots,n]$, then for a prime $p$, the maximum  integer $\alpha$ for which $p^\alpha\mid N$ is the unique non-negative integer $\alpha$ so that $p^\alpha\leq n<p^{\alpha+1}$. In other words, if $p_i$ is a prime less than or equal to $n$, and for that prime, $\alpha_i$ is the unique integer such that $p_i^{\alpha _i}\leq n<p_i^{\alpha_i+1}$ then,
 		\begin{align*}
@@ -2049,7 +2049,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 		\begin{solution}
 			How do we approach this problem? One idea is to go ahead like we did in the first solution of problem \eqref{prob:n+3|n^2+2}, by eliminating powers of $n$ one by one. Here is a better solution.
 
-			First write it as, $7n+1 \mid n^4(n^2+1)$. The problematic part is $n^4$. Many beginners make mistakes in such situations claiming that $7n+1$ does not divide $n^4$, and so $7n+1 \mid n^2+1$. This is \textbf{wrong}. In general, the following statement is wrong:
+			First write it as, $7n+1 \mid n^4(n^2+1)$. The problematic part is $n^4$. Many beginners make mistakes in such situations claiming that $7n+1$ does not divide $n^4$, and so $7n+1 \mid n^2+1$. This is \textit{wrong}. In general, the following statement is wrong:
 			\begin{displayquote}
 				For positive integers $a,b$, and $c$, if $a\mid bc$ and $b$ is not divisible by $a$, then $a\mid c$.
 			\end{displayquote}
@@ -2186,7 +2186,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\end{problem}
 
 	\begin{solution}
-		Yes, this looks similar to \textbf{SFFT}. It has three variables instead of two, so we cannot directly use Simon's trick. However, if you already learned the motivation behind that trick, the form of the problem does not matter. Here, $1$ is missing! Add it to both sides to get
+		Yes, this looks similar to \textit{SFFT}. It has three variables instead of two, so we cannot directly use Simon's trick. However, if you already learned the motivation behind that trick, the form of the problem does not matter. Here, $1$ is missing! Add it to both sides to get
 			\begin{align*}
 				abc+ab+bc+ca+a+b+c+1=1
 			\end{align*}
@@ -2224,7 +2224,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 			\begin{align*}
 				nk-1 \mid 3n+9k
 			\end{align*}
-		which in turn implies $nk-1 \leq 3n+9k$. This inequality can be simplified using \textbf{SFFT} in this way:
+		which in turn implies $nk-1 \leq 3n+9k$. This inequality can be simplified using \textit{SFFT} in this way:
 			\begin{align*}
 				nk-3n-9k\leq 1 \stackrel{\text{add }27}{\implies} (n-9)(k-3) \leq 28
 			\end{align*}
@@ -2559,11 +2559,11 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %
 %			which is a contradiction. So both sides are nonnegative. Now consider the two cases: (1) both sides are zero, and (2) both sides are positive.\\
 %
-%			\textbf{Case 1:} Both sides are zero.
+%			\textit{Case 1:} Both sides are zero.
 %
 %			Then we have $7k-y = 0 \Rightarrow y = 7k$ . And also $(xy+1)(x-ky) = 0$, but since $xy+1 > 0$ we know $x-ky = 0 \Rightarrow x = ky = 7k^2$ . So we have all solutions of the form $(x,y) = (7k^2, 7k)$ .\\
 %
-%			\textbf{Case 2:} Both sides are positive.
+%			\textit{Case 2:} Both sides are positive.
 %
 %			Then $x > ky$ so the RHS is positive. So we have $7k > 7k-y = (xy+1)(x-ky) > (xy+1) > y^2k+1$. Hence $y < 3$ . So we check $y = 1, 2$.
 %
@@ -2586,7 +2586,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %			For $y=1$ we have
 %			$x+8 \mid x^2+x+1 \Rightarrow x+8 \mid x^2+x+1 -x^2-8x \Rightarrow x+8 \mid 7x-1 \Rightarrow x+8 \mid 7(x+1)-(7x-1) \Rightarrow x+8 \mid 57 \Rightarrow \boxed{x=11,49}$.\\
 %
-%			\textbf{Solutions:} $(x,y)=(7t^2,7t),(11,1),(49,1)$.
+%			\textit{Solutions:} $(x,y)=(7t^2,7t),(11,1),(49,1)$.
 %		\end{solution}
 
 	\begin{problem}[Ukrain TST‌2008, P6]
@@ -2733,7 +2733,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %
 %		Since $a_1,a_2,\ldots,a_b$ contains $1,2,\ldots,k-1$, then $b\ge k-1$. It is also clear that $p>b$, hence $p\ge k$.\\
 %
-%		\textbf{Claim}: If $p\le r<r+1\le q$, then $\max\{a_r,a_{r+1}\}\ge2k$.\\
+%		\textit{Claim}: If $p\le r<r+1\le q$, then $\max\{a_r,a_{r+1}\}\ge2k$.\\
 %
 %		Proof: Suppose the contrary, let $(a_r,a_{r+1})=l$. We have $l>\frac34r\ge\frac34p\ge\frac34k$. But $a_r$ and $a_{r+1}$ are multiples of $l$ and less than $2k$. Since $3l>\frac94k>2k$, then $a_r$ and $a_{r+1}$ must be $l$ and $2l$. So $l$ does not appear in $a_1,a_2,\ldots,a_b$, which implies $l\ge k$ and hence $2l\ge 2k$. Therefore one of $a_r$ and $a_{r+1}$ is not less than $2k$, a contradiction. The proof of claim is done. $\Box$\\
 %
@@ -2767,7 +2767,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Let $x \geq 1$ be a real number. Prove or disprove that there exists a positive integer $n$ such that $\gcd\left( \lfloor x \rfloor, \lfloor nx \rfloor \right)=1.$\\
 
-		\textbf{Note.} Here $\lfloor x \rfloor$ denotes the greatest integer less than or equal to $x.$ %145
+		\textit{Note.} Here $\lfloor x \rfloor$ denotes the greatest integer less than or equal to $x.$ %145
 	\end{problem}
 
 %	\begin{solution}
@@ -2835,7 +2835,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %
 %		Assume for contradiction that $P$ is a perfect square. Then it must follows that $m=n$ and, since neither $a^2 +1$ nor $b^2 +1$ is a perfect square, it must follow that $m = n >1$. Define $\alpha = m = n$. Since $m|(a^2 +1)$ and $n|(b^2 +1)$, $\alpha | \gcd{(a^2 +1, b^2 +1)}$. Now we prove the following lemma.\\
 %
-%		\textbf{Lemma:} $\gcd{(a^2 +1, b^2 +1)} = 1$.
+%		\textit{Lemma:} $\gcd{(a^2 +1, b^2 +1)} = 1$.
 %
 %		By the Euclidean algorithm, we have that
 %

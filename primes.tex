@@ -6,7 +6,7 @@
 \section{Introduction}
 	Prime numbers just might be the most mysterious topic in mathematics. There are already countless books on the topic. We have already defined prime numbers in chapter \eqref{ch:divisibility}. Recall that a positive integer $p$ is a prime if and only if it has exactly two positive divisors: only $1$ and $p$ itself (recall how this lets us deal with the case of $1$ automatically). In this chapter, we are going to explore the properties of primes\watermark.
 
-	We will start with the infinitude of primes. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\H{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite Olympiad style topics. We do not give the elementary proof of \textit{Prime Number Theorem} by \textit{Erd\H{o}s} and \textit{Selberg}\footnote{There was a dispute over the prime number theorem whether Erd\H{o}s and Selberg would write a joint paper or not. \textcite{goldfeld_2004} and \textcite{baas_skau_2008} are great reads in this regard.}
+	We will start with the infinitude of primes. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\H{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite Olympiad style topics. We do not give the elementary proof of \textit{Prime Number Theorem} by \textit{Erd\H{o}s} and \textit{Selberg}. There was a dispute over the prime number theorem whether Erd\H{o}s and Selberg would write a joint paper or not. \textcite{goldfeld_2004} and \textcite{baas_skau_2008} are great reads in this regard.
 
 	In section \eqref{sec:primalitytesting}, we will discuss how to list primes efficiently or decide whether an integer is prime or not, and how to factorize an integer quickly. Now, there are a few points to clear out in the last statement.
 		\begin{enumerate}
@@ -217,9 +217,7 @@
 					1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots & = \dfrac{\pi^2}{6}
 				\end{align*}
 		\end{theorem}
-
 	We are now ready to prove the infinitude of primes using Zeta function.
-
 		\begin{proof}[Proof using Zeta Function]
 			In \autoref{thm:zeta1div}, it is already proved that $S$ is infinite. A series diverges if it has an infinite sum. If the number of primes is finite, then the product of all $\dfrac p{p-1}$ would be finite too. But it gives us a contradiction. Thus, the number of primes must be infinite.
 		\end{proof}
@@ -365,7 +363,6 @@
 		\mu(p_{i_1}p_{i_2}\cdots p_{i_s}) \left\lfloor\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}\right\rfloor = (-1)^s\left\lfloor\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}\right\rfloor
 	\end{align*}
 	Otherwise, if $i$ is not square-free, then $\mu(i)=0$ and there would be no contribution from that term. Therefore, we get exactly the same sum as in the long \eqref{eq:tau(n)-tau(sqrt(n))+1}.
-
 
 
 	While on the topic, we should mention the \textit{Meissel-Lehmer Method}. It is a sieve method based on this theorem, that ultimately provides a way to compute $p_n$ in $O(\sqrt{n})$ complexity i.e. a function that does not grow faster than $\sqrt{n}$. This is a very good improvement for computing $\pi(x)$ and $p_n$.
