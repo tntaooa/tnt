@@ -6,24 +6,7 @@
 \usepackage{bookmark,rotating}
 
 \usepackage[bibstyle=philosophy-modern,citestyle=philosophy-verbose,backend=biber,autopunct,sortcites,]{biblatex}
-
-\makeatletter
-
-\renewbibmacro*{cite:full}{%
-	\usebibmacro{cite:full:citepages}%
-	\printtext[bibhypertarget]{%
-		\usedriver
-		{\DeclareNameAlias{sortname}{default}}
-		{\thefield{entrytype}}}%
-	%  \usebibmacro{shorthandintro}}% DELETED
-\usebibmacro{shorthandintro}% NEW
-\csxdef{cbx@\thefield{entrykey}@footnotenumber}{\the\value{footnote}}% NEW
-}% NEW
-
-\DeclareFieldFormat{prefixnumber}{}
-\DeclareFieldFormat{labelnumber}{\csuse{cbx@\thefield{entrykey}@footnotenumber}}
-
-\makeatother
+\DeclareNameAlias{sortname}{given-family}
 \interfootnotelinepenalty=10000
 
 \usepackage{iftex}
