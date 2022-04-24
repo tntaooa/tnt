@@ -322,9 +322,6 @@ You never know what's coming next until you think clearly!
 		This implies $m\mid 2^{(m-1)!}-1$ and $m-2\mid 2^{(m-1)!}-1$. Since $m\perp m-2$ for odd $m$, we have $m(m-2)\mid 2^{(m-1)!}-1$.
 	\end{solution}
 
-
-
-
 	\begin{problem}
 		Prove that $n$ divides $2^n+1$ for infinitely many $n\in\mathbb{N}$.
 	\end{problem}
@@ -390,7 +387,7 @@ You never know what's coming next until you think clearly!
 		f(n)^2+f(n) & \mid f(n)f(f(n))+n\\
 		f(n)(f(n)+1)& \mid  f(n)f(f(n))+n
 		\end{align*}
-		Thus, $f(n)\mid f(n)f(f(n))+n$ or $f(n)\mid n$, so $f(n)\leq n$. Now, we will explain our main idea. \textbf{We will make the right side a prime} (think what the benefit of doing so). But we need to understand if that's achievable. It is, since we can take $n$ as we please, and there is a free $n$ on the right side. Let $p=mf(m)+n$ for a prime $p>mf(m)$. In fact, we take a prime $p>m^2$, that way we also ensure $p>mf(m)$ since $f(m)\leq n$. So, for that $m$,
+		Thus, $f(n)\mid f(n)f(f(n))+n$ or $f(n)\mid n$, so $f(n)\leq n$. Now, we will explain our main idea. \textit{We will make the right side a prime} (think what the benefit of doing so). But we need to understand if that's achievable. It is, since we can take $n$ as we please, and there is a free $n$ on the right side. Let $p=mf(m)+n$ for a prime $p>mf(m)$. In fact, we take a prime $p>m^2$, that way we also ensure $p>mf(m)$ since $f(m)\leq n$. So, for that $m$,
 			\begin{align*}
 				m^2+f(n) & \mid mf(m)+n=p
 			\end{align*}
@@ -416,7 +413,7 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				2^{(2n,p-1)} &\equiv1\pmod p
 			\end{align*}
-		Using the same argument as before, $n\bot p-1$, so $(2n,p-1)=(2,p-1)=2$ because $p$ is odd. This gives us $2^2\equiv1\pmod p$ or $p=3$. What do we do now? We only have the smallest prime. So, we can assume $n=3^\alpha k$ where $k$ is not divisible by $3$. Think yourself about the reason to do this. It would be certainly fruitful to find out what values $\alpha$ can assume. This is where \textbf{Lifting the Exponent} lemma comes to the rescue! \textbf{But first we need to make sure we can actually apply LTE}. In this case, we can because $2+1=3$, divisible by $3$ and $2\bot1$. We have
+		Using the same argument as before, $n\bot p-1$, so $(2n,p-1)=(2,p-1)=2$ because $p$ is odd. This gives us $2^2\equiv1\pmod p$ or $p=3$. What do we do now? We only have the smallest prime. So, we can assume $n=3^\alpha k$ where $k$ is not divisible by $3$. Think yourself about the reason to do this. It would be certainly fruitful to find out what values $\alpha$ can assume. This is where \textit{Lifting the Exponent} lemma comes to the rescue! \textit{But first we need to make sure we can actually apply LTE}. In this case, we can because $2+1=3$, divisible by $3$ and $2\bot1$. We have
 			\begin{align*}
 				\nu_3(n^2)  & = \nu_3(3^{2\alpha }k^2)\\
 							& = \nu_3(3^{2\alpha })+\nu_3(k^2)\\
@@ -503,7 +500,7 @@ You never know what's coming next until you think clearly!
 	\begin{solution}
 		Let's focus only on $n>1$. How do we understand the nature of $d$? Surely we should take a prime divisor of $d$, say $p$. If we can find the values of $p$ and the exponent of $p$ in $d$, we can find $d$. So we get $p\mid a^n-a$ for all $p\mid d$. What should we use to get a clue on the exponents? We can set different values of $a$. And it seems wise to use $a=p$. This shows that $p\mid p^n-p$. Now, if $p^2\mid d$ then we would have $p^2\mid p^n-p$ which would breed a contradiction $p^2\mid p$ because $p^2\mid p^n$ for $n>1$. Therefore, for any prime $p\mid d$, $p^2$ can't divide $d$ and so $d$ is square-free.
 
-		Now, we only need to find the valid values of $p$. This is where it gets tricky. For any integer $a$, either $p\mid a$ or $a\perp p$. It's safe to work only for $a\perp p$ since the problem asks for all values of $a$. In that case, from Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. And from the problem statement, we have $a(a^{n-1}-1)$ is divisible by $p$. Since $a\perp p$, we get $a^{n-1}-1$ is divisible by $p$, or $a^{n-1}\equiv1\pmod p$. This almost tells us to infer that we must have $p-1\mid n-1$. That is the case indeed, however, we have to prove that $p-1$ must be the order of $a$ for some integer $a$. You should think on this more and get to the point where you understand: \textbf{we should set $a=g$ where $g$ is a primitive root of $p$}. So that, we can tell $g^{p-1}\equiv1\pmod p$ and $\ord_p(g)=p-1$. Therefore, from $g^{n-1}\equiv1\pmod p$, we get $p-1\mid n-1$.
+		Now, we only need to find the valid values of $p$. This is where it gets tricky. For any integer $a$, either $p\mid a$ or $a\perp p$. It's safe to work only for $a\perp p$ since the problem asks for all values of $a$. In that case, from Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. And from the problem statement, we have $a(a^{n-1}-1)$ is divisible by $p$. Since $a\perp p$, we get $a^{n-1}-1$ is divisible by $p$, or $a^{n-1}\equiv1\pmod p$. This almost tells us to infer that we must have $p-1\mid n-1$. That is the case indeed, however, we have to prove that $p-1$ must be the order of $a$ for some integer $a$. You should think on this more and get to the point where you understand: \textit{we should set $a=g$ where $g$ is a primitive root of $p$}. So that, we can tell $g^{p-1}\equiv1\pmod p$ and $\ord_p(g)=p-1$. Therefore, from $g^{n-1}\equiv1\pmod p$, we get $p-1\mid n-1$.
 
 		Notice that, if $D=\prod\limits_{p-1\mid n-1}p$, then any $d\mid D$ satisfies the condition of the problem. Therefore the number of such positive integer $d$ is $\tau(D)$. If the number of primes $p\mid n$ for which $p-1\mid n-1$ is $t(n)$ i.e.
 			\begin{align*}
@@ -521,16 +518,18 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 
 	\begin{solution}
-		Since $a,b$ are rational, we can assume that $a=\frac{m}{d},b=\frac{n}{d}$ with $m\perp d,n\perp d$. Otherwise, if $\gcd(m,d)>1$ we can divide by the common factor. Moreover, we can assume $m\perp n$. Indeed, if not, say $r$ is a prime factor of $d$. Then we must have $r\nmid\gcd(m,n)$. Otherwise the condition $m\perp d$ would be broken. Therefore, without loss of generality, $m\perp n$. Let $q$ be a prime factor of $d$. Thus, \[q^p\mid m^p-n^p\] for all $p$, and $e$ be the smallest positive integer such that \[m^e\equiv n^e\pmod q\]
+		Since $a,b$ are rational, we can assume that $a=\frac{m}{d},b=\frac{n}{d}$ with $m\perp d,n\perp d$. Otherwise, if $\gcd(m,d)>1$ we can divide by the common factor. Moreover, we can assume $m\perp n$. Indeed, if not, say $r$ is a prime factor of $d$. Then we must have $r\nmid\gcd(m,n)$. Otherwise the condition $m\perp d$ would be broken. Therefore, without loss of generality, $m\perp n$. Let $q$ be a prime factor of $d$. Thus, \[q^p\mid m^p-n^p\] for all $p$, and $e$ be the smallest positive integer such that
+			\begin{align*}
+				m^e
+					& \equiv n^e\pmod q
+			\end{align*}
 		We can say that $e\mid p$ for all prime $p$. But this impossible except for $e=1$. Hence, $q\mid m-n$. Now, take a prime $p\neq q$, and from Exponent GCD lemma we have
-
-		\begin{align*}
-			\gcd\left(m-n,f(m,n,p)\right) \mid  p\\
-			q\nmid  f(m,n,p)
-		\end{align*}
-
-
-
+			\begin{align*}
+				\gcd\left(m-n,f(m,n,p)\right)
+					& \mid  p\\
+				q
+					& \nmid  f(m,n,p)
+			\end{align*}
 		This gives us, $q^p\mid m-n$ for all prime $p\neq q$ which leaves a contradiction inferring that $d$ can't have a prime factor i.e. $d$ must be $1$. And then, $a$ and $b$ both are integers.
 	\end{solution}
 
@@ -559,7 +558,7 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				\nu_p(N) & = \sum_{i=1}^{\infty}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
 						 & = \sum_{i=1}^{\log_{p}(2n)}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
-						 &\leq\sum_{i=1}^{a}1\text { since }\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}\\
+						 &\leq\sum_{i=1}^{a}1\\
 						 & = \alpha \\
 				\nu_p(N) &\leq\nu_p([1,2,\cdots,2n])
 			\end{align*}
@@ -590,18 +589,27 @@ You never know what's coming next until you think clearly!
 
 		We will use the following theorem from elementary calculus, which can also be proved elementarily.
 
-		\begin{theorem}\slshape
+		\begin{theorem}
 			\[\lim\limits_{n\to\infty}\left(1+\frac{1}{n}\right) ^ {n}=e\]
 			where $e$ is the Euler constant.
 		\end{theorem}
 
 		Now, we prove the following lemmas.
-		\begin{lemma}\slshape\label{lem:aditya-generalized}
+		\begin{lemma}\label{lem:aditya-generalized}
 			If $p \geq 3$ is an odd number (not necessarily prime), then $p^n\le n^p$ for $p\le n$.
 		\end{lemma}
 
 		\begin{proof}[Proof]
-			We will proceed by induction. The result is true for $n=1$. Suppose that $n>1$ is an integer such that $p^n \leq n^p$ holds for all $3 \leq p \leq n$. We want to show that $p^{n+1} \leq (n+1)^p$ for all $3 \leq p \leq n+1$. If $p=n+1$, we have the equality case. So, suppose that $3 \leq p < n+1$. Then, since $p\le n$, we have \[(pn+p)^p\le (pn+n)^p,\] which gives (after dividing both sides by $(np)^p$) \[\left(1 + \frac{1}{n}\right)^p \leq  \left(1 + \frac{1}{p}\right)^p.\]  Therefore, since we assumed $n^p \leq p^n$,
+			We will proceed by induction. The result is true for $n=1$. Suppose that $n>1$ is an integer such that $p^n \leq n^p$ holds for all $3 \leq p \leq n$. We want to show that $p^{n+1} \leq (n+1)^p$ for all $3 \leq p \leq n+1$. If $p=n+1$, we have the equality case. So, suppose that $3 \leq p < n+1$. Then, since $p\le n$, we have
+				\begin{align*}
+					(pn+p)^p
+						& \le (pn+n)^p
+				\end{align*}
+			which gives (after dividing both sides by $(np)^p$)
+				\begin{align*}
+					\left(1 + \frac{1}{n}\right)^p \leq  \left(1 + \frac{1}{p}\right)^p
+				\end{align*}
+			Therefore, since we assumed $n^p \leq p^n$,
 				\begin{align*}
 					(n+1)^p & = n^p\left(1+\frac{1}{n}\right)^p\\
 							&\leq p^n\left(1+\frac{1}{p}\right)^p\\
@@ -612,18 +620,57 @@ You never know what's coming next until you think clearly!
 	\end{proof}
 
 		Back to the problem.
-		Assume that $q$ is odd. \[q\mid p^n+1\mid n^p+1\]
-		Write them using congruence. And we have, \[n^p\equiv-1\pmod q\]
-		\[\Rightarrow n^{2p}\equiv1\pmod q\]
-		Suppose, $e=\ord_q(n)$ i.e. $e$ is the smallest positive integer such that \[n^e\equiv1\pmod q\]
+		Assume that $q$ is odd.
+			\begin{align*}
+				q
+					& \mid p^n+1\\
+					& \mid n^p+1
+			\end{align*}
+		Write them using congruence. And we have,
+			\begin{align*}
+				n^p
+					& \equiv-1\pmod q\\
+				\Rightarrow n^{2p}
+					& \equiv1\pmod q
+			\end{align*}
+		Suppose, $e=\ord_q(n)$ i.e. $e$ is the smallest positive integer such that
+			\begin{align*}
+				n^e
+					& \equiv1\pmod q
+			\end{align*}
 		Then, $e\mid 2p$ and $e\mid q-1$ from \autoref{thm:ordDiv}.
 
-		Also, from Fermat's theorem, \[n^{q-1}\equiv1\pmod q\]
-		Therefore, \[n^{(2p,q-1)}\equiv1\pmod q\]
-		From $p$ odd and $q\mid p+1$, $p>q$ and so $p$ and $q-1$ are co-prime. Thus, \[(2p,q-1)=(2,q-1)=2\]
-		This gives us, $e\mid (2p,q-1)$ and so we must have $e=2$. Again, since $p$ odd, if $p=2r+1$, \[n^{2r+1}\equiv n\pmod q\]
-		Hence, $q\mid n+1$. If $q\mid \frac{n^p+1}{n+1}$, then by the \autoref{thm:egl} we get \[q\mid \gcd\left(n+1,\frac{n^p+1}{n+1}\right)\mid p\]
-		which would imply $q=1$ or $p$. Both of the cases are impossible. So, if $s$ is the maximum power of $q$ so that $q^s\mid p+1$, then we have $q^s\mid n+1$ too for every prime factor $q$ of $p+1$. This leads us to the conclusion $p+1\mid n+1$ or $p\le n$ which gives $p^n\ge n^p$ by lemma 2.5. But from the given relation, \[p^n+1\le n^p+1\Rightarrow p^n\le n^p\]
+		Also, from Fermat's theorem,
+			\begin{align*}
+				n^{q-1}
+					& \equiv1\pmod q\\
+				\implies n^{(2p,q-1)}
+					& \equiv1\pmod q
+			\end{align*}
+		From $p$ odd and $q\mid p+1$, $p>q$ and so $p$ and $q-1$ are co-prime. Thus,
+			\begin{align*}
+				(2p,q-1)
+					& =(2,q-1)=2
+			\end{align*}
+		This gives us, $e\mid (2p,q-1)$ and so we must have $e=2$. Again, since $p$ odd, if $p=2r+1$,
+			\begin{align*}
+				n^{2r+1}
+					& \equiv n\pmod q
+			\end{align*}
+		Hence, $q\mid n+1$. If $q\mid \frac{n^p+1}{n+1}$, then by the \autoref{thm:egl} we get
+			\begin{align*}
+				q
+					& \mid \gcd\left(n+1,\frac{n^p+1}{n+1}\right)\\
+				\implies q
+					& \mid p
+			\end{align*}
+		which would imply $q=1$ or $p$. Both of the cases are impossible. So, if $s$ is the maximum power of $q$ so that $q^s\mid p+1$, then we have $q^s\mid n+1$ too for every prime factor $q$ of $p+1$. This leads us to the conclusion $p+1\mid n+1$ or $p\le n$ which gives $p^n\ge n^p$ by lemma 2.5. But from the given relation,
+			\begin{align*}
+				p^n+1
+					& \le n^p+1\\
+				\implies p^n
+					& \le n^p
+			\end{align*}
 		Combining these two, $p=n$ is the only possibility to happen. Thus, the solutions are $(n, p)=(4,2),(p, p)$.
 	\end{solution}
 
@@ -659,12 +706,12 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 
 	\begin{solution}
-		Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\cdots,a^{2014}+2014$. Crucial observation: \textbf{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\cdots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers
+		Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\cdots,a^{2014}+2014$. Crucial observation: \textit{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\cdots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers
 			\begin{align*}
 				x^{2014}!+1,x^{2014!}+2,\cdots,x^{2014!}+2014\\
 				x^{2014!}+1,\left(x^{\frac{2014!}{2}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014}}\right)^{2014}+2014
 			\end{align*}
-		All of them are nutty except the first one (probably). But we need exactly two to be \textbf{not nutty}. A way to do that is to divide $2014!$ by a number and hope it doesn't remain nutty. Let's say this number is $k$, that is, we are looking at the numbers
+		All of them are nutty except the first one (probably). But we need exactly two to be \textit{not nutty}. A way to do that is to divide $2014!$ by a number and hope it doesn't remain nutty. Let's say this number is $k$, that is, we are looking at the numbers
 			\begin{align*}
 				x^{\frac{2014!}{k}}+1,\left(x^{\frac{2014!}{2k}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014k}}\right)^{2014}+2014
 			\end{align*}
@@ -719,7 +766,7 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				\dfrac{n-(a_k+\cdots+a_\alpha)}{p-1} & \geq10\alpha
 			\end{align*}
-		where $\alpha\leq\log_p(n)$. Remember that, we are looking for the \textbf{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\alpha$ first. Then In base $p$,
+		where $\alpha\leq\log_p(n)$. Remember that, we are looking for the \textit{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\alpha$ first. Then In base $p$,
 			\begin{align*}
 				n & = (1\underbrace{0\cdots0}_{\alpha\text { zeros}})_p
 			\end{align*}

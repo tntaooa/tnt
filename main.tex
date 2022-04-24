@@ -35,11 +35,10 @@
 \makeindex
 \makeglossaries
 
-
 \ifxetex
-	\newcommand{\fakebold}{2}
+	\newcommand{\fakebold}{1}
 	\newcommand{\scale}{1}
-	\newcommand{\fakemathbold}{2}
+	\newcommand{\fakemathbold}{1}
 	\setmainfont[FakeBold=\fakebold,ItalicFont=ModernMT-ExtendedItalic-New.otf,ItalicFeatures={FakeBold=\fakebold,Scale=\scale},BoldItalicFont=ModernMT-ExtendedItalic-OldStandard-Italic.otf,SmallCapsFont={OldStandard-Regular.otf},SmallCapsFeatures={Letters=SmallCaps,FakeBold=\fakebold,RawFeature=+smcp,Scale=\scale},BoldFont=OldStandard-Bold.otf,BoldFeatures={FakeBold=0,Scale=\scale,SmallCapsFont=OldStandard-Bold.otf,SmallCapsFeatures={RawFeature=+smcp,Scale=\scale}},BoldItalicFeatures={FakeBold=3},]{ModernMT-Extended-New.otf}
 	\setsansfont[FakeBold=1,Scale=\scale]{Latin Modern Sans}
 	\setmonofont[FakeBold=1,Scale=\scale]{Latin Modern Mono}
@@ -98,19 +97,17 @@
 	\usepackage[T1]{fontenc}
 \fi
 
-\newcommand*{\problemautorefname}{\textit{Problem}}
-\newcommand{\identityautorefname}{Identity}
-
 \titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}\ifthenelse{\value{chapter}>0}{$\S\S$\thechapter\;}{}}[\vspace{1ex}\titlerule]
 \titleformat{\section}[display]{\bfseries\scshape\LARGE}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S$\thesection\;}{}}[\titlerule]
 \titleformat{\subsection}[display]{\bfseries\scshape\Large}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S\S$\thesection\;}{}}[\titlerule]
-
-\newcommand{\lemmaautorefname}{\textit{Lemma}}
-%\renewcommand{\theoremautorefname}{\textit{Theorem}}
-
 \renewcommand*{\chapterautorefname}{Chapter}
 \renewcommand*{\sectionautorefname}{Section}
 \renewcommand*{\subsectionautorefname}{Subsection}
+
+\newcommand*{\problemautorefname}{\textit{Problem}}
+\newcommand{\identityautorefname}{Identity}
+\newcommand{\lemmaautorefname}{\textit{Lemma}}
+%\renewcommand{\theoremautorefname}{\textit{Theorem}}
 
 \title{\bf\Huge TOPICS IN NUMBER THEORY\\ {\vspace*{.3in}\it\LARGE An Olympiad--Oriented Approach}\\\vspace*{.3in}{\Large Second Edition\\\vspace*{.1in}\rule{\textwidth}{0.8pt}}}
 \author{
@@ -136,10 +133,9 @@
 \begin{dedication}
 	\begin{center}
 		\textit{Dedicated to}
-	\end{center}\slshape
+	\end{center}
 	Fermat, the father of modern number theory.\\
 	Euler, without whom number theory probably wouldn't be so rich today.\\
-	Riemann, who made huge contributions to analytic number theory.\\
 	Ramanujan, the mathematician of mathematicians.\\
 	Paul Erd\H{o}s, the man who loved only numbers.
 \end{dedication}
