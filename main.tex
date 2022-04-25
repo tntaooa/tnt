@@ -12,30 +12,8 @@
 \usepackage{iftex}
 
 \ifxetex
-\usepackage[no-math]{fontspec}
-\usepackage{unicode-math}
-\else
-\usepackage{pdfrender, xcolor}
-\fi
-
-\usepackage{tocloft}
-\renewcommand{\cftsecfont}{\normalsize\normalfont}
-\renewcommand{\cftchapfont}{\normalsize\normalfont}
-\renewcommand{\cftsubsecfont}{\normalsize\normalfont}
-\renewcommand{\cftpartfont}{\normalsize\normalfont}
-
-\usepackage[toc,nopostdot,nonumberlist,automake=true]{glossaries}
-\usepackage{makeidx}
-
-\usepackage{nomencl}
-\renewcommand{\nomname}{Notations}
-\makenomenclature
-\glstoctrue
-\subfile{glossary.tex}
-\makeindex
-\makeglossaries
-
-\ifxetex
+	\usepackage[no-math]{fontspec}
+	\usepackage{unicode-math}
 	\newcommand{\fakebold}{1}
 	\newcommand{\scale}{1}
 	\newcommand{\fakemathbold}{1}
@@ -44,6 +22,7 @@
 	\setmonofont[FakeBold=1,Scale=\scale]{Latin Modern Mono}
 	\setmathfont[FakeBold=\fakemathbold,Scale=\scale]{NewCMMath-Book.otf}
 	\setmathfont[range={it},FakeBold=\fakemathbold,Scale=\scale]{ModernMT-ExtendedItalic-OldStandard-Italic.otf}
+	\setmathfont[range={\partial},FakeBold=\fakebold]{OldStandard-Regular.otf}
 	\newfontfamily{\bask}{ModernExtT-Theano.otf}
 	\makeatletter
 	\RenewDocumentCommand{\sum@}{}{\DOTSB\baskervillesum}
@@ -75,7 +54,7 @@
 	\NewDocumentCommand{\makebaskervilleprod}{m}{%
 		\vcenter{\hbox{\scalebox{#1}{\bask ∏}}}%
 	}
-	\newfontfamily\intfont{Old Standard Italic}
+	\newfontfamily\intfont{OldStandard-Italic.otf}
 	\makeatletter
 	\NewDocumentCommand{\int@}{}{\DOTSB\baskervilleint}
 	\AtBeginDocument{%
@@ -93,9 +72,27 @@
 	}
 	\defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \else
+	%\usepackage{pdfrender, xcolor}
 	\renewcommand*\rmdefault{cmdh}
 	\usepackage[T1]{fontenc}
 \fi
+
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\normalsize\normalfont}
+\renewcommand{\cftchapfont}{\normalsize\normalfont}
+\renewcommand{\cftsubsecfont}{\normalsize\normalfont}
+\renewcommand{\cftpartfont}{\normalsize\normalfont}
+
+\usepackage[toc,nopostdot,nonumberlist,automake=true]{glossaries}
+\usepackage{makeidx}
+
+\usepackage{nomencl}
+\renewcommand{\nomname}{Notations}
+\makenomenclature
+\glstoctrue
+\subfile{glossary.tex}
+\makeindex
+\makeglossaries
 
 \titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}\ifthenelse{\value{chapter}>0}{$\S\S$\thechapter\;}{}}[\vspace{1ex}\titlerule]
 \titleformat{\section}[display]{\bfseries\scshape\LARGE}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S$\thesection\;}{}}[\titlerule]
