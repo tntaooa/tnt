@@ -569,12 +569,20 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 
 	\begin{solution}
 		By Euler's criterion, we have
-		\[2^q \equiv 2^{\frac{p-1}{2}} \equiv \pm 1 \pmod{p}\]
+			\begin{align*}
+				2^q
+					& \equiv 2^{\frac{p-1}{2}}\\
+					& \equiv \pm 1 \pmod{p}
+			\end{align*}
 		 We analyze both cases now:
 			\begin{itemize}
 				\item Assume that $2^q \equiv -1 \pmod p$. Let $\ord_p(2)=d$. Then, $d\mid \varphi(p)=p-1=2q$. Since $q$ is a prime, we must have $$d \in \{1,2,q,2q\}.$$ Since $q \equiv 1 \pmod 4$, we have $q \geq 5$ and the cases $d=1$ and $d=2$ cannot happen. Also, if $d=q$, then $2^q \equiv 1 \pmod p$, which is in contradiction with $2^q \equiv -1 \pmod p$. Thus $d=2q=p-1$ and $2$ is a primitive root modulo $p$.
 				\item Assume that $2^q \equiv 1 \pmod{p}$. Multiply both sides of this equation by $2$ to get $2^{q+1} \equiv 2 \pmod p$. Since $q+1$ is even, the latter equation means that $2$ is a quadratic residue modulo $p$. Therefore, by \autoref{thm:2qr}, $p$ must be congruent to either $1$ or $7$ modulo $8$. However, problem says that $q \equiv 1 \pmod 4$ which results in $q \equiv 1$ or $5 \pmod 8$. Now,
-				\[p \equiv 2q +1 \equiv 3 \text{ or } 5 \pmod 8\]
+					\begin{align*}
+						p
+							& \equiv 2q +1\\
+							& \equiv 3,5 \pmod 8
+					\end{align*}
 				which is a quick contradiction. Hence, $2^q \equiv 1 \pmod{p}$ is not possible.
 			\end{itemize}
 
@@ -596,8 +604,9 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 			\begin{align*}
 				b-a
 					& = 2k\\
-				\quad \gcd(b,p-1)\\
-					& = \gcd(a,p-1) = 1
+				\gcd(b,p-1)
+					& = \gcd(a,p-1)\\
+					& = 1
 			\end{align*}
 		because then $x=g^a$ would be a solution.
 		This is luckily easy. Let $2,q_1,q_2,\ldots,q_z$ be the prime divisors of $p-1$. Suppose that $a_1,a_2,\ldots,a_z$ are integers such that $2k \equiv a_i \pmod{q_i}$ for each $1 \le i \le z$.

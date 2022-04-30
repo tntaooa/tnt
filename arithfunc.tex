@@ -4,7 +4,7 @@
 \begin{document}
 \chapter{Arithmetic Functions}\label{ch:arithfunc}
 
-	In chapter \autoref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ that satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers. \watermark.
+	In \autoref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ that satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers. \watermark.
 \section{Definitions}
 
 		\begin{definition}[Arithmetic Function]
@@ -154,7 +154,7 @@
 
 \section{Common Arithmetic Functions}
 	\subsection{Number of Divisors}\label{sec:number-of-divisors}
-		We first introduced $\tau(n)$ in chapter \autoref{ch:divisibility}. To be precise, in \autoref{thm:nos}, we explained that there are $\tau(n)$ positive integer solutions $(a,b)$ to the equation $ab=n$. For example, $ab=12$ has $\tau(12)=6$ solutions $(1,12), (2, 6), (3,4), (4,3), (6,2), (12,1)$ in positive integers.
+		We first introduced $\tau(n)$ in \autoref{ch:divisibility}. To be precise, in \autoref{thm:nos}, we explained that there are $\tau(n)$ positive integer solutions $(a,b)$ to the equation $ab=n$. For example, $ab=12$ has $\tau(12)=6$ solutions $(1,12), (2, 6), (3,4), (4,3), (6,2), (12,1)$ in positive integers.
 
 			\begin{definition}[Number-of-divisors Function]
 				Let $n$ be a positive integer. The number of positive divisors of $n$ is denoted by $\tau(n)$. In other words, the \textit{number-of-divisors} function is defined as
@@ -435,7 +435,7 @@
 							$r$ & $m+r$ & $2m+r$ & $\ldots$ & $(n-1)m+r$
 						\end{tabular}
 					\end{center}
-				The set $\{0, 1, 2, \cdots, n\}$ is a complete residue system modulo $n$. Since $(m,n)=1$, by proposition \ref{prop:generalcompletesystem} of chapter \autoref{ch:congruence}, the numbers in the above row of table also form a complete residue system modulo $n$. This means that all the remainders $0,1,2,\cdots,n-1$ happen when you take the numbers in this row modulo $n$. Now, how many numbers in this row are relatively prime to $n$? The answer is the same number of integers co-prime to $n$ in the set $\{0, 1, 2, \cdots, n\}$, which is $\varphi(n)$ by definition (try to figure out why). Therefore, there are totally $\varphi(m) \cdot \varphi(n)$ numbers in the table which are co-prime to both $m$ and $n$, and hence $mn$. On the other hand, by definition, there are $\varphi(mn)$ numbers co-prime to $mn$. The conclusion follows.
+				The set $\{0, 1, 2, \cdots, n\}$ is a complete residue system modulo $n$. Since $(m,n)=1$, by proposition \ref{prop:generalcompletesystem} of \autoref{ch:congruence}, the numbers in the above row of table also form a complete residue system modulo $n$. This means that all the remainders $0,1,2,\cdots,n-1$ happen when you take the numbers in this row modulo $n$. Now, how many numbers in this row are relatively prime to $n$? The answer is the same number of integers co-prime to $n$ in the set $\{0, 1, 2, \cdots, n\}$, which is $\varphi(n)$ by definition (try to figure out why). Therefore, there are totally $\varphi(m) \cdot \varphi(n)$ numbers in the table which are co-prime to both $m$ and $n$, and hence $mn$. On the other hand, by definition, there are $\varphi(mn)$ numbers co-prime to $mn$. The conclusion follows.
 
 				\item $\varphi(n)$ is the number of positive integers $k$ such that $k \leq n$ and $k \bot n$. The point is that if $k$ is co-prime to $n$, then so is $n-k$. Therefore, for $n\geq 3$, one can match all numbers co-prime to $n$ in pairs of $(k, n-k)$, which means that $\varphi(n)$ must be even.
 
@@ -606,7 +606,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			The proof for distributivity is similar and is left for the reader. It is also trivial by definition that $\varepsilon$ is the unit element of Dirichlet convolution.
 		\end{proof}
 
-		We are going define the M\"{o}bius function $\mu(n)$, which doesn't seem very natural at first sight. As we go deeper in this chapter and in chapter \autoref{ch:primes} on primes, we will find out why this is in fact very important. It will help us a lot when solving problems concerning inclusion and exclusion. In other words, the definition of the M\"{o}bius function is natural in the way that it's trying to alternate positive and negative signs in an inclusion-exclusion argument.
+		We are going define the M\"{o}bius function $\mu(n)$, which doesn't seem very natural at first sight. As we go deeper in this chapter and in \autoref{ch:primes} on primes, we will find out why this is in fact very important. It will help us a lot when solving problems concerning inclusion and exclusion. In other words, the definition of the M\"{o}bius function is natural in the way that it's trying to alternate positive and negative signs in an inclusion-exclusion argument.
 
 		\begin{definition}[M\"{o}bius Function]\label{def:mobius}
 			The M\"{o}bius function $\mu(n)$ is defined as
