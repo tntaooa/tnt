@@ -1,17 +1,17 @@
 \documentclass{subfile}
 
 \begin{document}
-	\textit{Zsigmondy's theorem} is one of the tactics that can easily tackle a good number of \textit{hard problems} in recent years. This is indeed a mighty theorem to be used in an olympiad. We do not prove this theorem here, interested readers can see \textcite[$\S6.2$]{billal_riasat_2021} for a proof (it is completely elementary although a little beyond the scope of this book).
+	\textit{Zsigmondy's theorem} (see \textcite{zsigmondy,birkhoff_vandiver_1904}) is one of the tactics that can easily tackle a good number of \textit{hard problems} in recent years. This is indeed a mighty theorem to be used in an olympiad. We do not prove this theorem here, interested readers can see \textcite[$\S6.2$]{billal_riasat_2021} for a proof (it is completely elementary although a little beyond the scope of this book).
 		\begin{definition}[Primitive Divisor]
-			For a sequence of integers $a_1,a_2,\cdots,a_n,\cdots$ a prime number $p$ is a \textit{primitive} divisor of $a_n$ if $p$ divides $a_n$ but $p$ doesn't divide $a_k$ for any $k<n$. \textit{R. D. Carmichael} called such a prime an \textit{intrinsic} divisor.
+			For a sequence of integers $a_1,a_2,\cdots,a_n,\cdots$ a prime number $p$ is a \textit{primitive} divisor of $a_n$ if $p$ divides $a_n$ but $p$ doesn't divide $a_k$ for any $k<n$. \textcite{carmichael,carmichael2} called such a prime an \textit{intrinsic} divisor.
 		\end{definition}
 
 		\begin{example}
 			Consider the sequence $a_k=2^k-1$. $a_1=1,a_2=3,a_3=7,a_4=15$. Note that, $a_3$ has primitive divisor $7$ and $a_4$ has the primitive divisor $5$.
 		\end{example}
 
-		\begin{theorem}[Zsigmondy's Theorem, $1882$]
-			Let $a,b$ be co-prime integers and $n\geq1$ be an integer.
+		\begin{theorem}[Zsigmondy's Theorem]
+			Let $a,b$ be relatively prime integers and $n\geq1$ be an integer.
 				\begin{itemize}
 					\item $a^n-b^n$ has a primitive divisor except when:
 						\begin{enumerate}[(a)]
@@ -90,7 +90,7 @@
 		\end{problem}
 
 		\begin{solution}
-			To apply the theorem, first we need to make $a$ and $b$ co-prime. If $q$ is a prime divisor of $(a,b)=g$, then $q|p$. Therefore, $g=p^r$ for some $r$. Let, $a=p^rx,b=p^ry$ with $x\bot y$. Then,
+			To apply the theorem, first we need to make $a$ and $b$ relatively prime. If $q$ is a prime divisor of $(a,b)=g$, then $q|p$. Therefore, $g=p^r$ for some $r$. Let, $a=p^rx,b=p^ry$ with $x\bot y$. Then,
 				\begin{align*}
 					x^3+y^3 & = p^{n-3r}
 				\end{align*}
