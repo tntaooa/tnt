@@ -631,7 +631,7 @@
 		\begin{note}
 			Depending on the implementation of a result, a deterministic test can be converted into a non-deterministic one. For example, the above theorem can be both deterministic and probabilistic. Because you can iterate over all possible $a$ modulo $a$. Or you could use some random $a$ that are relatively prime to $n$. For a randomized test, we would check only for some random $a\bot n$ because $a^{n-1}\equiv1\pmod n$ must hold. If the result was in favor for all $a$, we would say, $n$ is a \textit{probable prime}. Otherwise, $n$ is a \textit{definite composite}.
 		\end{note}
-	In $1977$, \textit{Robert Martin Solovay} and \textit{Volker Strassen} developed a method called \textit{Solovay--Strassen primality testing} which is based on Euler's criterion.
+	\textcite{solovay_strassen_1977} developed a method called \textit{Solovay--Strassen primality testing} which is based on Euler's criterion.
 
 		\begin{definition}
 			Let $n>1$ be an odd integer. Assume that $a>1$ is a positive integer such that $(a,n)=1$ and
@@ -657,7 +657,7 @@
 					We discussed different classes of pseudoprimes, integers which share a common property with all primes but are composite, in section \eqref{sec:pseudoprimes}. If equation \eqref{eq:solovay-eq1} holds true for a composite integer $n$ and an integer $a>1$ relatively prime to it, then $n$ is called an Euler pseudoprime to base $a$, abbreviated as $\epsp(a)$. The Solovay--Strassen test is closely related to Euler pseudoprimes. In fact, if an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not an Euler witness for $n$, then $n$ is an $\epsp(a)$. On the other hand, if an odd $n$ is an $\epsp(a)$ for some $a$, then $a$ is not an Euler witness for $n$.
 		\end{remark}
 
-	 As explained in that section, a well-known class of pseudoprimes are strong pseudoprimes. \textit{Gary Lee Miller} developed \textit{Miller's primality test} which involves the congruences used in the definition of strong pseudoprimes. \textit{Michael Oser Rabin} later modified Miller's primality test and obtained \textit{Miller--Rabin} test which we will now explain. To formulate Miller-Rabin primality test, it would be convenient to use the terminology introduced by Rabin as below:
+	 As explained in that section, a well-known class of pseudoprimes are strong pseudoprimes. \textcite{miller_1975} developed \textit{Miller's primality test} which involves the congruences used in the definition of strong pseudoprimes. \textcite{rabin_1980} later modified Miller's primality test and obtained \textit{Miller--Rabin} test which we will now explain. To formulate Miller-Rabin primality test, it would be convenient to use the terminology introduced by Rabin as below:
 
 		\begin{definition}
 			Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Let $a>1$ be an integer relatively prime to $n$. Then $a$ is said to be a \textit{witness for compositeness of $n$}, or simply a witness for $n$ when
@@ -720,7 +720,7 @@
 	%%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv n \mod \left( X^n - 1 \right)/\left( X - 1 \right)\]
 	%>>>>>>> amir
 	%%	\end{theorem}
-	The most well known deterministic algorithm known for primality testing is \textit{AKS} primality test. It was introduced by \textit{Manindra Agrawal, Neeraj Kayal, and Nitin Saxena} in $2002$. The core idea of AKS primality test is the following theorem.
+	The most well known deterministic algorithm known for primality testing is \textit{AKS} primality test. It was introduced by \textit{Manindra Agrawal, Neeraj Kayal, and Nitin Saxena} in $2002$ and published in \textcite{agrawal_kayal_saxena_2004}. The core idea of AKS primality test is the following theorem.
 		\begin{theorem}
 			Let $a$ be an integer and $n$ be a positive integer such that $(a,n)=1$. Then $n$ is prime if and only if
 				\begin{align*}

@@ -1,14 +1,14 @@
 \documentclass{subfile}
 
 \begin{document}
-In general, a \textit{Pseudoprime} is an integer which shares a common property with all prime numbers but is not actually a prime. Pseudoprimes are classified according to which property of primes they satisfy. We will investigate a few types of pseudoprimes in this section.
+In general, a \textit{pseudoprime} is an integer which shares a common property (also known as a probable prime, defined later in \autoref{sec:pseudoprimes}) with all prime numbers but is not actually a prime. Pseudoprimes are classified according to which property of primes they satisfy. We will investigate a few types of pseudoprimes in this section.
 
 \subsection{Fermat Pseudoprimes,  Carmichael Numbers}
 	The most important class of pseudoprimes are Fermat pseudoprimes which come from Fermat's little theorem.
 		\begin{definition}[Fermat Pseudoprime to Base $a$]
 			For an integer $a>1$, if a composite integer $n$ satisfies $a^{n-1}\equiv 1\pmod n$, then $n$ is said to be a \textit{Fermat pseudoprime to base $a$} and is denoted by $\psp(a)$.
 		\end{definition}
-	Suppose $a>1$ is an integer. It can be shown that the number of Fermat pseudoprimes to base $a$ is small compared to the number of primes. Therefore, any number $n$ that passes Fermat's little theorem (i.e., $a^{n-1} \equiv 1 \pmod n$) could be considered to be probably a prime and that is why it is called \textbf{pseudoprime}.
+	Suppose $a>1$ is an integer. It can be shown that the number of Fermat pseudoprimes to base $a$ is small compared to the number of primes. Therefore, any number $n$ that passes Fermat's little theorem (i.e., $a^{n-1} \equiv 1 \pmod n$) could be considered to be probably a prime and that is why it is called \textit{pseudoprime}.
 
 		\begin{example}
 			Fermat pseudoprime to base $2$ are called \textit{Poulet numbers}. $341=11\times 31$ is the smallest Poulet number. The reason is that

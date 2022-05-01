@@ -463,9 +463,15 @@ Finally, we are ready to answer our question.
 Here is a generalization of Wilson's theorem, though it can be generalized even further. We refer the reader to section \eqref{sec:wilsongeneral} of the book to see another generalization of Wilson's theorem.
 	\begin{problem}\label{thm:genWilson}
 		Let $n$ be a positive integer and let $\mathbb U_n = \{g_1, g_2, \ldots, g_{\varphi(n)}\}$. Prove that if there exists a primitive root modulo $n$, then
-		\[g_1g_2\cdots g_{\varphi(n)}\equiv-1\pmod n\]
+			\begin{align*}
+				g_1g_2\cdots g_{\varphi(n)}
+					& \equiv-1\pmod n
+			\end{align*}
 		Otherwise,
-		\[g_1g_2\cdots g_{\varphi(n)}\equiv1\pmod n\]
+			\begin{align*}
+				g_1g_2\cdots g_{\varphi(n)}
+					& \equiv1\pmod n
+			\end{align*}
 	\end{problem}
 
 	\begin{hint}
@@ -504,7 +510,12 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 				g^{k(p-1)}
 					& \equiv1\pmod{p^n}
 			\end{align*}
-		we either have $$p^{n-1}(p-1) \mid k(p-1)$$ or $p^{n-1} \mid k$ for any such $k$. Take $k=p^{n-1}\ell$. If $\ell=sp+r$ with $1\leq r<p$, then we have that
+		we either have
+			\begin{align*}
+				p^{n-1}(p-1)
+					& \mid k(p-1)
+			\end{align*}
+		or $p^{n-1} \mid k$ for any such $k$. Take $k=p^{n-1}\ell$. If $\ell=sp+r$ with $1\leq r<p$, then we have that
 			\begin{align*}
 				g^k
 					& =g^{p^{n-1}(p-1)(sp+r)}\pmod{p^{n}}\\
@@ -532,10 +543,21 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 			\end{align*}
 		which is not a quadratic residue modulo $3$.
 		Using the law of quadratic reciprocity and the fact that $p \equiv 1 \pmod{4}$,
-		\[\left(\dfrac{3}{p}\right) \left(\dfrac{p}{3}\right) = (-1)^{(p-1)/2} =1.\] From the above discussion, we know that $\left( \frac{p}{3} \right) = -1$. Therefore, $\left(\frac{3}{p}\right)=-1$ and $3$ is a quadratic non-residue modulo $p$.
+			\begin{align*}
+				\left(\dfrac{3}{p}\right) \left(\dfrac{p}{3}\right)
+					& = (-1)^{(p-1)/2} = 1
+			\end{align*}
+		From the above discussion, we know that $\left( \frac{p}{3} \right) = -1$. Therefore, $\left(\frac{3}{p}\right)=-1$ and $3$ is a quadratic non-residue modulo $p$.
 
-		We will now prove that for a prime of the form $p=2^{2^{r}}+1$ every quadratic non-residue modulo $p$ is a primitive root modulo $p$. Since $p$ is a prime, we know that there exists a primitive root modulo $p$, say $g$. By \autoref{thm:pr+qr}, we know that $g^2,g^4,\cdots,g^{p-1}$ are ${p-1}/{2}$ different nonzero residues modulo $p$ and they are all quadratic residues. Therefore, all the quadratic non-residues are given by $$g,g^3,g^5,\cdots,g^{p-2}.$$
-		We will now take one of these residues, say $g^{2k+1}$, and show that it is a primitive root mod ${p}$. This means we want to show that $$g^{2k+1},g^{2(2k+1)},g^{3(2k+1)},\ldots,g^{(p-1)(2k+1)}$$ are incongruent modulo $p$, which  happens if and only if $$2k+1,2(2k+1),3(2k+1),\ldots,(p-1)(2k+1)$$ are all different modulo ${p-1}$. This happens if and only if $(2k+1,p-1)=1$, or $(2k+1,2^{2^r})=1$, which is clearly true since $2k+1$ is odd and $2^{2^{r}}$ is a power of $2$.
+		We will now prove that for a prime of the form $p=2^{2^{r}}+1$ every quadratic non-residue modulo $p$ is a primitive root modulo $p$. Since $p$ is a prime, we know that there exists a primitive root modulo $p$, say $g$. By \autoref{thm:pr+qr}, we know that $g^2,g^4,\cdots,g^{p-1}$ are ${p-1}/{2}$ different nonzero residues modulo $p$ and they are all quadratic residues. Therefore, all the quadratic non-residues are given by
+			\begin{align*}
+				g,g^3,g^5,\cdots,g^{p-2}
+			\end{align*}
+		We will now take one of these residues, say $g^{2k+1}$, and show that it is a primitive root mod ${p}$. This means we want to show that $$g^{2k+1},g^{2(2k+1)},g^{3(2k+1)},\ldots,g^{(p-1)(2k+1)}$$ are incongruent modulo $p$, which  happens if and only if
+			\begin{align*}
+				2k+1,2(2k+1),3(2k+1),\ldots,(p-1)(2k+1)
+			\end{align*}
+		are all different modulo ${p-1}$. This happens if and only if $(2k+1,p-1)=1$, or $(2k+1,2^{2^r})=1$, which is clearly true since $2k+1$ is odd and $2^{2^{r}}$ is a power of $2$.
 
 		Therefore, all quadratic-non residues are primitive roots modulo $p$, and as we have shown $3$ is among them, we are done.
 	\end{solution}
@@ -543,7 +565,10 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 	\begin{solution}[2]
 		Just like the previous solution, we will use the fact that $3$ is not a quadratic residue modulo $p$. Therefore, by Euler's criterion,
 			\begin{align}\label{eq:3^{2^{m-1}}}
-				3^{\frac{p-1}{2}} \equiv  \left( \frac{3}{p} \right) = -1 \pmod p \implies 3^{2^{m-1}} \equiv -1 \pmod p.
+				3^{\frac{p-1}{2}} \equiv  \left( \frac{3}{p} \right)
+					& = -1\pmod p\\
+				\implies 3^{2^{m-1}}
+					& \equiv -1 \pmod p
 			\end{align}
 		Let $d$ be the order of $3$ modulo $p$. Since $d\mid p-1=2^n$, we must have $d=2^{\alpha}$ for some integer $\alpha$. If $\alpha<n$ then
 			\begin{align*}
@@ -560,7 +585,18 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 	\end{problem}
 
 	\begin{solution}
-		Check $ q=2$ for yourself. Assume $ q \ge 3$ is an odd prime, say $q=2k+1$. Hence, $ p=4k+3$, or $p \equiv 3 \pmod 4$. According to \autoref{thm:a^2+b^2}, $ -a^2$ is not a quadratic residue modulo $ p$. Suppose that $ -a^2$ is not a primitive root modulo $p$. Let $ g$ be a primitive root modulo $p$. \autoref{thm:pr+qr} states that there exists an $ l\ge 1$ such that $$g^{2l+1} \equiv -a^2 \pmod p.$$ Since $-a^2$ is not a primitive root, there exists an integer $k$ with $ k<p-1$ such that \[g^{(2l+1)k} \equiv (-a^2)^k \equiv 1 \pmod p .\] This, together with Fermat's little theorem, implies $ (2l+1)k \mid p-1=2q$ and hence $ k=2$. Therefore, $ a^4 \equiv 1 \pmod p$ and by Fermat's little theorem $ 4\mid 2q$, which leads to a contradiction as $q$ is prime. Hence, $ -a^2$ is a primitive root modulo $p$.
+		Check $ q=2$ for yourself. Assume $ q \ge 3$ is an odd prime, say $q=2k+1$. Hence, $ p=4k+3$, or $p \equiv 3 \pmod 4$. According to \autoref{thm:a^2+b^2}, $ -a^2$ is not a quadratic residue modulo $ p$. Suppose that $ -a^2$ is not a primitive root modulo $p$. Let $ g$ be a primitive root modulo $p$. \autoref{thm:pr+qr} states that there exists an $ l\ge 1$ such that
+			\begin{align*}
+				g^{2l+1}
+					& \equiv -a^2 \pmod p
+			\end{align*}
+		Since $-a^2$ is not a primitive root, there exists an integer $k$ with $ k<p-1$ such that
+			\begin{align*}
+				g^{(2l+1)k}
+					& \equiv (-a^2)^k\\
+					& \equiv 1 \pmod p
+			\end{align*}
+		This, together with Fermat's little theorem, implies $ (2l+1)k \mid p-1=2q$ and hence $ k=2$. Therefore, $ a^4 \equiv 1 \pmod p$ and by Fermat's little theorem $ 4\mid 2q$, which leads to a contradiction as $q$ is prime. Hence, $ -a^2$ is a primitive root modulo $p$.
 	\end{solution}
 
 	\begin{problem}
@@ -576,7 +612,12 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 			\end{align*}
 		 We analyze both cases now:
 			\begin{itemize}
-				\item Assume that $2^q \equiv -1 \pmod p$. Let $\ord_p(2)=d$. Then, $d\mid \varphi(p)=p-1=2q$. Since $q$ is a prime, we must have $$d \in \{1,2,q,2q\}.$$ Since $q \equiv 1 \pmod 4$, we have $q \geq 5$ and the cases $d=1$ and $d=2$ cannot happen. Also, if $d=q$, then $2^q \equiv 1 \pmod p$, which is in contradiction with $2^q \equiv -1 \pmod p$. Thus $d=2q=p-1$ and $2$ is a primitive root modulo $p$.
+				\item Assume that $2^q \equiv -1 \pmod p$. Let $\ord_p(2)=d$. Then, $d\mid \varphi(p)=p-1=2q$. Since $q$ is a prime, we must have
+					\begin{align*}
+						d
+							& \in \{1,2,q,2q\}
+					\end{align*}
+				Since $q \equiv 1 \pmod 4$, we have $q \geq 5$ and the cases $d=1$ and $d=2$ cannot happen. Also, if $d=q$, then $2^q \equiv 1 \pmod p$, which is in contradiction with $2^q \equiv -1 \pmod p$. Thus $d=2q=p-1$ and $2$ is a primitive root modulo $p$.
 				\item Assume that $2^q \equiv 1 \pmod{p}$. Multiply both sides of this equation by $2$ to get $2^{q+1} \equiv 2 \pmod p$. Since $q+1$ is even, the latter equation means that $2$ is a quadratic residue modulo $p$. Therefore, by \autoref{thm:2qr}, $p$ must be congruent to either $1$ or $7$ modulo $8$. However, problem says that $q \equiv 1 \pmod 4$ which results in $q \equiv 1$ or $5 \pmod 8$. Now,
 					\begin{align*}
 						p
@@ -585,7 +626,6 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 					\end{align*}
 				which is a quick contradiction. Hence, $2^q \equiv 1 \pmod{p}$ is not possible.
 			\end{itemize}
-
 	\end{solution}
 
 	\begin{problem}
