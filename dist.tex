@@ -138,7 +138,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 		Let $x$ be a positive real number. Then
 			\begin{align*}
 				\psi(x)
-					& = \lcm([1, 2, \ldots, \lfloor x \rfloor])
+					& = \lcm(1, 2, \ldots, \lfloor x \rfloor)
 			\end{align*}
 	\end{corollary}
 
@@ -150,7 +150,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 		\label{prop:chebyshevpsiinequality}
 		For any real $x>0$, we have
 			\begin{align*}
-				\psi(x) & = \sum_{p \leq x} \Big\lfloor\frac{\ln x}{\ln p} \Big\rfloor \ln p
+				\psi(x) & = \sum_{p \leq x} \floor{\frac{\ln x}{\ln p}}\ln p
 			\end{align*}
 	\end{proposition}
 
@@ -172,7 +172,7 @@ Chebyshev attempted to prove the Prime Number Theorem, and he succeeded in provi
 
 The inequalities in the next theorem show that $n/\ln(n)$ is the correct order of magnitude for $\pi(n)$. In fact, these inequalities are pretty weak and better inequalities can be obtained with greater effort but the following theorem is of our interest because of its elementary proof.
 
-	\begin{theorem}shape
+	\begin{theorem}
 	\label{thm:pi(n)approximation}
 		For all integers $m\geq2$,
 		\begin{align}
@@ -199,37 +199,37 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 		\begin{align}
 		\label{eq:pi(n)approximation:3}
 		v_p(k!)
-			& = \sum_{i=1}^{\alpha}\left\lfloor\dfrac{k}{p^i}\right\rfloor
+			& = \sum_{i=1}^{\alpha}\floor{\dfrac{k}{p^i}}
 		\end{align}
-		where $\alpha$ is some positive integer. Here, we need to find $\alpha$. See proof of theorem \eqref{thm:legendre} to realize that $\alpha+1$ is actually the number of digits of $k$ in base $p$. On the other hand, we know that the number of digits of a positive integer $x$ in base $y$ is $\lfloor\log_y x\rfloor+1$ (prove this as an exercise). So, in our case, $\alpha+1=\lfloor\log_p k\rfloor+1$, or simply $\alpha = \lfloor\log_p k\rfloor$. Since we are working with natural logarithms (i.e., logarithms in base $e$), it would be better to write $a = \left\lfloor \frac{\ln k}{\ln p}\right\rfloor$. Finally, substituting $n$ and $2n$ for $k$ in equation \eqref{eq:pi(n)approximation:3}, we get
+		where $\alpha$ is some positive integer. Here, we need to find $\alpha$. See proof of theorem \eqref{thm:legendre} to realize that $\alpha+1$ is actually the number of digits of $k$ in base $p$. On the other hand, we know that the number of digits of a positive integer $x$ in base $y$ is $\lfloor\log_y x\rfloor+1$ (prove this as an exercise). So, in our case, $\alpha+1=\lfloor\log_p k\rfloor+1$, or simply $\alpha = \lfloor\log_p k\rfloor$. Since we are working with natural logarithms (i.e., logarithms in base $e$), it would be better to write $a =\floor{\frac{\ln k}{\ln p}}$. Finally, substituting $n$ and $2n$ for $k$ in equation \eqref{eq:pi(n)approximation:3}, we get
 			\begin{align*}
 				v_p(n!)
-					& = \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
+					& = \sum_{i=1}^{\floor{\frac{\ln n}{\ln p}}}\floor{\dfrac{n}{p^i}}\\
 				v_p\left((2n)!\right)
-					& = \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor
+					& = \sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}}\floor{\dfrac{2n}{p^i}}
 			\end{align*}
 		It is clear that $n! = \prod\limits_{p\leq n} p^{v_p(n!)}$, where the product is extended over all primes $p$ less than or equal to $n$. After taking logarithms in the latter equation, the product turns into a sum:
 			\begin{align*}
 				\ln n!
 					& = \sum_{p \leq n} v_p(n!) \ln p\\
-					& = \sum_{p \leq n}  \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor}\left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p
+					& = \sum_{p \leq n}  \sum_{i=1}^{\floor{\frac{\ln n}{\ln p}}}\floor{\dfrac{n}{p^i}}\ln p
 			\end{align*}
 		Similarly,
 			\begin{align*}
 				\ln (2n)!
 					& = \sum_{p \leq n} v_p\left((2n)!\right) \ln \\
-					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}}\floor{\dfrac{2n}{p^i}}\ln p
 			\end{align*}
 		Hence, the left hand side of inequality \eqref{eq:pi(n)approximation:2} becomes
 			\begin{align}
 				n \ln 2 \leq \ln (2n)! - 2 \ln n!
-					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p - 2  \sum_{p \leq n} \sum_{i=1}^{\left\lfloor \frac{\ln n}{\ln p}\right\rfloor} \left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p \nonumber\\
-					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor}\left\lfloor\dfrac{2n}{p^i}\right\rfloor \ln p -  \sum_{p \leq 2n} \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} 2 \left\lfloor\dfrac{n}{p^i}\right\rfloor \ln p \nonumber\\
-					& = \sum_{p \leq 2n}  \sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} \Bigg(\left\lfloor\dfrac{2n}{p^i}\right\rfloor - 2 \left\lfloor\dfrac{n}{p^i}\right\rfloor\Bigg) \ln p \label{eq:pi(n)approximation:4}
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}}\floor{\dfrac{2n}{p^i}}\ln p - 2  \sum_{p \leq n} \sum_{i=1}^{\floor{\frac{\ln n}{\ln p}}} \floor{\dfrac{n}{p^i}}\ln p \nonumber\\
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}}\floor{\dfrac{2n}{p^i}}\ln p-\sum_{p \leq 2n} \sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}} 2 \floor{\dfrac{n}{p^i}}\ln p \nonumber\\
+					& = \sum_{p \leq 2n}  \sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}}\parenthesis{\floor{\dfrac{2n}{p^i}}- 2 \floor{\dfrac{n}{p^i}}}\ln p \label{eq:pi(n)approximation:4}
 			\end{align}
 		Since for all rationals $x$, $\lfloor2x\rfloor-2\lfloor x\rfloor$ is either $0$ or $1$, we can write
 			\begin{align*}
-			n \ln 2 &\leq \sum_{p \leq 2n}  \Bigg(\sum_{i=1}^{\left\lfloor \frac{\ln 2n}{\ln p}\right\rfloor} 1\Bigg) \ln p\\
+			n \ln 2 &\leq \sum_{p \leq 2n}\parenthesis{\sum_{i=1}^{\floor{\frac{\ln 2n}{\ln p}}} 1}\ln p\\
 					&\leq \sum_{p \leq 2n} \ln 2n\\
 					&=\pi(2n)\ln 2n
 			\end{align*}
@@ -281,7 +281,7 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 %			\end{align}
 		Let $\alpha$ be an arbitrary real number such that $0 < \alpha < 1$. Then $n> n^{\alpha}$ and so $\pi(n) \geq \pi(n^{\alpha})$. Using equation \eqref{eqn:chebyshevthetainequality1}, one can write
 			\begin{align*}
-				\Big(\pi(n) - \pi(n^{\alpha})\Big) \ln n^{\alpha}
+				\parenthesis{\pi(n) - \pi(n^{\alpha})}\ln n^{\alpha}
 					& = \Big(\sum_{p \leq n} 1 - \sum_{p \leq n^{\alpha}} 1\Big) \ln n^{\alpha}\\
 					& =\sum_{n^{\alpha} \leq p \leq n} \ln n^{\alpha}\\
 					& \leq \sum_{n^{\alpha} \leq p \leq n} p\\
@@ -293,15 +293,15 @@ The inequalities in the next theorem show that $n/\ln(n)$ is the correct order o
 				\pi(n)
 					& < \frac{2n \ln 2}{\alpha \ln n} + \pi(n^{\alpha})\\
 					& < \frac{2n \ln 2}{\alpha \ln n} + n^{\alpha}\\
-					& = \frac{n}{\ln n} \Big(\frac{2 \ln 2}{\alpha} + \frac{\ln n}{n^{1-\alpha}} \Big)
+					& = \frac{n}{\ln n}\parenthesis{\frac{2 \ln 2}{\alpha} + \frac{\ln n}{n^{1-\alpha}}}
 			\end{align*}
 		We use a bit calculus to finish the proof. Let $ f(x)=\frac{\ln x}{x^{1-\alpha}}$. You can easily calculate the derivative $f'(x)$ of $f$ and find that it equals zero for $x=e^{1/1-\alpha}$. Putting this value into $f$, you will see that $\frac{\ln n}{n^{1-\alpha}} \leq 1/e(1-\alpha)$. Since $\alpha$ is an arbitrary number, choosing $\alpha = 2/3$ helps us finish the proof:
 			\begin{align*}
-				\pi(n) < \frac{n}{\ln n} \Big(3 \ln 2 + \frac{3}{e} \Big)< 4 \frac{n}{\ln n}
+				\pi(n)
+					& < \frac{n}{\ln n} \parenthesis{3 \ln 2 + \frac{3}{e} }\\
+					& < 4 \frac{n}{\ln n}
 			\end{align*}
 	\end{proof}
-
-
 Here is an interesting problem which combines several concepts. This problem appeared in \textcite[Chapter $\S 9$, section $9,3$, Theorem $137$, Page $145$]{hardy_wright_1971}, and we are going to show an elegant solution by \textcite{nasehpour_2018}.
 \begin{problem}\label{prob:nasehpour}
 	Let $r$ be a real number whose decimal representation is
