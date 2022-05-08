@@ -13,7 +13,7 @@
 
 	Let $ \frac{a}{b}$ be a fraction and let $n$ be an integer such that $(n,b)=1$. If $a$ is divisible by $n$, we say that $ \frac{a}{b}$ is divisible by $n$. Following this convention, the congruence $\frac{a}{b} \equiv 0 \pmod n$ makes sense.
 		\begin{example}
-			Since $25 \mid 100$ and $(3,25)=1$, we have $\frac{100}{3} \equiv 0 \pmod 3$. We can also calculate it this way:
+			Since $25 \mid 100$ and $(3,25)=1$, we have $\frac{100}{3} \equiv 0 \pmod{25}$. We can also calculate it this way:
 				\begin{align*}
 					\frac{100}{3}   &\equiv 100 \cdot (3)^{-1} \\
 					&\equiv 100 \cdot 17\\
@@ -94,17 +94,23 @@
 					& = \sum_{k=1}^{\frac{p-1}{2}} \left(\frac{1}{k}+\frac{1}{p-k} \right)\\
 					& = \sum_{k=1}^{\frac{p-1}{2}} \frac{(k) + (p-k)}{k(p-k)}\\
 					& = \sum_{k=1}^{\frac{p-1}{2}} \frac{p}{k(p-k)}\\
-					& =p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)}\\
+					& = p\cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)}\\
 					& \equiv 0 \pmod p
 			\end{align*}
 			In the last line of above equations, the sum can be written as $\frac{a}{(p-1)!}$, where $a$ is some integer. Note that $(p, (p-1)!)=1$ and that's why we can conclude
 				\begin{align*}
-					p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)} \equiv 0 \pmod p
+					p \cdot \sum_{k=1}^{\frac{p-1}{2}} \frac{1}{k(p-k)}
+						& \equiv 0 \pmod p
 				\end{align*}
 		\end{proof}
 
-		\begin{lemma}\label{lem:wolstproof2} For a prime $p>3$,
-			\[(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 0 \pmod p\] where $i^{-1}$ is the multiplicative inverse of $i$ modulo $p$ for $i=1,2,\ldots,p-1$.
+		\begin{lemma}\label{lem:wolstproof2} 
+			For a prime $p>3$,
+				\begin{align*}
+					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2
+						& \equiv 0 \pmod p
+				\end{align*}
+			where $i^{-1}$ is the multiplicative inverse of $i$ modulo $p$ for $i=1,2,\ldots,p-1$.
 		\end{lemma}
 
 		\begin{proof}
@@ -114,11 +120,13 @@
 				\end{align*}
 			Clearly, the sum is an integer. Therefore $(p-1)(p)(2p-1)$ is divisible by $6$. Now since $p>3$, we have $(p,6)=1$ and thus $p$ divides $(p-1)(p)(2p-1)/6$. Therefore,
 				\begin{align*}
-					1^2+2^2+\cdots+(p-1)^2 \equiv 0 \pmod p
+					1^2+2^2+\cdots+(p-1)^2
+						& \equiv 0 \pmod p
 				\end{align*}
 			In order to prove the lemma we should show that
 				\begin{align*}
-					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2 \equiv 1^2+2^2+\cdots+(p-1)^2 \pmod p
+					(1^{-1})^2+(2^{-1})^2+\cdots+((p-1)^{-1})^2
+						& \equiv 1^2+2^2+\cdots+(p-1)^2 \pmod p
 				\end{align*}
 			We shall show that the sets $A=\{1,2,\ldots,p-1\}$ and $B=\{1^{-1}, 2^{-1},\ldots,(p-1)^{-1}\}$ are equal. A proof is as follows: from \autoref{thm:arithinverse}, for any $x \in A$, there exists some $y \in B$ such that $xy \equiv 1 \pmod p$. This $y$ is unique, because if there exists some other $z \in B$ for which $xz \equiv 1 \pmod p$, then $xy \equiv xz \pmod p$, and since $(x,p)=1$, we have $y \equiv z \pmod p$ which means $y=z$ (why?). So there exists a unique $y\in B$ for each $x \in A$, and thus $A=B$ since $A$ and $B$ have equal number of elements. Finally,
 				\begin{align*}
@@ -130,7 +138,10 @@
 	We are going to re-state Proposition \ref{thm:modgcd} because, as we already mentioned, it is very useful:
 		\begin{lemma}\label{lem:wolstproof3}
 			For a prime $p\geq 3$ and any positive integer $a$ relatively prime to $p$,
-			\[ (a^{-1})^n\equiv (a^n)^{-1} \pmod p\]
+				\begin{align*}
+					\parenthesis{a^{-1}}^{n}
+						& \equiv (a^n)^{-1} \pmod p
+				\end{align*}
 			for all positive integers $n$.
 		\end{lemma}
 
