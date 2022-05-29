@@ -49,7 +49,7 @@
 		\end{align*}
 		The reason is simple: if there exist $x$ and $y$ such that $ax + by = d$, then
 		\begin{align*}
-			a\left( x \frac{m}{d} \right)  + b \left( y \frac{m}{d} \right)
+			a\parenthesis{x \frac{m}{d}} + b \parenthesis{y \frac{m}{d}}
 				& = m
 		\end{align*}
 		Assume that $A$ is the set of all positive integer linear combinations of $a$ and $b$. $A$ is non-empty because if $a \neq 0$, then
@@ -253,9 +253,14 @@ We are going to prove a very simple fact which will be very useful later (for in
 \end{proof}
 
 \begin{remark}
-		Thanks to Professor Greg Martin, we should point out a very important detail here. In the computations above, we used the fact that there exist integers $u$ and $v$ such that $ux+by = 1$. One must notice that these integers $u$ and $v$ need not be positive. In fact, if $x$ and $y$ are both positive, then $u$ and $v$ cannot be both positive (why?). But that doesn't make our calculations wrong, due to Proposition \ref{prop:inversepower}. If it's not clear to you yet, think of it in this way: suppose that, say, $u$ is negative. For instance, consider the example when $x=3$ and $y=15$. Then, since $3 \cdot (-4) + 15 \cdot 1 = (3,15)$, we have $u=-4$ and $v=1$ . Then, equation \eqref{eq:modgcd}, would look like $$(a^3)^{-4} \cdot (a^{15})^{1} \equiv (b^3)^{-4} \cdot (b^{15})^{1} \pmod n.$$
+		Thanks to Professor Greg Martin, we should point out a very important detail here. In the computations above, we used the fact that there exist integers $u$ and $v$ such that $ux+by = 1$. One must notice that these integers $u$ and $v$ need not be positive. In fact, if $x$ and $y$ are both positive, then $u$ and $v$ cannot be both positive (why?). But that doesn't make our calculations wrong, due to Proposition \ref{prop:inversepower}. If it's not clear to you yet, think of it in this way: suppose that, say, $u$ is negative. For instance, consider the example when $x=3$ and $y=15$. Then, since $3 \cdot (-4) + 15 \cdot 1 = (3,15)$, we have $u=-4$ and $v=1$ . Then, equation \eqref{eq:modgcd}, would look like
+			\begin{align*}
+				(a^3)^{-4} \cdot (a^{15})^{1} \equiv (b^3)^{-4} \cdot (b^{15})^{1} \pmod n
+			\end{align*}
 		This might not seem normal because we have a $-4$ in the exponents. So, using Proposition \ref{prop:inversepower}, we can write the above congruence equation as
-		$$\left(\left(a^{-1}\right)^3\right)^{4} \cdot (a^{15})^{1} \equiv \left(\left(b^{-1}\right)^3\right)^{4} \cdot (b^{15})^{1} \pmod n.$$
+			\begin{align*}
+				\parenthesis{\parenthesis{a^{-1}}^{3}}^{4} \cdot (a^{15})^{1} \equiv \parenthesis{\parenthesis{b^{-1}}^3}^{4} \cdot (b^{15})^{1} \pmod n
+			\end{align*}
 		Notice that we need $(a,n)=1$ and $(b,n)=1$ to imply $a^{-1}$ and $b^{-1}$ exist modulo $n$.
 \end{remark}
 
@@ -353,8 +358,8 @@ We are going to prove a very simple fact which will be very useful later (for in
 			\end{align*}
 			has the smallest solution
 			\begin{align*}
-			x_0 & \equiv
-			\left(r_1\left(\dfrac{M}{a_1}\right)\left(\dfrac{M}{a_1}\right)^{-1}_{a_2}+r_2\left(\dfrac{M}{a_2}\right)\left(\dfrac{M}{a_2}\right)^{-1}_{a_1}\right)\pmod{M}
+			x_0
+				&\equiv r_{1}\parenthesis{\dfrac{M}{a_1}}\parenthesis{\dfrac{M}{a_1}}^{-1}_{a_2}+r_{2}\parenthesis{\dfrac{M}{a_2}}\parenthesis{\dfrac{M}{a_2}}^{-1}_{a_1}\pmod{M}
 			\end{align*}
 		\end{theorem}
 	If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
@@ -368,7 +373,9 @@ We are going to prove a very simple fact which will be very useful later (for in
 				\end{align*}
 			If $M=a_1a_2\cdots a_n$ and $M_i=\dfrac{M}{a_i}$ and $M_ie_i\equiv1\pmod{a_i}$, then the smallest  modulo $M$ is given by
 			\begin{align*}
-			x_0  \equiv \left(r_1 M_1e_i+\cdots+r_n M_ne_n\right)\equiv \left(\sum_{i=1}^{n} r_i M_ie_i\right)\pmod M
+				x_0
+					& \equiv \left(r_1 M_1e_i+\cdots+r_n M_ne_n\right)\\
+					& \equiv \parenthesis{\sum_{i=1}^{n} r_i M_ie_i}\pmod M
 			\end{align*}
 		\end{theorem}
 

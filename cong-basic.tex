@@ -74,7 +74,7 @@
 		\begin{enumerate}[(a)]
 			\item If $ac \equiv bc \pmod m$ and $\gcd(c,m)=d$, then
 				\begin{align*}
-					 a & \equiv b \mod{\left(\dfrac{m}{d}\right)}
+					 a & \equiv b \pmod{\frac{m}{d}}
 				 \end{align*}
 			We will call this the \textit{cancellation rule} for congruence.
 			\item If $b \equiv c \pmod m$, then $\gcd(b,m)=\gcd(c,m)$.
@@ -197,7 +197,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\begin{itemize}
 				\item We can now compute $1 + \frac{1}{2}+ \frac{1}{4}+\frac{1}{8}+ \cdots$. In fact, this is an infinite geometric series with initial term $a=1$ and common ratio $r=\frac{1}{2}<1$. Thus,
 					\begin{align*}
-						\sum_{i\geq0} \left(\frac{1}{2}\right)^i = \dfrac{1}{1-\frac{1}{2}} = 2
+						\sum_{i\geq0} \parenthesis{\frac{1}{2}}^i = \dfrac{1}{1-\frac{1}{2}} = 2
 					\end{align*}
 				\item Suppose that we want to find
 					\begin{align*}
@@ -206,7 +206,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 				This is a geometric sequence with common ratio $-3$ and initial term $2$. The last term equals $2(-3)^{10}$. So,
 					\begin{align*}
 						\sum_{i=0}^{10} 2(-3)^{i}
-							& = \frac{2 \left((-3)^{11} -1\right)}{(-3) - 1} = 88,573
+							& = \frac{2 \parenthesis{(-3)^{11} -1}}{(-3) - 1} = 88,573
 					\end{align*}
 			\end{itemize}
 		\end{example}
@@ -265,14 +265,14 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		In the above example where $a$ is small (compared to modulus $n$), we can increase $k_1$ more than one unit in each iteration of the algorithm. For example, in above example, we could increase $k_1$ two units each time to compute $5^2, 5^4,\cdots, 5^{20}$. In this case, the number of calculations is divided by two and therefore there will be less time needed to find the result. This is done in general case but one must notice that when one increases $k_1$, say, two units at each step, he is in fact computing $a^2 \cdot c \mod n$ instead of $a \cdot c \mod n$ in step $3$ of the algorithm to reduce the number of iterations of the algorithm. If $a$ is small, there will be no difference in computation time. But if $a$ is (too) large, computing $a^2 \cdot c \mod n$ may will be more time consuming and it may reduce the time efficiency of algorithm.
 	\end{remark}
 
-	A more efficient method to do this is \textit{modular exponentiation algorithm}. The beauty of this idea is that you can use it to compute big integers modulo $n$ by hand. The idea actually inherits from binary representation. Consider the binary number $(101101)_2$. We discussed how to convert it to a decimal integer in base conversion. However, Masum uses a variation for faster mental calculation. Start from the left most digit (which always will be $1$ if there is no leading $0$). Initially, the decimal integer is $1$. Now, go to the next digit. If it is $0$, double the current value. If it is $1$, double and add $1$. Since the next digit is $0$, we have $2$. Next digit is $1$. So it will become $2\cdot2+1=5$. Next digit is $1$ as well. It will be $5\cdot2+1=11$. Next digit is $0$, so we have $11\cdot2=22$. Next digit is $1$, so it will be $22\cdot2+1=45$. There is no more digits left, so this is the desired value in decimal. You can verify that this indeed is the intended result. And more importantly, think why this works if you have not figured it out already!
+	A more efficient method to do this is \textit{modular exponentiation algorithm}. The beauty of this idea is that you can use it to compute big integers modulo $n$ by hand. The idea actually inherits from binary representation. Consider the binary number $(101101)_2$. We discussed how to convert it to a decimal integer in base conversion. However, there is a variation for faster mental calculation. Start from the left most digit (which always will be $1$ if there is no leading $0$). Initially, the decimal integer is $1$. Now, go to the next digit. If it is $0$, double the current value. If it is $1$, double and add $1$. Since the next digit is $0$, we have $2$. Next digit is $1$. So it will become $2\cdot2+1=5$. Next digit is $1$ as well. It will be $5\cdot2+1=11$. Next digit is $0$, so we have $11\cdot2=22$. Next digit is $1$, so it will be $22\cdot2+1=45$. There is no more digits left, so this is the desired value in decimal. You can verify that this indeed is the intended result. And more importantly, think why this works if you have not figured it out already!
 
 	We just saw a way of converting binary numbers into decimal. How does that help us in modular exponentiation? Assume that we want $a^k\pmod n$. We will not compute it directly or iteratively. Instead, represent $k$ in binary. Then, initially, the result is $1$. Divide $k$ by $2$ and keep the remainder. If it is $1$, multiply the current result by $a$ and do the modulo operation, that is, $r\to ra\pmod n$. Also, set $a\to a^2\pmod n$. Keep doing this until $k=0$. In the end we will see $r\equiv a^k\pmod n$. Again, make sense why this works. Do the example above this way and see if the result matches. Algorithm to find $a^k\pmod n$.
 	\paragraph{Modular Exponentiation Algorithm ($a^k\pmod n$)}
 		\begin{enumerate}[1.]
 			\item Set $R \longleftarrow 1$.
 			\item If $k=0$, stop and return the value $R$. Otherwise, continue.\label{alg:stopme}
-			\item Divide $k$ by $2$, take the remainder $r$. That is, set $k\longleftarrow \lfloor k/2\rfloor$.
+			\item Divide $k$ by $2$, take the remainder $r$. That is, set $k\longleftarrow \floor{k/2}$.
 			\item Set $a\longleftarrow a^2\pmod n$.
 			\item If $r=1$, set $R\longleftarrow Ra\pmod n$.
 			\item Go to step $2$.
@@ -281,7 +281,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 		\begin{enumerate}[1.]
 			\item Set $R=1$.
 			\item If $b=0$, return $R$, otherwise continue.
-			\item Set $b\longleftarrow \lfloor b/2\rfloor$ and $r=b\pmod2$.
+			\item Set $b\longleftarrow \floor{b/2}$ and $r=b\pmod2$.
 			\item If $r=1$, set $R\longleftarrow R+a\pmod n$.
 			\item Set $a = (2\cdot a)\pmod n$.
 			\item Go to step $2$.
@@ -296,7 +296,7 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\item If $k=0$, return $R$.
 			\item Find $r = (k\pmod2)$.
 			\item If $r=1$, set $R\longleftarrow Ra\pmod n$.
-			\item Set $k\longleftarrow \lfloor k/2\rfloor$.
+			\item Set $k\longleftarrow \floor{k/2}$.
 			\item Set $a\longleftarrow a^2\pmod n$.
 			\item Go to step $3$.
 		\end{enumerate}
@@ -387,8 +387,8 @@ What is the sum of the terms of an arithmetic progression? Obviously, if the seq
 			\item If $n$ is factorized as $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, then
 				\begin{align*}
 					\varphi(n)
-						& = n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)\\
-						& = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
+						& = n \parenthesis{1 - \frac{1}{p_1}}\parenthesis{1 - \frac{1}{p_2}}\cdots\parenthesis{1 - \frac{1}{p_k}}\\
+						& = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \parenthesis{p_1 -1}\cdots \parenthesis{p_k -1}
 				\end{align*}
 		\end{enumerate}
 	\end{proposition}

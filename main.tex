@@ -4,9 +4,11 @@
 \usepackage{subfiles}
 \usepackage{bookmark,rotating,fdsymbol,titletoc,fmtcount,tocloft,mathtools,etoolbox,mfirstuc,ifthen,xifthen}
 
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\contentsname}{\parbox{\linewidth}{\centerline{\LARGE CONTENTS}~\\[-1.5cm]}}
 \renewcommand{\thesection}{$\S$\arabic{section}}
+\renewcommand{\theequation}{\arabic{equation}}
 %\renewcommand{\thepart}{\NUMBERstring{part}}
 
 \usepackage{mystyle}
@@ -129,12 +131,12 @@
 \newcommand{\floor}[1]{\squarebracket{#1}}
 \newcommand{\ceiling}[1]{\left\lceil{#1}\right\rceil}
 \renewcommand{\binom}[2]{\scaleleftright[.8ex]{(}{\genfrac{}{}{0pt}{0}{#1}{#2}}{)}}
+\renewcommand{\pmod}[1]{\hspace{1em}\scaleleftright[.8ex]{(}{\text{\normalfont mod}\hspace{1em}#1}{)}}
 \newcommand{\parenthesis}[1]{\scaleleftright[.8ex]{(}{#1}{)}}
 \newcommand{\curlybrace}[1]{\scaleleftright[1.2ex]{\{}{#1}{\}}}
 \newcommand{\squarebracket}[1]{\scaleleftright[1ex]{[}{#1}{]}}
 \newcommand{\bigo}[1]{O\parenthesis{#1}}
 \DeclareMathOperator{\ord}{ord}
-\newcommand{\F}[1]{\mathbb{F}_{#1}}
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\GL}{GL}

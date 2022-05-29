@@ -65,10 +65,11 @@
 \setcounter{secnumdepth}{2}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{#1}}
 \pagestyle{fancyplain}
 \fancyhf{}
 \rhead{ \fancyplain{}{\small\textit{{Masum Billal, Amir Hossein}}} }
-\lhead{ \fancyplain{}{\small$\S$\thechapter. \ \textit{\leftmark}} }
+\lhead{ \fancyplain{}{\itshape\small\thesection. {\rightmark}} }
 \rfoot{ \fancyplain{}{\thepage}}
 \renewcommand{\headrulewidth}{.1pt} % remove lines as well
 
