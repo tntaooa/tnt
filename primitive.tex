@@ -394,7 +394,7 @@ The next step is to find what other numbers have a primitive root. We will show,
 				\begin{align*}
 					(g+p)^{p-1}
 						& = g^{p-1} + \binom{p-1}{1} g^{p-2}p \\
-						& + \underbrace{\binom{p-1}{2}g^{p-3}p^2+\cdots + \binom{p-1}{p-2} gp^{p-2} + p^{p-1}}_{\mbox{divisible by} p^2}
+						& + \underbrace{\binom{p-1}{2}g^{p-3}p^2+\cdots + \binom{p-1}{p-2} gp^{p-2} + p^{p-1}}_{\mbox{divisible by } p^2}
 				\end{align*}
 			Taking modulo $p^2$,
 				\begin{align*}
@@ -544,10 +544,10 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 		which is not a quadratic residue modulo $3$.
 		Using the law of quadratic reciprocity and the fact that $p \equiv 1 \pmod{4}$,
 			\begin{align*}
-				\left(\dfrac{3}{p}\right) \left(\dfrac{p}{3}\right)
+				\parenthesis{\dfrac{3}{p}}\parenthesis{\dfrac{p}{3}}
 					& = (-1)^{(p-1)/2} = 1
 			\end{align*}
-		From the above discussion, we know that $\left( \frac{p}{3} \right) = -1$. Therefore, $\left(\frac{3}{p}\right)=-1$ and $3$ is a quadratic non-residue modulo $p$.
+		From the above discussion, we know that $\parenthesis{\frac{p}{3}} = -1$. Therefore, $\parenthesis{\frac{3}{p}}=-1$ and $3$ is a quadratic non-residue modulo $p$.
 
 		We will now prove that for a prime of the form $p=2^{2^{r}}+1$ every quadratic non-residue modulo $p$ is a primitive root modulo $p$. Since $p$ is a prime, we know that there exists a primitive root modulo $p$, say $g$. By \autoref{thm:pr+qr}, we know that $g^2,g^4,\cdots,g^{p-1}$ are ${p-1}/{2}$ different nonzero residues modulo $p$ and they are all quadratic residues. Therefore, all the quadratic non-residues are given by
 			\begin{align*}
@@ -565,7 +565,7 @@ The use of primitive roots is usually not obvious in problems. There is hardly a
 	\begin{solution}[2]
 		Just like the previous solution, we will use the fact that $3$ is not a quadratic residue modulo $p$. Therefore, by Euler's criterion,
 			\begin{align}\label{eq:3^{2^{m-1}}}
-				3^{\frac{p-1}{2}} \equiv  \left( \frac{3}{p} \right)
+				3^{\frac{p-1}{2}} \equiv \parenthesis{\frac{3}{p}}
 					& = -1\pmod p\\
 				\implies 3^{2^{m-1}}
 					& \equiv -1 \pmod p

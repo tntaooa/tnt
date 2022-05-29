@@ -9,6 +9,7 @@
 \renewcommand{\contentsname}{\parbox{\linewidth}{\centerline{\LARGE CONTENTS}~\\[-1.5cm]}}
 \renewcommand{\thesection}{$\S$\arabic{section}}
 \renewcommand{\theequation}{\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 %\renewcommand{\thepart}{\NUMBERstring{part}}
 
 \usepackage{mystyle}
@@ -30,13 +31,10 @@
 	\setmonofont[FakeBold=\fakebold,Scale=\scale,FakeStretch=\fakestretch]{CenturymodernTT-Regular.otf}
 	\setmathfont[,Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]{NewCMMath-Regular.otf}% KpMath-Regular.otf,KpMath-Light.otf
 	
-	\setmathfont[range={it,"007D,},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]{CenturymodernTT-Italic.otf}
-	\setmathfont[range={up,"03BB},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]{CenturymodernTT-Regular.otf}
+	\setmathfont[range={it,},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]{CenturymodernTT-Italic.otf}
+	\setmathfont[range={up,bfup},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]{CenturymodernTT-Regular.otf}
 	%\setmathfont{latinmodern-math.otf}[range={bfup,},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]
-	%\setmathfont{CenturymodernTT-Regular.otf}[range={"005B,"005D,"2308-"230B,"005B,"005D,"003A,"003B,"002C,"003D,"2260-"2267,"00A7},FakeStretch=1.1\fakestretch]% NewCMMath-Regular.otf,texgyrepagella-math.otf
-	\setmathfont{CenturymodernTT-Regular.otf}[range={bb,frak,it/{num,"03BB},up/{num,"03BB},"00A7,"03BB,},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]
-	%\setmathfont{FeDPrm2.ttf}[range={"0028-"0029,"00A7,"005B-"005D},]
-	%\setmathfont{IMFellEnglish-Regular.ttf}[range={"007B-"007D,}]
+	\setmathfont{CenturymodernTT-Regular.otf}[range={bb,frak,it/{num},up/{num},"00A7,"03BB,},Scale=\scale,FakeStretch=\fakestretch,FakeBold=\fakemathbold]
 	\setmathfont{ModernMT-ExtendedItalic-New.otf}[range={"2260-"2267,"226A-"226B,"003C-"003E,},FakeBold=\fakemathbold,FakeStretch=1.1\fakestretch]
 	%\setmathfont{OldStandard-Italic.otf}[range={it/{Greek,greek},},FakeBold=\fakemathbold]
 	%\setmathfont{ModernMT-ExtendedItalic-New.otf}[range={"003D},Scale=\scale,FakeStretch=1.2]
@@ -136,6 +134,7 @@
 \newcommand{\curlybrace}[1]{\scaleleftright[1.2ex]{\{}{#1}{\}}}
 \newcommand{\squarebracket}[1]{\scaleleftright[1ex]{[}{#1}{]}}
 \newcommand{\bigo}[1]{O\parenthesis{#1}}
+\newcommand{\func}[2]{#1\parenthesis{#2}}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\lcm}{lcm}

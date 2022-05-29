@@ -22,7 +22,9 @@
 		\begin{definition}[Unit Function]
 			The \textit{unit function} is defined as below for all positive integers $n$:
 				\begin{align*}
-					\varepsilon(n) & =\left[\dfrac 1n\right] =\begin{cases}1&\mbox{ if }n=1\\0&\mbox{ if }n>1\end{cases}
+					\varepsilon(n)
+						& =\floor{\dfrac 1n}\\
+						& =\begin{cases}1&\mbox{ if }n=1\\0&\mbox{ if }n>1\end{cases}
 				\end{align*}
 
 			\begin{figure}
@@ -212,7 +214,7 @@
 					\begin{align*}
 						n &= p_1^{e_1}p_2^{e_2}\cdots p_k^{e_k}\\
 						&= p_1^{2f_1}p_2^{2f_2}\cdots p_k^{2f_k}\\
-						&= \left(p_1^{f_1}p_2^{f_2}\cdots p_k^{f_k}\right)^2
+						&= \parenthesis{p_1^{f_1}p_2^{f_2}\cdots p_k^{f_k}}^2
 					\end{align*}
 				which is a perfect square. The proof for the converse is easy.
 			\end{proof}
@@ -319,7 +321,7 @@
 		\end{align*}
 	\end{example}
 
-	Amicable numbers have been studied since a very long time ago, and there is evidence that they were known to Pythagoreans (followers of Pythagoras) which originated in the sixth century BC. According to \textcite[Chapter I, Page $39$]{dickson_1952} Th\={a}bit ibn Qurra (826--901) found a formula that generates amicable numbers (which we will state in the following). The Iranian mathematician Muhammad Baqir Yazdi, who lived in 16th century, found the pair $(9363584, 9437056)$ of amicable numbers. You can imagaine how difficult it is to find such numbers without using computers. Over a billion pairs of amicable numbers have been found so far (July 2018).
+	Amicable numbers have been studied since a very long time ago, and there is evidence that they were known to Pythagoreans (followers of Pythagoras) which originated in the sixth century BC. According to \textcite[Chapter I, Page $39$]{dickson_1952} Th\={a}bit ibn Qurra (826--901) found a formula that generates amicable numbers (which we will state in the following). The Iranian mathematician Muhammad Baqir Yazdi, who lived in 16th century, found the pair $(9363584, 9437056)$ of amicable numbers. You can imagine how difficult it is to find such numbers without using computers. Over a billion pairs of amicable numbers have been found so far (July 2018).
 
 	\begin{theorem}[Th\={a}bit ibn Qurra's Rule]
 		Let $n\geq 2$ be a positive integer such that
@@ -336,33 +338,33 @@
 		\begin{align*}
 			\sigma(a)
 				&= \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} \sum_{\gamma=0}^1 2^{\alpha} p^{\beta}  q^{\gamma}\\
-				& = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}   \sum_{\gamma=0}^1 q^{\gamma}\\
+				& = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}\sum_{\gamma=0}^1 q^{\gamma}\\
 				& = \sum_{\alpha=0}^{n} \sum_{\beta=0}^{1} 2^{\alpha} p^{\beta}   (q+1)\\
 				& = \sum_{\alpha=0}^{n} 2^{\alpha} (q+1) \sum_{\beta=0}^{1} p^{\beta}\\
 				& = \sum_{\alpha=0}^{n} 2^{\alpha} (p+1)(q+1)\\
 				& = (p+1)(q+1)  \sum_{\alpha=0}^{n} 2^{\alpha}\\
-				& =  (p+1)(q+1) \left(2^{n+1} - 1\right)\\
-				& = 9 \cdot 2^{2n-1} \left(2^{n+1} - 1\right)
+				& =  (p+1)(q+1) \parenthesis{2^{n+1} - 1}\\
+				& = 9 \cdot 2^{2n-1}\parenthesis{2^{n+1} - 1}
 		\end{align*}
 		and so,
 		\begin{align*}
 			\sigma(a)-a
-				& =  9 \cdot 2^{2n-1} \left(2^{n+1} - 1\right) - 2^n \left(3 \cdot 2^{n-1} - 1\right) \left(3 \cdot 2^{n} - 1\right)\\
-				& = 2^n \left(9 \cdot 2^{2n-1}-1\right) = b
+				& =  9 \cdot 2^{2n-1}\parenthesis{2^{n+1} - 1}- 2^n\parenthesis{3 \cdot 2^{n-1} - 1}\parenthesis{3 \cdot 2^{n} - 1}\\
+				& = 2^n \parenthesis{9 \cdot 2^{2n-1}-1}= b
 		\end{align*}
 		We expect the reader to be able to prove $\sigma(b)-b=a$ in a similar way on their own. This shows that $(a,b)$ is a pair of amicable numbers.
 	\end{proof}
 
 	The above theorem is pretty interesting, but you might wonder if it gives us all the amicable numbers. The answer is negative. You can compute the values of $p, q, r$, and $a,b$ to see how large they get even when $n$ is as small as $10$. For the above theorem to work, we require $p,q,r$ to be primes, and determining whether those numbers are prime is a difficult task for large $n$.
 
-	The mighty Euler \textcite[Chapter I, Page $42$]{dickson_1952} found a more general formula for amicable numbers and discovered $61$ pairs of amicable numbers at his time. We state Euler's generalization of Th\={a}bit ibn Qurra's rule below, usually called Euler's rule, and leave the proof to the interested reader.
+	The mighty Euler (see \textcite[Chapter I, Page $42$]{dickson_1952}) found a more general formula for amicable numbers and discovered $61$ pairs of amicable numbers at his time. We state Euler's generalization of Th\={a}bit ibn Qurra's rule below, usually called Euler's rule, and leave the proof to the interested reader.
 
 	\begin{theorem}[Euler's Rule]
 		Let $m$ and $n$ be positive integers with $m<n$ such that
 		\begin{align*}
-			p & = 2^m \cdot \left(2^{n-m}+1\right) - 1\\
-			q & = 2^n \cdot  \left(2^{n-m}+1\right)  - 1\\
-			r & = 2^{n+m}\cdot  \left(2^{n-m}+1\right)^2  - 1
+			p & = 2^m \cdot \parenthesis{2^{n-m}+1} - 1\\
+			q & = 2^n \cdot  \parenthesis{2^{n-m}+1}  - 1\\
+			r & = 2^{n+m}\cdot \parenthesis{2^{n-m}+1}^2  - 1
 		\end{align*}
 		are all primes. Then, $(2^n\cdot p \cdot q,  2^n\cdot r)$ is a pair of amicable numbers.
 	\end{theorem}
@@ -371,14 +373,15 @@
 	\subsection{Euler's and Jordan's Totient Functions}
 		We have already defined Euler's totient function and used some of its properties to solve problems. In this section, we will prove those properties and provide some more features of $\varphi$. We already know that $\varphi(n)$ is the number of positive integers less than $n$ which are equal to $n$. Suppose that $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ is the prime factorization of $n$. Then
 			\begin{align}
-				\varphi(n) & = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right) \label{eq:totientformula}
+				\varphi(n) & = p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1}(p_1 -1) \cdots(p_k -1) \label{eq:totientformula}
 			\end{align}
 		In order to find $\varphi(n)$, we will first find the number of positive integers less than or equal to $n$ which are \textit{not} co-prime to $n$. Then, $\varphi(n)$ would be the difference of this number and $n$. Let us consider the simple case $n=pq$, where $p$ and $q$ are primes. A positive integer less than or equal to $n$ is not co-prime to $n$ if it is divisible by either $p$ or $q$. Let $\psi(n)$ be the number of such positive integers. There are $n/p$ and $n/q$ numbers less than or equal to $n$ which are divisible by $p$ and $q$, respectively. So, we might guess that $\psi(n)=n/p+n/q$. However, notice that we are counting the number $pq$ in both the numbers divisible by $p$ and divisible by $q$. So, the true value for $\psi(n)$ is $n/p+n/q-1$. Thus,
 			\begin{align*}
-				\varphi(n) &= n - k(n)\\
-				&= n - n/p - n/q + 1\\
-				&= pq - q - p +1\\
-				&= (p-1)(q-1)
+				\varphi(n)
+					&= n - k(n)\\
+					&= n - n/p - n/q + 1\\
+					&= pq - q - p +1\\
+					&= (p-1)(q-1)
 			\end{align*}
 		which is in agreement with equation \ref{eq:totientformula}. Take another example when $n=p_1,p_2,\cdots,p_k$, where $p_1,p_2,\cdots,p_k$ are different primes. Our first guess for $\psi(n)$ would be $n/p_1 +‌n/p_2 + \cdots + n/p_k$. However, we are counting the numbers divisible by $p_ip_j$ (for $1\leq i <j \leq k$) twice. So, our next guess for $\psi(n)$ is
 			\begin{align*}
@@ -395,7 +398,7 @@
 		\begin{theorem}[Generalization of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]
 			Let $m$ and $n$ be positive integers and let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of $n$. The number of positive integers less than or equal to $m$ which are co-prime to $n$ is $m - \Psi(m)$, where
 			\begin{align*}
-			\Psi(m) &= \sum_{1 \leq i_1 \leq k} \left\lfloor\frac{m}{p_{i_1}} \right\rfloor - \sum_{\substack{1 \leq i_1<i_2 \leq k}} \left\lfloor\frac{m}{p_{i_1}p_{i_2}} \right\rfloor + \cdots + (-1)^{k+1} \left\lfloor\frac{m}{p_1p_2\cdots p_k} \right\rfloor
+			\Psi(m) &= \sum_{1 \leq i_1 \leq k} \floor{\frac{m}{p_{i_1}}}- \sum_{\substack{1 \leq i_1<i_2 \leq k}} \floor{\frac{m}{p_{i_1}p_{i_2}}}+ \cdots + (-1)^{k+1}\floor{\frac{m}{p_1p_2\cdots p_k}}
 			\end{align*}
 		\end{theorem}
 		We already stated (but did not prove) some properties of Euler's totient function in proposition \ref{prop:phiproperties}. Here, we are going to prove them beside a few more.
@@ -411,8 +414,8 @@
 					\item $\varphi$ is neither increasing, injective, nor surjective.
 					\item If $n$ is factorized as $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$, then
 						\begin{align*}
-							\varphi(n) & =  n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
-									   & =  p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1} \left( p_1 -1 \right) \cdots \left( p_k -1 \right)
+							\varphi(n) & =  n \parenthesis{1 - \frac{1}{p_1}} \cdots\parenthesis{1 - \frac{1}{p_k}}\\
+									   & =  p_1^{\alpha_1-1} p_2^{\alpha_2-1} \cdots p_k^{\alpha_k-1}\parenthesis{p_1 -1}\cdots(p_k -1)
 						\end{align*}
 				\end{enumerate}
 		\end{theorem}
@@ -546,7 +549,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 			For two arithmetic functions $f$ and $g$, we define their Dirichlet product as
 				\begin{align*}
 					h(n)
-						& =\sum_{d\mid n}f(d)g\left(\frac nd\right)
+						& =\sum_{d\mid n}f(d)g\parenthesis{\frac nd}
 				\end{align*}
 			where the sum extends over all positive divisors $d$ of $n$. We denote this by $h=f\ast g$. In other words,
 				\begin{align*}
@@ -558,7 +561,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\begin{example}
 			Let $f$ be the constant $1$ function. Let us find $(f \ast f)(n)$. By definition,
 				\begin{align*}
-					(f \ast f)(n) & =  \sum_{d\mid n}f(d)f\left(\frac nd\right)\\
+					(f \ast f)(n) & =  \sum_{d\mid n}f(d)f\parenthesis{\frac nd}\\
 								  & =  \sum_{d\mid n} 1\\
 								  & =  \underbrace{1 + 1 + \cdots + 1}_{\text{repeated } \tau(n) \text{ times}}\\
 								  & =  \tau(n)
@@ -569,7 +572,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 		\begin{example}
 			This time, we aim to find the convolution of constant $1$ function $f$ with the identity function. Again, by definition,
 				\begin{align*}
-					(\text{id} \ast f )(n) & = \sum_{d\mid n}\text{id}(d)f\left(\frac nd\right)\\
+					(\text{id} \ast f )(n) & = \sum_{d\mid n}\text{id}(d)f\parenthesis{\frac nd}\\
 									       & = \sum_{d\mid n} d\\
 										   & = \sigma(n)
 					\end{align*}
@@ -598,8 +601,8 @@ We will state and prove the properties of Jordan's totient function later in sec
 			Let us prove the associativity property now. By definition,
 				\begin{align*}
 					((f \ast g) \ast h)(n) & = \sum_{cd=n} (f\ast g)(d) h(c)\\
-										   & = \sum_{cd=n} \left(\sum_{ab=d} f(a)g(b)\right) h(c)\\
-										   & = \sum_{cd=n} \left(\sum_{ab=d} f(a)g(b) h(c)\right)\\
+										   & = \sum_{cd=n}\parenthesis{\sum_{ab=d} f(a)g(b)} h(c)\\
+										   & = \sum_{cd=n}\parenthesis{\sum_{ab=d} f(a)g(b) h(c)}\\
 										   & = \sum_{abc=n} f(a)g(b) h(c)
 				\end{align*}
 			Again, since there is a symmetry between $a,b$, and $c$, we find that the order of $f,g$, and $h$ in the expression $(f \ast g) \ast h$ does not change the result. Hence, the Dirichlet product is associative.
@@ -724,9 +727,9 @@ We will state and prove the properties of Jordan's totient function later in sec
 
 		\begin{theorem}[M\"{o}bius Inversion Formula]
 			\label{thm:mobinv}
-			If the summatory function of an arithmetic function $f$ is $\displaystyle F(n)=\sum\limits_{d\mid n}f(d)$, then
+			If the summatory function of an arithmetic function $f$ is $F(n)=\sum\limits_{d\mid n}f(d)$, then
 			\begin{align*}
-			f(n) & =\sum_{d\mid n}\mu(d)F\left(\frac nd\right)
+				f(n) & =\sum_{d\mid n}\mu(d)F\parenthesis{\frac nd}
 			\end{align*}
 			In other words, $f=\mu\ast F$.
 		\end{theorem}
@@ -741,7 +744,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 						& =
 						\begin{cases}
 							\dfrac1{f(1)}&\mbox{ if }n=1\\ \\
-							\displaystyle\dfrac{-1}{f(1)}\sum_{\substack{d\mid n\\d<n}}f^{-1}(d)f\left(\dfrac nd\right)&\mbox{ if }n>1\\
+							\dfrac{-1}{f(1)}\sum_{\substack{d\mid n\\d<n}}f^{-1}(d)f\parenthesis{\dfrac nd}&\mbox{ if }n>1\\
 						\end{cases}
 		\end{align*}
 		\end{theorem}
@@ -761,7 +764,7 @@ We will state and prove the properties of Jordan's totient function later in sec
 				\end{align*}
 			Then,
 				\begin{align*}
-					\sum_{k=1}^{n} F(k) &= \sum_{k=1}^{n} f(k) \left\lfloor \frac{n}{k}\right\rfloor
+					\sum_{k=1}^{n} F(k) &= \sum_{k=1}^{n} f(k)\floor{\frac{n}{k}}
 				\end{align*}
 		\end{theorem}
 
@@ -772,17 +775,18 @@ We will state and prove the properties of Jordan's totient function later in sec
 						& = \sum_{k=1}^{n} \sum_{d\mid k} f(d)\\
 						& = \sum_{d\mid 1} f(d) + \sum_{d\mid 2} f(d)+\cdots + \sum_{d\mid n-1} f(d)+\sum_{d\mid n} f(d)
 				\end{align*}
-			In the last formula, $f(1)$ is repeated $n$ times because $1$ divides all integers. Also, $f(2)$ is repeated $\lfloor n/2 \rfloor$ times because there are exactly $\lfloor n/2 \rfloor$ numbers between $1$ and $n$ (inclusive) which are even. Analogously, there are exactly $\lfloor n/k \rfloor$ multiples of $k$ ($1 \leq k \leq n$) in this interval and thus $f(k)$ is repeated $\lfloor n/k \rfloor$ times. The proof is complete.
+			In the last formula, $f(1)$ is repeated $n$ times because $1$ divides all integers. Also, $f(2)$ is repeated $\floor{n/2}$ times because there are exactly $\floor{n/2}$ numbers between $1$ and $n$ (inclusive) which are even. Analogously, there are exactly $\floor{n/k}$ multiples of $k$ ($1 \leq k \leq n$) in this interval and thus $f(k)$ is repeated $\floor{n/k}$ times. The proof is complete.
 		\end{proof}
 
 		\begin{example}
 			According to \autoref{thm:mobiusinverse}, the summatory function of $\mu$ is $\varepsilon$. Therefore,
 				\begin{align*}
-					\sum_{k=1}^{n} \varepsilon(k) &= \sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor
+					\sum_{k=1}^{n} \varepsilon(k) &= \sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}}
 				\end{align*}
 			Since $\varepsilon(k)$ equals one when $k=1$ and zero otherwise, the sum on the left side equals one. Consequently,
 				\begin{align*}
-					\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor = 1
+					\sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}}
+						& = 1
 				\end{align*}
 			You can check the correctness of this formula by trying some small values for $n$.
 		\end{example}
@@ -796,10 +800,10 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 				\begin{align}
 					F(n)
 					& =
-					\left(1+f(p_1)+\ldots+f\left(p_1^{e_1}\right)\right)\cdots\left(1+f(p_k)+\ldots+f\left(p_k^{e_k}\right)\right) \label{eq:multiplicative-eq1}\\
+						\parenthesis{1+f(p_1)+\ldots+\parenthesis{p_1^{e_1}}}\cdots\parenthesis{1+f(p_k)+\ldots+f\parenthesis{p_k^{e_k}}} \label{eq:multiplicative-eq1}\\
 					& =
-					\prod_{i=1}^k\sum_{j=0}^{e_i}f\left(p_i^j\right) \nonumber\\
-					& = \prod_{i=1}^kF\left(p_i^{e_i}\right)\nonumber
+					\prod_{i=1}^k\sum_{j=0}^{e_i}f\parenthesis{p_i^j} \nonumber\\
+					& = \prod_{i=1}^{k}F\parenthesis{p_i^{e_i}}\nonumber
 				\end{align}
 		\end{theorem}
 
@@ -807,26 +811,25 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 			The proof somewhat follows from the unique prime factorization. Assume $T$ is the expansion of the right side of equation \ref{eq:multiplicative-eq1}.
 			If $d$ is a divisor of $n$, then $d=p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}$, where $0\leq w_i\leq e_i$ for $i=1,2,\cdots,k$. Therefore,
 				\begin{align*}
-					f(d)    & =  f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)\\
-							& =  f\left(p_1^{w_1}\right) f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right)
+					f(d)    & =  f\parenthesis{p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}}\\
+							& =  f\parenthesis{p_1^{w_1}}\parenthesis{p_2^{w_2}}\cdots f\parenthesis{p_k^{w_k}}
 				\end{align*}
 			which is a term that is present in $T$. Thus, we conclude that each term in the sum $F(n)=\sum\limits_{d\mid n}f(d)$ appears in $T$. We can easily find that the converse is also true. After expanding the right side of equation \ref{eq:multiplicative-eq1}, we see that every term in $T$ is of the form
 				\begin{align*}
-					f\left(p_1^{w_1}\right)	f\left(p_2^{w_2}\right)\cdots f\left(p_k^{w_k}\right)
+					f\parenthesis{p_1^{w_1}}\cdots f\parenthesis{p_k^{w_k}}
 				\end{align*}
 			where $w_i$ are integers with $0 \leq w_i \leq e_i$ for all $i$. Since $f$ is multiplicative, we can write this as
 				\begin{align*}
-					f\left(p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}\right)
+					f\parenthesis{p_1^{w_1}p_2^{w_2}\cdots p_k^{w_k}}
 				\end{align*}
 			which equals $f(d)$. Therefore, every term in $T$ is also in $F(n)$. Combining these two, $T=F(n)$.
 		\end{proof}
 
-
-
 		\begin{corollary}
 			If $f$ is a non-zero multiplicative arithmetic function and $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of a positive integer $n$,
 				\begin{align*}
-					\sum\limits_{d\mid n}\mu(d)f(d) = \prod_{i=1}^{k} (1-f(p_i))
+					\sum\limits_{d\mid n}\mu(d)f(d)
+						& = \prod_{i=1}^{k} (1-f(p_i))
 				\end{align*}
 		\end{corollary}
 
@@ -839,18 +842,17 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 				\end{enumerate}
 		\end{theorem}
 
-
 		\begin{proof}
 			$ $
 			\begin{enumerate}
 				\item Let $f\ast g=h$. We need to prove that if $a$ and $b$ are co-prime positive integers, $h(ab)=h(a)h(b)$. We have
 					\begin{align*}
 						h(a)h(b)
-							& = \left[(f\ast g)(a)\right] \cdot \left[(f\ast g)(b)\right]\\
-							& = \sum\limits_{d_1\mid a}f(d_1)g\left(\frac{a}{d_1}\right)\cdot \sum\limits_{d_2\mid b}f(d_2)g\left(\frac{b}{d_2}\right)\\
-							& = \sum\limits_{d_1\mid a, d_2\mid b}f(d_1)f(d_2)g\left(\frac{a}{d_1}\right)g\left(\frac{b}{d_2}\right)\\
-							& = \sum\limits_{d_1\mid a, d_2\mid b}f(d_1d_2)g\left(\frac{ab}{d_1d_2}\right)\\
-							& = \sum\limits_{d\mid ab}f(d)g\left(\frac{ab}{d}\right)\\
+							& = \squarebracket{(f\ast g)(a)}\cdot \squarebracket{(f\ast g)(b)}\\
+							& = \sum\limits_{d_1\mid a}f(d_1)g\parenthesis{\frac{a}{d_1}}\cdot \sum\limits_{d_2\mid b}f(d_2)g\parenthesis{\frac{b}{d_2}}\\
+							& = \sum\limits_{d_1\mid a, d_2\mid b}f(d_1)f(d_2)g\parenthesis{\frac{a}{d_1}}g\parenthesis{\frac{b}{d_2}}\\
+							& = \sum\limits_{d_1\mid a, d_2\mid b}f(d_1d_2)g\parenthesis{\frac{ab}{d_1d_2}}\\
+							& = \sum\limits_{d\mid ab}f(d)g\parenthesis{\frac{ab}{d}}\\
 							& = (f\ast g)(ab)\\
 							& =h(ab)
 					\end{align*}
@@ -858,18 +860,18 @@ The most interesting feature of Dirichlet product is that it preserves multiplic
 
 				\item $f$ is multiplicative, hence $f(mn)=f(m)f(n)$ for all co-prime positive integers $m$ and $n$. Put $m=n=1$ in this equation to get $f(1)=f(1)^2$, which immediately gives $f(1)=1$ because $f$ only accepts positive integer values. Let $g$ be the Dirichlet inverse of $f$. By \autoref{thm:dirichletinverse}, $g(1)=1$. We will prove by induction that $g$ is multiplicative. The base case $n=1$ is true. Suppose that $n>1$ and whenever $ab<n$ with $(a,b)=1$, then $g(ab)=g(a)g(b)$. Also, suppose that $xy=n$ with $(x,y)=1$. We will show that $g(xy)=g(x)g(y)$. Since $g$ is the inverse of $f$, we have $(f \ast g)(n) = \varepsilon(n)$. Also, $\varepsilon(n)=0$ for $n>1$. Therefore,
 					\begin{align}
-						0 & = \sum_{d\mid n} f(d) g\left(\frac{n}{d}\right)\nonumber\\
-						  & = \sum_{d\mid xy} f(d) g\left(\frac{xy}{d}\right) \nonumber\\
-						  & = g(xy) + \sum\limits_{\substack{d\mid xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\label{eq:dirichinverse-eq1}
+						0 & = \sum_{d\mid n} f(d)g\parenthesis{\frac{n}{d}}\nonumber\\
+						  & = \sum_{d\mid xy} f(d)g\parenthesis{\frac{xy}{d}} \nonumber\\
+						  & = g(xy) + \sum\limits_{\substack{d\mid xy \\ d>1}} f(d)g\parenthesis{\frac{xy}{d}}\label{eq:dirichinverse-eq1}
 					\end{align}
 				The sum in equation \ref{eq:dirichinverse-eq1} includes terms of te form $f(d)g(xy/d)$, and since $d$ is larger than $1$, $xy/d$ is less than $xy=n$. Since $x \bot y$, there exist positive integers $d_1$ and $d_2$ such that $d=d_1d_2$, $d_1\mid x$, and $d_2\mid y$. As a result,
 					\begin{align*}
-						g(xy) &= - \sum\limits_{\substack{d\mid xy \\ d>1}} f(d) g\left(\frac{xy}{d}\right)\\
-							  &= - \sum\limits_{\substack{d_1\mid x, d_2\mid y \\ d_1d_2>1}} f(d_1d_2) g\left(\frac{x}{d_1} \frac{y}{d_2}\right)\\
-							  &= - \sum\limits_{\substack{d_1\mid x, d_2\mid y \\ d_1d_2>1}} f(d_1)f(d_2) g\left(\frac{x}{d_1}\right) g\left(\frac{y}{d_2}\right)\\
-							  &= - \bigg[\sum\limits_{d_1\mid x, d_2\mid y} f(d_1)f(d_2) g\left(\frac{x}{d_1}\right) g\left(\frac{y}{d_2}\right)\bigg] + g(x)g(y)\\
-							  & = - \bigg[\underbrace{\sum\limits_{d_1\mid x} f(d_1) g\left(\frac{x}{d_1}\right)}_{=(f \ast g)(x)} \underbrace{\sum\limits_{d_2\mid y} f(d_2) g\left(\frac{y}{d_2}\right)}_{=(f \ast g)(y)} \bigg] + g(x)g(y)\\
-							  & = -\left[(f \ast g)(x)\right] \left[(f\ast g)(y)\right] + g(x)g(y)
+						g(xy) &= - \sum\limits_{\substack{d\mid xy \\ d>1}} f(d)g\parenthesis{\frac{xy}{d}}\\
+							  &= - \sum\limits_{\substack{d_1\mid x, d_2\mid y \\ d_1d_2>1}} f(d_1d_2)g\parenthesis{\frac{x}{d_1} \frac{y}{d_2}}\\
+							  &= - \sum\limits_{\substack{d_1\mid x, d_2\mid y \\ d_1d_2>1}} f(d_1)f(d_2)g\parenthesis{\frac{x}{d_1}}g\parenthesis{\frac{y}{d_2}}\\
+							  &= - \squarebracket{\sum\limits_{d_1\mid x, d_2\mid y} f(d_1)f(d_2)g\parenthesis{\frac{x}{d_1}}g\parenthesis{\frac{y}{d_2}}}+ g(x)g(y)\\
+							  & = - \squarebracket{\underbrace{\sum\limits_{d_1\mid x} f(d_1)g\parenthesis{\frac{x}{d_1}}}_{=(f \ast g)(x)} \underbrace{\sum\limits_{d_2\mid y} f(d_2) g\parenthesis{\frac{y}{d_2}}}_{=(f \ast g)(y)}}+ g(x)g(y)\\
+							  & = -\squarebracket{(f \ast g)(x)}\squarebracket{(f\ast g)(y)}+ g(x)g(y)
 					\end{align*}
 				So, $g(xy)= -(f \ast g)(x) \cdot (f\ast g)(y) + g(x)g(y)$. Note that since $xy>1$, at least one of $x$ or $y$ is larger than $1$. Therefore, since $g$ is the Dirichlet inverse of $f$, at least one of $(f \ast g)(x)$ or $(f \ast g)(y)$ is equal to zero. Finally, $g(xy)=g(x)g(y)$ and we are done.
 
@@ -912,9 +914,9 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 		\begin{proof}
 			First, if $f$ is completely multiplicative, define $g(n) = \mu(n) f(n)$. Then, by definition of Dirichlet product,
 				\begin{align*}
-					(g \ast f)(n) & = \sum_{d\mid n} g(d) f\left(\frac{n}{d}\right)\\
-								  & = \sum_{d\mid n} \mu(d) f(d) f\left(\frac{n}{d}\right)\\
-								  & = \sum_{d\mid n} \mu(d) f\left(d \cdot \frac{n}{d}\right)\\
+					(g \ast f)(n) & = \sum_{d\mid n} g(d) f\parenthesis{\frac{n}{d}}\\
+								  & = \sum_{d\mid n} \mu(d) f(d)f\parenthesis{\frac{n}{d}}\\
+								  & = \sum_{d\mid n} \mu(d)f\parenthesis{d \cdot \frac{n}{d}}\\
 								  & = f(n) \sum_{d\mid n} \mu(d)\\
 								  & = f(n) \varepsilon(n)\\
 								  & = \varepsilon(n)
@@ -923,11 +925,11 @@ Although it is not always easy to find the Dirichlet inverse of an arithmetic fu
 
 			For the converse, suppose that $f^{-1}(n) = \mu(n) f(n)$ and we want to prove that $f$ is completely multiplicative. It suffices to prove that $f(p^\alpha)=f(p)^\alpha$ for every prime $p$ and any positive integer $\alpha$ (why?). We will proceed by induction. The base case $\alpha =1$ is obvious. Suppose that we know $f(p^{\alpha-1})=f(p)^{\alpha-1}$ and we want to show that $f(p^\alpha)=f(p)^\alpha$. For any $n \geq 2$, $(f\ast f^{-1})(n)=\varepsilon(n)=0$. Therefore,
 				\begin{align*}
-					\sum_{d\mid n} \mu(d) f(d) f\left(\frac{n}{d}\right) &= 0
+					\sum_{d\mid n} \mu(d) f(d)f\parenthesis{\frac{n}{d}} &= 0
 				\end{align*}
 			Put $n=p^\alpha$ in the above equation to obtain
 				\begin{align*}
-					\sum_{d\mid p^\alpha} \mu(d) f(d) f\left(\frac{n}{d}\right)
+					\sum_{d\mid p^\alpha} \mu(d) f(d)f\parenthesis{\frac{n}{d}}
 						& = \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1}) + \cdots +\mu(p^\alpha) f(p^\alpha)f(1)\\
 						& = \mu(1)f(1)f(p^\alpha) + \mu(p)f(p)f(p^{\alpha -1})\\
 						& = f(p^\alpha) - f(p) f(p^{\alpha -1}) \\
@@ -961,8 +963,6 @@ We provide two proofs for this theorem. The first one uses the concept of multip
 		\end{itemize}
 	\end{example}
 
-
-
 	\begin{problem}
 		Show that $1 = \tau \ast \mu$.
 	\end{problem}
@@ -975,8 +975,6 @@ We provide two proofs for this theorem. The first one uses the concept of multip
 							  &= \varepsilon
 			\end{align*}
 	\end{solution}
-
-
 As mentioned in section \ref{sec:number-of-divisors}, the number of solutions to $ab = n$ in positive integers is $\tau(n)$. For the sake of completeness, we will state this result as a theorem.
 
 	\begin{theorem}\label{thm:ab=n}
@@ -986,10 +984,7 @@ As mentioned in section \ref{sec:number-of-divisors}, the number of solutions to
 	\begin{proof}
 		First, if for some positive integers $a$ and $b$ the equation $ab = n$ holds, then $a$ is a divisor of $n$. Second, for any divisor $a$ of $n$, the number $b = n/a$ is an integer that satisfies $ab = n$. Therefore, $\tau(n)$ counts exactly all the solutions of $ab=n$.
 	\end{proof}
-
-
 Here is a more interesting question:
-
 	\begin{question}
 		Let $x \geq 1$ be a \textit{real} number. Find the number of pairs $(a, b)$ of positive integers which satisfy
 			\begin{align}
@@ -997,9 +992,9 @@ Here is a more interesting question:
 			\end{align}
 	\end{question}
 
-One way to answer this question is to break the condition $ab \leq x$ into smaller conditions. Obviously, the equation $ab = y$ does not have any solutions in integers if $y$ is not an integer. So, in order to find the number of solutions to the inequality \ref{eq:ab<x}, we only need to find the number of solutions to each of $ab = 1, ab= 2, \cdots, ab= \lfloor x \rfloor$ and the answer would be the sum of these numbers. According to \autoref{thm:ab=n}, the answer is
+One way to answer this question is to break the condition $ab \leq x$ into smaller conditions. Obviously, the equation $ab = y$ does not have any solutions in integers if $y$ is not an integer. So, in order to find the number of solutions to the inequality \ref{eq:ab<x}, we only need to find the number of solutions to each of $ab = 1, ab= 2, \cdots, ab=\floor{x}$ and the answer would be the sum of these numbers. According to \autoref{thm:ab=n}, the answer is
 	\begin{align*}
-		\tau(1) + \tau(2) + \cdots + \tau(\lfloor x \rfloor)
+		\tau(1) + \tau(2) + \cdots + \tau(\floor{x})
 	\end{align*}
 We are seeking a way to determine this sum.
 
@@ -1009,7 +1004,7 @@ We are seeking a way to determine this sum.
 
 From what we have already found,
 	\begin{align}
-		T(x) = \sum_{k=1}^{\lfloor x \rfloor} \tau(k)\label{eq:T(x)-1}
+		T(x) = \sum_{k=1}^{\floor{x}} \tau(k)\label{eq:T(x)-1}
 	\end{align}
 
 	\begin{example}
@@ -1052,16 +1047,16 @@ As you observe in the above example, it would be a tedious job to calculate $T(x
 	\begin{align*}
 		b \leq \frac{x}{a}
 	\end{align*}
-Since $b$ is a positive integer, it can take the values $1, 2, \cdots, \lfloor \frac{x}{a}\rfloor$. These are $\lfloor \frac{x}{a}\rfloor$ numbers. Since $a$ can take all the values $1, 2, \cdots, \lfloor x \rfloor$, we have
+Since $b$ is a positive integer, it can take the values $1, 2, \cdots, \lfloor \frac{x}{a}\rfloor$. These are $\floor{\frac{x}{a}}$ numbers. Since $a$ can take all the values $1, 2, \cdots, \floor{x}$, we have
 	\begin{align*}
 		T(x)
-			& = \left\lfloor \frac{x}{1}\right\rfloor + \left\lfloor \frac{x}{2}\right\rfloor + \cdots + \left\lfloor \frac{x}{\lfloor x \rfloor}\right\rfloor
+			& = \floor{\frac{x}{1}}+ \floor{\frac{x}{2}}+ \cdots +\floor{\frac{x}{\floor{x}}}
 	\end{align*}
 
 	\begin{example}
 		Let us calculate $T(10.2)$ with the new approach. We have
 			\begin{align*}
-				T(10.2) &= \left\lfloor \frac{10.2}{1}\right\rfloor + \left\lfloor \frac{10.2}{2}\right\rfloor + \cdots + \left\lfloor \frac{10.2}{10}\right\rfloor\\
+				T(10.2) &= \floor{\frac{10.2}{1}}+\floor{\frac{10.2}{2}}+ \cdots + \floor{\frac{10.2}{10}}\\
 						&= 10 + 5 + 3 + 2 + 2 + 1 + 1 + 1 + 1 + 1\\
 						&= 27
 			\end{align*}
@@ -1071,18 +1066,18 @@ Since $b$ is a positive integer, it can take the values $1, 2, \cdots, \lfloor \
 The formula
 	\begin{align}
 		T(x)
-			& = \sum_{k=1}^{\lfloor x \rfloor} \left\lfloor \frac{x}{k} \right\rfloor \label{eq:T(x)-2}
+			& = \sum_{k=1}^{\floor{x}}\floor{\frac{x}{k}}\label{eq:T(x)-2}
 	\end{align}
-is more convenient than \ref{eq:T(x)-1}. That is, we can find $T(x)$ using equation \ref{eq:T(x)-2} with less number of calculations. In fact, to compute $T(x)$ from \ref{eq:T(x)-1}, we need to calculate the number of divisors of $\lfloor x \rfloor$ numbers, which obviously needs more computations than $\lfloor x \rfloor$  computations needed in formula \ref{eq:T(x)-2}. However, this can be refined even more.
+is more convenient than \ref{eq:T(x)-1}. That is, we can find $T(x)$ using equation \ref{eq:T(x)-2} with less number of calculations. In fact, to compute $T(x)$ from \ref{eq:T(x)-1}, we need to calculate the number of divisors of $\floor{x}$ numbers, which obviously needs more computations than $\floor{x}$  computations needed in formula \ref{eq:T(x)-2}. However, this can be refined even more.
 
 We will divide the solutions to $ab \leq x$ into two classes. The first class includes solutions in which $a \leq \sqrt x$ and the second one includes all solutions such that $a > \sqrt x$. Let $T_1(x)$ be the number of solutions in the first class and let $T_2(x)$ be that of the second class. Therefore,
 	\begin{align*}
 		T(x) = T_1(x) + T_2(x)
 	\end{align*}
 
-For the first class of solutions, let us consider $1 \leq a \leq \sqrt x$ is a fixed integer. The inequality $ab \leq x$, can be written as $b \leq \frac{x}{a}$. Therefore, in order to satisfy $ab \leq x$, $b$ can take only the values $1, 2,\cdots,\lfloor \frac{x}{a}\rfloor$, which are $\lfloor \frac{x}{a}\rfloor$ different numbers. Keeping in mind that $a$ can take the values $1, 2, \cdots, \lfloor \sqrt x \rfloor$, the number of solutions in the first class is
+For the first class of solutions, let us consider $1 \leq a \leq \sqrt x$ is a fixed integer. The inequality $ab \leq x$, can be written as $b \leq \frac{x}{a}$. Therefore, in order to satisfy $ab \leq x$, $b$ can take only the values $1, 2,\cdots,\floor{\frac{x}{a}}$, which are $\lfloor \frac{x}{a}\rfloor$ different numbers. Keeping in mind that $a$ can take the values $1, 2, \cdots, \floor{\sqrt{x}}$, the number of solutions in the first class is
 	\begin{align*}
-		T_1(x) &= \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor
+		T_1(x) &= \sum_{a=1}^{\lfloor\sqrt x\rfloor} \floor{\frac{x}{a}}
 	\end{align*}
 For the second class, we must find how many pairs $(a,b)$ of integers satisfy the following inequalities:
 	\begin{align*}
@@ -1097,33 +1092,33 @@ This can be written as
 	\end{align*}
 Obviously, since the product of $a$ and $b$ is less than or equal to $x$ and $a > \sqrt x$, we must have $b \leq \sqrt x$ (otherwise $ab$ would be larger than $x$). Fix $b$. The only possible values for $a$ are
 	\begin{align*}
-		\lfloor \sqrt x \rfloor +1, \lfloor \sqrt x \rfloor +2, \cdots, \left\lfloor \frac{x}{b}\right\rfloor
+		\lfloor \sqrt x \rfloor +1, \lfloor \sqrt x \rfloor +2, \cdots,\floor{\frac{x}{b}}
 	\end{align*}
-These are $\lfloor \frac{x}{b}\rfloor - \lfloor \sqrt x \rfloor$ numbers. So, since $b$ can take all values $1, 2, \cdots, \lfloor \sqrt x \rfloor$, we have
+These are $\floor{\frac{x}{b}}- \floor{x}$ numbers. So, since $b$ can take all values $1, 2, \cdots,\floor{\sqrt{x}}$, we have
 	\begin{align}
-		T_2(x) &= \sum_{b=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{b}\right\rfloor - \lfloor \sqrt x \rfloor\right) \label{eq:T(x)-3}
+		T_2(x) &= \sum_{b=1}^{\lfloor\sqrt x\rfloor}\parenthesis{\floor{\frac{x}{b}}-\floor{\sqrt{x}}} \label{eq:T(x)-3}
 	\end{align}
 In order to add $T_1(x)$ and $T_2(x)$ to obtain $T(x)$, we have to make their summation parameter the same. We already know that changing the summation parameter does not change the value of the sum. Therefore, we can change $b$ to $a$ in equation \ref{eq:T(x)-3} and write $T_2(x)$ as
 	\begin{align*}
-		T_2(x) &= \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right)
+		T_2(x) &= \sum_{a=1}^{\floor{x}}\parenthesis{\floor{\frac{x}{a}}-\floor{\sqrt{x}}}
 	\end{align*}
 We can now add up $T_1(x)$ and $T_2(x)$ and write
 	\begin{align*}
 		T(x) & =  T_1(x) + T_2(x)\\
-			 & = \sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor + \left(\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left(\left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor\right)\right)\\
-			 & = 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \left(\underbrace{\lfloor \sqrt x \rfloor + \lfloor \sqrt x \rfloor + \cdots +‌\lfloor \sqrt x \rfloor}_{\lfloor \sqrt x \rfloor \text{ times}}\right)\\
-		     & = 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2
+			 & = \sum_{a=1}^{\lfloor\sqrt x\rfloor} \floor{\frac{x}{a}}+\parenthesis{\sum_{a=1}^{\floor{\sqrt{x}}}\parenthesis{\floor{\frac{x}{a}}-\floor{\sqrt{x}}}}\\
+			 & = 2\sum_{a=1}^{\lfloor\sqrt x\rfloor}\floor{\frac{x}{a}}- \parenthesis{\underbrace{\floor{\sqrt{x}}+\floor{\sqrt{x}}+ \cdots +\floor{\sqrt{x}}}_{\floor{\sqrt{x}}\text{ times}}}\\
+		     & = 2\sum_{a=1}^{\lfloor\sqrt x\rfloor}\floor{\frac{x}{a}}- \floor{\sqrt{x}}^2
 	\end{align*}
 Finally, we have the formula
 	\begin{align}
-		T(x) &= 2\sum_{a=1}^{\lfloor\sqrt x\rfloor} \left\lfloor\frac{x}{a}\right\rfloor - \lfloor \sqrt x \rfloor^2\label{eq:T(x)-4}
+		T(x) &= 2\sum_{a=1}^{\lfloor\sqrt x\rfloor}\floor{\frac{x}{a}}-\floor{\sqrt{x}}^2\label{eq:T(x)-4}
 	\end{align}
 Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calculate $T(x)$, which is obviously less than $\lfloor x \rfloor$ computations needed to find $T(x)$ from \ref{eq:T(x)-2}.
 
 	\begin{example}
 		We will calculate the number of positive integer solutions to $ab \leq 100.2$. Since $x=100.2$ is large in this case, the best way to calculate $T(x)$ is from formula \ref{eq:T(x)-4}. We find
 			\begin{align*}
-				T(100.2) &= 2\sum_{a=1}^{10} \left\lfloor\frac{100.2}{a}\right\rfloor - 100\\
+				T(100.2) &= 2\sum_{a=1}^{10}\floor{\frac{100.2}{a}}- 100\\
 						 &= 2\left(100 + 50 + 33 + 25 + 20 + 16 + 14 + 12 + 11 + 10\right) - 100\\
 						 &= 482
 			\end{align*}
@@ -1141,25 +1136,26 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{proof}
 		Assuming $x=n$, we employ equations \ref{eq:T(x)-1} and \ref{eq:T(x)-2} to write
 			\begin{align*}
-				\sum_{k=1}^{n} \tau(k) = \sum_{k=1}^{n} \left\lfloor \frac{n}{k} \right\rfloor
+				\sum_{k=1}^{n} \tau(k) = \sum_{k=1}^{n}\floor{\frac{n}{k}}
 			\end{align*}
 		The right hand side of the above equation can be written as
 			\begin{align*}
-				\sum_{k=1}^{n} \left\lfloor \frac{n}{k} \right\rfloor &= \sum_{k=1}^{n} \left(\frac{n}{k} - \left\{ \frac{n}{k} \right\}\right)
+				\sum_{k=1}^{n}\floor{\frac{n}{k}}
+					&= \sum_{k=1}^{n}\parenthesis{\frac{n}{k} - \curlybrace{\frac{n}{k}}}
 			\end{align*}
 		where $\{n/k\}$ is the fractional part of $n/k$. Therefore,
 			\begin{align}
 				\sum_{k=1}^{n} \tau(k)
-					& = \sum_{k=1}^{n} \frac{n}{k}  - \sum_{k=1}^{n} \left\{ \frac{n}{k} \right\} \label{eq:T(x)-5}
+					& = \sum_{k=1}^{n} \frac{n}{k}  - \sum_{k=1}^{n}\curlybrace{\frac{n}{k}}\label{eq:T(x)-5}
 			\end{align}
 		Dividing both sides of this last equation by $n$, we find
 			\begin{align}
 			\frac{\sum\limits_{k=1}^{n} \tau(k)}{n}
-				& = \sum_{k=1}^{n} \frac{1}{k}  - \frac{\sum\limits_{k=1}^{n} \left\{ \frac{n}{k} \right\}}{n}
+				& = \sum_{k=1}^{n} \frac{1}{k}  - \frac{\sum\limits_{k=1}^{n}\curlybrace{\frac{n}{k}}}{n}
 			\end{align}
 		We already know that $0 \leq \{n/k\}<1$. Therefore, the second sum in the right hand side of equation \ref{eq:T(x)-5} is between zero and $n$. Therefore,
 			\begin{align*}
-				0 < \frac{\sum_{k=1}^{n} \left\{ n/k \right\}}{n} < 1
+				0 < \frac{\sum_{k=1}^{n}\curlybrace{n/k}}{n} < 1
 			\end{align*}
 		(it is never equal to zero, can you see why?). The proof is complete.
 	\end{proof}
@@ -1180,7 +1176,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		If you look more closely, you will observe that
 			\begin{align*}
 				\sigma(n) & = \sum_{d\mid n} d\\
-						  & = \sum_{d\mid n} d \cdot 1\left(\frac{n}{d}\right)\\
+						  & = \sum_{d\mid n} d \cdot 1\parenthesis{\frac{n}{d}}\\
 						  & = (\text{id} \ast 1)(n)
 			\end{align*}
 		Now, since both $\text{id}$ and constant $1$ function are multiplicative, part $1$ of \autoref{thm:mft} implies that $\sigma$ is also multiplicative.
@@ -1275,9 +1271,9 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		Take $n=2^{2k}$. Then,
 			\begin{align*}
 				\frac{1}{1} + \frac{1}{2}+ \cdots + \frac{1}{2^{2k}}
-					&> 1 + \frac{1}{2} + \left(\frac{1}{4} + \frac{1}{4}\right) + \left(\frac{1}{8} + \frac{1}{8}+\frac{1}{8} + \frac{1}{8}\right)\\
-					&\phantom{>} \qquad  + \cdots + \left(\underbrace{\frac{1}{2^{2k}}+\frac{1}{2^{2k}}+\cdots+\frac{1}{2^{2k}}}_{2^{2k-1} \text{ times}}\right)\\
-					&> 1+2k\left(\frac{1}{2}\right)\\
+					&> 1 + \frac{1}{2} + \parenthesis{\frac{1}{4} + \frac{1}{4}} +\parenthesis{\frac{1}{8} + \frac{1}{8}+\frac{1}{8} + \frac{1}{8}}\\
+					&\phantom{>} \qquad  + \cdots +\parenthesis{\underbrace{\frac{1}{2^{2k}}+\frac{1}{2^{2k}}+\cdots+\frac{1}{2^{2k}}}_{2^{2k-1} \text{ times}}}\\
+					&> 1+2k\parenthesis{\frac{1}{2}}\\
 					&= 1+k\\
 					&> k
 			\end{align*}
@@ -1307,12 +1303,12 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{proposition}
 		Let $n$ be a positive integer. The number of positive integers less than or equal to $n$ with even sum of divisors is
 		\begin{align*}
-			n-\left\lfloor\sqrt{n}\right\rfloor-\left\lfloor\sqrt{\dfrac{n}{2}}\right\rfloor
+			n-\floor{\sqrt{n}}-\floor{\sqrt{\dfrac{n}{2}}}
 		\end{align*}
 	\end{proposition}
 
 	\begin{proof}
-		There are $n$ positive integers less than or equal to $n$. We know from \autoref{thm:oddsigma} that numbers that are a perfect square or twice a perfect square have an even $\sigma$. The number of perfect squares less than or equal to $n$ is $\left\lfloor\sqrt{n}\right\rfloor$ (why?). Similarly, the number of integers less than or equal to $n$ that is twice a perfect square is $\lfloor\sqrt{n/2}\rfloor$. The conclusion follows.
+		There are $n$ positive integers less than or equal to $n$. We know from \autoref{thm:oddsigma} that numbers that are a perfect square or twice a perfect square have an even $\sigma$. The number of perfect squares less than or equal to $n$ is $\floor{\sqrt{n}}$ (why?). Similarly, the number of integers less than or equal to $n$ that is twice a perfect square is $\floor{\sqrt{n/2}}$. The conclusion follows.
 	\end{proof}
 
 	A family of numbers that are related to the sum of divisors function are \textit{perfect numbers}.
@@ -1333,7 +1329,7 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 		First, suppose that $p=2^k-1$ is a prime. We will prove that $n=2^{k-1}(2^k-1)$ is perfect. Notice that $\sigma(p)=p+1=2^k$ and since $\sigma$ is multiplicative,
 		\begin{align*}
 			\sigma(n)
-				&= \sigma\left(2^{k-1}(2^k-1)\right)\\
+				&= \sigma\parenthesis{2^{k-1}(2^k-1)}\\
 				& = \sigma(2^{k-1}) \sigma(p)\\
 				&= \left(1+2+2^2+\cdots+2^{k-1}\right) \left(2^k\right)\\
 				&= \left(2^k-1\right) 2^k\\
@@ -1394,17 +1390,17 @@ Equation \ref{eq:T(x)-4} needs $\lfloor \sqrt x \rfloor$ computations to calcula
 	\begin{problem}
 		Prove that for any positive integer $n$,
 			\begin{align*}
-				\left|\sum_{d\mid n}\frac{\mu(d)\sigma(d)}{d}\right| \geq \frac{1}{n}
+				\scaleleftright[.5ex]{|}{\sum_{d\mid n}\frac{\mu(d)\sigma(d)}{d}}{|} \geq \frac{1}{n}
 			\end{align*}
 	\end{problem}
 
 	\begin{solution}
 		Let $f(n)=\mu(n)\sigma(n)/n$. Sine all three functions $\mu, \sigma$, and $\text{id}$ are multiplicative, so is $f$. \autoref{thm:sumfunction} implies that the summatory function of $f$ is also multiplicative. Therefore, it suffices to prove the given inequality only when $n=p^\alpha$, where $p$ is a prime and $\alpha$ is a positive integer. Since $\mu(p^x)$ is zero for $x \geq 2$, $\mu(1)=1$, and $\mu(p)=-1$,
 			\begin{align*}
-				\left|\sum_{d\mid p^\alpha}\frac{\mu(d)\sigma(d)}{d}\right|
-						&= \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p} + \cdots + \frac{\mu(p^\alpha)\sigma(p^a)}{p^a}\right| \\
-						&= \left|\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p}\right|\\
-						&= \left|\frac{1}{1} - \frac{p+1}{p}\right|\\
+				\scaleleftright[.5ex]{|}{\sum_{d\mid p^\alpha}\frac{\mu(d)\sigma(d)}{d}}{|}
+						&= \scaleleftright[.5ex]{|}{\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p} + \cdots + \frac{\mu(p^\alpha)\sigma(p^a)}{p^a}}{|}\\
+						&= \scaleleftright[.5ex]{|}{\frac{\mu(1)\sigma(1)}{1} + \frac{\mu(p)\sigma(p)}{p}}{|}\\
+						&= \scaleleftright[.5ex]{|}{\frac{1}{1} - \frac{p+1}{p}}{|}\\
 						&= \frac{1}{p}\\
 						&\geq \frac{1}{p^\alpha}
 			\end{align*}
@@ -1433,7 +1429,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 				\item the Dirichlet inverse of $\sigma_\alpha$ is obtained by
 					\begin{align*}
 						\sigma_\alpha^{-1} (n)
-							& = \sum_{d\mid n} d^\alpha\mu(d) \mu\left(\frac{n}{d}\right)
+							& = \sum_{d\mid n} d^\alpha\mu(d)\mu\parenthesis{\frac{n}{d}}
 					\end{align*}
 			\end{enumerate}
 	\end{theorem}
@@ -1445,7 +1441,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 					\begin{align*}
 						(1 \ast \text{id}^\alpha)(n)
 							&= ( \text{id}^\alpha\ast 1)(n)\\
-							& = \sum_{d\mid n} \text{id}^\alpha (d) \cdot 1\left(\frac{n}{d}\right)\\
+							& = \sum_{d\mid n} \text{id}^\alpha (d) \cdot 1\parenthesis{\frac{n}{d}}\\
 							&= \sum_{d\mid n} d^\alpha \\
 							&= \sigma_\alpha (n)
 					\end{align*}
@@ -1456,7 +1452,7 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 									&= \left(1 \ast \text{id}^\alpha\right)^{-1}(n)\\
 									&= \left(1^{-1} \ast  \left(\text{id}^\alpha\right)^{-1}\right)(n)\\
 								    &= \left(\mu \ast \mu \ \text{id}^\alpha\right)(n)\\
-								    &= \sum_{d\mid n} d^\alpha \mu(d) \mu\left(\frac{n}{d}\right)
+								    &= \sum_{d\mid n} d^\alpha \mu(d)\mu\parenthesis{\frac{n}{d}}
 					\end{align*}
 			\end{enumerate}
 	\end{proof}
@@ -1474,8 +1470,8 @@ According to this definition, the number-of-divisors function $\tau$ is equal to
 		\begin{proof}
 			Let $f(n)=\varphi(n)$. By \autoref{thm:phi*1}, we know that $F(n)=\sum\limits_{d\mid n} \varphi(d)=n$. Therefore, by M\"{o}bius inversion formula,
 				\begin{align*}
-					\varphi(n) = f(n) &= \sum_{d\mid n}\mu(d)F\left(\frac nd\right)\\
-									  &= \sum_{d\mid n}\mu(d)\left(\frac nd\right)\\
+					\varphi(n) = f(n) &= \sum_{d\mid n}\mu(d)F\parenthesis{\frac nd}\\
+									  &= \sum_{d\mid n}\mu(d)F\parenthesis{\frac nd}\\
 									  &= n\sum_{d\mid n} \frac{\mu(d)}{d}
 				\end{align*}
 			as desired.
@@ -1507,26 +1503,30 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 %					2. && \sum_{d\mid n}\mu(d)^2\varphi(d)^2 &= \prod_{p\mid n}(1+(p-1)^2) & \phantom{\iff}\\
 %					3. && \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)} &= \prod_{p\mid n}\left(1-\frac{1}{p-1}\right).
 %				\end{flalign*}
-			\begin{enumerate}
-				\item $\displaystyle \sum_{d\mid n}\mu(d)\varphi(d) = \prod_{p\mid n} (2-p)$
-				\item $\displaystyle \sum_{d\mid n}\mu(d)^2\varphi(d)^2=\prod_{p\mid n}(1+(p-1)^2)$
-				\item $\displaystyle \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)} = \prod_{p\mid n}\left(1-\frac{1}{p-1}\right)$
-			\end{enumerate}
+			\begin{align*}
+				\sum_{d\mid n}\mu(d)\varphi(d)
+					& = \prod_{p\mid n} (2-p)\\
+				\sum_{d\mid n}\mu(d)^2\varphi(d)^2
+					& =\prod_{p\mid n}(1+(p-1)^2)\\
+				\sum_{d\mid n}\frac{\mu(d)}{\varphi(d)}
+					& = \prod_{p\mid n}\parenthesis{1-\frac{1}{p-1}}
+			\end{align*}
 		\end{theorem}
 
 		\begin{proof}
 			We will only prove $1$ here. The other two parts are similar. Let $f(n)=\mu(n)\varphi(n)$. Since $\mu$ and $\varphi$ are both multiplicative, their product $f$ is also multiplicative. By \autoref{thm:sumfunction}, the summatory function of $f$ is multiplicative as well. Therefore, it suffices to find the sum $F(n)=\sum\limits_{d\mid n}\mu(d)\varphi(d)$ only when $n$ is a power of a prime. Let $n=p^\alpha$. Then, since $\mu(p^\beta)=0$ for integer $\beta > 1$,
 				\begin{align*}
-				\sum\limits_{d\mid p^\alpha}\mu(d)\varphi(d)
-					&= \mu(1)\varphi(1) + \mu(p) \varphi(p) + \cdots + \mu(p^\alpha) \varphi(p^\alpha)\\
-					&= \mu(1)\varphi(1) + \mu(p) \varphi(p) \\
-					&= 1 - (p-1)\\
-					&= 2 - p
+					\sum\limits_{d\mid p^\alpha}\mu(d)\varphi(d)
+						&= \mu(1)\varphi(1) + \mu(p) \varphi(p) + \cdots + \mu(p^\alpha) \varphi(p^\alpha)\\
+						&= \mu(1)\varphi(1) + \mu(p) \varphi(p) \\
+						&= 1 - (p-1)\\
+						&= 2 - p
 				\end{align*}
 			Suppose that $n=p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of $n$. Then, again by \autoref{thm:sumfunction},
 			\begin{align*}
-			\sum\limits_{d\mid n}\mu(d)\varphi(d) &= \prod_{i=1}^{k}\sum\limits_{j=0}^{e_i}\mu(d)\varphi(d)\\
-			&= \prod_{i=1}^{k} (2-p_i)
+				\sum\limits_{d\mid n}\mu(d)\varphi(d)
+					&= \prod_{i=1}^{k}\sum\limits_{j=0}^{e_i}\mu(d)\varphi(d)\\
+					&= \prod_{i=1}^{k} (2-p_i)
 			\end{align*}
 		\end{proof}
 
@@ -1540,9 +1540,9 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 		\begin{proof}
 			Let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of $n$. Since $n$ is composite, we get from proposition \ref{factorsqrt} that it must have a prime factor, say $p_1$, which is less than or equal to $\sqrt n$. Then, using the formula in part $(d)$ of \autoref{thm:phiproperties-ch:arith},
 				\begin{align*}
-					\varphi(n) &= n \left( 1 - \frac{1}{p_1} \right)  \left( 1 - \frac{1}{p_2} \right)  \cdots \left( 1 - \frac{1}{p_k} \right)  \\
-							   &\leq n \left( 1 - \frac{1}{p_1} \right)\\
-							   &\leq n \left( 1 - \frac{1}{\sqrt n} \right)\\
+					\varphi(n) &= n \parenthesis{1 - \frac{1}{p_1}} \parenthesis{1 - \frac{1}{p_2}}  \cdots \parenthesis{1 - \frac{1}{p_k}}\\
+							   &\leq n \parenthesis{1 - \frac{1}{p_1}}\\
+							   &\leq n \parenthesis{1 - \frac{1}{\sqrt n}}\\
 							   &= n - \sqrt n
 				\end{align*}
 		\end{proof}
@@ -1593,7 +1593,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 		\begin{theorem}
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
-					\sum_{k=1}^{n} \varphi(k) = \frac{1}{2} + \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2
+					\sum_{k=1}^{n} \varphi(k) = \frac{1}{2} + \frac{1}{2}\sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}}^2
 				\end{align*}
 		\end{theorem}
 
@@ -1601,13 +1601,13 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 			Define
 				\begin{align*}
 					f(n)
-						& = \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2
+						& = \frac{1}{2}\sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}}^2
 				\end{align*}
 			Then, from \autoref{thm:floor-k|n+1},
 				\begin{align*}
-					f(n+1)-f(n) &= \frac{1}{2}\sum_{k=1}^{n+1} \mu(k) \left\lfloor \frac{n+1}{k} \right\rfloor^2 - \frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2\\
-								&= \frac{1}{2}\sum_{k=1}^{n+1} \mu(k) \left(\left\lfloor \frac{n+1}{k} \right\rfloor^2 - \left\lfloor \frac{n}{k} \right\rfloor^2\right)\\
-								&= \frac{1}{2}\sum_{k\mid (n+1)}\mu(k) \left(2 \frac{n+1}{k}-1\right)\\
+					f(n+1)-f(n) &= \frac{1}{2}\sum_{k=1}^{n+1} \mu(k)\floor{\frac{n+1}{k}}^2 - \frac{1}{2}\sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}}^2\\
+								&= \frac{1}{2}\sum_{k=1}^{n+1} \mu(k)\parenthesis{\floor{\frac{n+1}{k}}^2 -\floor{\frac{n}{k}}^2}\\
+								&= \frac{1}{2}\sum_{k\mid (n+1)}\mu(k)\parenthesis{2 \frac{n+1}{k}-1}\\
 								&= (n+1)\sum_{k\mid (n+1)} \frac{\mu(k)}{k} - \frac{1}{2} \sum_{k\mid (n+1)} \mu(k)
 				\end{align*}
 			By \autoref{thm:phi=n*sigma(mu/k)}, the first term in the last line of above equations equals $\varphi(n+1)$, and by \autoref{thm:mobiusinverse}, the second term is $\frac{1}{2} \varepsilon(n+1)$. Therefore,
@@ -1616,10 +1616,10 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 				\end{align*}
 			Now, from \gls{sumofdifference},
 				\begin{align*}
-					\frac{1}{2}\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k} \right\rfloor^2
+					\frac{1}{2}\sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}}^2
 						& = f(n)\\
 						& = f(1) + \sum_{k=1}^{n-1} \left(f(k+1)-f(k)\right)\\
-						& = \frac{1}{2} + \sum_{k=1}^{n-1} \left(\varphi(k+1) - \frac{1}{2}\varepsilon(k+1)\right)\\
+						& = \frac{1}{2} + \sum_{k=1}^{n-1} \func{}{\varphi(k+1) - \frac{1}{2}\varepsilon(k+1)}\\
 						& = \frac{1}{2} + \sum_{k=1}^{n-1} \varphi(k+1) - \frac{1}{2} \underbrace{\sum_{k=1}^{n-1} \varepsilon(k+1)}_{=0}\\
 						& = \frac{1}{2} + \sum_{k=1}^{n-1} \varphi(k+1)\\
 						& = \frac{1}{2} + \sum_{k=1}^{n} \varphi(k) - \varphi(1)\\
@@ -1632,21 +1632,21 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 			For all positive integers $n$,
 				\begin{align*}
 					\sum_{k=1}^{n} \frac{\varphi(k)}{k}
-						& = \sum_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor
+						& = \sum_{k=1}^{n} \frac{\mu(k)}{k}\floor{\frac{n}{k}}
 				\end{align*}
 		\end{theorem}
 
 		\begin{proof}[First Proof.]
-			In an analogous way to the proof of previous theorem, we use \autoref{thm:floor-k|n+1}. Define $f(n)= \sum\limits_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor$. In this case,
+			In an analogous way to the proof of previous theorem, we use \autoref{thm:floor-k|n+1}. Define $f(n)= \sum\limits_{k=1}^{n} \frac{\mu(k)}{k}\floor{\frac{n}{k}}$. In this case,
 				\begin{align*}
-					f(n+1)-f(n) &= \sum_{k=1}^{n+1} \frac{\mu(k)}{k} \left\lfloor \frac{n+1}{k} \right\rfloor - \sum_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor\\
-								&= \sum_{k=1}^{n+1} \frac{\mu(k)}{k} \left(\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor\right)\\
+					f(n+1)-f(n) &= \sum_{k=1}^{n+1} \frac{\mu(k)}{k}\floor{\frac{n+1}{k}}- \sum_{k=1}^{n} \frac{\mu(k)}{k}\floor{\frac{n}{k}}\\
+								&= \sum_{k=1}^{n+1} \frac{\mu(k)}{k}\func{}{\floor{\frac{n+1}{k}}-\floor{\frac{n}{k}}}\\
 								&= \sum_{k\mid (n+1)} \frac{\mu(k)}{k}\\
 								&= \frac{\varphi(n+1)}{n+1}
 				\end{align*}
 			by \autoref{thm:phi=n*sigma(mu/k)}. Consequently,
 				\begin{align*}
-					\sum\limits_{k=1}^{n} \frac{\mu(k)}{k} \left\lfloor \frac{n}{k} \right\rfloor
+					\sum\limits_{k=1}^{n} \frac{\mu(k)}{k}\floor{\frac{n}{k}}
 						& = f(n)\\
 						&= f(1) + \sum_{k=1}^{n-1} \left(f(k+1)-f(k)\right)\\
 						&= 1 + \sum_{k=1}^{n-1} \frac{\varphi(k+1)}{k+1}\\
@@ -1660,7 +1660,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 			Take $f(n)= \dfrac{\mu(n)}{n}$. Then, $F(n)$, the summatory function of $f$, would be
 				\begin{align*}
 					F(n) &= \sum_{d\mid n} \frac{\mu(d)}{d} \\
-						 &= \frac{1}{n} \left(n\sum_{d\mid n} \frac{\mu(d)}{d}\right)
+						 &= \frac{1}{n}\func{}{n\sum_{d\mid n} \frac{\mu(d)}{d}}
 				\end{align*}
 			According to \autoref{thm:phi=n*sigma(mu/k)}, the expression in the parenthesis equals $\varphi(n)$. Therefore,
 				\begin{align*}
@@ -1673,7 +1673,7 @@ In \autoref{thm:phi*1}, we proved that $\sum\limits_{d\mid n} \varphi(d)=n$. We 
 		\begin{theorem}[Properties of Jordan's Totient Function]
 			Let $n$ and $k$ be positive integers. Then,
 				\begin{enumerate}
-					\item $\displaystyle J_k(n) = n^k \prod\limits_{p\mid n} \left(1 - \frac{1}{p^k}\right)$
+					\item $\displaystyle J_k(n) = n^k \prod\limits_{p\mid n}\parenthesis{1 - \frac{1}{p^k}}$
 					\item $J_k$ is multiplicative
 					\item $\displaystyle \sum_{d\mid n} J_k(d) = n^k$
 					\item $J_k = \text{id}^k \ast \mu$
@@ -1687,19 +1687,19 @@ $ $
 			\begin{enumerate}
 				\item Let $p_1,p_2,\cdots,p_m$ be the prime factors of $n$. Consider all $k-$tuples $(x_1,x_2,\cdots,x_k)$ of positive integers so that $x_i\leq n$ for $i=1,2,\cdots,n$. The number of such $k-$tuples is $n^k$ (why?). In order to find $J_k(n)$, we must find out how many of these $n^k$ $k-$tuples have the property that $(x_1,x_2,\cdots,x_k,n)=1$. In other words, we need to omit the $k-$tuples in which all $x_i$ ($1 \leq i \leq k$) are divisible by at least one of $p_j$ ($1 \leq j \leq m$). There are exactly $(n/p_1)^k$ $k-$tuples in which all $x_i$ are divisible by $p_1$. So, the number of $k-$tuples in which not all $x_i$ are divisible by $p_1$ is
 					\begin{align*}
-						n_1 &= n^k \left(1 - \frac{1}{p_1^k}\right)
+						n_1 &= n^k\parenthesis{1 - \frac{1}{p_1^k}}
 					\end{align*}
-				Among these $n_1$ $k-$tuples, there are $n_2 = n_1\left(1 - \frac{1}{p_2^k}\right)$ ones in which not all $x_i$ are divisible by $p_2$. Continuing this way, assuming $n_j$ ($1 \leq j \leq m$) to be the number of $k-$tuples $(x_1,x_2,\cdots,x_k)$ in which not all $x_i$ ($1 \leq i \leq k$) are divisible by $p_1, p_2, \cdots, $ or $p_j$,
+				Among these $n_1$ $k-$tuples, there are $n_2 = n_{1}\parenthesis{1 - \frac{1}{p_2^k}}$ ones in which not all $x_i$ are divisible by $p_2$. Continuing this way, assuming $n_j$ ($1 \leq j \leq m$) to be the number of $k-$tuples $(x_1,x_2,\cdots,x_k)$ in which not all $x_i$ ($1 \leq i \leq k$) are divisible by $p_1, p_2, \cdots, $ or $p_j$,
 					\begin{align*}
-						n_3 &= n_2 \left(1 - \frac{1}{p_3^k}\right)\\
-						n_4 &= n_3 \left(1 - \frac{1}{p_4^k}\right)\\
+						n_3 &= n_2\func{}{1 - \frac{1}{p_3^k}}\\
+						n_4 &= n_3\func{}{1 - \frac{1}{p_4^k}}\\
 						&\phantom{=}\vdots\\
-						n_m &= n_{m-1} \left(1 - \frac{1}{p_m^k}\right)
+						n_m &= n_{m-1}\func{}{1 - \frac{1}{p_m^k}}
 					\end{align*}
 				It is now obvious that $J_k(n)=n_m$, thus
 					\begin{align*}
-						J_k(n) &= n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\cdots \left(1 - \frac{1}{p_m^k}\right)\\
-							   &= n^k \prod\limits_{p\mid n} \left(1 - \frac{1}{p^k}\right)
+						J_k(n) &= n^k\func{}{1 - \frac{1}{p_1^k}}\func{}{1 - \frac{1}{p_2^k}}\cdots\func{}{1 - \frac{1}{p_m^k}}\\
+							   &= n^k \prod\limits_{p\mid n} \func{}{1 - \frac{1}{p^k}}
 					\end{align*}
 
 				\item Let $m$ and $n$ be co-prime positive integers. We will show that $J_k(mn)=J_k(m)J_k(n)$. Suppose that
@@ -1711,11 +1711,10 @@ $ $
 					\end{align*}
 				are the prime factorizations of  $m$ and $n$, respectively. Then, according to part $1$ of this theorem,
 					\begin{align*}
-						J_k(mn) &= (mn)^{k} \prod\limits_{p\mid mn} \left(1 - \frac{1}{p^k}\right)\\
-								&= \Bigg(m^k \prod\limits_{p\mid m} \left(1 - \frac{1}{p^k}\right)\Bigg) \Bigg(n^k \prod\limits_{p\mid n} \left(1 - \frac{1}{p^k}\right)\Bigg) \\
+						J_k(mn) &= (mn)^{k} \prod\limits_{p\mid mn}\func{}{1 - \frac{1}{p^k}}\\
+								&= \func{}{m^k \prod\limits_{p\mid m}\func{}{1 - \frac{1}{p^k}}}\func{}{n^k \prod\limits_{p\mid n}\func{}{1 - \frac{1}{p^k}}} \\
 								&= J_k(m)J_k(n)
 					\end{align*}
-
 				\item Since Jordan's totient function is multiplicative, it suffices to prove that
 					\begin{align*}
 						\sum\limits_{d\mid p^\alpha} J_k(d) = (p^{\alpha})^k
@@ -1727,12 +1726,12 @@ $ $
 				Therefore,
 					\begin{align*}
 						\sum_{d\mid p^\alpha} J_k(d) &= J_k(1) + J_k(p) + \cdots + J_k(p^\alpha)\\
-											 &= 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)
+											 &= 1 + \sum_{i = 1}^{\alpha} \func{}{p^{ki} - p^{k (i -1)}}
 					\end{align*}
 				Now, from \gls{sumofdifference},
 					\begin{align*}
-						\sum_{d\mid p^\alpha} J_k(d) &= 1 + \sum_{i = 1}^{\alpha} \left(p^{ki} - p^{k (i -1)}\right)\\
-											 &= 1 + \left(p^{k \alpha}-1\right)\\
+						\sum_{d\mid p^\alpha} J_k(d) &= 1 + \sum_{i = 1}^{\alpha}\func{}{p^{ki} - p^{k (i -1)}}\\
+											 &= 1 + \func{}{p^{k \alpha}-1}\\
 											 &= (p^{\alpha})^k
 					\end{align*}
 				\item The equation $\displaystyle \sum_{d\mid n} J_k(d) = n^k$ can be represented as $1 \ast J_k = \text{id}^k$. Then, since the inverse of function $1$ is $\mu$ (\autoref{thm:mobiusinverse}),
@@ -1743,8 +1742,8 @@ $ $
 					\end{align*}
 				\item Let $n = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_m}$ be the prime factorization of $n$. One can write the formula in part $1$ of this theorem as
 					\begin{align*}
-						J_k(n) &= n^k \left(1 - \frac{1}{p_1^k}\right) \left(1 - \frac{1}{p_2^k}\right)\cdots \left(1 - \frac{1}{p_m^k}\right)\\
-							   &= \left(p_1^{\alpha_1- 1}p_2^{\alpha_2 -1 } \cdots p_m^{\alpha_m -1 }\right)^k \left(p_1^k -1 \right) \left(p_2^k -1 \right) \cdots \left(p_m^k -1 \right)
+						J_k(n) &= n^k \func{}{1 - \frac{1}{p_1^k}} \func{}{1 - \frac{1}{p_2^k}}\cdots \func{}{1 - \frac{1}{p_m^k}}\\
+							   &= \func{}{p_1^{\alpha_1- 1}p_2^{\alpha_2 -1 } \cdots p_m^{\alpha_m -1 }}^k \func{}{p_1^k -1} \func{}{p_2^k -1} \cdots \func{}{p_m^k -1}
 					\end{align*}
 				The proof is obvious now.
 			\end{enumerate}
@@ -1762,11 +1761,11 @@ $ $
 		\end{lemma}
 
 		\begin{proof}
-			Using part (d) of \autoref{thm:phiproperties-ch:arith}, we know that $\varphi(x) = x \prod\limits_{p\mid x} \left(1 - \frac{1}{p}\right)$, where $x$ is a positive integer and $p$ ranges over all prime divisors of $x$. So,
+			Using part (d) of \autoref{thm:phiproperties-ch:arith}, we know that $\varphi(x) = x \prod\limits_{p\mid x} \func{}{1 - \frac{1}{p}}$, where $x$ is a positive integer and $p$ ranges over all prime divisors of $x$. So,
 				\begin{align*}
-					\varphi(mn) &= mn \prod\limits_{p \mid mn} \left( 1 - \frac 1p \right)\\
-								&= mn \cdot\frac{\prod\limits_{p \mid m} \left( 1 - \frac 1p \right) \cdot \prod\limits_{p \mid n} \left( 1 - \frac 1p \right)}{\prod\limits_{p \mid d} \left( 1 - \frac 1p \right)}\\
-								&= \frac{m\prod\limits_{p \mid m} \left( 1 - \frac 1p \right) \cdot n \prod\limits_{p \mid n} \left( 1 - \frac 1p \right) \cdot d}{d\prod\limits_{p \mid d} \left( 1 - \frac 1p \right)}\\
+					\varphi(mn) &= mn \prod\limits_{p \mid mn}\func{}{1 - \frac 1p}\\
+								&= mn \cdot\frac{\prod\limits_{p \mid m}\func{}{1 - \frac 1p} \cdot \prod\limits_{p \mid n}\func{}{1 - \frac 1p}}{\prod\limits_{p \mid d}\func{}{1 - \frac 1p}}\\
+								&= \frac{m\prod\limits_{p \mid m}\func{}{1 - \frac 1p} \cdot n \prod\limits_{p \mid n}\func{}{1 - \frac 1p} \cdot d}{d\prod\limits_{p \mid d}\func{}{1 - \frac 1p}}\\
 								&= \varphi(m)\varphi(n) \cdot \frac{d}{\varphi(d)}
 				\end{align*}
 		\end{proof}
@@ -1829,20 +1828,20 @@ $ $
 			We can write the sum as
 				\begin{align*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)
-					& = \sum\limits_{\substack{i=1\\(i,n)=1}}^{n}\sum\limits_{d\mid(i-1,n)}\varphi(d)\\
-					& = \sum\limits_{d\mid n}\varphi(d)\sum\limits_{\substack{i=1\\(i,n)=1\\i\equiv 1\pmod d}}^n 1
+						& = \sum\limits_{\substack{i=1\\(i,n)=1}}^{n}\sum\limits_{d\mid(i-1,n)}\varphi(d)\\
+						& = \sum\limits_{d\mid n}\varphi(d)\sum\limits_{\substack{i=1\\(i,n)=1\\i\equiv 1\pmod d}}^n 1
 				\end{align*}
 			According to \autoref{thm:menon-lemma}, the second sum in the last line equals $\varphi(n)/\varphi(d)$. Therefore,
 				\begin{align*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)
-					& =  \sum\limits_{d\mid n}\varphi(d)\dfrac{\varphi(n)}{\varphi(d)}\\
-					& =  \sum\limits_{d\mid n}\varphi(n)
+						& =  \sum\limits_{d\mid n}\varphi(d)\dfrac{\varphi(n)}{\varphi(d)}\\
+						& =  \sum\limits_{d\mid n}\varphi(n)
 				\end{align*}
 			Since $\varphi(n)$ is independent from $d$ in the last summation, we have
 				\begin{align*}
 					\sum\limits_{\substack{i=1\\(i,n)=1}}^{n}(i-1,n)
-					& =  \varphi(n)\sum\limits_{d\mid n}1\\
-					& =  \tau(n)\varphi(n)
+						& =  \varphi(n)\sum\limits_{d\mid n}1\\
+						& =  \tau(n)\varphi(n)
 				\end{align*}
 			which is what we wanted.
 		\end{proof}
@@ -1904,7 +1903,7 @@ $ $
 			We want to prove that $\lambda\ast |\mu| = \varepsilon$. From \autoref{thm:mft}, since both $\lambda$ and $|\mu|$ are multiplicative, their Dirichlet product is also multiplicative. Therefore, it suffices to prove that $(\lambda\ast |\mu|)(p^\alpha)=\varepsilon(p^\alpha )$, where $p$ is a prime and $\alpha$ is a positive integer. Notice that $\varepsilon(p^\alpha ) = 0$, so we have to prove that $(\lambda\ast |\mu|)(p^\alpha)=0$. We have
 				\begin{align*}
 					(\lambda\ast |\mu|)(p^\alpha)
-						&= \sum_{d\mid p^\alpha} |\mu(d)| \lambda\left(\frac{p^\alpha}{d}\right)\\
+						&= \sum_{d\mid p^\alpha} |\mu(d)| \func{\lambda}{\frac{p^\alpha}{d}}\\
 						&= |\mu(1)|\lambda(p^{\alpha}) + |\mu(p)|\lambda(p^{\alpha -1}) + \cdots + |\mu(p^{\alpha})| \lambda(1)\\
 						&= |\mu(1)|\lambda(p^{\alpha-1}) + |\mu(p)|\lambda(p^{\alpha -2})\\
 						&= (-1)^{\alpha} + (-1)^{\alpha -1}\\
@@ -1972,16 +1971,16 @@ $ $
 		\begin{theorem}
 			Let $n$ be a positive integer. Then,
 				\begin{align*}
-					\lambda(n) = \sum_{k^2\mid n}  \mu \left(\frac{n}{k^2}\right)
+					\lambda(n) = \sum_{k^2\mid n}\func{\mu}{\frac{n}{k^2}}
 				\end{align*}
 		\end{theorem}
 
 		\begin{proof}
 			Assume that $\displaystyle \kappa(n)=\sum\limits_{d\mid n}\lambda(d)$. Then, by M\"{o}bius inversion formula (\autoref{thm:mobinv}),
 				\begin{align*}
-					\lambda(n) &= \sum_{d\mid n}\mu(d)\kappa\left(\frac nd\right)\\
-						  &= \sum_{d\mid n}\kappa(d)\mu\left(\frac nd\right)\\
-						  &= \sum_{k^2\mid n}  \mu \left(\frac{n}{k^2}\right)
+					\lambda(n) &= \sum_{d\mid n}\mu(d)\func{\kappa}{\frac nd}\\
+						  &= \sum_{d\mid n}\kappa(d)\func{\mu}{\frac nd}\\
+						  &= \sum_{k^2\mid n}\func{\mu}{\frac{n}{k^2}}
 				\end{align*}
 			because $\kappa(d)$ is $1$ whenever $d$ is a perfect square (i.e., $d=k^2$ for some $k$), and zero otherwise.
 		\end{proof}
@@ -1989,14 +1988,14 @@ $ $
 		\begin{theorem}\label{thm:liouville-square-floor}
 			Prove that for every positive integer $n$,
 				\begin{align*}
-					\sum_{k=1}^{n} \lambda(k) \left\lfloor \frac{n}{k}\right\rfloor = \left\lfloor \sqrt n\right \rfloor
+					\sum_{k=1}^{n} \lambda(k)\floor{\frac{n}{k}} = \floor{\sqrt{n}}
 				\end{align*}
 		\end{theorem}
 
 		\begin{proof}
 			The summatory function of $\lambda$ is $\kappa$. Therefore, from \autoref{thm:sum-of-sum-function},
 				\begin{align*}
-					\sum_{k=1}^{n} \mu(k) \left\lfloor \frac{n}{k}\right\rfloor &= \sum_{k=1}^{n} \kappa(k)
+					\sum_{k=1}^{n} \mu(k)\floor{\frac{n}{k}} &= \sum_{k=1}^{n} \kappa(k)
 				\end{align*}
 			We know by \autoref{thm:liouville-sum-function} that $\kappa(k)$ is $1$ if $k$ is a perfect square and $0$ otherwise. So, $\sum\limits_{k=1}^{n} \kappa(k)$ is exactly $\lfloor \sqrt n \rfloor$.
 		\end{proof}
@@ -2010,7 +2009,7 @@ $ $
 	\begin{problem}
 		Let $n$ be a positive integer. Prove that for any prime $p$,
 			\begin{align*}
-				v_p(n)= \sum_{k=1}^{\infty} \left(\left\lfloor \frac{n}{p^k}\right\rfloor - \left\lfloor \frac{n-1}{p^k}\right\rfloor\right)
+				v_p(n)= \sum_{k=1}^{\infty}\func{}{\floor{\frac{n}{p^k}}- \floor{\frac{n-1}{p^k}}}
 			\end{align*}
 	\end{problem}
 
@@ -2036,8 +2035,8 @@ $ $
 	\begin{problem}
 		Let $n$ be a positive integer. Show that
 			\begin{align*}
-				\sum_{d\mid n} d^2 \mu\left(\frac{n}{d}\right)
-					& = n \varphi(n) \prod_{p\mid n} \left(1+ \frac{1}{p}\right)
+				\sum_{d\mid n} d^2\func{\mu}{\frac{n}{d}}
+					& = n \varphi(n) \prod_{p\mid n}\func{}{1+ \frac{1}{p}}
 			\end{align*}
 	\end{problem}
 
@@ -2111,7 +2110,7 @@ $ $
 		Show for any three positive integers $\alpha$, $m$, and $n$ that
 			\begin{align*}
 				\sigma_{\alpha} (m)\sigma_{\alpha} (n)
-					& = \sum_{d\mid (m,n)} d^2 \sigma_{\alpha} \left(\frac{mn}{d^2}\right)
+					& = \sum_{d\mid (m,n)} d^2 \sigma_{\alpha}\func{}{\frac{mn}{d^2}}
 			\end{align*}
 	\end{problem}
 	\begin{problem}%[From \textcite{ch:arithfunc-kahan}]
@@ -2139,7 +2138,7 @@ $ $
 		Let $n$ be a positive integer. Show that
 			\begin{align*}
 				\varphi(n)
-					& =\sum_{k=1}^{n-1} \left\lfloor\frac{1}{(n,k)} \right\rfloor
+					& =\sum_{k=1}^{n-1}\floor{\frac{1}{(n,k)}}
 			\end{align*}
 	\end{problem}
 
@@ -2162,7 +2161,7 @@ $ $
 	\begin{hint}
 		For the right side, use the fact that
 			\begin{align*}
-				\prod_{p \in \mathbb P} \left(1 - \frac{1}{p^2}\right)
+				\prod_{p \in \mathbb P}\func{}{1 - \frac{1}{p^2}}
 					& = \frac{6}{\pi^2}
 			\end{align*}
 		where the product extends over all primes $p$.
@@ -2186,14 +2185,14 @@ $ $
 	\begin{problem}
 		For all positive integers $n$, show that
 			\begin{align*}
-				\sum_{k=1}^n \left\lfloor \frac{n}{k} \right\rfloor \varphi(k) = \frac{n(n+1)}{2}
+				\sum_{k=1}^n\floor{\frac{n}{k}}\varphi(k) = \frac{n(n+1)}{2}
 			\end{align*}
 	\end{problem}
 
 	\begin{problem}
 		Let $a$ be an arbitrary integer. Prove that for every positive integer $n$,
 			\begin{align*}
-				\sum_{d \mid n}\varphi\left(\frac{n}{d}\right)a^d\equiv0\pmod{n}
+				\sum_{d \mid n}\func{\varphi}{\frac{n}{d}}a^d\equiv0\pmod{n}
 			\end{align*}
 	\end{problem}
 
@@ -2207,7 +2206,7 @@ $ $
 	\begin{problem}
 		Let $x$ be a positive real number. Prove that
 			\begin{align*}
-				\sum_{n \leq x} \left\lfloor \sqrt{\frac{x}{n}} \right\rfloor &= \sum_{n\leq\sqrt x} \left\lfloor \frac{x}{n^2} \right\rfloor
+				\sum_{n \leq x}\floor{\sqrt{\frac{x}{n}}} &= \sum_{n\leq\sqrt x}\floor{\frac{x}{n^2}}
 			\end{align*}
 	\end{problem}
 

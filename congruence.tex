@@ -345,7 +345,11 @@
 	\end{problem}
 
 	\begin{problem} %https://artofproblemsolving.com/community/c6h1194731
-		Let $p>2$ be a prime number. Prove that in the set $$\left\{1,2, \cdots ,\lfloor{\sqrt{p}}\rfloor+1\right\}$$ there exists an element which is not a quadratic residue mod $p$.
+		Let $p>2$ be a prime number. Prove that in the set
+			\begin{align*}
+				1,2, \cdots ,\floor{\sqrt{p}}+1
+			\end{align*}
+		there exists an element which is not a quadratic residue mod $p$.
 	\end{problem}
 
 	%	\begin{solution}
@@ -611,9 +615,9 @@
 	\begin{problem}
 		$ $
 		\begin{enumerate}
-			\item Show that if $p$ is a prime and $\text{ord}_p(a)=3$, then \[\left(\sum_{j=0}^{2}a^{j^{2}}\right)^{2}\equiv{-3}\pmod{p}\]
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=3$, then \[\parenthesis{\sum_{j=0}^{2}a^{j^{2}}}^{2}\equiv{-3}\pmod{p}\]
 
-			\item Show that if $p$ is a prime and $\text{ord}_p(a)=4$, then \[\left(\sum_{j=0}^{3}a^{j^{2}}\right)^{2}\equiv{8a}\pmod{p}\]
+			\item Show that if $p$ is a prime and $\text{ord}_p(a)=4$, then \[\parenthesis{\sum_{j=0}^{3}a^{j^{2}}}^{2}\equiv{8a}\pmod{p}\]
 
 			\item Show that if $p$ is a prime and $\text{ord}_p(a)=6$, then \[\sum_{j=0}^{5}a^{j^{2}}\equiv{0}\pmod{p}\]
 		\end{enumerate}
@@ -817,7 +821,7 @@
 		Let $n$ be a positive integer. Prove that
 		\begin{align*}
 			n
-				& \le 4\lambda(n)\left(2^{\lambda(n)}-1\right)
+				& \le 4\lambda(n)\parenthesis{2^{\lambda(n)}-1}
 		\end{align*}
 		where $\lambda(n)$ denotes the Carmichael function of $n$.
 	\end{problem}
@@ -850,7 +854,7 @@
 		Let $p$ be a prime greater than $3$. Prove that
 		\begin{align*}
 			p^2
-				& \mid \sum_{i=1}^{\left\lfloor\frac{2p}{3}\right\rfloor}\dbinom{p}{i}
+				& \mid \sum_{i=1}^{\floor{\frac{2p}{3}}}\binom{p}{i}
 		\end{align*}
 	\end{problem}
 

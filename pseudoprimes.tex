@@ -101,7 +101,7 @@ The following theorem shows us a way to determine if an integer is a Carmichael 
 	\begin{definition}[Euler Pseudoprime to Base $a$]\label{def:eulerpseudoprime}
 		For an integer $a>1$, if an odd composite integer $n$ which is relatively prime to $a$ satisfies the congruence relation
 			\begin{align*}
-				\left(\dfrac{a}{n}\right)
+				\parenthesis{\dfrac{a}{n}}
 					& \equiv a^{(n-1)/2} \pmod n
 			\end{align*}
 		where $\left(\frac{a}{n}\right)$ is the Jacobi symbol, then $n$ is called an \textit{Euler pseudoprime to base $a$} and denoted by $\epsp(a)$.
@@ -118,13 +118,13 @@ You may wonder if there exist \textit{absolute Euler pseudoprimes}, numbers whic
 	\begin{example}
 		$121$ is an $\epsp(3)$. To see why, note that
 			\begin{align*}
-				\left(\dfrac{3}{121}\right)
-					& = \left(\dfrac{3}{11}\right)^2 = 1
+				\parenthesis{\dfrac{3}{121}}
+					& = \parenthesis{\dfrac{3}{11}}^2 = 1
 			\end{align*}
 		by the definition of Jacobi symbol (Definition \ref{def:jacobi}). Now,
 			\begin{align*}
 				3^{60}
-					& = \left(3^5\right)^{12}\\
+					& = \parenthesis{3^5}^{12}\\
 					& =\left(243\right)^{12}\\
 					& \equiv 1^{12} \equiv 1 \pmod{121}
 			\end{align*}
