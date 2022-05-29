@@ -309,7 +309,7 @@ You never know what's coming next until you think clearly!
 	\end{problem}
 
 	\begin{solution}
-		If we set $m=n+1$, then we need to prove $m(m-2)$ divides $2^{(m-1)!}-1$. Since $n$ is even, $m$ is odd so $m$ is co-prime to $2$.
+		If we set $m=n+1$, then we need to prove $m(m-2)$ divides $2^{(m-1)!}-1$. Since $n$ is even, $m$ is odd so $m$ is relatively prime to $2$.
 			\begin{align*}
 				2^{\varphi(m)} &\equiv1\pmod m\\
 				2^{\varphi(m-2)} &\equiv1\pmod{m-2}
@@ -525,7 +525,7 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		We can say that $e\mid p$ for all prime $p$. But this impossible except for $e=1$. Hence, $q\mid m-n$. Now, take a prime $p\neq q$, and from Exponent GCD lemma we have
 			\begin{align*}
-				\gcd\left(m-n,f(m,n,p)\right)
+				\gcd\parenthesis{m-n,f(m,n,p)}
 					& \mid  p\\
 				q
 					& \nmid  f(m,n,p)
@@ -556,8 +556,8 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		On the other hand, from Legendre's theorem, if $N=\binom{2n}n$,
 			\begin{align*}
-				\nu_p(N) & = \sum_{i=1}^{\infty}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
-						 & = \sum_{i=1}^{\log_{p}(2n)}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
+				\nu_p(N) & = \sum_{i=1}^{\infty}\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}\\
+						 & = \sum_{i=1}^{\log_{p}(2n)}\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}\\
 						 &\leq\sum_{i=1}^{a}1\\
 						 & = \alpha \\
 				\nu_p(N) &\leq\nu_p([1,2,\cdots,2n])
@@ -590,7 +590,7 @@ You never know what's coming next until you think clearly!
 		We will use the following theorem from elementary calculus, which can also be proved elementarily.
 
 		\begin{theorem}
-			\[\lim\limits_{n\to\infty}\left(1+\frac{1}{n}\right) ^ {n}=e\]
+			\[\lim\limits_{n\to\infty}\parenthesis{1+\frac{1}{n}}^{n}=e\]
 			where $e$ is the Euler constant.
 		\end{theorem}
 
@@ -607,12 +607,12 @@ You never know what's coming next until you think clearly!
 				\end{align*}
 			which gives (after dividing both sides by $(np)^p$)
 				\begin{align*}
-					\left(1 + \frac{1}{n}\right)^p \leq  \left(1 + \frac{1}{p}\right)^p
+					\parenthesis{1 + \frac{1}{n}}^p \leq  \parenthesis{1 + \frac{1}{p}}^p
 				\end{align*}
 			Therefore, since we assumed $n^p \leq p^n$,
 				\begin{align*}
-					(n+1)^p & = n^p\left(1+\frac{1}{n}\right)^p\\
-							&\leq p^n\left(1+\frac{1}{p}\right)^p\\
+					(n+1)^p & = n^p\parenthesis{1+\frac{1}{n}}^p\\
+							&\leq p^{n}\parenthesis{1+\frac{1}{p}}^p\\
 							& \le p^n\cdot e\\
 							& < p^{n+1}
 				\end{align*}
@@ -647,7 +647,7 @@ You never know what's coming next until you think clearly!
 				\implies n^{(2p,q-1)}
 					& \equiv1\pmod q
 			\end{align*}
-		From $p$ odd and $q\mid p+1$, $p>q$ and so $p$ and $q-1$ are co-prime. Thus,
+		From $p$ odd and $q\mid p+1$, $p>q$ and so $p$ and $q-1$ are relatively prime. Thus,
 			\begin{align*}
 				(2p,q-1)
 					& =(2,q-1)=2
@@ -660,7 +660,7 @@ You never know what's coming next until you think clearly!
 		Hence, $q\mid n+1$. If $q\mid \frac{n^p+1}{n+1}$, then by the \autoref{thm:egl} we get
 			\begin{align*}
 				q
-					& \mid \gcd\left(n+1,\frac{n^p+1}{n+1}\right)\\
+					& \mid \gcd\parenthesis{n+1,\frac{n^p+1}{n+1}}\\
 				\implies q
 					& \mid p
 			\end{align*}
@@ -709,7 +709,7 @@ You never know what's coming next until you think clearly!
 		Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\cdots,a^{2014}+2014$. Crucial observation: \textit{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\cdots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers
 			\begin{align*}
 				x^{2014}!+1,x^{2014!}+2,\cdots,x^{2014!}+2014\\
-				x^{2014!}+1,\left(x^{\frac{2014!}{2}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014}}\right)^{2014}+2014
+				x^{2014!}+1,\parenthesis{x^{\frac{2014!}{2}}}^2+2,\cdots,\parenthesis{x^{\frac{2014!}{2014}}}^{2014}+2014
 			\end{align*}
 		All of them are nutty except the first one (probably). But we need exactly two to be \textit{not nutty}. A way to do that is to divide $2014!$ by a number and hope it doesn't remain nutty. Let's say this number is $k$, that is, we are looking at the numbers
 			\begin{align*}
@@ -730,8 +730,8 @@ You never know what's coming next until you think clearly!
 		So $b<N$. This also means we are in the right track to solve the problem. And $b>p$ too must hold. Otherwise,
 			\begin{align*}
 				p-b & = a^b-2^N\\
-					& = a^b-\left(2^{\frac{N}{b}}\right)^b\\
-					& = \left(a-2^{\frac{N}{b}}\right)\left(a^{b-1}+\cdots+2^{\frac{N(b-1)}{b}}\right)\\
+					& = a^b-\parenthesis{2^{\frac{N}{b}}}^b\\
+					& = \parenthesis{a-2^{\frac{N}{b}}}\left(a^{b-1}+\cdots+2^{\frac{N(b-1)}{b}}\right)\\
 					& > p\\
 				0	& > b
 			\end{align*}
@@ -741,8 +741,8 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		Since $b<N$, $2^b\mid b-p$ but clearly $b-p<2^b$. Thus, $a$ is odd. If $b$ is even with $b=2v$,
 			\begin{align*}
-				b-p & = \left(2^{\frac{N}{2}}\right)^2-\left(2^v\right)^2\\
-					& = \left(2^{\frac{N}{2}}+2^v\right)\left(2^{\frac{N}{2}}-2^v\right)\\
+				b-p & = \parenthesis{2^{\frac{N}{2}}}^2-\parenthesis{2^v}^2\\
+					& = \parenthesis{2^{\frac{N}{2}}+2^v}\parenthesis{2^{\frac{N}{2}}-2^v}\\
 					& > b
 			\end{align*}
 		again contradiction. Try to do the same with $2^N+1$.
@@ -776,10 +776,10 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		We need to find such $p,\alpha$ such that $p^\alpha$ is minimum. Therefore, $p$ must be $2$. Now we need the smallest $\alpha$ for which $2^\alpha-1\geq10\alpha $. See that $\alpha = 6$ works. But can we minimize $n$ even further? Since $n!$ must be divisible by $n^{10}$, so we need to look at primes for which we get the exponent at least $10$. If $p^2\mid n$ for some prime $p$, we need $\nu_p(n!)\geq20$ for some $n<64$. The minimum $n$ for which $n!$ is divisible by $3^{10}$ is $24$. For $n<64$,
 			\begin{align*}
-				\nu_3(n!) & \leq \dfrac{63}{3}+\dfrac{63}{9}+\left\lfloor\dfrac{63}{27}\right\rfloor\\
+				\nu_3(n!) & \leq \dfrac{63}{3}+\dfrac{63}{9}+\floor{\dfrac{63}{27}}\\
 						  & = 21+7+2=30
 			\end{align*}
-		And we see that $n=63$ is in fact a solution because $\nu_7(63!) = \dfrac{63}{7}+\left\lfloor\dfrac{63}{49}\right\rfloor=10$. The minimum $n$ for which $\nu_5(n!)\geq10$ is $n=45$. Using the arguments we made already, show that we can not minimize $n$ further.
+		And we see that $n=63$ is in fact a solution because $\nu_7(63!) = \dfrac{63}{7}+\floor{\dfrac{63}{49}}=10$. The minimum $n$ for which $\nu_5(n!)\geq10$ is $n=45$. Using the arguments we made already, show that we can not minimize $n$ further.
 	\end{solution}
 
 	\begin{problem}[Greece National Mathematical Olympiad, $2015$]
@@ -808,7 +808,7 @@ You never know what's coming next until you think clearly!
 		A prime $p$ is called a \textit{nice} prime if there exists a sequence of positive integers $(n_1,\cdots,n_k)$ satisfying following conditions for infinitely positive integers $k$, but not for $k=1$.
 			\begin{itemize}
 				\item For $1\leq i\leq k$, $n_i\geq\dfrac{p+1}{2}$.
-				\item For $1\leq i\leq k$, $p^{n_i}-1$ is a multiple of $n_{i+1}$ and $\dfrac{p^{n_i}-1}{n_{i+1}}$ is co-prime to $n_{i+1}$. Set $n_{k+1} = n_1$.
+				\item For $1\leq i\leq k$, $p^{n_i}-1$ is a multiple of $n_{i+1}$ and $\frac{p^{n_i}-1}{n_{i+1}}$ is relatively prime to $n_{i+1}$. Set $n_{k+1} = n_1$.
 			\end{itemize}
 		Show that $2$ is not a nice prime, but any odd prime is.
 	\end{problem}
@@ -977,7 +977,7 @@ You never know what's coming next until you think clearly!
 	\end{solution}
 
 	\begin{problem}[Russia $2000$]
-		Do there exist three distinct pairwise co-prime integers $a,b,c$ such that $a\mid 2^b+1$, $b\mid 2^c+1$ and $c\mid 2^a+1$?
+		Do there exist three distinct pairwise relatively prime integers $a,b,c$ such that $a\mid 2^b+1$, $b\mid 2^c+1$ and $c\mid 2^a+1$?
 	\end{problem}
 
 	\begin{solution}
@@ -996,7 +996,7 @@ You never know what's coming next until you think clearly!
 				8^{q-1}& \equiv1\pmod q\\
 				8^{(2x,q-1)}&\equiv1\pmod q
 			\end{align*}
-		Here, $x$ must have no smaller prime divisor than $q$, otherwise that would have been the smallest prime divisor instead of $q$. So, $(2x,q-1)=2$ and $q\mid 8^2-1=3^2\cdot7$. Since $q$ is co-prime to $a=3x$, $q\neq3$. So $q=7$ but then $7\mid 2^a+1=8^x+1$, which is a contradiction due to
+		Here, $x$ must have no smaller prime divisor than $q$, otherwise that would have been the smallest prime divisor instead of $q$. So, $(2x,q-1)=2$ and $q\mid 8^2-1=3^2\cdot7$. Since $q$ is relatively prime to $a=3x$, $q\neq3$. So $q=7$ but then $7\mid 2^a+1=8^x+1$, which is a contradiction due to
 			\begin{align*}
 				8^x+1\equiv1+1\pmod7
 			\end{align*}
@@ -1009,7 +1009,7 @@ You never know what's coming next until you think clearly!
 				2^{(2c,q-1)}&\equiv1\pmod q\\
 				2^2&\equiv1\pmod q
 			\end{align*}
-		which gives us $q=3$ but then $3\mid b$, a contradiction. Therefore, $b$ can not have any prime divisor, $b=1$. We also have $c\mid 2^3+1=9$, so $c\in\{1,3,9\}$. But if $c=1$, it would collide with $b=1$. If $c=3$ or $c=9$, it would not be co-prime with $a$. Therefore, no such $a,b,c$ exist.
+		which gives us $q=3$ but then $3\mid b$, a contradiction. Therefore, $b$ can not have any prime divisor, $b=1$. We also have $c\mid 2^3+1=9$, so $c\in\{1,3,9\}$. But if $c=1$, it would collide with $b=1$. If $c=3$ or $c=9$, it would not be relatively prime with $a$. Therefore, no such $a,b,c$ exist.
 	\end{solution}
 
 	\begin{problem}[Austria $2010$]
@@ -1150,14 +1150,14 @@ This is a problem where we use another technique, we will call it \textit{squeez
 					& = 1+2+1+2+5+2+1+2+1+10\\
 					& = 1\cdot4+2\cdot4+5\cdot1+10\cdot1
 			\end{align*}
-		First of all, $1,2,5,10$ are divisors of $10$. Since $(i,n)$ will be a divisor of $n$, it makes sense. Now we just need to figure out how to determine those numbers $4,4,1,1$ for $1,2,5,10$ respectively. Let's think about the case when divisor, $d=2$. We want $(i,10)=d$ so we can write $i=dj$ and $10=dm$ where $(j,m)=1$. Since we are counting all such possible $j$, it is simply the number of $j$ less than or equal to $m$, which are co-prime to $m$. In other words, the coefficient of $i$ is $\varphi(m)=\varphi\left(\dfrac{10}{d}\right)$. Now, let's prove it formally.
+		First of all, $1,2,5,10$ are divisors of $10$. Since $(i,n)$ will be a divisor of $n$, it makes sense. Now we just need to figure out how to determine those numbers $4,4,1,1$ for $1,2,5,10$ respectively. Let's think about the case when divisor, $d=2$. We want $(i,10)=d$ so we can write $i=dj$ and $10=dm$ where $(j,m)=1$. Since we are counting all such possible $j$, it is simply the number of $j$ less than or equal to $m$, which are relatively prime to $m$. In other words, the coefficient of $i$ is $\varphi(m)=\varphi\parenthesis{\dfrac{10}{d}}$. Now, let's prove it formally.
 			\begin{align*}
 				f(n)
 					& = \sum_{i=1}^{n}(i,n)\\
 					& = \sum_{i=1}^{n}(dj,dm)\\
 					& = \sum_{d\mid n}\sum_{\substack{j=1\\j\bot m}}^{m}d(j,m)\\
 					& = \sum_{d\mid n}d\varphi(m)\\
-					& = \sum_{d\mid n}d\varphi\left(\dfrac{n}{d}\right)\\
+					& = \sum_{d\mid n}d\varphi\parenthesis{\dfrac{n}{d}}\\
 					& = \sum_{d\mid n}\dfrac{n}{d}\varphi(d)\\
 					& = n\sum_{d\mid n}\dfrac{\varphi(d)}{d}
 			\end{align*}
@@ -1165,32 +1165,32 @@ This is a problem where we use another technique, we will call it \textit{squeez
 			\begin{enumerate}[(a)]
 				\item Let $m\bot n$.
 						\begin{align*}
-							f(mn) & = \sum_{d\mid mn}d\varphi\left(\dfrac{mn}{d}\right)\\
-								  & = \sum_{\substack{d=ef\\e\mid m\\f\mid n}}ef\varphi\left(\dfrac{mn}{ef}\right)\\
-								  & = \sum_{\substack{e\mid m\\f\mid n}}ef\varphi\left(\dfrac{m}{e}\right)\varphi\left(\dfrac{n}{f}\right)\\
-								  & = \sum_{e\mid m}e\varphi\left(\dfrac{m}{e}\right)\sum_{f\mid n}f\left(\dfrac{n}{f}\right)\\
+							f(mn) & = \sum_{d\mid mn}d\varphi\parenthesis{\dfrac{mn}{d}}\\
+								  & = \sum_{\substack{d=ef\\e\mid m\\f\mid n}}ef\varphi\parenthesis{\dfrac{mn}{ef}}\\
+								  & = \sum_{\substack{e\mid m\\f\mid n}}ef\varphi\parenthesis{\dfrac{m}{e}}\varphi\parenthesis{\dfrac{n}{f}}\\
+								  & = \sum_{e\mid m}e\varphi\parenthesis{\dfrac{m}{e}}\sum_{f\mid n}f\parenthesis{\dfrac{n}{f}}\\
 								  & = f(m)f(n)
 						\end{align*}
 					We could also prove it using Dirichlet product. If $f(n)=n$ and $g(n)=\varphi(n)$, then both $f$ and $g$ are multiplicative. So, their Dirichlet product would be multiplicative as well.
 						\begin{align*}
-							f\ast g & = \sum_{d\mid n}f(d)g\left(\dfrac{n}{d}\right)\\
-									& = \sum_{d\mid n}d\varphi\left(\dfrac{n}{d}\right)
+							f\ast g & = \sum_{d\mid n}f(d)g\parenthesis{\dfrac{n}{d}}\\
+									& = \sum_{d\mid n}d\varphi\parenthesis{\dfrac{n}{d}}
 						\end{align*}
 					must be multiplicative then!
 				\item $f(an)=an$ means
 						\begin{align*}
-							\sum_{d\mid an}d\varphi\left(\dfrac{an}{d}\right) & = an
+							\sum_{d\mid an}d\varphi\parenthesis{\dfrac{an}{d}} & = an
 						\end{align*}
 					But clearly the sum on the left side is hard to deal with. It would be better if we could have another representation, probably a closed form instead of a summation. Let's determine $f(p^i)$ first.
 						\begin{align*}
 							f(p^e)  & = p^e\sum_{d\mid p^e}\dfrac{\varphi(d)}{d} = p^e\sum_{i=0}^{e}\dfrac{\varphi(p^i)}{p^i}\\
-									& = p^e\left(1+\sum_{i=1}^{e}\dfrac{p^{i-1}(p-1)}{p^i}\right)\\
-									& = p^e\left(1+\sum_{i=1}^{e}\dfrac{p-1}{p}\right)\\
-									& = p^e\left(1+\dfrac{e(p-1)}{p}\right)
+									& = p^e\parenthesis{1+\sum_{i=1}^{e}\dfrac{p^{i-1}(p-1)}{p^i}}\\
+									& = p^e\parenthesis{1+\sum_{i=1}^{e}\dfrac{p-1}{p}}\\
+									& = p^e\parenthesis{1+\dfrac{e(p-1)}{p}}
 						\end{align*}
 					From the given condition, $f(n) = an$, so for $n=p^e$, it implies
 						\begin{align*}
-							p^e\left(1+\dfrac{e(p-1)}{p}\right) & = ap^e
+							p^{e}\parenthesis{1+\dfrac{e(p-1)}{p}} & = ap^e
 						\end{align*}
 					and so,
 						\begin{align*}

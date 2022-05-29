@@ -62,19 +62,19 @@
 \newcommand*{\yMin}{0}%
 \newcommand*{\yMax}{6}%
 
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{2}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
 \pagestyle{fancyplain}
 \fancyhf{}
 \rhead{ \fancyplain{}{\small\textit{{Masum Billal, Amir Hossein}}} }
-\lhead{ \fancyplain{}{\small$\S$\thechapter. \ \textsc{\leftmark}} }
+\lhead{ \fancyplain{}{\small$\S$\thechapter. \ \textit{\leftmark}} }
 \rfoot{ \fancyplain{}{\thepage}}
 \renewcommand{\headrulewidth}{.1pt} % remove lines as well
 
-\titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}}[\vspace{1ex}\titlerule]
-\titleformat{\section}[display]{\bfseries\scshape\Large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
-\titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
+%\titleformat{\chapter}[display]{\bfseries\scshape\Huge}{}{1ex}{\centering\titlerule\vspace{1ex}}[\vspace{1ex}\titlerule]
+%\titleformat{\section}[display]{\bfseries\scshape\Large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
+%\titleformat{\subsection}[display]{\bfseries\scshape\large}{}{1ex}{\centering$\S$\ifthenelse{\value{section}>0}{\thesection}{}\;}[\titlerule]
 
 %fixing margins
 \geometry{left=3cm,right=3cm,top=1.6cm,bottom=3cm,headheight=15pt,headsep=0.3in}
@@ -91,26 +91,26 @@
 }
 \makeatother
 
-\newtheorem{theorem}{\textbf{\textsc{Theorem}}}[chapter]
-\newtheorem{lemma}[theorem]{\textbf{\textsc{Lemma}}}
-\newtheorem{proposition}[theorem]{\textbf{\textsc{Proposition}}}
-\newtheorem{corollary}[theorem]{\textbf{\textsc{Corollary}}}
-\newtheorem{conjecture}{\textbf{\textsc{Conjecture}}}
-\newtheorem{observation}{\textbf{\textsc{Observation}}}
-\newtheorem{fact}{\textbf{\textsc{Fact}}}
+\newtheorem{theorem}{{\textbf{Theorem}}}[]
+\newtheorem{lemma}[]{{\textbf{Lemma}}}
+\newtheorem{proposition}[]{{\textbf{Proposition}}}
+\newtheorem{corollary}[]{{\textbf{Corollary}}}
+\newtheorem{conjecture}{{\textbf{Conjecture}}}
+\newtheorem{observation}{{\textbf{Observation}}}
+\newtheorem{fact}{{\textbf{Fact}}}
 \newtheorem{identity}{}
 \pgfplotsset{compat=1.7,}
 
 
 \theoremstyle{definition}
 
-\newenvironment{definition}[1][]{\par\medskip\noindent \textsc{\textbf{\ifthenelse{\isempty{#1}}{Definition.}{#1.}}} \rmfamily}{\medskip}
-\newtheorem{notation}[theorem]{\textbf{\textsc{Notation}}}
-\newtheorem{problem}[theorem]{\textbf{\textsc{Problem}}}
-\newtheorem{question}[theorem]{\textbf{\textsc{Question}}}
-\newtheorem*{acknowledgment}{\textbf{\textsc{Acknowledgment}}}
-\newtheorem*{remark}{\textbf{\textsc{Remark}}}
-\newtheorem*{note}{\textbf{\textsc{Note}}}
+\newenvironment{definition}[1][]{\par\medskip\noindent \textit{\textbf{\ifthenelse{\isempty{#1}}{Definition.}{#1.}}} \rmfamily}{\medskip}
+\newtheorem*{notation}{\textbf{\textit{Notation}}}
+\newtheorem{problem}{\textbf{\textit{Problem}}}
+\newtheorem*{question}{\textbf{\textit{Question}}}
+\newtheorem*{acknowledgment}{\textbf{\textit{Acknowledgment}}}
+\newtheorem*{remark}{\textbf{\textit{Remark}}}
+\newtheorem*{note}{\textbf{\textit{Note}}}
 \newtheorem*{solution}{\textit{{Solution}}}
 
 \theoremstyle{remark}
@@ -119,10 +119,10 @@
 \newtheorem*{hint2}{Hint}
 
 
-\numberwithin{equation}{chapter}
-\numberwithin{theorem}{section}
-\numberwithin{conjecture}{chapter}
-\numberwithin{fact}{chapter}
+%\numberwithin{equation}{chapter}
+%\numberwithin{theorem}{section}
+%\numberwithin{conjecture}{chapter}
+%\numberwithin{fact}{chapter}
 
 \DeclareMathOperator{\psp}{psp}
 \DeclareMathOperator{\epsp}{epsp}

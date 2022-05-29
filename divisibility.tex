@@ -62,7 +62,7 @@
 		$1$ is a divisor of all integers.
 	\end{example}
 
-	You can also try to make sense of division in this way: $8$ divides $40$ because $40$ has every factor that $8$ has in it. In other words, if $8$ had a factor which was not a factor of $40$, then $40$ would not be divisible by $8$. For example, $42$ does not have the factor $4$, which is a factor of $8$, therefore $8 \nmid\mid 42$.
+	You can also try to make sense of division in this way: $8$ divides $40$ because $40$ has every factor that $8$ has in it. In other words, if $8$ had a factor which was not a factor of $40$, then $40$ would not be divisible by $8$. For example, $42$ does not have the factor $4$, which is a factor of $8$, therefore $8 \nmid 42$.
 
 	\begin{definition}[Prime and Composite Numbers]
 		An integer $n>1$ is called \textit{prime} if it has exactly two distinct (positive) divisors, namely $1$ and $n$ itself. A number greater than $1$ which is not a prime is \textit{composite}. In other words, an integer $n$ is composite if it has a proper divisor other than $1$. We do not wish to discuss primality for negative integers.
@@ -127,7 +127,7 @@
 	\end{proof}
 
 	\begin{note}
-	    You may think that it is straightforward to prove statement $(12)$ in the above Proposition. However, it is not so simple. The reason is we need to prove that if $$\frac{b^n}{a^n}=\left(\frac{b}{a}\right)^n$$ is an integer, then so is $\frac{b}{a}$. This is not obvious (try to make sense why).
+	    You may think that it is straightforward to prove statement $(12)$ in the above Proposition. However, it is not so simple. The reason is we need to prove that if $$\frac{b^n}{a^n}=\parenthesis{\frac{b}{a}}^n$$ is an integer, then so is $\frac{b}{a}$. This is not obvious (try to make sense why).
 	\end{note}
 
 	\begin{proposition}\label{prop:bothdivide}
@@ -425,7 +425,7 @@ Let's find a divisibility rule for $7$.
 	The remainder of division of $1000$ by $7$ is $6$. So, there exists a positive integer $q$ such that $1000 = 7q - 1$ (why is that? find $q$). Hence,
 		\begin{align*}
 			x &= (7q-1) \cdot \overline{x_{n-1} \cdots x_3} +  \overline{x_{2} x_1 x_0 }\\
-			  &= 7q \cdot \overline{x_{n-1} \cdots x_3} + \left(\overline{x_{2} x_1 x_0 } - \overline{x_{n-1} \cdots x_3}\right)
+			  &= 7q \cdot \overline{x_{n-1} \cdots x_3} + \parenthesis{\overline{x_{2} x_1 x_0 } - \overline{x_{n-1} \cdots x_3}}
 		\end{align*}
 	Now, if $x$ is divisible by $7$, then so must be $\overline{x_{2} x_1 x_0 } - \overline{x_{n-1} \cdots x_3}$ and vice versa. The proof is complete.
 \end{proof}
@@ -537,7 +537,7 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 			\item   $[a,b] \geq (a,b)$.
 			\item	$a\mid b$ if and only if $(a,b)=a$. Similarly, $a\mid b$ if and only if $[a,b]=b$
 			\item   For any integer $k$, $ (a, b+ak) = (a, b)$ and $(ka,kb)=k(a,b)$. Furthermore, $[ka,kb]=k[a,b]$.
-			\item   For any non-negative integer $n$, we have $(a^n,b^n)=\left((a,b)\right)^n$ and $[a^n,b^n]=\left([a,b]\right)^n$.
+			\item   For any non-negative integer $n$, we have $(a^n,b^n)=\parenthesis{(a,b)}^n$ and $[a^n,b^n]=\parenthesis{[a,b]}^n$.
 			\item 	For any two integers $x$ and $y$, we have $(a,b)\mid ax+by$.
 			\item 	If $p$ is a prime divisor of $a$ or $b$, then $p\mid [a,b]$.
 			\item 	For any prime divisor $p$ of $(a, b)$, we have $p\mid a$ and $p\mid b$.
@@ -786,13 +786,13 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{align}
 	where $0 \leq x_i < b$ for $0 \leq i \leq n$. Our aim is to find the value of $x_i$'s. Look at the equation carefully and try to understand how we can retrieve the digits in base $b$. If you are stuck, then go forward. Rewrite equation \eqref{representation_in_base_b} as
 	\begin{align*}
-		y = b \cdot \underbrace{\left( b^{n-1} x_{n} + b^{n-2} x_{n-1} + \cdots + x_1  \right)}_{y_1} + x_0
+		y = b \cdot \underbrace{\parenthesis{b^{n-1} x_{n} + b^{n-2} x_{n-1} + \cdots + x_1}}_{y_1} + x_0
 	\end{align*}
 	We have written $y$ as $y=by_1 + x_0$, which means that the remainder of $y$ when divided by $b$ is $x_0$. In fact, the rightmost digit of $y$ in base $b$ ($x_0$ here) is the remainder of $y$ when divided by $b$. As you can see, we are simply using the division theorem here (does it make sense now?). Bases are related to divisibility after all!
 
 	To find the next digit, $x_1$, we have to divide the quotient of the above division, $y_1$, by $b$. The reason is the same as above: rewrite $y_1$ as
 	\begin{align*}
-		y_1 = b \cdot \underbrace{\left( b^{n-2} x_{n} + b^{n-3} x_{n-1} + \cdots + x_2  \right)}_{y_2} + x_1
+		y_1 = b \cdot \underbrace{\parenthesis{b^{n-2} x_{n} + b^{n-3} x_{n-1} + \cdots + x_2}}_{y_2} + x_1
 	\end{align*}
 	Therefore, $x_1$ is the remainder of $y_1$ when divided by $b$. We can find the next digit $x_2$ by finding the remainder of $y_2$ when divided by $b$. The digits $x_3, x_4, \cdots, x_{n-1}$ can be found similarly by continuing this process. The leftmost digit, $x_n$, is the \textit{quotient} of the last division because we can no longer divide it by $b$ (since the digits are all less than $b$).
 
@@ -890,15 +890,15 @@ It is very important to bear in mind that each divisibility rule is time-efficie
 	\end{align*}
 	Start clustering $a_i$ digits in groups of $3$, starting at the right. For convenience, assume that $n+1$ is divisible by $3$ (because there are $n+1$ digits $a_0, a_1, \cdots, a_n$ and we are putting them in groups of size $3$). Other cases when number of digits is not divisible by $3$ will be discussed later. Then, $x$ can be represented as
 	\begin{align*}
-		 \left(2^{n} a_{n} + 2^{n-1} a_{n-1} + 2^{n-2} a_{n-2} \right) + \\ \left(2^{n-3}  a_{n-3} + 2^{n-4} a_{n-4} + 2^{n-5} a_{n-5} \right) +\cdots + \left( 2^2a_2 + 2^1a_1 + a_0 \right)
+		 \parenthesis{2^{n} a_{n} + 2^{n-1} a_{n-1} + 2^{n-2} a_{n-2}} + \\ \parenthesis{2^{n-3}  a_{n-3} + 2^{n-4} a_{n-4} + 2^{n-5} a_{n-5}} +\cdots + \parenthesis{2^2a_2 + 2^1a_1 + a_0}
 	\end{align*}
 	which is equal to
 	\begin{align*}
-		2^{n-2}\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right) + \\ 2^{n-5} \left(2^2 a_{n-3}  +  2 a_{n-4} + a_{n-5} \right)+  \cdots + 2^0\left( 2^2a_2 + 2a_1 + a_0 \right)
+		2^{n-2}\parenthesis{2^2 a_{n} + 2 a_{n-1} + a_{n-2}} + \\ 2^{n-5} \parenthesis{2^2 a_{n-3}  +  2 a_{n-4} + a_{n-5}}+  \cdots + 2^{0}\parenthesis{2^2a_2 + 2a_1 + a_0}
 	\end{align*}
 	Since $2^{a}=8^{a/3}$ for all real numbers $a$, we can write the above as
 	\begin{multline*}
-   		8^{\frac{n-2}{3}} \underbrace{\left(2^2 a_{n} + 2 a_{n-1} + a_{n-2} \right)}_{b_m} + \\ 8^{\frac{n-5}{3}}  \underbrace{\left(2^2 a_{n-3} + 2 a_{n-4} + a_{n-5} \right)}_{b_{m-1}} + \cdots + 8^0 \underbrace{\left( 2^2a_2 + 2a_1 + a_0 \right)}_{b_0}
+   		8^{\frac{n-2}{3}} \underbrace{\parenthesis{2^2 a_{n} + 2 a_{n-1} + a_{n-2}}}_{b_m} + \\ 8^{\frac{n-5}{3}}  \underbrace{\parenthesis{2^2 a_{n-3} + 2 a_{n-4} + a_{n-5}}}_{b_{m-1}} + \cdots + 8^0 \underbrace{\parenthesis{2^2a_2 + 2a_1 + a_0}}_{b_0}
 	\end{multline*}
 	The power of $8$ in all of the terms in the above sum is an integer (why?). Note that the number $2^2 a_i + 2 a_{i-1} + a_{i-2}$ is actually $(a_{i}a_{i-1}a_{i-2})_2$, and so it is a non-negative integer less than or equal to $(111)_2 = 7$. This means that $2^2 a_i + 2 a_{i-1} + a_{i-2}$ is acceptable as a digit in base $8$ (remember that digits in base $b$ should be less than $b$ and non-negative). Now look at the last line of the above equations. It is of the form $8^m b_m + 8^{m-1}b_{m-1} + \cdots + 8b_1+b_0$. We have therefore found a relation between digits in base $2$ and base $8$:
 	\begin{align*}
@@ -955,7 +955,7 @@ First, we count the multiples of $7$ less than $100$: $7, 14, 21, 28, 35, 42, 49
 These two sub-problems are basically the same. Therefore, we only need to answer the general question that how many integers in the interval $[1:x]$ are divisible by $n$. The result is actually the quotient of the division $x/n$ (why?). Consequently, rises the definition of the \textit{floor function}.
 
 \begin{definition}[ Floor Function and Fractional Part]
-	We call the function $\lfloor x \rfloor: \mathbb{R} \to \mathbb Z$ the \textit{floor function} and for every real $x$, $\lfloor x\rfloor$ (read \textit{floor of $x$}) is the largest integer less than or equal to $x$. Moreover, we denote by $\{x\}$ the \textit{fractional part of $x$}, which is equal to $x-\lfloor x\rfloor$.
+	We call the function $\floor{x}: \mathbb{R} \to \mathbb Z$ the \textit{floor function} and for every real $x$, $\floor{x}$ (read \textit{floor of $x$}) is the largest integer less than or equal to $x$. Moreover, we denote by $\{x\}$ the \textit{fractional part of $x$}, which is equal to $x-\floor{x}$.
 
 	\begin{figure}
 		\centering
@@ -967,7 +967,7 @@ These two sub-problems are basically the same. Therefore, we only need to answer
 				yticklabel style={below left},
 				xmin=-3, xmax=3,
 				ymin=-3, ymax=3,
-				ylabel={$\lfloor x \rfloor$},
+				ylabel={$\floor{x}$},
 				xlabel={$x$},
 				grid,
 				every axis x label/.style={
@@ -987,14 +987,14 @@ These two sub-problems are basically the same. Therefore, we only need to answer
 				] {floor(x)};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{The floor function $\lfloor x \rfloor$ for $-2 \leq x \leq 2$.}
+		\caption{The floor function $\floor{x}$ for $-2 \leq x \leq 2$.}
 		\label{fig:floorfunction}
 	\end{figure}
 
 \end{definition}
 
 \begin{example}
-	$\lfloor 3.1415\rfloor=3$, $\lfloor-2\rfloor=-2$, and $\lfloor5\rfloor=5$. \autoref{fig:floorfunction} shows the value of $\lfloor x \rfloor$ for $x$ between $-2$ and $2$. For positive real numbers, the fractional part is simply the the non-integer part of the number. For example, the fractional part of  $3.14$ is $0.14$. However, the definition of fractional part for negative real numbers may be deceptive. For instance, the fractional part of $-3.14$ is not $0.14$, but
+	$\floor{3.1415}=3$, $\floor{-2}=-2$, and $\floor{5}=5$. \autoref{fig:floorfunction} shows the value of $\floor{x}$ for $x$ between $-2$ and $2$. For positive real numbers, the fractional part is simply the the non-integer part of the number. For example, the fractional part of  $3.14$ is $0.14$. However, the definition of fractional part for negative real numbers may be deceptive. For instance, the fractional part of $-3.14$ is not $0.14$, but
 	\begin{align*}
 		\{-3.14\} &= -3.14 - (-4)\\
 		&= 0.86
@@ -1003,63 +1003,63 @@ These two sub-problems are basically the same. Therefore, we only need to answer
 
 We can generalize the above problem now. The number of integers between two natural numbers $a$ and $b$ (inclusive) which are divisible by $n$ is
 \begin{align*}
-	\left\lfloor\dfrac{b}{n}\right\rfloor-\left\lfloor\dfrac{a-1}{n}\right\rfloor+1
+	\floor{\dfrac{b}{n}}-\floor{\dfrac{a-1}{n}}+1
 \end{align*}
 (Can you see why we are using $a-1$ in the second fraction?) Here, we have assumed that $b\geq a$.
 
 \begin{proposition}[Properties of Floor Function] \label{prop:floor}
 	For any two reals $x$ and $y$ and any two integers $m$ and $n$,
 	\begin{enumerate}[1.]
-		\item $x\geq\lfloor x\rfloor>x-1$,
+		\item $x\geq\floor{x}>x-1$,
 		%				\item $0 \leq \{x\} <1$,
-		\item if $n \leq x$, then $n \leq \lfloor x \rfloor$,
-		\item $\lfloor x+n\rfloor=\lfloor x\rfloor+n$,
-		\item if $x <y$, then $\lfloor x \rfloor \leq \lfloor y \rfloor$,
-		\item $\lfloor x\rfloor+\lfloor y \rfloor\leq \lfloor x+y\rfloor \leq \lfloor x\rfloor+\lfloor y\rfloor+1$,
-		\item $\lfloor \lfloor x\rfloor\rfloor  =  \lfloor x\rfloor$,
-		\item if $x$ is an integer, $\lfloor x\rfloor+\lfloor -x\rfloor=0$. Otherwise, it equals $1$.
+		\item if $n \leq x$, then $n \leq \floor{x}$,
+		\item $\floor{x+n}=\floor{x}+n$,
+		\item if $x <y$, then $\floor{x}\leq \floor{y}$,
+		\item $\floor{x}+\floor{y}\leq \floor{x+y}\leq \floor{x}+\floor{y}+1$,
+		\item $\floor{\floor{x}} =  \floor{x}$,
+		\item if $x$ is an integer, $\floor{x}+\floor{-x}=0$. Otherwise, it equals $1$.
 	\end{enumerate}
 \end{proposition}
 
 \begin{example}
-	The inequality $\lfloor x\rfloor+\lfloor y\rfloor \leq \lfloor x+y\rfloor$ (as seen in part $5$) is sometimes referred to as the \textit{triangle inequality of floor function}. You can easily check why this inequality holds and find the condition in which it becomes an equality. Put $x=3.6$ and $y=2.5$. Then, $\lfloor x\rfloor+\lfloor y\rfloor = 5$, which is strictly less than $\lfloor x+y\rfloor=6$. The reason why we have a strict inequality here is somewhat obvious now: $0.6$ and $0.5$ add up to $1.1$, which is more than one. You can easily check that only when $\{x\} + \{y\}$ is less than one, the equality case occurs. Otherwise, the inequality is strict.
+	The inequality $\floor{x}+\floor{y}\leq \floor{x+y}$ (as seen in part $5$) is sometimes referred to as the \textit{triangle inequality of floor function}. You can easily check why this inequality holds and find the condition in which it becomes an equality. Put $x=3.6$ and $y=2.5$. Then, $\floor{x}+\floor{y}= 5$, which is strictly less than $\floor{x+y}=6$. The reason why we have a strict inequality here is somewhat obvious now: $0.6$ and $0.5$ add up to $1.1$, which is more than one. You can easily check that only when $\{x\} + \{y\}$ is less than one, the equality case occurs. Otherwise, the inequality is strict.
 \end{example}
 
 \begin{proof}
 	\begin{enumerate}[1.]
-		\item Let $\lfloor x \rfloor=k$. By definition, $k$ is the greatest integer not exceeding $x$, so $x \geq k$ and $x<k+1$.
+		\item Let $\floor{x}=k$. By definition, $k$ is the greatest integer not exceeding $x$, so $x \geq k$ and $x<k+1$.
 		%				\item This is immediately followed by the first part because $\{x\}=x-\lfloor x \rfloor$. Note that $\{x\}=0$ happens only when $x$ is an integer.
-		\item $n \leq x = \lfloor x \rfloor + \{x\} <\lfloor x \rfloor +1$, and since $n$ is an integer, $n \leq \lfloor x \rfloor$.
-		\item By definition, $\lfloor x \rfloor \leq x$ and so $\lfloor x \rfloor+n \leq x+n$. On the other hand, again by definition, $x < \lfloor x \rfloor+1$. Therefore
+		\item $n \leq x = \floor{x} + \{x\} <\floor{x} +1$, and since $n$ is an integer, $n \leq \floor{x}$.
+		\item By definition, $\floor{x} \leq x$ and so $\floor{x}+n \leq x+n$. On the other hand, again by definition, $x < \floor{x}+1$. Therefore
 		\begin{align*}
-			\lfloor x \rfloor +n \leq x+n < \lfloor x \rfloor + n+ 1
+			\floor{x} +n \leq x+n < \floor{x}+ n+ 1
 		\end{align*}
-		This means that $\lfloor x \rfloor +n$ is the largest integer less than or equal to $x+n$ and hence $\lfloor x+n\rfloor=\lfloor x\rfloor+n$.
-		\item Write $x<y$ as $\lfloor x \rfloor + \{x\} < \lfloor y \rfloor + \{y\}$ and then $\lfloor x \rfloor < \lfloor y \rfloor +\{y\}-\{x\}$. Now by parts $2$ and $3$,
+		This means that $\floor{x} +n$ is the largest integer less than or equal to $x+n$ and hence $\floor{x+n}=\floor{x}+n$.
+		\item Write $x<y$ as $\floor{x} + \{x\} < \floor{y} + \{y\}$ and then $\floor{x}< \floor{y} +\{y\}-\{x\}$. Now by parts $2$ and $3$,
 		\begin{align*}
-			\lfloor x \rfloor &\leq \left\lfloor \lfloor y \rfloor +\{y\}-\{x\}\right\rfloor \\
-			&= \lfloor y \rfloor + \left\lfloor \overbrace{\{y\}-\{x\}}^{<1}\right\rfloor \\
-			&= \lfloor y \rfloor
+			\floor{x} &\leq \floor{\floor{y} +\{y\}-\{x\}}\\
+			&= \floor{y}+ \floor{\overbrace{\{y\}-\{x\}}^{<1}}\\
+			&= \floor{y}
 		\end{align*}
-		\item Let $	\lfloor x \rfloor=a, \lfloor y \rfloor=b, \{x\}=a_1$, and $\{y\}=b_1$. By $2$, $a_1, b_1 \geq 0$ and so
+		\item Let $	\floor{x}=a, \floor{y}=b, \{x\}=a_1$, and $\{y\}=b_1$. By $2$, $a_1, b_1 \geq 0$ and so
 		\begin{align*}
 			a+b \leq a+a_1+b+b_1
 		\end{align*}
 		Sine $a+b$ is an integer, applying part $2$ we find
 		\begin{align*}
-			\lfloor x \rfloor + \lfloor y \rfloor &= a+b \\
-			&\leq \lfloor a+a_1+b+b_1 \rfloor\\
-			&= \lfloor x+y \rfloor
+			\floor{x}+ \floor{y}&= a+b \\
+			&\leq \floor{a+a_1+b+b_1}\\
+			&= \floor{x+y}
 		\end{align*}
 		On the other hand, by part $3$ we observe that
 		\begin{align*}
-			\lfloor x+y \rfloor &= \lfloor a+a_1+b+b_1 \rfloor\\
-			&= a + b + \lfloor a_1+b_1 \rfloor\\
-			&= \lfloor x \rfloor + \lfloor y \rfloor + \lfloor \overbrace{a_1+b_1}^{<2} \rfloor\\
-			&\leq \lfloor x \rfloor + \lfloor y \rfloor + 1
+			\floor{x+y}&= \floor{a+a_1+b+b_1}\\
+			&= a + b + \floor{a_1+b_1}\\
+			&= \floor{x}+ \floor{y}+ \floor{\overbrace{a_1+b_1}^{<2}}\\
+			&\leq \floor{x}+ \floor{y}+ 1
 		\end{align*}
 
-		\item $\lfloor x\rfloor$ is an integer and the floor of every integer is equal to itself.
+		\item $\floor{x}$ is an integer and the floor of every integer is equal to itself.
 		\item This is immediately implied from definition.
 	\end{enumerate}
 \end{proof}
@@ -1131,7 +1131,7 @@ Now, we get to the other way of solving problem \ref{floorproblem}. First, we su
 		\item $\lceil x\rceil+\lceil y \rceil - 1 \leq \lceil x+y\rceil \leq \lceil x\rceil+\lceil y\rceil$
 		\item $\lceil \lceil x\rceil\rceil  =  \lceil x\rceil$
 		\item if $x$ is an integer, $\lceil x\rceil+\lceil -x\rceil=0$. Otherwise, it equals $1$
-		\item $\lceil x \rceil \geq x \geq \lfloor x \rfloor$
+		\item $\lceil x \rceil \geq x \geq \floor{x}$
 	\end{enumerate}
 \end{proposition}
 
@@ -1140,12 +1140,12 @@ The proofs are pretty much the same as those of floor function and we do not pro
 \begin{theorem}\label{thm:floor-k|n+1}
 	For any two positive integers $n$ and $k$, the following equation holds
 	\begin{align*}
-		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor &=
+		\floor{\frac{n+1}{k}}- \floor{\frac{n}{k}} &=
 		\begin{cases}
 			1&\mbox{if }k|n+1\\
 			0&\mbox{otherwise}
 		\end{cases}\\
-		\left\lfloor \frac{n+1}{k} \right\rfloor^2 - \left\lfloor \frac{n}{k} \right\rfloor^2 &=
+		\floor{\frac{n+1}{k}}^2 - \floor{\frac{n}{k}}^2 &=
 		\begin{cases}
 			2\frac{n+1}{k}-1&\mbox{if }k\mid n+1\\
 			0&\mbox{otherwise}
@@ -1156,15 +1156,15 @@ The proofs are pretty much the same as those of floor function and we do not pro
 \begin{proof}
 	We will prove the first identity. The second one can be proved in a similar way. Let $n+1=kq+r$ for some positive integers $q$ and $r$ such that $0 \leq r <k$. Then,
 	\begin{align*}
-		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor
-		&=\left\lfloor \frac{kq+r}{k} \right\rfloor - \left\lfloor \frac{kq+r-1}{k} \right\rfloor\\
-		&= \left\lfloor q+\frac{r}{k} \right\rfloor - \left\lfloor q+\frac{r-1}{k} \right\rfloor\\
-		&= \left(q+\left\lfloor \frac{r}{k} \right\rfloor\right) - \left(q+\left\lfloor \frac{r-1}{k} \right\rfloor\right)\\
-		&= \left\lfloor \frac{r}{k} \right\rfloor - \left\lfloor \frac{r-1}{k} \right\rfloor
+		\floor{\frac{n+1}{k}}- \floor{\frac{n}{k}}
+		&= \floor{\frac{kq+r}{k}} - \floor{\frac{kq+r-1}{k}}\\
+		&= \floor{q+\frac{r}{k}} - \floor{q+\frac{r-1}{k}}\\
+		&= \parenthesis{q+\floor{\frac{r}{k}}} -\parenthesis{q+\floor{\frac{r-1}{k}}}\\
+		&= \floor{\frac{r}{k}}- \floor{\frac{r-1}{k}}
 	\end{align*}
-	Now, since $r<k$, if $r \neq 0$, both $\lfloor r/k \rfloor$ and $\lfloor (r-1)/k \rfloor$ are zero and so is their difference. However, when $r=0$, we have $\lfloor r/k \rfloor=0$ and $\lfloor (r-1)/k \rfloor=-1$ and in this case,
+	Now, since $r<k$, if $r \neq 0$, both $\floor{r/k}$ and $\floor{(r-1)/k}$ are zero and so is their difference. However, when $r=0$, we have $\floor{r/k}=0$ and $\floor{(r-1)/k}=-1$ and in this case,
 	\begin{align*}
-		\left\lfloor \frac{n+1}{k} \right\rfloor - \left\lfloor \frac{n}{k} \right\rfloor
+		\floor{\frac{n+1}{k}}- \floor{\frac{n}{k}}
 		& = 1
 	\end{align*}
 	The proof is complete.
@@ -1174,33 +1174,33 @@ The proofs are pretty much the same as those of floor function and we do not pro
 \begin{theorem}
 	Let $x$ be a real number. Then for every positive integers $n$ and any integer $m$,
 	\begin{align*}
-		\left\lfloor  \frac{x+n}{m}\right\rfloor
-		& = \left\lfloor  \frac{\lfloor x \rfloor+n}{m}\right\rfloor \\
+		\floor{\frac{x+n}{m}}
+		& = \floor{\frac{\floor{x}+n}{m}}\\
 		\left\lceil \frac{x+n}{m}\right\rceil
 		& = \left\lceil \frac{\lceil x \rceil+n}{m}\right\rceil
 	\end{align*}
 \end{theorem}
 
 \begin{proof}
-	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$. We know that $\lfloor x \rfloor \leq x$. If $\lfloor x \rfloor = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\lfloor x \rfloor < x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\lfloor x \rfloor < x$ implies $f(\lfloor x \rfloor) < f(x)$. Now by part $4$ of proposition \ref{prop:floor},
+	We only show the equality occurs for floor function. The proof for ceiling function is almost the same and is left as an exercise to the reader. Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x)=(x+n)/m$. We want to show that $\floor{f(x)}=\floor{f(\floor{x})}$. We know that $\floor{x}\leq x$. If $\floor{x} = x$ (i.e., if $x$ is an integer) there is nothing to prove. So, suppose that $\floor{x}< x$. The function $f(x)$ is strictly increasing. That is, if $x_1<x_2$ for two reals $x_1$ and $x_2$, then $f(x_1) < f(x_2)$. Therefore $\floor{x}< x$ implies $f(\floor{x}) < f(x)$. Now by part $4$ of proposition \ref{prop:floor},
 	\begin{align*}
-		\left\lfloor  f(\lfloor x \rfloor)\right\rfloor   \leq \left\lfloor  f(x) \right\rfloor .
+		\floor{f(\floor{x})}\leq \floor{f(x)}
 	\end{align*}
-	We will show that $\lfloor f(\lfloor x \rfloor)\rfloor  < \lfloor f(x) \rfloor$ does not happen. Suppose on the contrary that it does happen. Let $k =  \lfloor f(x) \rfloor$ and $y=km-n$. Then,
+	We will show that $\floor{f(\floor{x})}< \floor{f(x)}$ does not happen. Suppose on the contrary that it does happen. Let $k = \floor{f(x)}$ and $y=km-n$. Then,
 	\begin{align*}
 		f(y) &= \dfrac{y+n}{m}\\
 		&= \dfrac{(km-n)+n}{m}\\
 		&= k\\
-		&= \lfloor f(x) \rfloor
+		&= \floor{f(x)}
 	\end{align*}
-	So $f(y)=\lfloor f(x) \rfloor \leq f(x)$, which implies $y \leq x$ (because $f$ is strictly increasing). Also, $y > \lfloor x \rfloor$ because otherwise $\lfloor f(x) \rfloor = f(y) \leq  f(\lfloor x \rfloor)$ and by part $2$ of proposition \ref{prop:floor}, $\lfloor f(x) \rfloor \leq \lfloor f(\lfloor x \rfloor)\rfloor$, which is in contradiction with our assumption. This means that we have found an integer $y$ such that $\lfloor x \rfloor < y \leq x$. This is obviously in contradiction with the definition of $\lfloor x \rfloor$ (since $x$ is non-integer). Therefore, $\lfloor f(x) \rfloor = \lfloor f(\lfloor x \rfloor) \rfloor$ and we are done.
+	So $f(y)=\floor{f(x)}\leq f(x)$, which implies $y \leq x$ (because $f$ is strictly increasing). Also, $y > \floor{x}$ because otherwise $\floor{f(x)}= f(y) \leq  f(\floor{x})$ and by part $2$ of proposition \ref{prop:floor}, $\floor{f(x)}\leq \floor{f(\floor{x})}$, which is in contradiction with our assumption. This means that we have found an integer $y$ such that $\floor{x}< y \leq x$. This is obviously in contradiction with the definition of $\floor{x}$ (since $x$ is non-integer). Therefore, $\floor{f(x)}= \floor{f(\floor{x})}$ and we are done.
 \end{proof}
 
 \begin{corollary}
 	For any given real numbers $x, a_1, a_2, \ldots, a_n$, we have
 	\begin{align*}
-		\left\lfloor  \ldots \left\lfloor  \left\lfloor  x/a_1 \right\rfloor /a_2 \right\rfloor  \ldots/a_n \right\rfloor
-			&= \left\lfloor  \dfrac{x}{a_1a_2\ldots a_n}\right\rfloor \\
+		\floor{\ldots \floor{\floor{x/a_1} /a_2}\ldots/a_n}
+			&= \floor{\dfrac{x}{a_1a_2\ldots a_n}}\\
 		\left\lceil \ldots \left\lceil \left\lceil x/a_1 \right\rceil /a_2 \right\rceil  \ldots/a_n \right\rceil
 			&= \left\lceil \dfrac{x}{a_1a_2\ldots a_n}\right\rceil
 	\end{align*}
@@ -1210,8 +1210,8 @@ The above theorem can be generalized in this way:
 \begin{theorem}
 	Let $f$ be any continuous and strictly increasing function with the property that if $f(x)$ is an integer, then so is $x$. Then,
 	\begin{align*}
-		\left\lfloor  f(\lfloor x \rfloor)\right\rfloor
-			& = \left\lfloor  f(x) \right\rfloor \\
+		\floor{f(\floor{x})}
+			& = \floor{f(x)}\\
 		\left\lceil f(\lceil x \rceil)\right\rceil
 			& = \left\lceil f(x) \right\rceil
 	\end{align*}
@@ -1220,7 +1220,7 @@ The above theorem can be generalized in this way:
 \begin{problem}
 	Prove that for every positive real $x$, the following relations hold
 	\begin{align*}
-		\left\lfloor  \sqrt {\lfloor x \rfloor} \right\rfloor  &= \lfloor x \rfloor\\
+		\floor{\sqrt {\floor{x}}}&= \floor{x}\\
 		\left\lceil \sqrt{ \lceil x \rceil} \right\rceil  &= \lceil x \rceil
 	\end{align*}
 \end{problem}
@@ -1241,17 +1241,17 @@ The above theorem can be generalized in this way:
 	\end{solution}
 	We can now generalize this problem to the following proposition.
 	\begin{proposition}
-		Let $b$ and $n$ be integers bigger than $1$. Number of digits of $n$ when presented in base $b$ is $\lfloor \log_b n\rfloor +1$.
+		Let $b$ and $n$ be integers bigger than $1$. Number of digits of $n$ when presented in base $b$ is $\floor{\log_b n}+1$.
 	\end{proposition}
 
 	\begin{proof}
-		As stated in the above solution, suppose that $m$ is the unique integer for which $b^m < n <b^{m+1}$. Then, the number of digits of $n$ in base $b$ is $m+1$. That is, it suffices to prove that $m=\lfloor \log_b n\rfloor$. Since $b$ is larger than $1$, we know that logarithm to base $b$ is a strictly increasing function. This means that we can take logarithm to base $b$ from $b^m < n <b^{m+1}$ and the direction of the inequalities will not change. In other words,
+		As stated in the above solution, suppose that $m$ is the unique integer for which $b^m < n <b^{m+1}$. Then, the number of digits of $n$ in base $b$ is $m+1$. That is, it suffices to prove that $m=\floor{\log_b n}$. Since $b$ is larger than $1$, we know that logarithm to base $b$ is a strictly increasing function. This means that we can take logarithm to base $b$ from $b^m < n <b^{m+1}$ and the direction of the inequalities will not change. In other words,
 			\begin{align*}
 				\log_b b^m
 					& < \log_b n\\
 					& < \log_b b^{m+1}
 			\end{align*}
-		which gives $m<\log_b n<m+1$. Since $m$ is an integer, by definition of floor function, $m=\lfloor \log_b n \rfloor$.
+		which gives $m<\log_b n<m+1$. Since $m$ is an integer, by definition of floor function, $m=\floor{\log_b n}$.
 	\end{proof}
 \subsection{Power of a Prime in a Number} \label{sec:powerofprimes}
 In a lot of cases, it just happens that we need to calculate the highest power of a prime $p$ that divides an integer $n$. We denote this by $v_p(n)$. Determining how many zeros there are at the end of $n!$ is a famous problem. Clearly, the number of zeros at the end of any number equals the highest power of $10$ which divides that number, and this is an example of where we need to use this function.
@@ -1275,7 +1275,7 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 		v_p(xy)
 		& =v_p(x)+v_p(y)\\
 		v_p(x+y)
-		& \geq\min\left\{v_p(x),v_p(y)\right\}
+		& \geq\min\curlybrace{v_p(x),v_p(y)}
 	\end{align*}
 \end{proposition}
 
@@ -1290,7 +1290,7 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 \begin{theorem}[Legendre's Theorem]\label{thm:legendre}
 	Let $p$ be a prime and $n$ be a positive integer. Then
 	\begin{align*}
-		v_p(n!) & =\sum_{i=1}^{\infty}\left\lfloor\dfrac{n}{p^i}\right\rfloor
+		v_p(n!) & =\sum_{i=1}^{\infty}\floor{\dfrac{n}{p^i}}
 	\end{align*}
 \end{theorem}
 
@@ -1299,7 +1299,7 @@ In a lot of cases, it just happens that we need to calculate the highest power o
 	\begin{align*}
 		v_p(n!) = v_p(1) v_p(2) \cdots v_p(n)
 	\end{align*}
-	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \ref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\lfloor n/p \rfloor$, the first term in the sum. Similarly, there are $\lfloor n/p^2 \rfloor$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\lfloor n/p \rfloor, \lfloor n/p^2 \rfloor, \lfloor n/p^3 \rfloor, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
+	This means that we have to find the largest power of $p$ in each of integers $1,2,\cdots, n$. As we were finding a solution for problem \ref{floorproblem}, we found out the answer to the question that ''how many integers between $1$ and $n$ are divisible by $p$?`` The answer is $\floor{n/p}$, the first term in the sum. Similarly, there are $\floor{n/p^2}$ numbers among these $n$ numbers which are divisible by $p^2$. It is now clear that $v_p(n!)$ is the sum of $\floor{n/p}, \floor{n/p^2}, \floor{n/p^3}, \cdots$. We have chosen the upper bound of infinity since the value these floors will be zero after somewhere. If you want to write a sum which includes only non-zero terms, the upper bound would be $v_p(n)$ (why?).
 \end{proof}
 There is another way for finding $v_p(n!)$ using bases. Before we state the alternative version of Legendre's theorem, we need a definition.
 \begin{definition}
@@ -1321,14 +1321,14 @@ There is another way for finding $v_p(n!)$ using bases. Before we state the alte
 \begin{proof}
 	Assume that the base $p$ representation of $n$ is $(n_k n_{k-1}\ldots n_1 n_0)_p$. So $n=n_kp^k + n_{k-1}p^{k-1} + \cdots + n_1 p +n_0$ and
 	\begin{align*}
-		\left\lfloor\dfrac{n}{p^i}\right\rfloor
-		&=	\left\lfloor\dfrac{n_kp^k + n_{k-1}p^{k-1} + \cdots + n_1 p +n_0}{p^i}\right\rfloor \\
+		\floor{\dfrac{n}{p^i}}
+		&=	\floor{\dfrac{n_kp^k + n_{k-1}p^{k-1} + \cdots + n_1 p +n_0}{p^i}}\\
 		&= n_kp^{k-i} + n_{k-1}p^{k-i-1} + \cdots + n_{i+1} p + n_i
 	\end{align*}
 	for any integer $1 \leq i \leq k$. Now by Legendre's theorem,
 	\begin{align*}
-		v_p(n!) & = \sum_{i=1}^{k}\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
-		&= \left\lfloor\dfrac{n}{p}\right\rfloor+\left\lfloor\dfrac{n}{p^2}\right\rfloor+\cdots+\left\lfloor\dfrac{n}{p^k}\right\rfloor\\
+		v_p(n!) & = \sum_{i=1}^{k}\floor{\dfrac{n}{p^i}}\\
+		&= \floor{\dfrac{n}{p}}+\floor{\dfrac{n}{p^2}}+\cdots+\floor{\dfrac{n}{p^k}}\\
 		&= \ \ \ n_kp^{k-1} + n_{k-1}p^{k-2} + \cdots + n_{2} p + n_1 \\  &\ \ \ + n_kp^{k-2} + n_{k-1}p^{k-3} + \cdots + n_{2}\\ &\ \ \ \ \ \ \ \vdots \qquad\qquad \vdots\\  &\ \ \ + n_kp  \ \ \ \ + n_{k-1} \\&\ \ \ + n_k\\
 		&=\sum_{i=1}^k n_i(p^{i-1}+p^{i-2}+\cdots+p+1)\\
 		&= \sum_{i=1}^k n_i\frac{p^i-1}{p-1}\\
@@ -1338,16 +1338,16 @@ There is another way for finding $v_p(n!)$ using bases. Before we state the alte
 \end{proof}
 
 \subsection{Kummer's Theorem}
-It may seem difficult to find a relation for the largest power of a prime $p$ that divides a binomial coefficient $\binom{m}{n}$. In $1852$, Kummer published an article in which he introduced a very simple way to find $v_p\left(\binom{m}{n}\right)$.
+It may seem difficult to find a relation for the largest power of a prime $p$ that divides a binomial coefficient $\binom{m}{n}$. In $1852$, Kummer published an article in which he introduced a very simple way to find $v_{p}\parenthesis{\binom{m}{n}}$.
 
 \begin{theorem}[Kummer's Theorem]
-	Let $p$ be a prime and let $m$ and $n$ be positive integers such that $n \leq m$. Take $s$ to be the number of \textit{carries} when $n$ is added to $m-n$ in base $p$. Then $s = v_p\left( \binom{m}{n}\right)$.
+	Let $p$ be a prime and let $m$ and $n$ be positive integers such that $n \leq m$. Take $s$ to be the number of \textit{carries} when $n$ is added to $m-n$ in base $p$. Then $s = v_{p}\parenthesis{\binom{m}{n}}$.
 \end{theorem}
 
 To make a good sense of this theorem, we provide an example and then move to the proof.
 
 \begin{example}
-	Let us find $v_3\left( \binom{28}{11}\right)$. First, find the base-$3$ representation of $11$ and $28-11=17$:
+	Let us find $v_{3}\parenthesis{\binom{28}{11}}$. First, find the base-$3$ representation of $11$ and $28-11=17$:
 	\begin{align*}
 		11
 		& = (102)_3\\
@@ -1397,15 +1397,15 @@ To make a good sense of this theorem, we provide an example and then move to the
 	\end{align*}
 	We will use the fact that
 	\begin{align*}
-		v_p\left( \binom{m}{n}\right) &= v_p(m!)-v_p(n!)-v_p((m-n)!)
+		v_{p}\parenthesis{\binom{m}{n}} &= v_p(m!)-v_p(n!)-v_p((m-n)!)
 	\end{align*}
-	along with \autoref{thm:legendrealternative} to show that $s=v_p\left( \binom{m}{n}\right)$. By \autoref{thm:legendrealternative}, we know that for every positive integer $a$,
+	along with \autoref{thm:legendrealternative} to show that $s=v_{p}\parenthesis{\binom{m}{n}}$. By \autoref{thm:legendrealternative}, we know that for every positive integer $a$,
 	\begin{align*}
 		v_p(a!) & =\frac{a-s_p(a)}{p-1}
 	\end{align*}
 	where $s_p(a)$ denotes the sum of the standard base $p$ digits of $a$. Therefore,
 	\begin{align*}
-		v_p\left( \binom{m}{n}\right)
+		v_{p}\parenthesis{\binom{m}{n}}
 		& = \frac{m-s_p(m)}{p-1}-\frac{n-s_p(n)}{p-1}-\frac{(m-n)-s_p(m-n)}{p-1}\\
 		& = \frac{m-(m_k+m_{k-1}+\cdots+m_0)}{p-1}\\
 		& \phantom{=}-\frac{n-(n_k+n_{k-1}+\cdots+n_0)}{p-1}\\
@@ -1419,7 +1419,7 @@ To make a good sense of this theorem, we provide an example and then move to the
 \begin{corollary}\label{cor:kummer-corollary}
 	Let $p$ be a prime and let $n$ be a positive integer. For any positive integer $k$ such that $0<k\leq p^n$,
 	\begin{align*}
-		v_p\left( \binom{p^n}{k}\right)	= n - v_p(k)
+		v_{p}\parenthesis{\binom{p^n}{k}}	= n - v_p(k)
 	\end{align*}
 \end{corollary}
 
@@ -1431,11 +1431,11 @@ To make a good sense of this theorem, we provide an example and then move to the
 	which is what we wanted.
 \end{proof}
 \begin{problem}
-	Let $p$ be a prime and let $m,n$ be positive integers. If $p^m < n < p^{m+1}$, prove that $v_p\left(\binom{n}{k}\right) \leq m$ for every positive integer $k\leq n$.
+	Let $p$ be a prime and let $m,n$ be positive integers. If $p^m < n < p^{m+1}$, prove that $v_{p}\parenthesis{\binom{n}{k}} \leq m$ for every positive integer $k\leq n$.
 \end{problem}
 
 \begin{solution}
-	The condition $p^m < n < p^{m+1}$ means that $n$ has $m+1$ digits when represented in base $p$. By Kummer's theorem, $v_p\left(\binom{n}{k}\right)$ is the number of carries in addition $k+(n-k)$ in base $p$. Obviously, the number of carries must be less than number of digits of $n$ in base $p$ (why?). The conclusion follows.
+	The condition $p^m < n < p^{m+1}$ means that $n$ has $m+1$ digits when represented in base $p$. By Kummer's theorem, $v_{p}\parenthesis{\binom{n}{k}}$ is the number of carries in addition $k+(n-k)$ in base $p$. Obviously, the number of carries must be less than number of digits of $n$ in base $p$ (why?). The conclusion follows.
 \end{solution}
 We will provide another solution for problem \ref{prob:china2015-bertrand} stated in section \ref{sec:bertrand}.
 
@@ -1447,9 +1447,9 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 \end{problem}
 
 \begin{solution}
-	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_2\left(\binom{2n}{n}\right)=1$. On the other hand, $4\mid n$, thus $	n \nmid\binom{2n}{n}$.
+	We already know that $n+1 \big| \binom{2n}{n}$ (see solution of problem \ref{prob:china2015-bertrand}). We will prove that all integers except $k=1$ satisfy the given condition. First, let us handle the case $k=0$. In this case, choose $n=2^m$ for any integer $m\geq 2$. By Kummer's Theorem, $v_{2}\parenthesis{\binom{2n}{n}}=1$. On the other hand, $4\mid n$, thus $	n \nmid\binom{2n}{n}$.
 
-	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_2\left(\binom{2n}{n}\right) \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \nmid\binom{2n}{n}$ for our choice of $n$.
+	For $k \ne 0,1$, take any $m \geq 3 + {\log _2}\left| k \right|$, and choose $n = {2^\alpha } - k$. From Kummer's theorem, $v_{2}\parenthesis{\binom{2n}{n}} \leq m - 1$, but $n + k = {2^m}$. That is, $n+k \nmid\binom{2n}{n}$ for our choice of $n$.
 \end{solution}
 
 \begin{problem}
@@ -1570,9 +1570,9 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		The exponents of the primes in both sides must be equal. Therefore, $e_i=a_ie$ (for $i=1,2,\ldots,k$) and $f_j=b_je$ (for $j=1,2,\ldots,\ell$). Therefore,
 		\begin{align*}
 			a
-				& = \Big(p_1^{a_1}\cdots p_k^{a_k}\Big)^e\\
+				& = \parenthesis{p_1^{a_1}\cdots p_k^{a_k}}^e\\
 			b
-				& = \left(q_1^{b_1}\cdots q_\ell^{b_\ell}\right)^e
+				& = \parenthesis{q_1^{b_1}\cdots q_\ell^{b_\ell}}^e
 		\end{align*}
 		which proves the claim.
 	\end{proof}
@@ -1616,7 +1616,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 	Let's see the motivation behind this trick. Once Mr. Simon was studying number theory, he found this problem: find all positive integers $x$ and $y$ such that $xy-x+y=49$. Simon probably hates expressions of this form because he cannot factorize them. However, if he adds $-1$ to both sides of his equation, he finds the nice and factored form $(x+1)(y-1)=48$, which is much easier to solve than the original equation. In fact, to solve the factorized equation, he only needs to find the divisors of $48$ (see theorem \autoref{thm:nos} for more details). If you look closely, SFFT is inspired by the so-called \textit{Completing the Square Method}:
 	\begin{align*}
 		x^2+kx+\frac{k^2}{4}
-			& =\left(x+\frac{k}{2}\right)^2
+			& =\parenthesis{x+\frac{k}{2}}^2
 	\end{align*}
 	In fact, the act of adding ${jk}$ to ${xy}+{xk}+{yj}$ in order to be able to factor it could be called \textit{completing the rectangle} in analogy to the famous \textit{completing the square} trick.
 	\begin{theorem}\label{thm:lcmfactor}
@@ -1752,7 +1752,7 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		\begin{align*}
 			a^n-1
 				& = a^{mh}-1\\
-				& = \left( a^m\right)^h -1
+				& = \parenthesis{a^m}^h -1
 		\end{align*}
 		Let $x=a^m$. By corollary \eqref{cor:a-b|a^n-b^n}, $x-1=a^m-1$ divides $x^h-1=a^n-1$, as desired.
 
@@ -1775,8 +1775,8 @@ We will provide another solution for problem \ref{prob:china2015-bertrand} state
 		\end{align*}
 		If $a>2$, then $a-1$ will divide $a^k-1$ which is absurd because $a^k-1$ is a prime. So, $a$ must be $2$. Suppose that $k$ is composite. Then, $k=p\ell$ for some prime $p$ and integer $\ell>1$. Therefore,
 		\begin{align*}
-			a^k-1&=\left(a^p\right)^\ell -1\\
-			&= (a^p-1)\left(a^{p(\ell-1)}+a^{p(\ell-2)}+\cdots+1\right)
+			a^k-1&=\parenthesis{a^p}^\ell -1\\
+			&= (a^p-1)\parenthesis{a^{p(\ell-1)}+a^{p(\ell-2)}+\cdots+1}
 		\end{align*}
 		which is impossible. Hence, $k$ must be a prime.
 	\end{proof}
@@ -2172,8 +2172,8 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{solution}
 		According to theorem \autoref{thm:factorizeintopowersoftwo}, write $n=2^ms$, where $s$ is an odd positive integer. By theorem \eqref{id:fatandthin}, we can write
 			\begin{align*}
-				p = 2^n+1 &= 2^{2^{m}s}+1 = \left(2^{2^{m}}\right)^s+1\\
-				   		  &=\left(2^{2^m}+1\right)\left(2^{2^{m}(s-1)}+2^{2^{m}(s-2)}+ \cdots + 2^{2^{m}}+1\right)
+				p = 2^n+1 &= 2^{2^{m}s}+1 = \parenthesis{2^{2^{m}}}^s+1\\
+				   		  &=\parenthesis{2^{2^m}+1}\parenthesis{2^{2^{m}(s-1)}+2^{2^{m}(s-2)}+ \cdots + 2^{2^{m}}+1}
 			\end{align*}
 		Clearly, as $p$ is a prime, this is impossible unless $s=1$. So $n=2^m$.
 	\end{solution}
@@ -2352,11 +2352,11 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}[ILL 1990, THA1]
 		Let $m$ be an odd positive integer not divisible by $3$. Prove that
 			\begin{align*}
-				\left\lfloor  4^m -(2+\sqrt 2)^m \right\rfloor
+				\floor{4^m -(2+\sqrt 2)^m}
 			\end{align*}
 		is divisible by $112.$ %196
 
-		Note: for any real number $x$, $\lfloor x \rfloor$ is the largest integer not exceeding $x$.
+		Note: for any real number $x$, $\floor{x}$ is the largest integer not exceeding $x$.
 	\end{problem}
 
 	\begin{hint}
@@ -2765,9 +2765,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 %	\end{solution}
 
 	\begin{problem}
-		Let $x \geq 1$ be a real number. Prove or disprove that there exists a positive integer $n$ such that $\gcd\left( \lfloor x \rfloor, \lfloor nx \rfloor \right)=1.$\\
-
-		\textit{Note.} Here $\lfloor x \rfloor$ denotes the greatest integer less than or equal to $x.$ %145
+		Let $x \geq 1$ be a real number. Prove or disprove that there exists a positive integer $n$ such that $\gcd\parenthesis{\floor{x}, \floor{nx}}=1$.
 	\end{problem}
 
 %	\begin{solution}
@@ -2876,12 +2874,12 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		A function $f:\mathbb{N}\to\mathbb{N}$ is \textit{multiplicative} if $f(mn)=f(m)f(n)$ for all relatively prime positive integers $m$ and $n$. Define the function $f: \mathbb{N}\to\mathbb{N}$ as follows:
 			\begin{align*}
-				f\left(n\right)=\sum_{i=1}^n\gcd\left(i, n\right)
+				f(n)=\sum_{i=1}^{n}(i, n)
 			\end{align*}
 		\begin{itemize}
 			\item Prove that the function $f$ is multiplicative.
-			\item Prove that for every positive integer $a$, the equation $f\left(x\right) = ax$ has a solution $x\in\mathbb{N}$.
-			\item Prove that, for a positive integer $a$, the equation $f\left(x\right) = ax$ has exactly one solution $x\in\mathbb{N}$ if and only if $a$ is a power of $2$ (where $1=2^0$ is also considered as a power of $2$).
+			\item Prove that for every positive integer $a$, the equation $f(x) = ax$ has a solution $x\in\mathbb{N}$.
+			\item Prove that, for a positive integer $a$, the equation $f(ax) = ax$ has exactly one solution $x\in\mathbb{N}$ if and only if $a$ is a power of $2$ (where $1=2^0$ is also considered as a power of $2$).
 		\end{itemize}%540
 	\end{problem}
 
@@ -2976,7 +2974,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Let $p$ be prime, let $n$ be a positive integer, show that
 			\begin{align*}
-				\gcd\left(\binom{p-1}{n-1}, \binom{p+1}{n}, \binom{p}{n+1}\right) = \gcd\left(\binom{p}{n-1}, \binom{p-1}{n}, \binom{p+1}{n+1}\right).
+				\gcd\parenthesis{\binom{p-1}{n-1}, \binom{p+1}{n}, \binom{p}{n+1}} = \gcd\parenthesis{\binom{p}{n-1}, \binom{p-1}{n}, \binom{p+1}{n+1}}
 			\end{align*}
 		%1131
 	\end{problem}
@@ -2992,7 +2990,7 @@ As a conclusion to this chapter, we define \textit{factorial} and \textit{binomi
 	\begin{problem}
 		Prove that
 			\begin{align*}
-				\gcd{\left(\binom{n}{1},\binom{n}{2},\cdots,\binom{n}{n-1}\right)}
+				\gcd{\parenthesis{\binom{n}{1},\binom{n}{2},\cdots,\binom{n}{n-1}}}
 			\end{align*}
 		is a prime if $n$ is a power of a prime, and 1 otherwise. %1146
 	\end{problem}
