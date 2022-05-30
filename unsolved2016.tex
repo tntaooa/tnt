@@ -223,7 +223,7 @@
 	\end{problem}
 
 	\begin{problem}[Chile 2016]
-		Find the number of different numbers of the form $\lfloor\frac{i^2}{2015}\rfloor$, where $i=1,2,\dots,2015$.
+		Find the number of different numbers of the form $\floor{\frac{i^2}{2015}}$, where $i=1,2,\dots,2015$.
 	\end{problem}
 
 	\begin{problem}[China Girls Mathematical Olympiad 2016]
@@ -521,9 +521,9 @@
 	\begin{problem}[European Mathematical Cup Juniors 2016]
 		Let $d(n)$ denote the number of positive divisors of $n$. For a positive integer $n$ we define $f(n)$ as
 		\begin{align*}
-			f(n) & = d(k_1) + d(k_2) + \dots + d(k_m)
+			f(n) & = d(k_1) + d(k_2) + \ldots + d(k_m)
 		\end{align*}
-		where $ 1=k_1 < k_2 < \dots < k_m=n$ are all divisors of the number $n$. We call an integer $n>1$ \textit{almost perfect} if $f(n)=n$. Find all almos perfect numbers.
+		where $ 1=k_1 < k_2 < \ldots < k_m=n$ are all divisors of the number $n$. We call an integer $n>1$ \textit{almost perfect} if $f(n)=n$. Find all almos perfect numbers.
 	\end{problem}
 
 	\begin{problem}[Finland MAOL Competition 2016]
@@ -532,7 +532,6 @@
 			(4a-b)(4b-a)=1770^n
 		\end{align*}
 	\end{problem}
-
 
 	\begin{problem}[Germany National Olympiad First Round Ninth/Tenth Grade, 2016] $ $
 		\begin{enumerate}[(A)]
@@ -1174,7 +1173,7 @@
 			\item Compute $x_1, x_2, x_3$, and $x_4$;
 			\item Find $n$ so that
 			\begin{align*}
-				1 + \left\lfloor \frac{x_2}{x_1}\right\rfloor + \left\lfloor \frac{x_3}{x_2}\right\rfloor + \dots + \left\lfloor \frac{x_{n+1}}{x_n}\right\rfloor
+				1 + \floor{\frac{x_2}{x_1}}+ \floor{\frac{x_3}{x_2}}+ \ldots +\floor{\frac{x_{n+1}}{x_n}}
 					& = 2016
 			\end{align*}
 		\end{enumerate}
@@ -1249,8 +1248,8 @@
 	\begin{problem}[Romanian Mathematical Olympiad Final Round Grade 8, 2016]
 		Let $n$ be a non-negative integer. We will say that the non-negative integers $x_1, x_2, \dots, x_n$ have property $(P)$ if
 			\begin{align*}
-				x_1x_2 \dots x_n
-					& = x_1 + 2x_2  + \dots + nx_n
+				x_1x_2 \cdots x_n
+					& = x_1 + 2x_2  + \ldots + nx_n
 			\end{align*}
 		\begin{enumerate}[(a)]
 			\item  Show that for every non-negative integer $n$, there exists $n$ positive integers with property $(P)$.
@@ -1457,7 +1456,7 @@
 	\begin{problem}[Romania TST 2016]
 		Given a prime $p$, prove that the sum
 			\begin{align*}
-				\sum\limits_{k=1}^{\lfloor q/p \rfloor}{k^{p-1}}
+				\sum\limits_{k=1}^{\floor{q/p}}{k^{p-1}}
 			\end{align*}
 		is not divisible by $q$ for all but finitely many primes $q$. %\hfill \href{http://artofproblemsolving.com/community/c6h1251136p6445449}{Link}
 	\end{problem}
@@ -1711,7 +1710,11 @@
 
 	\begin{problem}[South Africa National Olympiad 2016]
 		Let $k$ and $m$ be integers with $1 < k < m$. For a positive integer $i$, let $L_i$ be the least common multiple of $1,2,\ldots,i$.
-		Prove that $k$ is a divisor of $$L_i \cdot \left[\binom{m}{i} - \binom{m-k}{i}\right]$$ for all $i \geq 1$. %\hfill \href{http://artofproblemsolving.com/community/c6h1310094p7016426}{Link}
+		Prove that $k$ is a divisor of
+			\begin{align*}
+				L_i \cdot \squarebracket{\binom{m}{i} - \binom{m-k}{i}}
+			\end{align*}
+		for all $i \geq 1$. %\hfill \href{http://artofproblemsolving.com/community/c6h1310094p7016426}{Link}
 	\end{problem}
 
 	\begin{problem}[Slovenia National Math Olympiad First Grade 2016]
@@ -2034,7 +2037,8 @@
 	\begin{problem}[Zhautykov Olympiad 2016]
 		We call a positive integer $q$ a \textit{convenient denominator} for a real number $\alpha$ if
 			\begin{align*}
-				\left|\alpha - \dfrac{p}{q}\right|<\dfrac{1}{10q}
+				\scaleleftright[.5ex]{|}{\alpha - \dfrac{p}{q}}{|}
+					& <\dfrac{1}{10q}
 			\end{align*}
 		for some integer $p$. Prove that if two irrational numbers $\alpha$ and
 		$\beta$ have the same set of convenient denominators then either $\alpha+\beta$ or $\alpha- \beta$ is an integer\watermark. %\hfill \href{http://artofproblemsolving.com/community/c6h1185684p5759537}{Link}

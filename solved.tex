@@ -820,7 +820,7 @@ You never know what's coming next until you think clearly!
 			\begin{align*}
 				n
 					& \mid p^n-1\\
-				\left(n,\dfrac{p^n-1}{n}\right) & = 1
+				\func{}{n,\dfrac{p^n-1}{n}} & = 1
 			\end{align*}
 		does not hold. Again, we assume that $q$ is the smallest prime divisor of $n$. Clearly $q\neq p$, and $q\bot p$.
 			\begin{align*}
@@ -831,14 +831,14 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		since $n\perp q-1<q$.\footnote{we already argued the same way before} From this, you should be able to tell, you can invoke LTE! Because $q\mid p-1$, from LTE,
 			\begin{align*}
-				\nu_q\left(\dfrac{p^n-1}{n}\right)  & = \nu_q\left(p^n-1\right)-\nu_q(n)\\
+				\nu_{q}\func{}{\dfrac{p^n-1}{n}}  & = \nu_q\left(p^n-1\right)-\nu_q(n)\\
 													& = \nu_q(p-1)+\nu_q(n)-\nu_q(n)\\
 													& = \nu_q(p-1)\\
 													&\geq1
 			\end{align*}
 		Therefore $q$ divides $\dfrac{p^n-1}{n}$ and $q\mid n$, contradiction. Such $n$ does not exist for $k=1$.
 
-		We just have to find a construction for such $(n_1,n_2,\cdots,n_k)$. First think on the condition $\left(n_{i+1},\dfrac{p^{n_i}-1}{n_{i+1}}\right)=1$. This clearly means for any odd prime divisor\footnote{we won't show the case $q=2$ here, do that yourself in the same fashion} $q$ of $n_{i+1}$, $q$ does not divide $\dfrac{p^{n_i}-1}{n_{i+1}}$.
+		We just have to find a construction for such $(n_1,n_2,\cdots,n_k)$. First think on the condition $\func{}{n_{i+1},\dfrac{p^{n_i}-1}{n_{i+1}}}=1$. This clearly means for any odd prime divisor\footnote{we won't show the case $q=2$ here, do that yourself in the same fashion} $q$ of $n_{i+1}$, $q$ does not divide $\dfrac{p^{n_i}-1}{n_{i+1}}$.
 			\begin{align*}
 				\nu_q\left(\dfrac{p^{n_i}-1}{n_{i+1}}\right) & = 0\\
 				\nu_q(p^{n_i}-1)-\nu_q(n_{i+1}) & = 0
@@ -892,7 +892,7 @@ You never know what's coming next until you think clearly!
 	\begin{problem}[IMO Shortlist $2014$, N$4$, Proposed by Hong Kong, also used at Bangladesh TST $2015$]
 		Let $n$ be a given integer. Define the sequence $(a_k)_{k\geq1}$ by:
 			\begin{align*}
-				a_k & = \left\lfloor\dfrac{n^k}{k}\right\rfloor
+				a_k & = \floor{\dfrac{n^k}{k}}
 			\end{align*}
 		Prove that this sequence has infinitely many odd terms.
 	\end{problem}
@@ -907,12 +907,12 @@ You never know what's coming next until you think clearly!
 			\end{align*}
 		Thus, $p^k$ divides $n^{p^k}-1$, so $\dfrac{n^{p^k}-1}{p^k}$ is an integer. We have
 			\begin{align*}
-				a_{p^j} & = \left\lfloor\dfrac{n^{p^j}}{p^j}\right\rfloor\\
+				a_{p^j} & = \floor{\dfrac{n^{p^j}}{p^j}}\\
 						& = \dfrac{n^{p^j}-1}{p^j}
 			\end{align*}
-		which is an odd integer. If $n=2$, then $a_k=\left\lfloor\dfrac{2^k}{k}\right\rfloor$. Note that, $2^m-1$ is divisible by $3$ for even $m$. Therefore, we should consider $k=2\cdot3^i$. From LTE, $3^{i+1}\|2^{2\cdot3^i}-1$. But if $k$ is even it won't divide any odd integer. No worries, we will just borrow a power of $2$.
+		which is an odd integer. If $n=2$, then $a_k=\floor{\dfrac{2^k}{k}}$. Note that, $2^m-1$ is divisible by $3$ for even $m$. Therefore, we should consider $k=2\cdot3^i$. From LTE, $3^{i+1}\|2^{2\cdot3^i}-1$. But if $k$ is even it won't divide any odd integer. No worries, we will just borrow a power of $2$.
 			\begin{align*}
-				a_{3\cdot4^j} & = \left\lfloor\dfrac{2^{3\cdot4^j}}{3\cdot4^j}\right\rfloor\\
+				a_{3\cdot4^j} & = \floor{\dfrac{2^{3\cdot4^j}}{3\cdot4^j}}\\
 							  & = \dfrac{2^{3\cdot4^j}-4^j}{3\cdot4^j}
 			\end{align*}
 		is an odd integer since $4^j$ clearly divides $2^{3\cdot4^j}$ and $3\cdot4^j>j$. Show why $3$ divides the numerator yourself.
