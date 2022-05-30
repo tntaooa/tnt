@@ -6,11 +6,11 @@
 	Recall section \eqref{sec:powerofprimes} where we defined $v_p(x)$ for $x$ being an \textit{integer} as the greatest power of $p$ which divides $x$. Now, since we are working with fractions, we need to generalize this concept to include rational numbers.
 
 	\begin{definition}
-		Let $p$ be a prime and let $x = \frac{a}{b} \neq 0$ be a rational number reduced to lowest terms. Define the \textit{$p$-adic evaluation of $x$} as $v_p(x) = v_p(a)-v_p(b)$, where $v_p(n)$ is the notation defined in definition \eqref{def:vp}.
+		Let $p$ be a prime and let $x = \frac{a}{b} \neq 0$ be a rational number reduced to lowest terms. Define the \textit{$p$-adic evaluation of $x$} as $v_p(x) = v_p(a)-v_p(b)$.
 	\end{definition}
 
 	\begin{example}
-		$v_3\left(\frac{9}{16}\right) = 2$, and $v_5\left(\frac{34}{25}\right) = -2$.
+		$v_{3}\func{}{\frac{9}{16}}= 2$, and $v_{5}\func{}{\frac{34}{25}} = -2$.
 	\end{example}
 
 	\begin{note}
@@ -31,7 +31,7 @@
 	\begin{solution}
 		Let $a \bot p$ be an integer. We can write $a^{p-2} \equiv \frac{1}{a} \pmod p$ because
 			\begin{align*}
-				v_p\left(a^p - \frac{1}{a}\right)=v_p\left(\frac{a^{p-1}-1}{a}\right)>0
+				v_{p}\func{}{a^{p-2}- \frac{1}{a}}=v_{p}\func{}{\frac{a^{p-1}-1}{a}}>0
 			\end{align*}
 		by Fermat's little theorem. Now
 		\begin{align*}
@@ -44,7 +44,7 @@
 	\begin{theorem}[Darij-Wolstenholme Theorem]
 		Let $p>3$ be a prime and let $u$ be a non-negative and odd integer such that $p \geq u+3$. Then
 		\begin{align*}
-		v_{p}\left(\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}\right)\geq 2
+		v_{p}\func{}{\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}}\geq 2
 		\end{align*}
 	\end{theorem}
 
@@ -95,26 +95,26 @@
 		\end{align*}
 		We have used the fact that $u$ is an odd integer to expand $(p-k)^u$ in above lines. Now since $p>3$ is an odd prime, $v_p(2)=0$ and therefore
 			\begin{align*}
-				v_{p}\left(2\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}\right)
-					&= v_{p}\left(2\right) + v_{p}\left(\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}\right)\\
-					& = v_{p}\left(\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}\right)\\
-					&=v_{p}\left(p \cdot \sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\left(p - k\right)^{u}}\right)\\
-					&=v_{p}\left(p\right) + v_{p}\left(\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\left(p - k\right)^{u}}\right)\\
-					&=1+v_{p}\left(\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\left(p - k\right)^{u}}\right)
+				v_{p}\func{}{2\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}}
+					&= v_{p}\left(2\right) + v_{p}\func{}{\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}}\\
+					& = v_{p}\func{}{\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}}\\
+					&=v_{p}\func{}{p \cdot \sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\func{}{p-k}^{u}}}\\
+					&=v_{p}\left(p\right) + v_{p}\func{}{\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\func{}{p-k}^{u}}}\\
+					&=1+v_{p}\func{}{\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\func{}{p-k}^{u}}}
 			\end{align*}
 		So instead of showing
 			\begin{align*}
-				v_{p}\left(2\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}\right)
+				v_{p}\func{}{2\sum_{k = 1}^{p - 1}\frac {1}{k^{u}}}
 					& \geq 2
 			\end{align*}
 		it is enough to show that
 		\begin{align*}
-			v_{p}\left(\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\left(p - k\right)^{u}}\right)
+			v_{p}\func{}{\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\func{}{p-k}^{u}}}
 				& \geq 1
 		\end{align*}
 		which is equivalent to showing that
 		\begin{align*}
-			\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}\left(p - k\right)^{u}}
+			\sum_{k = 1}^{p - 1}\frac {p^{u - 1} - up^{u - 2}k+\cdots + uk^{u - 1}}{k^{u}(p-k)^{u}}
 				& \equiv 0 \pmod p
 		\end{align*}
 		Since
@@ -155,10 +155,10 @@
 	\begin{solution}
 		First, let us prove that
 			\begin{align}\label{eq:primefloor}
-				p - \left\lfloor \left\lfloor 2p/3\right\rfloor /2\right\rfloor
-					& = \left\lfloor 2p/3\right\rfloor + 1
+				p - \floor{\floor{2p/3}/2}
+					& = \floor{2p/3}+ 1
 			\end{align}
-		where $\lfloor x \rfloor$ is the largest integer not greater than $x$ for any real $x$. Since $p>3$, either $p \equiv 1 \pmod 3$ or $p \equiv 2 \pmod 3$. Consider both cases:
+		Since $p>3$, either $p \equiv 1 \pmod 3$ or $p \equiv 2 \pmod 3$. Consider both cases:
 		\begin{itemize}
 			\item If $p \equiv 1 \pmod 3$, then $\frac{p-1}{3}$ is an integer and
 				\begin{align*}
@@ -168,17 +168,18 @@
 				\end{align*}
 			which means
 				\begin{align*}
-					\left\lfloor\frac {2p}{3}\right\rfloor &= 2\cdot\frac {p - 1}{3}\\
-					\left\lfloor\left\lfloor\frac {2p}{3}\right\rfloor /2\right\rfloor
-						&= \left\lfloor\left(2\cdot\frac {p - 1}{3}\right)/2\right\rfloor\\
+					\floor{\frac {2p}{3}}
+						&= 2\cdot\frac {p - 1}{3}\\
+					\floor{\floor{\frac {2p}{3}}/2}
+						&= \floor{\func{}{2\cdot\frac {p - 1}{3}}/2}\\
 						& = \frac {p - 1}{3}
 				\end{align*}
 			Finally,
 				\begin{align*}
-					p - \left\lfloor\left\lfloor\frac {2p}{3}\right\rfloor /2\right\rfloor
+					p - \floor{\func{}{\frac {2p}{3}}/2}
 						& = p - \frac {p - 1}{3}\\
 						& = 2\cdot\frac {p - 1}{3} + 1\\
-						& = \left\lfloor\frac {2p}{3}\right\rfloor + 1
+						& = \floor{\frac {2p}{3}}+ 1
 				\end{align*}
 			as desired.
 
@@ -190,47 +191,48 @@
 				\end{align*}
 			This gives
 				\begin{align*}
-					\left\lfloor\frac {2p}{3}\right\rfloor
+					\floor{\frac {2p}{3}}
 						&= 2\cdot\frac {p - 2}{3} + 1\\
-					\left\lfloor\left\lfloor\frac {2p}{3}\right\rfloor /2\right\rfloor
-						& =	\left\lfloor\left(2\cdot\frac {p - 2}{3} + 1\right)/2\right\rfloor\\
-						& = \left\lfloor\frac {p - 2}{3} + \frac {1}{2}\right\rfloor\\
+					\floor{\floor{\frac {2p}{3}}/2}
+						& =	\floor{\func{}{2\cdot\frac {p - 2}{3} + 1}/2}\\
+						& = \floor{\frac {p - 2}{3} + \frac {1}{2}}\\
 						& = \frac{p-2}{3}
 				\end{align*}
 			And finally
 				\begin{align*}
-					p - \left\lfloor\left\lfloor\frac {2p}{3}\right\rfloor /2\right\rfloor
+					p - \floor{\floor{\frac {2p}{3}}/2}
 						& = p - \frac {p - 2}{3}\\
-						& = \left(2\cdot\frac {p - 2}{3} + 1\right) + 1\\
-						& = \left\lfloor\frac {2p}{3}\right\rfloor + 1
+						& = \func{}{2\cdot\frac {p - 2}{3} + 1} + 1\\
+						& = \floor{\frac {2p}{3}}+ 1
 				\end{align*}
 		\end{itemize}
 		The proof of equation \eqref{eq:primefloor} is finished. We will now prove the problem. Obviously,
 			\begin{align*}
-				\sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {\left( - 1\right)^{i - 1}}{i}
-					&= \sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
-						i\text{ is odd}}}\frac {1}{i} + \sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
+				\sum_{i = 1}^{\floor{2p/3}}\frac {\left( - 1\right)^{i - 1}}{i}
+					&= \sum_{\substack{1\leq i\leq \floor{2p/3}; \\
+						i\text{ is odd}}}\frac {1}{i} + \sum_{\substack{1\leq i\leq \floor{2p/3}; \\
 						i\text{ is even}}}\frac { - 1}{i} \\
-					&= \sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
-							i\text{ is odd}}}\frac {1}{i} - \sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
+					&= \sum_{\substack{1\leq i\leq \floor{2p/3}; \\
+							i\text{ is odd}}}\frac {1}{i} - \sum_{\substack{1\leq i\leq \floor{2p/3}; \\
 							i\text{ is even}}}\frac {1}{i}\\
-					&= \left(\sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
-							i\text{ is odd}}}\frac {1}{i} + \sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
-							i\text{ is even}}}\frac {1}{i}\right) - 2\sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
+					&= \left(\sum_{\substack{1\leq i\leq \floor{2p/3}; \\
+							i\text{ is odd}}}\frac {1}{i} + \sum_{\substack{1\leq i\leq \floor{2p/3}; \\
+							i\text{ is even}}}\frac {1}{i}\right) - 2\sum_{\substack{1\leq i\leq \floor{2p/3}; \\
 							i\text{ is even}}}\frac {1}{i} \\
-					&= \sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {1}{i} - 2\sum_{\substack{1\leq i\leq \left\lfloor 2p/3\right\rfloor ; \\
+					&= \sum_{i = 1}^{\floor{2p/3}}\frac {1}{i} - 2\sum_{\substack{1\leq i\leq \floor{2p/3}; \\
 							i\text{ is even}}}\frac {1}{i}\\
-					&= \sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {1}{i} - 2\sum_{j = 1}^{\left\lfloor \left\lfloor 2p/3\right\rfloor /2\right\rfloor}\frac {1}{2j} \\
-					&= \sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {1}{i} + \sum_{j = 1}^{\left\lfloor \left\lfloor 2p/3\right\rfloor /2\right\rfloor}\frac {1}{ - j}\\
-					&\equiv\sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {1}{i} + \sum_{j = 1}^{\left\lfloor \left\lfloor 2p/3\right\rfloor /2\right\rfloor}\frac {1}{p - j} \pmod p
+					&= \sum_{i = 1}^{\floor{2p/3}}\frac {1}{i} - 2\sum_{j = 1}^{\floor{\floor{2p/3}/2}}\frac {1}{2j} \\
+					&= \sum_{i = 1}^{\floor{2p/3}}\frac {1}{i} + \sum_{j = 1}^{\floor{\floor{2p/3}/2}}\frac {1}{ - j}\\
+					&\equiv\sum_{i = 1}^{\floor{2p/3}}\frac {1}{i} + \sum_{j = 1}^{\floor{\floor{2p/3}/2}}\frac {1}{p - j} \pmod p
 			\end{align*}
 		In the second sum in the last line of above equations, we have used the fact that $-j \equiv p-j \pmod p$. Replacing $ j$ by $ p - i$ in the second sum, we have
 		\begin{align*}
-		\sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {\left( - 1\right)^{i - 1}}{i} &\equiv \sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {1}{i} + \sum_{i = p - \left\lfloor \left\lfloor 2p/3\right\rfloor /2\right\rfloor}^{p - 1}\frac {1}{i}
+			\sum_{i = 1}^{\floor{2p/3}}\frac {\left( - 1\right)^{i - 1}}{i}
+				&\equiv \sum_{i = 1}^{\floor{2p/3}}\frac {1}{i} + \sum_{i = p - \floor{\floor{2p/3}/2}}^{p - 1}\frac {1}{i}
 		\end{align*}
-		Using \eqref{eq:primefloor}, we can write $i = p - \left\lfloor \left\lfloor 2p/3\right\rfloor /2\right\rfloor = \left\lfloor 2p/3\right\rfloor + 1$ and so by Wolstenholme's theorem,
+		Using \eqref{eq:primefloor}, we can write $i = p - \floor{\floor{2p/3}/2}= \floor{2p/3}+ 1$ and so by Wolstenholme's theorem,
 		\begin{align*}
-		\sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {\left( - 1\right)^{i - 1}}{i}  &\equiv \sum_{i = 1}^{\left\lfloor 2p/3\right\rfloor}\frac {1}{i} + \sum_{i = \left\lfloor 2p/3\right\rfloor + 1}^{p - 1}\frac {1}{i}\\
+		\sum_{i = 1}^{\floor{2p/3}}\frac {\left( - 1\right)^{i - 1}}{i}  &\equiv \sum_{i = 1}^{\floor{2p/3}}\frac {1}{i} + \sum_{i = \floor{2p/3}+ 1}^{p - 1}\frac {1}{i}\\
 		&\equiv \sum_{i = 1}^{p - 1}\frac {1}{i}\pmod p\\
 		&\equiv 0 \pmod p
 		\end{align*}

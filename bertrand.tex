@@ -17,7 +17,7 @@
 			\end{align*}
 			\item For any integer $n >1$, we have
 			\begin{align*}
-				\pi(n)-\pi\left(\dfrac{n}{2}\right)
+				\pi(n)-\func{\pi}{\dfrac{n}{2}}
 					& \geq1
 			\end{align*}
 		\end{itemize}
@@ -53,14 +53,14 @@
 	\begin{proof}
 		We have
 		\begin{align*}
-			v_p \left(\binom{2n}n\right)
-				& =v_p \left(\frac{(2n)!}{(n!)^2}\right)\\
+			v_p \func{}{\binom{2n}n}
+				& =v_p \func{}{\frac{(2n)!}{(n!)^2}}\\
 				& = v_p((2n)!) - v_p((n!)^2)\\
 				& = v_p((2n)!) - 2v_p((n!))
 		\end{align*}
 		Note that $2n/3<p$ means $2n<3p$, and so the only multiples of $p$ which appear in $(2n)!$ are $p$ and $2p$. Hence $v_p((2n)!) = 2$. Also, $p<n$ immediately gives $v_p((n!))=1$. Therefore
 		\begin{align*}
-			v_p \left(\binom{2n}n\right)
+			v_p \func{}{\binom{2n}n}
 				& = v_p((2n)!) - 2v_p((n!))\\
 				& =  2 - 2 \cdot 1\\
 				& = 0
@@ -75,12 +75,12 @@
 		Let $\alpha$ be the positive integer for which $p^\alpha \leq 2n<p^{\alpha +1}$. Then using theorem \autoref{thm:legendre} of chapter \eqref{ch:arithfunc},
 		\begin{align*}
 			v_p(N)
-				& =  v_p((2n)!)-2v_p(n!)= \sum_{i=1}^{\alpha}\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\sum_{i=1}^{\alpha }\left\lfloor\dfrac{n}{p^i}\right\rfloor\\
-				& =  \sum_{i=1}^{\alpha}\left(\left\lfloor\dfrac{2n}{p^i}\right\rfloor-2\left\lfloor\dfrac{n}{p^i}\right\rfloor\right)\\
+				& =  v_p((2n)!)-2v_p(n!)= \sum_{i=1}^{\alpha}\floor{\dfrac{2n}{p^i}}-2\sum_{i=1}^{\alpha }\floor{\dfrac{n}{p^i}}\\
+				& =  \sum_{i=1}^{\alpha}\func{}{\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}}\\
 				& \leq \sum_{i=1}^{\alpha}1\\
 				& =\alpha
 		\end{align*}
-		The last line is true because for a rational $x$, $\lfloor2x\rfloor-2\lfloor x\rfloor\in\{0,1\}$. Therefore, $p^{v_p(N)} \leq p^{\alpha} \leq 2n$.
+		The last line is true because for a rational $x$, $\lfloor2x\rfloor-2\floor{x}\in\{0,1\}$. Therefore, $p^{v_p(N)} \leq p^{\alpha} \leq 2n$.
 	\end{proof}
 
 	\begin{lemma}\label{lem:bertrand4}
@@ -90,8 +90,8 @@
 	\begin{proof}
 		Since $p>n+1$,
 		\begin{align*}
-			\nu_p\left(\binom{2n+1}{n}\right)
-				& =  v_p \left(\frac{(2n+1)!}{(n!)(n+1)!}\right)\\
+			\nu_{p}\func{}{\binom{2n+1}{n}}
+				& =  v_p \func{}{\frac{(2n+1)!}{(n!)(n+1)!}}\\
 				& = v_p((2n+1)!)-v_p(n!)-v_p((n+1)!)\\
 				& =1
 		\end{align*}
@@ -130,7 +130,7 @@
 		\begin{align*}
 			\prod_{p\leq n}p
 				& =	\prod_{p\leq 2m+1} p\\
-				& = \left(\prod_{p\leq m+1}p \right) \left( \prod_{m+2\leq p\leq2m+1}p\right)
+				& = \func{}{\prod_{p\leq m+1}p}\func{}{\prod_{m+2\leq p\leq2m+1}p}
 		\end{align*}
 		By induction hypothesis, the first product, $\prod\limits_{p\leq m+1}p$, is less than or equal to $4^{m+1}$. From lemma \autoref{lem:bertrand4}, we know that any prime $p$ such that $m+2\leq p\leq2m+1$ divides $\binom{2m+1}{m}$. Therefore, the second product, $\prod\limits_{m+2\leq p\leq2m+1}p$, is less than or equal to $\binom{2m+1}{m}$. Combining these results with lemma \autoref{lem:bertrand5}, we get
 		\begin{align*}
@@ -233,13 +233,13 @@
 			\end{align*}
 		and therefore $n+1\mid \binom{2n}{n}$. Assume that $k>1$. By Bertrand's postulate, there exists an odd prime $p$ such that $k<p<2k$. Choose $n=(p-k)+p^m$ for any positive integer $m$. From theorem \autoref{thm:legendrealternative}, we can write
 			\begin{align*}
-				v_p \left(\binom{2n}n\right)  &=  v_p((2n)!) - 2v_p((n!))\\
+				v_p \func{}{\binom{2n}n}  &=  v_p((2n)!) - 2v_p((n!))\\
 				&=  \frac{2n - s_p(2n)}{p-1} - 2 \cdot \frac{n - s_p(n)}{p-1}\\
 				&=   \frac{2s_p(n) - s_p(2n)}{p - 1}
 			\end{align*}
-		Since $2n = 2(p - k) + 2p^m$ and $2(p - k) < p$, it follows that $s_p(2n) = 2(p - k) + 2 = 2s_p(n)$ (try to write the base $p$ representation of $n$ and $2n$ to see why). Consequently, $v_p\left(\tbinom{2n}{n}\right) = 0$. However, $p \mid n + k$, so we have $n + k \nmid \tbinom{2n}{n}$ for infinitely many $n$, as desired.
+		Since $2n = 2(p - k) + 2p^m$ and $2(p - k) < p$, it follows that $s_p(2n) = 2(p - k) + 2 = 2s_p(n)$ (try to write the base $p$ representation of $n$ and $2n$ to see why). Consequently, $v_{p}\func{}{\binom{2n}{n}} = 0$. However, $p \mid n + k$, so we have $n + k \nmid \binom{2n}{n}$ for infinitely many $n$, as desired.
 
-		For negative $k$, one can choose $n = -k + p^m$ for an odd prime $p > |2k|$ (which exists by Bertrand's postulate) and any positive integer $m$. In a similar manner as above, one obtains $v_p\left(\tbinom{2n}{n}\right) = 0$, but $p \mid n + k$. Consequently, $n + k \nmid \tbinom{2n}{n}$. The proof is complete.
+		For negative $k$, one can choose $n = -k + p^m$ for an odd prime $p > |2k|$ (which exists by Bertrand's postulate) and any positive integer $m$. In a similar manner as above, one obtains $v_{p}\func{}{\binom{2n}{n}} = 0$, but $p \mid n + k$. Consequently, $n + k \nmid \binom{2n}{n}$. The proof is complete.
 	\end{solution}
 After the theorem was proved, number theorists tried to tighten the interval. Also, a question was raised regarding the general case.
 	\begin{problem}

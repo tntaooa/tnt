@@ -37,12 +37,12 @@
 			Consider the converse: assume that number of primes is finite. Let $P=\{p_1,p_2,\ldots,p_k\}$ be the set of all primes. Euclid's idea was to construct a number which has a prime divisor not in $P$. Consider the number:
 			\[N=p_1p_2\cdots p_k+1\]
 			$N$ is not a prime, because it is clearly bigger than all elements of $P$. So, $N$ is composite and it has a divisor $p$ in $P$ (because $P$ is the set of all primes). However,
-				\begin{align}\label{eq:euclidprime}
+				\begin{align*}
 					(N,p)
 						& =(p_1\cdots p_k+1,p_i)\\
 						& =(1,p_i)\\
 						& =1
-				\end{align}
+				\end{align*}
 			for some $p_i \in P$, which is in contradiction with $p\mid N$. Therefore, the set of primes is infinite.
 		\end{proof}
 
@@ -64,11 +64,11 @@
 
 		\begin{proof}
 			Note the identity:
-			\begin{eqnarray*}
-				F_n-2 & = & 2^{2^n}-1\\
-					  & = & \left(2^{2^{n-1}}+1\right)\left(2^{2^{n-2}}+1\right)\cdots\left(2^2+1\right)(2^1+1)(2-1)\\
-					  & = & F_{n-1}F_{n-2}\cdots F_{0}
-			\end{eqnarray*}
+			\begin{align*}
+				F_n-2 & = 2^{2^n}-1\\
+					  & = \func{}{2^{2^{n-1}}+1}\func{}{2^{2^{n-2}}+1}\cdots\left(2^2+1\right)(2^1+1)(2-1)\\
+					  & = F_{n-1}F_{n-2}\cdots F_{0}
+			\end{align*}
 			Therefore, if $n>m$, then $F_m\mid F_n-2$. If $p$ is a prime so that $p\mid F_m$ and $p\mid F_n$, then $p\mid F_n-2$ and so $p\mid 2$, which is a contradiction since $p$ has to be an odd prime.
 		\end{proof}
 	There are other proofs that use the same idea of relatively prime integers.
@@ -119,8 +119,8 @@
 				\begin{align*}
 					\sum_{i\geq1}\dfrac1{i^2} 	& = 1+ \sum_{i\geq2}\dfrac1{i^2}\\
 												& < 1+\sum_{i\geq2}\dfrac1{i(i-1)}\\
-												& = 1+\sum_{i\geq2}\left(\dfrac1{i-1}-\dfrac1{i}\right)\\
-												& = 1+\left(1 - \frac 12 \right) + \left(\frac 12 - \frac 13\right) + \left(\frac 13 - \frac 14\right)  + \cdots\\
+												& = 1+\sum_{i\geq2}\func{}{\dfrac1{i-1}-\dfrac1{i}}\\
+												& = 1+\func{}{1 - \frac 12} + \func{}{\frac 12 - \frac 13} + \func{}{\frac 13 - \frac 14}  + \cdots\\
 												& = 1+1\\
 												& =2
 				\end{align*}
@@ -129,14 +129,14 @@
 					\sum_{i\geq1}\dfrac1{i^2} =  2-m\label{eq:perrot1}
 				\end{align}
 			for some positive real $m$.
-			Let's get to the proof. Like before, we assume there are only $k$ primes $p_1,p_2\ldots,p_k$. Take $n=p_1p_2\cdots p_k$ and any integer $N>n$. Since there are no primes besides these $k$, any square-free number must be a divisor of $n$. Therefore, there are $2^k$ square-free numbers. Let $p$ be a prime. The number of positive integers less than or equal to $N$ which are divisible by $p^2$ is $\left\lfloor N/{p^2}\right\rfloor$. So, the number of positive integers less than or equal to $N$ which are divisible by any of $p_1^2,p_2^2,\ldots$, or $p_k^2$ \footnote{These are actually non-square-free integers up to $N$.} is less than
+			Let's get to the proof. Like before, we assume there are only $k$ primes $p_1,p_2\ldots,p_k$. Take $n=p_1p_2\cdots p_k$ and any integer $N>n$. Since there are no primes besides these $k$, any square-free number must be a divisor of $n$. Therefore, there are $2^k$ square-free numbers. Let $p$ be a prime. The number of positive integers less than or equal to $N$ which are divisible by $p^2$ is $\floor{N/{p^2}}$. So, the number of positive integers less than or equal to $N$ which are divisible by any of $p_1^2,p_2^2,\ldots$, or $p_k^2$ is less than\footnote{These are actually non-square-free integers up to $N$.} 
 				\begin{align*}
-					\left\lfloor\dfrac N{p_1^2}\right\rfloor+\left\lfloor\dfrac N{p_2^2}\right\rfloor+\cdots+\left\lfloor\dfrac N{p_k^2}\right\rfloor
-						& = \sum_{i=1}^k \left\lfloor\dfrac N{p_i^2}\right\rfloor
+					\floor{\dfrac N{p_1^2}}+\floor{\dfrac N{p_2^2}}+\cdots+\floor{\dfrac N{p_k^2}}
+						& = \sum_{i=1}^k\floor{\dfrac N{p_i^2}}
 				\end{align*}
 			Since any number is either square-free or non-square-free, we have
 				\begin{align}
-				N	& \leq2^k+\sum_{i=1}^k \left\lfloor\dfrac N{p_i^2}\right\rfloor \nonumber\\
+				N	& \leq2^k+\sum_{i=1}^k \floor{\dfrac N{p_i^2}}\nonumber\\
 					& < 2^k+\sum_{i=1}^k \dfrac N{p_i^2} \nonumber\\
 					& = 2^k+N\sum_{i=1}^k \dfrac 1{p_i^2}\label{eq:perrot2}
 				\end{align}
@@ -166,15 +166,15 @@
 
 			We know that any number can be written as a product of primes in a unique way. Therefore, when we are multiplying some powers of primes, we will get a unique number. In other words, the same number won't appear twice. As an example, notice the following sum:
 				\begin{align*}
-					S_1 & =  \left(1+\dfrac12+\dfrac1{2^2}+\cdots\right)\cdot\left(1+\dfrac13+\dfrac1{3^2}+\cdots\right)\\
+					S_1 & =  \func{}{1+\dfrac12+\dfrac1{2^2}+\cdots}\cdot\func{}{1+\dfrac13+\dfrac1{3^2}+\cdots}\\
 					& =  1+\dfrac12+\dfrac1{2^2}+\dfrac13+\dfrac1{2\cdot3}+\dfrac1{2^2\cdot3}+\dfrac1{3^2}+\dfrac1{2\cdot3^2}+\dfrac1{2^2\cdot3^2}+\cdots\\
 					& =  1+\dfrac12+\dfrac14+\dfrac13+\dfrac16+\dfrac1{12}+\dfrac19+\dfrac1{18}+\dfrac1{36}+\ldots
 				\end{align*}
 			Unique prime factorization guarantees that none of $2,4,6$ or $18$ will appear anywhere in the series again. That is, any number of the form $2^i3^j$ will appear exactly in this series. Similarly, if we considered all the numbers generated by $2^i3^j5^k$, we would have numbers like $30, 60$ or $90$ exactly once in the series. So, going this way, we can see that the sum $S$ is nothing but the product of sums $1+\dfrac1p+\dfrac1{p^2}+\cdots$ for all primes $p$. So
 				\begin{align}
 					S	& =  1+\dfrac12+\dfrac13+\dfrac14+\cdots\nonumber\\
-						& =  \left(1+\dfrac12+\dfrac1{2^2}+\cdots\right)\cdot\left(1+\dfrac13+\dfrac1{3^2}+\cdots\right)\cdot\left(1+\dfrac15+\dfrac1{5^2}+\cdots\right) \cdots\nonumber\\
-						& = \prod_{p\in\mathbb P}\left(1+\dfrac1p+\dfrac1{p^2}+\cdots\right)\label{eq:eulerprimeproof1}
+						& =  \func{}{1+\dfrac12+\dfrac1{2^2}+\cdots}\cdot\func{}{1+\dfrac13+\dfrac1{3^2}+\cdots} \cdots\nonumber\\
+						& = \prod_{p\in\mathbb P}\func{}{1+\dfrac1p+\dfrac1{p^2}+\cdots}\label{eq:eulerprimeproof1}
 				\end{align}
 			where $\mathbb P$ is the set of all primes. Back in high school, we learnt that the infinite geometric series $1+r+r^2+\cdots$ where the ratio $r$ has absolute value less than $1$, has a finite sum $\dfrac1{1-r}$. Here, $r=\dfrac1p<1$, and hence
 				\begin{align*}
@@ -203,8 +203,8 @@
 		\begin{proof}
 			We can write $S$ as
 				\begin{align*}
-					S & =\dfrac11+ \dfrac12+ \left(\dfrac13+\dfrac14\right)+ \left(\dfrac15+\dfrac16+\dfrac17+\dfrac18\right)+\cdots\\
-					  & > \dfrac11+\dfrac12+ \left(\dfrac14+\dfrac14\right) + \left(\dfrac18+\dfrac18+\dfrac18+\dfrac18\right)+\cdots\\
+					S & =\dfrac11+ \dfrac12+ \func{}{\dfrac13+\dfrac14}+ \func{}{\dfrac15+\dfrac16+\dfrac17+\dfrac18}+\cdots\\
+					  & > \dfrac11+\dfrac12+ \func{}{\dfrac14+\dfrac14} + \func{}{\dfrac18+\dfrac18+\dfrac18+\dfrac18}+\cdots\\
 					  & =1+ \dfrac{1}{2}+ \dfrac{1}{2}+ \dfrac{1}{2}+ \dfrac{1}{2}+\cdots\\
 					  & = 1+1+\cdots
 				\end{align*}
@@ -297,7 +297,7 @@
 				The number of primes less than or equal to $n$ can be obtained as
 					\begin{align*}
 						\pi(n) & =
-							\sum_{i=2}^{n}\left\lfloor\dfrac{2}{\sum_{j=1}^{i}\left\lfloor\dfrac{i}{j}\right\rfloor-\left\lfloor\dfrac{i-1}{j}\right\rfloor}\right\rfloor
+							\sum_{i=2}^{n}\floor{\dfrac{2}{\sum_{j=1}^{i}\floor{\dfrac{i}{j}}-\floor{\dfrac{i-1}{j}}}}
 					\end{align*}
 			\end{theorem}
 		Don't frown just because it looks ugly! It is actually very simple. Let us slowly proceed how we can get to this expression.
@@ -308,7 +308,7 @@
 					\end{align*}
 				This is pretty obvious. Each time we get a prime we are just adding $1$ to the sum. All we have to do is find a good expression for $f(i)$ that is computable in terms of $i$. Remember that  a prime has exactly $2$ divisors. And any positive integer greater than $1$ has at least two divisors. Therefore, if $\tau(i)$ is the number of divisors of $i$, $\tau(i)\geq2$ for $i>1$. This gives us $\lfloor 2/\tau(i)\rfloor=0$ if $i$ is composite, otherwise $1$. Since for composite $i$, $\tau(i)>2$. Now, the formula for $f(i)$ becomes
 					\begin{align*}
-						f(i) & = \left\lfloor\dfrac{2}{\tau(i)}\right\rfloor
+						f(i) & = \floor{\dfrac{2}{\tau(i)}}
 					\end{align*}
 				But this is still not computable in terms of $i$. We employ the same idea again, we add $1$ to $\tau(n)$ each time we get a divisor of $n$. How do we do that? Assume that if $i$ is a divisor of $n$ then $t_n(i)=1$, otherwise $0$. Then,
 					\begin{align*}
@@ -316,51 +316,46 @@
 					\end{align*}
 				Finding $t_n(i)$ can be easy. For $i<n$, we need to add $0$ when $i$ doesn't divide $n$, otherwise $1$. Assume that $n=ik+r$ with $r<i$ and $n-1=il+s$ with $s<i$. If $i$ divides $n$ then $r=0$ and we would have that $n-1=il+s=ik-1$. Thus, $ik-il=s+1$ with $s+1\leq i$. But $i(k-l)=s+1$ gives us $s+1\geq i$ since $i\mid s+1$ and $s+1$ is a positive integer, $k>l$ (why?). This forces $s+1=i$ and $k-l=1$. The nicer news is that $k-l=1$. And if $i$ didn't divide $n$, we would have $k=l$ (prove it) or $k-l=0$. Okay, that's good news. We have found our characteristic function $t_n(i)$. What is the meaning of $k$ and $l$ in terms of $i$ and $n$? $k=\lfloor n/i\rfloor$ and $l=\lfloor (n-1)/i\rfloor$, so we get
 					\begin{align*}
-						t_n(i) & = \left\lfloor\dfrac{n}{i}\right\rfloor-\left\lfloor\dfrac{n-1}{i}\right\rfloor
+						t_n(i) & = \floor{\dfrac{n}{i}}-\floor{\dfrac{n-1}{i}}
 					\end{align*}
 				This completes the proof.
 			\end{proof}
 		Have you ever thought about finding the number of primes not exceeding $n$ yourself? This is actually a very intriguing question for most of the people interested in number theory, even for curious school students. At first it seems impossible to find a closed form in such a case. However, as you think more, you can find different ways to proceed. The above one is an example. This should enable you to find one as well. Here is another example, and you may be surprised at this approach. In fact, we have used it before when we tried to find the number of relatively prime integers less than or equal to $n$. The idea is similar, in a sense that it is recursive in a way. Since it is troublesome to directly find the number of primes, we will do exactly the opposite. We will find the number of \textit{non-primes} not exceeding $n$. Then we can just subtract it from $n$. Now, we intend to find the number of positive integers $m$ such that $m=ab$ with $a,b>1$. More specifically, we can say that the smallest prime divisor does not exceed $\sqrt{n}$ (recall this from chapter \eqref{ch:divisibility}). Let $p_1,p_2,\ldots,p_k$ be the primes not exceeding $\sqrt{n}$ in increasing order. That is, $p_k$ is the largest prime less than or equal to $\sqrt{n}$ (this is why we said this approach is recursive). Any composite positive integer not exceeding $n$ must have a prime divisor from this set $\{p_1,p_2,\ldots,p_k\}$.
 
-		Again, this is a repetitive problem we encountered before. How many positive integers not exceeding $n$ are divisible by $p_1$? The number is $\lfloor {n}/{p_1}\rfloor$. The same goes for $p_2,\ldots,p_k$. So, the total number of non-prime positive integers should be \[\left\lfloor\frac{n}{p_1}\right\rfloor+\left\lfloor\frac{n}{p_2}\right\rfloor+\cdots.\] However, the positive integers that are multiple of both $p_1$ and $p_2$ were counted twice in this sum. So, we need to subtract them. Now it becomes
+		Again, this is a repetitive problem we encountered before. How many positive integers not exceeding $n$ are divisible by $p_1$? The number is $\lfloor {n}/{p_1}\rfloor$. The same goes for $p_2,\ldots,p_k$. So, the total number of non-prime positive integers should be
 			\begin{align*}
-				\left\lfloor\frac{n}{p_1}\right\rfloor+\left\lfloor\frac{n}{p_2}\right\rfloor+\cdots-\left\lfloor\frac{n}{p_1p_2}\right\rfloor-\left\lfloor\frac{n}{p_1p_3}\right\rfloor-\cdots \mbox{ all possible pairs}
+				\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots
+			\end{align*}
+		However, the positive integers that are multiple of both $p_1$ and $p_2$ were counted twice in this sum. So, we need to subtract them. Now it becomes
+			\begin{align*}
+				\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots-\floor{\frac{n}{p_1p_2}}-\floor{\frac{n}{p_1p_3}}-\cdots \mbox{ all possible pairs}
 			\end{align*}
 		Again, when we subtracted them all, the multiples of $p_1p_2p_3$ or $p_3p_4p_k$ all vanished from the calculation. To rectify that mistake, we need to add the number of multiples of three primes (all possible combinations of course). Now it looks like
 			\begin{align*}
-				\left\lfloor\frac{n}{p_1}\right\rfloor+\left\lfloor\frac{n}{p_2}\right\rfloor+\cdots-\left\lfloor\frac{n}{p_1p_2}\right\rfloor-\left\lfloor\frac{n}{p_1p_3}\right\rfloor-\cdots+\left\lfloor\frac{n}{p_1p_2p_3}\right\rfloor+\left\lfloor\frac{n}{p_1p_3p_4}\right\rfloor+\cdots
+				\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots-\floor{\frac{n}{p_1p_2}}-\floor{\frac{n}{p_1p_3}}-\cdots+\floor{\frac{n}{p_1p_2p_3}}+\floor{\frac{n}{p_1p_3p_4}}+\cdots
 			\end{align*}
 		Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem.
 			\begin{theorem}\label{thm:numofprime}
 	Let $n$ be a positive integer and $p_1,p_2,\ldots,p_k$ be the primes less than or equal to $\sqrt{n}$. If the number of primes not exceeding $n$ is $\pi(n)$, then $\pi(n) -\pi(\sqrt{n})+1$ is
 	\begin{align}
-		n-\left\lfloor\frac{n}{p_1}\right\rfloor-\left\lfloor\frac{n}{p_2}\right\rfloor-\left\lfloor\frac{n}{p_3}\right\rfloor+\cdots+\left\lfloor\frac{n}{p_1p_2}\right\rfloor+\left\lfloor\frac{n}{p_1p_3}\right\rfloor+\cdots+(-1)^k\left\lfloor\frac{n}{p_1p_2\cdots p_k}\right\rfloor. \label{eq:tau(n)-tau(sqrt(n))+1}
+		n-\floor{\frac{n}{p_1}}-\floor{\frac{n}{p_2}}-\floor{\frac{n}{p_3}}+\cdots+\floor{\frac{n}{p_1p_2}}+\floor{\frac{n}{p_1p_3}}+\cdots+(-1)^{k}\floor{\frac{n}{p_1p_2\cdots p_k}} \label{eq:tau(n)-tau(sqrt(n))+1}
 	\end{align}
 	In other words, and more generally, if $\pi(x)$ for any positive real $x \geq 2$ is the number of primes not exceeding $x$, then,
 	\begin{align}
-		\pi(x) -\pi(\sqrt{x})+1 = \left\lfloor x \right\rfloor - \sum_{p_i} \left\lfloor \frac{x}{p_i} \right\rfloor + \sum_{p_i < p_j} \left\lfloor \frac{x}{p_ip_j} \right\rfloor - \sum_{p_i < p_j < p_k} \left\lfloor \frac{x}{p_ip_jp_k} \right\rfloor + \cdots
+		\pi(x) -\pi(\sqrt{x})+1
+			& = \floor{x} - \sum_{p_i}\floor{\frac{x}{p_i}}+ \sum_{p_i < p_j}\floor{\frac{x}{p_ip_j}}- \sum_{p_i < p_j < p_k}\floor{\frac{x}{p_ip_jp_k}}+ \cdots
 	\end{align}
 	where the sums are taken over all primes less than or equal to $\sqrt x$.
 	\end{theorem}
 
 	Notice that there is a $\pi(\sqrt{n})$ here. Because when we used primes less than or equal to $\sqrt{n}$, we missed all the primes that are below $\sqrt{n}$. So we should subtract the number of primes less than $\sqrt{n}$, which is $\pi(\sqrt{n})-1$. Let us discuss this a bit further. We claim that
 	\begin{align}
-		\pi(n) -\pi(\sqrt{n})+1 = \sum_{i=1}^{P}\mu(i)\left\lfloor\frac{n}{i}\right\rfloor \label{eq:tau(n)-amin}
+		\pi(n) -\pi(\sqrt{n})+1 = \sum_{i=1}^{P}\mu(i)\floor{\frac{n}{i}}\label{eq:tau(n)-amin}
 	\end{align}
-	where $P=p_1p_2\cdots p_k$. This is probably not obvious to you, so we explain how the above fomula is obtained\footnote{Thanks to \textit{Amin Soofiani} for reminding us to add some more explanation here.}. It is now a very good time to mention a point the importance of the M\" obius $\mu$ function defined in defintion \eqref{def:mobius} as:
+	where $P=p_1p_2\cdots p_k$. This is probably not obvious to you, so we explain how the above fomula is obtained\footnote{Thanks to \textit{Amin Soofiani} for reminding us to add some more explanation here.}. It is now a very good time to mention a point the importance of the M\" obius $\mu$ function defined in defintion \eqref{def:mobius}. We stated in the previous chapter that M\" obius comes handy when dealing with inclusion--exclusion arguments. Here, we have a nice one. We will investigate equation \eqref{eq:tau(n)-amin} term by term. The first term is $n$, obtained from $i=1$. For $i=p_j$, the contribution is $\mu(p_j)\floor{n/p_j}=-\floor{n/p_j}$ (here, $1 \leq j \leq k$). That's exactly the first group of terms in equation \eqref{eq:tau(n)-tau(sqrt(n))+1}. But what about the case when $i$ is not a prime? Well, if it's a square-free number, i.e., if it is of the form $i=p_{i_1}p_{i_2}\cdots p_{i_s}$, where $\{i_1, i_2, \ldots, i_s\} \subseteq \{1,2,\ldots,k\}$, then, we get a contribution of
 	\begin{align*}
-		\mu(n) & =
-		\begin{cases}
-			1&\mbox{ if }n=1\\
-			0&\mbox{ if }n
-			\mbox{ is divisible by }p^2
-			\mbox{ for some prime }p\\
-			(-1)^k&\mbox{ if }n=p_1p_2\cdots p_k
-		\end{cases}
-	\end{align*}
-	We stated in the previous chapter that M\" obius comes handy when dealing with inclusion--exclusion arguments. Here, we have a nice one. We will investigate equation \eqref{eq:tau(n)-amin} term by term. The first term is $n$, obtained from $i=1$. For $i=p_j$, the contribution is $\mu(p_j)\lfloor n/p_j \rfloor=-\lfloor n/p_j \rfloor$ (here, $1 \leq j \leq k$). That's exactly the first group of terms in equation \eqref{eq:tau(n)-tau(sqrt(n))+1}. But what about the case when $i$ is not a prime? Well, if it's a square-free number, i.e., if it is of the form $i=p_{i_1}p_{i_2}\cdots p_{i_s}$, where $\{i_1, i_2, \ldots, i_s\} \subseteq \{1,2,\ldots,k\}$, then, we get a contribution of
-	\begin{align*}
-		\mu(p_{i_1}p_{i_2}\cdots p_{i_s}) \left\lfloor\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}\right\rfloor = (-1)^s\left\lfloor\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}\right\rfloor
+		\mu(p_{i_1}p_{i_2}\cdots p_{i_s}) \floor{\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}}
+			& = (-1)^{s}\floor{\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}}
 	\end{align*}
 	Otherwise, if $i$ is not square-free, then $\mu(i)=0$ and there would be no contribution from that term. Therefore, we get exactly the same sum as in the long \eqref{eq:tau(n)-tau(sqrt(n))+1}.
 
@@ -485,8 +480,8 @@
 	\begin{proof}
 		We are done if we can prove $\sqrt[n]{\dfrac{n!}{2}}<\sqrt[n+1]{\dfrac{(n+1)!}{2}}$, which is equivalent to
 			\begin{align*}
-				\left(\dfrac{n!}{2}\right)^{n+1}
-					& < \left(\dfrac{(n+1)!}{2}\right)^n
+				\func{}{\dfrac{n!}{2}}^{n+1}
+					& < \func{}{\dfrac{(n+1)!}{2}}^n
 			\end{align*}
 		Simplifying, we find
 			\begin{align*}
@@ -537,11 +532,11 @@
 
 		Let us focus on what $a$ and $b$ leave as remainders when divided by $p$. There can be $p$ remainders ($0,1,\ldots,p-1$). Both for $a$ and $b$, there are $p$ possibilities. The probability that $a$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$. Similarly, the probability that $b$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$ as well. Therefore\footnote{We assume you know that, the probability of two independent events is the product of the probability of those events. That is if $A$ and $B$ are independent, then $P(A\cap B)=P(A)P(B)$. And certainly $a$ being divisible by $p$ has nothing to do with $b$ being divisible by $p$. So they are independent.}, both $a$ and $b$ leave remainder $0$ when divided by $p$ is $\frac{1}{p}\cdot\frac{1}{p}$. Thus, the probability of $a$ and $b$ not being divisible by $p$ is $1-\frac{1}{p^2}$. Now, this is only for a fixed prime $p$. Since $p$ can be any prime, the probability should be multiplied for all primes. The probability is
 			\begin{align*}
-				\left(1-\dfrac{1}{p_1^2}\right)\cdot\left(1-\dfrac{1}{p_2^2}\right)\cdots
-				& = \prod_{i\geq1}\left(1-\dfrac{1}{p_i^2}\right)\\
-				& = \prod_{i\geq1}\left(\dfrac{p_i^2-1}{p_i^2}\right)\\
+				\func{}{1-\dfrac{1}{p_1^2}}\cdot\func{}{1-\dfrac{1}{p_2^2}}\cdots
+				& = \prod_{i\geq1}\func{}{1-\dfrac{1}{p_i^2}}\\
+				& = \prod_{i\geq1}\func{}{\dfrac{p_i^2-1}{p_i^2}}\\
 				& = \prod_{i\geq1}\dfrac{1}{\frac{p_i^2}{p_i^2-1}}\\
-				& = \dfrac{1}{\prod_{i\geq1}\left(\dfrac{p_i^2}{p_i^2-1}\right)}\\
+				& = \dfrac{1}{\prod_{i\geq1}\func{}{\dfrac{p_i^2}{p_i^2-1}}}\\
 				& = \dfrac{1}{\zeta(2)}\\
 				& = \dfrac{6}{\pi^2}
 			\end{align*}
@@ -603,7 +598,7 @@
 				\begin{enumerate}
 					\item $q\mid n-1$ and $q > \sqrt n -1$,
 					\item $a^{n-1} \equiv1\pmod n$, and
-					\item $\left(a^{\frac{n-1}{q}}-1,n\right) = 1$.
+					\item $\func{}{a^{\frac{n-1}{q}}-1,n} = 1$.
 				\end{enumerate}
 			Then $n$ is a prime.
 		\end{theorem}
@@ -613,9 +608,9 @@
 				\begin{align*}
 					1 & \equiv a^{n-1} \\
 					  & \equiv \left(a^{n-1}\right)^{x}\\
-					  & \equiv \left(a^{(n-1)/q}\right)^{qx}\\
-					  & \equiv \left(a^{(n-1)/q}\right)^{(p-1)k+1}\\
-					  & \equiv \underbrace{\left(\left(a^{(n-1)/q}\right)^{k}\right)^{p-1}}_{\equiv 1} \cdot \left(a^{(n-1)/q}\right)\\
+					  & \equiv \func{}{a^{\frac{n-1}{q}}}^{qx}\\
+					  & \equiv \func{}{a^{\frac{n-1}{q}}}^{(p-1)k+1}\\
+					  & \equiv \underbrace{\func{}{\func{}{a^{\frac{n-1}{q}}}^{k}}^{p-1}}_{\equiv 1} \cdot \func{}{a^{\frac{n-1}{q}}}\\
 					  & \equiv a^{(n-1)/q} \pmod p
 				\end{align*}
 			This gives $p\mid a^{(n-1)/q}-1$. Combining the latter result with $p\mid n$, we have
@@ -635,7 +630,7 @@
 		\begin{definition}
 			Let $n>1$ be an odd integer. Assume that $a>1$ is a positive integer such that $(a,n)=1$ and
 				\begin{align*}
-					a^{(n-1)/2} \not \equiv \left(\dfrac{a}{n}\right) \pmod n
+					a^{(n-1)/2} \not \equiv \func{}{\dfrac{a}{n}} \pmod n
 				\end{align*}
 			where $\left(\dfrac{a}{n}\right)$ is the Jacobi symbol defined in \eqref{def:jacobi}. Then $a$ is called an \textit{Euler witness for compositeness of $n$}, or simply an \textit{Euler witness for $n$.}
 		\end{definition}
@@ -647,7 +642,7 @@
 		\begin{proof}
 			By Euler's criterion, we know that if $n$ is a prime, then for every integer $a$ relatively prime to $n$,
 				\begin{align}
-					a^{(n-1)/2}  \equiv \left(\dfrac{a}{n}\right) \pmod n \label{eq:solovay-eq1}
+					a^{(n-1)/2}  \equiv \func{}{\dfrac{a}{n}} \pmod n \label{eq:solovay-eq1}
 				\end{align}
 			So, if for some $a$ relatively prime to $n$, the above congruence equation does not hold, $n$ cannot be a prime. Thus it is composite.
 		\end{proof}
@@ -683,7 +678,7 @@
 				\end{align*}
 			It follows that the following product is not divisible by $n$:
 				\begin{align*}
-					\left(a^d-1\right)\left(a^d+1\right)\left(a^{2d}+1\right)\cdots \left(a^{2^{s-1}d}+1\right) = a^{2^sd}-1.
+					\left(a^d-1\right)\func{}{a^d+1}\cdots \func{}{a^{2^{s-1}d}+1} = a^{2^sd}-1.
 				\end{align*}
 			But $a^{2^sd}-1=a^{n-1}-1$ and so $n\nmid a^{n-1}-1$. We know by Fermat's little theorem that if $p$ is a prime, then $p\mid a^{p-1}-1$ for any $a$ such that $(a,p)=1$. So, $n$ cannot be a prime and is therefore a composite number.
 		\end{proof}
@@ -775,7 +770,7 @@
 		\begin{theorem}[Pepin's Primality Test for Fermat Numbers]
 			Let $n \geq 2$ be an integer and assume $F_n$ denotes the $n^{th}$ Fermat number. Also, let $k \geq 2$ be any integer. Then the following conditions are equivalent:
 				\begin{enumerate}[1.]
-					\item $F_n$ is prime and $\left(\frac{k}{F_n}\right)=-1$.
+					\item $F_n$ is prime and $\func{}{\frac{k}{F_n}}=-1$.
 					\item $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$.
 				\end{enumerate}
 		\end{theorem}
@@ -783,7 +778,7 @@
 		\begin{proof}
 			Assume that condition $1$ holds. Then by Euler's criterion (\autoref{thm:eulerscriterion}),
 				\begin{align*}
-					k^{(F_n-1)/2} \equiv \left(\dfrac{k}{F_n}\right) \equiv -1 \pmod{F_n}
+					k^{(F_n-1)/2} \equiv \func{}{\dfrac{k}{F_n}} \equiv -1 \pmod{F_n}
 				\end{align*}
 			To prove the other side of the theorem, assume that $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$. Choose an integer $m$ such that $1 \leq  m <F_n$ and $m \equiv k \pmod{F_n}$. Then
 				\begin{align*}
@@ -791,7 +786,7 @@
 				\end{align*}
 			Note that the only prime divisor of $F_n-1 = 2^{2^n}$ is $2$. Hence we can use Lucas test (with $a=m$ and $p=2$, using notation of \autoref{thm:lucastest}) and deduce that $F_n$ is a prime. Furthermore, we have by Euler's criterion that
 				\begin{align*}
-					\left(\dfrac{k}{F_n}\right) \equiv	k^{(F_n-1)/2}  \equiv -1 \pmod{F_n}
+					\func{}{\dfrac{k}{F_n}} \equiv	k^{(F_n-1)/2}  \equiv -1 \pmod{F_n}
 				\end{align*}
 			The proof is complete.
 		\end{proof}
@@ -828,9 +823,9 @@
 		\begin{proof}
 			It suffices to prove the theorem for prime $n$ (why?). Let $p$ be a prime divisor of $M_q=2^q-1$. Then $2^q \equiv 1 \pmod p$ and so $\ord_p(2)\mid q$, which means that $\ord_p(2)=q$ since $q$ is a prime. By corollary \eqref{cor:phiDiv}, $q=\ord_p(2)\mid \varphi(p)=p-1$. Thus $p \equiv 1 \pmod q$. Since $p$ and $q$ are both odd, we can write the latter relation as $p-1=2kq$. By Euler's criterion,
 				\begin{align*}
-					\left(\dfrac{2}{p}\right) &\equiv 2^{(p-1)/2} \\
+					\func{}{\dfrac{2}{p}} &\equiv 2^{(p-1)/2} \\
 											  &\equiv 2^{kq}\\
-											  &\equiv \left(2^q\right)^k\\
+											  &\equiv \func{}{2^q}^k\\
 											  &\equiv 1 \pmod p
 				\end{align*}
 			\autoref{thm:2qr} now verifies that $p \equiv \pm 1 \pmod 8$.
@@ -1012,7 +1007,7 @@
 
 	We already know a factorization for even integers $n=2m$ because $2$ is a factor of $n$ in that case. Given an odd positive integer $n$, we try some value of $a$, hoping that $a^2-n$ is a perfect square. If this condition holds, we have found a factorization for $n$. Otherwise, increment $a$ and check again. The point here is that if an odd $n$ is composite, i.e. if $n=cd$ for some odd positive integers $c$ and $d$, then
 		\begin{align*}
-			n = \left(\frac{c+d}{2}\right)^2 - \left(\frac{c-d}{2}\right)^2
+			n = \func{}{\frac{c+d}{2}}^2 - \func{}{\frac{c-d}{2}}^2
 		\end{align*}
 	This means that Fermat's method of factorization always works when $n$ is composite. Fermat's factorization is generally more time efficient than trial division. However, it might be even slower than trial division in some cases.
 	\paragraph{An algorithm for Fermat's method of factorization}

@@ -13,7 +13,7 @@
 \end{theorem}
 
 \begin{proof}
-	Let $r=\lfloor\sqrt{n}\rfloor$. That means $r$ is the unique integer for which $r^2\leq n<(r+1)^2$. The number of pairs $(x,y)$ of integers for which $0\leq x,y\leq r$, is $(r+1)^2$. This number is greater than $n$. Therefore, by pigeonhole principle, there must be two different pairs $(x_1,y_1)$ and $(x_2,y_2)$ among these $(r+1)^2$ pairs so that
+	Let $r=\floor{\sqrt{n}}$. That means $r$ is the unique integer for which $r^2\leq n<(r+1)^2$. The number of pairs $(x,y)$ of integers for which $0\leq x,y\leq r$, is $(r+1)^2$. This number is greater than $n$. Therefore, by pigeonhole principle, there must be two different pairs $(x_1,y_1)$ and $(x_2,y_2)$ among these $(r+1)^2$ pairs so that
 	\begin{align*}
 		x_1-ay_1
 			& \equiv \ \ x_2-ay_2 \pmod n\\

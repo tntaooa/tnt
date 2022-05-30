@@ -298,7 +298,7 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{problem}[Balkan 1993]
         Let $p$ be a prime number and $m>1$ be a positive integer. Show that if for some positive integers $x>1, y>1$ we have
         \begin{align*}
-	        \frac{x^p+y^p}{2}= \left( \frac{x+y}{2} \right)^m
+	        \frac{x^p+y^p}{2}= \func{}{\frac{x+y}{2}}^m
         \end{align*}
         then $m=p.$
     \end{problem}
@@ -306,11 +306,11 @@ Here is a problem which will explain the main idea behind LTE.
     \begin{solution}
         One can prove by induction on $p$ that
         	\begin{align*}
-        		\frac{x^p+y^p}2\ge \left(\frac{x+y}2\right)^p
+        		\frac{x^p+y^p}2\ge \func{}{\frac{x+y}2}^p
         	\end{align*}
         for all positive integers $p$. Now since
         	\begin{align*}
-        		\frac{x^p+y^p}{2}= \left( \frac{x+y}{2} \right)^m
+        		\frac{x^p+y^p}{2}= \func{}{\frac{x+y}{2}}^m
         	\end{align*}
         we should have $ m \geq p$. Let $d=\gcd(x,y)$, so there exist positive integers
         $x_1$ and $y_1$ with $\gcd(x_1,y_1)=1$ such that $x=dx_1$, $y=dy_1$, and
@@ -332,7 +332,7 @@ Here is a problem which will explain the main idea behind LTE.
 
         	\item Assume that $p=2$. We notice that for $x+y \geq 4$ we have
         		\begin{align*}
-        			\frac{x^2+y^2}2< 2\left(\frac{x+y}2\right)^2\le \left(\frac{x+y}2\right)^3
+        			\frac{x^2+y^2}2< \func{2}{\frac{x+y}2}^2\le \func{}{\frac{x+y}2}^3
         		\end{align*}
         	so $m=2$. It remains to check that the remaining cases $(x,y)=(1,2),(2,1)$ are impossible.
         \end{enumerate}

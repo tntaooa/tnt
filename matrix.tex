@@ -147,53 +147,54 @@ Addition of matrices is easily done by adding corresponding entries. However, th
 	\begin{example}
 	Let
 		\begin{align*}
-		A=
-		\tikz[baseline=(M.west)]{%
-			\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
-				1 \& 1 \& 5 \\
-				2 \& 3 \& 1 \\
-				4 \& 6 \& 1 \\
-				2 \& 1 \& 3 \\
-			};
-		}\\
-		B=\tikz[baseline=(M.west)]{%
-			\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
-				3 \& 1 \& 0 \& 2 \\
-				5 \& 1 \& 0 \& 1 \\
-				4 \& 0 \& 1 \& 1 \\
-			};
-		}
+			A
+				& = \func{}{\tikz[baseline=(M.west)]{%
+						\node[matrix of math nodes,ampersand replacement=\&] (M) {%
+							1 \& 1 \& 5 \\
+							2 \& 3 \& 1 \\
+							4 \& 6 \& 1 \\
+							2 \& 1 \& 3 \\
+						};
+				}}\\
+			B
+				& = \func{}{\tikz[baseline=(M.west)]{%
+						\node[matrix of math nodes,,ampersand replacement=\&] (M) {%
+							3 \& 1 \& 0 \& 2 \\
+							5 \& 1 \& 0 \& 1 \\
+							4 \& 0 \& 1 \& 1 \\
+						};
+				}}
 		\end{align*}
 		$A$ is $4\times 3$ and $B$ is $3 \times 4$, so we can multiply them together and the result is a $4\times 4$ matrix. Let's start calculating the product of $A$ and $B$. Let $AB=C$. We start by finding $c_{11}$. Note that
 				\begin{align*}
-				\tikz[baseline=(M.west)]{%
-					\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
-						1 \& 1 \& 5 \\
-						2 \& 3 \& 1 \\
-						4 \& 6 \& 1 \\
-						2 \& 1 \& 3 \\
-					};
-					\draw[color=black] (M-1-1.north west) -- (M-1-3.north east) -- (M-1-3.south east) -- (M-1-1.south west) -- (M-1-1.north west);
-				}
-				\cdot
-				\tikz[baseline=(M.west)]{%
-					\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
-						3 \& 1 \& 0 \& 2 \\
-						5 \& 1 \& 0 \& 1 \\
-						4 \& 0 \& 1 \& 1 \\
-					};
-					\draw[color=black] (M-1-1.north west) -- (M-1-1.north east) -- (M-3-1.south east) -- (M-3-1.south west) -- (M-1-1.north west);
-				}
-				=
-				\tikz[baseline=(M.west)]{%
-					\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
-						c_{11} \& c_{12} \& c_{13} \& c_{14} \\
-						c_{21} \& c_{22} \& c_{23} \& c_{24} \\
-						c_{31} \& c_{32} \& c_{33} \& c_{34} \\
-						c_{41} \& c_{42} \& c_{43} \& c_{44} \\
-					};
-					\node[draw,fit=(M-1-1),inner sep=-1pt] {};
-				}
+					\func{}{\tikz[baseline=(M.west)]{%
+							\node[matrix of math nodes,ampersand replacement=\&] (M) {%
+								1 \& 1 \& 5 \\
+								2 \& 3 \& 1 \\
+								4 \& 6 \& 1 \\
+								2 \& 1 \& 3 \\
+							};
+							\draw[color=black] (M-1-1.north west) -- (M-1-3.north east) -- (M-1-3.south east) -- (M-1-1.south west) -- (M-1-1.north west);
+					}}
+					\cdot
+					\func{}{\tikz[baseline=(M.west)]{%
+							\node[matrix of math nodes,ampersand replacement=\&] (M) {%
+								3 \& 1 \& 0 \& 2 \\
+								5 \& 1 \& 0 \& 1 \\
+								4 \& 0 \& 1 \& 1 \\
+							};
+							\draw[color=black] (M-1-1.north west) -- (M-1-1.north east) -- (M-3-1.south east) -- (M-3-1.south west) -- (M-1-1.north west);
+					}}
+					=
+					\func{}{\tikz[baseline=(M.west)]{%
+							\node[matrix of math nodes,ampersand replacement=\&] (M) {%
+								c_{11} \& c_{12} \& c_{13} \& c_{14} \\
+								c_{21} \& c_{22} \& c_{23} \& c_{24} \\
+								c_{31} \& c_{32} \& c_{33} \& c_{34} \\
+								c_{41} \& c_{42} \& c_{43} \& c_{44} \\
+							};
+							\node[draw,fit=(M-1-1),inner sep=-1pt] {};
+					}}
 				\end{align*}
 			From the definition, the entry $c_{11}$ of $C$ is calculated by multiplying the corresponding entries of the first row of $A$ and the first column of $B$ (and you can now see why number of columns of $A$ must be equal to the number of rows of $B$). That is,
 				\begin{align*}
@@ -254,15 +255,16 @@ We will now generalize the definition of determinant to $n\times n$ matrices. Fo
 	\begin{example}
 		Let's find $M_{21}$ for the matrix
 		\begin{align*}
-		A=	\tikz[baseline=(M.west)]{%
-				\node[matrix of math nodes,left delimiter=(,right delimiter=),ampersand replacement=\&] (M) {%
-					1 \& 1 \& 5 \\
-					2 \& 3 \& 1 \\
-					4 \& 6 \& 1 \\
-				};
-				\draw[color=black] (M-2-1.north west) -- (M-2-3.north east) -- (M-2-3.south east) -- (M-2-1.south west) -- (M-2-1.north west);
-				\draw[color=black] (M-1-1.north west) -- (M-1-1.north east) -- (M-3-1.south east) -- (M-3-1.south west) -- (M-1-1.north west);
-			}
+			A
+				& = \func{}{\tikz[baseline=(M.west)]{%
+						\node[matrix of math nodes,ampersand replacement=\&] (M) {%
+							1 \& 1 \& 5 \\
+							2 \& 3 \& 1 \\
+							4 \& 6 \& 1 \\
+						};
+						\draw[color=black] (M-2-1.north west) -- (M-2-3.north east) -- (M-2-3.south east) -- (M-2-1.south west) -- (M-2-1.north west);
+						\draw[color=black] (M-1-1.north west) -- (M-1-1.north east) -- (M-3-1.south east) -- (M-3-1.south west) -- (M-1-1.north west);
+				}}
 		\end{align*}
 		 The corresponding row and column (which should be deleted in order to calculate the minor) are shown in the matrix. Therefore, $M_{21}= \begin{vmatrix} 1&5\\6&1 \end{vmatrix} = 1-30=-29.$
 	\end{example}

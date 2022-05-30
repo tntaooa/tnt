@@ -45,15 +45,16 @@ We can easily check that some usual properties of differentiation hold true for 
 		The first one is obvious. For the second one, we can write
 			\begin{align*}
 				(f\ast g)^\prime (n)
-					&= \left(\sum_{d\mid n} f(d)g\left(\dfrac{n}{d}\right)\right) \cdot \ln n\\
-					&= \left(\sum_{d\mid n} f(d)g\left(\dfrac{n}{d}\right)\right) \cdot \left(\ln d + \ln \dfrac{n}{d}\right)\\
-					&= \left(\sum_{d\mid n} f(d)g\left(\dfrac{n}{d}\right)\right) \cdot \ln d + \left(\sum_{d\mid n} f(d)g\left(\dfrac{n}{d}\right)\right) \cdot \ln \dfrac{n}{d}\\
-					&= \sum_{d\mid n} f(d)\cdot \ln d \cdot g\left(\dfrac{n}{d}\right)+ \sum_{d\mid n} f(d) g\left(\dfrac{n}{d}\right) \cdot \ln \dfrac{n}{d}\\
-					&= \sum_{d\mid n} f^\prime(d) \cdot g\left(\dfrac{n}{d}\right)+ \sum_{d\mid n} f(d) g^\prime\left(\dfrac{n}{d}\right)\\
+					&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln n\\
+					&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \func{}{\ln d + \ln \dfrac{n}{d}}\\
+					&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln d +\func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln \dfrac{n}{d}\\
+					&= \sum_{d\mid n} f(d)\cdot \ln d \cdot \func{g}{\dfrac{n}{d}}+ \sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}} \cdot \ln \dfrac{n}{d}\\
+					&= \sum_{d\mid n} f^\prime(d) \cdot \func{g}{\dfrac{n}{d}}+ \sum_{d\mid n} f(d) \func{g'}{\dfrac{n}{d}}\\
 					&= (f^\prime \ast g)(n) + (f\ast g^\prime)(n)
 			\end{align*}
 
 	\end{proof}
+
 	\begin{definition}[Von Mangoldt Function]
 		For any positive integer $n$, the von Mangoldt function, denoted by $\Lambda(n)$ is defined\footnote{$\Lambda$ is the upper case of the symbol lambda ($\lambda$) in Greek.} as
 			\begin{align*}
@@ -70,7 +71,7 @@ We can easily check that some usual properties of differentiation hold true for 
 	\begin{proof}
 		Let $n=\prod_{i=1}^kp_i^{e_i}$, where $p_i$ are primes ($1 \leq i \leq k$). Then,
 			\begin{align*}
-				\ln n  & =\ln\left(\prod_{i=1}^kp_i^{e_i}\right)\\
+				\ln n  & =\func{\ln}{\prod_{i=1}^kp_i^{e_i}}\\
 						&=\sum_{i=1}^k\ln{p_i^{e_i}}\\
 						&=\sum_{i=1}^ke_i\ln p_i
 			\end{align*}
@@ -85,7 +86,7 @@ We can easily check that some usual properties of differentiation hold true for 
 	\begin{theorem}[Selberg's Identity]
 		Let $n$ be a positive integer. Then
 			\begin{align*}
-				\Lambda(n)\ln n+\sum_{d\mid n}\Lambda(d)\Lambda\left(\frac nd\right)=\sum_{d\mid n}\mu(d)\ln^2\frac nd
+				\Lambda(n)\ln n+\sum_{d\mid n}\Lambda(d)\func{\Lambda}{\frac nd}=\sum_{d\mid n}\mu(d)\ln^2\frac nd
 			\end{align*}
 	\end{theorem}
 	\begin{proof}
@@ -112,7 +113,7 @@ We can easily check that some usual properties of differentiation hold true for 
 			\end{align*}
 		Replacing the functions with their definitions, one easily finds
 			\begin{align*}
-				\Lambda(n)\log n+\sum_{d\mid n}\Lambda(d)\Lambda\left(\dfrac nd\right) & =\sum_{d\mid n}\mu(d)\log^2\dfrac nd
+				\Lambda(n)\log n+\sum_{d\mid n}\Lambda(d)\func{\Lambda}{\dfrac nd} & =\sum_{d\mid n}\mu(d)\log^2\dfrac nd
 			\end{align*}
 		as desired.
 	\end{proof}

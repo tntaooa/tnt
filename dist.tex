@@ -82,22 +82,22 @@ We will start with some functions and analyzing their properties. The obvious qu
 	\end{proposition}
 
 	\begin{proof}
-		We induct on $\lfloor x \rfloor$. For our base cases, we note that for $0 \le x < 2$, we have $\vartheta(x) = 0 \leq 2x \ln 2$.
+		We induct on $\floor{x}$. For our base cases, we note that for $0 \le x < 2$, we have $\vartheta(x) = 0 \leq 2x \ln 2$.
 
-		Now suppose that $x \geq 2$. Let $n = \lfloor x \rfloor$ and suppose that the inequality holds for all reals $y$ such that $\lfloor y \rfloor <n$. Note that
+		Now suppose that $x \geq 2$. Let $n = \floor{x}$ and suppose that the inequality holds for all reals $y$ such that $\floor{y} <n$. Note that
 			\begin{align*}
 				2^x
 					& \geq 2^n\\
 					& = (1+1)^n\\
-					& = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{\lfloor n/2 \rfloor} + \cdots + \binom{n}{n-1}+\binom{n}{n}\\
-					& \geq \binom{n}{\lfloor n/2 \rfloor}\\
-					& \geq \prod_{\lfloor n/2 \rfloor < p \leq n} p
+					& = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{\floor{\frac{n}{2}}} + \cdots + \binom{n}{n-1}+\binom{n}{n}\\
+					& \geq \binom{n}{\floor{\frac{n}{2}}}\\
+					& \geq \prod_{\floor{\frac{n}{2}} < p \leq n} p
 			\end{align*}
 		where we have used lemma \eqref{lem:binomialprimeinequality} to write the last line. Taking logarithms from the above inequality, we find
 			\begin{align*}
-				x \ln 2 &\geq \sum_{\lfloor n/2 \rfloor < p \le n} \ln p \\
-						 &= \vartheta(x) - \vartheta(\lfloor n/2 \rfloor) \\
-						 &\geq \vartheta(x) - 2\lfloor n/2 \rfloor \ln 2 \\
+				x \ln 2 &\geq \sum_{\floor{n/2} < p \le n} \ln p \\
+						 &= \vartheta(x) - \vartheta(\floor{\frac{x}{2}}) \\
+						 &\geq \vartheta(x) - 2\floor{\frac{n}{2}}\ln 2 \\
 						 &\geq \vartheta(x) - x \ln 2
 			\end{align*}
 		by the inductive hypothesis. Therefore
@@ -130,7 +130,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 		Let $p_1, p_2, \ldots, p_k$ be primes not exceeding a positive real number $x$. Also, assume that $p_1^{a_1}, p_2^{a_2}, \ldots, p_k^{a_k}$ are the largest powers of these primes which do not exceed $x$. Then
 			\begin{align*}
 				\psi(x)
-					& =\ln \left( p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k} \right)
+					& =\func{\ln}{p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}}
 			\end{align*}
 	\end{corollary}
 
@@ -138,12 +138,12 @@ We will start with some functions and analyzing their properties. The obvious qu
 		Let $x$ be a positive real number. Then
 			\begin{align*}
 				\psi(x)
-					& = \lcm(1, 2, \ldots, \lfloor x \rfloor)
+					& = \lcm(1, 2, \ldots, \floor{x})
 			\end{align*}
 	\end{corollary}
 
 	\begin{proof}
-		Let $p_1, p_2, \ldots, p_k$ be primes which do not exceed $x$. Let $p_1^{a_1}, p_2^{a_2}, \ldots , p_k^{a_k}$ be the largest powers of these primes which do not exceed $x$. Each number in the set $A=\{1, 2, \ldots, \lfloor x \rfloor\}$ is of the form $p_1^{b_1} p_2^{b_2} \cdots p_k^{b_k}$, where $b_i$ is an integer and $0 \leq b_i \leq a_i$ (for $i=1,2,\ldots,k$). It is easy to check (see proposition \eqref{prop:gcdfactorization}) that the least common multiple of all such integers is $p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$. The previous corollary proves the claim now.
+		Let $p_1, p_2, \ldots, p_k$ be primes which do not exceed $x$. Let $p_1^{a_1}, p_2^{a_2}, \ldots , p_k^{a_k}$ be the largest powers of these primes which do not exceed $x$. Each number in the set $A=\{1, 2, \ldots, \floor{x}\}$ is of the form $p_1^{b_1} p_2^{b_2} \cdots p_k^{b_k}$, where $b_i$ is an integer and $0 \leq b_i \leq a_i$ (for $i=1,2,\ldots,k$). It is easy to check (see proposition \eqref{prop:gcdfactorization}) that the least common multiple of all such integers is $p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$. The previous corollary proves the claim now.
 	\end{proof}
 
 	\begin{proposition}
@@ -155,7 +155,7 @@ We will start with some functions and analyzing their properties. The obvious qu
 	\end{proposition}
 
 	\begin{proof}
-		Let $p$ be a prime not exceeding $x$. We just need to show that the power of $p$ appearing in $\psi(x)$ equals $\lfloor \ln x/\ln p \rfloor$. This is rather obvious. Let $a$ be the power of $p$ we are searching for. Then $p^a \leq x <p^{a+1}$. Taking logarithms and dividing by $\ln p$, we find the desired result.
+		Let $p$ be a prime not exceeding $x$. We just need to show that the power of $p$ appearing in $\psi(x)$ equals $\floor{\ln x/\ln p}$. This is rather obvious. Let $a$ be the power of $p$ we are searching for. Then $p^a \leq x <p^{a+1}$. Taking logarithms and dividing by $\ln p$, we find the desired result.
 	\end{proof}
 
 Chebyshev attempted to prove the Prime Number Theorem, and he succeeded in proving a slightly weaker version of the theorem. In fact, he proved that if the limit $\pi(x)  \ln(x)/x$ as $x$ goes to infinity exists at all, then it is equal to one. He showed that this ratio is bounded above and below by two explicitly given constants near 1, for all sufficiently large $x$. Although Chebyshev was unable to prove PNT completely, his estimates for $\pi(x), \vartheta(x)$, and $\psi(x)$ were strong enough to prove Bertrand's postulate at his time. We will state these estimations but hesitate to provide the proofs as they need some calculus background.
@@ -164,7 +164,8 @@ Chebyshev attempted to prove the Prime Number Theorem, and he succeeded in provi
 		\label{thm:chebyshevestimates}
 		If the following limits exist, they are all equal to $1$.
 		\begin{align}
-			&\lim_{x \to \infty} \frac{\vartheta(x)}{x}, \quad \lim_{x \to \infty} \frac{\psi(x)}{x}, \quad \text{and} \quad
+			\lim_{x \to \infty} \frac{\vartheta(x)}{x},
+				& \lim_{x \to \infty} \frac{\psi(x)}{x}, \quad
 			\lim_{x \to \infty} \frac{\pi(x) \ln(x)}{x} \label{eq:chebyshevestimates:eq1}
 		\end{align}
 	\end{theorem}
@@ -348,7 +349,7 @@ The proof is due to \textcite{mixon_2013}.
 					& =
 					\sum_{x_1=0}^{\infty}\cdots\sum_{x_k=0}^{\infty}\dfrac{1}{p_1^{x_1}\cdots p_k^{x_k}}\\
 					& =
-					\left(\sum_{x_1=0}^{\infty}\dfrac{1}{p_1^{x_1}}\right)\cdots\sum_{x_k=0}^{\infty}\dfrac{1}{p_k^{x_k}}\\
+					\func{}{\sum_{x_1=0}^{\infty}\dfrac{1}{p_1^{x_1}}}\cdots\sum_{x_k=0}^{\infty}\dfrac{1}{p_k^{x_k}}\\
 					& < \infty
 			\end{align*}
 		Moreover, assume that $B_i$ is the set of positive integers with exactly $i$ distinct prime factors. This yields,
@@ -356,7 +357,7 @@ The proof is due to \textcite{mixon_2013}.
 				\sum_{b\in B}\dfrac{1}{b}
 					& =
 					\sum_{i=0}^{\infty}\sum_{b\in B_i}\dfrac{1}{b}\\
-					& \leq \sum_{i=1}^{\infty}\left(\sum_{j=k+1}^{\infty}\dfrac{1}{p_{j}}\right)^j\\
+					& \leq \sum_{i=1}^{\infty}\func{}{\sum_{j=k+1}^{\infty}\dfrac{1}{p_{j}}}^j\\
 					& <\infty
 			\end{align*}
 		Since every positive integer greater than $1$ belongs to exactly one of $A$ or $B$, we have

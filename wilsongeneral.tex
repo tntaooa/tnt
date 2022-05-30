@@ -21,7 +21,7 @@ Wilson's theorem says that $(p-1)! \equiv -1 \pmod p$ for all primes $p$. Clearl
 		Let $p$ be a prime number and let $(n_k n_{k-1}\cdots n_1 n_0)_p$ be a positive integer. Then
 			\begin{align*}
 				(n!)_p
-					& \equiv (-1)^{\left[\frac{n}{p}\right]} \cdot n_0!\pmod p
+					& \equiv (-1)^{\floor{\frac{n}{p}}} \cdot n_0!\pmod p
 			\end{align*}
 	\end{theorem}
 
@@ -83,13 +83,13 @@ We are ready to prove the following theorem.
 	\end{theorem}
 
 	\begin{proof}
-		According to theorem \eqref{thm:reducedfactorialmodp}, one can write
+		According to \autoref{thm:reducedfactorialmodp}, one can write
 			\begin{align*}
 				n!
-					& = (n!)_p \cdot p^{\left\lfloor n/p\right\rfloor}\left(\left\lfloor\frac{n}{p}\right\rfloor\right)!\\
-					& \equiv (-1)^{\lfloor n/p\rfloor} n_0! \cdot p^{\lfloor n/p \rfloor}\left(\left\lfloor\frac{n}{p}\right\rfloor\right)!
+					& = (n!)_p \cdot p^{\floor{n/p}}\func{}{\floor{\frac{n}{p}}}!\\
+					& \equiv (-1)^{\lfloor n/p\rfloor} n_0! \cdot p^{\floor{n/p}}\func{}{\floor{\frac{n}{p}}}!
 			\end{align*}
-		Now write $(\lfloor \frac np\rfloor)!$ in the same way and continue this process. The result is concluded.
+		Now write $\func{}{\floor{\frac np}}!$ in the same way and continue this process. The result is concluded.
 	\end{proof}
 
 	\begin{note}
@@ -102,10 +102,10 @@ We are ready to prove the following theorem.
 				n&=k_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0\\
 				r&=r_kp^k+r_{k-1}p^{k-1}+\cdots +r_1p+r_0
 			\end{align*}
-		Also, let $\ell = v_p\left(\binom{m}{n}\right)$. Then
+		Also, let $\ell = v_{p}\func{}{\binom{m}{n}}$. Then
 			\begin{align*}
 				\frac1{p^\ell}\binom{m}{n}\equiv (-1)^\ell
-				\left(\frac{m_0!}{n_0!r_0!}\right) \left(\frac{m_1!}{n_1!r_1!}\right) \dots \left(\frac{m_d!}{n_d!r_d!}\right) \pmod p
+				\func{}{\frac{m_0!}{n_0!r_0!}}\cdots \func{}{\frac{m_d!}{n_d!r_d!}}\pmod p
 			\end{align*}
 	\end{theorem}
 
@@ -113,16 +113,18 @@ We are ready to prove the following theorem.
 		Note that
 			\begin{align*}
 				\ell
-					&= v_p\left(\binom{m}{n}\right) = v_p\left(\frac{m!}{n!r!}\right) = v_p(n!)-v_p(n!)-v_p(r!)\\
-					&=\sum_{i=1}^{k}\left\lfloor\dfrac{m}{p^i}\right\rfloor - \sum_{i=1}^{k}\left\lfloor\dfrac{n}{p^i}\right\rfloor -\sum_{i=1}^{k}\left\lfloor\dfrac{r}{p^i}\right\rfloor\\
-					&=\sum_{i=1}^{k}\left(\left\lfloor\dfrac{m}{p^i}\right\rfloor - \left\lfloor\dfrac{n}{p^i}\right\rfloor - \left\lfloor\dfrac{r}{p^i}\right\rfloor \right)
+					&= v_{p}\func{}{\binom{m}{n}}\\
+					& = v_{p}\func{}{\frac{m!}{n!r!}}\\
+					& = v_p(n!)-v_p(n!)-v_p(r!)\\
+					& =\sum_{i=1}^{k}\floor{\dfrac{m}{p^i}}- \sum_{i=1}^{k}\floor{\dfrac{n}{p^i}}-\sum_{i=1}^{k}\floor{\dfrac{r}{p^i}}\\
+					&=\sum_{i=1}^{k}\func{}{\floor{\dfrac{m}{p^i}}- \floor{\dfrac{n}{p^i}}- \floor{\dfrac{r}{p^i}}}
 			\end{align*}
-		Just like the proof of theorem \eqref{thm:wilsongeneral}, we can write
+		Just like the proof of \autoref{thm:wilsongeneral}, we can write
 			\begin{align*}
 				\binom {m}{n}
 					& =\frac{(m!)_p}{(n!)_p (r!)_p}\cdot
-				\frac{p^{\lfloor m/p\rfloor}}{p^{\lfloor n/p\rfloor} \cdot p^{\lfloor r/p\rfloor}}\cdot
-				\frac{\left\lfloor\dfrac{m}{p}\right\rfloor!}{\left\lfloor\dfrac{n}{p}\right\rfloor! \cdot \left\lfloor\dfrac{r}{p}\right\rfloor!}
+				\frac{p^{\floor{m/p}}}{p^{\floor{n/p}} \cdot p^{\floor{r/p}}}\cdot
+				\frac{\floor{\dfrac{m}{p}}!}{\floor{\dfrac{n}{p}}! \cdot \floor{\dfrac{r}{p}}!}
 			\end{align*}
 		Use induction and generalization of Wilson's theorem to finish the proof.
 	\end{proof}

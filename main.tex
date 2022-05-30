@@ -93,23 +93,16 @@
 	\defaultfontfeatures{Mapping=tex-text,Ligatures=Tex}
 \else
 	\usepackage{pdfrender, xcolor}
-	\usepackage[LGR,T1]{fontenc}
-	\usepackage{TheanoModern}
+	%\usepackage[T1]{fontenc}
+	%\usepackage{TheanoModern}
 	%\usepackage[baskerville]{newtxmath}
-	\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
-	\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
+	%\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.1pt}
+	%\makeatletter\let\normalrender\PdfRender@NormalColorHook\let\PdfRender@NormalColorHook\@empty\newcommand*{\textnormalrender}[1]{\begingroup\normalrender#1\endgroup}\makeatother
 \fi
 
 \setcounter{tocdepth}{1}
 \addtolength{\cftchapnumwidth}{10pt}
 \addtolength{\cftsecnumwidth}{10pt}
-
-%\renewcommand{\contentsname}{\centering\bfseries\scshape Contents}
-%\usepackage{tocloft}
-%\renewcommand{\cftsecfont}{\normalsize\normalfont\scshape}
-%\renewcommand{\cftchapfont}{\normalsize\normalfont\scshape\bfseries}
-%\renewcommand{\cftsubsecfont}{\normalsize\normalfont\scshape}
-%\renewcommand{\cftpartfont}{\normalsize\normalfont\scshape\bfseries}
 
 \usepackage[toc,nopostdot,]{glossaries}
 \usepackage{makeidx}
@@ -189,10 +182,11 @@
 \renewcommand*{\sectionautorefname}{Section}
 \renewcommand*{\subsectionautorefname}{Subsection}
 
-\newcommand{\problemautorefname}{Problem}
-\newcommand{\propositionautorefname}{Proposition}
-\newcommand{\identityautorefname}{Identity}
-\newcommand{\lemmaautorefname}{Lemma}
+%\newcommand{\problemautorefname}{Problem}
+%\newcommand{\propositionautorefname}{Proposition}
+%\newcommand{\definitionautorefname}{Definition}
+%\newcommand{\identityautorefname}{Identity}
+%\newcommand{\lemmaautorefname}{Lemma}
 
 \title{\bf\Huge TOPICS IN NUMBER THEORY\\ {\vspace*{.3in}\it\LARGE An Olympiad--Oriented Approach}\\\vspace*{.3in}{\Large Second Edition\\\vspace*{.1in}\rule{\textwidth}{0.8pt}}}
 \author{
