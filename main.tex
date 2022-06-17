@@ -215,16 +215,47 @@
 }
 \date{}
 
+\usepackage{graphicx}
+\usepackage{eso-pic}
+
 \addbibresource{ref.bib}
 \subfile{glossary.tex}
 
 \begin{document}
-\pagestyle{empty}
+%\pagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
-	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\pdfpagewidth,height=\pdfpageheight]{TNT_Cover/FrontCover.jpg}};
+	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}};
 \end{tikzpicture}
-\maketitle
+%\includegraphics[width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}
+\AddToShipoutPictureBG{\includegraphics[width=\paperwidth,height=\paperheight]{background}}
 \pagestyle{empty}
+\begin{titlepage}
+	\centering
+	\vspace*{2\baselineskip}
+	{\ifxetex\fontsize{25}{10}\titlefont\fi TOPICS IN NUMBER THEORY}\\[2\baselineskip]
+	\ifxetex
+	%	\scalebox{8}[1]{{\wb{10}{12}4}}
+	%\\[2\baselineskip]
+	\fi
+	{\Large\itshape An Olympiad-Oriented Approach}\\[\baselineskip]
+	{BY}\\[\baselineskip]
+	{\ifxetex\fontsize{20}{10}\hspace{.5em}\titlefont\fi MASUM\hspace{.5em}BILLAL\hspace{2em}AMIR PARVARDI}\\[\baselineskip]
+	\ifxetex
+	%	{\wb{10}{12}4}\\[2\baselineskip]
+	\fi
+	\vspace{.5in}
+	{\Large Second Edition}\par
+	%{\Large A N OTHER}\par
+	\vfill
+	\ifxetex
+	%	\scalebox{8}[1]{{\wb{10}{12}4}}
+	%\\[\baselineskip]
+	\fi
+	\vfill
+	%{\textit{Second Edition}}
+	%{\includegraphics[scale=.5]{logo.png}}\par
+\end{titlepage}
+%\pagestyle{empty}
 
 \begin{dedication}
 	\begin{center}
@@ -246,8 +277,6 @@ It is possible there are some \LaTeX\ issues in the new edition. If anyone finds
 	Amir Parvardi\\
 	August, $2021$
 \end{flushright}
-\section*{Links, Contact}
-
 
 \newpage
 \section*{Preface from first edition}
