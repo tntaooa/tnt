@@ -71,7 +71,7 @@
 %\setmathfont{OldStandard-Italic.otf}[range={it/{Greek,greek},},FakeBold=\fakemathbold]
 %\setmathfont{ModernMT-ExtendedItalic-New.otf}[range={"003D},Scale=\scale,FakeStretch=1.2]
 %\setmathfont{CenturymodernTT-regular.otf}[range={up/{greek,Greek},it/{greek,Greek},},FakeBold=\fakemathbold,Scale=\scale,FakeStretch=\fakestretch]
-%\setmathfont{CenturymodernTT-Italic.ttf}[range={"221E,"002F,"00B1,"0021,},Scale=\scale,FakeBold=\fakemathbold,FakeStretch=\fakestretch]%,{it/{greek}},{up/{greek}},
+\setmathfont{CenturymodernTT-Italic.ttf}[range={"221E,"002F,"00B1,"0021,},Scale=\scale,FakeBold=\fakemathbold,FakeStretch=\fakestretch]%,{it/{greek}},{up/{greek}},
 \setmathfont{IMFELLDoublePicaRomanSC.otf}[range={"007B-"007D,"0028-"0029,"002F,"005B-"005D,"00A7,\mid,},FakeBold=0]
 \setmathfont{IMFellEnglish-Regular.ttf}[range={"007B,"007D,},]
 \newfontfamily{\sumfont}{CenturymodernTT-Italic.otf}[]% GFSSolomos.otf,lmroman17-regular.otf,lmromanslant17-regular.otf,Theano Didot Regular V1.otf
@@ -204,11 +204,11 @@
 \titleformat{\section}[display]{\LARGE}{}{1ex}{\centering\ifthenelse{\value{section}>0}{\thesection\;}{}\vspace{.2in}}[]
 %\titleformat{\subsection}[display]{\bfseries\scshape\Large}{}{1ex}{\centering\ifthenelse{\value{section}>0}{$\S\S$\thesubsection\;}{}}[\titlerule]
 
-%\newtheorem{theorem}{\textbf{\textbf{Theorem}}}
+\newtheorem{theorem}{\textbf{\textbf{Theorem}}}
 %\numberwithin{theorem}{chapter}
 %\renewcommand{\thetheorem}{\arabic{theorem}}
-%\theoremstyle{definition}
-%\newenvironment{definition}[1][]{\par\medskip\noindent \textit{\textbf{{\ifthenelse{\isempty{#1}}{Definition.}{#1.}}}} \rmfamily}{\medskip}
+\theoremstyle{definition}
+\newenvironment{definition}[1][]{\par\medskip\noindent \textit{\textbf{{\ifthenelse{\isempty{#1}}{Definition.}{#1.}}}} \rmfamily}{\medskip}
 
 \usepackage{scalerel}
 \newcommand{\floor}[1]{\ifxetex{\squarebracket{#1}}\else{\left\lfloor{#1}\right\rfloor}\fi}
@@ -216,10 +216,10 @@
 \ifxetex\renewcommand{\binom}[2]{\scaleleftright[.8ex]{(}{\genfrac{}{}{0pt}{0}{#1}{#2}}{)}}\fi
 \newcommand{\parenthesis}[1]{\ifxetex{\scaleleftright[.8ex]{(}{#1}{)}}\else{\left(#1\right)}\fi}
 \newcommand{\curlybrace}[1]{\ifxetex{\scaleleftright[1.2ex]{\{}{#1}{\}}}\else{\left\{#1\right\}}\fi}
-\newcommand{\squarebracket}[1]{\ifxetex{\scaleleftright[.8ex]{[}{#1}{]}}\else{\left[#1\right]}\fi}
+\newcommand{\squarebracket}[1]{\ifxetex{\scaleleftright[1.2ex]{\kern 4pt[}{#1}{]\kern 4pt}}\else{\left[#1\right]}\fi}
 \newcommand{\qr}[2]{\parenthesis{\frac{#1}{#2}}}
 \newcommand{\bigo}[1]{O\parenthesis{#1}}
-\newcommand{\func}[2]{#1\parenthesis{#2}}
+\newcommand{\func}[2]{\kern3pt#1\parenthesis{#2}}
 \DeclareMathOperator{\ord}{ord}
 \newcommand{\F}[1]{\mathbb{F}_{#1}}
 \DeclareMathOperator{\rad}{rad}
@@ -253,12 +253,12 @@
 
 \setcounter{secnumdepth}{3}
 
-%\theoremstyle{definition}
-%\newtheorem{problem}{\text{Problem}}
-%\newcommand*{\problemautorefname}{Problem}
-%\newtheorem*{remark}{\text{Remark}}
-%\newtheorem*{note}{\text{Note}}
-%\newtheorem*{solution}{\text{Solution}}
+\theoremstyle{definition}
+\newtheorem{problem}{\text{Problem}}
+\newcommand*{\problemautorefname}{Problem}
+\newtheorem*{remark}{\text{Remark}}
+\newtheorem*{note}{\text{Note}}
+\newtheorem*{solution}{\text{Solution}}
 %\numberwithin{problem}{chapter}
 
 \defbibfilter{books}{type=book or type=inbook}
