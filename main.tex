@@ -1,4 +1,4 @@
-\documentclass[leqno,14pt,DIV=calc]{scrbook}
+\documentclass[leqno,14pt,DIV=calc,toc=index]{scrbook}
 
 \usepackage{amsthm, amsmath,hyperref,amssymb}
 \usepackage{ifthen,xifthen}
@@ -19,9 +19,10 @@
 \usepackage{iftex}
 
 \ifPDFTeX
-	%\usepackage{stix}
+	%\usepackage{stix} %uncomment this line if not using mtpro2
 	\usepackage{newtxtext}
-	\usepackage[lite,subscriptcorrection,]{mtpro2}
+	\usepackage[lite,subscriptcorrection,]{mtpro2}%comment out this line if mtpro2 is not installed
+	%\usepackage{newtxmath}% alternatively, uncomment this line if not using mtpro2
 \else
 	\usepackage{unicode-math}
 	\usepackage[regular]{newcomputermodern}
@@ -57,21 +58,26 @@
 \title{Topics in Number Theory}
 \subtitle{An Olympiad Oriented Approach}
 \author{Masum Billal\and Amir Parvardi}
+\uppertitleback{\textcopyright Masum Billal, Amir Parvardi}
+\lowertitleback{\textcopyright Masum Billal, Amir Parvardi}
 \date{}
 
 \usepackage{graphicx}
 \usepackage{eso-pic}
 
 \usepackage{scrlayer-scrpage}
+\lohead{Masum Billal, Amir Parvardi}
+\rehead{Masum Billal, Amir Parvardi}
+
 
 \addbibresource{ref.bib}
 \input{glossary.tex}
 
 \begin{document}
 %\pagestyle{empty}
-%\begin{tikzpicture}[remember picture,overlay]
-%	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}};
-%\end{tikzpicture}
+\begin{tikzpicture}[remember picture,overlay]
+	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}};
+\end{tikzpicture}
 %\includegraphics[width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}
 %\AddToShipoutPictureBG{\includegraphics[width=\paperwidth,height=\paperheight]{background}}
 \frontmatter
@@ -163,9 +169,9 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 
 		\item We are thankful to \textit{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\H{}), used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
 	\end{enumerate}
-	\tableofcontents
 	\input{nomenclature.tex}
 	\printnomenclature
+	\tableofcontents
 	\mainmatter
 	\pagestyle{headings}
 	\include{divisibility.tex}
@@ -178,5 +184,6 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 	\backmatter
 	\pagestyle{empty}
 	\printglossaries
-	\printbibliography
+	\printbibliography[heading=bibintoc]
+	\printindex
 \end{document}
