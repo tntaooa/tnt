@@ -1,511 +1,504 @@
-\documentclass[main.tex]{subfile}
+Let $n$ be a fixed positive integer. There are many cases when we are interested in integers $a$ relatively prime to $n$ for which there exists another integer $x$ such that $a \equiv x^2 \pmod n$. As an example, assume that we want to solve the quadratic congruence relation
+\begin{align*}
+	ax^2 + bx + c \equiv 0 \pmod n
+\end{align*}
+for $x$. Multiply both sides of the above relation by $4a$ to obtain
+\begin{align*}
+	4a^2x^2+4abx+c \equiv 0 \pmod n
+\end{align*}
+Rewriting the left side of the last relation as $(2ax+b)^2 -b^2+c$, we have
+\begin{align*}
+	(2ax+b)^2 \equiv b^2-c \pmod n
+\end{align*}
+which is of the form $y^2 \equiv z \pmod n$. Therefore, solving any quadratic congruence relation is equivalent to solving $x^2 \equiv a \pmod n$ for some $a$. We call such an $a$ a \textbf{quadratic residue} modulo $n$. Quadratic residues play an important role in cryptography. They are even used in acoustical engineering.
 
-\begin{document}
-	Let $n$ be a fixed positive integer. There are many cases when we are interested in integers $a$ relatively prime to $n$ for which there exists another integer $x$ such that $a \equiv x^2 \pmod n$. As an example, assume that we want to solve the quadratic congruence relation
+In this section, we will discuss different aspects of quadratic residues in number theory.
+
+\begin{definition}[Quadratic Residue]
+	Let $m>1$ be a positive integer and let $a$ be an integer such that $(a,n)=1$. Then $a$ is a \textit{quadratic residue} of $n$ if there exists an integer $x$ such that
+	\[x^2\equiv a\pmod n\]
+	If there is no such $x$, then $a$ is a \textit{quadratic non-residue} of $n$.
+\end{definition}
+
+\begin{example}
+	$2$ is a quadratic residue modulo $7$ because $3^2 \equiv 2 \pmod 7$. However, $3$ is a non-residue modulo $7$. In fact, modulo $7$,
 	\begin{align*}
-		ax^2 + bx + c \equiv 0 \pmod n
+		1^2 \equiv 1, \quad 2^2 \equiv 4\\
+		3^2 \equiv 2, \quad 4^2 \equiv 2\\
+		5^2 \equiv 4, \quad 6^2 \equiv 1
 	\end{align*}
-	for $x$. Multiply both sides of the above relation by $4a$ to obtain
+	This means that the only quadratic residues modulo $7$ are $1, 2$, and $4$.
+\end{example}
+
+\begin{corollary}\label{cor:qrequiv}
+	If $a \equiv b \pmod n$, then $a$ is a quadratic residue (non-residue) modulo $n$, then so is $b$.
+\end{corollary}
+
+\begin{note}
+	Whenever we say that an integer $a$ is a quadratic residue (non-residue) modulo $n$, it is clear that $a+kn$ is also a quadratic residue(non-residue) modulo $n$. Therefore, in order to find which numbers are quadratic residues modulo $n$, we only need to check the numbers $1, 2, \ldots, n-1$. Obviously, $a=0$ is a quadratic residue modulo any $n$, and we omit this case in our calculations.
+\end{note}
+
+\begin{theorem}\label{thm:primeresidue}
+	Let $p$ be an odd prime number. There are exactly $\displaystyle \frac{p-1}{2}$ quadratic residues modulo $p$ (excluding zero). Furthermore, the residues come from the numbers $1^2, 2^2, \ldots, \parenthesis{\frac{p-1}{2}}^2$.
+\end{theorem}
+
+\begin{proof}
+	Clearly, the quadratic residues modulo $p$ are
 	\begin{align*}
-		4a^2x^2+4abx+c \equiv 0 \pmod n
+		1^2, 2^2, \ldots, (p-1)^2 \pmod p
 	\end{align*}
-	Rewriting the left side of the last relation as $(2ax+b)^2 -b^2+c$, we have
+	Note that $x^2 \equiv (p-x)^2 \pmod p$ for $x=1,2,\ldots,p-1$. So we only need to go halfway, i.e., we should only consider the numbers
 	\begin{align*}
-		(2ax+b)^2 \equiv b^2-c \pmod n
+		1^2, 2^2, \ldots, \parenthesis{\frac{p-1}{2}}^2 \pmod p
 	\end{align*}
-	which is of the form $y^2 \equiv z \pmod n$. Therefore, solving any quadratic congruence relation is equivalent to solving $x^2 \equiv a \pmod n$ for some $a$. We call such an $a$ a \textbf{quadratic residue} modulo $n$. Quadratic residues play an important role in cryptography. They are even used in acoustical engineering.
+	These numbers are distinct modulo $p$, because otherwise if $x^2 \equiv y^2 \pmod p$ for some $x,y \in \{1,2,\ldots,\frac{p-1}{2}\}$, then
+	\begin{align*}
+		p\mid x^2 -y^2\\
+		\implies p\mid (x-y)(x+y)
+	\end{align*}
+	But note that $x+y< \frac{p-1}{2}+\frac{p-1}{2}=p-1$, and so $p \nmid x+y$, which means $p\mid x-y$. Finally, since $x$ and $y$ are less than $p$, we should have $x=y$.
+	So we have proved that there are exactly $(p-1)/2$ quadratic residues and they are
+	\begin{align*}
+		1^2, 2^2, \ldots, \parenthesis{\frac{p-1}{2}}^2
+	\end{align*}
+\end{proof}
 
-	In this section, we will discuss different aspects of quadratic residues in number theory.
+\begin{theorem}\label{thm:qrnr}
+	Let $p$ be an odd prime. Then,
+	\begin{enumerate}[(i)]
+		\item the product of two quadratic residues is also a quadratic residue,
+		\item the product of two quadratic non-residues is also a quadratic residue, and
+		\item the product of a quadratic residue and a quadratic non-residue is a quadratic non-residue.
+	\end{enumerate}
+\end{theorem}
 
-	\begin{definition}[Quadratic Residue]
-		Let $m>1$ be a positive integer and let $a$ be an integer such that $(a,n)=1$. Then $a$ is a \textit{quadratic residue} of $n$ if there exists an integer $x$ such that
-		\[x^2\equiv a\pmod n\]
-		If there is no such $x$, then $a$ is a \textit{quadratic non-residue} of $n$.
-	\end{definition}
+\begin{proof}
+	The first one is obvious. If $a \equiv x^2 \pmod p$ and $b\equiv y^2 \pmod p$, then $ab \equiv (xy)^2 \pmod p$.
+	Let's prove $(iii)$ now. Assume that $a \equiv x^2$ is a residue and $b$ is a non-residue modulo $p$ and suppose to the contrary that $ab$ is a residue and $ab \equiv y^2 \pmod p$. Then
+	\begin{align*}
+		ab
+			& \equiv x^2b\\
+			& \equiv y^2 \pmod p
+	\end{align*}
+	Note that since $(x^2,p)=(a,p)=1$, the multiplicative inverse of $x^2$ exists. Therefore
+	\begin{align*}
+		b
+			& \equiv (x^2)^{-1} \cdot y^2\\
+			& \equiv (x^{-1})^2 \cdot y^2\\
+			& \equiv (x^{-1} \cdot y)^2 \pmod p
+	\end{align*}
+	which contradicts the assumption that $b$ is a non-residue. So $ab$ is a non-residue.
+	In order to prove $(ii)$, we use the fact that if $a$ is an integer relatively prime to $p$, then
+	\begin{align*}
+		\{a,2a,\ldots,(p-1)a\} = \{ 1,2,\ldots,p-1\}
+	\end{align*}
+	(The proof is easy, try it yourself). From \autoref{thm:primeresidue}, we see that there are exactly   $(p-1)/2$ quadratic residues among $\{a,2a,\ldots,(p-1)a\}$. Assume that $a$ is a fixed quadratic non-residue modulo $p$. From the proof of $(iii)$, we can say that whenever $a$ is multiplied by one of $\displaystyle \frac{p-1}{2}$ quadratic residues of the set $\{ 1,2,\ldots,p-1\}$, the result is a non-residue. Therefore, each non-residue element of $\{a,2a,\ldots,(p-1)a\}$ is multiplication of $a$ by a residue in the same set. This means that the multiplication of $a$ by any non-residue element of the set $\{a,2a,\ldots,(p-1)a\}$ is a residue, and we are done.
+\end{proof}
 
-	\begin{example}
-		$2$ is a quadratic residue modulo $7$ because $3^2 \equiv 2 \pmod 7$. However, $3$ is a non-residue modulo $7$. In fact, modulo $7$,
-		\begin{align*}
-			1^2 \equiv 1, \quad 2^2 \equiv 4\\
-			3^2 \equiv 2, \quad 4^2 \equiv 2\\
-			5^2 \equiv 4, \quad 6^2 \equiv 1
-		\end{align*}
-		This means that the only quadratic residues modulo $7$ are $1, 2$, and $4$.
-	\end{example}
+\autoref{thm:qrnr} gives us a nice result. Quadratic residues and quadratic non-residues act just like $1$ and $-1$. How? Notice that $1 \times 1 =1, (-1) \times 1 =-1,$ and $(-1) \times (-1)=1$, and this guides us to a point that quadratic residues behave like $1$, and quadratic non-residues behave like $-1$. %Euler noticed this behavior and found a criterion to see whether a number is residue or non-residue. We will explain Euler's criterion
+We can represent this result using Legendre's notation.
 
-	\begin{corollary}\label{cor:qrequiv}
-		If $a \equiv b \pmod n$, then $a$ is a quadratic residue (non-residue) modulo $n$, then so is $b$.
-	\end{corollary}
-
-	\begin{note}
-		Whenever we say that an integer $a$ is a quadratic residue (non-residue) modulo $n$, it is clear that $a+kn$ is also a quadratic residue(non-residue) modulo $n$. Therefore, in order to find which numbers are quadratic residues modulo $n$, we only need to check the numbers $1, 2, \ldots, n-1$. Obviously, $a=0$ is a quadratic residue modulo any $n$, and we omit this case in our calculations.
-	\end{note}
-
-	\begin{theorem}\label{thm:primeresidue}
-		Let $p$ be an odd prime number. There are exactly $\displaystyle \frac{p-1}{2}$ quadratic residues modulo $p$ (excluding zero). Furthermore, the residues come from the numbers $1^2, 2^2, \ldots, \parenthesis{\frac{p-1}{2}}^2$.
-	\end{theorem}
-
-	\begin{proof}
-		Clearly, the quadratic residues modulo $p$ are
-		\begin{align*}
-			1^2, 2^2, \ldots, (p-1)^2 \pmod p
-		\end{align*}
-		Note that $x^2 \equiv (p-x)^2 \pmod p$ for $x=1,2,\ldots,p-1$. So we only need to go halfway, i.e., we should only consider the numbers
-		\begin{align*}
-			1^2, 2^2, \ldots, \parenthesis{\frac{p-1}{2}}^2 \pmod p
-		\end{align*}
-		These numbers are distinct modulo $p$, because otherwise if $x^2 \equiv y^2 \pmod p$ for some $x,y \in \{1,2,\ldots,\frac{p-1}{2}\}$, then
-		\begin{align*}
-			p\mid x^2 -y^2\\
-			\implies p\mid (x-y)(x+y)
-		\end{align*}
-		But note that $x+y< \frac{p-1}{2}+\frac{p-1}{2}=p-1$, and so $p \nmid x+y$, which means $p\mid x-y$. Finally, since $x$ and $y$ are less than $p$, we should have $x=y$.
-		So we have proved that there are exactly $(p-1)/2$ quadratic residues and they are
-		\begin{align*}
-			1^2, 2^2, \ldots, \parenthesis{\frac{p-1}{2}}^2
-		\end{align*}
-	\end{proof}
-
-	\begin{theorem}\label{thm:qrnr}
-		Let $p$ be an odd prime. Then,
-		\begin{enumerate}[(i)]
-			\item the product of two quadratic residues is also a quadratic residue,
-			\item the product of two quadratic non-residues is also a quadratic residue, and
-			\item the product of a quadratic residue and a quadratic non-residue is a quadratic non-residue.
-		\end{enumerate}
-	\end{theorem}
-
-	\begin{proof}
-		The first one is obvious. If $a \equiv x^2 \pmod p$ and $b\equiv y^2 \pmod p$, then $ab \equiv (xy)^2 \pmod p$.
-		Let's prove $(iii)$ now. Assume that $a \equiv x^2$ is a residue and $b$ is a non-residue modulo $p$ and suppose to the contrary that $ab$ is a residue and $ab \equiv y^2 \pmod p$. Then
-		\begin{align*}
-			ab
-				& \equiv x^2b\\
-				& \equiv y^2 \pmod p
-		\end{align*}
-		Note that since $(x^2,p)=(a,p)=1$, the multiplicative inverse of $x^2$ exists. Therefore
-		\begin{align*}
-			b
-				& \equiv (x^2)^{-1} \cdot y^2\\
-				& \equiv (x^{-1})^2 \cdot y^2\\
-				& \equiv (x^{-1} \cdot y)^2 \pmod p
-		\end{align*}
-		which contradicts the assumption that $b$ is a non-residue. So $ab$ is a non-residue.
-		In order to prove $(ii)$, we use the fact that if $a$ is an integer relatively prime to $p$, then
-		\begin{align*}
-			\{a,2a,\ldots,(p-1)a\} = \{ 1,2,\ldots,p-1\}
-		\end{align*}
-		(The proof is easy, try it yourself). From \autoref{thm:primeresidue}, we see that there are exactly   $(p-1)/2$ quadratic residues among $\{a,2a,\ldots,(p-1)a\}$. Assume that $a$ is a fixed quadratic non-residue modulo $p$. From the proof of $(iii)$, we can say that whenever $a$ is multiplied by one of $\displaystyle \frac{p-1}{2}$ quadratic residues of the set $\{ 1,2,\ldots,p-1\}$, the result is a non-residue. Therefore, each non-residue element of $\{a,2a,\ldots,(p-1)a\}$ is multiplication of $a$ by a residue in the same set. This means that the multiplication of $a$ by any non-residue element of the set $\{a,2a,\ldots,(p-1)a\}$ is a residue, and we are done.
-	\end{proof}
-
-	\autoref{thm:qrnr} gives us a nice result. Quadratic residues and quadratic non-residues act just like $1$ and $-1$. How? Notice that $1 \times 1 =1, (-1) \times 1 =-1,$ and $(-1) \times (-1)=1$, and this guides us to a point that quadratic residues behave like $1$, and quadratic non-residues behave like $-1$. %Euler noticed this behavior and found a criterion to see whether a number is residue or non-residue. We will explain Euler's criterion
-	We can represent this result using Legendre's notation.
-
-	\begin{definition}[Legendre Symbol]
-		We call $\parenthesis{\frac{a}{p}}$ the {\it Legendre symbol} for a prime $p$. It is defined by:
-		\begin{align*}
-			\parenthesis{\dfrac{a}{p}}
-			& =
-			\begin{cases}
-				0 & \mbox{if }p\mid a\\
-				1 &\mbox{if }a\mbox{ is a quadratic residue of }p\\
-				-1 &\mbox{otherwise}
-			\end{cases}
-		\end{align*}
-
-	\end{definition}
-
-	Using this notation, \autoref{thm:qrnr} becomes
-	\begin{theorem}\label{thm:qrproduct}
-		Let $p$ be an odd prime and let $a,b$ be two integers. Then
-		\begin{align*}
-			\parenthesis{\dfrac{ab}{p}} = \parenthesis{\dfrac{a}{p}} \parenthesis{\dfrac{b}{p}}
-		\end{align*}
-	\end{theorem}
-
-	\begin{remark}
-		Clearly, the same relation holds for the product of any $n$ integers, that is,
-		\begin{align*}
-			\parenthesis{\dfrac{a_1a_2\cdots a_n}{p}}
-				& = \parenthesis{\dfrac{a_1}{p}} \cdots \parenthesis{\dfrac{a_n}{p}}
-		\end{align*}
-	\end{remark}
-
-	\begin{example}
-		Theorem \eqref{thm:qrproduct} is helpful specially when dealing with big numbers. For instance, let's see if $18$ is a quadratic residue modulo $73$. According to the theorem,
-		\begin{align*}
-			\parenthesis{\dfrac{18}{73}} = \parenthesis{\dfrac{3}{73}} \parenthesis{\dfrac{3}{73}} \parenthesis{\dfrac{2}{73}}
-		\end{align*}
-		Note that we don't need to calculate $ \parenthesis{\frac{3}{73}}$ because whatever it is ($-1$ or $1$), it has appeared twice and $1^2=(-1)^2=1$. So
-		\begin{align*}
-			\parenthesis{\dfrac{18}{73}} = \parenthesis{\dfrac{2}{73}}
-		\end{align*}
-		Now, how can we find $ \parenthesis{\frac{2}{73}}$? It would be a pain to check all the values $1,2,\ldots, \frac{73-1}{2}$ to see if square of any of them is equal to $2$ modulo $73$. There are two ways to trick this. One is to use the general formula for $\parenthesis{\frac{2}{p}}$ which will be discussed next. The second (and better) idea is to \textit{construct} the solution. Assume that you have a prime $p$ and an integer $a$ relatively prime to $p$. We know from Corollary \ref{cor:qrequiv} that if $a$ is a residue (non-residue), then $a+kp$ is also a residue (non-residue). So we will add multiples of $p$ to $a$ and check if we have reached a perfect square. If yes, then $a$ is a residue. Otherwise, we factorize the new number into perfect squares times some other number $b$. Continue this process until you reach either a non-residue $b$ (which means $a$ was a non-residue) or a perfect square factorization (which means $a$ was a residue). This whole process might seem a little confusing to you, but applying it to our case ($a=2, p=73$) will make it clear:
-		\begin{align*}
-			2 &\equiv 75 \equiv 148\equiv 2^2 \cdot 37\\
-			& \equiv 2^2\cdot (37+73) \equiv 2^2 \cdot 110\\
-			&\equiv 2^2\cdot (110+73) \equiv 2^2 \cdot 183\\
-			&\equiv 2^2\cdot (183+73) \equiv 2^2 \cdot 256\\
-			&\equiv 2^2 \cdot 16^2\\
-			&\equiv 32^2
-		\end{align*}
-		So $2$ is a quadratic residue modulo $73$ and finally
-		\begin{align*}
-			\parenthesis{\dfrac{18}{73}} = \parenthesis{\dfrac{2}{73}}
-				& =1
-		\end{align*}
-	\end{example}
-	\subsection{Euler's Criterion}
-	In the last example of previous section, we provided a method for computing $ \left(\frac{a}{p}\right)$. However, this method only works when $p$ and $a$ are small enough to make the calculations. Fortunately, Euler developed a criteria  to find out whether an integer is a quadratic residue or a quadratic non-residue. After we explain and prove Euler's criterion, we will explore some special cases, e.g., we will find the value of $ \left(\frac{2}{p}\right)$ and $ \left(\frac{-1}{p}\right)$ for all primes $p$.
-
-	\begin{theorem}[Euler's Criterion]
-		\label{thm:eulerscriterion}
-		Let $p$ be an odd prime and let $a$ be an integer relatively prime to $p$. Then
-		\begin{align*}
-			a^{\frac{p-1}{2}} \equiv \parenthesis{\dfrac{a}{p}} \pmod p
-		\end{align*}
-	\end{theorem}
-
-	\begin{proof}
-		First notice that from Fermat's theorem, $a^{p-1} \equiv 1 \pmod p$. Since $p-1$ is even, we can write this as
-		\begin{align*}
-			a^{p-1} - 1
-				& = \parenthesis{a^{\frac{p-1}{2}} - 1}\parenthesis{a^{\frac{p-1}{2}} + 1}\\
-				& \equiv 0 \pmod p
-		\end{align*}
-		So either $a^{\frac{p-1}{2}} \equiv 1$ or $a^{\frac{p-1}{2}} \equiv -1 \pmod p$.
-		Assume that $a$ is a quadratic residue modulo $p$. That is, $ \left(\frac{a}{p}\right)=1$. We should prove that $a^{\frac{p-1}{2}} \equiv 1$. Since $a$ is a residue, there exists some integer $x$ for which $a \equiv x^2 \pmod p$. So, from Fermat's theorem,
-		\begin{align*}
-			a^{\frac{p-1}{2}} \equiv x^{p-1} \equiv 1 \pmod p
-		\end{align*}
-		Now assume the case where $a$ is a quadratic non-residue modulo $p$. Then we should prove that $a^{\frac{p-1}{2}} \equiv -1$. We will use an interesting approach here. Let $b \in \{1,2,\ldots,p-1\}$. Since $(b,p)=1$, the congruence equation $bx \equiv a$ has a unique solution $x \equiv a \cdot b^{-1} \pmod p$. Also, $x \not \equiv b \pmod p$ because otherwise $b^2 \equiv a \pmod p$ which is in contradiction with $a$ being a non-residue. This means that the set $\{1,2,\ldots,p-1\}$ can be divided into $\frac{p-1}{2}$ pairs $(b,x)$ such that $bx \equiv a \pmod p$. So
-		\begin{align*}
-			(p-1)!
-				& = 1 \times 2 \times \cdots \times (p-1)\\
-				& \equiv \underbrace{a \times a \times \cdots \times a}_{\frac{p-1}{2}\text{ times}}\\
-				& \equiv a^{\frac{p-1}{2}} \pmod p
-		\end{align*}
-		By Wilson's theorem, $(p-1)! \equiv -1 \pmod p$ and therefore $a^{\frac{p-1}{2}} \equiv -1 \pmod p$, as desired. The proof is complete.
-	\end{proof}
-Let's find $\left(\frac{a}{p}\right)$ for some small values of $a$.
-	\begin{problem}
-		What is $\parenthesis{\frac{-1}{p}}$ for a prime $p$?
-	\end{problem}
-
-	\begin{solution}
-		This is a simple case. By Euler's criterion, we get
-		\begin{align*}
-			(-1)^{\frac{p-1}{2}} \equiv \parenthesis{\dfrac{-1}{p}} \pmod p
-		\end{align*}
-		If $p \equiv 1 \pmod 4$, that is, if $p=4k+1$, then $\frac{p-1}{2}$ is even and so $(-1)^{\frac{p-1}{2}} =1$. On the other side, we know that $\left(\frac{-1}{p}\right)$ is either $1$ or $-1$. So in this case it must equal one. This means that
-		\begin{align*}
-			p
-				& \equiv 1 \pmod 4\\
-			\iff \parenthesis{\dfrac{-1}{p}}
-				& =1
-		\end{align*}
-		Note that the \textit{only if} part of the above statement is true because if $(-1)^{\frac{p-1}{2}}=1$, then $\frac{p-1}{2} = 2k$ for some integer $k$. So $p=4k+1$, or $p \equiv 1 \pmod 4$. You can easily check that the following statement is also true
-		\begin{align*}
-			p
-				& \equiv 3 \pmod 4\\
-			\iff \parenthesis{\dfrac{-1}{p}}
-				& =-1
-		\end{align*}
-		Each prime has either the form $p \equiv 1 \pmod 4$ or $p \equiv 3 \pmod 4$, so these primes together make all primes. All in all,
-	\end{solution}
-
-	\begin{theorem}\label{thm:-1qr} For all primes $p$,
-		\begin{align*}
-		\parenthesis{\dfrac{-1}{p}}
+\begin{definition}[Legendre Symbol]
+	We call $\parenthesis{\frac{a}{p}}$ the \textit{Legendre symbol} for a prime $p$. It is defined by:
+	\begin{align*}
+		\parenthesis{\dfrac{a}{p}}
 		& =
 		\begin{cases}
-		1,&\mbox{ if } p \equiv 1 \pmod 4\text{ or }p=2\\
-		-1, &\mbox{ if } p \equiv 3 \pmod 4
+			0 & \mbox{if }p\mid a\\
+			1 &\mbox{if }a\mbox{ is a quadratic residue of }p\\
+			-1 &\mbox{otherwise}
+		\end{cases}
+	\end{align*}
+
+\end{definition}
+
+Using this notation, \autoref{thm:qrnr} becomes
+\begin{theorem}\label{thm:qrproduct}
+	Let $p$ be an odd prime and let $a,b$ be two integers. Then
+	\begin{align*}
+		\parenthesis{\dfrac{ab}{p}} = \parenthesis{\dfrac{a}{p}} \parenthesis{\dfrac{b}{p}}
+	\end{align*}
+\end{theorem}
+
+\begin{remark}
+	Clearly, the same relation holds for the product of any $n$ integers, that is,
+	\begin{align*}
+		\parenthesis{\dfrac{a_1a_2\cdots a_n}{p}}
+			& = \parenthesis{\dfrac{a_1}{p}} \cdots \parenthesis{\dfrac{a_n}{p}}
+	\end{align*}
+\end{remark}
+
+\begin{example}
+	Theorem \eqref{thm:qrproduct} is helpful specially when dealing with big numbers. For instance, let's see if $18$ is a quadratic residue modulo $73$. According to the theorem,
+	\begin{align*}
+		\parenthesis{\dfrac{18}{73}} = \parenthesis{\dfrac{3}{73}} \parenthesis{\dfrac{3}{73}} \parenthesis{\dfrac{2}{73}}
+	\end{align*}
+	Note that we don't need to calculate $ \parenthesis{\frac{3}{73}}$ because whatever it is ($-1$ or $1$), it has appeared twice and $1^2=(-1)^2=1$. So
+	\begin{align*}
+		\parenthesis{\dfrac{18}{73}} = \parenthesis{\dfrac{2}{73}}
+	\end{align*}
+	Now, how can we find $ \parenthesis{\frac{2}{73}}$? It would be a pain to check all the values $1,2,\ldots, \frac{73-1}{2}$ to see if square of any of them is equal to $2$ modulo $73$. There are two ways to trick this. One is to use the general formula for $\parenthesis{\frac{2}{p}}$ which will be discussed next. The second (and better) idea is to \textit{construct} the solution. Assume that you have a prime $p$ and an integer $a$ relatively prime to $p$. We know from Corollary \ref{cor:qrequiv} that if $a$ is a residue (non-residue), then $a+kp$ is also a residue (non-residue). So we will add multiples of $p$ to $a$ and check if we have reached a perfect square. If yes, then $a$ is a residue. Otherwise, we factorize the new number into perfect squares times some other number $b$. Continue this process until you reach either a non-residue $b$ (which means $a$ was a non-residue) or a perfect square factorization (which means $a$ was a residue). This whole process might seem a little confusing to you, but applying it to our case ($a=2, p=73$) will make it clear:
+	\begin{align*}
+		2 &\equiv 75 \equiv 148\equiv 2^2 \cdot 37\\
+		& \equiv 2^2\cdot (37+73) \equiv 2^2 \cdot 110\\
+		&\equiv 2^2\cdot (110+73) \equiv 2^2 \cdot 183\\
+		&\equiv 2^2\cdot (183+73) \equiv 2^2 \cdot 256\\
+		&\equiv 2^2 \cdot 16^2\\
+		&\equiv 32^2
+	\end{align*}
+	So $2$ is a quadratic residue modulo $73$ and finally
+	\begin{align*}
+		\parenthesis{\dfrac{18}{73}} = \parenthesis{\dfrac{2}{73}}
+			& =1
+	\end{align*}
+\end{example}
+\subsection{Euler's Criterion}
+In the last example of previous section, we provided a method for computing $ \left(\frac{a}{p}\right)$. However, this method only works when $p$ and $a$ are small enough to make the calculations. Fortunately, Euler developed a criteria  to find out whether an integer is a quadratic residue or a quadratic non-residue. After we explain and prove Euler's criterion, we will explore some special cases, e.g., we will find the value of $ \left(\frac{2}{p}\right)$ and $ \left(\frac{-1}{p}\right)$ for all primes $p$.
+
+\begin{theorem}[Euler's Criterion]
+	\label{thm:eulerscriterion}
+	Let $p$ be an odd prime and let $a$ be an integer relatively prime to $p$. Then
+	\begin{align*}
+		a^{\frac{p-1}{2}} \equiv \parenthesis{\dfrac{a}{p}} \pmod p
+	\end{align*}
+\end{theorem}
+
+\begin{proof}
+	First notice that from Fermat's theorem, $a^{p-1} \equiv 1 \pmod p$. Since $p-1$ is even, we can write this as
+	\begin{align*}
+		a^{p-1} - 1
+			& = \parenthesis{a^{\frac{p-1}{2}} - 1}\parenthesis{a^{\frac{p-1}{2}} + 1}\\
+			& \equiv 0 \pmod p
+	\end{align*}
+	So either $a^{\frac{p-1}{2}} \equiv 1$ or $a^{\frac{p-1}{2}} \equiv -1 \pmod p$.
+	Assume that $a$ is a quadratic residue modulo $p$. That is, $ \left(\frac{a}{p}\right)=1$. We should prove that $a^{\frac{p-1}{2}} \equiv 1$. Since $a$ is a residue, there exists some integer $x$ for which $a \equiv x^2 \pmod p$. So, from Fermat's theorem,
+	\begin{align*}
+		a^{\frac{p-1}{2}} \equiv x^{p-1} \equiv 1 \pmod p
+	\end{align*}
+	Now assume the case where $a$ is a quadratic non-residue modulo $p$. Then we should prove that $a^{\frac{p-1}{2}} \equiv -1$. We will use an interesting approach here. Let $b \in \{1,2,\ldots,p-1\}$. Since $(b,p)=1$, the congruence equation $bx \equiv a$ has a unique solution $x \equiv a \cdot b^{-1} \pmod p$. Also, $x \not \equiv b \pmod p$ because otherwise $b^2 \equiv a \pmod p$ which is in contradiction with $a$ being a non-residue. This means that the set $\{1,2,\ldots,p-1\}$ can be divided into $\frac{p-1}{2}$ pairs $(b,x)$ such that $bx \equiv a \pmod p$. So
+	\begin{align*}
+		(p-1)!
+			& = 1 \times 2 \times \cdots \times (p-1)\\
+			& \equiv \underbrace{a \times a \times \cdots \times a}_{\frac{p-1}{2}\text{ times}}\\
+			& \equiv a^{\frac{p-1}{2}} \pmod p
+	\end{align*}
+	By Wilson's theorem, $(p-1)! \equiv -1 \pmod p$ and therefore $a^{\frac{p-1}{2}} \equiv -1 \pmod p$, as desired. The proof is complete.
+\end{proof}
+Let's find $\left(\frac{a}{p}\right)$ for some small values of $a$.
+\begin{problem}
+	What is $\parenthesis{\frac{-1}{p}}$ for a prime $p$?
+\end{problem}
+
+\begin{solution}
+	This is a simple case. By Euler's criterion, we get
+	\begin{align*}
+		(-1)^{\frac{p-1}{2}} \equiv \parenthesis{\dfrac{-1}{p}} \pmod p
+	\end{align*}
+	If $p \equiv 1 \pmod 4$, that is, if $p=4k+1$, then $\frac{p-1}{2}$ is even and so $(-1)^{\frac{p-1}{2}} =1$. On the other side, we know that $\left(\frac{-1}{p}\right)$ is either $1$ or $-1$. So in this case it must equal one. This means that
+	\begin{align*}
+		p
+			& \equiv 1 \pmod 4\\
+		\iff \parenthesis{\dfrac{-1}{p}}
+			& =1
+	\end{align*}
+	Note that the \textit{only if} part of the above statement is true because if $(-1)^{\frac{p-1}{2}}=1$, then $\frac{p-1}{2} = 2k$ for some integer $k$. So $p=4k+1$, or $p \equiv 1 \pmod 4$. You can easily check that the following statement is also true
+	\begin{align*}
+		p
+			& \equiv 3 \pmod 4\\
+		\iff \parenthesis{\dfrac{-1}{p}}
+			& =-1
+	\end{align*}
+	Each prime has either the form $p \equiv 1 \pmod 4$ or $p \equiv 3 \pmod 4$, so these primes together make all primes. All in all,
+\end{solution}
+
+\begin{theorem}\label{thm:-1qr} For all primes $p$,
+	\begin{align*}
+	\parenthesis{\dfrac{-1}{p}}
+	& =
+	\begin{cases}
+	1,&\mbox{ if } p \equiv 1 \pmod 4\text{ or }p=2\\
+	-1, &\mbox{ if } p \equiv 3 \pmod 4
+	\end{cases}
+	\end{align*}
+\end{theorem}
+This infers the following theorem and the next.
+\begin{theorem}
+	$-1$ is a quadratic residue of a prime $p$ if and only if $p\equiv1\pmod4$.
+\end{theorem}
+
+\begin{theorem} \label{thm:a^2+b^2}
+	Let $a$ and $b$ be relatively prime positive integers. Then every prime divisor of $a^2+b^2$ is either $2$ or of the form $4k+1$.
+\end{theorem}
+
+\begin{proof}
+	Let $p$ be a prime divisor of $a^2+b^2$. If $a$ and $b$ both are odd then $p$ can be $2$. Now assume $p$ is larger than $2$. Then
+		\begin{align*}
+			a^2
+				& \equiv-b^2 \pmod p\\
+			\implies \left(a^2\right)^{\frac{p-1}{2}}
+				& \equiv \left(-b^2\right)^{\frac{p-1}{2}}\pmod p
+		\end{align*}
+	If $p$ is of the form $4k+3$, then $\frac{p-1}{2}=2k+1$ is odd, hence,
+		\begin{align*}
+		\left(a^2\right)^{\frac{p-1}{2}}
+			& \equiv \left(-b^2\right)^{\frac{p-1}{2}}\pmod p\\
+		\implies a^{p-1}
+			& \equiv -b^{p-1} \pmod p
+		\end{align*}
+	Clearly, since $p\mid a^2+b^2$, if $p$ divides one of $a$ or $b$, it should divide the other one. But this is impossible because $a \bot b$. So $p \bot a$ and $p \bot b$. By Fermat's little theorem, $a^{p-1} \equiv b^{p-1} \equiv 1 \pmod p$, which is in contradiction with the above equation since $p$ is odd.
+	So, $p$ cannot be of the form $4k+3$ and therefore every odd prime divisor of $a^2+b^2$ is of the form $4k+1$.
+\end{proof}
+
+\begin{note}
+We could just say,
+		\begin{align*}
+			a^2
+				& \equiv-b^2\pmod p\\
+			\implies (ab^{-1})^2
+				& \equiv-1\pmod p
+		\end{align*}
+	which means that $-1$ is a quadratic residue of $p$, and therefore $p\equiv1\pmod4$.
+\end{note}
+We get the following corollary, which can directly solve an IMO problem.
+\begin{corollary}\label{cor:4n+1}
+	Let $k$ be a positive integer. Every divisor of $4k^2+1$ is of the form $4n+1$ for some integer $n$.
+\end{corollary}
+
+\begin{proof}
+	Thanks to the previous theorem, we know that all the prime divisors of $4k^2+1$ are of the form $4t+1$. Every divisor of $4k^2+1$ is a multiplication of its prime divisors. And if we multiply two numbers of the form $4t+1$, then the number is again of the same form (multiply $4x+1$ and $4y+1$ and see the result yourself). Hence, conclusion.
+\end{proof}
+
+\begin{problem}[Iran, Third Round Olympiad, 2007]
+	Can $4xy-x-y$ be a square for integers $x$ and $y$?
+\end{problem}
+
+\begin{solution}
+	Assume that $4xy-x-y=t^2$. We can rearrange it as $x(4y-1)  = t^2+y$, so
+		\begin{align*}
+			&4y-1  \mid t^2+y\\
+			\implies &4y-1  \mid 4t^2+4y\\
+			\implies &4y-1  \mid 4t^2+4y-(4y-1)\\
+			\implies &4y-1  \mid 4t^2+1
+		\end{align*}
+	Since $4y-1$ is of the form $4k+3$, it must have at least one prime factor of the form $4j+3$. Then we have a prime factor of $4t^2+1$ which is of this form, a contradiction. Thus, it can't be a square.
+\end{solution}
+Back to quadratic residues, the next step is to determine if $2$ is a quadratic residue modulo a prime. Unfortunately, we cannot apply Euler's criterion directly in this case because we do not know what $2^\frac{p-1}{2} \pmod p$ would be for different values of $p$. So our challenge is to find $2^\frac{p-1}{2}$ modulo $p$.
+
+\begin{problem}\label{pr:qr2p}
+	What is $ \left(\frac{2}{p}\right)$ for a prime $p$?
+\end{problem}
+
+\begin{solution}
+	As explained just above, we only need to find a way to calculate $2^\frac{p-1}{2} \pmod p$. The idea is similar to what we did in the proof of Fermat's little theorem. Remember that in Fermat's theorem, we needed to somehow construct $a^{p-1}$ and we did that by multiplying elements of the set $\{a,2a,\ldots,(p-1)a\}$. Now how can we construct $2^\frac{p-1}{2}$? The idea is to find a set with  $\frac{p-1}{2}$ elements such that the product of all elements has the factor $2^\frac{p-1}{2}$. One possibility is to consider the set $A=\{2, 4, \ldots, p-1\}$. Then the product of elements of $A$ is
+	\begin{align}\label{eq:factorialqr1}
+		2 \times 4 \times \cdots \times (p-1) &= 2^\frac{p-1}{2} \times 1 \times 2 \times \cdots \times \frac{p-1}{2} \nonumber\\
+		& = 2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)!
+	\end{align}
+	In order to get rid of the term $ \left(\frac{p-1}{2}\right)!$, we have to compute the product of elements of $A$ in some other way. Notice that we are looking for $2 \times 4 \times \cdots \times (p-1)$ and we want to make it as close as possible to $ \left(\frac{p-1}{2}\right)!$ so that we can cancel out this term and find the value of $2^\frac{p-1}{2} \pmod p$. To construct this factorial, we need all the numbers in the set
+		\begin{align*}
+			B
+				& = \curlybrace{1, 2, \ldots, \frac{p-1}{2}}
+		\end{align*}
+	However, we only have even integers in $A$. For example, take $p=11$. Then $A=\{2,4,6,8,10\}$ and $B=\{1,2,3,4,5\}$. Now, we want to construct $5!$ using the product of elements of $A$. Clearly, the elements $2$ and $4$ are directly chosen from $A$. Now it remains to somehow construct the product $1\times 3 \times 5$ with the elements $6,8,10$. The trick is pretty simple: just notice that $10 \equiv -1, 8 \equiv -3$, and $6 \equiv -5 \pmod{11}$. This means that $ 6 \times 8 \times 10 \equiv (-1)^3  \cdot 1 \times 3 \times 5$, and so
+	\begin{align}\label{eq:factorialqr2}
+	2 \times 4 \times 6 \times 8 \times 10 \equiv (-1)^3 \cdot 5!
+	\end{align}
+	Comparing equations \eqref{eq:factorialqr1} (for $p=11$) and \eqref{eq:factorialqr2}, we find that
+	\begin{align*}
+	2^5 \cdot 5!
+		& \equiv (-1)^3 \cdot 5! \pmod{11}\\
+	\implies 2^5
+		& \equiv (-1)^3\\
+		& \equiv -1 \pmod{11}
+	\end{align*}
+	Let's go back to the solution of the general problem. As in the example of $p=11$, we are searching for the power of $(-1)$ appeared in the congruence relation. In fact, this power equals the number of even elements bigger than $ \frac{p-1}{2}$ and less than or equal to $p-1$. Depending on the remainder of $p$ modulo $8$, this power of $(-1)$ can be even or odd. Consider the case when $p \equiv 1 \pmod 8$. Then $p-1 = 8k$ for some positive integer $k$ and so the even numbers less than or equal to $\frac{p-1}{2} = 4k$ in the set $A=\{2,4,\ldots,8k\}$ are $2,4,\ldots,4k$, which are $2k+1$ numbers. Therefore
+		\begin{align*}
+			2 \times 4 \times \cdots \times (p-1)
+				&= \overbrace{\left(2 \times 4 \times \cdots \times 4k\right)}^{2k+1 \text{ items}} \cdot \overbrace{\left((4k+2) \times (4k+4) \times \cdots \times 8k\right)}^{2k \text{ items}}\\
+				& \equiv \left(2 \times 4 \times \cdots \times 4k\right) \cdot \left((-(4k-1)) \times (-(4k-3)) \times \cdots \times (-1)\right) \\
+				& \equiv (-1)^{2k} \cdot (4k)!\\
+				& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p
+		\end{align*}
+	Compare this result with \eqref{eq:factorialqr1}, you see that
+		\begin{align*}
+			2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)!
+				& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p\\
+			\implies 2^\frac{p-1}{2}
+				& \equiv (-1)^{2k} \equiv 1 \pmod p
+		\end{align*}
+	So if $p \equiv 1 \pmod 8$, then $ \left(\frac{2}{p}\right)=1$.
+
+	The process is similar for $p \equiv 3, 5, 7 \pmod 8$ and we put it as an exercise for the reader.
+
+	After all this work, we are finally done computing $ \left(\frac{2}{p}\right)$. The final result is stated in the following theorem.
+
+	\begin{theorem}\label{thm:2qr}
+		\begin{align*}
+		\left(\dfrac{2}{p}\right)
+		& =
+		\begin{cases}
+		1,&\mbox{ if } p \equiv 1 \mbox{ or } 7\pmod 8\\
+		-1,&\mbox{ if } p \equiv 3 \mbox{ or } 5\pmod 8
 		\end{cases}
 		\end{align*}
 	\end{theorem}
-This infers the following theorem and the next.
-	\begin{theorem}
-		$-1$ is a quadratic residue of a prime $p$ if and only if $p\equiv1\pmod4$.
-	\end{theorem}
 
-	\begin{theorem} \label{thm:a^2+b^2}
-		Let $a$ and $b$ be relatively prime positive integers. Then every prime divisor of $a^2+b^2$ is either $2$ or of the form $4k+1$.
-	\end{theorem}
-
-	\begin{proof}
-		Let $p$ be a prime divisor of $a^2+b^2$. If $a$ and $b$ both are odd then $p$ can be $2$. Now assume $p$ is larger than $2$. Then
-			\begin{align*}
-				a^2
-					& \equiv-b^2 \pmod p\\
-				\implies \left(a^2\right)^{\frac{p-1}{2}}
-					& \equiv \left(-b^2\right)^{\frac{p-1}{2}}\pmod p
-			\end{align*}
-		If $p$ is of the form $4k+3$, then $\frac{p-1}{2}=2k+1$ is odd, hence,
-			\begin{align*}
-			\left(a^2\right)^{\frac{p-1}{2}}
-				& \equiv \left(-b^2\right)^{\frac{p-1}{2}}\pmod p\\
-			\implies a^{p-1}
-				& \equiv -b^{p-1} \pmod p
-			\end{align*}
-		Clearly, since $p\mid a^2+b^2$, if $p$ divides one of $a$ or $b$, it should divide the other one. But this is impossible because $a \bot b$. So $p \bot a$ and $p \bot b$. By Fermat's little theorem, $a^{p-1} \equiv b^{p-1} \equiv 1 \pmod p$, which is in contradiction with the above equation since $p$ is odd.
-		So, $p$ cannot be of the form $4k+3$ and therefore every odd prime divisor of $a^2+b^2$ is of the form $4k+1$.
-	\end{proof}
-
-	\begin{note}
-	We could just say,
-			\begin{align*}
-				a^2
-					& \equiv-b^2\pmod p\\
-				\implies (ab^{-1})^2
-					& \equiv-1\pmod p
-			\end{align*}
-		which means that $-1$ is a quadratic residue of $p$, and therefore $p\equiv1\pmod4$.
-	\end{note}
-We get the following corollary, which can directly solve an IMO problem.
-	\begin{corollary}\label{cor:4n+1}
-		Let $k$ be a positive integer. Every divisor of $4k^2+1$ is of the form $4n+1$ for some integer $n$.
-	\end{corollary}
-
-	\begin{proof}
-		Thanks to the previous theorem, we know that all the prime divisors of $4k^2+1$ are of the form $4t+1$. Every divisor of $4k^2+1$ is a multiplication of its prime divisors. And if we multiply two numbers of the form $4t+1$, then the number is again of the same form (multiply $4x+1$ and $4y+1$ and see the result yourself). Hence, conclusion.
-	\end{proof}
-
-	\begin{problem}[Iran, Third Round Olympiad, 2007]
-		Can $4xy-x-y$ be a square for integers $x$ and $y$?
-	\end{problem}
-
-	\begin{solution}
-		Assume that $4xy-x-y=t^2$. We can rearrange it as $x(4y-1)  = t^2+y$, so
-			\begin{align*}
-				&4y-1  \mid t^2+y\\
-				\implies &4y-1  \mid 4t^2+4y\\
-				\implies &4y-1  \mid 4t^2+4y-(4y-1)\\
-				\implies &4y-1  \mid 4t^2+1
-			\end{align*}
-		Since $4y-1$ is of the form $4k+3$, it must have at least one prime factor of the form $4j+3$. Then we have a prime factor of $4t^2+1$ which is of this form, a contradiction. Thus, it can't be a square.
-	\end{solution}
-Back to quadratic residues, the next step is to determine if $2$ is a quadratic residue modulo a prime. Unfortunately, we cannot apply Euler's criterion directly in this case because we do not know what $2^\frac{p-1}{2} \pmod p$ would be for different values of $p$. So our challenge is to find $2^\frac{p-1}{2}$ modulo $p$.
-
-	\begin{problem}\label{pr:qr2p}
-		What is $ \left(\frac{2}{p}\right)$ for a prime $p$?
-	\end{problem}
-
-	\begin{solution}
-		As explained just above, we only need to find a way to calculate $2^\frac{p-1}{2} \pmod p$. The idea is similar to what we did in the proof of Fermat's little theorem. Remember that in Fermat's theorem, we needed to somehow construct $a^{p-1}$ and we did that by multiplying elements of the set $\{a,2a,\ldots,(p-1)a\}$. Now how can we construct $2^\frac{p-1}{2}$? The idea is to find a set with  $\frac{p-1}{2}$ elements such that the product of all elements has the factor $2^\frac{p-1}{2}$. One possibility is to consider the set $A=\{2, 4, \ldots, p-1\}$. Then the product of elements of $A$ is
-		\begin{align}\label{eq:factorialqr1}
-			2 \times 4 \times \cdots \times (p-1) &= 2^\frac{p-1}{2} \times 1 \times 2 \times \cdots \times \frac{p-1}{2} \nonumber\\
-			& = 2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)!
-		\end{align}
-		In order to get rid of the term $ \left(\frac{p-1}{2}\right)!$, we have to compute the product of elements of $A$ in some other way. Notice that we are looking for $2 \times 4 \times \cdots \times (p-1)$ and we want to make it as close as possible to $ \left(\frac{p-1}{2}\right)!$ so that we can cancel out this term and find the value of $2^\frac{p-1}{2} \pmod p$. To construct this factorial, we need all the numbers in the set
-			\begin{align*}
-				B
-					& = \curlybrace{1, 2, \ldots, \frac{p-1}{2}}
-			\end{align*}
-		However, we only have even integers in $A$. For example, take $p=11$. Then $A=\{2,4,6,8,10\}$ and $B=\{1,2,3,4,5\}$. Now, we want to construct $5!$ using the product of elements of $A$. Clearly, the elements $2$ and $4$ are directly chosen from $A$. Now it remains to somehow construct the product $1\times 3 \times 5$ with the elements $6,8,10$. The trick is pretty simple: just notice that $10 \equiv -1, 8 \equiv -3$, and $6 \equiv -5 \pmod{11}$. This means that $ 6 \times 8 \times 10 \equiv (-1)^3  \cdot 1 \times 3 \times 5$, and so
-		\begin{align}\label{eq:factorialqr2}
-		2 \times 4 \times 6 \times 8 \times 10 \equiv (-1)^3 \cdot 5!
-		\end{align}
-		Comparing equations \eqref{eq:factorialqr1} (for $p=11$) and \eqref{eq:factorialqr2}, we find that
-		\begin{align*}
-		2^5 \cdot 5!
-			& \equiv (-1)^3 \cdot 5! \pmod{11}\\
-		\implies 2^5
-			& \equiv (-1)^3\\
-			& \equiv -1 \pmod{11}
-		\end{align*}
-		Let's go back to the solution of the general problem. As in the example of $p=11$, we are searching for the power of $(-1)$ appeared in the congruence relation. In fact, this power equals the number of even elements bigger than $ \frac{p-1}{2}$ and less than or equal to $p-1$. Depending on the remainder of $p$ modulo $8$, this power of $(-1)$ can be even or odd. Consider the case when $p \equiv 1 \pmod 8$. Then $p-1 = 8k$ for some positive integer $k$ and so the even numbers less than or equal to $\frac{p-1}{2} = 4k$ in the set $A=\{2,4,\ldots,8k\}$ are $2,4,\ldots,4k$, which are $2k+1$ numbers. Therefore
-			\begin{align*}
-				2 \times 4 \times \cdots \times (p-1)
-					&= \overbrace{\left(2 \times 4 \times \cdots \times 4k\right)}^{2k+1 \text{ items}} \cdot \overbrace{\left((4k+2) \times (4k+4) \times \cdots \times 8k\right)}^{2k \text{ items}}\\
-					& \equiv \left(2 \times 4 \times \cdots \times 4k\right) \cdot \left((-(4k-1)) \times (-(4k-3)) \times \cdots \times (-1)\right) \\
-					& \equiv (-1)^{2k} \cdot (4k)!\\
-					& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p
-			\end{align*}
-		Compare this result with \eqref{eq:factorialqr1}, you see that
-			\begin{align*}
-				2^\frac{p-1}{2} \times \left(\frac{p-1}{2}\right)!
-					& \equiv (-1)^{2k} \cdot \left(\frac{p-1}{2}\right)! \pmod p\\
-				\implies 2^\frac{p-1}{2}
-					& \equiv (-1)^{2k} \equiv 1 \pmod p
-			\end{align*}
-		So if $p \equiv 1 \pmod 8$, then $ \left(\frac{2}{p}\right)=1$.
-
-		The process is similar for $p \equiv 3, 5, 7 \pmod 8$ and we put it as an exercise for the reader.
-
-		After all this work, we are finally done computing $ \left(\frac{2}{p}\right)$. The final result is stated in the following theorem.
-
-		\begin{theorem}\label{thm:2qr}
-			\begin{align*}
-			\left(\dfrac{2}{p}\right)
-			& =
-			\begin{cases}
-			1,&\mbox{ if } p \equiv 1 \mbox{ or } 7\pmod 8\\
-			-1,&\mbox{ if } p \equiv 3 \mbox{ or } 5\pmod 8
-			\end{cases}
-			\end{align*}
-		\end{theorem}
-
-	\end{solution}
+\end{solution}
 We can generalize the method used in the solution of Problem \ref{pr:qr2p} to find $ \left(\frac{a}{p}\right)$ for all integers $a$ and primes $p$.
-	\begin{theorem}[Gauss' Criterion]\label{thm:gausscriterion}
-		Let $p$ be a prime number and let $a$ be an integer relatively prime to $p$. Let $\mu(a,p)$ denote the number of integers $x$ among
-		\begin{align*}
-		a, 2a, \ldots, \frac{p-1}{2}a
-		\end{align*}
-		such that $x > p/2 \pmod p$. Then
-		\begin{align*}
-			\parenthesis{\dfrac{a}{p}} = (-1)^{\mu(a,p)}
-		\end{align*}
-	\end{theorem}
+\begin{theorem}[Gauss' Criterion]\label{thm:gausscriterion}
+	Let $p$ be a prime number and let $a$ be an integer relatively prime to $p$. Let $\mu(a,p)$ denote the number of integers $x$ among
+	\begin{align*}
+	a, 2a, \ldots, \frac{p-1}{2}a
+	\end{align*}
+	such that $x > p/2 \pmod p$. Then
+	\begin{align*}
+		\parenthesis{\dfrac{a}{p}} = (-1)^{\mu(a,p)}
+	\end{align*}
+\end{theorem}
 
 The proof is left as an exercise for the reader.
-		\begin{theorem}
-			The smallest quadratic non-residue of a prime $p$ is a prime less than $\sqrt{p}+1$.
-		\end{theorem}
-
-		\begin{proof}
-			Let $r$ be the smallest quadratic non-residue of prime $p$. Then, any $i<r$ is a quadratic residue of $p$. If $r=kl$ for $k,l>1$, using Legendre's symbol, we have
-			\begin{align*}
-				\parenthesis{\dfrac{r}{p}} & = \parenthesis{\dfrac{k}{p}}\parenthesis{\dfrac{l}{p}}
-			\end{align*}
-			which gives $-1=1\cdot 1$ (since $r$ is a quadratic non-residue modulo $p$) and we get a contradiction. So, $r$ can't be a prime. Let's move on to the next part of the theorem.
-
-			We have that $r,\cdots,(r-1)r$ are quadratic non-residues mosulo $p$. If any of them is greater than $p$, say $ri$, we have $r(i-1)<p<ri$ for some $i$. But then,
-			\begin{align*}
-				ri & < p+r
-			\end{align*}
-			so that $ri=p+s$ with $s<r$. Thus,
-			\begin{align*}
-				ri & = p+s\\
-				& \equiv s\pmod p
-			\end{align*}
-			Since $s<r$, $s$ is a quadratic residue of $p$, which in turn means $ri$ is a quadratic residue of $p$ as well. Another contradiction, so $r(r-1)<p$. If $r\geq\sqrt{p}+1$, we have $r(r-1)\geq\sqrt{p}(\sqrt{p}+1)=p+\sqrt{p}>p$, yet another contradiction. The claim is therefore true.
-		\end{proof}
-
-	\subsection{Quadratic Reciprocity}
-	Assume we want to compute $\parenthesis{\frac{a}{p}}$ for some integer $a$ and a prime $p$. The remark after \autoref{thm:qrproduct} says that it's enough to find
-		\begin{align*}
-			\parenthesis{\dfrac{a_1}{p}}, \ldots, \parenthesis{\dfrac{a_n}{p}}
-		\end{align*}
-	where $a_1,a_2,\ldots,a_n$ are divisors of $a$. This means that if we know the value of $\parenthesis{\frac{q}{p}}$ for a prime $q$, we can find the values of $\parenthesis{\frac{a}{p}}$ for any $a$.
-
-	So let's discuss on the value of $\parenthesis{\frac{q}{p}}$. If $q$ is a big prime number, then by Corollary \ref{cor:qrequiv}, we can reduce $q$ modulo $p$ until we reach some $c<p$ and find $\parenthesis{\dfrac{q}{p}}$ by some method (Euler's or Gauss's criteria). So we can handle the case when $q$ is a big prime.
-
-	Now, what about the case when $p$ is a big prime? In this case, finding $\parenthesis{\frac{q}{p}}$ would be very hard with theorems and methods stated by now. There is a very nice property of prime numbers which helps us to handle this case. This property is called the \textit{Law of Quadratic Reciprocity} which relates $\left(\frac{q}{p}\right)$ and $\parenthesis{\frac{p}{q}}$. So, in case $q$ is big, we can first calculate $\parenthesis{\frac{q}{p}}$ and then use this law to find $\parenthesis{\frac{p}{q}}$.
-
-	\begin{theorem}[Law of Quadratic Reciprocity]\label{thm:lawofqr}
-		Let $p$ and $q$ be different odd primes. Then
-		\begin{align*}
-			\parenthesis{\dfrac{p}{q}}\parenthesis{\dfrac{q}{p}}=(-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}
-		\end{align*}
-	\end{theorem}
-
-	\begin{example}
-		Let's find $\parenthesis{\frac{11}{6661}}$. We have
-		\begin{align}\label{eq:qrex}
-			\parenthesis{\dfrac{11}{6661}}\parenthesis{\dfrac{6661}{11}}
-				& =(-1)^{5\cdot 3330}=-1
-		\end{align}
-		Now, since $6661 \equiv 6 \pmod{11}$, we obtain
-		\begin{align*}
-		\parenthesis{\dfrac{6661}{11}}
-			& = \parenthesis{\dfrac{6}{11}}\\
-			& = \parenthesis{\dfrac{3}{11}}\parenthesis{\dfrac{2}{11}}\\
-			& =1 \times (-1)\\
-			& = -1
-		\end{align*}
-		Replacing in equation \eqref{eq:qrex}, we finally find
-		\begin{align*}
-			\parenthesis{\dfrac{11}{6661}} = 1
-		\end{align*}
-	\end{example}
-	The proof of this theorem is a bit complicated and it would make you lose the continuity of the context. For this reason, we will provide the proof in section \eqref{sec:qrlawproof}.
-	\subsection{Jacobi Symbol}
-	In previous sections, whenever we used the Legendre symbol $\parenthesis{\frac{p}{q}}$, we needed $p$ to be a prime number. We are now interested in cases where $p$ can be a composite number. In $1837$, Jacobi generalized the symbol used by Legendre in this way:
-
-	\begin{definition}[Jacobi Symbol]\label{def:jacobi}
-		Let $a$ be an integer and $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$, where $p_i$ are odd primes and $\alpha_i$ are non-negative integers ($1 \leq i \leq k$). The \textit{Jacobi symbol} is defined as the product of the Legendre symbols corresponding to the prime factors of $n$:
-		\begin{align*}
-			\parenthesis{\frac{a}{n}}
-				& = \parenthesis{\frac{a}{p_1}}^{\alpha_1}\cdots \parenthesis{\frac{a}{p_k}}^{\alpha_k}
-		\end{align*}
-		Also, we define $\parenthesis{\frac{a}{1}}$ to be $1$.
-	\end{definition}
-
-	\begin{remark}
-			The immediate result of the above definition is that if $\gcd(a,n) = 1$, then $\left(\frac{a}{n}\right)$ is either $+1$ or $-1$. Otherwise, it equals zero.
-	\end{remark}
-
-	\begin{example}
-		\begin{align*}
-		\parenthesis{\frac{14}{2535}} &= \parenthesis{\frac{14}{3}}\parenthesis{\frac{14}{5}} \parenthesis{\frac{14}{13}}^{2}\\
-		&= \parenthesis{\frac{2}{3}}\parenthesis{\frac{4}{5}} \parenthesis{\frac{1}{13}}^{2}\\
-		&= (-1) \cdot 1 \cdot 1\\
-		&= -1
-		\end{align*}
-	\end{example}
-
-	\begin{example}
-		\begin{align*}
-			\parenthesis{\frac{2}{15}}
-				& = \parenthesis{\frac{2}{3}}\parenthesis{\frac{2}{5}}\\
-				& = (-1)\cdot (-1)\\
-				& =1
-		\end{align*}
-
-	\end{example}
-
-	\begin{note}
-		If $\parenthesis{\frac{a}{n}}=-1$ for some $a$ and $n$, then $a$ is a quadratic non-residue modulo $n$. However, the converse is not necessarily true. The above example shows you a simple case when $a$ is a quadratic non-residue modulo $n$ but $\parenthesis{\frac{a}{n}}=1$.
-	\end{note}
-
 	\begin{theorem}
-		Let $a$ be an integer and $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$, where $p_i$ are odd primes and $\alpha_i$ are non-negative integers ($1 \leq i \leq k$). Then $a$ is a quadratic residue modulo $n$ if and only if $a$ is a quadratic residue modulo every $p_i^{\alpha_i}$  ($1 \leq i \leq k$).
+		The smallest quadratic non-residue of a prime $p$ is a prime less than $\sqrt{p}+1$.
 	\end{theorem}
 
 	\begin{proof}
-		The \textit{if} part is easy to prove. Assume that $a$ is a quadratic residue modulo $n$ and $a \equiv x^2 \pmod n$ for some integer $x$. Then $a \equiv x^2 \pmod{p_i^{\alpha_i}}$ since $p_i$s are relatively prime to each other. Now the \textit{only if} part: assume that $a \equiv x_i^2 \pmod{p_i^{\alpha_i}}$ for all $i$, where $x_i$ are integers. According to Chinese Remainder Theorem, since the numbers ${p_i^{\alpha_i}}$ are pairwise relatively prime, the system of congruence equations
+		Let $r$ be the smallest quadratic non-residue of prime $p$. Then, any $i<r$ is a quadratic residue of $p$. If $r=kl$ for $k,l>1$, using Legendre's symbol, we have
 		\begin{align*}
-			x & \equiv x_1\pmod{p_1^{\alpha_1}}\\
-			x & \equiv x_2\pmod{p_2^{\alpha_2}}\\
-			& \vdots\\
-			x & \equiv x_k\pmod{p_k^{\alpha_k}}
+			\parenthesis{\dfrac{r}{p}} & = \parenthesis{\dfrac{k}{p}}\parenthesis{\dfrac{l}{p}}
 		\end{align*}
-		has a solution for $x$. Now $x^2 \equiv x_i^2 \equiv a \pmod{p_i^{\alpha_i}}$, and therefore $x^2 \equiv a \pmod n$, which means that $a$ is a quadratic residue modulo $n$.
+		which gives $-1=1\cdot 1$ (since $r$ is a quadratic non-residue modulo $p$) and we get a contradiction. So, $r$ can't be a prime. Let's move on to the next part of the theorem.
+
+		We have that $r,\cdots,(r-1)r$ are quadratic non-residues mosulo $p$. If any of them is greater than $p$, say $ri$, we have $r(i-1)<p<ri$ for some $i$. But then,
+		\begin{align*}
+			ri & < p+r
+		\end{align*}
+		so that $ri=p+s$ with $s<r$. Thus,
+		\begin{align*}
+			ri & = p+s\\
+			& \equiv s\pmod p
+		\end{align*}
+		Since $s<r$, $s$ is a quadratic residue of $p$, which in turn means $ri$ is a quadratic residue of $p$ as well. Another contradiction, so $r(r-1)<p$. If $r\geq\sqrt{p}+1$, we have $r(r-1)\geq\sqrt{p}(\sqrt{p}+1)=p+\sqrt{p}>p$, yet another contradiction. The claim is therefore true.
 	\end{proof}
 
-	The following theorem sums up almost everything explained in quadratic residues. The proofs are simple and straightforward, so we leave them as exercises for the reader.
-		\begin{theorem}
-			Let $a$ and $b$ be any two integers. Then for every two odd integers $m$ and $n$, we have
-				\begin{align*}
-					\parenthesis{\frac{ab}{n}}
-						& = \parenthesis{\frac{a}{n}}\parenthesis{\frac{b}{n}}\\
-					\parenthesis{\frac{a+bn}{n}}
-						& = \parenthesis{\frac{a}{n}}\\
-					\parenthesis{\dfrac{m}{n}}\parenthesis{\dfrac{n}{m}}
-						& = (-1)^{\frac{m-1}{2}\cdot \frac{n-1}{2}}\\
-					\parenthesis{\frac{a}{mn}}
-						& = \parenthesis{\frac{a}{n}}\parenthesis{\frac{a}{m}}\\
-					\parenthesis{\frac{-1}{n}}
-						& = (-1)^{\frac{n-1}{2}}\\
-					\parenthesis{\frac{2}{n}}
-						& = (-1)^{\frac{n^2-1}{8}}
-				\end{align*}
-		\end{theorem}
+\subsection{Quadratic Reciprocity}
+Assume we want to compute $\parenthesis{\frac{a}{p}}$ for some integer $a$ and a prime $p$. The remark after \autoref{thm:qrproduct} says that it's enough to find
+	\begin{align*}
+		\parenthesis{\dfrac{a_1}{p}}, \ldots, \parenthesis{\dfrac{a_n}{p}}
+	\end{align*}
+where $a_1,a_2,\ldots,a_n$ are divisors of $a$. This means that if we know the value of $\parenthesis{\frac{q}{p}}$ for a prime $q$, we can find the values of $\parenthesis{\frac{a}{p}}$ for any $a$.
 
-		\begin{theorem}
-			If a positive integer is a quadratic residue modulo every prime, then it is a perfect square.
-		\end{theorem}
-	This is a really cool theorem. However, proving this might be challenging!\footnote{A popular proof for this uses Dirichlet's theorem: For two co-prime positive integers $a$ and $b$, there are infinitely many primes in the sequence $\{an+b\}_{n\geq1}$. This theorem is very famous for being difficult to prove and it is well beyond our scope.} Give it a try.
-		\begin{theorem}
-			Let $b,n > 1$ be integers. Suppose that for each $k > 1$ there exists an integer $a_k$ such that $b - a^n_k$ is divisible by $k$. Prove that $b = A^n$ for some integer $A$.
-		\end{theorem}
+So let's discuss on the value of $\parenthesis{\frac{q}{p}}$. If $q$ is a big prime number, then by Corollary \ref{cor:qrequiv}, we can reduce $q$ modulo $p$ until we reach some $c<p$ and find $\parenthesis{\dfrac{q}{p}}$ by some method (Euler's or Gauss's criteria). So we can handle the case when $q$ is a big prime.
 
-		\begin{proof}
-			Assume that $ b$ has a prime factor, $ p$, so that $ p^{xn + r}\|b$ with $ 0 < r < n$. Then, we can let $ k = p^{xn + n}$. It follows that $ b\equiv a_k^n\bmod p^{xn + n}$. Since $ p^{xn + r}\|b$, we see that $ p^{xn + r}\|a_k^n$. Then, $ p^{x + \frac {r}{n}}\|a_k^n$, which is a contradiction since $ \frac {r}{n}$ is not an integer. Thus, we have a contradiction, so $ r = 0$, which means that only $ n$th powers of primes fully divide $ b$, so $ b$ is an $ n$th power.
-		\end{proof}
+Now, what about the case when $p$ is a big prime? In this case, finding $\parenthesis{\frac{q}{p}}$ would be very hard with theorems and methods stated by now. There is a very nice property of prime numbers which helps us to handle this case. This property is called the \textit{Law of Quadratic Reciprocity} which relates $\left(\frac{q}{p}\right)$ and $\parenthesis{\frac{p}{q}}$. So, in case $q$ is big, we can first calculate $\parenthesis{\frac{q}{p}}$ and then use this law to find $\parenthesis{\frac{p}{q}}$.
 
+\begin{theorem}[Law of Quadratic Reciprocity]\label{thm:lawofqr}
+	Let $p$ and $q$ be different odd primes. Then
+	\begin{align*}
+		\parenthesis{\dfrac{p}{q}}\parenthesis{\dfrac{q}{p}}=(-1)^{\frac{p-1}{2}\cdot \frac{q-1}{2}}
+	\end{align*}
+\end{theorem}
 
+\begin{example}
+	Let's find $\parenthesis{\frac{11}{6661}}$. We have
+	\begin{align}\label{eq:qrex}
+		\parenthesis{\dfrac{11}{6661}}\parenthesis{\dfrac{6661}{11}}
+			& =(-1)^{5\cdot 3330}=-1
+	\end{align}
+	Now, since $6661 \equiv 6 \pmod{11}$, we obtain
+	\begin{align*}
+	\parenthesis{\dfrac{6661}{11}}
+		& = \parenthesis{\dfrac{6}{11}}\\
+		& = \parenthesis{\dfrac{3}{11}}\parenthesis{\dfrac{2}{11}}\\
+		& =1 \times (-1)\\
+		& = -1
+	\end{align*}
+	Replacing in equation \eqref{eq:qrex}, we finally find
+	\begin{align*}
+		\parenthesis{\dfrac{11}{6661}} = 1
+	\end{align*}
+\end{example}
+The proof of this theorem is a bit complicated and it would make you lose the continuity of the context. For this reason, we will provide the proof in section \eqref{sec:qrlawproof}.
+\subsection{Jacobi Symbol}
+In previous sections, whenever we used the Legendre symbol $\parenthesis{\frac{p}{q}}$, we needed $p$ to be a prime number. We are now interested in cases where $p$ can be a composite number. In $1837$, Jacobi generalized the symbol used by Legendre in this way:
 
-\end{document}
+\begin{definition}[Jacobi Symbol]\label{def:jacobi}
+	Let $a$ be an integer and $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$, where $p_i$ are odd primes and $\alpha_i$ are non-negative integers ($1 \leq i \leq k$). The \textit{Jacobi symbol} is defined as the product of the Legendre symbols corresponding to the prime factors of $n$:
+	\begin{align*}
+		\parenthesis{\frac{a}{n}}
+			& = \parenthesis{\frac{a}{p_1}}^{\alpha_1}\cdots \parenthesis{\frac{a}{p_k}}^{\alpha_k}
+	\end{align*}
+	Also, we define $\parenthesis{\frac{a}{1}}$ to be $1$.
+\end{definition}
+
+\begin{remark}
+		The immediate result of the above definition is that if $\gcd(a,n) = 1$, then $\left(\frac{a}{n}\right)$ is either $+1$ or $-1$. Otherwise, it equals zero.
+\end{remark}
+
+\begin{example}
+	\begin{align*}
+	\parenthesis{\frac{14}{2535}} &= \parenthesis{\frac{14}{3}}\parenthesis{\frac{14}{5}} \parenthesis{\frac{14}{13}}^{2}\\
+	&= \parenthesis{\frac{2}{3}}\parenthesis{\frac{4}{5}} \parenthesis{\frac{1}{13}}^{2}\\
+	&= (-1) \cdot 1 \cdot 1\\
+	&= -1
+	\end{align*}
+\end{example}
+
+\begin{example}
+	\begin{align*}
+		\parenthesis{\frac{2}{15}}
+			& = \parenthesis{\frac{2}{3}}\parenthesis{\frac{2}{5}}\\
+			& = (-1)\cdot (-1)\\
+			& =1
+	\end{align*}
+
+\end{example}
+
+\begin{note}
+	If $\parenthesis{\frac{a}{n}}=-1$ for some $a$ and $n$, then $a$ is a quadratic non-residue modulo $n$. However, the converse is not necessarily true. The above example shows you a simple case when $a$ is a quadratic non-residue modulo $n$ but $\parenthesis{\frac{a}{n}}=1$.
+\end{note}
+
+\begin{theorem}
+	Let $a$ be an integer and $n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}$, where $p_i$ are odd primes and $\alpha_i$ are non-negative integers ($1 \leq i \leq k$). Then $a$ is a quadratic residue modulo $n$ if and only if $a$ is a quadratic residue modulo every $p_i^{\alpha_i}$  ($1 \leq i \leq k$).
+\end{theorem}
+
+\begin{proof}
+	The \textit{if} part is easy to prove. Assume that $a$ is a quadratic residue modulo $n$ and $a \equiv x^2 \pmod n$ for some integer $x$. Then $a \equiv x^2 \pmod{p_i^{\alpha_i}}$ since $p_i$s are relatively prime to each other. Now the \textit{only if} part: assume that $a \equiv x_i^2 \pmod{p_i^{\alpha_i}}$ for all $i$, where $x_i$ are integers. According to Chinese Remainder Theorem, since the numbers ${p_i^{\alpha_i}}$ are pairwise relatively prime, the system of congruence equations
+	\begin{align*}
+		x & \equiv x_1\pmod{p_1^{\alpha_1}}\\
+		x & \equiv x_2\pmod{p_2^{\alpha_2}}\\
+		& \vdots\\
+		x & \equiv x_k\pmod{p_k^{\alpha_k}}
+	\end{align*}
+	has a solution for $x$. Now $x^2 \equiv x_i^2 \equiv a \pmod{p_i^{\alpha_i}}$, and therefore $x^2 \equiv a \pmod n$, which means that $a$ is a quadratic residue modulo $n$.
+\end{proof}
+
+The following theorem sums up almost everything explained in quadratic residues. The proofs are simple and straightforward, so we leave them as exercises for the reader.
+	\begin{theorem}
+		Let $a$ and $b$ be any two integers. Then for every two odd integers $m$ and $n$, we have
+			\begin{align*}
+				\parenthesis{\frac{ab}{n}}
+					& = \parenthesis{\frac{a}{n}}\parenthesis{\frac{b}{n}}\\
+				\parenthesis{\frac{a+bn}{n}}
+					& = \parenthesis{\frac{a}{n}}\\
+				\parenthesis{\dfrac{m}{n}}\parenthesis{\dfrac{n}{m}}
+					& = (-1)^{\frac{m-1}{2}\cdot \frac{n-1}{2}}\\
+				\parenthesis{\frac{a}{mn}}
+					& = \parenthesis{\frac{a}{n}}\parenthesis{\frac{a}{m}}\\
+				\parenthesis{\frac{-1}{n}}
+					& = (-1)^{\frac{n-1}{2}}\\
+				\parenthesis{\frac{2}{n}}
+					& = (-1)^{\frac{n^2-1}{8}}
+			\end{align*}
+	\end{theorem}
+
+	\begin{theorem}
+		If a positive integer is a quadratic residue modulo every prime, then it is a perfect square.
+	\end{theorem}
+This is a really cool theorem. However, proving this might be challenging!\footnote{A popular proof for this uses Dirichlet's theorem: For two co-prime positive integers $a$ and $b$, there are infinitely many primes in the sequence $\{an+b\}_{n\geq1}$. This theorem is very famous for being difficult to prove and it is well beyond our scope.} Give it a try.
+	\begin{theorem}
+		Let $b,n > 1$ be integers. Suppose that for each $k > 1$ there exists an integer $a_k$ such that $b - a^n_k$ is divisible by $k$. Prove that $b = A^n$ for some integer $A$.
+	\end{theorem}
+
+	\begin{proof}
+		Assume that $ b$ has a prime factor, $ p$, so that $ p^{xn + r}\|b$ with $ 0 < r < n$. Then, we can let $ k = p^{xn + n}$. It follows that $ b\equiv a_k^n\bmod p^{xn + n}$. Since $ p^{xn + r}\|b$, we see that $ p^{xn + r}\|a_k^n$. Then, $ p^{x + \frac {r}{n}}\|a_k^n$, which is a contradiction since $ \frac {r}{n}$ is not an integer. Thus, we have a contradiction, so $ r = 0$, which means that only $ n$th powers of primes fully divide $ b$, so $ b$ is an $ n$th power.
+	\end{proof}

@@ -1,121 +1,116 @@
-\documentclass{subfile}
+\textit{Atle Selberg} and \textit{Paul Erd\H{o}s} together first proved the \textbf{Prime Number Theorem} using elementary means only. The starting point of the proof is known as what Selberg called \textit{the Fundamental Identity}.
 
-\begin{document}
-	\textit{Atle Selberg} and \textit{Paul Erd\H{o}s} together first proved the \textbf{Prime Number Theorem} using elementary means only. The starting point of the proof is known as what Selberg called \textit{the Fundamental Identity}.
+We need some definitions before stating the Selberg identity. We will use functions defined in \autoref{ch:arithfunc}. The following theorem is almost trivial.
+\begin{theorem}[Invariance Theorem]
+	Let $f$ be an arithmetic function and $I$ be the identity function. Then
+		\begin{align*}
+			f\ast I=I\ast f=f
+		\end{align*}
+\end{theorem}
 
-	We need some definitions before stating the Selberg identity. We will use functions defined in \autoref{ch:arithfunc}. The following theorem is almost trivial.
-	\begin{theorem}[Invariance Theorem]
-		Let $f$ be an arithmetic function and $I$ be the identity function. Then
-			\begin{align*}
-				f\ast I=I\ast f=f
-			\end{align*}
-	\end{theorem}
+\begin{theorem}
+	\label{thm:dirichmobi}
+	Let $f$ be an arithmetic function and $F$ is its summation function. Then
+		\begin{align*}
+			f=\mu\ast F
+		\end{align*}
+\end{theorem}
 
-	\begin{theorem}
-		\label{thm:dirichmobi}
-		Let $f$ be an arithmetic function and $F$ is its summation function. Then
-			\begin{align*}
-				f=\mu\ast F
-			\end{align*}
-	\end{theorem}
+\begin{proof}
+	This is immediately resulted from M\" obius inversion theorem (theorem \eqref{thm:mobinv}).
+\end{proof}
 
-	\begin{proof}
-		This is immediately resulted from M\" obius inversion theorem (theorem \eqref{thm:mobinv}).
-	\end{proof}
+\begin{definition}[Dirichlet Derivative]
+	For an arithmetic function $f$, we define its \textit{Dirichlet derivative} as
+		\begin{align*}
+			f^\prime(n) & =f(n)\ln n
+		\end{align*}
+\end{definition}
 
-	\begin{definition}[Dirichlet Derivative]
-		For an arithmetic function $f$, we define its \textit{Dirichlet derivative} as
-			\begin{align*}
-				f^\prime(n) & =f(n)\ln n
-			\end{align*}
-	\end{definition}
-
-	\begin{example}
-		$I^\prime(n)=I(n)\ln n=0$ for all positive integers $n$. Also, $u^\prime(n)=\ln n$ and $u^{\prime\prime}(n)=\ln n\cdot\ln n=\ln^2 n$.
-	\end{example}
+\begin{example}
+	$I^\prime(n)=I(n)\ln n=0$ for all positive integers $n$. Also, $u^\prime(n)=\ln n$ and $u^{\prime\prime}(n)=\ln n\cdot\ln n=\ln^2 n$.
+\end{example}
 We can easily check that some usual properties of differentiation hold true for Dirichlet derivative as well. For instance:
-	\begin{proposition}
-		Let $f$ and $g$ be arithmetic functions. Then\footnote{You can see it follows some properties of the usual derivative (if you are familiar with calculus, you should know what derivative is. However, for this purpose you do not need any calculus.)}
-			\begin{align*}
-				(f+g)^\prime & =f^\prime+g^\prime\\
-				(f\ast g)^\prime& =f^\prime \ast g + f\ast g^\prime
-			\end{align*}
-	\end{proposition}
-	\begin{proof}
-		The first one is obvious. For the second one, we can write
-			\begin{align*}
-				(f\ast g)^\prime (n)
-					&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln n\\
-					&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \func{}{\ln d + \ln \dfrac{n}{d}}\\
-					&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln d +\func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln \dfrac{n}{d}\\
-					&= \sum_{d\mid n} f(d)\cdot \ln d \cdot \func{g}{\dfrac{n}{d}}+ \sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}} \cdot \ln \dfrac{n}{d}\\
-					&= \sum_{d\mid n} f^\prime(d) \cdot \func{g}{\dfrac{n}{d}}+ \sum_{d\mid n} f(d) \func{g'}{\dfrac{n}{d}}\\
-					&= (f^\prime \ast g)(n) + (f\ast g^\prime)(n)
-			\end{align*}
+\begin{proposition}
+	Let $f$ and $g$ be arithmetic functions. Then\footnote{You can see it follows some properties of the usual derivative (if you are familiar with calculus, you should know what derivative is. However, for this purpose you do not need any calculus.)}
+		\begin{align*}
+			(f+g)^\prime & =f^\prime+g^\prime\\
+			(f\ast g)^\prime& =f^\prime \ast g + f\ast g^\prime
+		\end{align*}
+\end{proposition}
+\begin{proof}
+	The first one is obvious. For the second one, we can write
+		\begin{align*}
+			(f\ast g)^\prime (n)
+				&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln n\\
+				&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \func{}{\ln d + \ln \dfrac{n}{d}}\\
+				&= \func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln d +\func{}{\sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}}} \cdot \ln \dfrac{n}{d}\\
+				&= \sum_{d\mid n} f(d)\cdot \ln d \cdot \func{g}{\dfrac{n}{d}}+ \sum_{d\mid n} f(d)\func{g}{\dfrac{n}{d}} \cdot \ln \dfrac{n}{d}\\
+				&= \sum_{d\mid n} f^\prime(d) \cdot \func{g}{\dfrac{n}{d}}+ \sum_{d\mid n} f(d) \func{g'}{\dfrac{n}{d}}\\
+				&= (f^\prime \ast g)(n) + (f\ast g^\prime)(n)
+		\end{align*}
 
-	\end{proof}
+\end{proof}
 
-	\begin{definition}[Von Mangoldt Function]
-		For any positive integer $n$, the von Mangoldt function, denoted by $\Lambda(n)$ is defined\footnote{$\Lambda$ is the upper case of the symbol lambda ($\lambda$) in Greek.} as
-			\begin{align*}
-				\Lambda(n) & =
-					\begin{cases}\ln p &\mbox{ if }n=p^m\mbox{ for  some prime }p\mbox{ and positive integer }m\\0&\mbox{ otherwise}\end{cases}
-			\end{align*}
-	\end{definition}
+\begin{definition}[Von Mangoldt Function]
+	For any positive integer $n$, the von Mangoldt function, denoted by $\Lambda(n)$ is defined\footnote{$\Lambda$ is the upper case of the symbol lambda ($\lambda$) in Greek.} as
+		\begin{align*}
+			\Lambda(n) & =
+				\begin{cases}\ln p &\mbox{ if }n=p^m\mbox{ for  some prime }p\mbox{ and positive integer }m\\0&\mbox{ otherwise}\end{cases}
+		\end{align*}
+\end{definition}
 
-	\begin{theorem}
-		\label{thm:vonmangoldt}
-		Let $n$ be a positive integer. Then $\ln n=\sum_{d\mid n}\Lambda(d)$.
-	\end{theorem}
+\begin{theorem}
+	\label{thm:vonmangoldt}
+	Let $n$ be a positive integer. Then $\ln n=\sum_{d\mid n}\Lambda(d)$.
+\end{theorem}
 
-	\begin{proof}
-		Let $n=\prod_{i=1}^kp_i^{e_i}$, where $p_i$ are primes ($1 \leq i \leq k$). Then,
-			\begin{align*}
-				\ln n  & =\func{\ln}{\prod_{i=1}^kp_i^{e_i}}\\
-						&=\sum_{i=1}^k\ln{p_i^{e_i}}\\
-						&=\sum_{i=1}^ke_i\ln p_i
-			\end{align*}
-		On the other hand, if $p$ is a prime, for $d\neq p^m$ we have $\Lambda(d)=0$ by definition. Therefore, only prime powers $p^e$ contribute a $\ln p$ to the sum $\sum_{d\mid n}\Lambda(d)$. So, if $p_i$ is a prime divisor of $n$, $p_i^1,\ldots,p_i^{e_i}$ contribute $e_i \cdot \ln p_i$ to the sum. Thus,
-			\begin{align*}
-				\sum_{d\mid n}\Lambda(d) = \sum\limits_{i=1}^ke_i\ln p_i
-			\end{align*}
+\begin{proof}
+	Let $n=\prod_{i=1}^kp_i^{e_i}$, where $p_i$ are primes ($1 \leq i \leq k$). Then,
+		\begin{align*}
+			\ln n  & =\func{\ln}{\prod_{i=1}^kp_i^{e_i}}\\
+					&=\sum_{i=1}^k\ln{p_i^{e_i}}\\
+					&=\sum_{i=1}^ke_i\ln p_i
+		\end{align*}
+	On the other hand, if $p$ is a prime, for $d\neq p^m$ we have $\Lambda(d)=0$ by definition. Therefore, only prime powers $p^e$ contribute a $\ln p$ to the sum $\sum_{d\mid n}\Lambda(d)$. So, if $p_i$ is a prime divisor of $n$, $p_i^1,\ldots,p_i^{e_i}$ contribute $e_i \cdot \ln p_i$ to the sum. Thus,
+		\begin{align*}
+			\sum_{d\mid n}\Lambda(d) = \sum\limits_{i=1}^ke_i\ln p_i
+		\end{align*}
 
-	\end{proof}
-	Now we are ready to state and prove the Selberg's identity.
+\end{proof}
+Now we are ready to state and prove the Selberg's identity.
 
-	\begin{theorem}[Selberg's Identity]
-		Let $n$ be a positive integer. Then
-			\begin{align*}
-				\Lambda(n)\ln n+\sum_{d\mid n}\Lambda(d)\func{\Lambda}{\frac nd}=\sum_{d\mid n}\mu(d)\ln^2\frac nd
-			\end{align*}
-	\end{theorem}
-	\begin{proof}
-		We proved in theorem \eqref{thm:vonmangoldt} that $\ln n=\sum_{d\mid n}\Lambda(d)$. We also found that $u^\prime(n) = \ln n$. This can be written as
-			\begin{align*}
-				\Lambda\ast u & =u^\prime
-			\end{align*}
-		Take derivative of both sides of the above equation to obtain
-			\begin{align*}
-				\Lambda^\prime\ast u+\Lambda\ast u^\prime & =u^{\prime\prime}
-			\end{align*}
-		Using $\Lambda\ast u  =u^\prime$ again,
-			\begin{align*}
-				\Lambda^\prime\ast u+\Lambda\ast(\Lambda\ast u) & =u^{\prime\prime}
-			\end{align*}
-		Now multiply both side by $u^{-1}=\mu$ (as proved in theorem \eqref{thm:mobiusinverse}) to get
-			\begin{align*}
-				\Lambda^\prime\ast(u\ast u^{-1})+\Lambda\ast(\Lambda\ast(u\ast u^{-1}))
-					& =u^{\prime\prime}\ast u^\prime
-			\end{align*}
-		Now, since $u \ast u^{-1} = I$ and $f \ast I = f$ for any arithmetic function $f$, we have
-			\begin{align*}
-				\Lambda^\prime+\Lambda\ast\Lambda & =u^{\prime\prime}\ast\mu
-			\end{align*}
-		Replacing the functions with their definitions, one easily finds
-			\begin{align*}
-				\Lambda(n)\log n+\sum_{d\mid n}\Lambda(d)\func{\Lambda}{\dfrac nd} & =\sum_{d\mid n}\mu(d)\log^2\dfrac nd
-			\end{align*}
-		as desired.
-	\end{proof}
-
-\end{document}
+\begin{theorem}[Selberg's Identity]
+	Let $n$ be a positive integer. Then
+		\begin{align*}
+			\Lambda(n)\ln n+\sum_{d\mid n}\Lambda(d)\func{\Lambda}{\frac nd}=\sum_{d\mid n}\mu(d)\ln^2\frac nd
+		\end{align*}
+\end{theorem}
+\begin{proof}
+	We proved in theorem \eqref{thm:vonmangoldt} that $\ln n=\sum_{d\mid n}\Lambda(d)$. We also found that $u^\prime(n) = \ln n$. This can be written as
+		\begin{align*}
+			\Lambda\ast u & =u^\prime
+		\end{align*}
+	Take derivative of both sides of the above equation to obtain
+		\begin{align*}
+			\Lambda^\prime\ast u+\Lambda\ast u^\prime & =u^{\prime\prime}
+		\end{align*}
+	Using $\Lambda\ast u  =u^\prime$ again,
+		\begin{align*}
+			\Lambda^\prime\ast u+\Lambda\ast(\Lambda\ast u) & =u^{\prime\prime}
+		\end{align*}
+	Now multiply both side by $u^{-1}=\mu$ (as proved in theorem \eqref{thm:mobiusinverse}) to get
+		\begin{align*}
+			\Lambda^\prime\ast(u\ast u^{-1})+\Lambda\ast(\Lambda\ast(u\ast u^{-1}))
+				& =u^{\prime\prime}\ast u^\prime
+		\end{align*}
+	Now, since $u \ast u^{-1} = I$ and $f \ast I = f$ for any arithmetic function $f$, we have
+		\begin{align*}
+			\Lambda^\prime+\Lambda\ast\Lambda & =u^{\prime\prime}\ast\mu
+		\end{align*}
+	Replacing the functions with their definitions, one easily finds
+		\begin{align*}
+			\Lambda(n)\log n+\sum_{d\mid n}\Lambda(d)\func{\Lambda}{\dfrac nd} & =\sum_{d\mid n}\mu(d)\log^2\dfrac nd
+		\end{align*}
+	as desired.
+\end{proof}

@@ -1,1274 +1,1269 @@
-\documentclass[problems.tex]{subfile}
+\chapter{Solving Challenge Problems}\label{ch:solved}
 
-\begin{document}
-\part{Problem Column}
-	\chapter{Solving Challenge Problems}\label{ch:solved}
+\numberwithin{theorem}{chapter}
 
-	\numberwithin{theorem}{chapter}
-	\epigraph{There will be plenty of time to rest in the grave.}{\textit{Paul Erd\H{o}s}}
+\begin{problem}
+	Prove divisibility criteria for $2,3,4,5,7,9,11,13,17,19$, as stated in section \eqref{subs:divrules}.
+\end{problem}
 
-	\begin{problem}
-		Prove divisibility criteria for $2,3,4,5,7,9,11,13,17,19$, as stated in section \eqref{subs:divrules}\watermark.
-	\end{problem}
+\begin{solution}
+	Let $n$ be a positive integer and it has base $10$ representation $\bar{a_k\cdots a_1a_0}$. Here we show the proof for $2,3,4$ and then you should try the rest yourself in a similar fashion.
+		\begin{enumerate}
+			\item[2:] $n$ is divisible by $2$ if and only if the last digit is even. First we will prove that if $n$ is divisible by $2$, then the last digit must be even.
+					\begin{align*}
+						2\mid n & = 10^ka_k+\cdots+10a_1+a_0
+					\end{align*}
+				Now, $2\mid 10$ so $2\mid 10^k,\cdots,10$. In turn,
+					\begin{align*}
+						2 & \mid 10^ka_k+\cdots+10a_1\\
+						2 & \mid 10^ka_k+\cdots+10a_1+a_0-(10^ka_k+\cdots+10a_1)=a_0
+					\end{align*}
+				This implies that $2$ must divide $a_0$. Since $a_0$ is a digit, $a_0\in\{0,2,4,6,8\}$.
 
-	\begin{solution}
-		Let $n$ be a positive integer and it has base $10$ representation $\bar{a_k\cdots a_1a_0}$. Here we show the proof for $2,3,4$ and then you should try the rest yourself in a similar fashion.
-			\begin{enumerate}
-				\item[2:] $n$ is divisible by $2$ if and only if the last digit is even. First we will prove that if $n$ is divisible by $2$, then the last digit must be even.
-						\begin{align*}
-							2\mid n & = 10^ka_k+\cdots+10a_1+a_0
-						\end{align*}
-					Now, $2\mid 10$ so $2\mid 10^k,\cdots,10$. In turn,
-						\begin{align*}
-							2 & \mid 10^ka_k+\cdots+10a_1\\
-							2 & \mid 10^ka_k+\cdots+10a_1+a_0-(10^ka_k+\cdots+10a_1)=a_0
-						\end{align*}
-					This implies that $2$ must divide $a_0$. Since $a_0$ is a digit, $a_0\in\{0,2,4,6,8\}$.
-
-					Now, assume that, $a_0$ is even so $a_0=2b_0$. Then we have
-						\begin{align*}
-							n & = 10^ka_k+\cdots+10a_1+a_0\\
-							  & = 2(2^{k-1}5^ka_k+\cdots+5a_1+b_0)
-						\end{align*}
-					which is obviously divisible by $2$.
-
-					An alternative approach would be using congruence.
-						\begin{align*}
-							n & \equiv10^ka_k+\cdots+10a_1+a_0\pmod2\\
-							  & \equiv a_0\pmod2
-						\end{align*}
-					since $10\equiv0\pmod2$.
-				\item[$3$:] $n$ is divisible by $3$ if and only if the sum of digits is divisible by $3$.
+				Now, assume that, $a_0$ is even so $a_0=2b_0$. Then we have
 					\begin{align*}
 						n & = 10^ka_k+\cdots+10a_1+a_0\\
-						  & = (\underbrace{9\cdots9}_\text{$k$ 9's}+1)a_k+\cdots+(9+1)a_1+a_0\\
-						  & = (3\cdot\underbrace{3\cdots9}_\text{$k$ $3$'s}+1)a_k+\cdots+(3\cdot3+1)a_1+a_0\\
-						  & = 3\cdot\left(\underbrace{3\cdots9}_\text{$k$ $3$'s}a_k+\cdots+3a_1\right)+a_k+\cdots+a_1+a_0
+				  & = 2(2^{k-1}5^ka_k+\cdots+5a_1+b_0)
 					\end{align*}
-				Notice that, when we divide $n$ by $3$, the term with $3$ vanishes since it is divisible by $3$. This is now straightforward that $3$ will divide $n$ if and only if $a_k+\cdots+a_0$ is divisible by $3$. Since $a_k,\cdots,a_0$ are digits of $n$ in base $10$, the claim is proven.
-				\item[$4$:] $n$ is divisible by $4$ if and only if the number formed by the last two digits of $n$ is divisible by $4$.
+				which is obviously divisible by $2$.
+
+				An alternative approach would be using congruence.
 					\begin{align*}
-						n & = 10^ka_k+\cdots+10a_1+a_0\\
-						  & = 10^ka_k+\cdots+100a_2+4l\\
-						  & = 4\left(25\cdot10^{k-2}a_k+\cdots+l\right)
+						n & \equiv10^ka_k+\cdots+10a_1+a_0\pmod2\\
+				  & \equiv a_0\pmod2
 					\end{align*}
-				This is definitely divisible by $4$. The only if part is straightforward from this.
-				\item[$5$:] $n$ is divisible by $5$ if and only if the last digit of $n$ is divisible by $5$ i.e. $0$ or $5$. This is again straightforward since $10$ is divisible by $5$.
-			\end{enumerate}
-	\end{solution}
+				since $10\equiv0\pmod2$.
+			\item[$3$:] $n$ is divisible by $3$ if and only if the sum of digits is divisible by $3$.
+				\begin{align*}
+					n & = 10^ka_k+\cdots+10a_1+a_0\\
+			  & = (\underbrace{9\cdots9}_\text{$k$ 9's}+1)a_k+\cdots+(9+1)a_1+a_0\\
+			  & = (3\cdot\underbrace{3\cdots9}_\text{$k$ $3$'s}+1)a_k+\cdots+(3\cdot3+1)a_1+a_0\\
+			  & = 3\cdot\left(\underbrace{3\cdots9}_\text{$k$ $3$'s}a_k+\cdots+3a_1\right)+a_k+\cdots+a_1+a_0
+				\end{align*}
+			Notice that, when we divide $n$ by $3$, the term with $3$ vanishes since it is divisible by $3$. This is now straightforward that $3$ will divide $n$ if and only if $a_k+\cdots+a_0$ is divisible by $3$. Since $a_k,\cdots,a_0$ are digits of $n$ in base $10$, the claim is proven.
+			\item[$4$:] $n$ is divisible by $4$ if and only if the number formed by the last two digits of $n$ is divisible by $4$.
+				\begin{align*}
+					n & = 10^ka_k+\cdots+10a_1+a_0\\
+			  & = 10^ka_k+\cdots+100a_2+4l\\
+			  & = 4\left(25\cdot10^{k-2}a_k+\cdots+l\right)
+				\end{align*}
+			This is definitely divisible by $4$. The only if part is straightforward from this.
+			\item[$5$:] $n$ is divisible by $5$ if and only if the last digit of $n$ is divisible by $5$ i.e. $0$ or $5$. This is again straightforward since $10$ is divisible by $5$.
+		\end{enumerate}
+\end{solution}
 
-	\begin{problem}\label{prob:productdividesfactorial}
-		Let $n$ be a positive integer. Show that the product of n consecutive integers is divisible by $n!$.
-	\end{problem}
-Before we solve this problem, let me tell you about my story when I first encountered this problem.\footnote{I was a total beginner then \blacksmiley} Since $n!=1\cdot2\cdots n$, the first thing that I thought was: since there are $n$ consecutive integers, one must leave the remainder $0$ modulo $n$. And this has to be true for all $m\leq n$. But then I immediately realized that even if we proved that the product of these $n$ integers is divisible by all $m\leq n$ individually, we can not guarantee that their $1\cdot2\cdots n$ will divide their product too! It would be a common mistake to think so. Beginners tend to make assumptions that are wrong. For example, $a$ and $b$ both divide $c$, then $ab$ divides $c$ too. We will see some common mistakes as we solve the problems. Be aware of them whenever you are thinking about a problem. So, to be on the safe side, if you assume something, don't think it's true until you can prove it. Appearances can be deceiving! Now, let's see a correct solution.
-	\begin{solution}
-		Let the $n$ consecutive integers be $a,a-1,\cdots,a-n+1$ (verify that if you take $n$ consecutive integers decreasing from $a$, the last integer will be $a-n+1$). See that,
-			\begin{align*}
-				S=a(a-1)\cdots(a-n+1) & = \dfrac{a(a-1)\cdots(a-n+1)\cdot(a-n)\cdots1}{(a-n)\cdots1}\\
-									& = \dfrac{a!}{(a-n)!}
-			\end{align*}
-		If we can prove that this product $\dfrac{S}{n!}$ is an integer, we are done.
-			\begin{align*}
-				\dfrac{S}{n!} & = \dfrac{a!}{(a-n)!n!}\\
-							  & = \binom{a}{n}
-			\end{align*}
-		which is clearly an integer.\footnote{If $k<n$, then $\binom{n}{k}=0$.}
-	\end{solution}
+\begin{problem}\label{prob:productdividesfactorial}
+	Let $n$ be a positive integer. Show that the product of n consecutive integers is divisible by $n!$.
+\end{problem}
+Before we solve this problem, let me tell you about my story when I first encountered this problem. Since $n!=1\cdot2\cdots n$, the first thing that I thought was: since there are $n$ consecutive integers, one must leave the remainder $0$ modulo $n$. And this has to be true for all $m\leq n$. But then I immediately realized that even if we proved that the product of these $n$ integers is divisible by all $m\leq n$ individually, we can not guarantee that their $1\cdot2\cdots n$ will divide their product too! It would be a common mistake to think so. Beginners tend to make assumptions that are wrong. For example, $a$ and $b$ both divide $c$, then $ab$ divides $c$ too. We will see some common mistakes as we solve the problems. Be aware of them whenever you are thinking about a problem. So, to be on the safe side, if you assume something, don't think it's true until you can prove it. Appearances can be deceiving! Now, let's see a correct solution.
+\begin{solution}
+	Let the $n$ consecutive integers be $a,a-1,\cdots,a-n+1$ (verify that if you take $n$ consecutive integers decreasing from $a$, the last integer will be $a-n+1$). See that,
+		\begin{align*}
+			S=a(a-1)\cdots(a-n+1) & = \dfrac{a(a-1)\cdots(a-n+1)\cdot(a-n)\cdots1}{(a-n)\cdots1}\\
+								& = \dfrac{a!}{(a-n)!}
+		\end{align*}
+	If we can prove that this product $\dfrac{S}{n!}$ is an integer, we are done.
+		\begin{align*}
+			\dfrac{S}{n!} & = \dfrac{a!}{(a-n)!n!}\\
+				  & = \binom{a}{n}
+		\end{align*}
+	which is clearly an integer.\footnote{If $k<n$, then $\binom{n}{k}=0$.}
+\end{solution}
 
-	\begin{problem}
-		Prove that, $p^2$ divides $\binom{2p}{p}-2$.
-	\end{problem}
+\begin{problem}
+	Prove that, $p^2$ divides $\binom{2p}{p}-2$.
+\end{problem}
 
-	\begin{solution}
-		This problem can be dealt with very easily if you know Wolstenholme's theorem which says for $p>3$,
-			\begin{align*}
-				\binom{2p}{p} & \equiv\binom{2}{1}\pmod{p^3}\\
-							  & \equiv2\pmod{p^3}\\
-						p^3 & \mid \binom{2p}p-2
-			\end{align*}
-		For $p\leq3$, we can check manually.
-	\end{solution}
+\begin{solution}
+	This problem can be dealt with very easily if you know Wolstenholme's theorem which says for $p>3$,
+		\begin{align*}
+			\binom{2p}{p} & \equiv\binom{2}{1}\pmod{p^3}\\
+				  & \equiv2\pmod{p^3}\\
+					p^3 & \mid \binom{2p}p-2
+		\end{align*}
+	For $p\leq3$, we can check manually.
+\end{solution}
 
-	\begin{remark}
-		Another way to do it, if you don't know or can not remember the theorem. Use the identity:
-			\begin{align*}
-				\sum_{i=0}^{n}\binom ni^2 & = \binom{2n}{n}\\
-				\sum_{i=0}^{p}\binom pi^2 & = \binom{2p}p
-			\end{align*}
-		We already know that for $0<i<p$, $p$ divides $\binom pi$. So $p^2$ divides $\binom pi^2$ for such $i$ and we have,
-			\begin{align*}
-				\sum_{i=0}^{p} \binom{p}{i}^2& \equiv \binom{p}0^2+\binom pp^2\pmod {p^2}\\
-				\binom{2p}p & \equiv2\pmod{p^2}\\
-				p^2 & \mid  \binom{2p}p-2
-			\end{align*}
-	\end{remark}
+\begin{remark}
+	Another way to do it, if you don't know or can not remember the theorem. Use the identity:
+		\begin{align*}
+			\sum_{i=0}^{n}\binom ni^2 & = \binom{2n}{n}\\
+			\sum_{i=0}^{p}\binom pi^2 & = \binom{2p}p
+		\end{align*}
+	We already know that for $0<i<p$, $p$ divides $\binom pi$. So $p^2$ divides $\binom pi^2$ for such $i$ and we have,
+		\begin{align*}
+			\sum_{i=0}^{p} \binom{p}{i}^2& \equiv \binom{p}0^2+\binom pp^2\pmod {p^2}\\
+			\binom{2p}p & \equiv2\pmod{p^2}\\
+			p^2 & \mid  \binom{2p}p-2
+		\end{align*}
+\end{remark}
 
-	\begin{problem}[Masum Billal]
-		Find all functions $f:\mathbb{N}\to\mathbb{N}$ such that
-			\begin{align*}
-				(f(n+1),f(n)) & = [f(n),f(n-1)]
-			\end{align*}
-		holds for all $n>1$.
-	\end{problem}
+\begin{problem}[Masum Billal]
+	Find all functions $f:\mathbb{N}\to\mathbb{N}$ such that
+		\begin{align*}
+			(f(n+1),f(n)) & = [f(n),f(n-1)]
+		\end{align*}
+	holds for all $n>1$.
+\end{problem}
 
-	\begin{solution}
-		Let $g_n=(f(n+1),f(n))$ and $l_n=[f(n+1),f(n)]$. We have $g_{n+1} = l_n$. But note that $f(n)\mid l_n$ and $l_n=g_n\mid f(n+1)$. This gives $f(n)\mid f(n+1)$.
-			\begin{align*}
-				g_n
-					& =(f(n+1),f(n))\\
-					& =f(n)\\
-				l_n
-					& =[f(n),f(n+1)]\\
-					& =f(n+1)
-			\end{align*}
-		This holds because if $a\mid b$, then $(a,b)=a$ and $[a,b]=b$. Since $f(n)\mid f(n+1)$, we can define a sequence $(b_i)_{i\geq1}$ with $b_n=\dfrac{f(n+1)}{f(n)}$ and $b_1=f(1)$, which is obviously an integer sequence.
-			\begin{align*}
-				f(n+1)  & = b_nf(n)\\
-						& = b_nb_{n-1}f(n-1)\\
-						& = b_nb_{n-1}b_{n-2}f(n-2)\\
-						&  \vdots\\
-						& = b_nb_{n-1}\cdots b_1\\
-						& = \prod_{i=1}^{n}b_i
-			\end{align*}
-		Any positive integer sequence $(b_i)_{i\geq1}$ works.
-	\end{solution}
+\begin{solution}
+	Let $g_n=(f(n+1),f(n))$ and $l_n=[f(n+1),f(n)]$. We have $g_{n+1} = l_n$. But note that $f(n)\mid l_n$ and $l_n=g_n\mid f(n+1)$. This gives $f(n)\mid f(n+1)$.
+		\begin{align*}
+			g_n
+				& =(f(n+1),f(n))\\
+				& =f(n)\\
+			l_n
+				& =[f(n),f(n+1)]\\
+				& =f(n+1)
+		\end{align*}
+	This holds because if $a\mid b$, then $(a,b)=a$ and $[a,b]=b$. Since $f(n)\mid f(n+1)$, we can define a sequence $(b_i)_{i\geq1}$ with $b_n=\dfrac{f(n+1)}{f(n)}$ and $b_1=f(1)$, which is obviously an integer sequence.
+		\begin{align*}
+			f(n+1)  & = b_nf(n)\\
+					& = b_nb_{n-1}f(n-1)\\
+					& = b_nb_{n-1}b_{n-2}f(n-2)\\
+					&  \vdots\\
+					& = b_nb_{n-1}\cdots b_1\\
+					& = \prod_{i=1}^{n}b_i
+		\end{align*}
+	Any positive integer sequence $(b_i)_{i\geq1}$ works.
+\end{solution}
 
- Sometimes we may find expression that's symmetric with respect to some variables\footnote{To see if an expression is symmetric on $a,b$ switch places of $a$ and $b$. If the expression remains the same it is symmetric, otherwise it is not. In short, we must have $f(a,b)=f(b,a)$} (say $a,b$). When you find an expression that's symmetric on $a$ and $b$, you can assume $a\geq b$. That's a great advantage in many problems.
+Sometimes we may find expression that's symmetric with respect to some variables\footnote{To see if an expression is symmetric on $a,b$ switch places of $a$ and $b$. If the expression remains the same it is symmetric, otherwise it is not. In short, we must have $f(a,b)=f(b,a)$} (say $a,b$). When you find an expression that's symmetric on $a$ and $b$, you can assume $a\geq b$. That's a great advantage in many problems.
 
-	\begin{problem}[Russia, $2000$]
-		If $a$ and $b$ are positive integers such that $a+b=(a,b)+[a,b]$ then one of $a,b$ divides the other.
-	\end{problem}
+\begin{problem}[Russia, $2000$]
+	If $a$ and $b$ are positive integers such that $a+b=(a,b)+[a,b]$ then one of $a,b$ divides the other.
+\end{problem}
 This is a problem that has many solutions, being a relatively easier problem. We will show two solutions here. Let $g=(a,b)$ and $l=[a,b]$ for brevity. Then the equation becomes $a+b=g+l$. Without loss of generality, we can assume $a\leq b$.
-	\begin{solution}[First]
-		We know $ab=gl$ or $l=\dfrac{ab}{g}$. Substituting this into the equation:
-			\begin{align*}
-				a+b & = g+\dfrac{ab}{g}\\
-				g^2+ab & = g(a+b)\\
-				(g-a)(g-b) & = 0
-			\end{align*}
-		Since $a\leq b$, $g-a=0$, then $(a,b)=a$ implies $a\mid b$.
-	\end{solution}
-
-	\begin{solution}[Second]
-		Assume $a=gx,b=gy$ with $x\bot y$, then $l=gxy$.
-			\begin{align*}
-				g(x+y) & = g+gxy\\
-				xy+1 & = x+y\\
-				(x-1)(y-1) & = 0
-			\end{align*}
-		Again, since $a\leq b$, $x\leq y$ so $x-1=0$ or $x=1$, we have $a=g$. Same conclusion.
-	\end{solution}
-
-	\begin{problem}[Slovenia $2010$]
-		Find all primes $p,q,r$ with $15p+7pq+qr=pqr$.
-	\end{problem}
-
-	\begin{solution}
-		We can write it as $p(15+7q)+qr=pqr$ or
-			\begin{align*}
-				p(qr-15-7q) & = qr
-			\end{align*}
-		Therefore, $p\mid qr$ and since $p,q,r$ are primes $p\mid q$ or $p\mid r$. If $p=q$, then
-			\begin{align*}
-				pr-15-7p & = r\\
-				r(p-1) & = 7p+15\\
-				p-1\mid 7p+15
-			\end{align*}
-		Since $p-1\mid 7p-7$, $p-1\mid (7p+15)-(7p-7)=22$. So $p-1\in\{1,2,11,22\}$ which gives $p\in\{2,3,23\}$. But we also need $r=\dfrac{7p+15}{p-1}$, a prime. We get that $r$ is a prime when $p=2$ only when $r=29$. The other case is $p=r$, so
-			\begin{align*}
-				pq-15-7q & = q\\
-				(p-8)q & = 15
-			\end{align*}
-		We have $q\in\{3,5\}$. If $q=3$, then $p=13$ which is valid. If $q=5,p=11$ and this is a valid solution too.
-	\end{solution}
-
-	\begin{problem}[Serbia $2014$]
-		A \textit{special} number is a positive integer $n$ for which there exist positive integers $a, b, c$ and $d$ with
-			\begin{align*}
-				n & = \dfrac{a^3+2b^3}{c^3+2d^3}
-			\end{align*}
-		Prove that,
-			\begin{enumerate}[a.]
-				\item There are infinitely many special numbers.
-				\item $2014$ is not a special number.
-			\end{enumerate}
-	\end{problem}
-
-	\begin{solution}
-		Proving (a) is easy since we just have to show an infinite such $n$. So we can choose $a,b,c,d$ however we want, as long as they serve our purpose. Let's go with $a=ck,b=dk$, then
-			\begin{align*}
-				\dfrac{a^3+2b^3}{c^3+2d^3}  & = \dfrac{c^3k^3+2d^3k^3}{c^3+2d^3}\\
-											& = k^3
-			\end{align*}
-		Since we are free to choose $k$ here, we have infinitely many $n$.
-
-		For part (b), let's assume
-			\begin{align*}
-				a^3+2b^3 & = 2014(c^3+2d^3)\\
-						 & = 2\cdot19\cdot53(c^3+2d^3)
-			\end{align*}
-		We can consider modulo $19$ in this equation. We just have to check cubes modulo $19$ and the reader can verify that if $a^3\equiv-2b^3\pmod{19}$, then we must have $19\mid a,b$ since $x^3\equiv0,\pm1,\pm7,\pm8\pmod{19}$. Say, $a=19x,b=19y$.
-			\begin{align*}
-				19^3(x^3+2y^3) & = 2\cdot19\cdot53(c^3+2d^3)\\
-				19 & \mid c^3+2d^3
-			\end{align*}
-		This also shows that $19\mid c,d$ so let $c=19z,d=19w$. but then
-			\begin{align*}
-				x^3+2y^3 & = 2014(z^3+w^3)
-			\end{align*}
-		we get a smaller solution $(x,y,z,w)$ which is actually infinite descent.
-	\end{solution}
-
-	\begin{problem}[Croatia $2015$]
-		Let $n>1$ be a positive integer so that $2n-1$ and $3n-2$ are perfect squares. Prove that $10n-7$ is composite.
-	\end{problem}
-
-	\begin{solution}
-		Take $2n-1=x^2$ and $3n-2=y^2$. We need to reach $10n$ somehow here, and incidentally $10=12-2=3\cdot4-2\cdot1$. So, we do this:
-			\begin{align*}
-				4(y^2)-1(x^2) & = 4(3n-2)-(2n-1)\\
-				(2y+x)(2y-x)  & = 10n-7
-			\end{align*}
-		Since $n>1$, $y>1$ so $2y-1>1$. Thus $10n-7$ is not a prime.
-	\end{solution}
-
-	\begin{problem}
-		Find all non-negative integers $m, n$ such that $3^m-5^n$ is a perfect square.
-	\end{problem}
-
-	\begin{solution}
-		Let $3^m-5^n=a^2$. Since there are squares, we should consider modulo $4$, the numbers $3,5$ also suggest us to take modulo $4$. That way, we get to know about $m$ and $n$. Since both sides must leave the same remainder upon division by $4$,
+\begin{solution}[First]
+	We know $ab=gl$ or $l=\dfrac{ab}{g}$. Substituting this into the equation:
 		\begin{align*}
-			(-1)^m-1^n &\equiv a^2\equiv0,1\pmod4
+			a+b & = g+\dfrac{ab}{g}\\
+			g^2+ab & = g(a+b)\\
+			(g-a)(g-b) & = 0
 		\end{align*}
-		If $m$ is odd then $a^2\equiv-1-1\equiv2\pmod4$, which is not possible. So $m$ is even.  If $m=2l$, can write the equation as
+	Since $a\leq b$, $g-a=0$, then $(a,b)=a$ implies $a\mid b$.
+\end{solution}
+
+\begin{solution}[Second]
+	Assume $a=gx,b=gy$ with $x\bot y$, then $l=gxy$.
 		\begin{align*}
-			\left(3^l\right)^2-a^2 & = 5^n\\
-			(3^l+a)(3^l-a) & = 5^n
+			g(x+y) & = g+gxy\\
+			xy+1 & = x+y\\
+			(x-1)(y-1) & = 0
 		\end{align*}
-		In the right side there is nothing but $5$, so we must have $3^l+a=5^x,3^l-a=5^y$ for some non-negative integer $x,y$. If we add them
-			\begin{align*}
-				2\cdot3^l & = 5^x+5^y
-			\end{align*}
-		If $y$ is $0$, then
-			\begin{align*}
-				2\cdot3^l & = 5^x+1
-			\end{align*}
-		$5+1$ is divisible by $2$ and $3$, but according to Zsigmondy's theorem $5^x+1$ will have a prime factor that is neither $2$ nor $3$ if $x>1$. Clearly $x>y$ so if $y\neq0$, then $5$ divides $2\cdot3^l$, contradiction. So there is no such integers $m,n$ except the trivial solutions when $x=0$ or $x=1$.
-	\end{solution}
+	Again, since $a\leq b$, $x\leq y$ so $x-1=0$ or $x=1$, we have $a=g$. Same conclusion.
+\end{solution}
 
-	\begin{problem}[Croatia $2015$]
-		Prove that there does not exist a positive integer $n$ for which $7^n-1$ is divisible by $6^n-1$.
-	\end{problem}
+\begin{problem}[Slovenia $2010$]
+	Find all primes $p,q,r$ with $15p+7pq+qr=pqr$.
+\end{problem}
 
-	\begin{solution}
-		Assume to the contrary that, $6^n-1\mid 7^n-1$. Due to $6^n-1\mid 6^n-1$, subtraction gives
-			\begin{align*}
-				6^n-1
-					& \mid 7^n-1-(6^n-1)\\
-					& = 7^n-6^n
-			\end{align*}
-		See that left side is divisible by $6-1=5$, so right side is divisible by $5$ too.
-			\begin{align*}
-				7^n-6^n
-					&\equiv2^n-1\pmod5
-			\end{align*}
-		The smallest positive integer for which $2^n-1$ is divisible by $5$ is $n=4$. So, $n$ must be divisible by $4$. But then $6^4-1=37\cdot5\cdot7$ divides $6^n-1$. So $7$ divides $7^n-6^n$, a contradiction.
-	\end{solution}
-
-	\begin{problem}
-		Find all positive integers $n$ such that $n^2-1\mid 2^n+1$.
-	\end{problem}
-
-	\begin{solution}
-		Clearly $2^n+1$ is odd, so $n^2-1$ must be odd as well. This means that $n$ is even. Let $n=2k$ for some positive integer $k$. Then
-			\begin{align*}
-				n^2-1 \equiv 4k^2 - 1 \equiv 3 \pmod 4.
-			\end{align*}
-		By \autoref{thm:4k+3prime}, every number of the form $4k+3$ has a prime divisor of that form. Therefore, there is a prime $p$ such that $p\mid n^2-1$ and $p \equiv 3 \pmod 4$. Now, according to \autoref{thm:a^2+b^2}, every prime divisor of $2^{n}+1=\left(2^{k}\right)^2 + 1$ is of the form $4k+1$. This is a contradiction because $p\mid n^2-1\mid 2^n+1$. Thus no such $n$ exists.
-	\end{solution}
-
-	\begin{note}
-		Although some problems seem difficult at first sight, they are pretty easy if you think in a proper way.
-	\end{note}
-
-	\begin{problem}
-		Find all $m,n\in\mathbb{N}$ such that $2^n-1\mid m^2+9$.
-	\end{problem}
-
-	\begin{solution}
-		$n=1$ is obviously a solution (which works for any $m$), so let's look at $n>1$ only. Note that $m^2+9=m^2+3^2$, if $m\perp3$, then $m^2+3^2$ is a bisquare. Therefore, if $n>1$ then $2^n-1\equiv-1\pmod4$, so $m^2+9$ will have a prime divisor of the form $4k+3$. But we know that, no bisquare has a prime divisor of this form. Therefore, $m$ must be divisible by $3$. If $m=3k$,
+\begin{solution}
+	We can write it as $p(15+7q)+qr=pqr$ or
 		\begin{align*}
-		2^n-1 & \mid 9(k^2+1)
+			p(qr-15-7q) & = qr
 		\end{align*}
-		Now, no matter what $k$ is, $k^2+1$ is always a bisquare. Therefore, it can not have any divisors of the form $4k+3$. So, $2^n-1\mid 9$, checking with $2^n-1=1,3,9$, we get that $n=1,2$ are the solutions.
-	\end{solution}
+	Therefore, $p\mid qr$ and since $p,q,r$ are primes $p\mid q$ or $p\mid r$. If $p=q$, then
+		\begin{align*}
+			pr-15-7p & = r\\
+			r(p-1) & = 7p+15\\
+			p-1\mid 7p+15
+		\end{align*}
+	Since $p-1\mid 7p-7$, $p-1\mid (7p+15)-(7p-7)=22$. So $p-1\in\{1,2,11,22\}$ which gives $p\in\{2,3,23\}$. But we also need $r=\dfrac{7p+15}{p-1}$, a prime. We get that $r$ is a prime when $p=2$ only when $r=29$. The other case is $p=r$, so
+		\begin{align*}
+			pq-15-7q & = q\\
+			(p-8)q & = 15
+		\end{align*}
+	We have $q\in\{3,5\}$. If $q=3$, then $p=13$ which is valid. If $q=5,p=11$ and this is a valid solution too.
+\end{solution}
+
+\begin{problem}[Serbia $2014$]
+	A \textit{special} number is a positive integer $n$ for which there exist positive integers $a, b, c$ and $d$ with
+		\begin{align*}
+			n & = \dfrac{a^3+2b^3}{c^3+2d^3}
+		\end{align*}
+	Prove that,
+		\begin{enumerate}[a.]
+			\item There are infinitely many special numbers.
+			\item $2014$ is not a special number.
+		\end{enumerate}
+\end{problem}
+
+\begin{solution}
+	Proving (a) is easy since we just have to show an infinite such $n$. So we can choose $a,b,c,d$ however we want, as long as they serve our purpose. Let's go with $a=ck,b=dk$, then
+		\begin{align*}
+			\dfrac{a^3+2b^3}{c^3+2d^3}  & = \dfrac{c^3k^3+2d^3k^3}{c^3+2d^3}\\
+										& = k^3
+		\end{align*}
+	Since we are free to choose $k$ here, we have infinitely many $n$.
+
+	For part (b), let's assume
+		\begin{align*}
+			a^3+2b^3 & = 2014(c^3+2d^3)\\
+				 & = 2\cdot19\cdot53(c^3+2d^3)
+		\end{align*}
+	We can consider modulo $19$ in this equation. We just have to check cubes modulo $19$ and the reader can verify that if $a^3\equiv-2b^3\pmod{19}$, then we must have $19\mid a,b$ since $x^3\equiv0,\pm1,\pm7,\pm8\pmod{19}$. Say, $a=19x,b=19y$.
+		\begin{align*}
+			19^3(x^3+2y^3) & = 2\cdot19\cdot53(c^3+2d^3)\\
+			19 & \mid c^3+2d^3
+		\end{align*}
+	This also shows that $19\mid c,d$ so let $c=19z,d=19w$. but then
+		\begin{align*}
+			x^3+2y^3 & = 2014(z^3+w^3)
+		\end{align*}
+	we get a smaller solution $(x,y,z,w)$ which is actually infinite descent.
+\end{solution}
+
+\begin{problem}[Croatia $2015$]
+	Let $n>1$ be a positive integer so that $2n-1$ and $3n-2$ are perfect squares. Prove that $10n-7$ is composite.
+\end{problem}
+
+\begin{solution}
+	Take $2n-1=x^2$ and $3n-2=y^2$. We need to reach $10n$ somehow here, and incidentally $10=12-2=3\cdot4-2\cdot1$. So, we do this:
+		\begin{align*}
+			4(y^2)-1(x^2) & = 4(3n-2)-(2n-1)\\
+			(2y+x)(2y-x)  & = 10n-7
+		\end{align*}
+	Since $n>1$, $y>1$ so $2y-1>1$. Thus $10n-7$ is not a prime.
+\end{solution}
+
+\begin{problem}
+	Find all non-negative integers $m, n$ such that $3^m-5^n$ is a perfect square.
+\end{problem}
+
+\begin{solution}
+	Let $3^m-5^n=a^2$. Since there are squares, we should consider modulo $4$, the numbers $3,5$ also suggest us to take modulo $4$. That way, we get to know about $m$ and $n$. Since both sides must leave the same remainder upon division by $4$,
+	\begin{align*}
+		(-1)^m-1^n &\equiv a^2\equiv0,1\pmod4
+	\end{align*}
+	If $m$ is odd then $a^2\equiv-1-1\equiv2\pmod4$, which is not possible. So $m$ is even.  If $m=2l$, can write the equation as
+	\begin{align*}
+		\left(3^l\right)^2-a^2 & = 5^n\\
+		(3^l+a)(3^l-a) & = 5^n
+	\end{align*}
+	In the right side there is nothing but $5$, so we must have $3^l+a=5^x,3^l-a=5^y$ for some non-negative integer $x,y$. If we add them
+		\begin{align*}
+			2\cdot3^l & = 5^x+5^y
+		\end{align*}
+	If $y$ is $0$, then
+		\begin{align*}
+			2\cdot3^l & = 5^x+1
+		\end{align*}
+	$5+1$ is divisible by $2$ and $3$, but according to Zsigmondy's theorem $5^x+1$ will have a prime factor that is neither $2$ nor $3$ if $x>1$. Clearly $x>y$ so if $y\neq0$, then $5$ divides $2\cdot3^l$, contradiction. So there is no such integers $m,n$ except the trivial solutions when $x=0$ or $x=1$.
+\end{solution}
+
+\begin{problem}[Croatia $2015$]
+	Prove that there does not exist a positive integer $n$ for which $7^n-1$ is divisible by $6^n-1$.
+\end{problem}
+
+\begin{solution}
+	Assume to the contrary that, $6^n-1\mid 7^n-1$. Due to $6^n-1\mid 6^n-1$, subtraction gives
+		\begin{align*}
+			6^n-1
+				& \mid 7^n-1-(6^n-1)\\
+				& = 7^n-6^n
+		\end{align*}
+	See that left side is divisible by $6-1=5$, so right side is divisible by $5$ too.
+		\begin{align*}
+			7^n-6^n
+				&\equiv2^n-1\pmod5
+		\end{align*}
+	The smallest positive integer for which $2^n-1$ is divisible by $5$ is $n=4$. So, $n$ must be divisible by $4$. But then $6^4-1=37\cdot5\cdot7$ divides $6^n-1$. So $7$ divides $7^n-6^n$, a contradiction.
+\end{solution}
+
+\begin{problem}
+	Find all positive integers $n$ such that $n^2-1\mid 2^n+1$.
+\end{problem}
+
+\begin{solution}
+	Clearly $2^n+1$ is odd, so $n^2-1$ must be odd as well. This means that $n$ is even. Let $n=2k$ for some positive integer $k$. Then
+		\begin{align*}
+			n^2-1 \equiv 4k^2 - 1 \equiv 3 \pmod 4.
+		\end{align*}
+	By \autoref{thm:4k+3prime}, every number of the form $4k+3$ has a prime divisor of that form. Therefore, there is a prime $p$ such that $p\mid n^2-1$ and $p \equiv 3 \pmod 4$. Now, according to \autoref{thm:a^2+b^2}, every prime divisor of $2^{n}+1=\left(2^{k}\right)^2 + 1$ is of the form $4k+1$. This is a contradiction because $p\mid n^2-1\mid 2^n+1$. Thus no such $n$ exists.
+\end{solution}
+
+\begin{note}
+	Although some problems seem difficult at first sight, they are pretty easy if you think in a proper way.
+\end{note}
+
+\begin{problem}
+	Find all $m,n\in\mathbb{N}$ such that $2^n-1\mid m^2+9$.
+\end{problem}
+
+\begin{solution}
+	$n=1$ is obviously a solution (which works for any $m$), so let's look at $n>1$ only. Note that $m^2+9=m^2+3^2$, if $m\perp3$, then $m^2+3^2$ is a bisquare. Therefore, if $n>1$ then $2^n-1\equiv-1\pmod4$, so $m^2+9$ will have a prime divisor of the form $4k+3$. But we know that, no bisquare has a prime divisor of this form. Therefore, $m$ must be divisible by $3$. If $m=3k$,
+	\begin{align*}
+	2^n-1 & \mid 9(k^2+1)
+	\end{align*}
+	Now, no matter what $k$ is, $k^2+1$ is always a bisquare. Therefore, it can not have any divisors of the form $4k+3$. So, $2^n-1\mid 9$, checking with $2^n-1=1,3,9$, we get that $n=1,2$ are the solutions.
+\end{solution}
 You never know what's coming next until you think clearly!
-	\begin{problem}
-		If $n>1$, prove that $n^2-1$ divides $2^{n!}-1$ for even $n$.
-	\end{problem}
+\begin{problem}
+	If $n>1$, prove that $n^2-1$ divides $2^{n!}-1$ for even $n$.
+\end{problem}
 
-	\begin{solution}
-		If we set $m=n+1$, then we need to prove $m(m-2)$ divides $2^{(m-1)!}-1$. Since $n$ is even, $m$ is odd so $m$ is relatively prime to $2$.
-			\begin{align*}
-				2^{\varphi(m)} &\equiv1\pmod m\\
-				2^{\varphi(m-2)} &\equiv1\pmod{m-2}
-			\end{align*}
-		Since $\varphi(m)<m$ and $\varphi(m-2)\leq m-2$, $\varphi(m)$ and $\varphi(m-2)$ divides $(m-1)!$. Therefore,
-			\begin{align*}
-				2^{(m-1)!} & \equiv1\pmod m\\
-				2^{(m-1)!} & \equiv1\pmod{m-2}
-			\end{align*}
-		This implies $m\mid 2^{(m-1)!}-1$ and $m-2\mid 2^{(m-1)!}-1$. Since $m\perp m-2$ for odd $m$, we have $m(m-2)\mid 2^{(m-1)!}-1$.
-	\end{solution}
-
-	\begin{problem}
-		Prove that $n$ divides $2^n+1$ for infinitely many $n\in\mathbb{N}$.
-	\end{problem}
-
-	\begin{solution}
-		One can easily observe that $n=3$ works since $n$ is odd, so we could take $n=3k$. Then we see that $2^{3k}+1=8^k+1$ is divisible by $9$ since $k$ is odd. This suggests us to take $n=3^k$. Indeed, it works because due to LTE, $3^{k+1}\|2^{3^k}+1$, so $n=3^k$ gives us infinitely such $n$.
-	\end{solution}
-
-	\begin{problem}[Croatia $2015$]
-		Determine all positive integers $n$ for which there exists a divisor $d$ of $n$ such that $dn+1\mid d^2+n^2$.
-	\end{problem}
-
-	\begin{solution}
-		Let $n=dk$ where $k\in\mathbb{N}$. The equation becomes
-			\begin{align*}
-				d^2k+1 & \mid d^2+d^2k^2\\
-				d^2k+1 & \mid d^2k^2+k\\
-				d^2k+1 & \mid d^2k^2+d^2-(d^2k^2+k)\\
-					   & = d^2-k
-			\end{align*}
-		If $d^2>k$ then $d^2k+1\mid d^2-k$ but clearly $d^2-k<d^2<d^2k+1$, contradiction. If $k>d^2$, then $k-d^2<k<kd^2+1$. Thus, $d^2-k=0$ or $k=d^2$. We get $n=dk=d^3$.
-	\end{solution}
-
-	\begin{problem}[IMO Shortlist $2013$, N$1$, Proposed by Malaysia]
-		Find all functions $f:\mathbb{N}\to\mathbb{N}$ such that
+\begin{solution}
+	If we set $m=n+1$, then we need to prove $m(m-2)$ divides $2^{(m-1)!}-1$. Since $n$ is even, $m$ is odd so $m$ is relatively prime to $2$.
 		\begin{align*}
-		m^2+f(n) & \mid mf(m)+n
+			2^{\varphi(m)} &\equiv1\pmod m\\
+			2^{\varphi(m-2)} &\equiv1\pmod{m-2}
 		\end{align*}
-	\end{problem}
-	Arithmetic functional equations or divisibility problems are really popular for IMO or Shortlist. Anyway, let's see how we can solve this one. We say it beforehand that, it can be solved in many ways, being an easy problem. So if you try yourself you should be able to do it.
-	\begin{solution}[First]
-		There are two variables in this divisibility. Sometimes reducing to one variable and then working on it alone suffices for some problems. By the way, you have probably guessed already, $f(n)=n$ is the solution.
-
-		First let's play with some values of $m$ and $n$. To remove two variables, set $m=n$.
-			\begin{align*}
-				n^2+f(n) & \mid nf(n)+n\\
-				nf(n)+n &\geq n^2+f(n)\\
-				(n-1)(f(n)-n)&\geq0
-			\end{align*}
-		Since $n\geq1$, we have $f(n)-n\geq0$ so $f(n)\geq n$. If we can prove now that $f(n)\leq n$, we will have $f(n)=n$. Set $n=2$ in the divisibility.
-			\begin{align*}
-				4+f(2) & \mid 2f(2)+2\\
-				4+f(2) & \mid 8+2f(2)\\
-				4+f(2) & \mid 8+2f(2)-(2f(2)+2)\\
-				4+f(2) & \mid 6
-			\end{align*}
-		Since $4+f(2)\geq 5$, we must have $4+f(2)=6$ or $f(2)=2$. Now, using $n=2$ in the original divisibility,
-			\begin{align*}
-				m^2+f(2) &\mid mf(m)+2\\
-				m^2+2 &\mid mf(m)+2\\
-				m^2+2 &\leq mf(m)+2\\
-				m^2 &\leq mf(m)\\
-				m &\leq f(m)
-			\end{align*}
-		And we are done!
-	\end{solution}
-
-	\begin{solution}[Second]
-		This one uses another great idea. This kind of technique is useful in many cases. Another example of choosing a special prime.
-
-		Set $m=f(n)$ in the divisibility, and it gives us
+	Since $\varphi(m)<m$ and $\varphi(m-2)\leq m-2$, $\varphi(m)$ and $\varphi(m-2)$ divides $(m-1)!$. Therefore,
 		\begin{align*}
-		f(n)^2+f(n) & \mid f(n)f(f(n))+n\\
-		f(n)(f(n)+1)& \mid  f(n)f(f(n))+n
+			2^{(m-1)!} & \equiv1\pmod m\\
+			2^{(m-1)!} & \equiv1\pmod{m-2}
 		\end{align*}
-		Thus, $f(n)\mid f(n)f(f(n))+n$ or $f(n)\mid n$, so $f(n)\leq n$. Now, we will explain our main idea. \textit{We will make the right side a prime} (think what the benefit of doing so). But we need to understand if that's achievable. It is, since we can take $n$ as we please, and there is a free $n$ on the right side. Let $p=mf(m)+n$ for a prime $p>mf(m)$. In fact, we take a prime $p>m^2$, that way we also ensure $p>mf(m)$ since $f(m)\leq n$. So, for that $m$,
-			\begin{align*}
-				m^2+f(n) & \mid mf(m)+n=p
-			\end{align*}
-		This forces us to $m^2+f(n)=p$ since $m^2+f(n)\geq2$.
-			\begin{align*}
-				p-m^2 = f(n) & \leq n\\
-							 & = p-mf(m)
-			\end{align*}
-		which gives $m\leq f(m)$. So $f(n)=n$.
-	\end{solution}
+	This implies $m\mid 2^{(m-1)!}-1$ and $m-2\mid 2^{(m-1)!}-1$. Since $m\perp m-2$ for odd $m$, we have $m(m-2)\mid 2^{(m-1)!}-1$.
+\end{solution}
 
-	\begin{problem}[IMO $1990$, Problem $3$]
-		Find all $n\in\mathbb{N}$ for which $n^2\mid 2^n+1$.
-	\end{problem}
+\begin{problem}
+	Prove that $n$ divides $2^n+1$ for infinitely many $n\in\mathbb{N}$.
+\end{problem}
 
-	\begin{solution}
-		Let's see if we can determine the smallest prime factor again. If $p$ is the smallest prime divisor of $n$,
-			\begin{align*}
-				2^n &\equiv-1\pmod p\\
-				2^{2n} &\equiv1\pmod p
-			\end{align*}
-		And from Fermat's little theorem, $2^p\equiv1\pmod p$. So we get
-			\begin{align*}
-				2^{(2n,p-1)} &\equiv1\pmod p
-			\end{align*}
-		Using the same argument as before, $n\bot p-1$, so $(2n,p-1)=(2,p-1)=2$ because $p$ is odd. This gives us $2^2\equiv1\pmod p$ or $p=3$. What do we do now? We only have the smallest prime. So, we can assume $n=3^\alpha k$ where $k$ is not divisible by $3$. Think yourself about the reason to do this. It would be certainly fruitful to find out what values $\alpha$ can assume. This is where \textit{Lifting the Exponent} lemma comes to the rescue! \textit{But first we need to make sure we can actually apply LTE}. In this case, we can because $2+1=3$, divisible by $3$ and $2\bot1$. We have
-			\begin{align*}
-				\nu_3(n^2)  & = \nu_3(3^{2\alpha }k^2)\\
-							& = \nu_3(3^{2\alpha })+\nu_3(k^2)\\
-							& = 2\alpha
-			\end{align*}
-		On the other hand, from LTE,
-			\begin{align*}
-				\nu_3(2^{3^\alpha}+1)  & = \nu_3(2+1)+\nu_3(3^\alpha )\\
-									& = 1+\alpha
-			\end{align*}
-		$n^2\mid 2^n+1$ implies that
-			\begin{align*}
-				\nu_3(2^n+1) & \geq\nu_3(n^2)\\
-				1+\alpha & \geq2\alpha\\
-				1 & \geq\alpha
-			\end{align*}
-		Since $\alpha $ is a positive integer, we have $\alpha = 1$. So $n=3k$ with $3\nmid k$. The problem is now finding $k$ with
-			\begin{align*}
-				k^2 & \mid  8^k+1
-			\end{align*}
-		Here, we again try to determine the smallest prime divisor of $k$, we call it $q$. Then $8^k\equiv-1\pmod q$.
-			\begin{align*}
-				8^{2k} &\equiv1\pmod q\\
-				8^{q-1}&\equiv1\pmod q\\
-				8^{(2k,q-1)}&\equiv1\pmod q\\
-				8^{2}&\equiv1\pmod q
-			\end{align*}
-		We hope the lines above don't need a second explanation. This way, $q\mid 63=3^2\cdot7$. Since $3\bot q$, we can only have $q=7$. But,
-			\begin{align*}
-				8^k+1 &\equiv1^k+1\equiv2\pmod7
-			\end{align*}
-		This is impossible, which means $k$ doesn't have any prime divisor i.e. $k=1$. The only solution we have is $n=1,3$.
-	\end{solution}
+\begin{solution}
+	One can easily observe that $n=3$ works since $n$ is odd, so we could take $n=3k$. Then we see that $2^{3k}+1=8^k+1$ is divisible by $9$ since $k$ is odd. This suggests us to take $n=3^k$. Indeed, it works because due to LTE, $3^{k+1}\|2^{3^k}+1$, so $n=3^k$ gives us infinitely such $n$.
+\end{solution}
 
-	\begin{note}
-		This is a fantastic problem which uses couple of techniques at the same time. Worthy of being a problem $3$ at the IMO!
-	\end{note}
+\begin{problem}[Croatia $2015$]
+	Determine all positive integers $n$ for which there exists a divisor $d$ of $n$ such that $dn+1\mid d^2+n^2$.
+\end{problem}
 
-	\begin{problem}[All Russian Olympiad $2014$, Day $2$]
-		Define $m(n)$ to be the greatest proper natural divisor of $n \in\in N$. Find all $n$ such that $n + m(n)$ is a power of $10$.
-	\end{problem}
-
-	\begin{solution}
-		Let $n+m(n)=10^a$. If $n$ is a prime then $m(n)$ is clearly $1$. In that case,
+\begin{solution}
+	Let $n=dk$ where $k\in\mathbb{N}$. The equation becomes
 		\begin{align*}
-		p+1 & = 10^a\\
-		p & = 10^a-1
+			d^2k+1 & \mid d^2+d^2k^2\\
+			d^2k+1 & \mid d^2k^2+k\\
+			d^2k+1 & \mid d^2k^2+d^2-(d^2k^2+k)\\
+	   & = d^2-k
 		\end{align*}
-		Right side is divisible by $10-1=9$, so $p$ can not be prime. Now, if $n>1$ and not a prime, then $n$ has a smallest prime divisor. Then the greatest proper divisor of $n$ will be $\dfrac{n}{p}$, let's say $n=pk$. Be careful here, $p$ is the smallest prime does not mean that $k$ is not divisible by $p$. For example, $12=2^2\cdot3$ so $k=6$. Take $k=p^rl$ where all prime factors of $l$ must be greater than $p$ and $r\geq0$.
+	If $d^2>k$ then $d^2k+1\mid d^2-k$ but clearly $d^2-k<d^2<d^2k+1$, contradiction. If $k>d^2$, then $k-d^2<k<kd^2+1$. Thus, $d^2-k=0$ or $k=d^2$. We get $n=dk=d^3$.
+\end{solution}
+
+\begin{problem}[IMO Shortlist $2013$, N$1$, Proposed by Malaysia]
+	Find all functions $f:\mathbb{N}\to\mathbb{N}$ such that
+	\begin{align*}
+	m^2+f(n) & \mid mf(m)+n
+	\end{align*}
+\end{problem}
+Arithmetic functional equations or divisibility problems are really popular for IMO or Shortlist. Anyway, let's see how we can solve this one. We say it beforehand that, it can be solved in many ways, being an easy problem. So if you try yourself you should be able to do it.
+\begin{solution}[First]
+	There are two variables in this divisibility. Sometimes reducing to one variable and then working on it alone suffices for some problems. By the way, you have probably guessed already, $f(n)=n$ is the solution.
+
+	First let's play with some values of $m$ and $n$. To remove two variables, set $m=n$.
 		\begin{align*}
-		n+m(n) & = 10^a\\
-		pk+k & = 10^a\\
-		p^rl(p+1) & = 10^a
+			n^2+f(n) & \mid nf(n)+n\\
+			nf(n)+n &\geq n^2+f(n)\\
+			(n-1)(f(n)-n)&\geq0
 		\end{align*}
-		If $r\geq1$ then $p$ divides $10$. So $p=2$ or $p=5$. If $p=2$, then $p+1=3$ divides $10^a$, contradiction. If $p=5$, $p+1=6$ divides $10^a$, again contradiction. So $r=0$ and $l(p+1)=10^a$. It is clear that $l$ is odd, otherwise $2\mid l$ and hence $p<2$ since all prime factors of $l$ are greater than $p$. This also provides with $p+1\leq l$. Since $l$ is odd, $l=5^x$ for some $1\leq x\leq a$. Since $p$ is less than all prime factors of $l$, we must have $p=3$.
+	Since $n\geq1$, we have $f(n)-n\geq0$ so $f(n)\geq n$. If we can prove now that $f(n)\leq n$, we will have $f(n)=n$. Set $n=2$ in the divisibility.
 		\begin{align*}
-		5^x\cdot4 & = 2^a5^a
+			4+f(2) & \mid 2f(2)+2\\
+			4+f(2) & \mid 8+2f(2)\\
+			4+f(2) & \mid 8+2f(2)-(2f(2)+2)\\
+			4+f(2) & \mid 6
 		\end{align*}
-		which immediately gives $a=2$, so $x=a=2$. Thus, $n=pk=3\cdot5^2=75$.
-	\end{solution}
+	Since $4+f(2)\geq 5$, we must have $4+f(2)=6$ or $f(2)=2$. Now, using $n=2$ in the original divisibility,
+		\begin{align*}
+			m^2+f(2) &\mid mf(m)+2\\
+			m^2+2 &\mid mf(m)+2\\
+			m^2+2 &\leq mf(m)+2\\
+			m^2 &\leq mf(m)\\
+			m &\leq f(m)
+		\end{align*}
+	And we are done!
+\end{solution}
 
-	\begin{problem}[Czech Slovakia $1996$]
-		Find all positive integers $x, y$ such that $p^x - y^p = 1$ where $p$ is a prime.
-	\end{problem}
+\begin{solution}[Second]
+	This one uses another great idea. This kind of technique is useful in many cases. Another example of choosing a special prime.
 
-	\begin{solution}
-		If $p=2$, then $2^x=y^2+1$. If $x\geq2$, then $x^2\equiv-1\pmod4$, which is impossible. So $x=1$ and now $p$ is odd. Then $p^x=y^p+1=(y+1)S$ for some integer $S$. Obviously $y+1$ is divisible by $p$ but $y^p+1$ has a primitive divisor unless $y=2,p=1$.
-	\end{solution}
+	Set $m=f(n)$ in the divisibility, and it gives us
+	\begin{align*}
+	f(n)^2+f(n) & \mid f(n)f(f(n))+n\\
+	f(n)(f(n)+1)& \mid  f(n)f(f(n))+n
+	\end{align*}
+	Thus, $f(n)\mid f(n)f(f(n))+n$ or $f(n)\mid n$, so $f(n)\leq n$. Now, we will explain our main idea. \textit{We will make the right side a prime} (think what the benefit of doing so). But we need to understand if that's achievable. It is, since we can take $n$ as we please, and there is a free $n$ on the right side. Let $p=mf(m)+n$ for a prime $p>mf(m)$. In fact, we take a prime $p>m^2$, that way we also ensure $p>mf(m)$ since $f(m)\leq n$. So, for that $m$,
+		\begin{align*}
+			m^2+f(n) & \mid mf(m)+n=p
+		\end{align*}
+	This forces us to $m^2+f(n)=p$ since $m^2+f(n)\geq2$.
+		\begin{align*}
+			p-m^2 = f(n) & \leq n\\
+					 & = p-mf(m)
+		\end{align*}
+	which gives $m\leq f(m)$. So $f(n)=n$.
+\end{solution}
 
-	\begin{problem}[China $2001$, Problem $4$]
-		We are given three integers $a, b, c$ such that $a, b, c, a + b - c, a + c - b, b + c - a$, and $a + b + c$ are seven distinct primes. Let $d$ be the difference between the largest and smallest of these seven primes. Suppose that $800\in \{a+b, b+c, c+a\}$. Determine the maximum possible value of $d$.
-	\end{problem}
+\begin{problem}[IMO $1990$, Problem $3$]
+	Find all $n\in\mathbb{N}$ for which $n^2\mid 2^n+1$.
+\end{problem}
 
-	\begin{solution}
-		Observation: all of $a,b,c$ are odd prime. In cases like this, show a contradiction that the other case can not happen. So let's assume that $a=2$ and $b,c$ are odd. Then $a+b-c$ is even since $b-c$ is even, so not a prime unless $a+b-c=2$ but then $b=c$ which contradicts that $b,c$ are distinct primes. We leave the other cases for the reader.
+\begin{solution}
+	Let's see if we can determine the smallest prime factor again. If $p$ is the smallest prime divisor of $n$,
+		\begin{align*}
+			2^n &\equiv-1\pmod p\\
+			2^{2n} &\equiv1\pmod p
+		\end{align*}
+	And from Fermat's little theorem, $2^p\equiv1\pmod p$. So we get
+		\begin{align*}
+			2^{(2n,p-1)} &\equiv1\pmod p
+		\end{align*}
+	Using the same argument as before, $n\bot p-1$, so $(2n,p-1)=(2,p-1)=2$ because $p$ is odd. This gives us $2^2\equiv1\pmod p$ or $p=3$. What do we do now? We only have the smallest prime. So, we can assume $n=3^\alpha k$ where $k$ is not divisible by $3$. Think yourself about the reason to do this. It would be certainly fruitful to find out what values $\alpha$ can assume. This is where \textit{Lifting the Exponent} lemma comes to the rescue! \textit{But first we need to make sure we can actually apply LTE}. In this case, we can because $2+1=3$, divisible by $3$ and $2\bot1$. We have
+		\begin{align*}
+			\nu_3(n^2)  & = \nu_3(3^{2\alpha }k^2)\\
+						& = \nu_3(3^{2\alpha })+\nu_3(k^2)\\
+						& = 2\alpha
+		\end{align*}
+	On the other hand, from LTE,
+		\begin{align*}
+			\nu_3(2^{3^\alpha}+1)  & = \nu_3(2+1)+\nu_3(3^\alpha )\\
+								& = 1+\alpha
+		\end{align*}
+	$n^2\mid 2^n+1$ implies that
+		\begin{align*}
+			\nu_3(2^n+1) & \geq\nu_3(n^2)\\
+			1+\alpha & \geq2\alpha\\
+			1 & \geq\alpha
+		\end{align*}
+	Since $\alpha $ is a positive integer, we have $\alpha = 1$. So $n=3k$ with $3\nmid k$. The problem is now finding $k$ with
+		\begin{align*}
+			k^2 & \mid  8^k+1
+		\end{align*}
+	Here, we again try to determine the smallest prime divisor of $k$, we call it $q$. Then $8^k\equiv-1\pmod q$.
+		\begin{align*}
+			8^{2k} &\equiv1\pmod q\\
+			8^{q-1}&\equiv1\pmod q\\
+			8^{(2k,q-1)}&\equiv1\pmod q\\
+			8^{2}&\equiv1\pmod q
+		\end{align*}
+	We hope the lines above don't need a second explanation. This way, $q\mid 63=3^2\cdot7$. Since $3\bot q$, we can only have $q=7$. But,
+		\begin{align*}
+			8^k+1 &\equiv1^k+1\equiv2\pmod7
+		\end{align*}
+	This is impossible, which means $k$ doesn't have any prime divisor i.e. $k=1$. The only solution we have is $n=1,3$.
+\end{solution}
 
-		From what we just proved, the smallest prime of $a,b,c$ (namely $c\geq3$) must be at least $3$. What other information is there for us to use? $800\in \{a+b, b+c, c+a\}$, but we don't need to analyze every case since they are symmetric over $a,b,c$. Without loss of generality, take $a+b=800$. $a+b-c>0$ is a prime too, so $c<a+b=800$ or $c\leq 799$, a prime. We can check that $17$ divides $799$, so $c\leq797$, inferring $a+b+c\leq800+797=1597$. And by luck, $1597$ is a prime (well, that's how the problem creator created the problem). So if we can find $a,b$ so that all are primes, we are done and in that case, $d=a+b+c-3=1594$ since $a+b+c$ is the largest prime and $3$ is the smallest prime. $a$ must be greater than or equal to $5$, but since $a+b=800$, $a$ can not be $5$. Let's check starting from $a=7,b=793$. With some tedious calculations, we can find that $a=13,b=787$ satisfies all the conditions. Other primes would be $23,1571$.
-	\end{solution}
+\begin{note}
+	This is a fantastic problem which uses couple of techniques at the same time. Worthy of being a problem $3$ at the IMO!
+\end{note}
 
-	\begin{problem}
-		Find the number of positive integers $d$ so that for a given positive integer $n$, $d$ divides $a^n-a$ for all integer $a$.
-	\end{problem}
+\begin{problem}[All Russian Olympiad $2014$, Day $2$]
+	Define $m(n)$ to be the greatest proper natural divisor of $n \in\in N$. Find all $n$ such that $n + m(n)$ is a power of $10$.
+\end{problem}
 
-	\begin{solution}
-		Let's focus only on $n>1$. How do we understand the nature of $d$? Surely we should take a prime divisor of $d$, say $p$. If we can find the values of $p$ and the exponent of $p$ in $d$, we can find $d$. So we get $p\mid a^n-a$ for all $p\mid d$. What should we use to get a clue on the exponents? We can set different values of $a$. And it seems wise to use $a=p$. This shows that $p\mid p^n-p$. Now, if $p^2\mid d$ then we would have $p^2\mid p^n-p$ which would breed a contradiction $p^2\mid p$ because $p^2\mid p^n$ for $n>1$. Therefore, for any prime $p\mid d$, $p^2$ can't divide $d$ and so $d$ is square-free.
+\begin{solution}
+	Let $n+m(n)=10^a$. If $n$ is a prime then $m(n)$ is clearly $1$. In that case,
+	\begin{align*}
+	p+1 & = 10^a\\
+	p & = 10^a-1
+	\end{align*}
+	Right side is divisible by $10-1=9$, so $p$ can not be prime. Now, if $n>1$ and not a prime, then $n$ has a smallest prime divisor. Then the greatest proper divisor of $n$ will be $\dfrac{n}{p}$, let's say $n=pk$. Be careful here, $p$ is the smallest prime does not mean that $k$ is not divisible by $p$. For example, $12=2^2\cdot3$ so $k=6$. Take $k=p^rl$ where all prime factors of $l$ must be greater than $p$ and $r\geq0$.
+	\begin{align*}
+	n+m(n) & = 10^a\\
+	pk+k & = 10^a\\
+	p^rl(p+1) & = 10^a
+	\end{align*}
+	If $r\geq1$ then $p$ divides $10$. So $p=2$ or $p=5$. If $p=2$, then $p+1=3$ divides $10^a$, contradiction. If $p=5$, $p+1=6$ divides $10^a$, again contradiction. So $r=0$ and $l(p+1)=10^a$. It is clear that $l$ is odd, otherwise $2\mid l$ and hence $p<2$ since all prime factors of $l$ are greater than $p$. This also provides with $p+1\leq l$. Since $l$ is odd, $l=5^x$ for some $1\leq x\leq a$. Since $p$ is less than all prime factors of $l$, we must have $p=3$.
+	\begin{align*}
+	5^x\cdot4 & = 2^a5^a
+	\end{align*}
+	which immediately gives $a=2$, so $x=a=2$. Thus, $n=pk=3\cdot5^2=75$.
+\end{solution}
 
-		Now, we only need to find the valid values of $p$. This is where it gets tricky. For any integer $a$, either $p\mid a$ or $a\perp p$. It's safe to work only for $a\perp p$ since the problem asks for all values of $a$. In that case, from Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. And from the problem statement, we have $a(a^{n-1}-1)$ is divisible by $p$. Since $a\perp p$, we get $a^{n-1}-1$ is divisible by $p$, or $a^{n-1}\equiv1\pmod p$. This almost tells us to infer that we must have $p-1\mid n-1$. That is the case indeed, however, we have to prove that $p-1$ must be the order of $a$ for some integer $a$. You should think on this more and get to the point where you understand: \textit{we should set $a=g$ where $g$ is a primitive root of $p$}. So that, we can tell $g^{p-1}\equiv1\pmod p$ and $\ord_p(g)=p-1$. Therefore, from $g^{n-1}\equiv1\pmod p$, we get $p-1\mid n-1$.
+\begin{problem}[Czech Slovakia $1996$]
+	Find all positive integers $x, y$ such that $p^x - y^p = 1$ where $p$ is a prime.
+\end{problem}
 
-		Notice that, if $D=\prod\limits_{p-1\mid n-1}p$, then any $d\mid D$ satisfies the condition of the problem. Therefore the number of such positive integer $d$ is $\tau(D)$. If the number of primes $p\mid n$ for which $p-1\mid n-1$ is $t(n)$ i.e.
+\begin{solution}
+	If $p=2$, then $2^x=y^2+1$. If $x\geq2$, then $x^2\equiv-1\pmod4$, which is impossible. So $x=1$ and now $p$ is odd. Then $p^x=y^p+1=(y+1)S$ for some integer $S$. Obviously $y+1$ is divisible by $p$ but $y^p+1$ has a primitive divisor unless $y=2,p=1$.
+\end{solution}
+
+\begin{problem}[China $2001$, Problem $4$]
+	We are given three integers $a, b, c$ such that $a, b, c, a + b - c, a + c - b, b + c - a$, and $a + b + c$ are seven distinct primes. Let $d$ be the difference between the largest and smallest of these seven primes. Suppose that $800\in \{a+b, b+c, c+a\}$. Determine the maximum possible value of $d$.
+\end{problem}
+
+\begin{solution}
+	Observation: all of $a,b,c$ are odd prime. In cases like this, show a contradiction that the other case can not happen. So let's assume that $a=2$ and $b,c$ are odd. Then $a+b-c$ is even since $b-c$ is even, so not a prime unless $a+b-c=2$ but then $b=c$ which contradicts that $b,c$ are distinct primes. We leave the other cases for the reader.
+
+	From what we just proved, the smallest prime of $a,b,c$ (namely $c\geq3$) must be at least $3$. What other information is there for us to use? $800\in \{a+b, b+c, c+a\}$, but we don't need to analyze every case since they are symmetric over $a,b,c$. Without loss of generality, take $a+b=800$. $a+b-c>0$ is a prime too, so $c<a+b=800$ or $c\leq 799$, a prime. We can check that $17$ divides $799$, so $c\leq797$, inferring $a+b+c\leq800+797=1597$. And by luck, $1597$ is a prime (well, that's how the problem creator created the problem). So if we can find $a,b$ so that all are primes, we are done and in that case, $d=a+b+c-3=1594$ since $a+b+c$ is the largest prime and $3$ is the smallest prime. $a$ must be greater than or equal to $5$, but since $a+b=800$, $a$ can not be $5$. Let's check starting from $a=7,b=793$. With some tedious calculations, we can find that $a=13,b=787$ satisfies all the conditions. Other primes would be $23,1571$.
+\end{solution}
+
+\begin{problem}
+	Find the number of positive integers $d$ so that for a given positive integer $n$, $d$ divides $a^n-a$ for all integer $a$.
+\end{problem}
+
+\begin{solution}
+	Let's focus only on $n>1$. How do we understand the nature of $d$? Surely we should take a prime divisor of $d$, say $p$. If we can find the values of $p$ and the exponent of $p$ in $d$, we can find $d$. So we get $p\mid a^n-a$ for all $p\mid d$. What should we use to get a clue on the exponents? We can set different values of $a$. And it seems wise to use $a=p$. This shows that $p\mid p^n-p$. Now, if $p^2\mid d$ then we would have $p^2\mid p^n-p$ which would breed a contradiction $p^2\mid p$ because $p^2\mid p^n$ for $n>1$. Therefore, for any prime $p\mid d$, $p^2$ can't divide $d$ and so $d$ is square-free.
+
+	Now, we only need to find the valid values of $p$. This is where it gets tricky. For any integer $a$, either $p\mid a$ or $a\perp p$. It's safe to work only for $a\perp p$ since the problem asks for all values of $a$. In that case, from Fermat's little theorem, $a^{p-1}\equiv1\pmod p$. And from the problem statement, we have $a(a^{n-1}-1)$ is divisible by $p$. Since $a\perp p$, we get $a^{n-1}-1$ is divisible by $p$, or $a^{n-1}\equiv1\pmod p$. This almost tells us to infer that we must have $p-1\mid n-1$. That is the case indeed, however, we have to prove that $p-1$ must be the order of $a$ for some integer $a$. You should think on this more and get to the point where you understand: \textit{we should set $a=g$ where $g$ is a primitive root of $p$}. So that, we can tell $g^{p-1}\equiv1\pmod p$ and $\ord_p(g)=p-1$. Therefore, from $g^{n-1}\equiv1\pmod p$, we get $p-1\mid n-1$.
+
+	Notice that, if $D=\prod\limits_{p-1\mid n-1}p$, then any $d\mid D$ satisfies the condition of the problem. Therefore the number of such positive integer $d$ is $\tau(D)$. If the number of primes $p\mid n$ for which $p-1\mid n-1$ is $t(n)$ i.e.
+		\begin{align*}
+			t(n) & = \sum\limits_{\substack{p\mid n\\p-1\mid n-1}}1
+		\end{align*}
+	then $\tau(D) = 2^{t(n)}$.
+\end{solution}
+
+\begin{note}
+	The following approach works too. Consider $a\bot d$ so we have $d\mid a^{n-1}-1$. Using \autoref{thm:carDiv}, we get $\lambda(n)\mid n-1$.
+\end{note}
+
+\begin{problem}
+	For rational $a,b$ and all prime $p$, $a^p-b^p$ is an integer. Prove that, $a$ and $b$ must be integer.
+\end{problem}
+
+\begin{solution}
+	Since $a,b$ are rational, we can assume that $a=\frac{m}{d},b=\frac{n}{d}$ with $m\perp d,n\perp d$. Otherwise, if $\gcd(m,d)>1$ we can divide by the common factor. Moreover, we can assume $m\perp n$. Indeed, if not, say $r$ is a prime factor of $d$. Then we must have $r\nmid\gcd(m,n)$. Otherwise the condition $m\perp d$ would be broken. Therefore, without loss of generality, $m\perp n$. Let $q$ be a prime factor of $d$. Thus, \[q^p\mid m^p-n^p\] for all $p$, and $e$ be the smallest positive integer such that
+		\begin{align*}
+			m^e
+				& \equiv n^e\pmod q
+		\end{align*}
+	We can say that $e\mid p$ for all prime $p$. But this impossible except for $e=1$. Hence, $q\mid m-n$. Now, take a prime $p\neq q$, and from Exponent GCD lemma we have
+		\begin{align*}
+			\gcd\parenthesis{m-n,f(m,n,p)}
+				& \mid  p\\
+			q
+				& \nmid  f(m,n,p)
+		\end{align*}
+	This gives us, $q^p\mid m-n$ for all prime $p\neq q$ which leaves a contradiction inferring that $d$ can't have a prime factor i.e. $d$ must be $1$. And then, $a$ and $b$ both are integers.
+\end{solution}
+
+\begin{problem}
+	Prove that, $\sigma(n)=n+k$ has a finite number of solutions for a fixed positive integer $k$.
+\end{problem}
+
+\begin{solution}
+	We can easily show that $\sigma(n)>n+\sqrt{n}$ which says $k>\sqrt{n}$. In other words, $n$ is bounded above so it can not have arbitrary number of solutions.
+\end{solution}
+
+\begin{note}
+	We can use some sharper inequalities to get a upper bound of $k$. Try to sharpen the inequality as much as you can.
+\end{note}
+
+\begin{problem}
+	Prove that, for a positive integer $n$, \[\binom{2n}{n}\mid [1,2,\cdots,2n]\]
+\end{problem}
+
+\begin{solution}
+	When proving divisibility like this, you should consider \autoref{thm:legendre}. The idea is that if we can show the exponent in the left side of the divisibility is less than or equal to the exponent in the right side for a prime $p$, we are done. It is clear that no side of divisibility will have a prime $p>2n$. So we should consider only primes $p<2n$, since $2n$ is not a prime for $n>1$. Using \autoref{thm:lcm}, if for a prime $p$, $\alpha =\log_p(2n)$,
+		\begin{align*}
+			\nu_p([1,2,\cdots,2n]) & = \alpha
+		\end{align*}
+	On the other hand, from Legendre's theorem, if $N=\binom{2n}n$,
+		\begin{align*}
+			\nu_p(N) & = \sum_{i=1}^{\infty}\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}\\
+				 & = \sum_{i=1}^{\log_{p}(2n)}\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}\\
+				 &\leq\sum_{i=1}^{a}1\\
+				 & = \alpha \\
+			\nu_p(N) &\leq\nu_p([1,2,\cdots,2n])
+		\end{align*}
+	This is exactly what we needed to prove.
+\end{solution}
+
+\begin{problem}[Italy TST $2003$]
+	Find all triples of positive integers $(a, b, p)$ such that $2^a+p^b=19^a$.
+\end{problem}
+
+\begin{solution}
+	Rewrite the equation as $p^b=19^a-2^a$. Right side is divisible by $19-2=17$ which is a prime. Therefore, $p=17$, $17^b=19^a-2^a$. But if $a>1$ then $19^a-2^a$ has a prime factor other than $17$, contradiction. Thus, the only solution is $(a,b)=(1,1,)$.
+\end{solution}
+
+
+\begin{problem}[{APMO 2012} - Problem 3]
+	Find all pairs of $(n, p)$ so that $\dfrac{n^p+1}{p^n+1}$ is a positive integer where $n$ is a positive integer and $p$ is a prime number.
+\end{problem}
+
+\begin{solution}
+	We can re-state the relation as \[p^n+1\mid n^p+1\]
+	Firstly, we exclude the case $p=2$. In this case, \[2^n+1\mid n^2+1\]
+	Obviously, we need \[n^2+1\ge2^n+1\Rightarrow n^2\ge2^n\]
+	But, using induction we can easily say that for $n>4$, $2^n>n^2$ giving a contradiction. Checking $n=1,2,3,4$ we easily get the solutions: \[(n,p)=(2,2), (4,2)\]
+
+	We are left with $p$ odd. So, $p^n+1$ is even, and hence $n^p+1$ as well. This forces $n$ to be odd. Say, $q$ is an arbitrary prime factor of $p+1$. If $q=2$, then $q\mid n+1$ and since \[n^p+1=(n+1)(n^{p-1}-....+1)\]
+	and $p$ odd, there are $p$ terms in the right factor, therefore odd. So, we infer that $2^k\mid n+1$ where $k$ is the maximum power of $2$ in $p+1$.
+
+	We will use the following theorem from elementary calculus, which can also be proved elementarily.
+
+	\begin{theorem}
+		\[\lim\limits_{n\to\infty}\parenthesis{1+\frac{1}{n}}^{n}=e\]
+		where $e$ is the Euler constant.
+	\end{theorem}
+
+	Now, we prove the following lemmas.
+	\begin{lemma}\label{lem:aditya-generalized}
+		If $p \geq 3$ is an odd number (not necessarily prime), then $p^n\le n^p$ for $p\le n$.
+	\end{lemma}
+
+	\begin{proof}[Proof]
+		We will proceed by induction. The result is true for $n=1$. Suppose that $n>1$ is an integer such that $p^n \leq n^p$ holds for all $3 \leq p \leq n$. We want to show that $p^{n+1} \leq (n+1)^p$ for all $3 \leq p \leq n+1$. If $p=n+1$, we have the equality case. So, suppose that $3 \leq p < n+1$. Then, since $p\le n$, we have
 			\begin{align*}
-				t(n) & = \sum\limits_{\substack{p\mid n\\p-1\mid n-1}}1
+				(pn+p)^p
+					& \le (pn+n)^p
 			\end{align*}
-		then $\tau(D) = 2^{t(n)}$.
-	\end{solution}
-
-	\begin{note}
-		The following approach works too. Consider $a\bot d$ so we have $d\mid a^{n-1}-1$. Using \autoref{thm:carDiv}, we get $\lambda(n)\mid n-1$.
-	\end{note}
-
-	\begin{problem}
-		For rational $a,b$ and all prime $p$, $a^p-b^p$ is an integer. Prove that, $a$ and $b$ must be integer.
-	\end{problem}
-
-	\begin{solution}
-		Since $a,b$ are rational, we can assume that $a=\frac{m}{d},b=\frac{n}{d}$ with $m\perp d,n\perp d$. Otherwise, if $\gcd(m,d)>1$ we can divide by the common factor. Moreover, we can assume $m\perp n$. Indeed, if not, say $r$ is a prime factor of $d$. Then we must have $r\nmid\gcd(m,n)$. Otherwise the condition $m\perp d$ would be broken. Therefore, without loss of generality, $m\perp n$. Let $q$ be a prime factor of $d$. Thus, \[q^p\mid m^p-n^p\] for all $p$, and $e$ be the smallest positive integer such that
+		which gives (after dividing both sides by $(np)^p$)
 			\begin{align*}
-				m^e
-					& \equiv n^e\pmod q
+				\parenthesis{1 + \frac{1}{n}}^p \leq  \parenthesis{1 + \frac{1}{p}}^p
 			\end{align*}
-		We can say that $e\mid p$ for all prime $p$. But this impossible except for $e=1$. Hence, $q\mid m-n$. Now, take a prime $p\neq q$, and from Exponent GCD lemma we have
+		Therefore, since we assumed $n^p \leq p^n$,
 			\begin{align*}
-				\gcd\parenthesis{m-n,f(m,n,p)}
-					& \mid  p\\
-				q
-					& \nmid  f(m,n,p)
+				(n+1)^p & = n^p\parenthesis{1+\frac{1}{n}}^p\\
+						&\leq p^{n}\parenthesis{1+\frac{1}{p}}^p\\
+						& \le p^n\cdot e\\
+						& < p^{n+1}
 			\end{align*}
-		This gives us, $q^p\mid m-n$ for all prime $p\neq q$ which leaves a contradiction inferring that $d$ can't have a prime factor i.e. $d$ must be $1$. And then, $a$ and $b$ both are integers.
-	\end{solution}
+	since $e<3$.
+\end{proof}
 
-	\begin{problem}
-		Prove that, $\sigma(n)=n+k$ has a finite number of solutions for a fixed positive integer $k$.
-	\end{problem}
+	Back to the problem.
+	Assume that $q$ is odd.
+		\begin{align*}
+			q
+				& \mid p^n+1\\
+				& \mid n^p+1
+		\end{align*}
+	Write them using congruence. And we have,
+		\begin{align*}
+			n^p
+				& \equiv-1\pmod q\\
+			\Rightarrow n^{2p}
+				& \equiv1\pmod q
+		\end{align*}
+	Suppose, $e=\ord_q(n)$ i.e. $e$ is the smallest positive integer such that
+		\begin{align*}
+			n^e
+				& \equiv1\pmod q
+		\end{align*}
+	Then, $e\mid 2p$ and $e\mid q-1$ from \autoref{thm:ordDiv}.
 
-	\begin{solution}
-		We can easily show that $\sigma(n)>n+\sqrt{n}$ which says $k>\sqrt{n}$. In other words, $n$ is bounded above so it can not have arbitrary number of solutions.
-	\end{solution}
+	Also, from Fermat's theorem,
+		\begin{align*}
+			n^{q-1}
+				& \equiv1\pmod q\\
+			\implies n^{(2p,q-1)}
+				& \equiv1\pmod q
+		\end{align*}
+	From $p$ odd and $q\mid p+1$, $p>q$ and so $p$ and $q-1$ are relatively prime. Thus,
+		\begin{align*}
+			(2p,q-1)
+				& =(2,q-1)=2
+		\end{align*}
+	This gives us, $e\mid (2p,q-1)$ and so we must have $e=2$. Again, since $p$ odd, if $p=2r+1$,
+		\begin{align*}
+			n^{2r+1}
+				& \equiv n\pmod q
+		\end{align*}
+	Hence, $q\mid n+1$. If $q\mid \frac{n^p+1}{n+1}$, then by the \autoref{thm:egl} we get
+		\begin{align*}
+			q
+				& \mid \gcd\parenthesis{n+1,\frac{n^p+1}{n+1}}\\
+			\implies q
+				& \mid p
+		\end{align*}
+	which would imply $q=1$ or $p$. Both of the cases are impossible. So, if $s$ is the maximum power of $q$ so that $q^s\mid p+1$, then we have $q^s\mid n+1$ too for every prime factor $q$ of $p+1$. This leads us to the conclusion $p+1\mid n+1$ or $p\le n$ which gives $p^n\ge n^p$ by lemma 2.5. But from the given relation,
+		\begin{align*}
+			p^n+1
+				& \le n^p+1\\
+			\implies p^n
+				& \le n^p
+		\end{align*}
+	Combining these two, $p=n$ is the only possibility to happen. Thus, the solutions are $(n, p)=(4,2),(p, p)$.
+\end{solution}
 
-	\begin{note}
-		We can use some sharper inequalities to get a upper bound of $k$. Try to sharpen the inequality as much as you can.
-	\end{note}
+\begin{problem}
+	Prove that $a^{\varphi(n)}(a^{\varphi(n)}-1)$ is always divisible by $n$ for all positive integers $a$ and $n$.
+\end{problem}
 
-	\begin{problem}
-		Prove that, for a positive integer $n$, \[\binom{2n}{n}\mid [1,2,\cdots,2n]\]
-	\end{problem}
-
-	\begin{solution}
-		When proving divisibility like this, you should consider \autoref{thm:legendre}. The idea is that if we can show the exponent in the left side of the divisibility is less than or equal to the exponent in the right side for a prime $p$, we are done. It is clear that no side of divisibility will have a prime $p>2n$. So we should consider only primes $p<2n$, since $2n$ is not a prime for $n>1$. Using \autoref{thm:lcm}, if for a prime $p$, $\alpha =\log_p(2n)$,
+\begin{solution}
+	Let $p$ be any prime divisor of $n$. Suppose that that $p^k \mid  n$ but $p^{k+1} \nmid n$, where $k\geq 1$ is an integer. Consider two possible cases:
+	\begin{itemize}
+		\item[1.] $p \nmid a$.  Note that by Corollary \eqref{cor:phidiv}, since $p^k \mid  n$, we have $\varphi(p^k) \mid ‌\varphi(n)$. Then by Euler's theorem and \autoref{thm:powerdiv},
 			\begin{align*}
-				\nu_p([1,2,\cdots,2n]) & = \alpha
+				p^k
+					& \mid a^{\varphi(p^k)} -1\\
+				a^{\varphi(p^k)} -1
+					& \mid a^{\varphi(n)} -1
 			\end{align*}
-		On the other hand, from Legendre's theorem, if $N=\binom{2n}n$,
+		\item[2.] 	$p\mid a$. We know that $\varphi(p^k)=p^{k-1}(p-1)$, which is clearly bigger than $k$. Thus
 			\begin{align*}
-				\nu_p(N) & = \sum_{i=1}^{\infty}\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}\\
-						 & = \sum_{i=1}^{\log_{p}(2n)}\floor{\dfrac{2n}{p^i}}-2\floor{\dfrac{n}{p^i}}\\
-						 &\leq\sum_{i=1}^{a}1\\
-						 & = \alpha \\
-				\nu_p(N) &\leq\nu_p([1,2,\cdots,2n])
+				p^k
+					& \mid  \ a^k \\
+				a^{k}
+					& \mid a^{\varphi(p^k)}\\
+				a^{\varphi(p^k)}
+					& \mid a^{\varphi(a^n)}
 			\end{align*}
-		This is exactly what we needed to prove.
-	\end{solution}
+	\end{itemize}
+	\noindent Therefore in both cases we have $p^k \mid  a^{\varphi(n)}(a^{\varphi(n)}-1)$ which results in $n\mid a^{\varphi(n)}(a^{\varphi(n)}-1)$.
+\end{solution}
 
-	\begin{problem}[Italy TST $2003$]
-		Find all triples of positive integers $(a, b, p)$ such that $2^a+p^b=19^a$.
-	\end{problem}
+\begin{problem}[Serbian Mathematical Olympiad $2014$, Day $2$]
+	We call a natural number $n$ nutty if there exist natural numbers $a > 1$ and $b > 1$ such that $n = a^b + b$. Do there exist $2014$ consecutive natural numbers, exactly $2012$ of which are nutty?
+\end{problem}
 
-	\begin{solution}
-		Rewrite the equation as $p^b=19^a-2^a$. Right side is divisible by $19-2=17$ which is a prime. Therefore, $p=17$, $17^b=19^a-2^a$. But if $a>1$ then $19^a-2^a$ has a prime factor other than $17$, contradiction. Thus, the only solution is $(a,b)=(1,1,)$.
-	\end{solution}
+\begin{solution}
+	Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\cdots,a^{2014}+2014$. Crucial observation: \textit{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\cdots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers
+		\begin{align*}
+			x^{2014}!+1,x^{2014!}+2,\cdots,x^{2014!}+2014\\
+			x^{2014!}+1,\parenthesis{x^{\frac{2014!}{2}}}^2+2,\cdots,\parenthesis{x^{\frac{2014!}{2014}}}^{2014}+2014
+		\end{align*}
+	All of them are nutty except the first one (probably). But we need exactly two to be \textit{not nutty}. A way to do that is to divide $2014!$ by a number and hope it doesn't remain nutty. Let's say this number is $k$, that is, we are looking at the numbers
+		\begin{align*}
+			x^{\frac{2014!}{k}}+1,\left(x^{\frac{2014!}{2k}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014k}}\right)^{2014}+2014
+		\end{align*}
+	We can see that there are only two numbers which can be candidates to be not nutty. $x^{\frac{2014!}{k}}+1$ and $\left(x^{\frac{2014!}{k^2}}\right)^k+k$. Essentially we don't want the case $k^2$ divides $2014!$. This is a hint to using primes! If we take a prime $p>1007$, $p^2\nmid2014!$. Now we that have $2012$ numbers nutty for sure, we just need to find $x,p$ so that those two numbers become not nutty.
+		\begin{align*}
+			x^{\frac{2014!}{p}}+1 & = a^b+b\\
+			x^{\frac{2014!}{p}}+p & = a^b+b
+		\end{align*}
+	Take $N = \frac{2014!}{p}$. If we find $x,p$ so that the equations $x^N+1=a^b+b$ and $x^N+p = a^b+b$ don't have solutions, we are done. Let's try with $x=2$ since $a\geq2$, we might be able to use inequalities. For $b\geq N$,
+		\begin{align*}
+			2^N+p & = a^b+b\\
+		  &\geq2^b+b\\
+		  &\geq2^N+N\\
+		  & > 2^N+p
+		\end{align*}
+	So $b<N$. This also means we are in the right track to solve the problem. And $b>p$ too must hold. Otherwise,
+		\begin{align*}
+			p-b & = a^b-2^N\\
+				& = a^b-\parenthesis{2^{\frac{N}{b}}}^b\\
+				& = \parenthesis{a-2^{\frac{N}{b}}}\left(a^{b-1}+\cdots+2^{\frac{N(b-1)}{b}}\right)\\
+				& > p\\
+			0	& > b
+		\end{align*}
+	contradiction.  Now , if $a$ is even, let $a=2u$.
+		\begin{align*}
+			b-p & = 2^N-2^bu^b
+		\end{align*}
+	Since $b<N$, $2^b\mid b-p$ but clearly $b-p<2^b$. Thus, $a$ is odd. If $b$ is even with $b=2v$,
+		\begin{align*}
+			b-p & = \parenthesis{2^{\frac{N}{2}}}^2-\parenthesis{2^v}^2\\
+				& = \parenthesis{2^{\frac{N}{2}}+2^v}\parenthesis{2^{\frac{N}{2}}-2^v}\\
+				& > b
+		\end{align*}
+	again contradiction. Try to do the same with $2^N+1$.
+\end{solution}
 
+\begin{problem}[Columbia $2010$]
+	Find the smallest $n\in\mathbb{N}$ such that $n!$ is divisible by $n^{10}$.
+\end{problem}
 
-	\begin{problem}[{APMO 2012} - Problem 3]
-		Find all pairs of $(n, p)$ so that $\dfrac{n^p+1}{p^n+1}$ is a positive integer where $n$ is a positive integer and $p$ is a prime number.
-	\end{problem}
+\begin{solution}
+	Let $p$ be a prime divisor of $n$ and $p$-base representation of $n$ is $n=a_kp^k+\cdots+a_1p+a_0$. Then
+		\begin{align*}
+			\nu_p(n!) & = \dfrac{n-(a_k+\cdots+a_0)}{p-1}
+		\end{align*}
+	If $\nu_p(n)=\alpha $ then the last $\alpha $ digits of $n$ in base $p$ is $0$.
+		\begin{align*}
+			\nu_p(n!) & = \dfrac{n-(a_k+\cdots+a_{\alpha })}{p-1}\text { and}\\
+			\nu_p(n^{10}) & = \nu_p(p^{10\alpha })=10\alpha
+		\end{align*}
+	We must have $\nu_p(n!)\geq \nu_p(n^{10})=10\alpha$.
+		\begin{align*}
+			\dfrac{n-(a_k+\cdots+a_\alpha)}{p-1} & \geq10\alpha
+		\end{align*}
+	where $\alpha\leq\log_p(n)$. Remember that, we are looking for the \textit{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\alpha$ first. Then In base $p$,
+		\begin{align*}
+			n & = (1\underbrace{0\cdots0}_{\alpha\text { zeros}})_p
+		\end{align*}
+	$\nu_p(n!) = \dfrac{p^\alpha-1}{p-1}$ and so,
+		\begin{align*}
+			\dfrac{p^\alpha-1}{p-1} &\geq10\alpha
+		\end{align*}
+	We need to find such $p,\alpha$ such that $p^\alpha$ is minimum. Therefore, $p$ must be $2$. Now we need the smallest $\alpha$ for which $2^\alpha-1\geq10\alpha $. See that $\alpha = 6$ works. But can we minimize $n$ even further? Since $n!$ must be divisible by $n^{10}$, so we need to look at primes for which we get the exponent at least $10$. If $p^2\mid n$ for some prime $p$, we need $\nu_p(n!)\geq20$ for some $n<64$. The minimum $n$ for which $n!$ is divisible by $3^{10}$ is $24$. For $n<64$,
+		\begin{align*}
+			\nu_3(n!) & \leq \dfrac{63}{3}+\dfrac{63}{9}+\floor{\dfrac{63}{27}}\\
+			  & = 21+7+2=30
+		\end{align*}
+	And we see that $n=63$ is in fact a solution because $\nu_7(63!) = \dfrac{63}{7}+\floor{\dfrac{63}{49}}=10$. The minimum $n$ for which $\nu_5(n!)\geq10$ is $n=45$. Using the arguments we made already, show that we can not minimize $n$ further.
+\end{solution}
 
-	\begin{solution}
-		We can re-state the relation as \[p^n+1\mid n^p+1\]
-		Firstly, we exclude the case $p=2$. In this case, \[2^n+1\mid n^2+1\]
-		Obviously, we need \[n^2+1\ge2^n+1\Rightarrow n^2\ge2^n\]
-		But, using induction we can easily say that for $n>4$, $2^n>n^2$ giving a contradiction. Checking $n=1,2,3,4$ we easily get the solutions: \[(n,p)=(2,2), (4,2)\]
+\begin{problem}[Greece National Mathematical Olympiad, $2015$]
+	Find all triplets $(x, y, p)$ of positive integers such that $p$ is a prime number and
+		\begin{align*}
+			\dfrac{xy^3}{x+y} & = p
+		\end{align*}
+\end{problem}
 
-		We are left with $p$ odd. So, $p^n+1$ is even, and hence $n^p+1$ as well. This forces $n$ to be odd. Say, $q$ is an arbitrary prime factor of $p+1$. If $q=2$, then $q\mid n+1$ and since \[n^p+1=(n+1)(n^{p-1}-....+1)\]
-		and $p$ odd, there are $p$ terms in the right factor, therefore odd. So, we infer that $2^k\mid n+1$ where $k$ is the maximum power of $2$ in $p+1$.
+\begin{solution}
+	This equation does not suggest it, but we will take $(x,y)=g$ and $x=ga,y=gb$ where $a\bot b$. Because that way, we can reduce the equation or extract more information.
+		\begin{align*}
+			\dfrac{gag^3b^3}{g(a+b)} & = p\\
+			g^3ab^3 & = p(a+b)
+		\end{align*}
+	Now this equation talks more than the previous one. Since $a\bot b$, $a+b\bot a,a+b\bot b$ and $b^3\bot a+b$. Therefore, $a\mid p(a+b)$ gives us $a\mid p$ and $b^3\mid p(a+b)$ gives $b^3\mid p$. From this, $b=1$ since $b=p$ is not possible. If $a=p$, then
+		\begin{align*}
+			g^3b^3 & = b+p\\
+			p & = b(g^3b^2-1)\\
+	  & = g^3-1
+		\end{align*}
+	This equation gives $p$ is divisible by $g-1$, which is not possible unless $g=2$. Then $a=p=7$ and $x=ga=14,y=gb=2$. We are left with $a=1$ which gives $g^3=2p$ but this is not possible since right side can not be a cube.
+\end{solution}
 
-		We will use the following theorem from elementary calculus, which can also be proved elementarily.
-
-		\begin{theorem}
-			\[\lim\limits_{n\to\infty}\parenthesis{1+\frac{1}{n}}^{n}=e\]
-			where $e$ is the Euler constant.
-		\end{theorem}
-
-		Now, we prove the following lemmas.
-		\begin{lemma}\label{lem:aditya-generalized}
-			If $p \geq 3$ is an odd number (not necessarily prime), then $p^n\le n^p$ for $p\le n$.
-		\end{lemma}
-
-		\begin{proof}[Proof]
-			We will proceed by induction. The result is true for $n=1$. Suppose that $n>1$ is an integer such that $p^n \leq n^p$ holds for all $3 \leq p \leq n$. We want to show that $p^{n+1} \leq (n+1)^p$ for all $3 \leq p \leq n+1$. If $p=n+1$, we have the equality case. So, suppose that $3 \leq p < n+1$. Then, since $p\le n$, we have
-				\begin{align*}
-					(pn+p)^p
-						& \le (pn+n)^p
-				\end{align*}
-			which gives (after dividing both sides by $(np)^p$)
-				\begin{align*}
-					\parenthesis{1 + \frac{1}{n}}^p \leq  \parenthesis{1 + \frac{1}{p}}^p
-				\end{align*}
-			Therefore, since we assumed $n^p \leq p^n$,
-				\begin{align*}
-					(n+1)^p & = n^p\parenthesis{1+\frac{1}{n}}^p\\
-							&\leq p^{n}\parenthesis{1+\frac{1}{p}}^p\\
-							& \le p^n\cdot e\\
-							& < p^{n+1}
-				\end{align*}
-		since $e<3$.
-	\end{proof}
-
-		Back to the problem.
-		Assume that $q$ is odd.
-			\begin{align*}
-				q
-					& \mid p^n+1\\
-					& \mid n^p+1
-			\end{align*}
-		Write them using congruence. And we have,
-			\begin{align*}
-				n^p
-					& \equiv-1\pmod q\\
-				\Rightarrow n^{2p}
-					& \equiv1\pmod q
-			\end{align*}
-		Suppose, $e=\ord_q(n)$ i.e. $e$ is the smallest positive integer such that
-			\begin{align*}
-				n^e
-					& \equiv1\pmod q
-			\end{align*}
-		Then, $e\mid 2p$ and $e\mid q-1$ from \autoref{thm:ordDiv}.
-
-		Also, from Fermat's theorem,
-			\begin{align*}
-				n^{q-1}
-					& \equiv1\pmod q\\
-				\implies n^{(2p,q-1)}
-					& \equiv1\pmod q
-			\end{align*}
-		From $p$ odd and $q\mid p+1$, $p>q$ and so $p$ and $q-1$ are relatively prime. Thus,
-			\begin{align*}
-				(2p,q-1)
-					& =(2,q-1)=2
-			\end{align*}
-		This gives us, $e\mid (2p,q-1)$ and so we must have $e=2$. Again, since $p$ odd, if $p=2r+1$,
-			\begin{align*}
-				n^{2r+1}
-					& \equiv n\pmod q
-			\end{align*}
-		Hence, $q\mid n+1$. If $q\mid \frac{n^p+1}{n+1}$, then by the \autoref{thm:egl} we get
-			\begin{align*}
-				q
-					& \mid \gcd\parenthesis{n+1,\frac{n^p+1}{n+1}}\\
-				\implies q
-					& \mid p
-			\end{align*}
-		which would imply $q=1$ or $p$. Both of the cases are impossible. So, if $s$ is the maximum power of $q$ so that $q^s\mid p+1$, then we have $q^s\mid n+1$ too for every prime factor $q$ of $p+1$. This leads us to the conclusion $p+1\mid n+1$ or $p\le n$ which gives $p^n\ge n^p$ by lemma 2.5. But from the given relation,
-			\begin{align*}
-				p^n+1
-					& \le n^p+1\\
-				\implies p^n
-					& \le n^p
-			\end{align*}
-		Combining these two, $p=n$ is the only possibility to happen. Thus, the solutions are $(n, p)=(4,2),(p, p)$.
-	\end{solution}
-
-	\begin{problem}
-		Prove that $a^{\varphi(n)}(a^{\varphi(n)}-1)$ is always divisible by $n$ for all positive integers $a$ and $n$.
-	\end{problem}
-
-	\begin{solution}
-		Let $p$ be any prime divisor of $n$. Suppose that that $p^k \mid  n$ but $p^{k+1} \nmid n$, where $k\geq 1$ is an integer. Consider two possible cases:
+\begin{problem}[Korea $2010$]
+	A prime $p$ is called a \textit{nice} prime if there exists a sequence of positive integers $(n_1,\cdots,n_k)$ satisfying following conditions for infinitely positive integers $k$, but not for $k=1$.
 		\begin{itemize}
-			\item[1.] $p \nmid a$.  Note that by Corollary \eqref{cor:phidiv}, since $p^k \mid  n$, we have $\varphi(p^k) \mid ‌\varphi(n)$. Then by Euler's theorem and \autoref{thm:powerdiv},
-				\begin{align*}
-					p^k
-						& \mid a^{\varphi(p^k)} -1\\
-					a^{\varphi(p^k)} -1
-						& \mid a^{\varphi(n)} -1
-				\end{align*}
-			\item[2.] 	$p\mid a$. We know that $\varphi(p^k)=p^{k-1}(p-1)$, which is clearly bigger than $k$. Thus
-				\begin{align*}
-					p^k
-						& \mid  \ a^k \\
-					a^{k}
-						& \mid a^{\varphi(p^k)}\\
-					a^{\varphi(p^k)}
-						& \mid a^{\varphi(a^n)}
-				\end{align*}
+			\item For $1\leq i\leq k$, $n_i\geq\dfrac{p+1}{2}$.
+			\item For $1\leq i\leq k$, $p^{n_i}-1$ is a multiple of $n_{i+1}$ and $\frac{p^{n_i}-1}{n_{i+1}}$ is relatively prime to $n_{i+1}$. Set $n_{k+1} = n_1$.
 		\end{itemize}
-		\noindent Therefore in both cases we have $p^k \mid  a^{\varphi(n)}(a^{\varphi(n)}-1)$ which results in $n\mid a^{\varphi(n)}(a^{\varphi(n)}-1)$.
-	\end{solution}
+	Show that $2$ is not a nice prime, but any odd prime is.
+\end{problem}
 
-	\begin{problem}[Serbian Mathematical Olympiad $2014$, Day $2$]
-		We call a natural number $n$ nutty if there exist natural numbers $a > 1$ and $b > 1$ such that $n = a^b + b$. Do there exist $2014$ consecutive natural numbers, exactly $2012$ of which are nutty?
-	\end{problem}
+\begin{solution}
+	Let's deal with the case $p=2$ first. We will show that there does not exist infinitely many $k$ for which there exist $n_2,\cdots,n_k$ with $n_{i+1}\mid 2^{n_i}-1$. For $i>1$, $n_i$ is odd, and fix $k$. Consider all prime factors of $n_i$ for $i>1$, let the smallest of them be $q$. If $q\mid n_{l}$ Then $2^{n_{l-1}}\equiv1\pmod q$ and $2^{q-1}\equiv1\pmod q$. If $d=\ord_q(2)$, then we can say $d\mid q-1$ and $d\mid n_{l-1}$. If $d\neq1$, then we get a smaller divisor than $q$ since $d\leq q-1$. This shows that $d=1$ but then $q\mid 2^1-1=1$, contradiction.
 
-	\begin{solution}
-		Let's say $n$ is nutty for $(a,b)$ if $n=a^b+b$ for $a,b>1$. We need $2014$ consecutive natural numbers with $b>1$ among which $2012$ will be nutty. Let say those numbers are $a^1+1,a^2+2,\cdots,a^{2014}+2014$. Crucial observation: \textit{If $n$ is nutty for $a,b$ then $n$ is nutty for $a^k,b$ where $k$ is a positive integer}. Since there are integers $1,2,3,\cdots,2014$ associated and we are free to choose $a $ as long as $a>1$, it makes sense to take the exponent $2014!$. But we can not change $b$, therefore, we must introduce this factorial within $a$. So, let's take a positive integer $x>1$ and look at the numbers
-			\begin{align*}
-				x^{2014}!+1,x^{2014!}+2,\cdots,x^{2014!}+2014\\
-				x^{2014!}+1,\parenthesis{x^{\frac{2014!}{2}}}^2+2,\cdots,\parenthesis{x^{\frac{2014!}{2014}}}^{2014}+2014
-			\end{align*}
-		All of them are nutty except the first one (probably). But we need exactly two to be \textit{not nutty}. A way to do that is to divide $2014!$ by a number and hope it doesn't remain nutty. Let's say this number is $k$, that is, we are looking at the numbers
-			\begin{align*}
-				x^{\frac{2014!}{k}}+1,\left(x^{\frac{2014!}{2k}}\right)^2+2,\cdots,\left(x^{\frac{2014!}{2014k}}\right)^{2014}+2014
-			\end{align*}
-		We can see that there are only two numbers which can be candidates to be not nutty. $x^{\frac{2014!}{k}}+1$ and $\left(x^{\frac{2014!}{k^2}}\right)^k+k$. Essentially we don't want the case $k^2$ divides $2014!$. This is a hint to using primes! If we take a prime $p>1007$, $p^2\nmid2014!$. Now we that have $2012$ numbers nutty for sure, we just need to find $x,p$ so that those two numbers become not nutty.
-			\begin{align*}
-				x^{\frac{2014!}{p}}+1 & = a^b+b\\
-				x^{\frac{2014!}{p}}+p & = a^b+b
-			\end{align*}
-		Take $N = \frac{2014!}{p}$. If we find $x,p$ so that the equations $x^N+1=a^b+b$ and $x^N+p = a^b+b$ don't have solutions, we are done. Let's try with $x=2$ since $a\geq2$, we might be able to use inequalities. For $b\geq N$,
-			\begin{align*}
-				2^N+p & = a^b+b\\
-					  &\geq2^b+b\\
-					  &\geq2^N+N\\
-					  & > 2^N+p
-			\end{align*}
-		So $b<N$. This also means we are in the right track to solve the problem. And $b>p$ too must hold. Otherwise,
-			\begin{align*}
-				p-b & = a^b-2^N\\
-					& = a^b-\parenthesis{2^{\frac{N}{b}}}^b\\
-					& = \parenthesis{a-2^{\frac{N}{b}}}\left(a^{b-1}+\cdots+2^{\frac{N(b-1)}{b}}\right)\\
-					& > p\\
-				0	& > b
-			\end{align*}
-		contradiction.  Now , if $a$ is even, let $a=2u$.
-			\begin{align*}
-				b-p & = 2^N-2^bu^b
-			\end{align*}
-		Since $b<N$, $2^b\mid b-p$ but clearly $b-p<2^b$. Thus, $a$ is odd. If $b$ is even with $b=2v$,
-			\begin{align*}
-				b-p & = \parenthesis{2^{\frac{N}{2}}}^2-\parenthesis{2^v}^2\\
-					& = \parenthesis{2^{\frac{N}{2}}+2^v}\parenthesis{2^{\frac{N}{2}}-2^v}\\
-					& > b
-			\end{align*}
-		again contradiction. Try to do the same with $2^N+1$.
-	\end{solution}
+	Now we consider $p\geq3$. We have to take care of the $k=1$ case first, since it was explicitly mentioned, and it seems the easier part. We need to prove that, for no positive integer $n$,
+		\begin{align*}
+			n
+				& \mid p^n-1\\
+			\func{}{n,\dfrac{p^n-1}{n}} & = 1
+		\end{align*}
+	does not hold. Again, we assume that $q$ is the smallest prime divisor of $n$. Clearly $q\neq p$, and $q\bot p$.
+		\begin{align*}
+			p^n & \equiv1\pmod q\\
+			p^{q-1}& \equiv1\pmod q\\
+			p^{(n,q-1)} & \equiv\pmod q\\
+			p & \equiv1\pmod q
+		\end{align*}
+	since $n\perp q-1<q$.\footnote{we already argued the same way before} From this, you should be able to tell, you can invoke LTE! Because $q\mid p-1$, from LTE,
+		\begin{align*}
+			\nu_{q}\func{}{\dfrac{p^n-1}{n}}  & = \nu_q\left(p^n-1\right)-\nu_q(n)\\
+												& = \nu_q(p-1)+\nu_q(n)-\nu_q(n)\\
+												& = \nu_q(p-1)\\
+												&\geq1
+		\end{align*}
+	Therefore $q$ divides $\dfrac{p^n-1}{n}$ and $q\mid n$, contradiction. Such $n$ does not exist for $k=1$.
 
-	\begin{problem}[Columbia $2010$]
-		Find the smallest $n\in\mathbb{N}$ such that $n!$ is divisible by $n^{10}$.
-	\end{problem}
+	We just have to find a construction for such $(n_1,n_2,\cdots,n_k)$. First think on the condition $\func{}{n_{i+1},\dfrac{p^{n_i}-1}{n_{i+1}}}=1$. This clearly means for any odd prime divisor\footnote{we won't show the case $q=2$ here, do that yourself in the same fashion} $q$ of $n_{i+1}$, $q$ does not divide $\dfrac{p^{n_i}-1}{n_{i+1}}$.
+		\begin{align*}
+			\nu_q\left(\dfrac{p^{n_i}-1}{n_{i+1}}\right) & = 0\\
+			\nu_q(p^{n_i}-1)-\nu_q(n_{i+1}) & = 0
+		\end{align*}
+	This suggests us to take $n_1$ so that $n_1=p-1$ and $p-1\geq\dfrac{p+1}{2}$ is obvious for odd $p$. Then we have $n_2\mid p^{p-1}-1$. If $q^e\|p-1$, then $q^{2e}\|p^{p-1}-1$ according to LTE. Then $q\nmid\dfrac{p^{p-1}-1}{q^2}$ for any $q\mid p-1$. So we should include $n_2=q^{2e}$. You should understand that we have to define $n_3$ the same way. Let $q$ be a prime divisor of $p-1$. Then
+		\begin{align*}
+			e_i & = \nu_q\left(p^{n_i}-1\right)\\
+			n_{i+1} & = q^{e_i}
+		\end{align*}
+	The only thing left to do is ensure that $n_i\geq\dfrac{p+1}{2}$. Note that the sequence $(e_i)_{i\geq1}$ is increasing for a fixed $q$. Therefore, there will be an index $r$ for which $n_r\geq\dfrac{p+1}{2}$ must hold. We leave it to the reader to verify that they satisfy the conditions of the problem.
+\end{solution}
 
-	\begin{solution}
-		Let $p$ be a prime divisor of $n$ and $p$-base representation of $n$ is $n=a_kp^k+\cdots+a_1p+a_0$. Then
-			\begin{align*}
-				\nu_p(n!) & = \dfrac{n-(a_k+\cdots+a_0)}{p-1}
-			\end{align*}
-		If $\nu_p(n)=\alpha $ then the last $\alpha $ digits of $n$ in base $p$ is $0$.
-			\begin{align*}
-				\nu_p(n!) & = \dfrac{n-(a_k+\cdots+a_{\alpha })}{p-1}\text { and}\\
-				\nu_p(n^{10}) & = \nu_p(p^{10\alpha })=10\alpha
-			\end{align*}
-		We must have $\nu_p(n!)\geq \nu_p(n^{10})=10\alpha$.
-			\begin{align*}
-				\dfrac{n-(a_k+\cdots+a_\alpha)}{p-1} & \geq10\alpha
-			\end{align*}
-		where $\alpha\leq\log_p(n)$. Remember that, we are looking for the \textit{smallest $n$}, not all $n$. Therefore, we should first consider the case $n=p^\alpha$ first. Then In base $p$,
-			\begin{align*}
-				n & = (1\underbrace{0\cdots0}_{\alpha\text { zeros}})_p
-			\end{align*}
-		$\nu_p(n!) = \dfrac{p^\alpha-1}{p-1}$ and so,
-			\begin{align*}
-				\dfrac{p^\alpha-1}{p-1} &\geq10\alpha
-			\end{align*}
-		We need to find such $p,\alpha$ such that $p^\alpha$ is minimum. Therefore, $p$ must be $2$. Now we need the smallest $\alpha$ for which $2^\alpha-1\geq10\alpha $. See that $\alpha = 6$ works. But can we minimize $n$ even further? Since $n!$ must be divisible by $n^{10}$, so we need to look at primes for which we get the exponent at least $10$. If $p^2\mid n$ for some prime $p$, we need $\nu_p(n!)\geq20$ for some $n<64$. The minimum $n$ for which $n!$ is divisible by $3^{10}$ is $24$. For $n<64$,
-			\begin{align*}
-				\nu_3(n!) & \leq \dfrac{63}{3}+\dfrac{63}{9}+\floor{\dfrac{63}{27}}\\
-						  & = 21+7+2=30
-			\end{align*}
-		And we see that $n=63$ is in fact a solution because $\nu_7(63!) = \dfrac{63}{7}+\floor{\dfrac{63}{49}}=10$. The minimum $n$ for which $\nu_5(n!)\geq10$ is $n=45$. Using the arguments we made already, show that we can not minimize $n$ further.
-	\end{solution}
+\begin{problem}[IMO Shortlist $2013$, Problem $4$, Proposed by Belgium]
+	Prove that there exist infinitely many positive integers $n$ such that the largest prime divisor of $n^4+n^2+1$ is equal to the largest prime divisor of $(n+1)^4+(n+1)^2+1$.
+\end{problem}
 
-	\begin{problem}[Greece National Mathematical Olympiad, $2015$]
-		Find all triplets $(x, y, p)$ of positive integers such that $p$ is a prime number and
-			\begin{align*}
-				\dfrac{xy^3}{x+y} & = p
-			\end{align*}
-	\end{problem}
+\begin{solution}
+	Let $a_n=n^4+n^2+1$, and $p_n$ be the largest prime divisor of $a_n$. The problem asks to prove there are infinite $n$ for which $p_n=p_{n+1}$.
+		\begin{align}
+			(n^4+n^2+1) & = (n^2+n+1)(n^2-n+1)\label{eqn:isl13.1}
+		\end{align}
+	This identity tells us to consider the numbers $b_n=n^2+n+1$, and the largest prime divisor of $b_n$ is $q_n$. Then $a_n=b_{n^2}$ and $p_n=q_{n^2}$. From equation \eqref{eqn:isl13.1}, $p_n=\max(q_n,q_{n-1})$ since $b_{n-1}=(n-1)^2+n-1+1=n^2-n+1$. By Euclidean Algorithm
+		\begin{align*}
+			(n^2+n+1,n^2-n+1) & = (n^2-n+1,2n)\\
+					  & = (n^2-n+1,2)\\
+					  & = 1
+		\end{align*}
+	Therefore $b_n\bot b_{n-1}$, implying $q_n\neq q_{n-1}$. Up until now, all we have done was self implicating. But what will allow us to prove that $p_n=p_{n+1}$ happens for infinite $n$? $p_n=\max(q_n,q_{n-1})$ and $p_{n+1}=\max(q_{n+1},q_n)$. The problem requires $p_n=p_{n+1}$ or $\max(q_{n-1},q_n)=\max(q_{n+1},q_n)$. This provides us a hint what we need to do. We will focus on $q_n$. That means, we will try to prove that for infinite $n$, $q_n=\max(q_n,q_{n-1})$ and $q_n=\max(q_{n+1},q_n)$. In short, we have to prove $q_n>q_{n+1}$ and $q_n>q_{n-1}$ holds true for infinite $n$. First we need to check that at least one such $q_n$ exists. $q_2=7,q_3=13,q_4=7$, so $n=3$ gives us such a $q_n$.
 
-	\begin{solution}
-		This equation does not suggest it, but we will take $(x,y)=g$ and $x=ga,y=gb$ where $a\bot b$. Because that way, we can reduce the equation or extract more information.
-			\begin{align*}
-				\dfrac{gag^3b^3}{g(a+b)} & = p\\
-				g^3ab^3 & = p(a+b)
-			\end{align*}
-		Now this equation talks more than the previous one. Since $a\bot b$, $a+b\bot a,a+b\bot b$ and $b^3\bot a+b$. Therefore, $a\mid p(a+b)$ gives us $a\mid p$ and $b^3\mid p(a+b)$ gives $b^3\mid p$. From this, $b=1$ since $b=p$ is not possible. If $a=p$, then
-			\begin{align*}
-				g^3b^3 & = b+p\\
-				p & = b(g^3b^2-1)\\
-				  & = g^3-1
-			\end{align*}
-		This equation gives $p$ is divisible by $g-1$, which is not possible unless $g=2$. Then $a=p=7$ and $x=ga=14,y=gb=2$. We are left with $a=1$ which gives $g^3=2p$ but this is not possible since right side can not be a cube.
-	\end{solution}
+	Assume to the contrary that, only for finite $n$, $q_n>q_{n-1}$ and $q_n>q_{n+1}$. Then there is a largest value of $n$ for which this condition holds true, say it is $N$. Let's think if it is possible that $q_i>q_{i+1}$ for all $i\geq N$. But that would give us an infinite set of decreasing positive integers, which is impossible. So there is an $i>N$ for which $q_i<q_{i+1}$ (remember that $q_i\neq q_{i+1}$). Then is it possible to have an infinite chain of $q_i<q_{i+1}<q_{i+2}<\cdots$? No, because $q_{(i+1)^2}=p_{i+1}=\max(q_{i+1},q_i)=q_{i+1}$. Therefore, we must have an $j$ for which $q_j>q_{j+1}$. For that $j$, we have $q_j>q_{j-1}$, so it is a contradiction. Thus, there are infinite such $n$.
+\end{solution}
 
-	\begin{problem}[Korea $2010$]
-		A prime $p$ is called a \textit{nice} prime if there exists a sequence of positive integers $(n_1,\cdots,n_k)$ satisfying following conditions for infinitely positive integers $k$, but not for $k=1$.
-			\begin{itemize}
-				\item For $1\leq i\leq k$, $n_i\geq\dfrac{p+1}{2}$.
-				\item For $1\leq i\leq k$, $p^{n_i}-1$ is a multiple of $n_{i+1}$ and $\frac{p^{n_i}-1}{n_{i+1}}$ is relatively prime to $n_{i+1}$. Set $n_{k+1} = n_1$.
-			\end{itemize}
-		Show that $2$ is not a nice prime, but any odd prime is.
-	\end{problem}
+\begin{problem}
+	Let $p$ be an odd prime. If $g_{1}, \cdots, g_{\phi(p-1)}$ are the primitive roots $\pmod{p}$ in the range $1<g \le p-1$, prove that
+		\begin{align*}
+			\sum_{i=1}^{\phi(p-1)}g_{i}
+				& \equiv \mu(p-1) \pmod{p}
+		\end{align*}
+\end{problem}
 
-	\begin{solution}
-		Let's deal with the case $p=2$ first. We will show that there does not exist infinitely many $k$ for which there exist $n_2,\cdots,n_k$ with $n_{i+1}\mid 2^{n_i}-1$. For $i>1$, $n_i$ is odd, and fix $k$. Consider all prime factors of $n_i$ for $i>1$, let the smallest of them be $q$. If $q\mid n_{l}$ Then $2^{n_{l-1}}\equiv1\pmod q$ and $2^{q-1}\equiv1\pmod q$. If $d=\ord_q(2)$, then we can say $d\mid q-1$ and $d\mid n_{l-1}$. If $d\neq1$, then we get a smaller divisor than $q$ since $d\leq q-1$. This shows that $d=1$ but then $q\mid 2^1-1=1$, contradiction.
+\begin{solution}
+	Note the following.
+		\begin{align*}
+			\sum_ig_i
+				& =\sum_{d\mid p-1}\mu(d)\sum_{k=1}^{(p-1)/d}g^{kd}\\
+				& =\mu(p-1)
+		\end{align*}
+	Because $\sum_{k=1}^{(p-1)/d}g^{kd}=0\mod p$, when $d<p-1$.
+\end{solution}
 
-		Now we consider $p\geq3$. We have to take care of the $k=1$ case first, since it was explicitly mentioned, and it seems the easier part. We need to prove that, for no positive integer $n$,
-			\begin{align*}
-				n
-					& \mid p^n-1\\
-				\func{}{n,\dfrac{p^n-1}{n}} & = 1
-			\end{align*}
-		does not hold. Again, we assume that $q$ is the smallest prime divisor of $n$. Clearly $q\neq p$, and $q\bot p$.
-			\begin{align*}
-				p^n & \equiv1\pmod q\\
-				p^{q-1}& \equiv1\pmod q\\
-				p^{(n,q-1)} & \equiv\pmod q\\
-				p & \equiv1\pmod q
-			\end{align*}
-		since $n\perp q-1<q$.\footnote{we already argued the same way before} From this, you should be able to tell, you can invoke LTE! Because $q\mid p-1$, from LTE,
-			\begin{align*}
-				\nu_{q}\func{}{\dfrac{p^n-1}{n}}  & = \nu_q\left(p^n-1\right)-\nu_q(n)\\
-													& = \nu_q(p-1)+\nu_q(n)-\nu_q(n)\\
-													& = \nu_q(p-1)\\
-													&\geq1
-			\end{align*}
-		Therefore $q$ divides $\dfrac{p^n-1}{n}$ and $q\mid n$, contradiction. Such $n$ does not exist for $k=1$.
+\begin{problem}[IMO Shortlist $2014$, N$4$, Proposed by Hong Kong, also used at Bangladesh TST $2015$]
+	Let $n$ be a given integer. Define the sequence $(a_k)_{k\geq1}$ by:
+		\begin{align*}
+			a_k & = \floor{\dfrac{n^k}{k}}
+		\end{align*}
+	Prove that this sequence has infinitely many odd terms.
+\end{problem}
 
-		We just have to find a construction for such $(n_1,n_2,\cdots,n_k)$. First think on the condition $\func{}{n_{i+1},\dfrac{p^{n_i}-1}{n_{i+1}}}=1$. This clearly means for any odd prime divisor\footnote{we won't show the case $q=2$ here, do that yourself in the same fashion} $q$ of $n_{i+1}$, $q$ does not divide $\dfrac{p^{n_i}-1}{n_{i+1}}$.
-			\begin{align*}
-				\nu_q\left(\dfrac{p^{n_i}-1}{n_{i+1}}\right) & = 0\\
-				\nu_q(p^{n_i}-1)-\nu_q(n_{i+1}) & = 0
-			\end{align*}
-		This suggests us to take $n_1$ so that $n_1=p-1$ and $p-1\geq\dfrac{p+1}{2}$ is obvious for odd $p$. Then we have $n_2\mid p^{p-1}-1$. If $q^e\|p-1$, then $q^{2e}\|p^{p-1}-1$ according to LTE. Then $q\nmid\dfrac{p^{p-1}-1}{q^2}$ for any $q\mid p-1$. So we should include $n_2=q^{2e}$. You should understand that we have to define $n_3$ the same way. Let $q$ be a prime divisor of $p-1$. Then
-			\begin{align*}
-				e_i & = \nu_q\left(p^{n_i}-1\right)\\
-				n_{i+1} & = q^{e_i}
-			\end{align*}
-		The only thing left to do is ensure that $n_i\geq\dfrac{p+1}{2}$. Note that the sequence $(e_i)_{i\geq1}$ is increasing for a fixed $q$. Therefore, there will be an index $r$ for which $n_r\geq\dfrac{p+1}{2}$ must hold. We leave it to the reader to verify that they satisfy the conditions of the problem.
-	\end{solution}
+\begin{solution}
+	If $n$ is odd, then we set $k=n^i$, so that $k$ divides $n^k$ and $a_k=\dfrac{n^k}{k}$ is an odd integer. Now we concentrate on even $n$.
 
-	\begin{problem}[IMO Shortlist $2013$, Problem $4$, Proposed by Belgium]
-		Prove that there exist infinitely many positive integers $n$ such that the largest prime divisor of $n^4+n^2+1$ is equal to the largest prime divisor of $(n+1)^4+(n+1)^2+1$.
-	\end{problem}
+	When $n>2$ is even, a prime divisor $p$ of $n-1$ is odd. Take $p\mid n-1$ then from LTE,
+		\begin{align*}
+			\nu_p\left(n^{p^k}-1\right) & = \nu_p(n-1)+\nu_p(p^k)\\
+										& = \nu_p(n-1)+k
+		\end{align*}
+	Thus, $p^k$ divides $n^{p^k}-1$, so $\dfrac{n^{p^k}-1}{p^k}$ is an integer. We have
+		\begin{align*}
+			a_{p^j} & = \floor{\dfrac{n^{p^j}}{p^j}}\\
+					& = \dfrac{n^{p^j}-1}{p^j}
+		\end{align*}
+	which is an odd integer. If $n=2$, then $a_k=\floor{\dfrac{2^k}{k}}$. Note that, $2^m-1$ is divisible by $3$ for even $m$. Therefore, we should consider $k=2\cdot3^i$. From LTE, $3^{i+1}\|2^{2\cdot3^i}-1$. But if $k$ is even it won't divide any odd integer. No worries, we will just borrow a power of $2$.
+		\begin{align*}
+			a_{3\cdot4^j} & = \floor{\dfrac{2^{3\cdot4^j}}{3\cdot4^j}}\\
+				  & = \dfrac{2^{3\cdot4^j}-4^j}{3\cdot4^j}
+		\end{align*}
+	is an odd integer since $4^j$ clearly divides $2^{3\cdot4^j}$ and $3\cdot4^j>j$. Show why $3$ divides the numerator yourself.
+\end{solution}
 
-	\begin{solution}
-		Let $a_n=n^4+n^2+1$, and $p_n$ be the largest prime divisor of $a_n$. The problem asks to prove there are infinite $n$ for which $p_n=p_{n+1}$.
-			\begin{align}
-				(n^4+n^2+1) & = (n^2+n+1)(n^2-n+1)\label{eqn:isl13.1}
-			\end{align}
-		This identity tells us to consider the numbers $b_n=n^2+n+1$, and the largest prime divisor of $b_n$ is $q_n$. Then $a_n=b_{n^2}$ and $p_n=q_{n^2}$. From equation \eqref{eqn:isl13.1}, $p_n=\max(q_n,q_{n-1})$ since $b_{n-1}=(n-1)^2+n-1+1=n^2-n+1$. By Euclidean Algorithm
-			\begin{align*}
-				(n^2+n+1,n^2-n+1) & = (n^2-n+1,2n)\\
-								  & = (n^2-n+1,2)\\
-								  & = 1
-			\end{align*}
-		Therefore $b_n\bot b_{n-1}$, implying $q_n\neq q_{n-1}$. Up until now, all we have done was self implicating. But what will allow us to prove that $p_n=p_{n+1}$ happens for infinite $n$? $p_n=\max(q_n,q_{n-1})$ and $p_{n+1}=\max(q_{n+1},q_n)$. The problem requires $p_n=p_{n+1}$ or $\max(q_{n-1},q_n)=\max(q_{n+1},q_n)$. This provides us a hint what we need to do. We will focus on $q_n$. That means, we will try to prove that for infinite $n$, $q_n=\max(q_n,q_{n-1})$ and $q_n=\max(q_{n+1},q_n)$. In short, we have to prove $q_n>q_{n+1}$ and $q_n>q_{n-1}$ holds true for infinite $n$. First we need to check that at least one such $q_n$ exists. $q_2=7,q_3=13,q_4=7$, so $n=3$ gives us such a $q_n$.
+\begin{problem}[IMO Shortlist $2014$, N$5$, Proposed by Belgium, also used at Bangladesh TST $2015$]
+	Find all triples $(p,x,y)$ consisting of a prime number $p$ and two positive integers $x$ and $y$ such that $x^{p-1}+y$ and $x+y^{p-1}$ are both powers of $p$.
+\end{problem}
 
-		Assume to the contrary that, only for finite $n$, $q_n>q_{n-1}$ and $q_n>q_{n+1}$. Then there is a largest value of $n$ for which this condition holds true, say it is $N$. Let's think if it is possible that $q_i>q_{i+1}$ for all $i\geq N$. But that would give us an infinite set of decreasing positive integers, which is impossible. So there is an $i>N$ for which $q_i<q_{i+1}$ (remember that $q_i\neq q_{i+1}$). Then is it possible to have an infinite chain of $q_i<q_{i+1}<q_{i+2}<\cdots$? No, because $q_{(i+1)^2}=p_{i+1}=\max(q_{i+1},q_i)=q_{i+1}$. Therefore, we must have an $j$ for which $q_j>q_{j+1}$. For that $j$, we have $q_j>q_{j-1}$, so it is a contradiction. Thus, there are infinite such $n$.
-	\end{solution}
+\begin{solution}
+	Let $y+x^{p-1}=p^a$ and $x+y^{p-1}=p^b$ and $y>x$ without loss of generality (so $b>a$ too). If $p=2$, then $x+y=2^a$ so $(x,y)=(x,2^a-x)$ works with any $a\in\mathbb{N},x<2^a$.
 
-	\begin{problem}
-		Let $p$ be an odd prime. If $g_{1}, \cdots, g_{\phi(p-1)}$ are the primitive roots $\pmod{p}$ in the range $1<g \le p-1$, prove that
-			\begin{align*}
-				\sum_{i=1}^{\phi(p-1)}g_{i}
-					& \equiv \mu(p-1) \pmod{p}
-			\end{align*}
-	\end{problem}
+	We need to deal with odd $p$ now. Let $g=(x,y)$ and $x=gm,y=gn$ with $m\bot n$. We intend to prove that $x\bot y$. If not, $g=p^s$ for some $s$.
+		\begin{align*}
+			p^sn+p^{s(p-1)}m^{p-1} & = p^a\\
+			p^sm+p^{s(p-1)}n^{p-1} & = p^b
+		\end{align*}
+	If $s\neq0$, the dividing the equations by $p^s$ we get,
+		\begin{align*}
+			n+p^{s(p-2)}m^{p-1} & = p^{a-s}\\
+			m+p^{s(p-2)}n^{p-2} & = p^{b-s}
+		\end{align*}
+	Since $p>2$, $p$ divides $p^{s(p-2)},p^{a-s}$ and $p^{b-s}$, hence $p$ divides both $m$ and $n$. But this contradicts the fact that $m\bot n$. Therefore, $s=0$, and $(x,p)=(y,p)=(x,y)=1$. From FLT,
+		\begin{align*}
+			x+y^{p-1}&\equiv x+1\pmod p\\
+			x^{p-1}+y&\equiv y+1\pmod p
+		\end{align*}
+	Thus, $p\mid x+1-(y+1)=x-y$. You must understand by now that we are just trying to set this up for applying LTE. Without loss of generality, let's take $a<b$.
+		\begin{align*}
+			p^a& \mid x+y^{p-1}\\
+			p^a& \mid y+x^{p-1}\\
+			p^a& \mid x(x^{p-1}+y)-y(x+y^{p-1})\\
+			p^a& \mid x^p-y^p
+		\end{align*}
+	Since $x\bot y$ and $p\mid x-y$, if $p^\alpha \|x-y$, using LTE,
+		\begin{align*}
+			\nu_p(x^p-y^p)  & = \nu_p(x-y)+\nu_p(p)\\
+							& = \alpha +1
+		\end{align*}
+	We get $\alpha +1\geq a$, so $p^{a-1}\mid x-y$. Since $y>x$, assume that $y-x=p^{a-1}k$.
+		\begin{align*}
+			x^{p-1}+y & = p^a\\
+			y-x & = p^{a-1}k\\
+			x^{p-1}+y-(y+x) & p^a-p^{a-1}k\\
+			x^{p-1}+x & = p^{a-1}(p-k)\\
+			x(x^{p-2}+1) & = p^{a-1}(p-k)
+		\end{align*}
+	Because $x\bot p$, $x\mid p-k$ which implies $p-k\geq x$ or $p\geq x+k\geq x+1$. On the other hand, we had $p\mid x+1$ or $x+1\geq p$. Combining these two, $x+1=p$ or $x=p-1$ and $k=1$. Finally,
+		\begin{align*}
+			y & = x+p^{a-1}\\
+	  & = p-1+p^{a-1}
+		\end{align*}
+	But from the given condition,
+		\begin{align*}
+			x^{p-1}+y & = p^a\\
+			(p-1)^{p-1}+p^{a-1}+p-1 & = p^a\\
+			(p-1)^{p-1}+p-1 & = p^{a-1}(p-1)\\
+			(p-1)^{p-2}+1 & = p^{a-1}\\
+			(p-1)^{p-2} & = p^{a-1}-1
+		\end{align*}
+	Since $p$ is odd, if $a-1>1$, then according to Zsigmondy's theorem, $p^{a-1}-1$ has a prime divisor that does not divide $p-1$. So $a-1=1$ or $a=2$ and $p=3$. Thus, $x=2$ and $y=x+p^{a-1}=5$. By symmetry, $(5,2)$ is also a solution.
+\end{solution}
 
-	\begin{solution}
-		Note the following.
-			\begin{align*}
-				\sum_ig_i
-					& =\sum_{d\mid p-1}\mu(d)\sum_{k=1}^{(p-1)/d}g^{kd}\\
-					& =\mu(p-1)
-			\end{align*}
-		Because $\sum_{k=1}^{(p-1)/d}g^{kd}=0\mod p$, when $d<p-1$.
-	\end{solution}
+\begin{problem}[Russia $2000$]
+	Do there exist three distinct pairwise relatively prime integers $a,b,c$ such that $a\mid 2^b+1$, $b\mid 2^c+1$ and $c\mid 2^a+1$?
+\end{problem}
 
-	\begin{problem}[IMO Shortlist $2014$, N$4$, Proposed by Hong Kong, also used at Bangladesh TST $2015$]
-		Let $n$ be a given integer. Define the sequence $(a_k)_{k\geq1}$ by:
-			\begin{align*}
-				a_k & = \floor{\dfrac{n^k}{k}}
-			\end{align*}
-		Prove that this sequence has infinitely many odd terms.
-	\end{problem}
+\begin{solution}
+	Let $p$ be the smallest prime divisor of $a$. Then $p\mid 2^b+1$, so $2^b\equiv-1\pmod p$.
+		\begin{align*}
+			2^{2b} & \equiv1\pmod p\\
+			2^{p-1}& \equiv1\pmod p\\
+			2^{(2b,p-1)}&\equiv1\pmod p
+		\end{align*}
+	Without loss of generality, we can assume that $p<q,r$ where $q$ and $r$  are the smallest prime divisors of $b$ and $c$ (even if it is not, we can just switch the places of $p$ and $q$, or $r$). Therefore, $(2b,p-1)=2$ and $p\mid 2^2-1=3$ so $p=3$. Let $a=3x$. We can see that $3\nmid x$, because otherwise $9$ divides $2^b+1$, which would be possible only if $b=3y$ meaning that $(a,b)\geq3$.
 
-	\begin{solution}
-		If $n$ is odd, then we set $k=n^i$, so that $k$ divides $n^k$ and $a_k=\dfrac{n^k}{k}$ is an odd integer. Now we concentrate on even $n$.
+	Again we are out of information. In order to dig out some information, let's take the smallest prime divisor of $x,b$ and $c$ and call it $q$. If $q\mid x$, then $q\mid 2^b+1$ and again $q$ is smaller than the smallest prime divisor of $b$ and $c$. But this again gives that $q=3$, which gives the contradiction that $x$ is divisible by $3$. Thus, we can say $q$ divides $b$ or $c$. If $q\mid c$, then
+		\begin{align*}
+			2^{3x} & \equiv-1\pmod q\\
+			8^{2x} & \equiv1\pmod q\\
+			8^{q-1}& \equiv1\pmod q\\
+			8^{(2x,q-1)}&\equiv1\pmod q
+		\end{align*}
+	Here, $x$ must have no smaller prime divisor than $q$, otherwise that would have been the smallest prime divisor instead of $q$. So, $(2x,q-1)=2$ and $q\mid 8^2-1=3^2\cdot7$. Since $q$ is relatively prime to $a=3x$, $q\neq3$. So $q=7$ but then $7\mid 2^a+1=8^x+1$, which is a contradiction due to
+		\begin{align*}
+			8^x+1\equiv1+1\pmod7
+		\end{align*}
+	Thus, $q$ must be the smallest prime divisor of $b$, and so $c$ does not have any prime divisor less than or equal to $q$. Similarly,
+		\begin{align*}
+			2^c
+				& \equiv-1\pmod q\\
+			2^{2c}&\equiv1\pmod q\\
+			2^{q-1}&\equiv1\pmod q\\
+			2^{(2c,q-1)}&\equiv1\pmod q\\
+			2^2&\equiv1\pmod q
+		\end{align*}
+	which gives us $q=3$ but then $3\mid b$, a contradiction. Therefore, $b$ can not have any prime divisor, $b=1$. We also have $c\mid 2^3+1=9$, so $c\in\{1,3,9\}$. But if $c=1$, it would collide with $b=1$. If $c=3$ or $c=9$, it would not be relatively prime with $a$. Therefore, no such $a,b,c$ exist.
+\end{solution}
 
-		When $n>2$ is even, a prime divisor $p$ of $n-1$ is odd. Take $p\mid n-1$ then from LTE,
-			\begin{align*}
-				\nu_p\left(n^{p^k}-1\right) & = \nu_p(n-1)+\nu_p(p^k)\\
-											& = \nu_p(n-1)+k
-			\end{align*}
-		Thus, $p^k$ divides $n^{p^k}-1$, so $\dfrac{n^{p^k}-1}{p^k}$ is an integer. We have
-			\begin{align*}
-				a_{p^j} & = \floor{\dfrac{n^{p^j}}{p^j}}\\
-						& = \dfrac{n^{p^j}-1}{p^j}
-			\end{align*}
-		which is an odd integer. If $n=2$, then $a_k=\floor{\dfrac{2^k}{k}}$. Note that, $2^m-1$ is divisible by $3$ for even $m$. Therefore, we should consider $k=2\cdot3^i$. From LTE, $3^{i+1}\|2^{2\cdot3^i}-1$. But if $k$ is even it won't divide any odd integer. No worries, we will just borrow a power of $2$.
-			\begin{align*}
-				a_{3\cdot4^j} & = \floor{\dfrac{2^{3\cdot4^j}}{3\cdot4^j}}\\
-							  & = \dfrac{2^{3\cdot4^j}-4^j}{3\cdot4^j}
-			\end{align*}
-		is an odd integer since $4^j$ clearly divides $2^{3\cdot4^j}$ and $3\cdot4^j>j$. Show why $3$ divides the numerator yourself.
-	\end{solution}
+\begin{problem}[Austria $2010$]
+	Let
+		\begin{align*}
+			f(n) & = 1+n+\cdots+n^{2010}
+		\end{align*}
+	For every integer $m$ with $2\leq m\leq2010$, there is no non-negative integer $n$ such that $f(n)$ is divisible by $m$.
+\end{problem}
 
-	\begin{problem}[IMO Shortlist $2014$, N$5$, Proposed by Belgium, also used at Bangladesh TST $2015$]
-		Find all triples $(p,x,y)$ consisting of a prime number $p$ and two positive integers $x$ and $y$ such that $x^{p-1}+y$ and $x+y^{p-1}$ are both powers of $p$.
-	\end{problem}
+\begin{solution}
+	We can write $f(n)$ as
+		\begin{align*}
+			f(n) & = \dfrac{n^{2011}-1}{n-1}
+		\end{align*}
+	Let $p$ be a prime factor of $f(n)$. Then if $p\mid n-1$, we have $n\equiv1\pmod p$.  Take $d = \ord_p(n)$. If $p\bot (n-1)$, then
+		\begin{align*}
+			n^{2011}&\equiv1\pmod p\\
+			n^d&\equiv1\pmod p
+		\end{align*}
+	We have $d\mid 2011$, if $d=1$.
+		\begin{align*}
+			1+n+\cdots+n^{2010} & \equiv1+1+\cdots+1\pmod p\\
+			f(n) & \equiv2011\pmod p
+		\end{align*}
+	This gives us $p\mid 2011$. Moreover, from FLT, we also have
+		\begin{align*}
+			n^{p-1}&\equiv1\pmod p
+		\end{align*}
+	so $d\mid p-1$. If $d=2011$, then $p\equiv1\pmod{2011}$. But for $1<m<2011$, there is no $m$ for which $m$ has a prime divisor $p$ so that $2011\mid p$ or $p\equiv1\pmod{2011}$ because $p\geq2011>m$.
+\end{solution}
 
-	\begin{solution}
-		Let $y+x^{p-1}=p^a$ and $x+y^{p-1}=p^b$ and $y>x$ without loss of generality (so $b>a$ too). If $p=2$, then $x+y=2^a$ so $(x,y)=(x,2^a-x)$ works with any $a\in\mathbb{N},x<2^a$.
+\begin{remark}
+	We can make a general result. Every prime divisor $q$ of
+		\begin{align*}
+			f(n) & = 1+n+\cdots+n^{p-1}
+		\end{align*}
+	must be either $p$ or $q\equiv1\pmod p$, where $p$ is a prime.
+\end{remark}
 
-		We need to deal with odd $p$ now. Let $g=(x,y)$ and $x=gm,y=gn$ with $m\bot n$. We intend to prove that $x\bot y$. If not, $g=p^s$ for some $s$.
-			\begin{align*}
-				p^sn+p^{s(p-1)}m^{p-1} & = p^a\\
-				p^sm+p^{s(p-1)}n^{p-1} & = p^b
-			\end{align*}
-		If $s\neq0$, the dividing the equations by $p^s$ we get,
-			\begin{align*}
-				n+p^{s(p-2)}m^{p-1} & = p^{a-s}\\
-				m+p^{s(p-2)}n^{p-2} & = p^{b-s}
-			\end{align*}
-		Since $p>2$, $p$ divides $p^{s(p-2)},p^{a-s}$ and $p^{b-s}$, hence $p$ divides both $m$ and $n$. But this contradicts the fact that $m\bot n$. Therefore, $s=0$, and $(x,p)=(y,p)=(x,y)=1$. From FLT,
-			\begin{align*}
-				x+y^{p-1}&\equiv x+1\pmod p\\
-				x^{p-1}+y&\equiv y+1\pmod p
-			\end{align*}
-		Thus, $p\mid x+1-(y+1)=x-y$. You must understand by now that we are just trying to set this up for applying LTE. Without loss of generality, let's take $a<b$.
-			\begin{align*}
-				p^a& \mid x+y^{p-1}\\
-				p^a& \mid y+x^{p-1}\\
-				p^a& \mid x(x^{p-1}+y)-y(x+y^{p-1})\\
-				p^a& \mid x^p-y^p
-			\end{align*}
-		Since $x\bot y$ and $p\mid x-y$, if $p^\alpha \|x-y$, using LTE,
-			\begin{align*}
-				\nu_p(x^p-y^p)  & = \nu_p(x-y)+\nu_p(p)\\
-								& = \alpha +1
-			\end{align*}
-		We get $\alpha +1\geq a$, so $p^{a-1}\mid x-y$. Since $y>x$, assume that $y-x=p^{a-1}k$.
-			\begin{align*}
-				x^{p-1}+y & = p^a\\
-				y-x & = p^{a-1}k\\
-				x^{p-1}+y-(y+x) & p^a-p^{a-1}k\\
-				x^{p-1}+x & = p^{a-1}(p-k)\\
-				x(x^{p-2}+1) & = p^{a-1}(p-k)
-			\end{align*}
-		Because $x\bot p$, $x\mid p-k$ which implies $p-k\geq x$ or $p\geq x+k\geq x+1$. On the other hand, we had $p\mid x+1$ or $x+1\geq p$. Combining these two, $x+1=p$ or $x=p-1$ and $k=1$. Finally,
-			\begin{align*}
-				y & = x+p^{a-1}\\
-				  & = p-1+p^{a-1}
-			\end{align*}
-		But from the given condition,
-			\begin{align*}
-				x^{p-1}+y & = p^a\\
-				(p-1)^{p-1}+p^{a-1}+p-1 & = p^a\\
-				(p-1)^{p-1}+p-1 & = p^{a-1}(p-1)\\
-				(p-1)^{p-2}+1 & = p^{a-1}\\
-				(p-1)^{p-2} & = p^{a-1}-1
-			\end{align*}
-		Since $p$ is odd, if $a-1>1$, then according to Zsigmondy's theorem, $p^{a-1}-1$ has a prime divisor that does not divide $p-1$. So $a-1=1$ or $a=2$ and $p=3$. Thus, $x=2$ and $y=x+p^{a-1}=5$. By symmetry, $(5,2)$ is also a solution.
-	\end{solution}
+\begin{problem}[APMO $2014$, Problem $3$]
+	Find all positive integers $n$ such that for any integer $k$ there exists an integer $a$ for which $a^3 + a-k$ is divisible by $n$.
+\end{problem}
 
-	\begin{problem}[Russia $2000$]
-		Do there exist three distinct pairwise relatively prime integers $a,b,c$ such that $a\mid 2^b+1$, $b\mid 2^c+1$ and $c\mid 2^a+1$?
-	\end{problem}
+\begin{solution}
+	Make sense of the problem before you try it. It can be rephrased this way: find all $n$ such that the set $a^3+a$ for $a=1,2,\cdots,n$ we get a complete residue class modulo $n$. Or, for no two $1\leq a<b\leq n$,
+		\begin{align*}
+			a^3+a &\equiv b^3+b\pmod n
+		\end{align*}
+	In order to understand the values of $n$, see some examples with smaller values first. A pattern follows, $n=1,3,9$ works. So may be the condition holds if and only if $n=3^k$.
 
-	\begin{solution}
-		Let $p$ be the smallest prime divisor of $a$. Then $p\mid 2^b+1$, so $2^b\equiv-1\pmod p$.
-			\begin{align*}
-				2^{2b} & \equiv1\pmod p\\
-				2^{p-1}& \equiv1\pmod p\\
-				2^{(2b,p-1)}&\equiv1\pmod p
-			\end{align*}
-		Without loss of generality, we can assume that $p<q,r$ where $q$ and $r$  are the smallest prime divisors of $b$ and $c$ (even if it is not, we can just switch the places of $p$ and $q$, or $r$). Therefore, $(2b,p-1)=2$ and $p\mid 2^2-1=3$ so $p=3$. Let $a=3x$. We can see that $3\nmid x$, because otherwise $9$ divides $2^b+1$, which would be possible only if $b=3y$ meaning that $(a,b)\geq3$.
+	Checking the if part is easy.
+		\begin{align*}
+			a^3+a & \equiv b^3+b\pmod {3^k}\\
+			a^3-b^3+a-b &\equiv0\pmod{3^k}\\
+			(a-b)(a^2+ab+b^2+1)&\equiv0\pmod{3^k}
+		\end{align*}
+	For $a\not\equiv b\pmod{3}$, we can see that $3\nmid a^2+ab+b^2+1$. So we must have $a\equiv b\pmod{3^k}$. Now we need to prove that if $n\neq3^k$, the condition does not hold. If $n$ has a prime divisor $p$ for which the condition doesn't hold, then the same is true for $n$ as well, so let's just look at the primes.
 
-		Again we are out of information. In order to dig out some information, let's take the smallest prime divisor of $x,b$ and $c$ and call it $q$. If $q\mid x$, then $q\mid 2^b+1$ and again $q$ is smaller than the smallest prime divisor of $b$ and $c$. But this again gives that $q=3$, which gives the contradiction that $x$ is divisible by $3$. Thus, we can say $q$ divides $b$ or $c$. If $q\mid c$, then
-			\begin{align*}
-				2^{3x} & \equiv-1\pmod q\\
-				8^{2x} & \equiv1\pmod q\\
-				8^{q-1}& \equiv1\pmod q\\
-				8^{(2x,q-1)}&\equiv1\pmod q
-			\end{align*}
-		Here, $x$ must have no smaller prime divisor than $q$, otherwise that would have been the smallest prime divisor instead of $q$. So, $(2x,q-1)=2$ and $q\mid 8^2-1=3^2\cdot7$. Since $q$ is relatively prime to $a=3x$, $q\neq3$. So $q=7$ but then $7\mid 2^a+1=8^x+1$, which is a contradiction due to
-			\begin{align*}
-				8^x+1\equiv1+1\pmod7
-			\end{align*}
-		Thus, $q$ must be the smallest prime divisor of $b$, and so $c$ does not have any prime divisor less than or equal to $q$. Similarly,
-			\begin{align*}
-				2^c
-					& \equiv-1\pmod q\\
-				2^{2c}&\equiv1\pmod q\\
-				2^{q-1}&\equiv1\pmod q\\
-				2^{(2c,q-1)}&\equiv1\pmod q\\
-				2^2&\equiv1\pmod q
-			\end{align*}
-		which gives us $q=3$ but then $3\mid b$, a contradiction. Therefore, $b$ can not have any prime divisor, $b=1$. We also have $c\mid 2^3+1=9$, so $c\in\{1,3,9\}$. But if $c=1$, it would collide with $b=1$. If $c=3$ or $c=9$, it would not be relatively prime with $a$. Therefore, no such $a,b,c$ exist.
-	\end{solution}
+	If $p\equiv1\pmod4$ is a prime, we know that $-1$ is a quadratic residue of $p$, so there is an $x$ for which
+		\begin{align*}
+			x^2 & \equiv-1\pmod p\\
+			x^3+x&\equiv0\pmod p
+		\end{align*}
+	If we choose $y=0$,
+		\begin{align*}
+			x^3+x&\equiv y^3+y\pmod p
+		\end{align*}
+	So, $n$ can not have any prime factor $\equiv1\pmod4$. Let $p\equiv3\pmod4$ be a prime. We must have
+		\begin{align*}
+			(1^3+1)\cdot(2^3+2)\cdots((p-1)^3+p-1) &\equiv1\cdot2\cdots(p-1)\pmod p\\
+			1\cdot2\cdots(p-1)\prod_{k=1}^{p-1}(k^2+1)&\equiv1\cdot2\cdots(p-1)\pmod p\\
+			\prod_{k=1}^{p-1}(k^2+1)&\equiv1\pmod p\\
+			\prod_{k=1}^{p-1}(k+i)(k-i)&\equiv1\pmod p
+		\end{align*}
+	Note that, using Lagrange's theorem, we can imply,
+		\begin{align*}
+			\prod_{k=1}^{p-1}(k+i)\prod_{k=1}^{p-1}(k-i)&\equiv1\pmod p\\
+			(k^{p-1}-1)(k^{p-1}-1)&\equiv1\pmod p\\
+			(k^{p-1})^2-2k^{p-1}+1&\equiv1\pmod p\\
+			2-2k^{p-1}&\equiv1\pmod p
+		\end{align*}
+	Here, $k^{p-1}\equiv\pm1\pmod p$, so we have $2-(\pm2)\equiv1\pmod p$ or $p=3$. Hence, proven.
+\end{solution}
 
-	\begin{problem}[Austria $2010$]
-		Let
-			\begin{align*}
-				f(n) & = 1+n+\cdots+n^{2010}
-			\end{align*}
-		For every integer $m$ with $2\leq m\leq2010$, there is no non-negative integer $n$ such that $f(n)$ is divisible by $m$.
-	\end{problem}
-
-	\begin{solution}
-		We can write $f(n)$ as
-			\begin{align*}
-				f(n) & = \dfrac{n^{2011}-1}{n-1}
-			\end{align*}
-		Let $p$ be a prime factor of $f(n)$. Then if $p\mid n-1$, we have $n\equiv1\pmod p$.  Take $d = \ord_p(n)$. If $p\bot (n-1)$, then
-			\begin{align*}
-				n^{2011}&\equiv1\pmod p\\
-				n^d&\equiv1\pmod p
-			\end{align*}
-		We have $d\mid 2011$, if $d=1$.
-			\begin{align*}
-				1+n+\cdots+n^{2010} & \equiv1+1+\cdots+1\pmod p\\
-				f(n) & \equiv2011\pmod p
-			\end{align*}
-		This gives us $p\mid 2011$. Moreover, from FLT, we also have
-			\begin{align*}
-				n^{p-1}&\equiv1\pmod p
-			\end{align*}
-		so $d\mid p-1$. If $d=2011$, then $p\equiv1\pmod{2011}$. But for $1<m<2011$, there is no $m$ for which $m$ has a prime divisor $p$ so that $2011\mid p$ or $p\equiv1\pmod{2011}$ because $p\geq2011>m$.
-	\end{solution}
-
-	\begin{remark}
-		We can make a general result. Every prime divisor $q$ of
-			\begin{align*}
-				f(n) & = 1+n+\cdots+n^{p-1}
-			\end{align*}
-		must be either $p$ or $q\equiv1\pmod p$, where $p$ is a prime.
-	\end{remark}
-
-	\begin{problem}[APMO $2014$, Problem $3$]
-		Find all positive integers $n$ such that for any integer $k$ there exists an integer $a$ for which $a^3 + a-k$ is divisible by $n$.
-	\end{problem}
-
-	\begin{solution}
-		Make sense of the problem before you try it. It can be rephrased this way: find all $n$ such that the set $a^3+a$ for $a=1,2,\cdots,n$ we get a complete residue class modulo $n$. Or, for no two $1\leq a<b\leq n$,
-			\begin{align*}
-				a^3+a &\equiv b^3+b\pmod n
-			\end{align*}
-		In order to understand the values of $n$, see some examples with smaller values first. A pattern follows, $n=1,3,9$ works. So may be the condition holds if and only if $n=3^k$.
-
-		Checking the if part is easy.
-			\begin{align*}
-				a^3+a & \equiv b^3+b\pmod {3^k}\\
-				a^3-b^3+a-b &\equiv0\pmod{3^k}\\
-				(a-b)(a^2+ab+b^2+1)&\equiv0\pmod{3^k}
-			\end{align*}
-		For $a\not\equiv b\pmod{3}$, we can see that $3\nmid a^2+ab+b^2+1$. So we must have $a\equiv b\pmod{3^k}$. Now we need to prove that if $n\neq3^k$, the condition does not hold. If $n$ has a prime divisor $p$ for which the condition doesn't hold, then the same is true for $n$ as well, so let's just look at the primes.
-
-		If $p\equiv1\pmod4$ is a prime, we know that $-1$ is a quadratic residue of $p$, so there is an $x$ for which
-			\begin{align*}
-				x^2 & \equiv-1\pmod p\\
-				x^3+x&\equiv0\pmod p
-			\end{align*}
-		If we choose $y=0$,
-			\begin{align*}
-				x^3+x&\equiv y^3+y\pmod p
-			\end{align*}
-		So, $n$ can not have any prime factor $\equiv1\pmod4$. Let $p\equiv3\pmod4$ be a prime. We must have
-			\begin{align*}
-				(1^3+1)\cdot(2^3+2)\cdots((p-1)^3+p-1) &\equiv1\cdot2\cdots(p-1)\pmod p\\
-				1\cdot2\cdots(p-1)\prod_{k=1}^{p-1}(k^2+1)&\equiv1\cdot2\cdots(p-1)\pmod p\\
-				\prod_{k=1}^{p-1}(k^2+1)&\equiv1\pmod p\\
-				\prod_{k=1}^{p-1}(k+i)(k-i)&\equiv1\pmod p
-			\end{align*}
-		Note that, using Lagrange's theorem, we can imply,
-			\begin{align*}
-				\prod_{k=1}^{p-1}(k+i)\prod_{k=1}^{p-1}(k-i)&\equiv1\pmod p\\
-				(k^{p-1}-1)(k^{p-1}-1)&\equiv1\pmod p\\
-				(k^{p-1})^2-2k^{p-1}+1&\equiv1\pmod p\\
-				2-2k^{p-1}&\equiv1\pmod p
-			\end{align*}
-		Here, $k^{p-1}\equiv\pm1\pmod p$, so we have $2-(\pm2)\equiv1\pmod p$ or $p=3$. Hence, proven.
-	\end{solution}
-
-	\begin{problem}[Croatia $2014$]
-		Do there exist positive integers $m$ and $n$ such that $m^2+n$ and $n^2+m$ are squares of positive integers?
-	\end{problem}
+\begin{problem}[Croatia $2014$]
+	Do there exist positive integers $m$ and $n$ such that $m^2+n$ and $n^2+m$ are squares of positive integers?
+\end{problem}
 
 This is a problem where we use another technique, we will call it \textit{squeezing between squares}. The name is due to \textit{Dan Schwarz}, who was a problem solver and creator from Romania, and a user on Art of Problem Solving. He used the handle \textit{mavropnevma} and taught many people many things through the forum. In a solution of a similar problem, he used the words squeezing between squares. So, out of respect we named this.
-	\begin{solution}
-		Due to symmetry, we can assume $m\geq n$ without loss of generality.
+\begin{solution}
+	Due to symmetry, we can assume $m\geq n$ without loss of generality.
+		\begin{align*}
+			m^2+n & \geq m^2+m>m^2\\
+			m^2+2m+1 &> m^2+m\\
+			m^2 < m^2+m&<(m+1)^2
+		\end{align*}
+	This says that $m^2+m$ resides between two squares, so it can not be a perfect square. Therefore, no such $(m,n)$.
+\end{solution}
+
+\begin{problem}[Turkey $2011$]
+	Let $a_{n+1}=a_n^3-2a_n^2+2$ for all $n\geq1$ and $a_1=5$. Prove that if $p\equiv3\pmod4$ and $p$ is a divisor of $a_{2011}+1$, then $p=3$.
+\end{problem}
+
+\begin{solution}
+	The recursion is a cheeky one.
+		\begin{align*}
+			a_{n+1}-2 & = a_n^2(a_n-2)\\
+			  & = a_n^2a_{n-1}^2(a_{n-1}-2)\\
+			  & \vdots\\
+			  & = a_n^2a_{n-1}^2\cdots a_2(a_1-2)\\
+			  & = 3a_2^2\cdots a_n^2\\
+			a_{n+1}+1 & = 3(a_2^2\cdots a_n^2+1)
+		\end{align*}
+	If $p\mid a_{n+1}+1$, then $p$ divides $3$ or $p$ divides $a_2^2\cdots a_n^2+1$. But we know that $p\equiv3\pmod4$ can not divide a bisquare. Thus, $p$ must divide $3$, or $p=3$.
+\end{solution}
+
+\begin{problem}[IMO Shortlist $2004$, N$2$]
+	For $n\in\mathbb{N} $ let,
+		\begin{align*}
+			f(n)=\sum\limits_{i=1}^n\gcd(i,n)
+		\end{align*}
+
+		\begin{enumerate}[(a)]
+			\item Prove that $f(mn)=f(m)f(n)$ for all $m\bot n$.
+			\item Prove that, for all $a$, there is a solution to $f(an)=an$.
+		\end{enumerate}
+\end{problem}
+
+\begin{solution}
+	Since we are required to prove that $f$ is multiplicative, it may be better if $f(n)$ can be written in terms of divisors of $n$. Since we are facing this kind of problem for the first time, let's show a manipulation. It is clear that $f(10) = \sum_{i=1}^{10}(i,10)$, which is
+		\begin{multline*}
+		  = (1,10)+(2,10)+(3,10)+(4,10)+(5,10)+(6,10)\\+(7,10)+(8,10)+(9,10)+(10,10)
+		\end{multline*}
+	and hence,
+		\begin{align*}
+			f(10)
+				& = 1+2+1+2+5+2+1+2+1+10\\
+				& = 1\cdot4+2\cdot4+5\cdot1+10\cdot1
+		\end{align*}
+	First of all, $1,2,5,10$ are divisors of $10$. Since $(i,n)$ will be a divisor of $n$, it makes sense. Now we just need to figure out how to determine those numbers $4,4,1,1$ for $1,2,5,10$ respectively. Let's think about the case when divisor, $d=2$. We want $(i,10)=d$ so we can write $i=dj$ and $10=dm$ where $(j,m)=1$. Since we are counting all such possible $j$, it is simply the number of $j$ less than or equal to $m$, which are relatively prime to $m$. In other words, the coefficient of $i$ is $\varphi(m)=\varphi\parenthesis{\dfrac{10}{d}}$. Now, let's prove it formally.
+		\begin{align*}
+			f(n)
+				& = \sum_{i=1}^{n}(i,n)\\
+				& = \sum_{i=1}^{n}(dj,dm)\\
+				& = \sum_{d\mid n}\sum_{\substack{j=1\\j\bot m}}^{m}d(j,m)\\
+				& = \sum_{d\mid n}d\varphi(m)\\
+				& = \sum_{d\mid n}d\varphi\parenthesis{\dfrac{n}{d}}\\
+				& = \sum_{d\mid n}\dfrac{n}{d}\varphi(d)\\
+				& = n\sum_{d\mid n}\dfrac{\varphi(d)}{d}
+		\end{align*}
+	Let's concentrate on proving the claims now.
+		\begin{enumerate}[(a)]
+			\item Let $m\bot n$.
+					\begin{align*}
+						f(mn) & = \sum_{d\mid mn}d\varphi\parenthesis{\dfrac{mn}{d}}\\
+					  & = \sum_{\substack{d=ef\\e\mid m\\f\mid n}}ef\varphi\parenthesis{\dfrac{mn}{ef}}\\
+					  & = \sum_{\substack{e\mid m\\f\mid n}}ef\varphi\parenthesis{\dfrac{m}{e}}\varphi\parenthesis{\dfrac{n}{f}}\\
+					  & = \sum_{e\mid m}e\varphi\parenthesis{\dfrac{m}{e}}\sum_{f\mid n}f\parenthesis{\dfrac{n}{f}}\\
+					  & = f(m)f(n)
+					\end{align*}
+				We could also prove it using Dirichlet product. If $f(n)=n$ and $g(n)=\varphi(n)$, then both $f$ and $g$ are multiplicative. So, their Dirichlet product would be multiplicative as well.
+					\begin{align*}
+						f\ast g & = \sum_{d\mid n}f(d)g\parenthesis{\dfrac{n}{d}}\\
+								& = \sum_{d\mid n}d\varphi\parenthesis{\dfrac{n}{d}}
+					\end{align*}
+				must be multiplicative then!
+			\item $f(an)=an$ means
+					\begin{align*}
+						\sum_{d\mid an}d\varphi\parenthesis{\dfrac{an}{d}} & = an
+					\end{align*}
+				But clearly the sum on the left side is hard to deal with. It would be better if we could have another representation, probably a closed form instead of a summation. Let's determine $f(p^i)$ first.
+					\begin{align*}
+						f(p^e)  & = p^e\sum_{d\mid p^e}\dfrac{\varphi(d)}{d} = p^e\sum_{i=0}^{e}\dfrac{\varphi(p^i)}{p^i}\\
+								& = p^e\parenthesis{1+\sum_{i=1}^{e}\dfrac{p^{i-1}(p-1)}{p^i}}\\
+								& = p^e\parenthesis{1+\sum_{i=1}^{e}\dfrac{p-1}{p}}\\
+								& = p^e\parenthesis{1+\dfrac{e(p-1)}{p}}
+					\end{align*}
+				From the given condition, $f(n) = an$, so for $n=p^e$, it implies
+					\begin{align*}
+						p^{e}\parenthesis{1+\dfrac{e(p-1)}{p}} & = ap^e
+					\end{align*}
+				and so,
+					\begin{align*}
+						1+\dfrac{e(p-1)}{p} & = a
+					\end{align*}
+				Here, $a$ is integer, so $\frac{e(p-1)}{p}$ is an integer too. Since $p\perp p-1$, we must have $p\mid e$. Let $e=pk$ so that
+					\begin{align*}
+						a & = 1+k(p-1)
+					\end{align*}
+				If this has to be true for any $a$, we should assume $p=2$, and we get $a=1+k$ or $k=a-1$, $e=2(a-1)$. This gives us an infinite solution for $n=2^{2(a-1)}$.
+		\end{enumerate}
+\end{solution}
+
+\begin{problem}[IMO 2006]
+	Find all integers $x$ and $y$ which satisfy the equation
+		\begin{align*}
+			1 + 2^x + 2^{2x + 1} = y^2
+		\end{align*}
+\end{problem}
+
+\begin{solution}
+	Obviously, $x \ge 0$. If $x = 0$, then $y = \pm 2$. Suppose that $x \ge 1$. Clearly, $y$ is an odd number, so assume that $y = 2k + 1$. Now:
+		\begin{align*}
+			1 + 2^x + 2^{2x + 1}
+				& = (2k + 1)^2\\
+				& = 4k^2 + 4k + 1
+		\end{align*}
+	Removing $1$ from both sides and then dividing by $4$, one can write the above equation as
+		\begin{align}\label{eq:imo2006}
+			2^{x - 2}(2^{x + 1} + 1)
+				& = k(k + 1)
+		\end{align}
+	We consider two cases:
+	\begin{enumerate}
+		\item $k$ is even. So $k + 1$ is odd and $(2^{x - 2}, k + 1) = 1$. Then $2^{x - 2}\mid k(k + 1)$ reduces to $2^{x - 2}\mid k$. Let $k = 2^{x - 2} \cdot t$ and rewrite equation \eqref{eq:imo2006} to achieve
 			\begin{align*}
-				m^2+n & \geq m^2+m>m^2\\
-				m^2+2m+1 &> m^2+m\\
-				m^2 < m^2+m&<(m+1)^2
+				2^{x + 1} + 1 = t(2^{x - 2} \cdot t + 1)
 			\end{align*}
-		This says that $m^2+m$ resides between two squares, so it can not be a perfect square. Therefore, no such $(m,n)$.
-	\end{solution}
-
-	\begin{problem}[Turkey $2011$]
-		Let $a_{n+1}=a_n^3-2a_n^2+2$ for all $n\geq1$ and $a_1=5$. Prove that if $p\equiv3\pmod4$ and $p$ is a divisor of $a_{2011}+1$, then $p=3$.
-	\end{problem}
-
-	\begin{solution}
-		The recursion is a cheeky one.
+		So, $t$ is odd. If $t = 1$, we have $2^{x + 1} = 2^{x - 2}$, which is absurd. Thus $t \ge 3$ and
 			\begin{align*}
-				a_{n+1}-2 & = a_n^2(a_n-2)\\
-						  & = a_n^2a_{n-1}^2(a_{n-1}-2)\\
-						  & \vdots\\
-						  & = a_n^2a_{n-1}^2\cdots a_2(a_1-2)\\
-						  & = 3a_2^2\cdots a_n^2\\
-				a_{n+1}+1 & = 3(a_2^2\cdots a_n^2+1)
-			\end{align*}
-		If $p\mid a_{n+1}+1$, then $p$ divides $3$ or $p$ divides $a_2^2\cdots a_n^2+1$. But we know that $p\equiv3\pmod4$ can not divide a bisquare. Thus, $p$ must divide $3$, or $p=3$.
-	\end{solution}
-
-	\begin{problem}[IMO Shortlist $2004$, N$2$]
-		For $n\in\mathbb{N} $ let,
-			\begin{align*}
-				f(n)=\sum\limits_{i=1}^n\gcd(i,n)
-			\end{align*}
-
-			\begin{enumerate}[(a)]
-				\item Prove that $f(mn)=f(m)f(n)$ for all $m\bot n$.
-				\item Prove that, for all $a$, there is a solution to $f(an)=an$.
-			\end{enumerate}
-	\end{problem}
-
-	\begin{solution}
-		Since we are required to prove that $f$ is multiplicative, it may be better if $f(n)$ can be written in terms of divisors of $n$. Since we are facing this kind of problem for the first time, let's show a manipulation. It is clear that $f(10) = \sum_{i=1}^{10}(i,10)$, which is
-			\begin{multline*}
-					  = (1,10)+(2,10)+(3,10)+(4,10)+(5,10)+(6,10)\\+(7,10)+(8,10)+(9,10)+(10,10)
-			\end{multline*}
-		and hence,
-			\begin{align*}
-				f(10)
-					& = 1+2+1+2+5+2+1+2+1+10\\
-					& = 1\cdot4+2\cdot4+5\cdot1+10\cdot1
-			\end{align*}
-		First of all, $1,2,5,10$ are divisors of $10$. Since $(i,n)$ will be a divisor of $n$, it makes sense. Now we just need to figure out how to determine those numbers $4,4,1,1$ for $1,2,5,10$ respectively. Let's think about the case when divisor, $d=2$. We want $(i,10)=d$ so we can write $i=dj$ and $10=dm$ where $(j,m)=1$. Since we are counting all such possible $j$, it is simply the number of $j$ less than or equal to $m$, which are relatively prime to $m$. In other words, the coefficient of $i$ is $\varphi(m)=\varphi\parenthesis{\dfrac{10}{d}}$. Now, let's prove it formally.
-			\begin{align*}
-				f(n)
-					& = \sum_{i=1}^{n}(i,n)\\
-					& = \sum_{i=1}^{n}(dj,dm)\\
-					& = \sum_{d\mid n}\sum_{\substack{j=1\\j\bot m}}^{m}d(j,m)\\
-					& = \sum_{d\mid n}d\varphi(m)\\
-					& = \sum_{d\mid n}d\varphi\parenthesis{\dfrac{n}{d}}\\
-					& = \sum_{d\mid n}\dfrac{n}{d}\varphi(d)\\
-					& = n\sum_{d\mid n}\dfrac{\varphi(d)}{d}
-			\end{align*}
-		Let's concentrate on proving the claims now.
-			\begin{enumerate}[(a)]
-				\item Let $m\bot n$.
-						\begin{align*}
-							f(mn) & = \sum_{d\mid mn}d\varphi\parenthesis{\dfrac{mn}{d}}\\
-								  & = \sum_{\substack{d=ef\\e\mid m\\f\mid n}}ef\varphi\parenthesis{\dfrac{mn}{ef}}\\
-								  & = \sum_{\substack{e\mid m\\f\mid n}}ef\varphi\parenthesis{\dfrac{m}{e}}\varphi\parenthesis{\dfrac{n}{f}}\\
-								  & = \sum_{e\mid m}e\varphi\parenthesis{\dfrac{m}{e}}\sum_{f\mid n}f\parenthesis{\dfrac{n}{f}}\\
-								  & = f(m)f(n)
-						\end{align*}
-					We could also prove it using Dirichlet product. If $f(n)=n$ and $g(n)=\varphi(n)$, then both $f$ and $g$ are multiplicative. So, their Dirichlet product would be multiplicative as well.
-						\begin{align*}
-							f\ast g & = \sum_{d\mid n}f(d)g\parenthesis{\dfrac{n}{d}}\\
-									& = \sum_{d\mid n}d\varphi\parenthesis{\dfrac{n}{d}}
-						\end{align*}
-					must be multiplicative then!
-				\item $f(an)=an$ means
-						\begin{align*}
-							\sum_{d\mid an}d\varphi\parenthesis{\dfrac{an}{d}} & = an
-						\end{align*}
-					But clearly the sum on the left side is hard to deal with. It would be better if we could have another representation, probably a closed form instead of a summation. Let's determine $f(p^i)$ first.
-						\begin{align*}
-							f(p^e)  & = p^e\sum_{d\mid p^e}\dfrac{\varphi(d)}{d} = p^e\sum_{i=0}^{e}\dfrac{\varphi(p^i)}{p^i}\\
-									& = p^e\parenthesis{1+\sum_{i=1}^{e}\dfrac{p^{i-1}(p-1)}{p^i}}\\
-									& = p^e\parenthesis{1+\sum_{i=1}^{e}\dfrac{p-1}{p}}\\
-									& = p^e\parenthesis{1+\dfrac{e(p-1)}{p}}
-						\end{align*}
-					From the given condition, $f(n) = an$, so for $n=p^e$, it implies
-						\begin{align*}
-							p^{e}\parenthesis{1+\dfrac{e(p-1)}{p}} & = ap^e
-						\end{align*}
-					and so,
-						\begin{align*}
-							1+\dfrac{e(p-1)}{p} & = a
-						\end{align*}
-					Here, $a$ is integer, so $\frac{e(p-1)}{p}$ is an integer too. Since $p\perp p-1$, we must have $p\mid e$. Let $e=pk$ so that
-						\begin{align*}
-							a & = 1+k(p-1)
-						\end{align*}
-					If this has to be true for any $a$, we should assume $p=2$, and we get $a=1+k$ or $k=a-1$, $e=2(a-1)$. This gives us an infinite solution for $n=2^{2(a-1)}$.
-			\end{enumerate}
-	\end{solution}
-
-	\begin{problem}[IMO 2006]
-		Find all integers $x$ and $y$ which satisfy the equation
-			\begin{align*}
-				1 + 2^x + 2^{2x + 1} = y^2
-			\end{align*}
-	\end{problem}
-
-	\begin{solution}
-		Obviously, $x \ge 0$. If $x = 0$, then $y = \pm 2$. Suppose that $x \ge 1$. Clearly, $y$ is an odd number, so assume that $y = 2k + 1$. Now:
-			\begin{align*}
-				1 + 2^x + 2^{2x + 1}
-					& = (2k + 1)^2\\
-					& = 4k^2 + 4k + 1
-			\end{align*}
-		Removing $1$ from both sides and then dividing by $4$, one can write the above equation as
-			\begin{align}\label{eq:imo2006}
-				2^{x - 2}(2^{x + 1} + 1)
-					& = k(k + 1)
-			\end{align}
-		We consider two cases:
-		\begin{enumerate}
-			\item $k$ is even. So $k + 1$ is odd and $(2^{x - 2}, k + 1) = 1$. Then $2^{x - 2}\mid k(k + 1)$ reduces to $2^{x - 2}\mid k$. Let $k = 2^{x - 2} \cdot t$ and rewrite equation \eqref{eq:imo2006} to achieve
-				\begin{align*}
-					2^{x + 1} + 1 = t(2^{x - 2} \cdot t + 1)
-				\end{align*}
-			So, $t$ is odd. If $t = 1$, we have $2^{x + 1} = 2^{x - 2}$, which is absurd. Thus $t \ge 3$ and
-				\begin{align*}
-					t(2^{x - 2} \cdot t + 1)
-						& = 2^{x - 2} \cdot t^2 + t\\
-						& \ge 9 \cdot 2^{x - 2} + 3\\
-						& > 2^{x + 1} + 1
-				\end{align*}
-			and no solutions in this case.
-
-			\item $k$ is odd. So $k + 1$ is even and $\gcd(2^{x - 2}, k) = 1$. Then $2^{x - 2}\mid k(k + 1)$ reduces to $2^{x - 2}\mid k+1$. Let $k+1 = 2^{x - 2} \cdot m$ and rewrite equation \eqref{eq:imo2006} as
-				\begin{align*}
-					2^{x + 1} + 1
-						& = m(2^{x - 2} \cdot m - 1)
-				\end{align*}
-			So $m$ is odd. $m = 1$ gives no solutions, so $m \ge 3$. For $m = 3$, we have
-				\begin{align*}
-					2^{x + 1} + 1
-						& = 3(2^{x - 2} \cdot 3 - 1)\\
-					\implies 4
-						& = 9 \cdot 2^{x - 2} - 2^{x + 1} \\
-					\implies 4
-						& = 2^{x - 2}(9 - 8) \\
-					\implies x
-						& = 4
-				\end{align*}
-			Thus for $m = 3$, we have $k = 2^{x - 2} \cdot m - 1 = 11$ and so $y = 2k + 1 = 23$, and $(x, y) = (4, 23)$ is a solution. If $(x, y)$ is a solution, obviously $(x, -y)$ is a solution too. So $(x, y) = (4, -23)$ is also a solution.
-
-			We will show that $m \ge 5$ gives no solutions. Note that
-			\begin{align*}
-				m(2^{x - 2} \cdot m - 1)
-					& \ge 5(2^{x - 2} \cdot 5 - 1) \\
-					& = 25 \cdot 2^{x - 2} - 5 \\
-					& = (8 + 16 + 1) \cdot 2^{x - 2} - 5  \\
-					& = 2^{x + 1} + 2^{x + 2} + 2^{x - 2} - 5 \\
+				t(2^{x - 2} \cdot t + 1)
+					& = 2^{x - 2} \cdot t^2 + t\\
+					& \ge 9 \cdot 2^{x - 2} + 3\\
 					& > 2^{x + 1} + 1
 			\end{align*}
-			So $m(2^{x - 2} \cdot m - 1) > 2^{x + 1} + 1$ for $m \ge 5$ and no solutions.
-		\end{enumerate}
-		Hence the solutions are: $(x,  y) = \{(0,  2), (0, -2), (4,  23),  (4, -23)\}$.
-	\end{solution}
+		and no solutions in this case.
+
+		\item $k$ is odd. So $k + 1$ is even and $\gcd(2^{x - 2}, k) = 1$. Then $2^{x - 2}\mid k(k + 1)$ reduces to $2^{x - 2}\mid k+1$. Let $k+1 = 2^{x - 2} \cdot m$ and rewrite equation \eqref{eq:imo2006} as
+			\begin{align*}
+				2^{x + 1} + 1
+					& = m(2^{x - 2} \cdot m - 1)
+			\end{align*}
+		So $m$ is odd. $m = 1$ gives no solutions, so $m \ge 3$. For $m = 3$, we have
+			\begin{align*}
+				2^{x + 1} + 1
+					& = 3(2^{x - 2} \cdot 3 - 1)\\
+				\implies 4
+					& = 9 \cdot 2^{x - 2} - 2^{x + 1} \\
+				\implies 4
+					& = 2^{x - 2}(9 - 8) \\
+				\implies x
+					& = 4
+			\end{align*}
+		Thus for $m = 3$, we have $k = 2^{x - 2} \cdot m - 1 = 11$ and so $y = 2k + 1 = 23$, and $(x, y) = (4, 23)$ is a solution. If $(x, y)$ is a solution, obviously $(x, -y)$ is a solution too. So $(x, y) = (4, -23)$ is also a solution.
+
+		We will show that $m \ge 5$ gives no solutions. Note that
+		\begin{align*}
+			m(2^{x - 2} \cdot m - 1)
+				& \ge 5(2^{x - 2} \cdot 5 - 1) \\
+				& = 25 \cdot 2^{x - 2} - 5 \\
+				& = (8 + 16 + 1) \cdot 2^{x - 2} - 5  \\
+				& = 2^{x + 1} + 2^{x + 2} + 2^{x - 2} - 5 \\
+				& > 2^{x + 1} + 1
+		\end{align*}
+		So $m(2^{x - 2} \cdot m - 1) > 2^{x + 1} + 1$ for $m \ge 5$ and no solutions.
+	\end{enumerate}
+	Hence the solutions are: $(x,  y) = \{(0,  2), (0, -2), (4,  23),  (4, -23)\}$.
+\end{solution}
 
 %	\begin{problem}[APMO $1997$, Problem $2$]
 %		Find $n\in\mathbb{N}$ such that $100\leq n\leq 1997$ and $n\mid 2^n+2$.
@@ -1277,5 +1272,3 @@ This is a problem where we use another technique, we will call it \textit{squeez
 %	\begin{problem}[APMO $1998$, Problem $5$]
 %		Find the largest positive integer $n$ which is divisible by all positive integers whose cube is not greater than $n$.
 %	\end{problem}
-
-\end{document}

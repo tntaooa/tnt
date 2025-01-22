@@ -1,252 +1,246 @@
-\documentclass{subfile}
-
-\begin{document}
 \textit{Thue's Lemma} (see \textcite{thue_1902}) is a wonderful theorem in modular arithmetic. It should have been quite popular, but unfortunately, it is not as well-known as it should be. Here we will see what a powerful tool it is.
 
 \begin{theorem}[Thue's Lemma]\label{thm:thue}
-	Let $n>1$ be an integer and $a$ be an integer relatively prime to $n$. Then, there are integers $x$ and $y$ so that
-	\begin{align*}
-		0 &< |x|, |y| \leq \sqrt n\\
-		x&\equiv ay\pmod n
-	\end{align*}
-	We call such a solution $(x,y)$ to the above congruence equation a \textit{small solution}.
+Let $n>1$ be an integer and $a$ be an integer relatively prime to $n$. Then, there are integers $x$ and $y$ so that
+\begin{align*}
+	0 &< |x|, |y| \leq \sqrt n\\
+	x&\equiv ay\pmod n
+\end{align*}
+We call such a solution $(x,y)$ to the above congruence equation a \textit{small solution}.
 \end{theorem}
 
 \begin{proof}
-	Let $r=\floor{\sqrt{n}}$. That means $r$ is the unique integer for which $r^2\leq n<(r+1)^2$. The number of pairs $(x,y)$ of integers for which $0\leq x,y\leq r$, is $(r+1)^2$. This number is greater than $n$. Therefore, by pigeonhole principle, there must be two different pairs $(x_1,y_1)$ and $(x_2,y_2)$ among these $(r+1)^2$ pairs so that
-	\begin{align*}
-		x_1-ay_1
-			& \equiv \ \ x_2-ay_2 \pmod n\\
-		\implies x_1-x_2
-			& \equiv a(y_1-y_2) \pmod n
-	\end{align*}
-	Let $x=x_1-x_2$ and $y=y_1-y_2$, so we get $x\equiv ay\pmod n$. We only need to show that $x$ and $y$ are non-zero (it is obvious that $|x|$ and $|y|$ are both less than or equal to $\sqrt n$). Certainly, if one of $x$ or $y$ is zero, the other is zero as well. If both $x$ and $y$ are zero, that would mean that two pairs $(x_1,y_1)$ and $(x_2,y_2)$ are actually the same. That is not the case because we first assumed that they are different pairs of integers. Therefore, neither $x$ nor $y$ is zero and we are done.
+Let $r=\floor{\sqrt{n}}$. That means $r$ is the unique integer for which $r^2\leq n<(r+1)^2$. The number of pairs $(x,y)$ of integers for which $0\leq x,y\leq r$, is $(r+1)^2$. This number is greater than $n$. Therefore, by pigeonhole principle, there must be two different pairs $(x_1,y_1)$ and $(x_2,y_2)$ among these $(r+1)^2$ pairs so that
+\begin{align*}
+	x_1-ay_1
+		& \equiv \ \ x_2-ay_2 \pmod n\\
+	\implies x_1-x_2
+		& \equiv a(y_1-y_2) \pmod n
+\end{align*}
+Let $x=x_1-x_2$ and $y=y_1-y_2$, so we get $x\equiv ay\pmod n$. We only need to show that $x$ and $y$ are non-zero (it is obvious that $|x|$ and $|y|$ are both less than or equal to $\sqrt n$). Certainly, if one of $x$ or $y$ is zero, the other is zero as well. If both $x$ and $y$ are zero, that would mean that two pairs $(x_1,y_1)$ and $(x_2,y_2)$ are actually the same. That is not the case because we first assumed that they are different pairs of integers. Therefore, neither $x$ nor $y$ is zero and we are done.
 \end{proof}
 
-	\begin{note}
-		The condition $0<x,y<\sqrt{n}$ is important. Because of this condition, we can rule out trivial cases and bound the small solutions as the problems require.
-	\end{note}
+\begin{note}
+	The condition $0<x,y<\sqrt{n}$ is important. Because of this condition, we can rule out trivial cases and bound the small solutions as the problems require.
+\end{note}
 
-	\begin{corollary}
-		For a prime $p$ and an integer $a$ relatively prime to $p$, there exist integers $x$ and $y$ with $0<|x|,|y|<\sqrt{p}$ such that
+\begin{corollary}
+	For a prime $p$ and an integer $a$ relatively prime to $p$, there exist integers $x$ and $y$ with $0<|x|,|y|<\sqrt{p}$ such that
+	\begin{align*}
+		a & \equiv xy\pmod p
+	\end{align*}
+\end{corollary}
+
+This lemma can be generalized even more with the same proof.
+\begin{theorem}[Generalization of Thue's Lemma]
+	Let $p$ be a prime number and let $\alpha$ and $\beta$ be two real numbers so that $\alpha\beta \geq p$. Then, for an integer $x$ relatively prime to $p$, there are integers $a$ and $b$ with $0<|a|<\alpha$ and $0<|b|<\beta $ so that
+	\begin{align*}
+		a & \equiv xb\pmod p
+	\end{align*}
+\end{theorem}
+We can also generalize the latter theorem to a two-dimensional theorem.
+\begin{theorem}[Two-dimensional Thue's Lemma]
+	Let $n\geq2$ be an integer and define $r=\sqrt{n}$. For arbitrary integers $a,b,c$, and $d$, there exist integers $w,x,y$, and $z$ with at least one of $y$ or $z$ non-zero such that
+	\begin{align*}
+		0& \leq |w|,|x|,|y|,|z|\leq r\\
+		w&\equiv ay+bz\pmod n\\
+		x&\equiv cy+dz\pmod n
+	\end{align*}
+\end{theorem}
+
+
+Now we demonstrate some applications of the lemma. First, we show an elegant proof of Fermat's $4n+1$ theorem, restated in theorem \autoref{thm:fermat4n+1}.
+
+\begin{theorem}[Fermat's Theorem on Sum of Two Squares]\label{thm:fermat4n+1}
+	Any prime of the form $4n+1$ can be represented as a sum of two squares.
+\end{theorem}
+
+\begin{proof}
+	We already know from theorem \autoref{thm:-1qr} that for $p\equiv1\pmod4$, there is an $x$ so that
+	\begin{align*}
+		x^2 & \equiv-1\pmod p
+	\end{align*}
+	From Thue's lemma, for such an $x$, there are integers $a$ and $b$ with $0<|a|,|b|<\sqrt{p}$ so that
+	\begin{align*}
+		a
+			& \equiv xb \pmod p\\
+		\implies a^2
+			& \equiv x^2b^2\\
+			& \equiv -b^2\pmod p\\
+		\implies a^2+b^2
+			& \equiv 0 \pmod p
+	\end{align*}
+	The last congruence means that $p|a^2+b^2$, so
+	\begin{align*}
+		p   &\leq a^2+b^2\\
+		a^2+b^2	&< p+p = 2p
+	\end{align*}
+	Therefore, $a^2+b^2=p$ must occur.
+\end{proof}
+
+\begin{remark}
+	We can prove a stronger result than that of Theorem \autoref{thm:fermat4n+1} using Fibonacci-Brahmagupta Identity (see \gls{fibonaccibrahmagupta}). Since we know that the product of any two numbers of the form $4k+1$ is again of the form $4k+1$ (see the proof of \autoref{thm:4k+3prime}), the special case when $n=1$ of the above identity along with \autoref{thm:fermat4n+1} shows that all numbers which are comprised only of prime divisors of the form $4k+1$ are representable as the sum of two squares.
+\end{remark}
+In fact, we can use the same technique for generalizing theorem \autoref{thm:fermat4n+1}.
+\begin{theorem}\label{thm:gen4n+1}
+	Let $n\in\{-1,-2,-3\}$. If $n$ is a quadratic residue modulo a prime $p$, then there are integers $a$ and $b$ so that $a^2-nb^2=p$.
+\end{theorem}
+
+\begin{proof}
+	We have already proven the case $n=-1$. If $n$ is a quadratic residue modulo $p$,
+	\begin{align*}
+		x^2\equiv n\pmod p
+	\end{align*}
+	has a solution. Fix the integer $x$ and take $a$ and $b$ as in Thue's lemma so that
+	\begin{align*}
+		a
+			& \equiv xb\pmod p\\
+		\implies a^2
+			& \equiv x^2b^2\\
+			& \equiv nb^2\pmod p\\
+		\implies p
+			& \mid a^2-nb^2
+	\end{align*}
+
+	\begin{enumerate}
+		\item If $n=-2$, then $p\leq a^2+2b^2<p+2p=3p$. This means either $a^2+2b^2=p$ or $a^2+2b^2=2p$ occurs. If the first equation holds, we are done. If $a^2+2b^2=2p$, we see that $a$ must be even. Replace $a=2a'$ in the latter equation to get $p=b^2+2a'^2$, as desired.
+		\item If $n=-3$, we find $p\leq a^2+3b^2<p+3p=4p$. If $a^2+3b^2=2p$, then $a$ and $b$ are both odd or both even. If both are even, then $2p$ is divisible by $4$, a contradiction since $p$ is odd. Otherwise, $a$ and $b$ are both odd:
 		\begin{align*}
-			a & \equiv xy\pmod p
+			a^2+3b^2 & \equiv1+3\cdot 1\pmod 4\\
+			\implies 2p	 & \equiv 0 \pmod 4
 		\end{align*}
-	\end{corollary}
+		This is, again, a contradiction. We are left with the case $a^2+3b^2=3p$. This shows $a$ is divisible by $3$. If we take $a=3a'$, we easily observe that $p=b^2+3a'^2$.
+	\end{enumerate}
+\end{proof}
 
-	This lemma can be generalized even more with the same proof.
-	\begin{theorem}[Generalization of Thue's Lemma]
-		Let $p$ be a prime number and let $\alpha$ and $\beta$ be two real numbers so that $\alpha\beta \geq p$. Then, for an integer $x$ relatively prime to $p$, there are integers $a$ and $b$ with $0<|a|<\alpha$ and $0<|b|<\beta $ so that
+\begin{question}
+	Can you prove a similar result to that of the remark after Theorem \autoref{thm:fermat4n+1}, but for the above theorem? Try using Fibonacci-Brahmagupta's identity before reading the next corollary.
+\end{question}
+
+\begin{corollary}\label{cor:p|x^2+ny^2}
+	For a prime $p$ and an integer $n$ with $p \nmid n$ the following two statements are equivalent:
+	\begin{itemize}
+		\item There exist relatively prime integers $x$ and $y$ so that $p$ divides $x^2+ny^2$.
+		\item $-n$ is a quadratic residue modulo $p$.
+	\end{itemize}
+\end{corollary}
+
+\begin{proof}
+	First, assume that $p\mid x^2+ny^2$. Then, $y$ must be relatively prime to $p$. Therefore, $y$ has an inverse modulo $p$, say $a$. So, $ay\equiv1\pmod p$. Then, $a^2y^2  \equiv1\pmod p$, and
+	\begin{align*}
+		p
+			& \mid x^2 + ny^2\\
+		\implies p
+			& \mid a^2x^2+na^2y^2\\
+		\implies p
+			& \mid a^2x^2+n\\
+		\implies (ax)^2
+			& \equiv-n\pmod p
+	\end{align*}
+	Now, suppose that $-n$ is a quadratic residue modulo $p$. Let $k^2\equiv-n\pmod p$. Clearly, $(k,p)=1$, otherwise $p$ will divide $n$. From Thue's lemma, there are integers $x$ and $y$ such that
+	\begin{align*}
+		x
+			& \equiv ky\pmod p\\
+		\implies x^2
+			& \equiv k^2y^2\\
+			& \equiv-ny^2\pmod p\\
+		\implies  p
+			& \mid x^2+ny^2
+	\end{align*}
+\end{proof}
+We can use these results to imply the following theorem.
+\begin{theorem}
+	For $D\in\{1,2,3\}$, if $n=x^2+Dy^2$ for some relatively prime integers $x$ and $y$, then every divisor $d$ of $n$ is of the same form as $n$.
+\end{theorem}
+
+\begin{proof}
+	According to the \gls{fibonaccibrahmagupta},
 		\begin{align*}
-			a & \equiv xb\pmod p
+			(a^2+Db^2)(c^2+Dd^2)& =(ac-Dbd)^2+D(ad+bc)^2\\
+			& =(ac+Dbd)^2+D(ad-bc)^2
 		\end{align*}
-	\end{theorem}
-	We can also generalize the latter theorem to a two-dimensional theorem.
-	\begin{theorem}[Two-dimensional Thue's Lemma]
-		Let $n\geq2$ be an integer and define $r=\sqrt{n}$. For arbitrary integers $a,b,c$, and $d$, there exist integers $w,x,y$, and $z$ with at least one of $y$ or $z$ non-zero such that
+	This means that the product of two numbers of the form $x^2+Dy^2$ is of the same form. From theorems above, if $p$ is a divisor of $x^2+Dy^2$, then $p=a^2+Db^2$ for some integers $a$ and $b$. The identity clearly says that if $m=a^2+Db^2$, then any power of $m$, say, $m^k$, is of this form again. Let's assume that the prime factorization of $n$ is
 		\begin{align*}
-			0& \leq |w|,|x|,|y|,|z|\leq r\\
-			w&\equiv ay+bz\pmod n\\
-			x&\equiv cy+dz\pmod n
+			n
+				& = p_1^{e_1}\cdots p_k^{e_k}\\
+				& = \prod_{i=1}^{k}p_i^{e_i}
 		\end{align*}
-	\end{theorem}
-
-
-	Now we demonstrate some applications of the lemma. First, we show an elegant proof of Fermat's $4n+1$ theorem, restated in theorem \autoref{thm:fermat4n+1}.
-
-	\begin{theorem}[Fermat's Theorem on Sum of Two Squares]\label{thm:fermat4n+1}
-		Any prime of the form $4n+1$ can be represented as a sum of two squares.
-	\end{theorem}
-
-	\begin{proof}
-		We already know from theorem \autoref{thm:-1qr} that for $p\equiv1\pmod4$, there is an $x$ so that
+	Then, since $d$ is a factor of $n$, the factorization of $d$ is
 		\begin{align*}
-			x^2 & \equiv-1\pmod p
+			d & = \prod_{i=1}^{k}p_i^{f_i}
 		\end{align*}
-		From Thue's lemma, for such an $x$, there are integers $a$ and $b$ with $0<|a|,|b|<\sqrt{p}$ so that
-		\begin{align*}
-			a
-				& \equiv xb \pmod p\\
-			\implies a^2
-				& \equiv x^2b^2\\
-				& \equiv -b^2\pmod p\\
-			\implies a^2+b^2
-				& \equiv 0 \pmod p
-		\end{align*}
-		The last congruence means that $p|a^2+b^2$, so
-		\begin{align*}
-			p   &\leq a^2+b^2\\
-			a^2+b^2	&< p+p = 2p
-		\end{align*}
-		Therefore, $a^2+b^2=p$ must occur.
-	\end{proof}
-
-	\begin{remark}
-		We can prove a stronger result than that of Theorem \autoref{thm:fermat4n+1} using Fibonacci-Brahmagupta Identity (see \gls{fibonaccibrahmagupta}). Since we know that the product of any two numbers of the form $4k+1$ is again of the form $4k+1$ (see the proof of \autoref{thm:4k+3prime}), the special case when $n=1$ of the above identity along with \autoref{thm:fermat4n+1} shows that all numbers which are comprised only of prime divisors of the form $4k+1$ are representable as the sum of two squares.
-	\end{remark}
-	In fact, we can use the same technique for generalizing theorem \autoref{thm:fermat4n+1}.
-	\begin{theorem}\label{thm:gen4n+1}
-		Let $n\in\{-1,-2,-3\}$. If $n$ is a quadratic residue modulo a prime $p$, then there are integers $a$ and $b$ so that $a^2-nb^2=p$.
-	\end{theorem}
-
-	\begin{proof}
-		We have already proven the case $n=-1$. If $n$ is a quadratic residue modulo $p$,
-		\begin{align*}
-			x^2\equiv n\pmod p
-		\end{align*}
-		has a solution. Fix the integer $x$ and take $a$ and $b$ as in Thue's lemma so that
-		\begin{align*}
-			a
-				& \equiv xb\pmod p\\
-			\implies a^2
-				& \equiv x^2b^2\\
-				& \equiv nb^2\pmod p\\
-			\implies p
-				& \mid a^2-nb^2
-		\end{align*}
-
-		\begin{enumerate}
-			\item If $n=-2$, then $p\leq a^2+2b^2<p+2p=3p$. This means either $a^2+2b^2=p$ or $a^2+2b^2=2p$ occurs. If the first equation holds, we are done. If $a^2+2b^2=2p$, we see that $a$ must be even. Replace $a=2a'$ in the latter equation to get $p=b^2+2a'^2$, as desired.
-			\item If $n=-3$, we find $p\leq a^2+3b^2<p+3p=4p$. If $a^2+3b^2=2p$, then $a$ and $b$ are both odd or both even. If both are even, then $2p$ is divisible by $4$, a contradiction since $p$ is odd. Otherwise, $a$ and $b$ are both odd:
-			\begin{align*}
-				a^2+3b^2 & \equiv1+3\cdot 1\pmod 4\\
-				\implies 2p	 & \equiv 0 \pmod 4
-			\end{align*}
-			This is, again, a contradiction. We are left with the case $a^2+3b^2=3p$. This shows $a$ is divisible by $3$. If we take $a=3a'$, we easily observe that $p=b^2+3a'^2$.
-		\end{enumerate}
-	\end{proof}
-
-	\begin{question}
-		Can you prove a similar result to that of the remark after Theorem \autoref{thm:fermat4n+1}, but for the above theorem? Try using Fibonacci-Brahmagupta's identity before reading the next corollary.
-	\end{question}
-
-	\begin{corollary}\label{cor:p|x^2+ny^2}
-		For a prime $p$ and an integer $n$ with $p \nmid n$ the following two statements are equivalent:
-		\begin{itemize}
-			\item There exist relatively prime integers $x$ and $y$ so that $p$ divides $x^2+ny^2$.
-			\item $-n$ is a quadratic residue modulo $p$.
-		\end{itemize}
-	\end{corollary}
-
-	\begin{proof}
-		First, assume that $p\mid x^2+ny^2$. Then, $y$ must be relatively prime to $p$. Therefore, $y$ has an inverse modulo $p$, say $a$. So, $ay\equiv1\pmod p$. Then, $a^2y^2  \equiv1\pmod p$, and
-		\begin{align*}
-			p
-				& \mid x^2 + ny^2\\
-			\implies p
-				& \mid a^2x^2+na^2y^2\\
-			\implies p
-				& \mid a^2x^2+n\\
-			\implies (ax)^2
-				& \equiv-n\pmod p
-		\end{align*}
-		Now, suppose that $-n$ is a quadratic residue modulo $p$. Let $k^2\equiv-n\pmod p$. Clearly, $(k,p)=1$, otherwise $p$ will divide $n$. From Thue's lemma, there are integers $x$ and $y$ such that
-		\begin{align*}
-			x
-				& \equiv ky\pmod p\\
-			\implies x^2
-				& \equiv k^2y^2\\
-				& \equiv-ny^2\pmod p\\
-			\implies  p
-				& \mid x^2+ny^2
-		\end{align*}
-	\end{proof}
-	We can use these results to imply the following theorem.
+	where $0\leq f_i\leq e_i$. For any $1\leq i\leq k$, $p_i$ divides $n=x^2+Dy^2$. Therefore, according to corollary \autoref{cor:p|x^2+ny^2}, $-D$ is a quadratic residue modulo $p_i$. Now, by theorem \autoref{thm:gen4n+1}, each $p_i$ is of the form $x^2+Dy^2$. From our previous discussion, we find that $p_i^{f_i}$ is of the same form for all $i$. As a consequence, the product $p_1^{f_1}\cdots p_k^{f_k}=d$ is of the same form and we are done.
+\end{proof}
+Now we prove another theorem that demonstrates the power of Thue's lemma. We will use a theorem which we proved in section \autoref{sec:qr}. For convenience, we state the theorem here again.
 	\begin{theorem}
-		For $D\in\{1,2,3\}$, if $n=x^2+Dy^2$ for some relatively prime integers $x$ and $y$, then every divisor $d$ of $n$ is of the same form as $n$.
+		$-3$ is a quadratic residue modulo $p$ if and only if $p$ is of the form $3k+1$.
 	\end{theorem}
-
-	\begin{proof}
-		According to the \gls{fibonaccibrahmagupta},
-			\begin{align*}
-				(a^2+Db^2)(c^2+Dd^2)& =(ac-Dbd)^2+D(ad+bc)^2\\
-				& =(ac+Dbd)^2+D(ad-bc)^2
-			\end{align*}
-		This means that the product of two numbers of the form $x^2+Dy^2$ is of the same form. From theorems above, if $p$ is a divisor of $x^2+Dy^2$, then $p=a^2+Db^2$ for some integers $a$ and $b$. The identity clearly says that if $m=a^2+Db^2$, then any power of $m$, say, $m^k$, is of this form again. Let's assume that the prime factorization of $n$ is
-			\begin{align*}
-				n
-					& = p_1^{e_1}\cdots p_k^{e_k}\\
-					& = \prod_{i=1}^{k}p_i^{e_i}
-			\end{align*}
-		Then, since $d$ is a factor of $n$, the factorization of $d$ is
-			\begin{align*}
-				d & = \prod_{i=1}^{k}p_i^{f_i}
-			\end{align*}
-		where $0\leq f_i\leq e_i$. For any $1\leq i\leq k$, $p_i$ divides $n=x^2+Dy^2$. Therefore, according to corollary \autoref{cor:p|x^2+ny^2}, $-D$ is a quadratic residue modulo $p_i$. Now, by theorem \autoref{thm:gen4n+1}, each $p_i$ is of the form $x^2+Dy^2$. From our previous discussion, we find that $p_i^{f_i}$ is of the same form for all $i$. As a consequence, the product $p_1^{f_1}\cdots p_k^{f_k}=d$ is of the same form and we are done.
-	\end{proof}
-	Now we prove another theorem that demonstrates the power of Thue's lemma. We will use a theorem which we proved in section \autoref{sec:qr}. For convenience, we state the theorem here again.
-		\begin{theorem}
-			$-3$ is a quadratic residue modulo $p$ if and only if $p$ is of the form $3k+1$.
-		\end{theorem}
-	Using this theorem, we will prove the following.
-		\begin{theorem}
-			If $p$ is a prime of the form $3k+1$, there are integers $a$ and $b$ such that $p=a^2+ab+b^2$.
-		\end{theorem}
-
-	\begin{proof}
-		Since $p$ is of the form $3k+1$, $-3$ is a quadratic residue of $p$. Take $y$ to be an odd integer for which $p|y^2+3$ or,
-			\begin{align*}
-				y^2 & \equiv-3\pmod p
-			\end{align*}
-		Such an $y$ exists since $p$ is odd. Then, the congruence equation $y\equiv2x+1\pmod p$ has an integer solution for $x$. For that $x$, we get
-			\begin{align*}
-				(2x+1)^2 & \equiv-3\pmod p\\
-				4x^2+4x+1& \equiv-3\pmod p\\
-				4(x^2+x+1)&\equiv 0 \phantom{-}\pmod p\\
-				x^2+x+1	 & \equiv 0 \phantom{-}\pmod p
-			\end{align*}
-		The latter congruence equation holds because $p$ is odd. From Thue's lemma, there are integers $a$ and $b$ with $0<|a|,|b|< \sqrt p$ such that
-			\begin{align*}
-				a & \equiv xb\pmod p.
-			\end{align*}
-		Then,
-			\begin{align*}
-				a^2+ab+b^2  & \equiv (xb)^2+(xb)\cdot b+b^2\\
-				& \equiv b^2(x^2+x+1)\\
-				& \equiv 0\pmod p
-			\end{align*}
-		Since $p\mid a^2+ab+b^2$, we have $p\leq a^2+ab+b^2$. On the other hand,
-			\begin{align*}
-				p& \leq a^2+ab+b^2 \\
-				& < p+p+p \\
-				&= 3p
-			\end{align*}
-		Consequently, either $a^2+ab+b^2=p$ or $a^2+ab+b^2=2p$ happens. We can easily check that $a^2+ab+b^2=2p$ can not happen (try it yourself). Thus, $a^2+ab+b^2=p$, which is what we wanted.
-	\end{proof}
-
-	You have probably figured out by now that \textbf{our focus should be on the small solutions} so that we can bound the necessary expressions like the problem asks for. Let's see more examples on this.
-
+Using this theorem, we will prove the following.
 	\begin{theorem}
-		Let $p>5$ be a prime which divides $k^2+5$ for some integer $k$. Show that there are integers $x$ and $y$ such that $p^2=x^2+5y^2$.
+		If $p$ is a prime of the form $3k+1$, there are integers $a$ and $b$ such that $p=a^2+ab+b^2$.
 	\end{theorem}
 
-	\begin{hint}
-		Try to find $x$ such that $x^2\equiv-5\pmod{p^2}$. Then from Thue's lemma, there exist $a$ and $b$ so that $a^2,b^2<p$ and $a\equiv kb\pmod{p^2}$. This gives $a^2\equiv k^2b^2\equiv-5b^2\pmod{p^2}$. Now, check all the cases like we did before.
-	\end{hint}
-
-	\begin{problem}
-		Let $p$ be a prime for which there exists a positive integer $a$ such that $p$ divides $2a^2-1$. Prove that there exist integers $b$ and $c$ so that $p=2b^2-c^2$.
-	\end{problem}
-
-	\begin{solution}
-		Let's look for small solutions again for the purpose of bounding! We have $2a^2-1\equiv0\pmod p$. Since we want to bound $2b^2-c^2$, it is obvious that we must find $b$ and $c$ so that $p$ divides $2b^2-c^2$ and then bound it. Fix the integer $a$, which is clearly relatively prime to $p$. Then from Thue's lemma, we there are integers $b$ and $c$ with $0<|b|,|c|<\sqrt{p}$ so that
+\begin{proof}
+	Since $p$ is of the form $3k+1$, $-3$ is a quadratic residue of $p$. Take $y$ to be an odd integer for which $p|y^2+3$ or,
 		\begin{align*}
-			b & \equiv ac\pmod p
+			y^2 & \equiv-3\pmod p
 		\end{align*}
-		This gives us what we need. Note that
+	Such an $y$ exists since $p$ is odd. Then, the congruence equation $y\equiv2x+1\pmod p$ has an integer solution for $x$. For that $x$, we get
 		\begin{align*}
-			2b^2-c^2 & \equiv 2(ac)^2-c^2\\
-			& \equiv c^2(2a^2-1)\\
+			(2x+1)^2 & \equiv-3\pmod p\\
+			4x^2+4x+1& \equiv-3\pmod p\\
+			4(x^2+x+1)&\equiv 0 \phantom{-}\pmod p\\
+			x^2+x+1	 & \equiv 0 \phantom{-}\pmod p
+		\end{align*}
+	The latter congruence equation holds because $p$ is odd. From Thue's lemma, there are integers $a$ and $b$ with $0<|a|,|b|< \sqrt p$ such that
+		\begin{align*}
+			a & \equiv xb\pmod p.
+		\end{align*}
+	Then,
+		\begin{align*}
+			a^2+ab+b^2  & \equiv (xb)^2+(xb)\cdot b+b^2\\
+			& \equiv b^2(x^2+x+1)\\
 			& \equiv 0\pmod p
 		\end{align*}
-		Thus, $p$ divides $2b^2-c^2$, and now we get to use the fact that
+	Since $p\mid a^2+ab+b^2$, we have $p\leq a^2+ab+b^2$. On the other hand,
 		\begin{align*}
-			p & \leq 2b^2-c^2\\
-			& < 2b^2 \\
-			& < 2p
+			p& \leq a^2+ab+b^2 \\
+			& < p+p+p \\
+			&= 3p
 		\end{align*}
-		We immediately get that $p=2b^2-c^2$.
-	\end{solution}
+	Consequently, either $a^2+ab+b^2=p$ or $a^2+ab+b^2=2p$ happens. We can easily check that $a^2+ab+b^2=2p$ can not happen (try it yourself). Thus, $a^2+ab+b^2=p$, which is what we wanted.
+\end{proof}
 
+You have probably figured out by now that \textbf{our focus should be on the small solutions} so that we can bound the necessary expressions like the problem asks for. Let's see more examples on this.
 
-\end{document}
+\begin{theorem}
+	Let $p>5$ be a prime which divides $k^2+5$ for some integer $k$. Show that there are integers $x$ and $y$ such that $p^2=x^2+5y^2$.
+\end{theorem}
+
+\begin{hint}
+	Try to find $x$ such that $x^2\equiv-5\pmod{p^2}$. Then from Thue's lemma, there exist $a$ and $b$ so that $a^2,b^2<p$ and $a\equiv kb\pmod{p^2}$. This gives $a^2\equiv k^2b^2\equiv-5b^2\pmod{p^2}$. Now, check all the cases like we did before.
+\end{hint}
+
+\begin{problem}
+	Let $p$ be a prime for which there exists a positive integer $a$ such that $p$ divides $2a^2-1$. Prove that there exist integers $b$ and $c$ so that $p=2b^2-c^2$.
+\end{problem}
+
+\begin{solution}
+	Let's look for small solutions again for the purpose of bounding! We have $2a^2-1\equiv0\pmod p$. Since we want to bound $2b^2-c^2$, it is obvious that we must find $b$ and $c$ so that $p$ divides $2b^2-c^2$ and then bound it. Fix the integer $a$, which is clearly relatively prime to $p$. Then from Thue's lemma, we there are integers $b$ and $c$ with $0<|b|,|c|<\sqrt{p}$ so that
+	\begin{align*}
+		b & \equiv ac\pmod p
+	\end{align*}
+	This gives us what we need. Note that
+	\begin{align*}
+		2b^2-c^2 & \equiv 2(ac)^2-c^2\\
+		& \equiv c^2(2a^2-1)\\
+		& \equiv 0\pmod p
+	\end{align*}
+	Thus, $p$ divides $2b^2-c^2$, and now we get to use the fact that
+	\begin{align*}
+		p & \leq 2b^2-c^2\\
+		& < 2b^2 \\
+		& < 2p
+	\end{align*}
+	We immediately get that $p=2b^2-c^2$.
+\end{solution}

@@ -1,32 +1,28 @@
-\documentclass[main.tex]{subfile}
-
-\begin{document}
-	%\nomenclature[c]{$\varphi(n)$}{Euler's totient function of $n$, $\varphi(n)$ is the number of positive integers not exceeding $n$ which are relatively prime to $n$.}
-	%\nomenclature[ca]{$J_{k}(n)$}{Jordan function of $n$, the number of tuples $(a_{1},\ldots,a_{k})$ such that $\gcd(a_{1},\ldots,a_{k},n)=1$ and $1\leq a_{1},\ldots,a_{k}\leq n$.}
-	\nomenclature[sets]{$\mathbb{N,N}_0$, $\mathbb{Z, Q, R, P},$ and $\mathbb{C}$}{Sets of positive integers, non-negative integers, integers, rational numbers, real numbers, primes and complex numbers respectively.}
-	\nomenclature[absolute]{$|a|$}{The absolute value of $a$ for any real number $a$.}
-	\nomenclature[divides]{$a|b$}{$b$ is divisible by $a$ without any remainder.}
-	\nomenclature[gcdlcm]{$\gcd(a,b)$ (for brevity, $(a,b)$) and $\lcm(a,b)$ (for brevity, $[a,b]$)}{ are greatest common divisor and least common multiple of $a$ and $b$ respectively.}
-	\nomenclature[coprime]{$a\perp b$}{$\gcd(a,b)=1$ or $a$ and $b$ are relatively prime.}
-	\nomenclature[numdiv]{$d(n)$}{Number of divisors of $n$.}
-	\nomenclature[totient]{$\varphi(n)$}{The number of positive integers not exceeding $n$ which are relatively prime to $n$.}
-	\nomenclature[numprime]{$\pi(x)$}{The number of primes not exceeding $x$.}
-	\nomenclature[sumdiv]{$\sigma(n)$}{Sum of divisors of $n$.}
-	\nomenclature[omega]{$\omega(n)$}{Number of distinct prime divisors of $n$}
-	\nomenclature[Omega]{$\Omega(n)$}{Number of total prime divisors of $n$}
-	\nomenclature[mobius]{$\mu(n)$}{M\"{o}bius function of $n$, $\mu(n)=(-1)^{\omega(n)}$ if $n$ is square-free, otherwise $\mu(n)=0$.}
-	\nomenclature[carmichael]{$\lambda(n)$}{Liouville function of $n$, $\lambda(n)=(-1)^{\Omega(n)}$ if $n$ is square-free, otherwise $\lambda(n)=0$. It is also used for Carmichael's universal function.}
-	\nomenclature[floorceil]{$\floor{x}$ and $\lceil x \rceil$}{The largest integer not greater than $x$ and the smallest integer integer not less than $x$ respectively.}
-	\nomenclature[legendre]{$\parenthesis{\dfrac{a}{p}}$}{The Legendre symbol for an integer $a$ and prime $p$.}
-	\nomenclature[jacobi]{$\parenthesis{\dfrac{a}{n}}$}{The Jacobi symbol for an integer $a$ and a positive integer $n$.}
-	\nomenclature[binom]{$\binom{n}{k}$}{$n$ choose $k$, the binomial coefficient of the $k+1$-th term in the expansion of $(1+x)^{n}$.}
-	\nomenclature[nu]{$v_n(a)$}{Largest non-negative integer $\alpha$ so that $n^\alpha|a$ but $n^{\alpha+1}\nmid a$.}
-	\nomenclature[mangoldt]{$\Lambda(n)$}{Von Mangoldt Function of $n$. $\Lambda(n)=\log{p}$ if $n=p^{e}$ for some positive integer $e$, otherwise $\Lambda(n)=0$.}
-	\nomenclature[theta]{$\vartheta(x)$}{Tchebycheff function of the first kind.}
-	\nomenclature[psi]{$\psi(x)$}{Tchebycheff function of the second kind.}
-	\nomenclature[zeta]{$\zeta(s)$}{Zeta function of the complex number $s$.}
-	\nomenclature[dirconv]{$\alpha\ast\beta$}{Dirichlet convolution of two arithmetic functions $\alpha$ and $\beta$.}
-	\nomenclature[genconv]{$\alpha\circ\beta$}{General convolution of two arithmetic functions $\alpha$ and $\beta$.}
-	%\nomenclature[gamma]{$\gamma$}{Euler-Mascheroni constant.}
-	\nomenclature[rad]{$\rad(n)$}{Product of distinct prime divisors of $n$, $\rad(n)=\prod_{p\mid n}p$.}
-\end{document}
+%\nomenclature[c]{$\varphi(n)$}{Euler's totient function of $n$, $\varphi(n)$ is the number of positive integers not exceeding $n$ which are relatively prime to $n$.}
+%\nomenclature[ca]{$J_{k}(n)$}{Jordan function of $n$, the number of tuples $(a_{1},\ldots,a_{k})$ such that $\gcd(a_{1},\ldots,a_{k},n)=1$ and $1\leq a_{1},\ldots,a_{k}\leq n$.}
+\nomenclature[sets]{$\mathbb{N,N}_0$, $\mathbb{Z, Q, R, P},$ and $\mathbb{C}$}{Sets of positive integers, non-negative integers, integers, rational numbers, real numbers, primes and complex numbers respectively.}
+\nomenclature[absolute]{$|a|$}{The absolute value of $a$ for any real number $a$.}
+\nomenclature[divides]{$a|b$}{$b$ is divisible by $a$ without any remainder.}
+\nomenclature[gcdlcm]{$\gcd(a,b)$ (for brevity, $(a,b)$) and $\lcm(a,b)$ (for brevity, $[a,b]$)}{ are greatest common divisor and least common multiple of $a$ and $b$ respectively.}
+\nomenclature[coprime]{$a\perp b$}{$\gcd(a,b)=1$ or $a$ and $b$ are relatively prime.}
+\nomenclature[numdiv]{$d(n)$}{Number of divisors of $n$.}
+\nomenclature[totient]{$\varphi(n)$}{The number of positive integers not exceeding $n$ which are relatively prime to $n$.}
+\nomenclature[numprime]{$\pi(x)$}{The number of primes not exceeding $x$.}
+\nomenclature[sumdiv]{$\sigma(n)$}{Sum of divisors of $n$.}
+\nomenclature[omega]{$\omega(n)$}{Number of distinct prime divisors of $n$}
+\nomenclature[Omega]{$\Omega(n)$}{Number of total prime divisors of $n$}
+\nomenclature[mobius]{$\mu(n)$}{M\"{o}bius function of $n$, $\mu(n)=(-1)^{\omega(n)}$ if $n$ is square-free, otherwise $\mu(n)=0$.}
+\nomenclature[carmichael]{$\lambda(n)$}{Liouville function of $n$, $\lambda(n)=(-1)^{\Omega(n)}$ if $n$ is square-free, otherwise $\lambda(n)=0$. It is also used for Carmichael's universal function.}
+\nomenclature[floorceil]{$\floor{x}$ and $\lceil x \rceil$}{The largest integer not greater than $x$ and the smallest integer integer not less than $x$ respectively.}
+\nomenclature[legendre]{$\parenthesis{\dfrac{a}{p}}$}{The Legendre symbol for an integer $a$ and prime $p$.}
+\nomenclature[jacobi]{$\parenthesis{\dfrac{a}{n}}$}{The Jacobi symbol for an integer $a$ and a positive integer $n$.}
+\nomenclature[binom]{$\binom{n}{k}$}{$n$ choose $k$, the binomial coefficient of the $k+1$-th term in the expansion of $(1+x)^{n}$.}
+\nomenclature[nu]{$v_n(a)$}{Largest non-negative integer $\alpha$ so that $n^\alpha|a$ but $n^{\alpha+1}\nmid a$.}
+\nomenclature[mangoldt]{$\Lambda(n)$}{Von Mangoldt Function of $n$. $\Lambda(n)=\log{p}$ if $n=p^{e}$ for some positive integer $e$, otherwise $\Lambda(n)=0$.}
+\nomenclature[theta]{$\vartheta(x)$}{Tchebycheff function of the first kind.}
+\nomenclature[psi]{$\psi(x)$}{Tchebycheff function of the second kind.}
+\nomenclature[zeta]{$\zeta(s)$}{Zeta function of the complex number $s$.}
+\nomenclature[dirconv]{$\alpha\ast\beta$}{Dirichlet convolution of two arithmetic functions $\alpha$ and $\beta$.}
+\nomenclature[genconv]{$\alpha\circ\beta$}{General convolution of two arithmetic functions $\alpha$ and $\beta$.}
+%\nomenclature[gamma]{$\gamma$}{Euler-Mascheroni constant.}
+\nomenclature[rad]{$\rad(n)$}{Product of distinct prime divisors of $n$, $\rad(n)=\prod_{p\mid n}p$.}

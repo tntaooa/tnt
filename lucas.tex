@@ -1,174 +1,172 @@
-\documentclass[12pt]{subfile}
-\begin{document}
 In $2010$, the following problem was posed in Bangladesh national mathematical Olympiad:
-	\begin{problem}
-		Find the number of odd binomial coefficients in the expansion of $(a+b)^{2010}$.
-	\end{problem}
+\begin{problem}
+	Find the number of odd binomial coefficients in the expansion of $(a+b)^{2010}$.
+\end{problem}
 Here is a hint: you need to find the value of $\binom{2010}{i}\pmod2$ for $0\leq i\leq2010$. One idea for doing that is to count the exponent of $2$ in $\binom{2010}{i}$ using Legendre's theorem. Then look for the condition when a coefficient can be odd.
 
 Here, we will focus on a generalized version of such problems. In problems like this, it happens that we need to find the remainder of division of the binomial coefficient $\tbinom{m}{n}$ by a prime number $p$. \textit{\'{E}douard Lucas} found patterns in Pascal triangle which resulted in the following theorem. \textcite[Page $230$, $\S$ XXI]{lucas_1878_2} proved the following theorem as part of his investigation into the Lucas sequences of first kind and second kind.
-	\begin{theorem}[Lucas's Theorem]
-		Let $p$ be a prime and let $m$ and $n$ be non-negative integers. Then
-			\begin{align*}
-				\binom{m}{n}
-					& \equiv\prod_{i=0}^k\binom{m_i}{n_i}\pmod p
-			\end{align*}
-		where
-			\begin{align*}
-				m & =m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0\\
-				n & =n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0
-			\end{align*}
-		are the base $p$ expansions of $m$ and $n$ respectively. This uses the convention that $\binom{m}{n}=0$ if $m<n$.
-	\end{theorem}
+\begin{theorem}[Lucas's Theorem]
+	Let $p$ be a prime and let $m$ and $n$ be non-negative integers. Then
+		\begin{align*}
+			\binom{m}{n}
+				& \equiv\prod_{i=0}^k\binom{m_i}{n_i}\pmod p
+		\end{align*}
+	where
+		\begin{align*}
+			m & =m_kp^k+m_{k-1}p^{k-1}+\cdots +m_1p+m_0\\
+			n & =n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0
+		\end{align*}
+	are the base $p$ expansions of $m$ and $n$ respectively. This uses the convention that $\binom{m}{n}=0$ if $m<n$.
+\end{theorem}
 
-	\begin{example}
-		For $p=7, m=67$, and $n=10$. Now
-			\begin{align*}
-				67
-					& = 1 \cdot 7^2 + 2 \cdot 7 + 4\\
-				10
-					& = 0 \cdot 7^2 + 1 \cdot 7 + 3
-			\end{align*}
-		and therefore
-			\begin{align*}
-				\binom{67}{10}
-					& \equiv\binom{1}{0}\binom{2}{1}\binom{4}{3}\\
-					& \equiv 1 \cdot 2 \cdot 4\\
-					& \equiv 1 \pmod 7
-			\end{align*}
-		Note that $\binom{67}{10} = 247,994,680,648 \equiv 1 \pmod 7$, which is a huge number and it would be tedious to find the remainder modulo $7$ without Lucas's theorem.
-	\end{example}
+\begin{example}
+	For $p=7, m=67$, and $n=10$. Now
+		\begin{align*}
+			67
+				& = 1 \cdot 7^2 + 2 \cdot 7 + 4\\
+			10
+				& = 0 \cdot 7^2 + 1 \cdot 7 + 3
+		\end{align*}
+	and therefore
+		\begin{align*}
+			\binom{67}{10}
+				& \equiv\binom{1}{0}\binom{2}{1}\binom{4}{3}\\
+				& \equiv 1 \cdot 2 \cdot 4\\
+				& \equiv 1 \pmod 7
+		\end{align*}
+	Note that $\binom{67}{10} = 247,994,680,648 \equiv 1 \pmod 7$, which is a huge number and it would be tedious to find the remainder modulo $7$ without Lucas's theorem.
+\end{example}
 In order to prove Lucas's theorem, we need to prove the following first.
-	\begin{lemma}
-		For a prime $p$, an integer $x$, and a positive integer $r$, we have
-			\begin{align*}
-				(1+x)^{p^r}
-					& \equiv 1+x^{p^r}\pmod{p}
-			\end{align*}
-	\end{lemma}
+\begin{lemma}
+	For a prime $p$, an integer $x$, and a positive integer $r$, we have
+		\begin{align*}
+			(1+x)^{p^r}
+				& \equiv 1+x^{p^r}\pmod{p}
+		\end{align*}
+\end{lemma}
 
-	\begin{proof}
-		We will use induction on $r$ to prove them lemma. The base case $r=1$ is easy: for any integer $k$ such that $1 \leq k \leq p-1$, we know that $\binom{p}{k} \equiv 0 \pmod p$. Now
-			\begin{align*}
-				(1+x)^p
-					& \equiv 1+\binom{p}{1}x+\binom{p}{2}x^2+\cdots+\binom{p}{p-1}x^{p-1}+x^p\\
-					& \equiv 1+x^p\pmod p
-			\end{align*}
-		Now suppose that $(1+x)^{p^r}\equiv 1+x^{p^r}\pmod{p}$ is true for some integer $r \geq 1$. Then
-			\begin{align*}
-				(1+x)^{p^{r+1}}
-					&\equiv\left((1+x)^{p^r}\right)^p\\
-					& \equiv\left(1+x^{p^r}\right)^p\\
-					& \equiv\binom{p}{0}+\binom{p}{1}x^{p^r}+\binom{p}{2}x^{2p^r}+\cdots+\binom{p}{p-1}x^{(p-1)p^r}+\binom{p}{p}x^{p^{r+1}}\\
-					& \equiv 1+x^{p^{r+1}}\pmod{p}
-			\end{align*}
-		So the congruence relation holds for all $r \geq 1$.
-	\end{proof}
+\begin{proof}
+	We will use induction on $r$ to prove them lemma. The base case $r=1$ is easy: for any integer $k$ such that $1 \leq k \leq p-1$, we know that $\binom{p}{k} \equiv 0 \pmod p$. Now
+		\begin{align*}
+			(1+x)^p
+				& \equiv 1+\binom{p}{1}x+\binom{p}{2}x^2+\cdots+\binom{p}{p-1}x^{p-1}+x^p\\
+				& \equiv 1+x^p\pmod p
+		\end{align*}
+	Now suppose that $(1+x)^{p^r}\equiv 1+x^{p^r}\pmod{p}$ is true for some integer $r \geq 1$. Then
+		\begin{align*}
+			(1+x)^{p^{r+1}}
+				&\equiv\left((1+x)^{p^r}\right)^p\\
+				& \equiv\left(1+x^{p^r}\right)^p\\
+				& \equiv\binom{p}{0}+\binom{p}{1}x^{p^r}+\binom{p}{2}x^{2p^r}+\cdots+\binom{p}{p-1}x^{(p-1)p^r}+\binom{p}{p}x^{p^{r+1}}\\
+				& \equiv 1+x^{p^{r+1}}\pmod{p}
+		\end{align*}
+	So the congruence relation holds for all $r \geq 1$.
+\end{proof}
 
-	\begin{proof}[Proof of Lucas's Theorem]
-		The idea is to find the coefficient of $x^n$ in the expansion of $(1+x)^m$. We have
-			\begin{align*}
-				(1+x)^m
-					&=(1+x)^{m_kp^k+m_{k-1}p^{k-1}+\cdots+m_1p+m_0}\\
-					&=[(1+x)^{p^k}]^{m_k}[(1+x)^{p^{k-1}}]^{m_{k-1}}\cdots[(1+x)^p]^{m_1}(1+x)^{m_0}\\ &\equiv(1+x^{p^k})^{m_k}(1+x^{p^{k-1}})^{m_{k-1}}\cdots(1+x^p)^{m_1}(1+x)^{m_0}\pmod{p}
-			\end{align*}
-		We want the coefficient of $x^n$ in $(1+x)^m$. Since $n=n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0$, we want the coefficient of $(x^{p^{k}})^{n_{k}}(x^{p^{k-1}})^{n_{k-1}}\cdots (x^p)^{n_1}x^{n_0}$.
-		The coefficient of each $(x^{p^{i}})^{n_{i}}$ comes from the binomial expansion of $(1+x^{p^i})^{m_i}$, which is $\binom{m_i}{n_i}$. Therefore we take the product of all such $\binom{m_i}{n_i}$, and thus we have
-			\begin{align*}
-				\binom{m}{n}
-					& \equiv\prod_{i=0}^{k}\binom{m_i}{n_i}\pmod{p}
-			\end{align*}
-	\end{proof}
+\begin{proof}[Proof of Lucas's Theorem]
+	The idea is to find the coefficient of $x^n$ in the expansion of $(1+x)^m$. We have
+		\begin{align*}
+			(1+x)^m
+				&=(1+x)^{m_kp^k+m_{k-1}p^{k-1}+\cdots+m_1p+m_0}\\
+				&=[(1+x)^{p^k}]^{m_k}[(1+x)^{p^{k-1}}]^{m_{k-1}}\cdots[(1+x)^p]^{m_1}(1+x)^{m_0}\\ &\equiv(1+x^{p^k})^{m_k}(1+x^{p^{k-1}})^{m_{k-1}}\cdots(1+x^p)^{m_1}(1+x)^{m_0}\pmod{p}
+		\end{align*}
+	We want the coefficient of $x^n$ in $(1+x)^m$. Since $n=n_kp^k+n_{k-1}p^{k-1}+\cdots +n_1p+n_0$, we want the coefficient of $(x^{p^{k}})^{n_{k}}(x^{p^{k-1}})^{n_{k-1}}\cdots (x^p)^{n_1}x^{n_0}$.
+	The coefficient of each $(x^{p^{i}})^{n_{i}}$ comes from the binomial expansion of $(1+x^{p^i})^{m_i}$, which is $\binom{m_i}{n_i}$. Therefore we take the product of all such $\binom{m_i}{n_i}$, and thus we have
+		\begin{align*}
+			\binom{m}{n}
+				& \equiv\prod_{i=0}^{k}\binom{m_i}{n_i}\pmod{p}
+		\end{align*}
+\end{proof}
 
-	\begin{corollary}\label{cor:binomdiv}
-		The binomial coefficient $\binom{n}{k}$ is divisible by $p$ if and only if at least one of the digits of $k$ in base $p$ is greater than the corresponding digit $n$ in base $p$.
-	\end{corollary}
+\begin{corollary}\label{cor:binomdiv}
+	The binomial coefficient $\binom{n}{k}$ is divisible by $p$ if and only if at least one of the digits of $k$ in base $p$ is greater than the corresponding digit $n$ in base $p$.
+\end{corollary}
 
-	\begin{corollary}\label{cor:lucas}
-		Let $s,t,q,r$ be non-negative integers and $p$ $p$ be a prime such that $0 \leq q,r \leq p-1$. Then
-			\begin{align*}
-				\binom{sp+q}{tp+r}
-					& \equiv \binom{s}{t} \binom{q}{r} \pmod p
-			\end{align*}
-	\end{corollary}
+\begin{corollary}\label{cor:lucas}
+	Let $s,t,q,r$ be non-negative integers and $p$ $p$ be a prime such that $0 \leq q,r \leq p-1$. Then
+		\begin{align*}
+			\binom{sp+q}{tp+r}
+				& \equiv \binom{s}{t} \binom{q}{r} \pmod p
+		\end{align*}
+\end{corollary}
 
-	\begin{problem}
-		How many ordered triples $(a,b,c)$ of positive integers satisfy $a+b+c=94$ and $3$ does not divide
-			\begin{align*}
-				\dfrac{94!}{a!b!c!}?
-			\end{align*}
-	\end{problem}
+\begin{problem}
+	How many ordered triples $(a,b,c)$ of positive integers satisfy $a+b+c=94$ and $3$ does not divide
+		\begin{align*}
+			\dfrac{94!}{a!b!c!}?
+		\end{align*}
+\end{problem}
 
-	\begin{solution}
-		Write $c=94-a-b$, and hence
-			\begin{align*}
-				\dfrac{94!}{a!b!(94 - a - b)!}
-					& = \binom{94}{a} \cdot \binom{94 - a}{b}
-			\end{align*}
-		By Lucas' theorem, since $94=(10111)_3$, $3$ does not divide $\binom{94}{a}$ only when $a$ is an element of the set
-			\begin{align*}
-				 S
-				 	& = \{1, 3, 4, 9, 10, 12, 13, 81, 82, 84, 85, 90, 91, 93, 94\}
-			\end{align*}
-		By symmetry, we only need to find $a,b,c$ which are elements of $S$. There exist six such triples $(a,b,c)$ which sum to $94$:
-			\begin{align*}
-				(1,3,90), (1, 9, 84), (1, 12, 81), (3, 9, 82), (3, 10, 81), (4,9,81)
-			\end{align*}
-	\end{solution}
+\begin{solution}
+	Write $c=94-a-b$, and hence
+		\begin{align*}
+			\dfrac{94!}{a!b!(94 - a - b)!}
+				& = \binom{94}{a} \cdot \binom{94 - a}{b}
+		\end{align*}
+	By Lucas' theorem, since $94=(10111)_3$, $3$ does not divide $\binom{94}{a}$ only when $a$ is an element of the set
+		\begin{align*}
+		 S
+			 	& = \{1, 3, 4, 9, 10, 12, 13, 81, 82, 84, 85, 90, 91, 93, 94\}
+		\end{align*}
+	By symmetry, we only need to find $a,b,c$ which are elements of $S$. There exist six such triples $(a,b,c)$ which sum to $94$:
+		\begin{align*}
+			(1,3,90), (1, 9, 84), (1, 12, 81), (3, 9, 82), (3, 10, 81), (4,9,81)
+		\end{align*}
+\end{solution}
 
-	\begin{problem}
-		Let $p$ be a prime. Prove that
-			\begin{align*}
-				\binom{p^n-1}{k}
-					& \equiv (-1)^{s_p(k)}\pmod p
-			\end{align*}
-		where $s_p(k)$ is the sum of digits of $k$ when represented in base $p$.
-	\end{problem}
+\begin{problem}
+	Let $p$ be a prime. Prove that
+		\begin{align*}
+			\binom{p^n-1}{k}
+				& \equiv (-1)^{s_p(k)}\pmod p
+		\end{align*}
+	where $s_p(k)$ is the sum of digits of $k$ when represented in base $p$.
+\end{problem}
 
-	\begin{hint}
-		Use Problem \ref{prob:binom(p-1)(k)} and apply Lucas' theorem.
-	\end{hint}
+\begin{hint}
+	Use Problem \ref{prob:binom(p-1)(k)} and apply Lucas' theorem.
+\end{hint}
 
-	\begin{problem}
-		Let $p$ and $q$ be distinct odd primes. Prove that
-			\begin{align*}
-				\binom{2pq-1}{pq-1}
-					& \equiv 1\pmod{pq}
-			\end{align*}
-		if and only if
-			\begin{align*}
-				\binom{2p-1}{p-1} &\equiv 1 \pmod q\\
-				\binom{2q-1}{q-1} &\equiv 1 \pmod p
-			\end{align*}
-	\end{problem}
+\begin{problem}
+	Let $p$ and $q$ be distinct odd primes. Prove that
+		\begin{align*}
+			\binom{2pq-1}{pq-1}
+				& \equiv 1\pmod{pq}
+		\end{align*}
+	if and only if
+		\begin{align*}
+			\binom{2p-1}{p-1} &\equiv 1 \pmod q\\
+			\binom{2q-1}{q-1} &\equiv 1 \pmod p
+		\end{align*}
+\end{problem}
 
-	\begin{solution}
-		Since $2pq-1 = (2q-1)p+p-1$, the rightmost digit of $2pq-1$ when represented in base $p$ is $p-1$ and the other digits form $2q-1$. Analogously, the rightmost digit of $pq-1$ when represented in base $p$ is $p-1$ and the other digits form $q-1$. Applying corollary \eqref{cor:lucas}, we find
-			\begin{align}
-				\binom{2pq-1}{pq-1}
-					& \equiv \binom{2q-1}{q-1} \binom{p-1}{p-1}\\
-					& \equiv \binom{2q-1}{q-1} \pmod p\label{eq:lucasproblem}
-			\end{align}
-		The if part is obvious since $p$ and $q$ are different primes. We will prove the only if part now.
+\begin{solution}
+	Since $2pq-1 = (2q-1)p+p-1$, the rightmost digit of $2pq-1$ when represented in base $p$ is $p-1$ and the other digits form $2q-1$. Analogously, the rightmost digit of $pq-1$ when represented in base $p$ is $p-1$ and the other digits form $q-1$. Applying corollary \eqref{cor:lucas}, we find
+		\begin{align}
+			\binom{2pq-1}{pq-1}
+				& \equiv \binom{2q-1}{q-1} \binom{p-1}{p-1}\\
+				& \equiv \binom{2q-1}{q-1} \pmod p\label{eq:lucasproblem}
+		\end{align}
+	The if part is obvious since $p$ and $q$ are different primes. We will prove the only if part now.
 
-		Suppose  that $\binom{2pq-1}{pq-1}\equiv 1\pmod{pq}$. This means that $\binom{2pq-1}{pq-1}\equiv 1\pmod{p}$. By equation \eqref{eq:lucasproblem}, $\binom{2q-1}{q-1} \equiv 1 \pmod p$ as desired. Proving $\binom{2p-1}{p-1}\equiv 1 \pmod q$ is similar.
-	\end{solution}
+	Suppose  that $\binom{2pq-1}{pq-1}\equiv 1\pmod{pq}$. This means that $\binom{2pq-1}{pq-1}\equiv 1\pmod{p}$. By equation \eqref{eq:lucasproblem}, $\binom{2q-1}{q-1} \equiv 1 \pmod p$ as desired. Proving $\binom{2p-1}{p-1}\equiv 1 \pmod q$ is similar.
+\end{solution}
 
-	\begin{problem}
-		Let $n$ and $k$ be arbitrary positive integers and let $p$ be an odd prime $p$. Prove that
-			\begin{align*}
-				p^2
-					& \mid \binom{pk}{pm} - \binom{k}{m}
-			\end{align*}
-	\end{problem}
+\begin{problem}
+	Let $n$ and $k$ be arbitrary positive integers and let $p$ be an odd prime $p$. Prove that
+		\begin{align*}
+			p^2
+				& \mid \binom{pk}{pm} - \binom{k}{m}
+		\end{align*}
+\end{problem}
 
-	\begin{hint}
-		Induct on $n$ and equate the coefficients of $a^{pm}b^{p(n-m)}$ in both sides of
-			\begin{align*}
-				(a+b)^{pn}
-					& =(a+b)^{p(n-1)}(a+b)^{p}
-			\end{align*}
-	\end{hint}
+\begin{hint}
+	Induct on $n$ and equate the coefficients of $a^{pm}b^{p(n-m)}$ in both sides of
+		\begin{align*}
+			(a+b)^{pn}
+				& =(a+b)^{p(n-1)}(a+b)^{p}
+		\end{align*}
+\end{hint}
 
 
 %	\begin{problem}
@@ -177,5 +175,3 @@ In order to prove Lucas's theorem, we need to prove the following first.
 %		All the binomial coefficients $\binom(n,k)$, where $0\leq k \leq n$, are not divisible by $p$ if and only if $n+1$ is divisible by $p^d$,
 %		in other words, all the digits of $n$, except the leftmost, in base $p$ are equal to $p-1$.
 %	\end{problem}
-
-\end{document}
