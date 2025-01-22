@@ -1,841 +1,838 @@
-\documentclass{subfiles}
-
-\begin{document}
 \chapter{Primes}\label{ch:primes}
 
 \section{Introduction}
-	Prime numbers just might be the most mysterious topic in mathematics. There are already countless books on the topic. We have already defined prime numbers in autoref{ch:divisibility}. Recall that a positive integer $p$ is a prime if and only if it has exactly two positive divisors: only $1$ and $p$ itself (recall how this lets us deal with the case of $1$ automatically). In this chapter, we are going to explore the properties of primes\watermark.
+Prime numbers just might be the most mysterious topic in mathematics. There are already countless books on the topic. We have already defined prime numbers in autoref{ch:divisibility}. Recall that a positive integer $p$ is a prime if and only if it has exactly two positive divisors: only $1$ and $p$ itself (recall how this lets us deal with the case of $1$ automatically). In this chapter, we are going to explore the properties of primes\watermark.
 
-	We will start with the infinitude of primes. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\H{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite Olympiad style topics. We do not give the elementary proof of \textit{Prime Number Theorem} by \textit{Erd\H{o}s} and \textit{Selberg}. There was a dispute over the prime number theorem whether Erd\H{o}s and Selberg would write a joint paper or not. \textcite{goldfeld_2004} and \textcite{baas_skau_2008} are great reads in this regard.
+We will start with the infinitude of primes. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\H{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite Olympiad style topics. We do not give the elementary proof of \textit{Prime Number Theorem} by \textit{Erd\H{o}s} and \textit{Selberg}. There was a dispute over the prime number theorem whether Erd\H{o}s and Selberg would write a joint paper or not. \textcite{goldfeld_2004} and \textcite{baas_skau_2008} are great reads in this regard.
 
-	In section \eqref{sec:primalitytesting}, we will discuss how to list primes efficiently or decide whether an integer is prime or not, and how to factorize an integer quickly. Now, there are a few points to clear out in the last statement.
-		\begin{enumerate}
-			\item Why do we need a list of primes?
-			\item Why do we need a way to detect primes?
-			\item Why do we care how quickly we can factorize an integer? Because we can just factorize $12$ as $2^2\cdot3$ by hand, right?
-		\end{enumerate}
-	If you remember, we asked you to factorize $357879581$\footnote{We used this number because long time ago the first author used to think this is a prime.}. If you actually tried doing that without using a computer, you must have cursed us all the way. Why? Because the smallest prime factor of $357879581$ is $479$, and the other one is $747139$. As you can see, as the numbers get bigger, there prime factors get bigger as well. And of course we don't want to do all that by hand. We shouldn't do that either. Computers help us in the computing part, we just need to tell the computer how to do that. Now, this is where we introduce the idea of \textit{algorithm}. We used this word back in autoref{ch:divisibility}, where we first used \textit{Euclidean Algorithm}. A funny way to say what algorithm is: \textit{the word used by programmers when they don't want to explain what they did}. People sometimes say that because often algorithms are complex and not very understandable at first glance. However, algorithm actually means a set of operations which can define an entire process to do something, and this process is used for computer programs. Another question may strike you again. Why should we care about large numbers and determine if they are prime or not? The answer is not directly related to Olympiad or problem solving. This is necessary for programming purposes primarily, but they rely on number theoretic results to perform such factorization or similar tasks. And they are used in a lot of area such as security. For example, every time you log into Facebook, you use your password and this password is \textit{encrypted}\footnote{meaning it is turned into a code so others don't recognize this if they ever see this data containing your password, so you should understand why it is so important.}. Now, for this encryption, often large integers with large prime factors are used\footnote{we are not going to discuss anything in deep since this is not a computer science or cryptography book, rather just a short note on why you should care about fast prime factorization}. And often encryption systems rely on the fact that, some integer that has been used in the process of encryption, can not be factorized. If they can be factorized the secret data that was used to turn your password into the code, would be revealed to the third party and thus, they would know your password. So from this perspective, it is pretty important. But even if you ignore this practical fact, you can just think about contributing to the literature of mathematics and enriching it, providing better ways to factorize so the process is not so tedious anymore. For this reason, we have decided to include some really nice results and algorithms for prime factorization or primality testing.
+In section \eqref{sec:primalitytesting}, we will discuss how to list primes efficiently or decide whether an integer is prime or not, and how to factorize an integer quickly. Now, there are a few points to clear out in the last statement.
+	\begin{enumerate}
+		\item Why do we need a list of primes?
+		\item Why do we need a way to detect primes?
+		\item Why do we care how quickly we can factorize an integer? Because we can just factorize $12$ as $2^2\cdot3$ by hand, right?
+	\end{enumerate}
+If you remember, we asked you to factorize $357879581$\footnote{We used this number because long time ago the first author used to think this is a prime.}. If you actually tried doing that without using a computer, you must have cursed us all the way. Why? Because the smallest prime factor of $357879581$ is $479$, and the other one is $747139$. As you can see, as the numbers get bigger, there prime factors get bigger as well. And of course we don't want to do all that by hand. We shouldn't do that either. Computers help us in the computing part, we just need to tell the computer how to do that. Now, this is where we introduce the idea of \textit{algorithm}. We used this word back in autoref{ch:divisibility}, where we first used \textit{Euclidean Algorithm}. A funny way to say what algorithm is: \textit{the word used by programmers when they don't want to explain what they did}. People sometimes say that because often algorithms are complex and not very understandable at first glance. However, algorithm actually means a set of operations which can define an entire process to do something, and this process is used for computer programs. Another question may strike you again. Why should we care about large numbers and determine if they are prime or not? The answer is not directly related to Olympiad or problem solving. This is necessary for programming purposes primarily, but they rely on number theoretic results to perform such factorization or similar tasks. And they are used in a lot of area such as security. For example, every time you log into Facebook, you use your password and this password is \textit{encrypted}\footnote{meaning it is turned into a code so others don't recognize this if they ever see this data containing your password, so you should understand why it is so important.}. Now, for this encryption, often large integers with large prime factors are used\footnote{we are not going to discuss anything in deep since this is not a computer science or cryptography book, rather just a short note on why you should care about fast prime factorization}. And often encryption systems rely on the fact that, some integer that has been used in the process of encryption, can not be factorized. If they can be factorized the secret data that was used to turn your password into the code, would be revealed to the third party and thus, they would know your password. So from this perspective, it is pretty important. But even if you ignore this practical fact, you can just think about contributing to the literature of mathematics and enriching it, providing better ways to factorize so the process is not so tedious anymore. For this reason, we have decided to include some really nice results and algorithms for prime factorization or primality testing.
 
-	It would be appropriate to mention that, $\mathbb{P}$ is the set of primes and $p_i$ is the $i^{th}$ prime, starting with $p_1=2,p_2=3$ and so on unless mentioned otherwise\footnote{Sometimes we may denote the canonical prime factorization as $p_1^{e_1}\cdots p_k^{e_k}$. It's important to distinguish between them.}. Also, $\tau(n)$ is the number of positive divisors of $n$. \textit{Riemann's Zeta function}, also simply called the Zeta function, is a very important subject of interest and has a long interesting history behind it. The usage and applications of Zeta function is beyond the scope of this book, but as it is a very useful tool in inspecting number theory problems, we will introduce a very simple definition of it. This definition needs precision, otherwise it may lead to confusing conclusions. Therefore, we will only assume the following definition solely for the use of this book, and not go into any complex details about the validity of the definition or similar stuff. And in this text, we do not need any such discussion either.
-		\begin{definition}[Riemann's Zeta Function]
-			Let $s$ be a a real number larger than $1$. The \textit{Zeta function} of $s$ is defined as
-				\begin{align*}
-					\zeta(s)
-						& =\dfrac{1}{1^s}+\dfrac{1}{2^s}+\cdots\\
-						& =\sum_{i\geq1}\dfrac{1}{i^s}
-				\end{align*}
-			It is one of the most well known functions in number theory. Euler defined it first in $1737$ but Riemann is known for his works on this function.
-		\end{definition}
-	\section{Infinitude Of Primes}
-	\label{sec:infiniteprimes}
-	\textit{Euclid} first proved that the number of primes is infinite. Here we provide some proofs of this theorem, including a number theoretic version of Euclid. The idea is pretty interesting and the same thought works for similar types of problems.
-		\begin{theorem}
-			The number of primes is infinite.
-		\end{theorem}
-
-		\begin{proof}[Euclid's proof]
-			Consider the converse: assume that number of primes is finite. Let $P=\{p_1,p_2,\ldots,p_k\}$ be the set of all primes. Euclid's idea was to construct a number which has a prime divisor not in $P$. Consider the number:
-			\[N=p_1p_2\cdots p_k+1\]
-			$N$ is not a prime, because it is clearly bigger than all elements of $P$. So, $N$ is composite and it has a divisor $p$ in $P$ (because $P$ is the set of all primes). However,
-				\begin{align*}
-					(N,p)
-						& =(p_1\cdots p_k+1,p_i)\\
-						& =(1,p_i)\\
-						& =1
-				\end{align*}
-			for some $p_i \in P$, which is in contradiction with $p\mid N$. Therefore, the set of primes is infinite.
-		\end{proof}
-
-		\begin{note}
-			The idea of Euclid was actually to construct a larger prime knowing previous ones. As you see in the above proof, the product of primes $p_1, p_2, \ldots, p_k$ plus one is relatively prime to all of those primes, meaning that it is a prime itself.
-		\end{note}
-
-		\begin{proof}[Kummer's proof\footnote{The idea is similar to Euclid's}]
-			Again, it suffices to prove that for any $n$, there is a larger prime than $n$. Consider $N=n!+1$. Any prime less than $n$ is relatively prime to $N$. Therefore, it must have a prime divisor greater than $n$.
-		\end{proof}
-
-		\begin{proof}[Goldbach's proof]
-			We are done if we can show that there is a strictly increasing infinite sequence of positive integers $a_1,a_2,a_3\ldots$ so that they are pair-wisely relatively prime. Since no prime can divide two terms of the sequence, each time a new term appears it will produce a new prime factor. So, all we have to do is find such a sequence. One way to do it is using \textit{Fermat numbers}. The $n^{th}$ Fermat number, $F_n$, is defined as $F_n=2^{2^n}+1$. In the following lemma, we will show that any two Fermat numbers are relatively prime to each other.
-		\end{proof}
-
-		\begin{lemma}
-			If $m\neq n$, then $(F_m,F_n)=1$.\label{lem:fermatcp}
-		\end{lemma}
-
-		\begin{proof}
-			Note the identity:
-			\begin{align*}
-				F_n-2 & = 2^{2^n}-1\\
-					  & = \func{}{2^{2^{n-1}}+1}\func{}{2^{2^{n-2}}+1}\cdots\left(2^2+1\right)(2^1+1)(2-1)\\
-					  & = F_{n-1}F_{n-2}\cdots F_{0}
-			\end{align*}
-			Therefore, if $n>m$, then $F_m\mid F_n-2$. If $p$ is a prime so that $p\mid F_m$ and $p\mid F_n$, then $p\mid F_n-2$ and so $p\mid 2$, which is a contradiction since $p$ has to be an odd prime.
-		\end{proof}
-	There are other proofs that use the same idea of relatively prime integers.
-		\begin{proof}[Schorn's Proof]
-			First we will prove the following:
-				\begin{align*}
-					(j(n!)+1,i(n!)+1)=1
-				\end{align*}
-			for $1\leq i<j<n+1$. We can write $j=i+k$, so $1\leq k<n$. By Euclidean algorithm,
-				\begin{align*}
-					((i+k)(n!)+1,i(n!)+1) & = (i(n!)+1+k(n!),i(n!)+1)\\
-										  & = (k(n!),i(n!)+1)
-				\end{align*}
-			We also know from proposition \eqref{prop:cpdiv} that if $(a,b)=1$, then $(a,bc)=(a,c)$. Clearly $(n!,i(n!)+1)=1$ since $i(n!)+1$ leaves a remainder of $1$ when divided by $n!$. Therefore,
-				\begin{align*}
-					((i+k)(n!)+1,i(n!)+1) & = (k(n!),i(n!)+1)\\
-										  & = (k,i(n!)+1)
-				\end{align*}
-			Since $k<n$, we also have that $k$ divides $n!$, so $i(n!)+1$ leaves a remainder of $1$ when divided by $k$ too. Finally, we have
-				\begin{align*}
-					(j(n!)+1,i(n!)+1)
-						& = ((i+k)(n!)+1,i(n!)+1)\\
-						& = (k,i(n!)+1)\\
-						& = 1
-				\end{align*}
-			From this we can say, the integers $i(n!)+1$ for $1\leq i\leq n$ are relatively prime. And so, we are done.
-		\end{proof}
-	This elegant proof is due to J. Braun ($1896$).
-		\begin{proof}[Proof by Braun]
-			Assume that primes are finite, and $p_1, p_2\ldots,p_k$ are all of them. Let $P=p_1p_2\cdots p_k$ and set
-				\begin{align}
-					\dfrac1{p_1}+\cdots+\dfrac1{p_k} & =\dfrac a{P}\label{eq:braun1}
-				\end{align}
-			Note that
-				\begin{align*}
-					\dfrac aP & > \dfrac12+\dfrac13+\dfrac15\\
-					& =\dfrac{31}{30}>1
-				\end{align*}
-			So $a>P$. Obviously, $a$ has a prime divisor $p$. Since $P$ is the product of all primes, $p$ must divide $P$. Let $p=p_i$ for some $1 \leq i \leq k$ and rewrite equation \eqref{eq:braun1} to obtain
-				\begin{align}
-					a & =\dfrac P{p_1}+\cdots+\dfrac{P}{p_i}+\cdots+\dfrac P{p_k}\label{eq:braun2}
-				\end{align}
-			Obviously, $p_i \mid  \frac{P}{p_j}$ for all $j \neq i$. On the other hand, $p$ divides $a$. Equation \eqref{eq:braun2} now forces $p_i \mid  \frac{P}{p_i}$, which is a contradiction.
-		\end{proof}
-	Here is a combinatorial proof by Perott, which dates back to almost $1801-1900$.
-		\begin{proof}[Perott's proof]
-			We will use the fact that if $a>b$ then $\frac1a<\frac1b$, specially, $\frac1{n+1}<\frac1n$ for $n\geq1$. Now
-				\begin{align*}
-					\sum_{i\geq1}\dfrac1{i^2} 	& = 1+ \sum_{i\geq2}\dfrac1{i^2}\\
-												& < 1+\sum_{i\geq2}\dfrac1{i(i-1)}\\
-												& = 1+\sum_{i\geq2}\func{}{\dfrac1{i-1}-\dfrac1{i}}\\
-												& = 1+\func{}{1 - \frac 12} + \func{}{\frac 12 - \frac 13} + \func{}{\frac 13 - \frac 14}  + \cdots\\
-												& = 1+1\\
-												& =2
-				\end{align*}
-			Therefore,
-				\begin{align}
-					\sum_{i\geq1}\dfrac1{i^2} =  2-m\label{eq:perrot1}
-				\end{align}
-			for some positive real $m$.
-			Let's get to the proof. Like before, we assume there are only $k$ primes $p_1,p_2\ldots,p_k$. Take $n=p_1p_2\cdots p_k$ and any integer $N>n$. Since there are no primes besides these $k$, any square-free number must be a divisor of $n$. Therefore, there are $2^k$ square-free numbers. Let $p$ be a prime. The number of positive integers less than or equal to $N$ which are divisible by $p^2$ is $\floor{N/{p^2}}$. So, the number of positive integers less than or equal to $N$ which are divisible by any of $p_1^2,p_2^2,\ldots$, or $p_k^2$ is less than\footnote{These are actually non-square-free integers up to $N$.} 
-				\begin{align*}
-					\floor{\dfrac N{p_1^2}}+\floor{\dfrac N{p_2^2}}+\cdots+\floor{\dfrac N{p_k^2}}
-						& = \sum_{i=1}^k\floor{\dfrac N{p_i^2}}
-				\end{align*}
-			Since any number is either square-free or non-square-free, we have
-				\begin{align}
-				N	& \leq2^k+\sum_{i=1}^k \floor{\dfrac N{p_i^2}}\nonumber\\
-					& < 2^k+\sum_{i=1}^k \dfrac N{p_i^2} \nonumber\\
-					& = 2^k+N\sum_{i=1}^k \dfrac 1{p_i^2}\label{eq:perrot2}
-				\end{align}
-			From equation \eqref{eq:perrot1}, we get
-				\begin{align*}
-					\sum_{i=1}^k \dfrac 1{p_i^2} & = \frac{1}{2^2}+ \frac{1}{3^2}+ \cdots + \frac{1}{p_k^2} \\
-												 & < \sum_{i=2}^{p_k} \dfrac 1{i^2}  < \sum_{i\geq 2}\dfrac 1{i^2}\\
-												 & = \sum_{i\geq 1}\dfrac 1{i^2} - 1\\
-												 & = 1-m
-				\end{align*}
-			Substitute this into equation \eqref{eq:perrot2},
-				\begin{align*}
-						N		& < 2^k+N\sum_{i=1}^k\dfrac 1{p_i^2}\\
-								& < 2^k+N(1-m)
-				\end{align*}
-			Rewriting the above inequality, we get $Nm  <  2^k$. Note that $2^k$ is fixed, whereas we can make $Nm$ as large as we want since $N$ can be any integer larger than $n$. So, for those $N$, we get a contradiction, $W^5$ (Which Was What We Wanted).
-		\end{proof}
-	The next proof uses Zeta function. But we need some more theorems to state it. The following theorem is due to Euler.
-		\begin{theorem}
-			\[\zeta(1)=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots=\prod_{p\in\mathbb{P}}\dfrac{p}{p-1}\]\label{thm:zeta1}
-		\end{theorem}
-
-		\begin{proof}
-			Euler investigated the sum (which is known as the \textit{Harmonic Series}):
-			\[S=\dfrac11+\dfrac12+\cdots+\dfrac1n+\cdots\]
-			Consider the sum in terms of prime factorization. Obviously, $1,\dfrac12,\dfrac1{2^2},\ldots$ are part of the series. So are $\dfrac13,\dfrac1{3^2},\ldots$ and $\dfrac15,\dfrac1{5^2},\ldots$ and so on. If you understood the fact we showed above, note that $\dfrac12\cdot\dfrac13$ gives $\dfrac16$. Similarly, $\dfrac1{2^2}\cdot\dfrac13=\dfrac1{12}$ and $\dfrac13\cdot\dfrac15=\dfrac1{15}$ and so on.
-
-			We know that any number can be written as a product of primes in a unique way. Therefore, when we are multiplying some powers of primes, we will get a unique number. In other words, the same number won't appear twice. As an example, notice the following sum:
-				\begin{align*}
-					S_1 & =  \func{}{1+\dfrac12+\dfrac1{2^2}+\cdots}\cdot\func{}{1+\dfrac13+\dfrac1{3^2}+\cdots}\\
-					& =  1+\dfrac12+\dfrac1{2^2}+\dfrac13+\dfrac1{2\cdot3}+\dfrac1{2^2\cdot3}+\dfrac1{3^2}+\dfrac1{2\cdot3^2}+\dfrac1{2^2\cdot3^2}+\cdots\\
-					& =  1+\dfrac12+\dfrac14+\dfrac13+\dfrac16+\dfrac1{12}+\dfrac19+\dfrac1{18}+\dfrac1{36}+\ldots
-				\end{align*}
-			Unique prime factorization guarantees that none of $2,4,6$ or $18$ will appear anywhere in the series again. That is, any number of the form $2^i3^j$ will appear exactly in this series. Similarly, if we considered all the numbers generated by $2^i3^j5^k$, we would have numbers like $30, 60$ or $90$ exactly once in the series. So, going this way, we can see that the sum $S$ is nothing but the product of sums $1+\dfrac1p+\dfrac1{p^2}+\cdots$ for all primes $p$. So
-				\begin{align}
-					S	& =  1+\dfrac12+\dfrac13+\dfrac14+\cdots\nonumber\\
-						& =  \func{}{1+\dfrac12+\dfrac1{2^2}+\cdots}\cdot\func{}{1+\dfrac13+\dfrac1{3^2}+\cdots} \cdots\nonumber\\
-						& = \prod_{p\in\mathbb P}\func{}{1+\dfrac1p+\dfrac1{p^2}+\cdots}\label{eq:eulerprimeproof1}
-				\end{align}
-			where $\mathbb P$ is the set of all primes. Back in high school, we learnt that the infinite geometric series $1+r+r^2+\cdots$ where the ratio $r$ has absolute value less than $1$, has a finite sum $\dfrac1{1-r}$. Here, $r=\dfrac1p<1$, and hence
-				\begin{align*}
-					1+\dfrac1p+\dfrac1{p^2}+\cdots  & =\dfrac1{1-\frac1p}\\
-												&=\dfrac p{p-1}
-				\end{align*}
-			Replacing this in equation \eqref{eq:eulerprimeproof1}, we get the desired result
-				\begin{align*}
-					S   & = 1+\dfrac12+\dfrac13+\cdots\\
-						& =\prod_{p\in\mathcal P}\dfrac p{p-1}
-				\end{align*}
-		\end{proof}
-	Euler found a general result for $\zeta(s)$ for any positive integer $s$. We have stated this result in the following theorem. The proof is analogous to the proof of the previous theorem.
-		\begin{theorem}[Euler's theorem]
+It would be appropriate to mention that, $\mathbb{P}$ is the set of primes and $p_i$ is the $i^{th}$ prime, starting with $p_1=2,p_2=3$ and so on unless mentioned otherwise\footnote{Sometimes we may denote the canonical prime factorization as $p_1^{e_1}\cdots p_k^{e_k}$. It's important to distinguish between them.}. Also, $\tau(n)$ is the number of positive divisors of $n$. \textit{Riemann's Zeta function}, also simply called the Zeta function, is a very important subject of interest and has a long interesting history behind it. The usage and applications of Zeta function is beyond the scope of this book, but as it is a very useful tool in inspecting number theory problems, we will introduce a very simple definition of it. This definition needs precision, otherwise it may lead to confusing conclusions. Therefore, we will only assume the following definition solely for the use of this book, and not go into any complex details about the validity of the definition or similar stuff. And in this text, we do not need any such discussion either.
+	\begin{definition}[Riemann's Zeta Function]
+		Let $s$ be a a real number larger than $1$. The \textit{Zeta function} of $s$ is defined as
 			\begin{align*}
 				\zeta(s)
-					& =1+\dfrac{1}{2^s}+\dfrac{1}{3^s}+\cdots\\
-					& =\prod_{p\in\mathbb{P} }\dfrac{p^s}{p^s-1}
+					& =\dfrac{1}{1^s}+\dfrac{1}{2^s}+\cdots\\
+					& =\sum_{i\geq1}\dfrac{1}{i^s}
 			\end{align*}
-		\end{theorem}
-
-		\begin{theorem}
-			The series $S=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots$ diverges, i.e., it does not have a finite sum.\label{thm:zeta1div}
-		\end{theorem}
-
-		\begin{proof}
-			We can write $S$ as
-				\begin{align*}
-					S & =\dfrac11+ \dfrac12+ \func{}{\dfrac13+\dfrac14}+ \func{}{\dfrac15+\dfrac16+\dfrac17+\dfrac18}+\cdots\\
-					  & > \dfrac11+\dfrac12+ \func{}{\dfrac14+\dfrac14} + \func{}{\dfrac18+\dfrac18+\dfrac18+\dfrac18}+\cdots\\
-					  & =1+ \dfrac{1}{2}+ \dfrac{1}{2}+ \dfrac{1}{2}+ \dfrac{1}{2}+\cdots\\
-					  & = 1+1+\cdots
-				\end{align*}
-			So the sum diverges.
-		\end{proof}
-	You may think that $\zeta(2),\zeta(3),\ldots$ all diverge too. Wrong! Using calculus Euler also proved the following theorem:
-		\begin{theorem}[Euler]\label{thm:zeta2}
-			$\zeta(2)=\frac{\pi^2}{6}$. In other words,
-				\begin{align*}
-					1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots & = \dfrac{\pi^2}{6}
-				\end{align*}
-		\end{theorem}
-	We are now ready to prove the infinitude of primes using Zeta function.
-		\begin{proof}[Proof using Zeta Function]
-			In \autoref{thm:zeta1div}, it is already proved that $S$ is infinite. A series diverges if it has an infinite sum. If the number of primes is finite, then the product of all $\dfrac p{p-1}$ would be finite too. But it gives us a contradiction. Thus, the number of primes must be infinite.
-		\end{proof}
-	We provide yet another proof due to Euler. The proof was published after his death. The proof uses multiplicative property of Euler's Totient function.
-		\begin{proof}[Proof using Euler function]
-			Let $P$ be the product of all primes (since they are finite, $P$ is finite too). Assume that the primes are $p_1,p_2,\ldots, p_k$ and they are sorted, i.e., $2=p_1<3=p_1<\cdots$. Then $P = p_1\cdot p_2\cdots p_k$ and $P$ is square-free as well. Using the formula of Euler function,
-				\begin{align*}
-					\varphi(P)  & = (p_1-1)\cdot(p_2-1)\cdots(p_k-1)\\
-							& \geq 1\cdot2\cdots2\\
-							& \geq 2^{k-1}\\
-							& \geq 2
-				\end{align*}
-			if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\varphi(P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are relatively prime to $P$. If we discard $1$, there is at least one other positive integer which is relatively prime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
-		\end{proof}
-	In the previous discussion, we have shown that there are infinitely many primes in several different ways.
-		\begin{theorem}
-			There are infinitely many primes of the form $4m+3$.
-		\end{theorem}
-
-		\begin{proof}
-			We proceed the same way as Euclid did. Let $p_1,p_2,\ldots,p_k$ be all the primes of the form $4m+3$. Consider the number $N=4p_1p_2\cdots p_k-1$. Clearly, $N\equiv3\pmod4$. According to \autoref{thm:4k+3prime} in autoref{ch:divisibility}, $N$ has at least one prime factor $p$ which is of the form $4m+3$. This prime $p$ divides $N$, so it is relatively prime to $N-1=4p_1p_2\cdots p_k$, which means that $p$ is none of those $p_1,p_2,\ldots,p_k$. Therefore, another prime $p$ of the form $4m+3$ exists. This is a contradiction. So, the number of such primes is infinite.
-		\end{proof}
-
-		\begin{theorem}
-			There are infinitely many primes of the form $4n+1$.
-		\end{theorem}
-
-		\begin{proof}
-			Let's say the number of primes of this form is finite. Call these primes $p_1,p_2,\ldots,p_k$. Consider the number $N=4p_1^2\cdots p_k^2+1$. Using corollary \eqref{cor:4n+1}, we get that every divisor of $N$ is of the form $4t+1$. Thus, a prime divisor $p$ of $N$ must be of the same form. The contradiction follows.
-		\end{proof}
-
-		\begin{theorem}
-			Let $p$ be a prime. There are infinitely many primes of the form $pn+1$.
-		\end{theorem}
-
-		\begin{proof}
-			The theorem is obvious for $p=2$ since all primes are odd. Assume that $p$ is odd. Let us rephrase the theorem: for each prime $p$, there are infinitely many primes $q$ such that $q\equiv1\mod{p}$. Let $X \geq 2$ be an integer. We know from \autoref{thm:cyclodiv} that any prime divisor $q \neq p$ of $\frac{X^{p}-1}{X-1}$ is either $p$ or $1 \pmod p$.
-
-			For the sake of argument, suppose that $q_{1},q_{2},\ldots,q_{n}$ are the only primes which are $1\mod{p}$. Set $X=pq_{1}q_{2}\cdots q_{n}$ and consider the number
-				\begin{align*}
-					N & =\frac{X^{p}-1}{X-1}\\
-					  & = \frac{(pq_1q_2\cdots q_n)^p-1}{pq_1q_2\cdots q_n-1}
-				\end{align*}
-			$N$ is an integer which is not divisible by any of the $q_{i}$ or $p$ and is greater than $1$. So $N$ has a prime divisor, say $r$. This $r$ must be congruent to $1$ modulo $p$. Contradiction!
-		\end{proof}
-
-		\begin{theorem}
-			let $p>2$ is a prime, then there are infinitely many primes $q$ such that $q$ is a quadratic residue modulo $p$.
-		\end{theorem}
-
-		\begin{proof}
-			According to previous theorem, there are infinitely many primes $q$ such that $q \equiv 1 \pmod p$. So, all these primes are quadratic residues modulo $p$ and we are done.
-		\end{proof}
-	You might have already conjectured that there are infinitely many primes of the form $an+1$. Even more generally $an+b$, where $a$ and $b$ are relatively prime positive integers. And luckily, this is true and \textit{Dirichlet} was the first one to prove it. Though the proof of this theorem is way beyond the scope of this book. It is even accepted in many mathematics competitions. You should still try to avoid using it. Use it only if you find no other way. For most of the problems, there is a solution to that does not require a high level theorem like this. Readers are highly encouraged to try for a different solution even if it makes their  lives a lot harder.
-		\begin{theorem}[Dirichlet's Theorem on Arithmetic Progressions]
-			If $a$ and $b$ are two relatively prime positive integers, then there are infinitely many primes the arithmetic progression
-				\begin{align*}
-					a+b, 2a+b, 3a+b, \cdots
-				\end{align*}
-			In other words, there are infinitely many primes of the form $an+b$.
-		\end{theorem}
-	\section{Number of Primes}
-		Mathematicians have been trying to find a closed form for primes for a long time. But this was such a mystery that many mathematicians thought it is not possible to find a formula for primes. You may have thought so too! Whenever someone tries to find a formula for primes, they tend to go for polynomials first. Our sympathies for them. Because the following theorem tells us that we can not find a non-constant polynomial which will always output a prime (for positive integer inputs of course).
-			\begin{theorem}
-				There is no non-constant polynomial $P(x)$ with integer coefficients such that $P(n)$ is a prime for all integers $n$.
-			\end{theorem}
-
-			\begin{proof}
-				Let $P$ be a polynomial that generates only primes. Then $P(0)=p$ for some prime $p$. That is, $P(x)$ looks like
-					\begin{align*}
-					P(x)=a_nx^n+a_{n-1}x^{n-1} + \cdots + a_1x + p
-					\end{align*}
-				Put $x=kp$ in the above equation. We find that $p\mid P(kp)$ for all integers $k$. However, since $P(kp)$ is a prime, we must have $P(kp)=p$ for all integers $k$. Now consider the polynomial $Q(x)=P(px)-p$. All integers are roots of $Q(x)$, which is impossible unless $Q(x)$ is the zero polynomial. So $P(px)=p$ for all real numbers $x$. Hence, $P(x)$ is constant.
-			\end{proof}
-		Here, we focus on finding $\pi(n)$ rather than a direct formula for $p_n$.
-			\begin{theorem}[]
-				The number of primes less than or equal to $n$ can be obtained as
-					\begin{align*}
-						\pi(n) & =
-							\sum_{i=2}^{n}\floor{\dfrac{2}{\sum_{j=1}^{i}\floor{\dfrac{i}{j}}-\floor{\dfrac{i-1}{j}}}}
-					\end{align*}
-			\end{theorem}
-		Don't frown just because it looks ugly! It is actually very simple. Let us slowly proceed how we can get to this expression.
-			\begin{proof}
-				First idea: assume $f(i)=1$ if $i$ is prime, otherwise $0$. Then we will have
-					\begin{align*}
-						\pi(n) & = \sum_{i=2}^{n}f(i)
-					\end{align*}
-				This is pretty obvious. Each time we get a prime we are just adding $1$ to the sum. All we have to do is find a good expression for $f(i)$ that is computable in terms of $i$. Remember that  a prime has exactly $2$ divisors. And any positive integer greater than $1$ has at least two divisors. Therefore, if $\tau(i)$ is the number of divisors of $i$, $\tau(i)\geq2$ for $i>1$. This gives us $\lfloor 2/\tau(i)\rfloor=0$ if $i$ is composite, otherwise $1$. Since for composite $i$, $\tau(i)>2$. Now, the formula for $f(i)$ becomes
-					\begin{align*}
-						f(i) & = \floor{\dfrac{2}{\tau(i)}}
-					\end{align*}
-				But this is still not computable in terms of $i$. We employ the same idea again, we add $1$ to $\tau(n)$ each time we get a divisor of $n$. How do we do that? Assume that if $i$ is a divisor of $n$ then $t_n(i)=1$, otherwise $0$. Then,
-					\begin{align*}
-						\tau(n) & = \sum_{i=1}^{n}t_n(i)
-					\end{align*}
-				Finding $t_n(i)$ can be easy. For $i<n$, we need to add $0$ when $i$ doesn't divide $n$, otherwise $1$. Assume that $n=ik+r$ with $r<i$ and $n-1=il+s$ with $s<i$. If $i$ divides $n$ then $r=0$ and we would have that $n-1=il+s=ik-1$. Thus, $ik-il=s+1$ with $s+1\leq i$. But $i(k-l)=s+1$ gives us $s+1\geq i$ since $i\mid s+1$ and $s+1$ is a positive integer, $k>l$ (why?). This forces $s+1=i$ and $k-l=1$. The nicer news is that $k-l=1$. And if $i$ didn't divide $n$, we would have $k=l$ (prove it) or $k-l=0$. Okay, that's good news. We have found our characteristic function $t_n(i)$. What is the meaning of $k$ and $l$ in terms of $i$ and $n$? $k=\lfloor n/i\rfloor$ and $l=\lfloor (n-1)/i\rfloor$, so we get
-					\begin{align*}
-						t_n(i) & = \floor{\dfrac{n}{i}}-\floor{\dfrac{n-1}{i}}
-					\end{align*}
-				This completes the proof.
-			\end{proof}
-		Have you ever thought about finding the number of primes not exceeding $n$ yourself? This is actually a very intriguing question for most of the people interested in number theory, even for curious school students. At first it seems impossible to find a closed form in such a case. However, as you think more, you can find different ways to proceed. The above one is an example. This should enable you to find one as well. Here is another example, and you may be surprised at this approach. In fact, we have used it before when we tried to find the number of relatively prime integers less than or equal to $n$. The idea is similar, in a sense that it is recursive in a way. Since it is troublesome to directly find the number of primes, we will do exactly the opposite. We will find the number of \textit{non-primes} not exceeding $n$. Then we can just subtract it from $n$. Now, we intend to find the number of positive integers $m$ such that $m=ab$ with $a,b>1$. More specifically, we can say that the smallest prime divisor does not exceed $\sqrt{n}$ (recall this from autoref{ch:divisibility}). Let $p_1,p_2,\ldots,p_k$ be the primes not exceeding $\sqrt{n}$ in increasing order. That is, $p_k$ is the largest prime less than or equal to $\sqrt{n}$ (this is why we said this approach is recursive). Any composite positive integer not exceeding $n$ must have a prime divisor from this set $\{p_1,p_2,\ldots,p_k\}$.
-
-		Again, this is a repetitive problem we encountered before. How many positive integers not exceeding $n$ are divisible by $p_1$? The number is $\lfloor {n}/{p_1}\rfloor$. The same goes for $p_2,\ldots,p_k$. So, the total number of non-prime positive integers should be
-			\begin{align*}
-				\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots
-			\end{align*}
-		However, the positive integers that are multiple of both $p_1$ and $p_2$ were counted twice in this sum. So, we need to subtract them. Now it becomes
-			\begin{align*}
-				\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots-\floor{\frac{n}{p_1p_2}}-\floor{\frac{n}{p_1p_3}}-\cdots \mbox{ all possible pairs}
-			\end{align*}
-		Again, when we subtracted them all, the multiples of $p_1p_2p_3$ or $p_3p_4p_k$ all vanished from the calculation. To rectify that mistake, we need to add the number of multiples of three primes (all possible combinations of course). Now it looks like
-			\begin{align*}
-				\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots-\floor{\frac{n}{p_1p_2}}-\floor{\frac{n}{p_1p_3}}-\cdots+\floor{\frac{n}{p_1p_2p_3}}+\floor{\frac{n}{p_1p_3p_4}}+\cdots
-			\end{align*}
-		Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem.
-			\begin{theorem}\label{thm:numofprime}
-	Let $n$ be a positive integer and $p_1,p_2,\ldots,p_k$ be the primes less than or equal to $\sqrt{n}$. If the number of primes not exceeding $n$ is $\pi(n)$, then $\pi(n) -\pi(\sqrt{n})+1$ is
-	\begin{align}
-		n-\floor{\frac{n}{p_1}}-\floor{\frac{n}{p_2}}-\floor{\frac{n}{p_3}}+\cdots+\floor{\frac{n}{p_1p_2}}+\floor{\frac{n}{p_1p_3}}+\cdots+(-1)^{k}\floor{\frac{n}{p_1p_2\cdots p_k}} \label{eq:tau(n)-tau(sqrt(n))+1}
-	\end{align}
-	In other words, and more generally, if $\pi(x)$ for any positive real $x \geq 2$ is the number of primes not exceeding $x$, then,
-	\begin{align}
-		\pi(x) -\pi(\sqrt{x})+1
-			& = \floor{x} - \sum_{p_i}\floor{\frac{x}{p_i}}+ \sum_{p_i < p_j}\floor{\frac{x}{p_ip_j}}- \sum_{p_i < p_j < p_k}\floor{\frac{x}{p_ip_jp_k}}+ \cdots
-	\end{align}
-	where the sums are taken over all primes less than or equal to $\sqrt x$.
-	\end{theorem}
-
-	Notice that there is a $\pi(\sqrt{n})$ here. Because when we used primes less than or equal to $\sqrt{n}$, we missed all the primes that are below $\sqrt{n}$. So we should subtract the number of primes less than $\sqrt{n}$, which is $\pi(\sqrt{n})-1$. Let us discuss this a bit further. We claim that
-	\begin{align}
-		\pi(n) -\pi(\sqrt{n})+1 = \sum_{i=1}^{P}\mu(i)\floor{\frac{n}{i}}\label{eq:tau(n)-amin}
-	\end{align}
-	where $P=p_1p_2\cdots p_k$. This is probably not obvious to you, so we explain how the above fomula is obtained\footnote{Thanks to \textit{Amin Soofiani} for reminding us to add some more explanation here.}. It is now a very good time to mention a point the importance of the M\" obius $\mu$ function defined in defintion \eqref{def:mobius}. We stated in the previous chapter that M\" obius comes handy when dealing with inclusion--exclusion arguments. Here, we have a nice one. We will investigate equation \eqref{eq:tau(n)-amin} term by term. The first term is $n$, obtained from $i=1$. For $i=p_j$, the contribution is $\mu(p_j)\floor{n/p_j}=-\floor{n/p_j}$ (here, $1 \leq j \leq k$). That's exactly the first group of terms in equation \eqref{eq:tau(n)-tau(sqrt(n))+1}. But what about the case when $i$ is not a prime? Well, if it's a square-free number, i.e., if it is of the form $i=p_{i_1}p_{i_2}\cdots p_{i_s}$, where $\{i_1, i_2, \ldots, i_s\} \subseteq \{1,2,\ldots,k\}$, then, we get a contribution of
-	\begin{align*}
-		\mu(p_{i_1}p_{i_2}\cdots p_{i_s}) \floor{\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}}
-			& = (-1)^{s}\floor{\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}}
-	\end{align*}
-	Otherwise, if $i$ is not square-free, then $\mu(i)=0$ and there would be no contribution from that term. Therefore, we get exactly the same sum as in the long \eqref{eq:tau(n)-tau(sqrt(n))+1}.
-
-
-	While on the topic, we should mention the \textit{Meissel-Lehmer Method}. It is a sieve method based on this theorem, that ultimately provides a way to compute $p_n$ in $O(\sqrt{n})$ complexity i.e. a function that does not grow faster than $\sqrt{n}$. This is a very good improvement for computing $\pi(x)$ and $p_n$.
-
-	\subfile{bertrand.tex}
-	There are still many open questions left regarding prime numbers. We will describe some later. You don't have to necessarily find an answer to them, just try them! You may learn something new by yourself, or even find new theorems. In many cases, mathematicians develop theories this way.
-
-	\section{Miscellaneous}
-	\label{sec:theoremsinprimes}
-
+		It is one of the most well known functions in number theory. Euler defined it first in $1737$ but Riemann is known for his works on this function.
+	\end{definition}
+\section{Infinitude Of Primes}
+\label{sec:infiniteprimes}
+\textit{Euclid} first proved that the number of primes is infinite. Here we provide some proofs of this theorem, including a number theoretic version of Euclid. The idea is pretty interesting and the same thought works for similar types of problems.
 	\begin{theorem}
-		For any positive integer $n$, there are $n$ consecutive integers none of which are prime. In other words, there are arbitrarily large gaps in the sequence of primes.
+		The number of primes is infinite.
 	\end{theorem}
 
-	\begin{proof}
-		Let's just look at the numbers $(n+1)!+2,\ldots,(n+1)!+n+1$. These are $(n+1)-(2)+1=n$ consecutive integers and none of them are prime since $(n+1)!+i$ is divisible by $i$ for $1<i<n+2$.
+	\begin{proof}[Euclid's proof]
+		Consider the converse: assume that number of primes is finite. Let $P=\{p_1,p_2,\ldots,p_k\}$ be the set of all primes. Euclid's idea was to construct a number which has a prime divisor not in $P$. Consider the number:
+		\[N=p_1p_2\cdots p_k+1\]
+		$N$ is not a prime, because it is clearly bigger than all elements of $P$. So, $N$ is composite and it has a divisor $p$ in $P$ (because $P$ is the set of all primes). However,
+			\begin{align*}
+				(N,p)
+					& =(p_1\cdots p_k+1,p_i)\\
+					& =(1,p_i)\\
+					& =1
+			\end{align*}
+		for some $p_i \in P$, which is in contradiction with $p\mid N$. Therefore, the set of primes is infinite.
 	\end{proof}
 
-	\begin{theorem}
-		For any positive integer $n$, there are $n$ consecutive integers so that none of them are prime powers (not necessarily the power of same prime).
-	\end{theorem}
+	\begin{note}
+		The idea of Euclid was actually to construct a larger prime knowing previous ones. As you see in the above proof, the product of primes $p_1, p_2, \ldots, p_k$ plus one is relatively prime to all of those primes, meaning that it is a prime itself.
+	\end{note}
 
-	\begin{proof}
-		We will use \textit{Chinese Remainder Theorem} to proceed. But how do we understand we need CRT here? A basic idea is to show that $n$ consecutive integers have at least two different prime factors. That way, we can guarantee none of them is a prime power. So we need $x$ to be divisible by $p_1p_2$, $x+1$ to be divisible by $p_3p_4$ and likewise, $x+(n-1)$ to be divisible by $p_{2n-1}p_{2n}$. In other words, we need a solution to the system of congruences
-			\begin{align*}
-				x & \equiv \phantom{-} 0  \pmod {p_1p_2}\\
-				x & \equiv -1  \pmod{p_3p_4}\\
-				  &  \vdots \\
-				x & \equiv -(n-1) \pmod{p_{2n-1}p_{2n}}
-			\end{align*}
-		If we write shortly, we need $x\equiv-i\pmod{p_{2i-1}p_{2i}}$ for $0\leq i\leq n-1$. By CRT, we do have such an $x$ as a solution to those congruences. So, none of $n$ consecutive integers $x, x+1, \ldots, x+(n-1)$ are prime powers and the claim is proved.
+	\begin{proof}[Kummer's proof\footnote{The idea is similar to Euclid's}]
+		Again, it suffices to prove that for any $n$, there is a larger prime than $n$. Consider $N=n!+1$. Any prime less than $n$ is relatively prime to $N$. Therefore, it must have a prime divisor greater than $n$.
 	\end{proof}
 
-	\begin{theorem}
-		Let $a,n$, and $d$ be positive integers so that $a,a+d,\ldots,a+(n-1)d$ are all primes. Then any prime $p$ less than $n$ divides $d$.
-	\end{theorem}
-
-	\begin{proof}
-		If $p<n$ and $p$ does not divide $d$, then $(d,p)=1$. Therefore, by \autoref{thm:arithinverse}, $d$ has a unique inverse modulo $p$, say $e$. So $de\equiv1\pmod p$, where $0<e<p<n$. Let $-ae \equiv i \pmod p$. Then
-			\begin{align*}
-				-a & \equiv -ade \equiv id \pmod p
-			\end{align*}
-		Note that $i<p<n$. Thus $p\mid a+id$ for some $i<n$. This now gives $p\mid a+(p-i)d$ and $p\mid a+(i-p)d$. It is clear that either $0<p-i<n$ or $0<i-p<n$. In either case, $p$ divides two terms of the sequence. Since all terms of the sequence are primes, those two terms which are divisible by $p$ must equal $p$. But this is a contradiction since the sequence is strictly increasing. Hence, $p$ must divide $d$.
-	\end{proof}
-
-	\begin{remark}
-		The sequence $a, a+d, a+2d, \ldots$ is called an \textit{arithmetic sequence} or \textit{arithmetic progression} (and briefly, AP) with initial term $a$ and common difference $d$. The $n^{th}$ term of the sequence is $a+(n-1)d$. The above theorem shows that if all terms of an AP with $n$ terms and common difference $d$ are primes, then $d$ is divisible by any prime less than $d$.
-	\end{remark}
-
-	%\subsection{Inequalities on Primes}
-	We are going to explain and prove some inequalities about primes. \textcite{bonse_1907} found and proved the following two theorems:
-	\begin{theorem}\label{thm:bonse1}
-		For $n\geq 4$,
-			\begin{align*}
-				p_1\cdots p_n
-					& >p_{n+1}^2
-			\end{align*}
-	\end{theorem}
-
-	\begin{theorem}\label{thm:bonse2}
-		For $n \geq 5$,
-			\begin{align*}
-				p_1\cdots p_n
-					& >p_{n+1}^3
-			\end{align*}
-	\end{theorem}
-
-	\textcite{posa_1960} proved a more general form of Bonse's theorems:
-	\begin{theorem}[P\'{o}sa's Inequality on Primes]
-		\label{thm:posa}
-		For any integer $k$, there is a constant $m$ so that
-			\begin{align*}
-				p_1\cdots p_n
-					& >p_{n+1}^k
-			\end{align*}
-		for all $n>m$.
-	\end{theorem}
-
-	We need some lemmas to prove this theorem.
-
-	\begin{lemma}
-		For $n\geq 5$, $p_n>2n$.\label{lem:p_n>2n}
-	\end{lemma}
-
-	\begin{proof}
-		We proceed by induction. For $n=5$, $p_5=11>2 \times 5$. Assume $p_n >2n$ is true for some $n$ and now we prove it for $n+1$. Since $n>5$, $p_n$ is odd and hence $p_n+1$ is even, and is not a prime. So
-			\begin{align*}
-				p_{n+1}
-					& \geq p_n+2\\
-					& >2n+2\\
-					& =2(n+1)
-			\end{align*}
+	\begin{proof}[Goldbach's proof]
+		We are done if we can show that there is a strictly increasing infinite sequence of positive integers $a_1,a_2,a_3\ldots$ so that they are pair-wisely relatively prime. Since no prime can divide two terms of the sequence, each time a new term appears it will produce a new prime factor. So, all we have to do is find such a sequence. One way to do it is using \textit{Fermat numbers}. The $n^{th}$ Fermat number, $F_n$, is defined as $F_n=2^{2^n}+1$. In the following lemma, we will show that any two Fermat numbers are relatively prime to each other.
 	\end{proof}
 
 	\begin{lemma}
-		For $n\geq1$, $p_1\cdots p_n> 2^{n-1}n!$.\label{lem:p_1p_2...p_n>2^{n-1}n!}
+		If $m\neq n$, then $(F_m,F_n)=1$.\label{lem:fermatcp}
 	\end{lemma}
 
 	\begin{proof}
-		Check the truth for $n=1,2,3$, and $4$. Note that $p_1p_2p_3p_4=2\cdot3\cdot5\cdot7=210$. From lemma \eqref{lem:p_n>2n}, $p_i>2i$ for $i\geq5$. Thus
-			\begin{align*}
-				\prod_{i=5}^np_i > \prod_{i=5}^n2i & > \dfrac{\prod_{i=1}^n 2i}{\prod_{i=1}^4 2i}\\
-												   & = \frac{2^n \cdot n!}{2^4\cdot 4!}\\
-												   & = 2^{n-7}\cdot \dfrac{n!}{3}
-			\end{align*}
-		Now, we have
-			\begin{align*}
-				p_1\cdots p_n & = p_1p_2p_3p_4\cdot \prod_{i=5}^np_i \\
-						   	  & > 210\cdot2^{n-7}\dfrac{n!}{3}\\
-							  & = 35 \cdot2^{n-6}n!\\
-							  & > 32 \cdot 2^{n-6}n!\\
-							  & = 2^{n-1}n!
-			\end{align*}
+		Note the identity:
+		\begin{align*}
+			F_n-2 & = 2^{2^n}-1\\
+		  & = \func{}{2^{2^{n-1}}+1}\func{}{2^{2^{n-2}}+1}\cdots\left(2^2+1\right)(2^1+1)(2-1)\\
+		  & = F_{n-1}F_{n-2}\cdots F_{0}
+		\end{align*}
+		Therefore, if $n>m$, then $F_m\mid F_n-2$. If $p$ is a prime so that $p\mid F_m$ and $p\mid F_n$, then $p\mid F_n-2$ and so $p\mid 2$, which is a contradiction since $p$ has to be an odd prime.
 	\end{proof}
-
-	\begin{lemma}
-		The sequence $u_n=\sqrt[n]{\dfrac{n!}{2}}$, for $n=1,2,\ldots$, is strictly increasing.\label{lem:n!/2}
-	\end{lemma}
-
-	\begin{proof}
-		We are done if we can prove $\sqrt[n]{\dfrac{n!}{2}}<\sqrt[n+1]{\dfrac{(n+1)!}{2}}$, which is equivalent to
+There are other proofs that use the same idea of relatively prime integers.
+	\begin{proof}[Schorn's Proof]
+		First we will prove the following:
 			\begin{align*}
-				\func{}{\dfrac{n!}{2}}^{n+1}
-					& < \func{}{\dfrac{(n+1)!}{2}}^n
+				(j(n!)+1,i(n!)+1)=1
 			\end{align*}
-		Simplifying, we find
+		for $1\leq i<j<n+1$. We can write $j=i+k$, so $1\leq k<n$. By Euclidean algorithm,
 			\begin{align*}
-				 (n!)^n n!
-				 	& <  2(n!)^n(n+1)^n
+				((i+k)(n!)+1,i(n!)+1) & = (i(n!)+1+k(n!),i(n!)+1)\\
+							  & = (k(n!),i(n!)+1)
 			\end{align*}
-		or $n!  <  2(n+1)^n$, which is evident!
+		We also know from proposition \eqref{prop:cpdiv} that if $(a,b)=1$, then $(a,bc)=(a,c)$. Clearly $(n!,i(n!)+1)=1$ since $i(n!)+1$ leaves a remainder of $1$ when divided by $n!$. Therefore,
+			\begin{align*}
+				((i+k)(n!)+1,i(n!)+1) & = (k(n!),i(n!)+1)\\
+							  & = (k,i(n!)+1)
+			\end{align*}
+		Since $k<n$, we also have that $k$ divides $n!$, so $i(n!)+1$ leaves a remainder of $1$ when divided by $k$ too. Finally, we have
+			\begin{align*}
+				(j(n!)+1,i(n!)+1)
+					& = ((i+k)(n!)+1,i(n!)+1)\\
+					& = (k,i(n!)+1)\\
+					& = 1
+			\end{align*}
+		From this we can say, the integers $i(n!)+1$ for $1\leq i\leq n$ are relatively prime. And so, we are done.
 	\end{proof}
-
-	\begin{lemma}
-		For all positive integers $n$, $p_{n}\leq 2^{n}$. Equality occurs if and only if $n=1$, otherwise $p_n<2^n$.\label{lem:p_n<2^n}
-	\end{lemma}
-
-	\begin{proof}
-		If $n=1$, $p_1=2=2^1$. We know that $p_2=3<2^2$. Thus we induct on $n$ using the first alternative of Bertrand's postulate stated in \autoref{thm:bertrand}. Let's assume that $p_n<2^n$. Since $p$ is odd, we have $p_{n+1}<2p_n<2^{n+1}$.
+This elegant proof is due to J. Braun ($1896$).
+	\begin{proof}[Proof by Braun]
+		Assume that primes are finite, and $p_1, p_2\ldots,p_k$ are all of them. Let $P=p_1p_2\cdots p_k$ and set
+			\begin{align}
+				\dfrac1{p_1}+\cdots+\dfrac1{p_k} & =\dfrac a{P}\label{eq:braun1}
+			\end{align}
+		Note that
+			\begin{align*}
+				\dfrac aP & > \dfrac12+\dfrac13+\dfrac15\\
+				& =\dfrac{31}{30}>1
+			\end{align*}
+		So $a>P$. Obviously, $a$ has a prime divisor $p$. Since $P$ is the product of all primes, $p$ must divide $P$. Let $p=p_i$ for some $1 \leq i \leq k$ and rewrite equation \eqref{eq:braun1} to obtain
+			\begin{align}
+				a & =\dfrac P{p_1}+\cdots+\dfrac{P}{p_i}+\cdots+\dfrac P{p_k}\label{eq:braun2}
+			\end{align}
+		Obviously, $p_i \mid  \frac{P}{p_j}$ for all $j \neq i$. On the other hand, $p$ divides $a$. Equation \eqref{eq:braun2} now forces $p_i \mid  \frac{P}{p_i}$, which is a contradiction.
 	\end{proof}
-
-	We are ready to prove P\'{o}sa's theorem.
-
-	\begin{proof}[Proof of P\'osa's Theorem]
-		The case $k\leq0$ is trivially true. So we focus on $k>0$.
-
-		Note that using lemma \eqref{lem:p_n<2^n}, we find $p_{n+1}^k<2^{(n+1)k}$. So we need to show that
+Here is a combinatorial proof by Perott, which dates back to almost $1801-1900$.
+	\begin{proof}[Perott's proof]
+		We will use the fact that if $a>b$ then $\frac1a<\frac1b$, specially, $\frac1{n+1}<\frac1n$ for $n\geq1$. Now
 			\begin{align*}
-				p_1\cdots p_n & > 2^{(n+1)k}
+				\sum_{i\geq1}\dfrac1{i^2} 	& = 1+ \sum_{i\geq2}\dfrac1{i^2}\\
+											& < 1+\sum_{i\geq2}\dfrac1{i(i-1)}\\
+											& = 1+\sum_{i\geq2}\func{}{\dfrac1{i-1}-\dfrac1{i}}\\
+											& = 1+\func{}{1 - \frac 12} + \func{}{\frac 12 - \frac 13} + \func{}{\frac 13 - \frac 14}  + \cdots\\
+											& = 1+1\\
+											& =2
 			\end{align*}
-		On the other hand, using lemma \eqref{lem:p_1p_2...p_n>2^{n-1}n!}, we have $p_1\cdots p_n > 2^{n-1}n!$, we are done if we can prove that there is a $n_0$ so that
+		Therefore,
+			\begin{align}
+				\sum_{i\geq1}\dfrac1{i^2} =  2-m\label{eq:perrot1}
+			\end{align}
+		for some positive real $m$.
+		Let's get to the proof. Like before, we assume there are only $k$ primes $p_1,p_2\ldots,p_k$. Take $n=p_1p_2\cdots p_k$ and any integer $N>n$. Since there are no primes besides these $k$, any square-free number must be a divisor of $n$. Therefore, there are $2^k$ square-free numbers. Let $p$ be a prime. The number of positive integers less than or equal to $N$ which are divisible by $p^2$ is $\floor{N/{p^2}}$. So, the number of positive integers less than or equal to $N$ which are divisible by any of $p_1^2,p_2^2,\ldots$, or $p_k^2$ is less than\footnote{These are actually non-square-free integers up to $N$.}
 			\begin{align*}
-				2^{n-1}n! & >2^{(n+1)k}
+				\floor{\dfrac N{p_1^2}}+\floor{\dfrac N{p_2^2}}+\cdots+\floor{\dfrac N{p_k^2}}
+					& = \sum_{i=1}^k\floor{\dfrac N{p_i^2}}
 			\end{align*}
-		holds for all $n\geq n_0$. We can write this as
+		Since any number is either square-free or non-square-free, we have
+			\begin{align}
+			N	& \leq2^k+\sum_{i=1}^k \floor{\dfrac N{p_i^2}}\nonumber\\
+				& < 2^k+\sum_{i=1}^k \dfrac N{p_i^2} \nonumber\\
+				& = 2^k+N\sum_{i=1}^k \dfrac 1{p_i^2}\label{eq:perrot2}
+			\end{align}
+		From equation \eqref{eq:perrot1}, we get
 			\begin{align*}
-				\dfrac{n!}{2} & >\dfrac{2^{(n+1)k}}{2^n} =2^{n(k-1)}\cdot2^k
+				\sum_{i=1}^k \dfrac 1{p_i^2} & = \frac{1}{2^2}+ \frac{1}{3^2}+ \cdots + \frac{1}{p_k^2} \\
+										 & < \sum_{i=2}^{p_k} \dfrac 1{i^2}  < \sum_{i\geq 2}\dfrac 1{i^2}\\
+										 & = \sum_{i\geq 1}\dfrac 1{i^2} - 1\\
+										 & = 1-m
 			\end{align*}
-		and so,
+		Substitute this into equation \eqref{eq:perrot2},
 			\begin{align*}
-				\sqrt[n]{\dfrac{n!}{2}}&>2^{k-1}\cdot2^{\frac{k}{n}}
+					N		& < 2^k+N\sum_{i=1}^k\dfrac 1{p_i^2}\\
+							& < 2^k+N(1-m)
 			\end{align*}
-		Note that $2^{k-1}$ is a constant and $2^{k/n}$ decreases as $n$ increases. However, by lemma \eqref{lem:n!/2}, $\sqrt[n]{\dfrac{n!}{2}}$ increases when $n$ gets larger. This means that the expression on the left hand side of above inequality is a strictly increasing sequence, however the right hand side sequence is strictly decreasing. It is obvious there is a smallest $n_0$ so that the left hand side gets bigger than the right hand side for all $n\geq n_0$. The proof is complete.
+		Rewriting the above inequality, we get $Nm  <  2^k$. Note that $2^k$ is fixed, whereas we can make $Nm$ as large as we want since $N$ can be any integer larger than $n$. So, for those $N$, we get a contradiction, $W^5$ (Which Was What We Wanted).
 	\end{proof}
-
+The next proof uses Zeta function. But we need some more theorems to state it. The following theorem is due to Euler.
 	\begin{theorem}
-		The probability of two random positive integers being relatively prime is $\dfrac{6}{\pi^2}$.
+		\[\zeta(1)=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots=\prod_{p\in\mathbb{P}}\dfrac{p}{p-1}\]\label{thm:zeta1}
 	\end{theorem}
 
 	\begin{proof}
-		Two positive integers are relatively prime if they do not share any prime divisor. So we can do just the opposite. We will find out the probability of them not being relatively prime. Fix a prime $p$. What is the probability that both $a$ and $b$ are divisible by $p$? Think on this for a bit.
+		Euler investigated the sum (which is known as the \textit{Harmonic Series}):
+		\[S=\dfrac11+\dfrac12+\cdots+\dfrac1n+\cdots\]
+		Consider the sum in terms of prime factorization. Obviously, $1,\dfrac12,\dfrac1{2^2},\ldots$ are part of the series. So are $\dfrac13,\dfrac1{3^2},\ldots$ and $\dfrac15,\dfrac1{5^2},\ldots$ and so on. If you understood the fact we showed above, note that $\dfrac12\cdot\dfrac13$ gives $\dfrac16$. Similarly, $\dfrac1{2^2}\cdot\dfrac13=\dfrac1{12}$ and $\dfrac13\cdot\dfrac15=\dfrac1{15}$ and so on.
 
-		Let us focus on what $a$ and $b$ leave as remainders when divided by $p$. There can be $p$ remainders ($0,1,\ldots,p-1$). Both for $a$ and $b$, there are $p$ possibilities. The probability that $a$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$. Similarly, the probability that $b$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$ as well. Therefore\footnote{We assume you know that, the probability of two independent events is the product of the probability of those events. That is if $A$ and $B$ are independent, then $P(A\cap B)=P(A)P(B)$. And certainly $a$ being divisible by $p$ has nothing to do with $b$ being divisible by $p$. So they are independent.}, both $a$ and $b$ leave remainder $0$ when divided by $p$ is $\frac{1}{p}\cdot\frac{1}{p}$. Thus, the probability of $a$ and $b$ not being divisible by $p$ is $1-\frac{1}{p^2}$. Now, this is only for a fixed prime $p$. Since $p$ can be any prime, the probability should be multiplied for all primes. The probability is
+		We know that any number can be written as a product of primes in a unique way. Therefore, when we are multiplying some powers of primes, we will get a unique number. In other words, the same number won't appear twice. As an example, notice the following sum:
 			\begin{align*}
-				\func{}{1-\dfrac{1}{p_1^2}}\cdot\func{}{1-\dfrac{1}{p_2^2}}\cdots
-				& = \prod_{i\geq1}\func{}{1-\dfrac{1}{p_i^2}}\\
-				& = \prod_{i\geq1}\func{}{\dfrac{p_i^2-1}{p_i^2}}\\
-				& = \prod_{i\geq1}\dfrac{1}{\frac{p_i^2}{p_i^2-1}}\\
-				& = \dfrac{1}{\prod_{i\geq1}\func{}{\dfrac{p_i^2}{p_i^2-1}}}\\
-				& = \dfrac{1}{\zeta(2)}\\
-				& = \dfrac{6}{\pi^2}
+				S_1 & =  \func{}{1+\dfrac12+\dfrac1{2^2}+\cdots}\cdot\func{}{1+\dfrac13+\dfrac1{3^2}+\cdots}\\
+				& =  1+\dfrac12+\dfrac1{2^2}+\dfrac13+\dfrac1{2\cdot3}+\dfrac1{2^2\cdot3}+\dfrac1{3^2}+\dfrac1{2\cdot3^2}+\dfrac1{2^2\cdot3^2}+\cdots\\
+				& =  1+\dfrac12+\dfrac14+\dfrac13+\dfrac16+\dfrac1{12}+\dfrac19+\dfrac1{18}+\dfrac1{36}+\ldots
 			\end{align*}
-		In the last line, we used \autoref{thm:zeta2}.
+		Unique prime factorization guarantees that none of $2,4,6$ or $18$ will appear anywhere in the series again. That is, any number of the form $2^i3^j$ will appear exactly in this series. Similarly, if we considered all the numbers generated by $2^i3^j5^k$, we would have numbers like $30, 60$ or $90$ exactly once in the series. So, going this way, we can see that the sum $S$ is nothing but the product of sums $1+\dfrac1p+\dfrac1{p^2}+\cdots$ for all primes $p$. So
+			\begin{align}
+				S	& =  1+\dfrac12+\dfrac13+\dfrac14+\cdots\nonumber\\
+					& =  \func{}{1+\dfrac12+\dfrac1{2^2}+\cdots}\cdot\func{}{1+\dfrac13+\dfrac1{3^2}+\cdots} \cdots\nonumber\\
+					& = \prod_{p\in\mathbb P}\func{}{1+\dfrac1p+\dfrac1{p^2}+\cdots}\label{eq:eulerprimeproof1}
+			\end{align}
+		where $\mathbb P$ is the set of all primes. Back in high school, we learnt that the infinite geometric series $1+r+r^2+\cdots$ where the ratio $r$ has absolute value less than $1$, has a finite sum $\dfrac1{1-r}$. Here, $r=\dfrac1p<1$, and hence
+			\begin{align*}
+				1+\dfrac1p+\dfrac1{p^2}+\cdots  & =\dfrac1{1-\frac1p}\\
+											&=\dfrac p{p-1}
+			\end{align*}
+		Replacing this in equation \eqref{eq:eulerprimeproof1}, we get the desired result
+			\begin{align*}
+				S   & = 1+\dfrac12+\dfrac13+\cdots\\
+					& =\prod_{p\in\mathcal P}\dfrac p{p-1}
+			\end{align*}
+	\end{proof}
+Euler found a general result for $\zeta(s)$ for any positive integer $s$. We have stated this result in the following theorem. The proof is analogous to the proof of the previous theorem.
+	\begin{theorem}[Euler's theorem]
+		\begin{align*}
+			\zeta(s)
+				& =1+\dfrac{1}{2^s}+\dfrac{1}{3^s}+\cdots\\
+				& =\prod_{p\in\mathbb{P} }\dfrac{p^s}{p^s-1}
+		\end{align*}
+	\end{theorem}
+
+	\begin{theorem}
+		The series $S=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots$ diverges, i.e., it does not have a finite sum.\label{thm:zeta1div}
+	\end{theorem}
+
+	\begin{proof}
+		We can write $S$ as
+			\begin{align*}
+				S & =\dfrac11+ \dfrac12+ \func{}{\dfrac13+\dfrac14}+ \func{}{\dfrac15+\dfrac16+\dfrac17+\dfrac18}+\cdots\\
+		  & > \dfrac11+\dfrac12+ \func{}{\dfrac14+\dfrac14} + \func{}{\dfrac18+\dfrac18+\dfrac18+\dfrac18}+\cdots\\
+		  & =1+ \dfrac{1}{2}+ \dfrac{1}{2}+ \dfrac{1}{2}+ \dfrac{1}{2}+\cdots\\
+		  & = 1+1+\cdots
+			\end{align*}
+		So the sum diverges.
+	\end{proof}
+You may think that $\zeta(2),\zeta(3),\ldots$ all diverge too. Wrong! Using calculus Euler also proved the following theorem:
+	\begin{theorem}[Euler]\label{thm:zeta2}
+		$\zeta(2)=\frac{\pi^2}{6}$. In other words,
+			\begin{align*}
+				1+\dfrac{1}{2^2}+\dfrac{1}{3^2}+\cdots & = \dfrac{\pi^2}{6}
+			\end{align*}
+	\end{theorem}
+We are now ready to prove the infinitude of primes using Zeta function.
+	\begin{proof}[Proof using Zeta Function]
+		In \autoref{thm:zeta1div}, it is already proved that $S$ is infinite. A series diverges if it has an infinite sum. If the number of primes is finite, then the product of all $\dfrac p{p-1}$ would be finite too. But it gives us a contradiction. Thus, the number of primes must be infinite.
+	\end{proof}
+We provide yet another proof due to Euler. The proof was published after his death. The proof uses multiplicative property of Euler's Totient function.
+	\begin{proof}[Proof using Euler function]
+		Let $P$ be the product of all primes (since they are finite, $P$ is finite too). Assume that the primes are $p_1,p_2,\ldots, p_k$ and they are sorted, i.e., $2=p_1<3=p_1<\cdots$. Then $P = p_1\cdot p_2\cdots p_k$ and $P$ is square-free as well. Using the formula of Euler function,
+			\begin{align*}
+				\varphi(P)  & = (p_1-1)\cdot(p_2-1)\cdots(p_k-1)\\
+						& \geq 1\cdot2\cdots2\\
+						& \geq 2^{k-1}\\
+						& \geq 2
+			\end{align*}
+		if $k>1$. Since $2,3$ are primes, evidently, $k\geq2$. So the last line holds true. This implies that $\varphi(P)$ is at least $2$, and there are at least two positive integers less than or equal to $P$ which are relatively prime to $P$. If we discard $1$, there is at least one other positive integer which is relatively prime to $P$. That positive integer must have another prime divisor which does not divide $P$. Now the claim follows.
+	\end{proof}
+In the previous discussion, we have shown that there are infinitely many primes in several different ways.
+	\begin{theorem}
+		There are infinitely many primes of the form $4m+3$.
+	\end{theorem}
+
+	\begin{proof}
+		We proceed the same way as Euclid did. Let $p_1,p_2,\ldots,p_k$ be all the primes of the form $4m+3$. Consider the number $N=4p_1p_2\cdots p_k-1$. Clearly, $N\equiv3\pmod4$. According to \autoref{thm:4k+3prime} in autoref{ch:divisibility}, $N$ has at least one prime factor $p$ which is of the form $4m+3$. This prime $p$ divides $N$, so it is relatively prime to $N-1=4p_1p_2\cdots p_k$, which means that $p$ is none of those $p_1,p_2,\ldots,p_k$. Therefore, another prime $p$ of the form $4m+3$ exists. This is a contradiction. So, the number of such primes is infinite.
 	\end{proof}
 
-	An improvement on this result is given by \textcite{panaitopol_2000}.
+	\begin{theorem}
+		There are infinitely many primes of the form $4n+1$.
+	\end{theorem}
+
+	\begin{proof}
+		Let's say the number of primes of this form is finite. Call these primes $p_1,p_2,\ldots,p_k$. Consider the number $N=4p_1^2\cdots p_k^2+1$. Using corollary \eqref{cor:4n+1}, we get that every divisor of $N$ is of the form $4t+1$. Thus, a prime divisor $p$ of $N$ must be of the same form. The contradiction follows.
+	\end{proof}
+
+	\begin{theorem}
+		Let $p$ be a prime. There are infinitely many primes of the form $pn+1$.
+	\end{theorem}
+
+	\begin{proof}
+		The theorem is obvious for $p=2$ since all primes are odd. Assume that $p$ is odd. Let us rephrase the theorem: for each prime $p$, there are infinitely many primes $q$ such that $q\equiv1\mod{p}$. Let $X \geq 2$ be an integer. We know from \autoref{thm:cyclodiv} that any prime divisor $q \neq p$ of $\frac{X^{p}-1}{X-1}$ is either $p$ or $1 \pmod p$.
+
+		For the sake of argument, suppose that $q_{1},q_{2},\ldots,q_{n}$ are the only primes which are $1\mod{p}$. Set $X=pq_{1}q_{2}\cdots q_{n}$ and consider the number
+			\begin{align*}
+				N & =\frac{X^{p}-1}{X-1}\\
+		  & = \frac{(pq_1q_2\cdots q_n)^p-1}{pq_1q_2\cdots q_n-1}
+			\end{align*}
+		$N$ is an integer which is not divisible by any of the $q_{i}$ or $p$ and is greater than $1$. So $N$ has a prime divisor, say $r$. This $r$ must be congruent to $1$ modulo $p$. Contradiction!
+	\end{proof}
+
+	\begin{theorem}
+		let $p>2$ is a prime, then there are infinitely many primes $q$ such that $q$ is a quadratic residue modulo $p$.
+	\end{theorem}
+
+	\begin{proof}
+		According to previous theorem, there are infinitely many primes $q$ such that $q \equiv 1 \pmod p$. So, all these primes are quadratic residues modulo $p$ and we are done.
+	\end{proof}
+You might have already conjectured that there are infinitely many primes of the form $an+1$. Even more generally $an+b$, where $a$ and $b$ are relatively prime positive integers. And luckily, this is true and \textit{Dirichlet} was the first one to prove it. Though the proof of this theorem is way beyond the scope of this book. It is even accepted in many mathematics competitions. You should still try to avoid using it. Use it only if you find no other way. For most of the problems, there is a solution to that does not require a high level theorem like this. Readers are highly encouraged to try for a different solution even if it makes their  lives a lot harder.
+	\begin{theorem}[Dirichlet's Theorem on Arithmetic Progressions]
+		If $a$ and $b$ are two relatively prime positive integers, then there are infinitely many primes the arithmetic progression
+			\begin{align*}
+				a+b, 2a+b, 3a+b, \cdots
+			\end{align*}
+		In other words, there are infinitely many primes of the form $an+b$.
+	\end{theorem}
+\section{Number of Primes}
+	Mathematicians have been trying to find a closed form for primes for a long time. But this was such a mystery that many mathematicians thought it is not possible to find a formula for primes. You may have thought so too! Whenever someone tries to find a formula for primes, they tend to go for polynomials first. Our sympathies for them. Because the following theorem tells us that we can not find a non-constant polynomial which will always output a prime (for positive integer inputs of course).
 		\begin{theorem}
-			For $n\geq 2$,
+			There is no non-constant polynomial $P(x)$ with integer coefficients such that $P(n)$ is a prime for all integers $n$.
+		\end{theorem}
+
+		\begin{proof}
+			Let $P$ be a polynomial that generates only primes. Then $P(0)=p$ for some prime $p$. That is, $P(x)$ looks like
 				\begin{align*}
-					p_{1}\cdots p_{n}
-						& \geq p_{n+1}^{n-\pi(n)}
+				P(x)=a_nx^n+a_{n-1}x^{n-1} + \cdots + a_1x + p
+				\end{align*}
+			Put $x=kp$ in the above equation. We find that $p\mid P(kp)$ for all integers $k$. However, since $P(kp)$ is a prime, we must have $P(kp)=p$ for all integers $k$. Now consider the polynomial $Q(x)=P(px)-p$. All integers are roots of $Q(x)$, which is impossible unless $Q(x)$ is the zero polynomial. So $P(px)=p$ for all real numbers $x$. Hence, $P(x)$ is constant.
+		\end{proof}
+	Here, we focus on finding $\pi(n)$ rather than a direct formula for $p_n$.
+		\begin{theorem}[]
+			The number of primes less than or equal to $n$ can be obtained as
+				\begin{align*}
+					\pi(n) & =
+						\sum_{i=2}^{n}\floor{\dfrac{2}{\sum_{j=1}^{i}\floor{\dfrac{i}{j}}-\floor{\dfrac{i-1}{j}}}}
 				\end{align*}
 		\end{theorem}
+	Don't frown just because it looks ugly! It is actually very simple. Let us slowly proceed how we can get to this expression.
+		\begin{proof}
+			First idea: assume $f(i)=1$ if $i$ is prime, otherwise $0$. Then we will have
+				\begin{align*}
+					\pi(n) & = \sum_{i=2}^{n}f(i)
+				\end{align*}
+			This is pretty obvious. Each time we get a prime we are just adding $1$ to the sum. All we have to do is find a good expression for $f(i)$ that is computable in terms of $i$. Remember that  a prime has exactly $2$ divisors. And any positive integer greater than $1$ has at least two divisors. Therefore, if $\tau(i)$ is the number of divisors of $i$, $\tau(i)\geq2$ for $i>1$. This gives us $\lfloor 2/\tau(i)\rfloor=0$ if $i$ is composite, otherwise $1$. Since for composite $i$, $\tau(i)>2$. Now, the formula for $f(i)$ becomes
+				\begin{align*}
+					f(i) & = \floor{\dfrac{2}{\tau(i)}}
+				\end{align*}
+			But this is still not computable in terms of $i$. We employ the same idea again, we add $1$ to $\tau(n)$ each time we get a divisor of $n$. How do we do that? Assume that if $i$ is a divisor of $n$ then $t_n(i)=1$, otherwise $0$. Then,
+				\begin{align*}
+					\tau(n) & = \sum_{i=1}^{n}t_n(i)
+				\end{align*}
+			Finding $t_n(i)$ can be easy. For $i<n$, we need to add $0$ when $i$ doesn't divide $n$, otherwise $1$. Assume that $n=ik+r$ with $r<i$ and $n-1=il+s$ with $s<i$. If $i$ divides $n$ then $r=0$ and we would have that $n-1=il+s=ik-1$. Thus, $ik-il=s+1$ with $s+1\leq i$. But $i(k-l)=s+1$ gives us $s+1\geq i$ since $i\mid s+1$ and $s+1$ is a positive integer, $k>l$ (why?). This forces $s+1=i$ and $k-l=1$. The nicer news is that $k-l=1$. And if $i$ didn't divide $n$, we would have $k=l$ (prove it) or $k-l=0$. Okay, that's good news. We have found our characteristic function $t_n(i)$. What is the meaning of $k$ and $l$ in terms of $i$ and $n$? $k=\lfloor n/i\rfloor$ and $l=\lfloor (n-1)/i\rfloor$, so we get
+				\begin{align*}
+					t_n(i) & = \floor{\dfrac{n}{i}}-\floor{\dfrac{n-1}{i}}
+				\end{align*}
+			This completes the proof.
+		\end{proof}
+	Have you ever thought about finding the number of primes not exceeding $n$ yourself? This is actually a very intriguing question for most of the people interested in number theory, even for curious school students. At first it seems impossible to find a closed form in such a case. However, as you think more, you can find different ways to proceed. The above one is an example. This should enable you to find one as well. Here is another example, and you may be surprised at this approach. In fact, we have used it before when we tried to find the number of relatively prime integers less than or equal to $n$. The idea is similar, in a sense that it is recursive in a way. Since it is troublesome to directly find the number of primes, we will do exactly the opposite. We will find the number of \textit{non-primes} not exceeding $n$. Then we can just subtract it from $n$. Now, we intend to find the number of positive integers $m$ such that $m=ab$ with $a,b>1$. More specifically, we can say that the smallest prime divisor does not exceed $\sqrt{n}$ (recall this from autoref{ch:divisibility}). Let $p_1,p_2,\ldots,p_k$ be the primes not exceeding $\sqrt{n}$ in increasing order. That is, $p_k$ is the largest prime less than or equal to $\sqrt{n}$ (this is why we said this approach is recursive). Any composite positive integer not exceeding $n$ must have a prime divisor from this set $\{p_1,p_2,\ldots,p_k\}$.
+
+	Again, this is a repetitive problem we encountered before. How many positive integers not exceeding $n$ are divisible by $p_1$? The number is $\lfloor {n}/{p_1}\rfloor$. The same goes for $p_2,\ldots,p_k$. So, the total number of non-prime positive integers should be
+		\begin{align*}
+			\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots
+		\end{align*}
+	However, the positive integers that are multiple of both $p_1$ and $p_2$ were counted twice in this sum. So, we need to subtract them. Now it becomes
+		\begin{align*}
+			\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots-\floor{\frac{n}{p_1p_2}}-\floor{\frac{n}{p_1p_3}}-\cdots \mbox{ all possible pairs}
+		\end{align*}
+	Again, when we subtracted them all, the multiples of $p_1p_2p_3$ or $p_3p_4p_k$ all vanished from the calculation. To rectify that mistake, we need to add the number of multiples of three primes (all possible combinations of course). Now it looks like
+		\begin{align*}
+			\floor{\frac{n}{p_1}}+\floor{\frac{n}{p_2}}+\cdots-\floor{\frac{n}{p_1p_2}}-\floor{\frac{n}{p_1p_3}}-\cdots+\floor{\frac{n}{p_1p_2p_3}}+\floor{\frac{n}{p_1p_3p_4}}+\cdots
+		\end{align*}
+	Going this way, we see that, if the number of primes taken into account is even, we add it, subtract otherwise. Hence, we get the following theorem.
+		\begin{theorem}\label{thm:numofprime}
+Let $n$ be a positive integer and $p_1,p_2,\ldots,p_k$ be the primes less than or equal to $\sqrt{n}$. If the number of primes not exceeding $n$ is $\pi(n)$, then $\pi(n) -\pi(\sqrt{n})+1$ is
+\begin{align}
+	n-\floor{\frac{n}{p_1}}-\floor{\frac{n}{p_2}}-\floor{\frac{n}{p_3}}+\cdots+\floor{\frac{n}{p_1p_2}}+\floor{\frac{n}{p_1p_3}}+\cdots+(-1)^{k}\floor{\frac{n}{p_1p_2\cdots p_k}} \label{eq:tau(n)-tau(sqrt(n))+1}
+\end{align}
+In other words, and more generally, if $\pi(x)$ for any positive real $x \geq 2$ is the number of primes not exceeding $x$, then,
+\begin{align}
+	\pi(x) -\pi(\sqrt{x})+1
+		& = \floor{x} - \sum_{p_i}\floor{\frac{x}{p_i}}+ \sum_{p_i < p_j}\floor{\frac{x}{p_ip_j}}- \sum_{p_i < p_j < p_k}\floor{\frac{x}{p_ip_jp_k}}+ \cdots
+\end{align}
+where the sums are taken over all primes less than or equal to $\sqrt x$.
+\end{theorem}
+
+Notice that there is a $\pi(\sqrt{n})$ here. Because when we used primes less than or equal to $\sqrt{n}$, we missed all the primes that are below $\sqrt{n}$. So we should subtract the number of primes less than $\sqrt{n}$, which is $\pi(\sqrt{n})-1$. Let us discuss this a bit further. We claim that
+\begin{align}
+	\pi(n) -\pi(\sqrt{n})+1 = \sum_{i=1}^{P}\mu(i)\floor{\frac{n}{i}}\label{eq:tau(n)-amin}
+\end{align}
+where $P=p_1p_2\cdots p_k$. This is probably not obvious to you, so we explain how the above fomula is obtained\footnote{Thanks to \textit{Amin Soofiani} for reminding us to add some more explanation here.}. It is now a very good time to mention a point the importance of the M\" obius $\mu$ function defined in defintion \eqref{def:mobius}. We stated in the previous chapter that M\" obius comes handy when dealing with inclusion--exclusion arguments. Here, we have a nice one. We will investigate equation \eqref{eq:tau(n)-amin} term by term. The first term is $n$, obtained from $i=1$. For $i=p_j$, the contribution is $\mu(p_j)\floor{n/p_j}=-\floor{n/p_j}$ (here, $1 \leq j \leq k$). That's exactly the first group of terms in equation \eqref{eq:tau(n)-tau(sqrt(n))+1}. But what about the case when $i$ is not a prime? Well, if it's a square-free number, i.e., if it is of the form $i=p_{i_1}p_{i_2}\cdots p_{i_s}$, where $\{i_1, i_2, \ldots, i_s\} \subseteq \{1,2,\ldots,k\}$, then, we get a contribution of
+\begin{align*}
+	\mu(p_{i_1}p_{i_2}\cdots p_{i_s}) \floor{\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}}
+		& = (-1)^{s}\floor{\frac{n}{p_{i_1}p_{i_2}\cdots p_{i_s}}}
+\end{align*}
+Otherwise, if $i$ is not square-free, then $\mu(i)=0$ and there would be no contribution from that term. Therefore, we get exactly the same sum as in the long \eqref{eq:tau(n)-tau(sqrt(n))+1}.
+
+
+While on the topic, we should mention the \textit{Meissel-Lehmer Method}. It is a sieve method based on this theorem, that ultimately provides a way to compute $p_n$ in $O(\sqrt{n})$ complexity i.e. a function that does not grow faster than $\sqrt{n}$. This is a very good improvement for computing $\pi(x)$ and $p_n$.
+
+\subfile{bertrand.tex}
+There are still many open questions left regarding prime numbers. We will describe some later. You don't have to necessarily find an answer to them, just try them! You may learn something new by yourself, or even find new theorems. In many cases, mathematicians develop theories this way.
+
+\section{Miscellaneous}
+\label{sec:theoremsinprimes}
+
+\begin{theorem}
+	For any positive integer $n$, there are $n$ consecutive integers none of which are prime. In other words, there are arbitrarily large gaps in the sequence of primes.
+\end{theorem}
+
+\begin{proof}
+	Let's just look at the numbers $(n+1)!+2,\ldots,(n+1)!+n+1$. These are $(n+1)-(2)+1=n$ consecutive integers and none of them are prime since $(n+1)!+i$ is divisible by $i$ for $1<i<n+2$.
+\end{proof}
+
+\begin{theorem}
+	For any positive integer $n$, there are $n$ consecutive integers so that none of them are prime powers (not necessarily the power of same prime).
+\end{theorem}
+
+\begin{proof}
+	We will use \textit{Chinese Remainder Theorem} to proceed. But how do we understand we need CRT here? A basic idea is to show that $n$ consecutive integers have at least two different prime factors. That way, we can guarantee none of them is a prime power. So we need $x$ to be divisible by $p_1p_2$, $x+1$ to be divisible by $p_3p_4$ and likewise, $x+(n-1)$ to be divisible by $p_{2n-1}p_{2n}$. In other words, we need a solution to the system of congruences
+		\begin{align*}
+			x & \equiv \phantom{-} 0  \pmod {p_1p_2}\\
+			x & \equiv -1  \pmod{p_3p_4}\\
+	  &  \vdots \\
+			x & \equiv -(n-1) \pmod{p_{2n-1}p_{2n}}
+		\end{align*}
+	If we write shortly, we need $x\equiv-i\pmod{p_{2i-1}p_{2i}}$ for $0\leq i\leq n-1$. By CRT, we do have such an $x$ as a solution to those congruences. So, none of $n$ consecutive integers $x, x+1, \ldots, x+(n-1)$ are prime powers and the claim is proved.
+\end{proof}
+
+\begin{theorem}
+	Let $a,n$, and $d$ be positive integers so that $a,a+d,\ldots,a+(n-1)d$ are all primes. Then any prime $p$ less than $n$ divides $d$.
+\end{theorem}
+
+\begin{proof}
+	If $p<n$ and $p$ does not divide $d$, then $(d,p)=1$. Therefore, by \autoref{thm:arithinverse}, $d$ has a unique inverse modulo $p$, say $e$. So $de\equiv1\pmod p$, where $0<e<p<n$. Let $-ae \equiv i \pmod p$. Then
+		\begin{align*}
+			-a & \equiv -ade \equiv id \pmod p
+		\end{align*}
+	Note that $i<p<n$. Thus $p\mid a+id$ for some $i<n$. This now gives $p\mid a+(p-i)d$ and $p\mid a+(i-p)d$. It is clear that either $0<p-i<n$ or $0<i-p<n$. In either case, $p$ divides two terms of the sequence. Since all terms of the sequence are primes, those two terms which are divisible by $p$ must equal $p$. But this is a contradiction since the sequence is strictly increasing. Hence, $p$ must divide $d$.
+\end{proof}
+
+\begin{remark}
+	The sequence $a, a+d, a+2d, \ldots$ is called an \textit{arithmetic sequence} or \textit{arithmetic progression} (and briefly, AP) with initial term $a$ and common difference $d$. The $n^{th}$ term of the sequence is $a+(n-1)d$. The above theorem shows that if all terms of an AP with $n$ terms and common difference $d$ are primes, then $d$ is divisible by any prime less than $d$.
+\end{remark}
+
+%\subsection{Inequalities on Primes}
+We are going to explain and prove some inequalities about primes. \textcite{bonse_1907} found and proved the following two theorems:
+\begin{theorem}\label{thm:bonse1}
+	For $n\geq 4$,
+		\begin{align*}
+			p_1\cdots p_n
+				& >p_{n+1}^2
+		\end{align*}
+\end{theorem}
+
+\begin{theorem}\label{thm:bonse2}
+	For $n \geq 5$,
+		\begin{align*}
+			p_1\cdots p_n
+				& >p_{n+1}^3
+		\end{align*}
+\end{theorem}
+
+\textcite{posa_1960} proved a more general form of Bonse's theorems:
+\begin{theorem}[P\'{o}sa's Inequality on Primes]
+	\label{thm:posa}
+	For any integer $k$, there is a constant $m$ so that
+		\begin{align*}
+			p_1\cdots p_n
+				& >p_{n+1}^k
+		\end{align*}
+	for all $n>m$.
+\end{theorem}
+
+We need some lemmas to prove this theorem.
+
+\begin{lemma}
+	For $n\geq 5$, $p_n>2n$.\label{lem:p_n>2n}
+\end{lemma}
+
+\begin{proof}
+	We proceed by induction. For $n=5$, $p_5=11>2 \times 5$. Assume $p_n >2n$ is true for some $n$ and now we prove it for $n+1$. Since $n>5$, $p_n$ is odd and hence $p_n+1$ is even, and is not a prime. So
+		\begin{align*}
+			p_{n+1}
+				& \geq p_n+2\\
+				& >2n+2\\
+				& =2(n+1)
+		\end{align*}
+\end{proof}
+
+\begin{lemma}
+	For $n\geq1$, $p_1\cdots p_n> 2^{n-1}n!$.\label{lem:p_1p_2...p_n>2^{n-1}n!}
+\end{lemma}
+
+\begin{proof}
+	Check the truth for $n=1,2,3$, and $4$. Note that $p_1p_2p_3p_4=2\cdot3\cdot5\cdot7=210$. From lemma \eqref{lem:p_n>2n}, $p_i>2i$ for $i\geq5$. Thus
+		\begin{align*}
+			\prod_{i=5}^np_i > \prod_{i=5}^n2i & > \dfrac{\prod_{i=1}^n 2i}{\prod_{i=1}^4 2i}\\
+								   & = \frac{2^n \cdot n!}{2^4\cdot 4!}\\
+								   & = 2^{n-7}\cdot \dfrac{n!}{3}
+		\end{align*}
+	Now, we have
+		\begin{align*}
+			p_1\cdots p_n & = p_1p_2p_3p_4\cdot \prod_{i=5}^np_i \\
+			   	  & > 210\cdot2^{n-7}\dfrac{n!}{3}\\
+				  & = 35 \cdot2^{n-6}n!\\
+				  & > 32 \cdot 2^{n-6}n!\\
+				  & = 2^{n-1}n!
+		\end{align*}
+\end{proof}
+
+\begin{lemma}
+	The sequence $u_n=\sqrt[n]{\dfrac{n!}{2}}$, for $n=1,2,\ldots$, is strictly increasing.\label{lem:n!/2}
+\end{lemma}
+
+\begin{proof}
+	We are done if we can prove $\sqrt[n]{\dfrac{n!}{2}}<\sqrt[n+1]{\dfrac{(n+1)!}{2}}$, which is equivalent to
+		\begin{align*}
+			\func{}{\dfrac{n!}{2}}^{n+1}
+				& < \func{}{\dfrac{(n+1)!}{2}}^n
+		\end{align*}
+	Simplifying, we find
+		\begin{align*}
+		 (n!)^n n!
+			 	& <  2(n!)^n(n+1)^n
+		\end{align*}
+	or $n!  <  2(n+1)^n$, which is evident!
+\end{proof}
+
+\begin{lemma}
+	For all positive integers $n$, $p_{n}\leq 2^{n}$. Equality occurs if and only if $n=1$, otherwise $p_n<2^n$.\label{lem:p_n<2^n}
+\end{lemma}
+
+\begin{proof}
+	If $n=1$, $p_1=2=2^1$. We know that $p_2=3<2^2$. Thus we induct on $n$ using the first alternative of Bertrand's postulate stated in \autoref{thm:bertrand}. Let's assume that $p_n<2^n$. Since $p$ is odd, we have $p_{n+1}<2p_n<2^{n+1}$.
+\end{proof}
+
+We are ready to prove P\'{o}sa's theorem.
+
+\begin{proof}[Proof of P\'osa's Theorem]
+	The case $k\leq0$ is trivially true. So we focus on $k>0$.
+
+	Note that using lemma \eqref{lem:p_n<2^n}, we find $p_{n+1}^k<2^{(n+1)k}$. So we need to show that
+		\begin{align*}
+			p_1\cdots p_n & > 2^{(n+1)k}
+		\end{align*}
+	On the other hand, using lemma \eqref{lem:p_1p_2...p_n>2^{n-1}n!}, we have $p_1\cdots p_n > 2^{n-1}n!$, we are done if we can prove that there is a $n_0$ so that
+		\begin{align*}
+			2^{n-1}n! & >2^{(n+1)k}
+		\end{align*}
+	holds for all $n\geq n_0$. We can write this as
+		\begin{align*}
+			\dfrac{n!}{2} & >\dfrac{2^{(n+1)k}}{2^n} =2^{n(k-1)}\cdot2^k
+		\end{align*}
+	and so,
+		\begin{align*}
+			\sqrt[n]{\dfrac{n!}{2}}&>2^{k-1}\cdot2^{\frac{k}{n}}
+		\end{align*}
+	Note that $2^{k-1}$ is a constant and $2^{k/n}$ decreases as $n$ increases. However, by lemma \eqref{lem:n!/2}, $\sqrt[n]{\dfrac{n!}{2}}$ increases when $n$ gets larger. This means that the expression on the left hand side of above inequality is a strictly increasing sequence, however the right hand side sequence is strictly decreasing. It is obvious there is a smallest $n_0$ so that the left hand side gets bigger than the right hand side for all $n\geq n_0$. The proof is complete.
+\end{proof}
+
+\begin{theorem}
+	The probability of two random positive integers being relatively prime is $\dfrac{6}{\pi^2}$.
+\end{theorem}
+
+\begin{proof}
+	Two positive integers are relatively prime if they do not share any prime divisor. So we can do just the opposite. We will find out the probability of them not being relatively prime. Fix a prime $p$. What is the probability that both $a$ and $b$ are divisible by $p$? Think on this for a bit.
+
+	Let us focus on what $a$ and $b$ leave as remainders when divided by $p$. There can be $p$ remainders ($0,1,\ldots,p-1$). Both for $a$ and $b$, there are $p$ possibilities. The probability that $a$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$. Similarly, the probability that $b$ leaves remainder $0$ when divided by $p$ is $\frac{1}{p}$ as well. Therefore\footnote{We assume you know that, the probability of two independent events is the product of the probability of those events. That is if $A$ and $B$ are independent, then $P(A\cap B)=P(A)P(B)$. And certainly $a$ being divisible by $p$ has nothing to do with $b$ being divisible by $p$. So they are independent.}, both $a$ and $b$ leave remainder $0$ when divided by $p$ is $\frac{1}{p}\cdot\frac{1}{p}$. Thus, the probability of $a$ and $b$ not being divisible by $p$ is $1-\frac{1}{p^2}$. Now, this is only for a fixed prime $p$. Since $p$ can be any prime, the probability should be multiplied for all primes. The probability is
+		\begin{align*}
+			\func{}{1-\dfrac{1}{p_1^2}}\cdot\func{}{1-\dfrac{1}{p_2^2}}\cdots
+			& = \prod_{i\geq1}\func{}{1-\dfrac{1}{p_i^2}}\\
+			& = \prod_{i\geq1}\func{}{\dfrac{p_i^2-1}{p_i^2}}\\
+			& = \prod_{i\geq1}\dfrac{1}{\frac{p_i^2}{p_i^2-1}}\\
+			& = \dfrac{1}{\prod_{i\geq1}\func{}{\dfrac{p_i^2}{p_i^2-1}}}\\
+			& = \dfrac{1}{\zeta(2)}\\
+			& = \dfrac{6}{\pi^2}
+		\end{align*}
+	In the last line, we used \autoref{thm:zeta2}.
+\end{proof}
+
+An improvement on this result is given by \textcite{panaitopol_2000}.
+	\begin{theorem}
+		For $n\geq 2$,
+			\begin{align*}
+				p_{1}\cdots p_{n}
+					& \geq p_{n+1}^{n-\pi(n)}
+			\end{align*}
+	\end{theorem}
 \section{Distribution of Prime Numbers}
-	\subfile{dist.tex}
+\subfile{dist.tex}
 
 
 \section{Primality Testing}\label{sec:primalitytesting}
-	Depending on the guarantee whether our algorithm can say for sure if a number is a prime or not, we can divide the algorithms for prime testing in two:
-		\begin{enumerate}
-			\item Deterministic primality Test
-			\item Non-deterministic or Probabilistic or Randomized primality Test
-		\end{enumerate}
-	First we will discuss some deterministic approach, then some probabilistic approach.
+Depending on the guarantee whether our algorithm can say for sure if a number is a prime or not, we can divide the algorithms for prime testing in two:
+	\begin{enumerate}
+		\item Deterministic primality Test
+		\item Non-deterministic or Probabilistic or Randomized primality Test
+	\end{enumerate}
+First we will discuss some deterministic approach, then some probabilistic approach.
 
-	The first one is based on a theorem we have already established in autoref{ch:divisibility}.
-		\begin{theorem}[Trial Division until $\sqrt{n}$ ] \label{thm:trialdivision}
-			If $n$ is a composite number, it has at least one prime factor $q$ with $q\leq\sqrt{n}$.
-		\end{theorem}
-	This is the simplest way to check whether a positive integer $n$ is a prime. That is, given $n$, you check weather any prime $2 \leq p \leq \sqrt n$ divides $n$. If $n$ is not divisible by any such $p$, it is a prime. We take this opportunity to introduce a notion of \textit{runtime}, which will roughly mean the number of operations someone or a computer will have to do in order to determine whether $n$ is prime or not using a particular algorithm. In this algorithm, you can see that we are dividing $n$ by primes less than $\sqrt{n}$ and so, if the number of such primes is $k$ then we could say, runtime is $R(k)$. Here, assume that $R(k)$ denotes the runtime of the whole operation, though it is not rigorous at all. But it will do for our purpose very nicely. Let's look at the following theorem now.
-		\begin{theorem}[Lucas Test]
-			\label{thm:lucastest}
-			Let $n >1$ be a positive integer. Then $n$ is a prime if and only if there is an integer $1<a<n$ for which
-				\begin{align*}
-					a^{n-1} &\equiv1\pmod n
-				\end{align*}
-			and for every prime factor $p$ of $n-1$,
-				\begin{align*}
-					a^{(n-1)/p} \not \equiv 1 \pmod n
-				\end{align*}
-		\end{theorem}
+The first one is based on a theorem we have already established in autoref{ch:divisibility}.
+	\begin{theorem}[Trial Division until $\sqrt{n}$ ] \label{thm:trialdivision}
+		If $n$ is a composite number, it has at least one prime factor $q$ with $q\leq\sqrt{n}$.
+	\end{theorem}
+This is the simplest way to check whether a positive integer $n$ is a prime. That is, given $n$, you check weather any prime $2 \leq p \leq \sqrt n$ divides $n$. If $n$ is not divisible by any such $p$, it is a prime. We take this opportunity to introduce a notion of \textit{runtime}, which will roughly mean the number of operations someone or a computer will have to do in order to determine whether $n$ is prime or not using a particular algorithm. In this algorithm, you can see that we are dividing $n$ by primes less than $\sqrt{n}$ and so, if the number of such primes is $k$ then we could say, runtime is $R(k)$. Here, assume that $R(k)$ denotes the runtime of the whole operation, though it is not rigorous at all. But it will do for our purpose very nicely. Let's look at the following theorem now.
+	\begin{theorem}[Lucas Test]
+		\label{thm:lucastest}
+		Let $n >1$ be a positive integer. Then $n$ is a prime if and only if there is an integer $1<a<n$ for which
+			\begin{align*}
+				a^{n-1} &\equiv1\pmod n
+			\end{align*}
+		and for every prime factor $p$ of $n-1$,
+			\begin{align*}
+				a^{(n-1)/p} \not \equiv 1 \pmod n
+			\end{align*}
+	\end{theorem}
 
-		\begin{proof}
-			We will show the if part first. If $n$ is a prime, then by \autoref{thm:primeprimitive}, it has a primitive root. That is, there exists some integer $a$ such that $a^{\varphi(n)} = a^{n-1} \equiv 1 \pmod n$ and $a^d \not \equiv 1 \pmod n$ for all $d<n$.
+	\begin{proof}
+		We will show the if part first. If $n$ is a prime, then by \autoref{thm:primeprimitive}, it has a primitive root. That is, there exists some integer $a$ such that $a^{\varphi(n)} = a^{n-1} \equiv 1 \pmod n$ and $a^d \not \equiv 1 \pmod n$ for all $d<n$.
 
-			On the other hand, assume that given conditions hold for a positive integer $n$. The first condition asserts that $(a,n)=1$. Let $d$ be the order of $a$ modulo $n$. That is, $d$ is the smallest positive integer less than $n$ such that $a^d \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, $d\mid n-1$. This means that $dx = n-1$ for some $x$. Choose a prime $q$ which divides $x$ so that $x=qy$ for some integer $y$. Therefore, $n-1=dqy$ or $(n-1)/q=dy$. But then
-				\begin{align*}
-					a^{(n-1)/q}
-						& \equiv a^{dy}\\
-						& \equiv \left(a^d\right)^y\\
-						& \equiv 1 \pmod n
-				\end{align*}
-			which is in contradiction with the second condition since $q$ is a prime such that $q\mid x\mid n-1$. Thus the order of $a$ modulo $n$ is $n-1$. So $\varphi(n)=n-1$ which implies that $n$ is a prime.
-		\end{proof}
-	The next theorem appears in \textcite[Chapter $\S$VI, section $6.3$, proposition $6.3.1$, Page $187$]{koblitz_2012}.
-		\begin{theorem}[Pocklington's Theorem]
-			Let $n>1$ be an integer and suppose that there exist an integer $a$ and a prime $q$ such that the following conditions hold:
-				\begin{enumerate}
-					\item $q\mid n-1$ and $q > \sqrt n -1$,
-					\item $a^{n-1} \equiv1\pmod n$, and
-					\item $\func{}{a^{\frac{n-1}{q}}-1,n} = 1$.
-				\end{enumerate}
-			Then $n$ is a prime.
-		\end{theorem}
+		On the other hand, assume that given conditions hold for a positive integer $n$. The first condition asserts that $(a,n)=1$. Let $d$ be the order of $a$ modulo $n$. That is, $d$ is the smallest positive integer less than $n$ such that $a^d \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, $d\mid n-1$. This means that $dx = n-1$ for some $x$. Choose a prime $q$ which divides $x$ so that $x=qy$ for some integer $y$. Therefore, $n-1=dqy$ or $(n-1)/q=dy$. But then
+			\begin{align*}
+				a^{(n-1)/q}
+					& \equiv a^{dy}\\
+					& \equiv \left(a^d\right)^y\\
+					& \equiv 1 \pmod n
+			\end{align*}
+		which is in contradiction with the second condition since $q$ is a prime such that $q\mid x\mid n-1$. Thus the order of $a$ modulo $n$ is $n-1$. So $\varphi(n)=n-1$ which implies that $n$ is a prime.
+	\end{proof}
+The next theorem appears in \textcite[Chapter $\S$VI, section $6.3$, proposition $6.3.1$, Page $187$]{koblitz_2012}.
+	\begin{theorem}[Pocklington's Theorem]
+		Let $n>1$ be an integer and suppose that there exist an integer $a$ and a prime $q$ such that the following conditions hold:
+			\begin{enumerate}
+				\item $q\mid n-1$ and $q > \sqrt n -1$,
+				\item $a^{n-1} \equiv1\pmod n$, and
+				\item $\func{}{a^{\frac{n-1}{q}}-1,n} = 1$.
+			\end{enumerate}
+		Then $n$ is a prime.
+	\end{theorem}
 
-		\begin{proof}
-			Assume $n$ is not prime. Then $n$ has a prime divisor $p$ such that $p \leq \sqrt n$. By first condition, $q>p-1$ and so $(q, p-1)=1$. We can deduce by \autoref{thm:arithinverse} that there exists an integer $x$ such that $qx \equiv 1 \pmod {p-1}$. This means that $qx-1 = (p-1)k$ or $qx = (p-1)k+1$ for some $k$. Since $p\mid n$, the second condition gives $a^{n-1} \equiv 1 \pmod p$ and so
-				\begin{align*}
-					1 & \equiv a^{n-1} \\
-					  & \equiv \left(a^{n-1}\right)^{x}\\
-					  & \equiv \func{}{a^{\frac{n-1}{q}}}^{qx}\\
-					  & \equiv \func{}{a^{\frac{n-1}{q}}}^{(p-1)k+1}\\
-					  & \equiv \underbrace{\func{}{\func{}{a^{\frac{n-1}{q}}}^{k}}^{p-1}}_{\equiv 1} \cdot \func{}{a^{\frac{n-1}{q}}}\\
-					  & \equiv a^{(n-1)/q} \pmod p
-				\end{align*}
-			This gives $p\mid a^{(n-1)/q}-1$. Combining the latter result with $p\mid n$, we have
-				\begin{align*}
-					p
-						& \mid \left(a^{\frac{n-1}{q}}-1,n\right)\\
-						&=1
-				\end{align*}
-			a contradiction. Hence $n$ is prime.
-		\end{proof}
+	\begin{proof}
+		Assume $n$ is not prime. Then $n$ has a prime divisor $p$ such that $p \leq \sqrt n$. By first condition, $q>p-1$ and so $(q, p-1)=1$. We can deduce by \autoref{thm:arithinverse} that there exists an integer $x$ such that $qx \equiv 1 \pmod {p-1}$. This means that $qx-1 = (p-1)k$ or $qx = (p-1)k+1$ for some $k$. Since $p\mid n$, the second condition gives $a^{n-1} \equiv 1 \pmod p$ and so
+			\begin{align*}
+				1 & \equiv a^{n-1} \\
+		  & \equiv \left(a^{n-1}\right)^{x}\\
+		  & \equiv \func{}{a^{\frac{n-1}{q}}}^{qx}\\
+		  & \equiv \func{}{a^{\frac{n-1}{q}}}^{(p-1)k+1}\\
+		  & \equiv \underbrace{\func{}{\func{}{a^{\frac{n-1}{q}}}^{k}}^{p-1}}_{\equiv 1} \cdot \func{}{a^{\frac{n-1}{q}}}\\
+		  & \equiv a^{(n-1)/q} \pmod p
+			\end{align*}
+		This gives $p\mid a^{(n-1)/q}-1$. Combining the latter result with $p\mid n$, we have
+			\begin{align*}
+				p
+					& \mid \left(a^{\frac{n-1}{q}}-1,n\right)\\
+					&=1
+			\end{align*}
+		a contradiction. Hence $n$ is prime.
+	\end{proof}
 
-		\begin{note}
-			Depending on the implementation of a result, a deterministic test can be converted into a non-deterministic one. For example, the above theorem can be both deterministic and probabilistic. Because you can iterate over all possible $a$ modulo $a$. Or you could use some random $a$ that are relatively prime to $n$. For a randomized test, we would check only for some random $a\bot n$ because $a^{n-1}\equiv1\pmod n$ must hold. If the result was in favor for all $a$, we would say, $n$ is a \textit{probable prime}. Otherwise, $n$ is a \textit{definite composite}.
-		\end{note}
-	\textcite{solovay_strassen_1977} developed a method called \textit{Solovay--Strassen primality testing} which is based on Euler's criterion.
+	\begin{note}
+		Depending on the implementation of a result, a deterministic test can be converted into a non-deterministic one. For example, the above theorem can be both deterministic and probabilistic. Because you can iterate over all possible $a$ modulo $a$. Or you could use some random $a$ that are relatively prime to $n$. For a randomized test, we would check only for some random $a\bot n$ because $a^{n-1}\equiv1\pmod n$ must hold. If the result was in favor for all $a$, we would say, $n$ is a \textit{probable prime}. Otherwise, $n$ is a \textit{definite composite}.
+	\end{note}
+\textcite{solovay_strassen_1977} developed a method called \textit{Solovay--Strassen primality testing} which is based on Euler's criterion.
 
-		\begin{definition}
-			Let $n>1$ be an odd integer. Assume that $a>1$ is a positive integer such that $(a,n)=1$ and
-				\begin{align*}
-					a^{(n-1)/2} \not \equiv \func{}{\dfrac{a}{n}} \pmod n
-				\end{align*}
-			where $\left(\dfrac{a}{n}\right)$ is the Jacobi symbol defined in \eqref{def:jacobi}. Then $a$ is called an \textit{Euler witness for compositeness of $n$}, or simply an \textit{Euler witness for $n$.}
-		\end{definition}
+	\begin{definition}
+		Let $n>1$ be an odd integer. Assume that $a>1$ is a positive integer such that $(a,n)=1$ and
+			\begin{align*}
+				a^{(n-1)/2} \not \equiv \func{}{\dfrac{a}{n}} \pmod n
+			\end{align*}
+		where $\left(\dfrac{a}{n}\right)$ is the Jacobi symbol defined in \eqref{def:jacobi}. Then $a$ is called an \textit{Euler witness for compositeness of $n$}, or simply an \textit{Euler witness for $n$.}
+	\end{definition}
 
-		\begin{theorem}[Solovay--Strassen Primality Test]
-			Let $n>1$ be an odd integer. Then $n$ is composite if it has an Euler witness.
-		\end{theorem}
+	\begin{theorem}[Solovay--Strassen Primality Test]
+		Let $n>1$ be an odd integer. Then $n$ is composite if it has an Euler witness.
+	\end{theorem}
 
-		\begin{proof}
-			By Euler's criterion, we know that if $n$ is a prime, then for every integer $a$ relatively prime to $n$,
-				\begin{align}
-					a^{(n-1)/2}  \equiv \func{}{\dfrac{a}{n}} \pmod n \label{eq:solovay-eq1}
-				\end{align}
-			So, if for some $a$ relatively prime to $n$, the above congruence equation does not hold, $n$ cannot be a prime. Thus it is composite.
-		\end{proof}
+	\begin{proof}
+		By Euler's criterion, we know that if $n$ is a prime, then for every integer $a$ relatively prime to $n$,
+			\begin{align}
+				a^{(n-1)/2}  \equiv \func{}{\dfrac{a}{n}} \pmod n \label{eq:solovay-eq1}
+			\end{align}
+		So, if for some $a$ relatively prime to $n$, the above congruence equation does not hold, $n$ cannot be a prime. Thus it is composite.
+	\end{proof}
 
-		\begin{remark}
-					We discussed different classes of pseudoprimes, integers which share a common property with all primes but are composite, in section \eqref{sec:pseudoprimes}. If equation \eqref{eq:solovay-eq1} holds true for a composite integer $n$ and an integer $a>1$ relatively prime to it, then $n$ is called an Euler pseudoprime to base $a$, abbreviated as $\epsp(a)$. The Solovay--Strassen test is closely related to Euler pseudoprimes. In fact, if an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not an Euler witness for $n$, then $n$ is an $\epsp(a)$. On the other hand, if an odd $n$ is an $\epsp(a)$ for some $a$, then $a$ is not an Euler witness for $n$.
-		\end{remark}
+	\begin{remark}
+				We discussed different classes of pseudoprimes, integers which share a common property with all primes but are composite, in section \eqref{sec:pseudoprimes}. If equation \eqref{eq:solovay-eq1} holds true for a composite integer $n$ and an integer $a>1$ relatively prime to it, then $n$ is called an Euler pseudoprime to base $a$, abbreviated as $\epsp(a)$. The Solovay--Strassen test is closely related to Euler pseudoprimes. In fact, if an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not an Euler witness for $n$, then $n$ is an $\epsp(a)$. On the other hand, if an odd $n$ is an $\epsp(a)$ for some $a$, then $a$ is not an Euler witness for $n$.
+	\end{remark}
 
-	 As explained in that section, a well-known class of pseudoprimes are strong pseudoprimes. \textcite{miller_1975} developed \textit{Miller's primality test} which involves the congruences used in the definition of strong pseudoprimes. \textcite{rabin_1980} later modified Miller's primality test and obtained \textit{Miller--Rabin} test which we will now explain. To formulate Miller-Rabin primality test, it would be convenient to use the terminology introduced by Rabin as below:
+As explained in that section, a well-known class of pseudoprimes are strong pseudoprimes. \textcite{miller_1975} developed \textit{Miller's primality test} which involves the congruences used in the definition of strong pseudoprimes. \textcite{rabin_1980} later modified Miller's primality test and obtained \textit{Miller--Rabin} test which we will now explain. To formulate Miller-Rabin primality test, it would be convenient to use the terminology introduced by Rabin as below:
 
-		\begin{definition}
-			Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Let $a>1$ be an integer relatively prime to $n$. Then $a$ is said to be a \textit{witness for compositeness of $n$}, or simply a witness for $n$ when
-				\begin{align*}
-				a^d &\not\equiv \phantom{-} 1 \pmod n\\
-				a^{2^rd} &\not\equiv -1 \pmod n
-				\end{align*}
-			for $0\leq r<s$.
-		\end{definition}
+	\begin{definition}
+		Let $n=2^sd+1$ where $s$ and $d$ are positive integers and $d$ is odd. Let $a>1$ be an integer relatively prime to $n$. Then $a$ is said to be a \textit{witness for compositeness of $n$}, or simply a witness for $n$ when
+			\begin{align*}
+			a^d &\not\equiv \phantom{-} 1 \pmod n\\
+			a^{2^rd} &\not\equiv -1 \pmod n
+			\end{align*}
+		for $0\leq r<s$.
+	\end{definition}
 
-		\begin{theorem}[Miller--Rabin Primality Test]
-			Let $n>1$ be an odd integer. Then $n$ is composite if it has a witness.
-		\end{theorem}
+	\begin{theorem}[Miller--Rabin Primality Test]
+		Let $n>1$ be an odd integer. Then $n$ is composite if it has a witness.
+	\end{theorem}
 
-		\begin{proof}
-			Assume that $n$ has a witness $a$. Then by definition $(a,n)=1$ and
-				\begin{align*}
-					a^d &\not \equiv \phantom{-}1 \pmod n\\
-					a^d &\not \equiv -1 \pmod n\\
-					a^{2d} &\not \equiv -1 \pmod n\\
-					a^{4d} &\not \equiv -1 \pmod n\\
-					&\phantom{\equiv}\vdots\\
-					a^{2^{s-1}d} &\not \equiv -1 \pmod n
-				\end{align*}
-			It follows that the following product is not divisible by $n$:
-				\begin{align*}
-					\left(a^d-1\right)\func{}{a^d+1}\cdots \func{}{a^{2^{s-1}d}+1} = a^{2^sd}-1.
-				\end{align*}
-			But $a^{2^sd}-1=a^{n-1}-1$ and so $n\nmid a^{n-1}-1$. We know by Fermat's little theorem that if $p$ is a prime, then $p\mid a^{p-1}-1$ for any $a$ such that $(a,p)=1$. So, $n$ cannot be a prime and is therefore a composite number.
-		\end{proof}
+	\begin{proof}
+		Assume that $n$ has a witness $a$. Then by definition $(a,n)=1$ and
+			\begin{align*}
+				a^d &\not \equiv \phantom{-}1 \pmod n\\
+				a^d &\not \equiv -1 \pmod n\\
+				a^{2d} &\not \equiv -1 \pmod n\\
+				a^{4d} &\not \equiv -1 \pmod n\\
+				&\phantom{\equiv}\vdots\\
+				a^{2^{s-1}d} &\not \equiv -1 \pmod n
+			\end{align*}
+		It follows that the following product is not divisible by $n$:
+			\begin{align*}
+				\left(a^d-1\right)\func{}{a^d+1}\cdots \func{}{a^{2^{s-1}d}+1} = a^{2^sd}-1.
+			\end{align*}
+		But $a^{2^sd}-1=a^{n-1}-1$ and so $n\nmid a^{n-1}-1$. We know by Fermat's little theorem that if $p$ is a prime, then $p\mid a^{p-1}-1$ for any $a$ such that $(a,p)=1$. So, $n$ cannot be a prime and is therefore a composite number.
+	\end{proof}
 
-		\begin{note}
-			If an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not a witness for $n$, then $n$ is a $\spsp(a)$. On the other hand, if an odd $n$ is a $\spsp(a)$ for some $a$, then $a$ is not a witness.
-		\end{note}
+	\begin{note}
+		If an odd integer $n$ is composite and an integer $a$ such that $1<a<n$ and $(a,n)=1$ is not a witness for $n$, then $n$ is a $\spsp(a)$. On the other hand, if an odd $n$ is a $\spsp(a)$ for some $a$, then $a$ is not a witness.
+	\end{note}
 
-	%<<<<<<< HEAD
-	%%The following theorem is interesting, but the proof is somewhat beyond the scope of this book.
-	%=======
-	%The following theorem is interesting, but the proof is somewhat beyond the scope of this book.
-	%
-	%>>>>>>> amir
-	%%	\begin{theorem}[Vantieghem's Theorem]
-	%%		A positive integer $n$ is prime if and only if
-	%%			  \begin{align*}
-	%%			  \prod_{1 \leq k \leq n-1} \left( 2^k - 1  \right) \equiv n \mod \left(  2^n - 1 \right).
-	%%			  \end{align*}
-	%<<<<<<< HEAD
-	%%		Similarly, $n$ is prime, if and only if the following congruence for polynomials in $X$ holds:
-	%%
-	%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv  n- \left( X^n - 1 \right)/\left( X - 1 \right) \mod \left(  X^n - 1 \right)\]
-	%%		or:
-	%%
-	%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv n \mod \left( X^n - 1 \right)/\left( X - 1 \right)\]
-	%=======
-	%%%		Similarly, $n$ is prime, if and only if the following congruence for polynomials in $X$ holds:
-	%%%
-	%%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv  n- \left( X^n - 1 \right)/\left( X - 1 \right) \mod \left(  X^n - 1 \right)\]
-	%%%		or:
-	%%%
-	%%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv n \mod \left( X^n - 1 \right)/\left( X - 1 \right)\]
-	%>>>>>>> amir
-	%%	\end{theorem}
-	The most well known deterministic algorithm known for primality testing is \textit{AKS} primality test. It was introduced by \textit{Manindra Agrawal, Neeraj Kayal, and Nitin Saxena} in $2002$ and published in \textcite{agrawal_kayal_saxena_2004}. The core idea of AKS primality test is the following theorem.
-		\begin{theorem}
-			Let $a$ be an integer and $n$ be a positive integer such that $(a,n)=1$. Then $n$ is prime if and only if
-				\begin{align*}
-					(x+a)^n \equiv x^n + a \pmod n
-				\end{align*}
-			for all integers $x$.
-		\end{theorem}
+%<<<<<<< HEAD
+%%The following theorem is interesting, but the proof is somewhat beyond the scope of this book.
+%=======
+%The following theorem is interesting, but the proof is somewhat beyond the scope of this book.
+%
+%>>>>>>> amir
+%%	\begin{theorem}[Vantieghem's Theorem]
+%%		A positive integer $n$ is prime if and only if
+%%			  \begin{align*}
+%%			  \prod_{1 \leq k \leq n-1} \left( 2^k - 1  \right) \equiv n \mod \left(  2^n - 1 \right).
+%%			  \end{align*}
+%<<<<<<< HEAD
+%%		Similarly, $n$ is prime, if and only if the following congruence for polynomials in $X$ holds:
+%%
+%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv  n- \left( X^n - 1 \right)/\left( X - 1 \right) \mod \left(  X^n - 1 \right)\]
+%%		or:
+%%
+%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv n \mod \left( X^n - 1 \right)/\left( X - 1 \right)\]
+%=======
+%%%		Similarly, $n$ is prime, if and only if the following congruence for polynomials in $X$ holds:
+%%%
+%%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv  n- \left( X^n - 1 \right)/\left( X - 1 \right) \mod \left(  X^n - 1 \right)\]
+%%%		or:
+%%%
+%%%		\[\prod_{1 \leq k \leq n-1} \left( X^k - 1  \right) \equiv n \mod \left( X^n - 1 \right)/\left( X - 1 \right)\]
+%>>>>>>> amir
+%%	\end{theorem}
+The most well known deterministic algorithm known for primality testing is \textit{AKS} primality test. It was introduced by \textit{Manindra Agrawal, Neeraj Kayal, and Nitin Saxena} in $2002$ and published in \textcite{agrawal_kayal_saxena_2004}. The core idea of AKS primality test is the following theorem.
+	\begin{theorem}
+		Let $a$ be an integer and $n$ be a positive integer such that $(a,n)=1$. Then $n$ is prime if and only if
+			\begin{align*}
+				(x+a)^n \equiv x^n + a \pmod n
+			\end{align*}
+		for all integers $x$.
+	\end{theorem}
 
-		\begin{proof}
-			Let $P(x) = (x+a)^n - \left(x^n + a\right)$. Then
-				\begin{align*}
-					P(x) &= (x+a)^n - \left(x^n + a\right)\\
-						 &= \sum_{i=0}^{n} \binom{n}{i} x^i a^{n-i} - \left(x^n + a\right)\\
-						 &= \sum_{i=1}^{n-1} \binom{n}{i} x^i a^{n-i} - \left(a - a^n\right)
-				\end{align*}
-			If $n$ is prime, then $n$ divides $\binom{n}{i}$ for all $0<i<n$ by \autoref{thm:binpdiv} and also $a^n \equiv a \pmod n$ by Fermat's little theorem. So $P(x) \equiv 0 \pmod n$ and the condition holds.
+	\begin{proof}
+		Let $P(x) = (x+a)^n - \left(x^n + a\right)$. Then
+			\begin{align*}
+				P(x) &= (x+a)^n - \left(x^n + a\right)\\
+				 &= \sum_{i=0}^{n} \binom{n}{i} x^i a^{n-i} - \left(x^n + a\right)\\
+				 &= \sum_{i=1}^{n-1} \binom{n}{i} x^i a^{n-i} - \left(a - a^n\right)
+			\end{align*}
+		If $n$ is prime, then $n$ divides $\binom{n}{i}$ for all $0<i<n$ by \autoref{thm:binpdiv} and also $a^n \equiv a \pmod n$ by Fermat's little theorem. So $P(x) \equiv 0 \pmod n$ and the condition holds.
 
-			If $n$ is composite, take a prime divisor $p$ of $n$. Let $v$ be the greatest power of $p$ that divides $n$. That is, $p^v \mid n$ but $p^{v+1} \nmid n$. Then $q^i$ does not divide $\binom{n}{i}$ (why?) and therefore $n$ does not divide the term $\binom{n}{p}x^qa^{n-p}$ in $P(x)$. This means that $P(x) \not \equiv 0 \pmod n$ and the proof is complete.
-		\end{proof}
-	As you can see, the runtime of deterministic primality tests are not that great. Even the best of them, AKS test has a runtime around $(\log_2n)^{12}$, which was later reduced to $(\log_2n)^6$ by mathematicians such as \textit{C. Pomerance}. But it still is not very good for running as a program. This runtime means, if $n=2^{100}$, we would have to do around $100^6=10^{12}$ operations, which is really costly. If we assume the best case scenario, an average computer may perform $10^9$ operations per second (in fact it is far less effectively when it's down to computing because there are many related calculations as well), so it would require around $1000$ seconds to test primality of a number of that magnitude. But in practice, numbers around $1024$ bits are used which are as large as $2^{1023}-1$. This makes this test obsolete. In turn, this gives rise to \textit{probabilistic primality test}. In a probabilistic test, one can not guarantee that the input $n$ is definitely a prime. But it can say if it is a \textit{probable prime} or not. And if we use a good enough algorithm the probability of having a false prime is really small, of the magnitude $2^{-k}$ where $k$ is some iteration number or something else depending on the algorithm. But if $k$ is around $100$, you can see how small this gets. This means the chances of getting a false result is really really slim. Let's first use Fermat's little theorem as a probabilistic test. We already know that for a prime and a positive integer $x$, we must have $x^{p-1}\equiv1\pmod p$. Using this, we can make the test for input $n$ this way.
-		\begin{enumerate}[i.]
-			\item Choose a random number $x$.
-			\item Compute $r$ as $x^{n-1}\equiv r\pmod n$ (this needs to be done efficiently since $n$ is large).
-			\item If $r\neq1$ then $n$ is surely composite.
-			\item Otherwise $n$ is probably a prime. Probably, because the reverse of Fermat's little theorem is not true, as we discussed on autoref{ch:congruence} before.
-		\end{enumerate}
-	But this doesn't make a very reliable test. To make it a bit more reliable, we can iterate this process for $k$ times. And each time we have to choose another random $x$. The more we iterate, the more the accuracy is.
+		If $n$ is composite, take a prime divisor $p$ of $n$. Let $v$ be the greatest power of $p$ that divides $n$. That is, $p^v \mid n$ but $p^{v+1} \nmid n$. Then $q^i$ does not divide $\binom{n}{i}$ (why?) and therefore $n$ does not divide the term $\binom{n}{p}x^qa^{n-p}$ in $P(x)$. This means that $P(x) \not \equiv 0 \pmod n$ and the proof is complete.
+	\end{proof}
+As you can see, the runtime of deterministic primality tests are not that great. Even the best of them, AKS test has a runtime around $(\log_2n)^{12}$, which was later reduced to $(\log_2n)^6$ by mathematicians such as \textit{C. Pomerance}. But it still is not very good for running as a program. This runtime means, if $n=2^{100}$, we would have to do around $100^6=10^{12}$ operations, which is really costly. If we assume the best case scenario, an average computer may perform $10^9$ operations per second (in fact it is far less effectively when it's down to computing because there are many related calculations as well), so it would require around $1000$ seconds to test primality of a number of that magnitude. But in practice, numbers around $1024$ bits are used which are as large as $2^{1023}-1$. This makes this test obsolete. In turn, this gives rise to \textit{probabilistic primality test}. In a probabilistic test, one can not guarantee that the input $n$ is definitely a prime. But it can say if it is a \textit{probable prime} or not. And if we use a good enough algorithm the probability of having a false prime is really small, of the magnitude $2^{-k}$ where $k$ is some iteration number or something else depending on the algorithm. But if $k$ is around $100$, you can see how small this gets. This means the chances of getting a false result is really really slim. Let's first use Fermat's little theorem as a probabilistic test. We already know that for a prime and a positive integer $x$, we must have $x^{p-1}\equiv1\pmod p$. Using this, we can make the test for input $n$ this way.
+	\begin{enumerate}[i.]
+		\item Choose a random number $x$.
+		\item Compute $r$ as $x^{n-1}\equiv r\pmod n$ (this needs to be done efficiently since $n$ is large).
+		\item If $r\neq1$ then $n$ is surely composite.
+		\item Otherwise $n$ is probably a prime. Probably, because the reverse of Fermat's little theorem is not true, as we discussed on autoref{ch:congruence} before.
+	\end{enumerate}
+But this doesn't make a very reliable test. To make it a bit more reliable, we can iterate this process for $k$ times. And each time we have to choose another random $x$. The more we iterate, the more the accuracy is.
 
-	The most popular and used method for probabilistic testing is \textit{Rabin-Miller} primality test. This makes clever use of Fermat's little theorem.
+The most popular and used method for probabilistic testing is \textit{Rabin-Miller} primality test. This makes clever use of Fermat's little theorem.
 
 \subsection{Primality Testing for Famous Classes of Primes}
-	We have explained theorems which help us find out whether a number is prime. For numbers having special forms, we can develop much better methods to test their primality. The first special type of numbers where $2^k+1$ for an integer $k \geq 0$.
+We have explained theorems which help us find out whether a number is prime. For numbers having special forms, we can develop much better methods to test their primality. The first special type of numbers where $2^k+1$ for an integer $k \geq 0$.
 
-		\begin{definition}
-			Let $n\geq 0$ be an integer. The numbers of the form $F_n = 2^{2^n}+1$ are called \textit{Fermat numbers}. If $F_n$ is prime for some $n$, it is called a \textit{Fermat prime}.
-		\end{definition}
+	\begin{definition}
+		Let $n\geq 0$ be an integer. The numbers of the form $F_n = 2^{2^n}+1$ are called \textit{Fermat numbers}. If $F_n$ is prime for some $n$, it is called a \textit{Fermat prime}.
+	\end{definition}
 
-		\begin{proposition}
-			If $2^k+1$ is prime for an integer $k \geq 0$, then it is a Fermat prime.
-		\end{proposition}
+	\begin{proposition}
+		If $2^k+1$ is prime for an integer $k \geq 0$, then it is a Fermat prime.
+	\end{proposition}
 
-		\begin{proof}
-			This is a special case of \autoref{thm:primec}.
-		\end{proof}
+	\begin{proof}
+		This is a special case of \autoref{thm:primec}.
+	\end{proof}
 
-	Fermat conjectured that all Fermat numbers are actually primes. He computed $F_n$ for $n=0,1,2,3,$ and $4$ and found out they are all primes. However, he was unable to show that $F_5$ is prime. Euler later showed that for $n\geq 2$, every factor of $F_n$ should be of the form $m\cdot 2^{n+2}+1$ and thus found $641$ to be a divisor of $F_5$ and factorized it as
-		\begin{align*}
-		F_5 = 641 \cdot 6700417.
-		\end{align*}
+Fermat conjectured that all Fermat numbers are actually primes. He computed $F_n$ for $n=0,1,2,3,$ and $4$ and found out they are all primes. However, he was unable to show that $F_5$ is prime. Euler later showed that for $n\geq 2$, every factor of $F_n$ should be of the form $m\cdot 2^{n+2}+1$ and thus found $641$ to be a divisor of $F_5$ and factorized it as
+	\begin{align*}
+	F_5 = 641 \cdot 6700417.
+	\end{align*}
 
-	Since $F_n$ increases too rapidly with $n$, it is too difficult to check its primality. In 1877, Pepin developed a test for checking the primality of Fermat numbers:
+Since $F_n$ increases too rapidly with $n$, it is too difficult to check its primality. In 1877, Pepin developed a test for checking the primality of Fermat numbers:
 
-		\begin{theorem}[Pepin's Primality Test for Fermat Numbers]
-			Let $n \geq 2$ be an integer and assume $F_n$ denotes the $n^{th}$ Fermat number. Also, let $k \geq 2$ be any integer. Then the following conditions are equivalent:
-				\begin{enumerate}[1.]
-					\item $F_n$ is prime and $\func{}{\frac{k}{F_n}}=-1$.
-					\item $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$.
-				\end{enumerate}
-		\end{theorem}
+	\begin{theorem}[Pepin's Primality Test for Fermat Numbers]
+		Let $n \geq 2$ be an integer and assume $F_n$ denotes the $n^{th}$ Fermat number. Also, let $k \geq 2$ be any integer. Then the following conditions are equivalent:
+			\begin{enumerate}[1.]
+				\item $F_n$ is prime and $\func{}{\frac{k}{F_n}}=-1$.
+				\item $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$.
+			\end{enumerate}
+	\end{theorem}
 
-		\begin{proof}
-			Assume that condition $1$ holds. Then by Euler's criterion (\autoref{thm:eulerscriterion}),
+	\begin{proof}
+		Assume that condition $1$ holds. Then by Euler's criterion (\autoref{thm:eulerscriterion}),
+			\begin{align*}
+				k^{(F_n-1)/2} \equiv \func{}{\dfrac{k}{F_n}} \equiv -1 \pmod{F_n}
+			\end{align*}
+		To prove the other side of the theorem, assume that $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$. Choose an integer $m$ such that $1 \leq  m <F_n$ and $m \equiv k \pmod{F_n}$. Then
+			\begin{align*}
+				m^{(F_n-1)/2} \equiv k^{(F_n-1)/2} \equiv -1 \pmod{F_n}
+			\end{align*}
+		Note that the only prime divisor of $F_n-1 = 2^{2^n}$ is $2$. Hence we can use Lucas test (with $a=m$ and $p=2$, using notation of \autoref{thm:lucastest}) and deduce that $F_n$ is a prime. Furthermore, we have by Euler's criterion that
+			\begin{align*}
+				\func{}{\dfrac{k}{F_n}} \equiv	k^{(F_n-1)/2}  \equiv -1 \pmod{F_n}
+			\end{align*}
+		The proof is complete.
+	\end{proof}
+
+Pepin's test is usually done with $k=3, 5,$ or $10$. In practice, mathematicians have not been able to show that any Fermat number $F_n$ for $n>4$ is a prime using Pepin's test. On the other hand, nobody has yet proved that all Fermat numbers larger than $F_4$ are composite.
+
+Another type of numbers are Mersenne numbers, named after Marin Mersenne who studies them back in $17^{th}$ century.
+	\begin{definition}
+		Let $n$ be an integer. The numbers of the form $M_n = 2^n -1$ are called \textit{Mersenne numbers}. If $M_n$ is prime for some $n$, it is called a \textit{Mersenne prime}.
+	\end{definition}
+
+	\begin{proposition}
+		If $M_n$ is a prime for an integer $n>1$, then $n$ is a prime.
+	\end{proposition}
+
+	\begin{proof}
+		See \autoref{thm:a^k-1prime}.
+	\end{proof}
+
+Mersenne stated that
+	\begin{align*}
+			M_{2}, M_{3}, M_{5}, M_{7}, M_{13},M_{17},M_{19},M_{31},M_{67},M_{127},M_{257}
+	\end{align*}
+are the only Mersenne primes less than $M_{258}$. Although he was wrong about $M_{67}$\footnote{$M_{67}=193707721 \times 761838257287.$} and $M_{257}$\footnote{Lehmer and Kra\"{i}tchik showed that $M_{257}$ is composite.} and he missed $M_{61}, M_{89},$ and $M_{107}$ in the list, his work is considered astonishing because these numbers are astronomically large. Interested readers may study \textcite{ribenboim_1991} for more details about Mersenne primes.
+
+	\begin{theorem}
+			Let $q>2$ be a prime. For every divisor $n$ of $M_q$, we have
 				\begin{align*}
-					k^{(F_n-1)/2} \equiv \func{}{\dfrac{k}{F_n}} \equiv -1 \pmod{F_n}
+					n &\equiv \pm 1 \pmod 8\\
+					n &\equiv 1 \pmod q
 				\end{align*}
-			To prove the other side of the theorem, assume that $k^{(F_n-1)/2} \equiv -1 \pmod{F_n}$. Choose an integer $m$ such that $1 \leq  m <F_n$ and $m \equiv k \pmod{F_n}$. Then
-				\begin{align*}
-					m^{(F_n-1)/2} \equiv k^{(F_n-1)/2} \equiv -1 \pmod{F_n}
-				\end{align*}
-			Note that the only prime divisor of $F_n-1 = 2^{2^n}$ is $2$. Hence we can use Lucas test (with $a=m$ and $p=2$, using notation of \autoref{thm:lucastest}) and deduce that $F_n$ is a prime. Furthermore, we have by Euler's criterion that
-				\begin{align*}
-					\func{}{\dfrac{k}{F_n}} \equiv	k^{(F_n-1)/2}  \equiv -1 \pmod{F_n}
-				\end{align*}
-			The proof is complete.
-		\end{proof}
+	\end{theorem}
 
-	Pepin's test is usually done with $k=3, 5,$ or $10$. In practice, mathematicians have not been able to show that any Fermat number $F_n$ for $n>4$ is a prime using Pepin's test. On the other hand, nobody has yet proved that all Fermat numbers larger than $F_4$ are composite.
+	\begin{proof}
+		It suffices to prove the theorem for prime $n$ (why?). Let $p$ be a prime divisor of $M_q=2^q-1$. Then $2^q \equiv 1 \pmod p$ and so $\ord_p(2)\mid q$, which means that $\ord_p(2)=q$ since $q$ is a prime. By corollary \eqref{cor:phiDiv}, $q=\ord_p(2)\mid \varphi(p)=p-1$. Thus $p \equiv 1 \pmod q$. Since $p$ and $q$ are both odd, we can write the latter relation as $p-1=2kq$. By Euler's criterion,
+			\begin{align*}
+				\func{}{\dfrac{2}{p}} &\equiv 2^{(p-1)/2} \\
+								  &\equiv 2^{kq}\\
+								  &\equiv \func{}{2^q}^k\\
+								  &\equiv 1 \pmod p
+			\end{align*}
+		\autoref{thm:2qr} now verifies that $p \equiv \pm 1 \pmod 8$.
+	\end{proof}
 
-	Another type of numbers are Mersenne numbers, named after Marin Mersenne who studies them back in $17^{th}$ century.
-		\begin{definition}
-			Let $n$ be an integer. The numbers of the form $M_n = 2^n -1$ are called \textit{Mersenne numbers}. If $M_n$ is prime for some $n$, it is called a \textit{Mersenne prime}.
-		\end{definition}
+The above theorem can be used to factorize Mersenne numbers. It will be tough to use this theorem for large Mersenne number though. To realize whether a Mersenne number is prime or composite, one may use the so-called Lucas–Lehmer primality test, introduced by \textit{\'Edouard Lucas} in 1856 and improved by \textit{Derrick Henry Lehmer} later in $1930$s. The proof is a bit difficult and we refuse to write it. The reader may see \textcite{bruce_1993} for a proof if interested.
 
-		\begin{proposition}
-			If $M_n$ is a prime for an integer $n>1$, then $n$ is a prime.
-		\end{proposition}
-
-		\begin{proof}
-			See \autoref{thm:a^k-1prime}.
-		\end{proof}
-
-	Mersenne stated that
-		\begin{align*}
-				M_{2}, M_{3}, M_{5}, M_{7}, M_{13},M_{17},M_{19},M_{31},M_{67},M_{127},M_{257}
-		\end{align*}
-	are the only Mersenne primes less than $M_{258}$. Although he was wrong about $M_{67}$\footnote{$M_{67}=193707721 \times 761838257287.$} and $M_{257}$\footnote{Lehmer and Kra\"{i}tchik showed that $M_{257}$ is composite.} and he missed $M_{61}, M_{89},$ and $M_{107}$ in the list, his work is considered astonishing because these numbers are astronomically large. Interested readers may study \textcite{ribenboim_1991} for more details about Mersenne primes.
-
-		\begin{theorem}
-				Let $q>2$ be a prime. For every divisor $n$ of $M_q$, we have
-					\begin{align*}
-						n &\equiv \pm 1 \pmod 8\\
-						n &\equiv 1 \pmod q
-					\end{align*}
-		\end{theorem}
-
-		\begin{proof}
-			It suffices to prove the theorem for prime $n$ (why?). Let $p$ be a prime divisor of $M_q=2^q-1$. Then $2^q \equiv 1 \pmod p$ and so $\ord_p(2)\mid q$, which means that $\ord_p(2)=q$ since $q$ is a prime. By corollary \eqref{cor:phiDiv}, $q=\ord_p(2)\mid \varphi(p)=p-1$. Thus $p \equiv 1 \pmod q$. Since $p$ and $q$ are both odd, we can write the latter relation as $p-1=2kq$. By Euler's criterion,
-				\begin{align*}
-					\func{}{\dfrac{2}{p}} &\equiv 2^{(p-1)/2} \\
-											  &\equiv 2^{kq}\\
-											  &\equiv \func{}{2^q}^k\\
-											  &\equiv 1 \pmod p
-				\end{align*}
-			\autoref{thm:2qr} now verifies that $p \equiv \pm 1 \pmod 8$.
-		\end{proof}
-
-	The above theorem can be used to factorize Mersenne numbers. It will be tough to use this theorem for large Mersenne number though. To realize whether a Mersenne number is prime or composite, one may use the so-called Lucas–Lehmer primality test, introduced by \textit{\'Edouard Lucas} in 1856 and improved by \textit{Derrick Henry Lehmer} later in $1930$s. The proof is a bit difficult and we refuse to write it. The reader may see \textcite{bruce_1993} for a proof if interested.
-
-		\begin{theorem}[Lucas--Lehmer Primality Test for Mersenne Numbers]
-			Define the recursive sequence $S(n)$ by $S(1)=4$ and $S(n+1)=S(n)^2-2$ for any integer $n \geq 1$. Also, let $p>2$ be a prime. Then $M_p$ is prime if and only if it divides $S(p-1)$.
-		\end{theorem}
+	\begin{theorem}[Lucas--Lehmer Primality Test for Mersenne Numbers]
+		Define the recursive sequence $S(n)$ by $S(1)=4$ and $S(n+1)=S(n)^2-2$ for any integer $n \geq 1$. Also, let $p>2$ be a prime. Then $M_p$ is prime if and only if it divides $S(p-1)$.
+	\end{theorem}
 %	The proof is taken from \textcite{ch:primes-bruce}.
 %		\begin{proof}
 %			Let $w = 2+\sqrt 3$ and $v = 2 - \sqrt 3$. One can easily show that $S(n)=w^{2^{n-1}}+v^{2^{n-1}}$ by induction. Suppose that $M_p$ divides $S(p-1)$. Then there exists an integer $R$ such that
@@ -870,287 +867,287 @@
 %			Since $w^{2^{p-1}}$ is an element of $X$, it should be of the form $f+e\sqrt 3$, where $e$ and $f$ are integers with $0 \leq e,f<q$. Now consider equations \eqref{eq:lehmer-1} and \eqref{eq:lehmer-2} in $X$. You will find that $w^{2^{p-1}} = -1$ and $w^{2^{p}} = 1$. This asserts that
 %		\end{proof}
 
-		\begin{example}
-			We will apply Lucas--Lehmer test to factorize $M_{11}=2^{11}-1=2047$. We must check whether $S(10)$ is divisible by $2047$. Table \ref{table:lucas-lehmer} shows values of $S(n)$ for $n=1,2,\ldots,10$. As seen in the table, $S(10)$ is not zero modulo $2047$ which means that $M_{11}$ is not a prime. In fact, $2047=23 \cdot 89$.
-			\begin{table}
-				\centering
-				\begin{tabular}{|c|c|}
-				\hline
-				$n$ & $S(n) \pmod {2047}$ \\
-				\hline
-				1 & 4 \\
-				\hline
-				2 & 14 \\
-				\hline
-				3 & 194 \\
-				\hline
-				4 & 788 \\
-				\hline
-				5 & 701 \\
-				\hline
-				6 & 119 \\
-				\hline
-				7 & 1877 \\
-				\hline
-				8 & 240 \\
-				\hline
-				9 & 282 \\
-				\hline
-				10 & 1736 \\
-				\hline
-			\end{tabular}
-			\caption{Applying Lucas--Lehmer test to test the primality of $2047$.}
-			\label{table:lucas-lehmer}
-			\end{table}
-		\end{example}
+	\begin{example}
+		We will apply Lucas--Lehmer test to factorize $M_{11}=2^{11}-1=2047$. We must check whether $S(10)$ is divisible by $2047$. Table \ref{table:lucas-lehmer} shows values of $S(n)$ for $n=1,2,\ldots,10$. As seen in the table, $S(10)$ is not zero modulo $2047$ which means that $M_{11}$ is not a prime. In fact, $2047=23 \cdot 89$.
+		\begin{table}
+			\centering
+			\begin{tabular}{|c|c|}
+			\hline
+			$n$ & $S(n) \pmod {2047}$ \\
+			\hline
+			1 & 4 \\
+			\hline
+			2 & 14 \\
+			\hline
+			3 & 194 \\
+			\hline
+			4 & 788 \\
+			\hline
+			5 & 701 \\
+			\hline
+			6 & 119 \\
+			\hline
+			7 & 1877 \\
+			\hline
+			8 & 240 \\
+			\hline
+			9 & 282 \\
+			\hline
+			10 & 1736 \\
+			\hline
+		\end{tabular}
+		\caption{Applying Lucas--Lehmer test to test the primality of $2047$.}
+		\label{table:lucas-lehmer}
+		\end{table}
+	\end{example}
 
-	As the last class of primes, we will mention Proth numbers.
+As the last class of primes, we will mention Proth numbers.
 
-		\begin{definition}
-			Let $k$ and $h$ be positive integers such that $k$ is odd and $k < 2^h$. A number of the form $n=k \cdot 2^h +1$ is called \textit{Proth number} and if it is a prime, it is said to be a \textit{Proth prime}.
-		\end{definition}
+	\begin{definition}
+		Let $k$ and $h$ be positive integers such that $k$ is odd and $k < 2^h$. A number of the form $n=k \cdot 2^h +1$ is called \textit{Proth number} and if it is a prime, it is said to be a \textit{Proth prime}.
+	\end{definition}
 
-	The following primality test for Proth numbers was published by Fran\c cois Proth around $1878$ and is known as Proth's theorem.
+The following primality test for Proth numbers was published by Fran\c cois Proth around $1878$ and is known as Proth's theorem.
 
-		\begin{theorem}[Proth's Primality Test for Proth Numbers]
-			Let $n$ be a Proth number. Then $n$ is prime if an integer $a$ for which
-				\begin{align*}
-					a^{(n-1)/2} \equiv -1 \pmod n
-				\end{align*}
-		\end{theorem}
+	\begin{theorem}[Proth's Primality Test for Proth Numbers]
+		Let $n$ be a Proth number. Then $n$ is prime if an integer $a$ for which
+			\begin{align*}
+				a^{(n-1)/2} \equiv -1 \pmod n
+			\end{align*}
+	\end{theorem}
 
-	We will prove a stronger result in the following lemma which was proposed by Pocklington.
+We will prove a stronger result in the following lemma which was proposed by Pocklington.
 
-		\begin{lemma}
-			Let $a, b$ and $n$  be positive integers such that $0<a \leq b+1$ and $n=ab+1$. Assume that for every prime divisor $p$ of $b$ there exists an integer $x$ for which
-				\begin{align*}
-					x^{n-1} &\equiv 1 \pmod n\\
-					x^{(n-1)/p} &\not \equiv 1 \pmod n
-				\end{align*}
-			Then $n$ is prime.
-		\end{lemma}
+	\begin{lemma}
+		Let $a, b$ and $n$  be positive integers such that $0<a \leq b+1$ and $n=ab+1$. Assume that for every prime divisor $p$ of $b$ there exists an integer $x$ for which
+			\begin{align*}
+				x^{n-1} &\equiv 1 \pmod n\\
+				x^{(n-1)/p} &\not \equiv 1 \pmod n
+			\end{align*}
+		Then $n$ is prime.
+	\end{lemma}
 
-		\begin{proof}
-			Assume on the contrary that $n$ is composite and take the smallest prime factor $q$ of $n$. \autoref{thm:trialdivision} implies that $q \leq \sqrt n$. Let $p$ be a prime factor of $b$. Write $b=p^ks$, where $k\geq 1$ and $s$ are positive integer such that $(s,p)=1$. Let $x$ be an integer which satisfies the given conditions. Then
-					\begin{align}
-						x^{n-1} &\equiv 1 \pmod q\label{eq:proth-eq1}\\
-						x^{(n-1)/p} &\not \equiv 1 \pmod q\label{eq:proth-eq2}
-					\end{align}
-			because $q\mid n$. We claim that $\ord_q(x^a)=b$. To prove the claim, we notice that
-				\begin{align*}
-					\left(x^{a}\right)^b &= x^{ab}\\
-						&= x^{n-1}\\
-						&\equiv 1 \pmod q
-				\end{align*}
-			We must now show that $\left(x^{a}\right)^m \not \equiv 1 \pmod q$ for any integer $0<m<b$. Assume on the contrary that there exists a positive integer $m<b$ such that $x^{ma} \equiv 1 \pmod q$. If $d=\ord_q(x)$, then $d\mid ma$. On the other hand, the congruence relation \eqref{eq:proth-eq1} shows that $d\mid n-1=p^ksa$. This implies $d\mid (ma, p^ksa)$. Suppose that $m=p^lt$. Then
-				\begin{align*}
-					\left(ma, p^ksa\right) &= \left(p^lta, p^ksa\right)\\
-								&= a \left(p^lt, p^ks\right)\\
-								&= a p^{\min(l,k)} (t,s)
-				\end{align*}
+	\begin{proof}
+		Assume on the contrary that $n$ is composite and take the smallest prime factor $q$ of $n$. \autoref{thm:trialdivision} implies that $q \leq \sqrt n$. Let $p$ be a prime factor of $b$. Write $b=p^ks$, where $k\geq 1$ and $s$ are positive integer such that $(s,p)=1$. Let $x$ be an integer which satisfies the given conditions. Then
+				\begin{align}
+					x^{n-1} &\equiv 1 \pmod q\label{eq:proth-eq1}\\
+					x^{(n-1)/p} &\not \equiv 1 \pmod q\label{eq:proth-eq2}
+				\end{align}
+		because $q\mid n$. We claim that $\ord_q(x^a)=b$. To prove the claim, we notice that
+			\begin{align*}
+				\left(x^{a}\right)^b &= x^{ab}\\
+					&= x^{n-1}\\
+					&\equiv 1 \pmod q
+			\end{align*}
+		We must now show that $\left(x^{a}\right)^m \not \equiv 1 \pmod q$ for any integer $0<m<b$. Assume on the contrary that there exists a positive integer $m<b$ such that $x^{ma} \equiv 1 \pmod q$. If $d=\ord_q(x)$, then $d\mid ma$. On the other hand, the congruence relation \eqref{eq:proth-eq1} shows that $d\mid n-1=p^ksa$. This implies $d\mid (ma, p^ksa)$. Suppose that $m=p^lt$. Then
+			\begin{align*}
+				\left(ma, p^ksa\right) &= \left(p^lta, p^ksa\right)\\
+							&= a \left(p^lt, p^ks\right)\\
+							&= a p^{\min(l,k)} (t,s)
+			\end{align*}
 
-			(We have used propositions \eqref{prop:basicgcd} and \eqref{prop:gcdfactorization} in writing second and third lines.) Now, the congruence equation \eqref{eq:proth-eq2} implies that $d \nmid \frac{n-1}{p}=p^{k-1}as$, which is in contradiction with $d\mid a p^{\min(l,k)} (t,s)$. We have thus shown that $\ord_q(x^a)=b$. It follows that $b \leq \varphi(q) = q-1$ and hence,
-				\begin{align*}
-					q^2 &\geq (b+1)^2\\
-						&\geq a(b+1)\\
-						&=ab+a\\
-						&\geq n
-				\end{align*}
-			Since we first chose $q$ so that $q \leq \sqrt n$, all inequalities above must be equalities. In particular, $n=q^2, a=1$, and $a=b+1$, which is a contradiction.
-		\end{proof}
+		(We have used propositions \eqref{prop:basicgcd} and \eqref{prop:gcdfactorization} in writing second and third lines.) Now, the congruence equation \eqref{eq:proth-eq2} implies that $d \nmid \frac{n-1}{p}=p^{k-1}as$, which is in contradiction with $d\mid a p^{\min(l,k)} (t,s)$. We have thus shown that $\ord_q(x^a)=b$. It follows that $b \leq \varphi(q) = q-1$ and hence,
+			\begin{align*}
+				q^2 &\geq (b+1)^2\\
+					&\geq a(b+1)\\
+					&=ab+a\\
+					&\geq n
+			\end{align*}
+		Since we first chose $q$ so that $q \leq \sqrt n$, all inequalities above must be equalities. In particular, $n=q^2, a=1$, and $a=b+1$, which is a contradiction.
+	\end{proof}
 
 
-		\begin{remark}
-			The Proth's theorem is now a special case of above lemma where $a=k$ and $b=2^n$. The converse of Poth's theorem is also true if $x$ is a quadratic non-residue modulo $n$.
-		\end{remark}
+	\begin{remark}
+		The Proth's theorem is now a special case of above lemma where $a=k$ and $b=2^n$. The converse of Poth's theorem is also true if $x$ is a quadratic non-residue modulo $n$.
+	\end{remark}
 
 
 \section{Prime Factorization}
-	Finding prime numbers has been a challenge for mathematicians since very long time ago. Consider the following question:
-		\begin{question}
-			Given a real number $X$, find all primes less than $X$.
-		\end{question}
-	The very first answer to this question dates back to 200 B.C., when \emph{Eratosthenes} developed the \emph{Sieve} method. This method is very simple but it is still used, after 2000 years of its birth! To apply sieve method of finding primes to an integer $n$, we write down all the positive integers less than or equal to $n$. Put aside $1$. The first number in the list is $2$, which we know is a prime. We start by erasing the multiples of $2$ from the list. Let's simulate the process for $X=40$:
-		\begin{center}
-			\begin{tabular}{c c c c c c c c c c}
-				& 2 & 3 & \cancel{4} & 5 & \cancel{6} & 7 & \cancel{8} & 9 & \cancel{10} \\
-				11 & \cancel{12} & 13 & \cancel{14} & 15 & \cancel{16} & 17 & \cancel{18} & 19 & \cancel{20} \\
-				21 & \cancel{22} & 23 & \cancel{24} & 25 & \cancel{26} & 27 & \cancel{28} & 29 & \cancel{30} \\
-				31 & \cancel{32} & 33 & \cancel{34} & 35 & \cancel{36} & 37 & \cancel{38} & 39 & \cancel{40}
-			\end{tabular}
-		\end{center}
-	Now, choose the first number after $2$ in the list. It is $3$, a prime. Erase all multiples of $3$ from the list and choose the next number. The point is that the next number we choose is always a prime because it is not divisible by any integer less than it in the list (otherwise it would have been erased). We continue this method until we find the largest prime less than or equal to $n$. The final list for $n=40$ would look like this:
-		\begin{center}
-			\begin{tabular}{c c c c c c c c c c}
-				& 2 & 3 & \cancel{4} & 5 & \cancel{6} & 7 & \cancel{8} & \cancel{9} & \cancel{10} \\
-				11 & \cancel{12} & 13 & \cancel{14} & \cancel{15} & \cancel{16} & 17 & \cancel{18} & 19 & \cancel{20} \\
-				\cancel{21} & \cancel{22} & 23 & \cancel{24} & \cancel{25} & \cancel{26} & \cancel{27} & \cancel{28} & 29 & \cancel{30} \\
-				31 & \cancel{32} & \cancel{33} & \cancel{34} & \cancel{35} & \cancel{36} & 37 & \cancel{38} & \cancel{39} & \cancel{40}
-			\end{tabular}
-		\end{center}
-	The remaining numbers are primes less than or equal to $n$. In fact, we have \emph{sieved} all the primes in the list, hence the name sieve method. The sieve method is not time efficient specially when $n$ is large (can you find the reason?).
-	\paragraph{An algorithm for Sieve method of prime factorization}
-		\begin{enumerate}[1.]
-			\item Generate the sieve up to $m=\sqrt{n}$.
-			\item Assume that, the primes generated from the sieve are $p_1,\cdots,p_k$.
-			\item For a prime $p_i$ where $1\leq i\leq k$, as long as $p_i\mid n$, set $n^\prime\longleftarrow\dfrac{n^\prime}{p_i}$. The number of times you could divide $n$ by $p_i$ is the exponent of $p_i$ in $n$.
-			\item When $i=k$, stop and check if $n>1$.
-			\item If $n^\prime>1$ then this $n^\prime$ itself is a prime factor of the original $n$ (which we used for factoring at the first step, and it will be decreasing since we keep dividing by a prime if $n$ is composite). And in this case, the exponent will be $1$ (why?).
-		\end{enumerate}
-	The last statement needs a bit clarification. In the steps before that, we divided $n$ by all prime factors of $n$ less than or equal to $m$. Therefore, if all prime factors of $n$ are less than or equal to $m$, the $n$ we will have after all these divisions is $1$, since it is all divided up by $p\leq m$. But if $n^\prime>1$ then we have this $n^\prime>m$, so $n$ can not have two such $n^\prime$. Because the product of two integer greater than $m$ is greater than $m^2$, so greater than $m^2=n$. That would be impossible. Therefore, for the case $n^\prime>1$, $n^\prime$ must be a prime and it would be the largest prime factor of $n$. And if $n^\prime=1$ then the largest $i\leq k$ for which $p_i\mid n$, $p_i$ would be the largest prime factor of $n$.
-\subsection{Fermat's Method of Factorization}
-	Fermat found a method for factorizing odd numbers. The idea behind his method is very simple. Suppose that we want to factorize an integer $n>1$. If we find positive integers $a$ and $b$ such that
-		\begin{align*}
-			n=a^2-b^2
-		\end{align*}
-	and $a-b >1$, then $n=(a-b)(a+b)$ is a proper factorization of $n$. Remember that a proper factorization is one in which neither of the factors are trivial ($1$ or $n$).
-
-	We already know a factorization for even integers $n=2m$ because $2$ is a factor of $n$ in that case. Given an odd positive integer $n$, we try some value of $a$, hoping that $a^2-n$ is a perfect square. If this condition holds, we have found a factorization for $n$. Otherwise, increment $a$ and check again. The point here is that if an odd $n$ is composite, i.e. if $n=cd$ for some odd positive integers $c$ and $d$, then
-		\begin{align*}
-			n = \func{}{\frac{c+d}{2}}^2 - \func{}{\frac{c-d}{2}}^2
-		\end{align*}
-	This means that Fermat's method of factorization always works when $n$ is composite. Fermat's factorization is generally more time efficient than trial division. However, it might be even slower than trial division in some cases.
-	\paragraph{An algorithm for Fermat's method of factorization}
-		\begin{enumerate}[1.]
-			\item Choose $a=\lceil n \rceil$, and put $x=a^2-n$.
-			\item While $x$ is not a perfect square, set $a \longleftarrow a+1$ and compute $x=a^2-n$ for the new $a$.
-			\item If $x$ is a perfect square, $n=(a-\sqrt x)(a+\sqrt x)$ is a factorization for $x$.
-		\end{enumerate}
-
-	\begin{example}
-		We will use Fermat's method of factorization to factorize $n=3589$. Table \ref{table:fermat} shows the steps of the algorithm. We have started from $a=\lceil\sqrt{3589} \rceil=60$ and increase $a$ by $1$ at each step. When $a=67$, we find $x=900$, which is a perfect square. The algorithm stops here and we have
-			\begin{align*}
-				n &= (a-\sqrt x)(a+\sqrt x)\\
-				  &= (67-30)(67+30)\\
-				  &= 37 \cdot 67
-			\end{align*}
-		which is a non-trivial factorization.
-			\begin{table}
-				\centering
-				\begin{tabular}{|c|c|c|c|c|c|c|c| c|}
-					\hline
-					Step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-					\hline
-					$a$ & 60 & 61 & 62 & 63 & 64 & 65 & 66 & 67 \\
-					\hline
-					$x$ & 11 & 132 & 255 & 380 & 507 & 636 & 767 & 900 \\
-					\hline
-					$\sqrt x$ & 3.31 & 11.48 & 15.96 & 19.49 & 22.51 & 25.21 & 27.69 & 30 \\
-					\hline
-				\end{tabular}
-				\caption{Applying Fermat's method of factorization to $3589$.}
-				\label{table:fermat}
-			\end{table}
-	\end{example}
-\subsection{Pollard's Rho Factorization}
-	As already mentioned, prime factorization by sieve method is not time efficient. In fact, most deterministic factorization methods are not. Therefore, we again use probabilistic method. There are two crucial steps for probabilistic factorization methods. This algorithm is due to \textcite{pollard_1975}, \textcite{brent_1980}.
-		\begin{itemize}
-			\item Finding a non-trivial factor of $n$ (that is, a factor other than $1$ and $n$).
-			\item Using a time efficient primality test in order to check if the non-trivial factor $d$ is prime or not. If $d$ is prime, we can just factorize $\dfrac{n}{d}$ only. Otherwise, we can repeat the same process for $d$ and $\dfrac{n}{d}$. Mostly Rabin-Miller test is used widely these days.
-		\end{itemize}
-	Randomized tests vary mainly on the first step. Finding the non-trivial factor is the crucial step here. Here we discuss Pollard's method to find such a factor.
-
-	Let $n>1$ be the composite integer which we want to factorize. Consider the following sequence:
-		\begin{align*}
-			x_0 &= c\\
-			x_{i+1} &\equiv g(x_i) \pmod n
-		\end{align*}
-	Here, $g(x)$ is a polynomial with integer coefficients. Notice that this sequence will eventually become periodic. That is, there exists a positive integer $T$ such that $x_i \equiv x_{i+T} \pmod n$ for all $i\geq i_0\geq 0$, where $i_0$ is some integer. The reason is that there are exactly $n$ residues modulo $n$ and the sequence is infinite, so by pigeonhole principle, there are two terms $x_i$ and $x_j$ (with $j>i$) of the sequence for which $x_i \equiv x_j \pmod n$. Suppose that $g(x)=a_nx^n+a_{n-1}x^{n-1} + \cdots + a_1x+a_0$, where $a_0, a_1, \ldots, a_n$ are integers. Then
-		\begin{align*}
-			x_{i+1} &\equiv g(x_i) \\
-					&= a_nx_i^n+a_{n-1}x_i^{n-1} + \cdots + a_1x_i+a_0 \\
-	 			    &\equiv a_nx_j^n+a_{n-1}x_j^{n-1} + \cdots + a_1x_j+a_0\\
-					&= g(x_j) \\
-					&\equiv x_{j+1} \pmod n
-		\end{align*}
-	therefore $x_{i+k} \equiv x_{j+k} \pmod n $ for any $k$. Thus $T=j-i$ is the period of the sequence. It is clear now that $T \leq n$.
-
-	The only thing that needs clarification is how to choose $g(x)$ and $x_0$. It has been practically shown that taking $g(x)=x^2+a$ (for some integer $a$) is a good choice for finding a non-trivial factor quickly.
-	In $1975$, John Pollard developed \emph{Pollard's rho method of factorization} which takes $g(x)=x^2-1$ and $x_0=2$. \footnote{It was later found out that $g(x)=x^2+1$ usually work for almost all the cases.}
-
-	Here is how Pollard's rho method of factorization work: assume that $n=st$, where $s$ and $t$ are unknown factors of $n$ such that $t>s>1$. Suppose that we have found integers $j>i\geq 0$ such that $x_i \equiv x_j \pmod s$ but $x_i \not \equiv x_j \pmod n$. Since $s$ divides both $n$ and $x_i-x_j$, it must also divide $(x_i-x_j, n)$. So $(x_i-x_j, n) \geq s >1$. On the other hand, $(x_i-x_j, n)$ is a factor of $n$ and since it is larger than $1$, it is a proper factor of $n$ (it is not equal to $1$ or $n$). This means that we have found $(x_i-x_j, n)$ to be a factor of $n$.
-
-	So the problem now reduces to find indices $j>i \geq 0$ such that $x_i \equiv x_j \pmod s$ but $x_i \not \equiv x_j \pmod n$. Pollard suggested that we take $i=k$ and $j=2k$ for $k=1,2,\ldots, n$. You will see why in the following lines.
-
-	When we first discussed the periodicity of the sequence, we showed that the sequence is periodic modulo $n$. However, one can show using Chinese Remainder Theorem that the sequence is also periodic modulo $s$ (why?). Assume that the sequence will be periodic modulo $s$ after $x_{i_0}$ with period $T$. Select an index $k \geq i_0$ such that $T\mid k$. Then obviously $T\mid 2k$ and because of the periodicity, $x_{k} \equiv x_{2k} \pmod s$. But now how do we know that $x_{k} \not \equiv x_{2k} \pmod n$. We don't know that for sure. There is just a likelihood that it will happen. The reason for this is that the sequence $\{x_i \pmod s\}_{i=0}^{\infty}$ is periodic modulo $T$, and as proved above, we have $T \leq s$. Similarly, the sequence $\{x_i \pmod n\}_{i=0}^{\infty}$ is periodic with a period $T^{\prime} \leq n$. Now, since $s$ is a divisor of $n$, we have $s \leq n$ so that the maximum value of period of the first sequence is smaller than that of the second sequence. Because of this, it is likely that $T<T^{\prime}$. If this latter condition holds and we have $x_{k}\equiv x_{2k} \pmod s$, then we can deduce that $x_k \not \equiv x_{2k} \pmod n$, which is what we were searching for.
-
-	You might ask now what happens if the given condition, $T<T^{\prime}$, does \textit{not} hold? Well, in that case, you cannot factorize $n$ using Pollard's method. In such cases, it is usual to change the polynomial $g(x)$ or the initial value $x_0$ and then apply the method.
-
-
-	To summarize, in Pollard's rho factorization method, starting with $i=1$, we check if $\gcd(x_{2i} - x_{i}, n)$ is a factor of $n$. If it is, we have found a factor for $n$. If not, increment $i$ and repeat the process. It is possible that we do not find any factor for $n$ (even if $n$ is composite) and the process does not terminate in such cases, as explained above.
-\paragraph{An algorithm for Pollard's Rho method of prime factorization}
+Finding prime numbers has been a challenge for mathematicians since very long time ago. Consider the following question:
+	\begin{question}
+		Given a real number $X$, find all primes less than $X$.
+	\end{question}
+The very first answer to this question dates back to 200 B.C., when \emph{Eratosthenes} developed the \emph{Sieve} method. This method is very simple but it is still used, after 2000 years of its birth! To apply sieve method of finding primes to an integer $n$, we write down all the positive integers less than or equal to $n$. Put aside $1$. The first number in the list is $2$, which we know is a prime. We start by erasing the multiples of $2$ from the list. Let's simulate the process for $X=40$:
+	\begin{center}
+		\begin{tabular}{c c c c c c c c c c}
+			& 2 & 3 & \cancel{4} & 5 & \cancel{6} & 7 & \cancel{8} & 9 & \cancel{10} \\
+			11 & \cancel{12} & 13 & \cancel{14} & 15 & \cancel{16} & 17 & \cancel{18} & 19 & \cancel{20} \\
+			21 & \cancel{22} & 23 & \cancel{24} & 25 & \cancel{26} & 27 & \cancel{28} & 29 & \cancel{30} \\
+			31 & \cancel{32} & 33 & \cancel{34} & 35 & \cancel{36} & 37 & \cancel{38} & 39 & \cancel{40}
+		\end{tabular}
+	\end{center}
+Now, choose the first number after $2$ in the list. It is $3$, a prime. Erase all multiples of $3$ from the list and choose the next number. The point is that the next number we choose is always a prime because it is not divisible by any integer less than it in the list (otherwise it would have been erased). We continue this method until we find the largest prime less than or equal to $n$. The final list for $n=40$ would look like this:
+	\begin{center}
+		\begin{tabular}{c c c c c c c c c c}
+			& 2 & 3 & \cancel{4} & 5 & \cancel{6} & 7 & \cancel{8} & \cancel{9} & \cancel{10} \\
+			11 & \cancel{12} & 13 & \cancel{14} & \cancel{15} & \cancel{16} & 17 & \cancel{18} & 19 & \cancel{20} \\
+			\cancel{21} & \cancel{22} & 23 & \cancel{24} & \cancel{25} & \cancel{26} & \cancel{27} & \cancel{28} & 29 & \cancel{30} \\
+			31 & \cancel{32} & \cancel{33} & \cancel{34} & \cancel{35} & \cancel{36} & 37 & \cancel{38} & \cancel{39} & \cancel{40}
+		\end{tabular}
+	\end{center}
+The remaining numbers are primes less than or equal to $n$. In fact, we have \emph{sieved} all the primes in the list, hence the name sieve method. The sieve method is not time efficient specially when $n$ is large (can you find the reason?).
+\paragraph{An algorithm for Sieve method of prime factorization}
 	\begin{enumerate}[1.]
-		\item Set $x_0=2$ and form the sequence $x_{i+1} \equiv x_i^2 -1 \pmod n$ for $i=0,1,2,\ldots, n$.
-		\item Compute $d_k=(x_i-x_{2i}, n)$ for $i=1,2,\ldots, n$. If $d_i \neq 1$ and $n$, stop. Now $d_i$ is a factor of $n$.
-		\item If $d_i$ is either $1$ or $n$ for all $k$, the algorithm does not work.
+		\item Generate the sieve up to $m=\sqrt{n}$.
+		\item Assume that, the primes generated from the sieve are $p_1,\cdots,p_k$.
+		\item For a prime $p_i$ where $1\leq i\leq k$, as long as $p_i\mid n$, set $n^\prime\longleftarrow\dfrac{n^\prime}{p_i}$. The number of times you could divide $n$ by $p_i$ is the exponent of $p_i$ in $n$.
+		\item When $i=k$, stop and check if $n>1$.
+		\item If $n^\prime>1$ then this $n^\prime$ itself is a prime factor of the original $n$ (which we used for factoring at the first step, and it will be decreasing since we keep dividing by a prime if $n$ is composite). And in this case, the exponent will be $1$ (why?).
+	\end{enumerate}
+The last statement needs a bit clarification. In the steps before that, we divided $n$ by all prime factors of $n$ less than or equal to $m$. Therefore, if all prime factors of $n$ are less than or equal to $m$, the $n$ we will have after all these divisions is $1$, since it is all divided up by $p\leq m$. But if $n^\prime>1$ then we have this $n^\prime>m$, so $n$ can not have two such $n^\prime$. Because the product of two integer greater than $m$ is greater than $m^2$, so greater than $m^2=n$. That would be impossible. Therefore, for the case $n^\prime>1$, $n^\prime$ must be a prime and it would be the largest prime factor of $n$. And if $n^\prime=1$ then the largest $i\leq k$ for which $p_i\mid n$, $p_i$ would be the largest prime factor of $n$.
+\subsection{Fermat's Method of Factorization}
+Fermat found a method for factorizing odd numbers. The idea behind his method is very simple. Suppose that we want to factorize an integer $n>1$. If we find positive integers $a$ and $b$ such that
+	\begin{align*}
+		n=a^2-b^2
+	\end{align*}
+and $a-b >1$, then $n=(a-b)(a+b)$ is a proper factorization of $n$. Remember that a proper factorization is one in which neither of the factors are trivial ($1$ or $n$).
+
+We already know a factorization for even integers $n=2m$ because $2$ is a factor of $n$ in that case. Given an odd positive integer $n$, we try some value of $a$, hoping that $a^2-n$ is a perfect square. If this condition holds, we have found a factorization for $n$. Otherwise, increment $a$ and check again. The point here is that if an odd $n$ is composite, i.e. if $n=cd$ for some odd positive integers $c$ and $d$, then
+	\begin{align*}
+		n = \func{}{\frac{c+d}{2}}^2 - \func{}{\frac{c-d}{2}}^2
+	\end{align*}
+This means that Fermat's method of factorization always works when $n$ is composite. Fermat's factorization is generally more time efficient than trial division. However, it might be even slower than trial division in some cases.
+\paragraph{An algorithm for Fermat's method of factorization}
+	\begin{enumerate}[1.]
+		\item Choose $a=\lceil n \rceil$, and put $x=a^2-n$.
+		\item While $x$ is not a perfect square, set $a \longleftarrow a+1$ and compute $x=a^2-n$ for the new $a$.
+		\item If $x$ is a perfect square, $n=(a-\sqrt x)(a+\sqrt x)$ is a factorization for $x$.
 	\end{enumerate}
 
-	\begin{example}
-		Let us factorize $n=391$ using Pollard's Rho algorithm. The process is shown in table \ref{table:pollard}. In $10^{th}$ step, where $(\mid x_{2i}-x_i\mid , 391)$ is $23$, we find that $23$ is a factor of $n$ (and indeed it is: $391=23\times 17$). We just stopped the algorithm after that step because we have factorized $391$. However, we have written the value of $x_i$ for $11$th step so that you can observe the periodicity of $x_i$ modulo $391$. As illustrated in the table, $x_7 \equiv x_{11} \equiv 46 \pmod{391}$. Now, if you look at the computed values of $x_k$ modulo $23$, you will see that for $j \geq 7$, $x_j \equiv x_{j+2} \pmod{23}$. In terms of our previous definitions, $T=2, i_0=7$, and $k=10$. Observe that we cannot choose $k=8$ because then $x_{2k}-x_k$ is zero, which is divisible by both $23$ and $391$. Therefore we choose $k=10$ so that $x_k - x_{2k}\equiv 0\pmod{23}$ but $x_k - x_{2k}\equiv 69 \not \equiv 0\pmod{391}$.
-
-			\begin{table}
-					\centering
-				\begin{tabular}{|c|c|c| c|}
-					\hline
-					$i$ & $x_i$ & $\mid x_{2i}-x_i\mid  \pmod{391}$ & $(\mid x_{2i}-x_i\mid , 391)$ \\
-					\hline
-					1 & 3 & 5 & 1 \\
-					\hline
-					2 & 8 & 50 & 1 \\
-					\hline
-					3 & 63 & 30 & 1 \\
-					\hline
-					4 & 58 & 102 & 1 \\
-					\hline
-					5 & 235 & 6 & 1 \\
-					\hline
-					6 & 93 & 67 & 1 \\
-					\hline
-					7 & \textit{46} & 160 & 1 \\
-					\hline
-					8 & 160 & 0 & 0 \\
-					\hline
-					9 & 184 & 45 & 1 \\
-					\hline
-					10 & 229 & 69 & \textit{23} \\
-					\hline
-					11 & \textit{46} & \text{Whatever}&\text{Whatever} \\
-					\hline
-				\end{tabular}
-				\caption{Applying Pollard's rho method to factorize $391$.}
-				\label{table:pollard}
+\begin{example}
+	We will use Fermat's method of factorization to factorize $n=3589$. Table \ref{table:fermat} shows the steps of the algorithm. We have started from $a=\lceil\sqrt{3589} \rceil=60$ and increase $a$ by $1$ at each step. When $a=67$, we find $x=900$, which is a perfect square. The algorithm stops here and we have
+		\begin{align*}
+			n &= (a-\sqrt x)(a+\sqrt x)\\
+	  &= (67-30)(67+30)\\
+	  &= 37 \cdot 67
+		\end{align*}
+	which is a non-trivial factorization.
+		\begin{table}
+			\centering
+			\begin{tabular}{|c|c|c|c|c|c|c|c| c|}
+				\hline
+				Step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+				\hline
+				$a$ & 60 & 61 & 62 & 63 & 64 & 65 & 66 & 67 \\
+				\hline
+				$x$ & 11 & 132 & 255 & 380 & 507 & 636 & 767 & 900 \\
+				\hline
+				$\sqrt x$ & 3.31 & 11.48 & 15.96 & 19.49 & 22.51 & 25.21 & 27.69 & 30 \\
+				\hline
+			\end{tabular}
+			\caption{Applying Fermat's method of factorization to $3589$.}
+			\label{table:fermat}
 		\end{table}
-	\end{example}
-The next example, taken from Patrick Stein's website, takes a different polynomial $g(x)$ and initial value $x_0$ in Pollard's rho method.
-	\begin{example}
-		We will factorize a much larger integer $n=16843009$. This time, we take $g(x)=1024x^2+32767$ and $x_0=1$. Table \ref{table:pollardmodified} shows the steps. As you see in the table, at $9^{th}$ step we find $257$ to be a factor of $n$ and the factorization is done:
-			\begin{align*}
-				16843009 = 257 \cdot 65537
-			\end{align*}
-		$65537$ is a prime number and it equals $2^{2^{4}}+1$. Primes of the form $2^{2^n}+1$ are called \textit{Fermat primes}, and the largest known such prime is $65537$.
+\end{example}
+\subsection{Pollard's Rho Factorization}
+As already mentioned, prime factorization by sieve method is not time efficient. In fact, most deterministic factorization methods are not. Therefore, we again use probabilistic method. There are two crucial steps for probabilistic factorization methods. This algorithm is due to \textcite{pollard_1975}, \textcite{brent_1980}.
+	\begin{itemize}
+		\item Finding a non-trivial factor of $n$ (that is, a factor other than $1$ and $n$).
+		\item Using a time efficient primality test in order to check if the non-trivial factor $d$ is prime or not. If $d$ is prime, we can just factorize $\dfrac{n}{d}$ only. Otherwise, we can repeat the same process for $d$ and $\dfrac{n}{d}$. Mostly Rabin-Miller test is used widely these days.
+	\end{itemize}
+Randomized tests vary mainly on the first step. Finding the non-trivial factor is the crucial step here. Here we discuss Pollard's method to find such a factor.
+
+Let $n>1$ be the composite integer which we want to factorize. Consider the following sequence:
+	\begin{align*}
+		x_0 &= c\\
+		x_{i+1} &\equiv g(x_i) \pmod n
+	\end{align*}
+Here, $g(x)$ is a polynomial with integer coefficients. Notice that this sequence will eventually become periodic. That is, there exists a positive integer $T$ such that $x_i \equiv x_{i+T} \pmod n$ for all $i\geq i_0\geq 0$, where $i_0$ is some integer. The reason is that there are exactly $n$ residues modulo $n$ and the sequence is infinite, so by pigeonhole principle, there are two terms $x_i$ and $x_j$ (with $j>i$) of the sequence for which $x_i \equiv x_j \pmod n$. Suppose that $g(x)=a_nx^n+a_{n-1}x^{n-1} + \cdots + a_1x+a_0$, where $a_0, a_1, \ldots, a_n$ are integers. Then
+	\begin{align*}
+		x_{i+1} &\equiv g(x_i) \\
+				&= a_nx_i^n+a_{n-1}x_i^{n-1} + \cdots + a_1x_i+a_0 \\
+	    &\equiv a_nx_j^n+a_{n-1}x_j^{n-1} + \cdots + a_1x_j+a_0\\
+				&= g(x_j) \\
+				&\equiv x_{j+1} \pmod n
+	\end{align*}
+therefore $x_{i+k} \equiv x_{j+k} \pmod n $ for any $k$. Thus $T=j-i$ is the period of the sequence. It is clear now that $T \leq n$.
+
+The only thing that needs clarification is how to choose $g(x)$ and $x_0$. It has been practically shown that taking $g(x)=x^2+a$ (for some integer $a$) is a good choice for finding a non-trivial factor quickly.
+In $1975$, John Pollard developed \emph{Pollard's rho method of factorization} which takes $g(x)=x^2-1$ and $x_0=2$. \footnote{It was later found out that $g(x)=x^2+1$ usually work for almost all the cases.}
+
+Here is how Pollard's rho method of factorization work: assume that $n=st$, where $s$ and $t$ are unknown factors of $n$ such that $t>s>1$. Suppose that we have found integers $j>i\geq 0$ such that $x_i \equiv x_j \pmod s$ but $x_i \not \equiv x_j \pmod n$. Since $s$ divides both $n$ and $x_i-x_j$, it must also divide $(x_i-x_j, n)$. So $(x_i-x_j, n) \geq s >1$. On the other hand, $(x_i-x_j, n)$ is a factor of $n$ and since it is larger than $1$, it is a proper factor of $n$ (it is not equal to $1$ or $n$). This means that we have found $(x_i-x_j, n)$ to be a factor of $n$.
+
+So the problem now reduces to find indices $j>i \geq 0$ such that $x_i \equiv x_j \pmod s$ but $x_i \not \equiv x_j \pmod n$. Pollard suggested that we take $i=k$ and $j=2k$ for $k=1,2,\ldots, n$. You will see why in the following lines.
+
+When we first discussed the periodicity of the sequence, we showed that the sequence is periodic modulo $n$. However, one can show using Chinese Remainder Theorem that the sequence is also periodic modulo $s$ (why?). Assume that the sequence will be periodic modulo $s$ after $x_{i_0}$ with period $T$. Select an index $k \geq i_0$ such that $T\mid k$. Then obviously $T\mid 2k$ and because of the periodicity, $x_{k} \equiv x_{2k} \pmod s$. But now how do we know that $x_{k} \not \equiv x_{2k} \pmod n$. We don't know that for sure. There is just a likelihood that it will happen. The reason for this is that the sequence $\{x_i \pmod s\}_{i=0}^{\infty}$ is periodic modulo $T$, and as proved above, we have $T \leq s$. Similarly, the sequence $\{x_i \pmod n\}_{i=0}^{\infty}$ is periodic with a period $T^{\prime} \leq n$. Now, since $s$ is a divisor of $n$, we have $s \leq n$ so that the maximum value of period of the first sequence is smaller than that of the second sequence. Because of this, it is likely that $T<T^{\prime}$. If this latter condition holds and we have $x_{k}\equiv x_{2k} \pmod s$, then we can deduce that $x_k \not \equiv x_{2k} \pmod n$, which is what we were searching for.
+
+You might ask now what happens if the given condition, $T<T^{\prime}$, does \textit{not} hold? Well, in that case, you cannot factorize $n$ using Pollard's method. In such cases, it is usual to change the polynomial $g(x)$ or the initial value $x_0$ and then apply the method.
+
+
+To summarize, in Pollard's rho factorization method, starting with $i=1$, we check if $\gcd(x_{2i} - x_{i}, n)$ is a factor of $n$. If it is, we have found a factor for $n$. If not, increment $i$ and repeat the process. It is possible that we do not find any factor for $n$ (even if $n$ is composite) and the process does not terminate in such cases, as explained above.
+\paragraph{An algorithm for Pollard's Rho method of prime factorization}
+\begin{enumerate}[1.]
+	\item Set $x_0=2$ and form the sequence $x_{i+1} \equiv x_i^2 -1 \pmod n$ for $i=0,1,2,\ldots, n$.
+	\item Compute $d_k=(x_i-x_{2i}, n)$ for $i=1,2,\ldots, n$. If $d_i \neq 1$ and $n$, stop. Now $d_i$ is a factor of $n$.
+	\item If $d_i$ is either $1$ or $n$ for all $k$, the algorithm does not work.
+\end{enumerate}
+
+\begin{example}
+	Let us factorize $n=391$ using Pollard's Rho algorithm. The process is shown in table \ref{table:pollard}. In $10^{th}$ step, where $(\mid x_{2i}-x_i\mid , 391)$ is $23$, we find that $23$ is a factor of $n$ (and indeed it is: $391=23\times 17$). We just stopped the algorithm after that step because we have factorized $391$. However, we have written the value of $x_i$ for $11$th step so that you can observe the periodicity of $x_i$ modulo $391$. As illustrated in the table, $x_7 \equiv x_{11} \equiv 46 \pmod{391}$. Now, if you look at the computed values of $x_k$ modulo $23$, you will see that for $j \geq 7$, $x_j \equiv x_{j+2} \pmod{23}$. In terms of our previous definitions, $T=2, i_0=7$, and $k=10$. Observe that we cannot choose $k=8$ because then $x_{2k}-x_k$ is zero, which is divisible by both $23$ and $391$. Therefore we choose $k=10$ so that $x_k - x_{2k}\equiv 0\pmod{23}$ but $x_k - x_{2k}\equiv 69 \not \equiv 0\pmod{391}$.
+
 		\begin{table}
 				\centering
-				\begin{tabular}{|c|c|c|c|}
-					\hline
-					$i$ & $x_i$ & $\mid x_{2i}-x_i\mid  \pmod{16843009}$ & $(\mid x_{2i}-x_i\mid , 16843009)$ \\
-					\hline
-					1 & 33791 & 10798549 & 1 \\
-					\hline
-					2 & 10832340 & 6592485 & 1 \\
-					\hline
-					3 & 12473782 & 508279 & 1 \\
-					\hline
-					4 & 4239855 & 893857 & 1 \\
-					\hline
-					5 & 309274 & 5203404 & 1 \\
-					\hline
-					6 & 11965503 & 7424857 & 1 \\
-					\hline
-					7 & 15903688 & 1657047 & 1 \\
-					\hline
-					8 & 3345998 & 15737239 & 1 \\
-					\hline
-					9 & 2476108 & 15298182 & 257 \\
+			\begin{tabular}{|c|c|c| c|}
+				\hline
+				$i$ & $x_i$ & $\mid x_{2i}-x_i\mid  \pmod{391}$ & $(\mid x_{2i}-x_i\mid , 391)$ \\
+				\hline
+				1 & 3 & 5 & 1 \\
+				\hline
+				2 & 8 & 50 & 1 \\
+				\hline
+				3 & 63 & 30 & 1 \\
+				\hline
+				4 & 58 & 102 & 1 \\
+				\hline
+				5 & 235 & 6 & 1 \\
+				\hline
+				6 & 93 & 67 & 1 \\
+				\hline
+				7 & \textit{46} & 160 & 1 \\
+				\hline
+				8 & 160 & 0 & 0 \\
+				\hline
+				9 & 184 & 45 & 1 \\
+				\hline
+				10 & 229 & 69 & \textit{23} \\
+				\hline
+				11 & \textit{46} & \text{Whatever}&\text{Whatever} \\
+				\hline
+			\end{tabular}
+			\caption{Applying Pollard's rho method to factorize $391$.}
+			\label{table:pollard}
+	\end{table}
+\end{example}
+The next example, taken from Patrick Stein's website, takes a different polynomial $g(x)$ and initial value $x_0$ in Pollard's rho method.
+\begin{example}
+	We will factorize a much larger integer $n=16843009$. This time, we take $g(x)=1024x^2+32767$ and $x_0=1$. Table \ref{table:pollardmodified} shows the steps. As you see in the table, at $9^{th}$ step we find $257$ to be a factor of $n$ and the factorization is done:
+		\begin{align*}
+			16843009 = 257 \cdot 65537
+		\end{align*}
+	$65537$ is a prime number and it equals $2^{2^{4}}+1$. Primes of the form $2^{2^n}+1$ are called \textit{Fermat primes}, and the largest known such prime is $65537$.
+	\begin{table}
+			\centering
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				$i$ & $x_i$ & $\mid x_{2i}-x_i\mid  \pmod{16843009}$ & $(\mid x_{2i}-x_i\mid , 16843009)$ \\
+				\hline
+				1 & 33791 & 10798549 & 1 \\
+				\hline
+				2 & 10832340 & 6592485 & 1 \\
+				\hline
+				3 & 12473782 & 508279 & 1 \\
+				\hline
+				4 & 4239855 & 893857 & 1 \\
+				\hline
+				5 & 309274 & 5203404 & 1 \\
+				\hline
+				6 & 11965503 & 7424857 & 1 \\
+				\hline
+				7 & 15903688 & 1657047 & 1 \\
+				\hline
+				8 & 3345998 & 15737239 & 1 \\
+				\hline
+				9 & 2476108 & 15298182 & 257 \\
 %					\hline
 %					10 & 11948879 &  &  \\
 %					\hline
@@ -1201,133 +1198,131 @@ The next example, taken from Patrick Stein's website, takes a different polynomi
 %					33 & 2865133 & & \\
 %					\hline
 %					34 & 14284588 & & \\
-					\hline
-				\end{tabular}
-				\caption{Applying Pollard's rho method to factorize $16843009$.}
-				\label{table:pollardmodified}
-		\end{table}
-	\end{example}
+				\hline
+			\end{tabular}
+			\caption{Applying Pollard's rho method to factorize $16843009$.}
+			\label{table:pollardmodified}
+	\end{table}
+\end{example}
 
 \newpage
 \section{Exercises}
 
-	\begin{problem}
-		Let $n \geq 1$ be an integer. Show that $\psi(2n) >n \ln 2$.
-	\end{problem}
+\begin{problem}
+	Let $n \geq 1$ be an integer. Show that $\psi(2n) >n \ln 2$.
+\end{problem}
 
-	\begin{hint}
-		Use proposition \eqref{prop:chebyshevpsiinequality} and the fact that
+\begin{hint}
+	Use proposition \eqref{prop:chebyshevpsiinequality} and the fact that
+		\begin{align*}
+			\binom{2n}{n}
+				& \leq \prod_{p \leq 2n} p^{\lfloor\ln 2n/\ln p\rfloor }
+		\end{align*}
+\end{hint}
+
+\begin{problem}
+	Find a formula for the number of square-free numbers less than $x$ for a real number $x$. Recall that, a natural number $n$ is square-free if $n$ does not have any factor that is perfect square other than $1$. Can you represent this formula using \textit{M\" obius function} as well?
+\end{problem}
+
+\begin{problem}
+	Show that $8081, 31627,$ and $65537$ are all primes.
+\end{problem}
+\begin{hint}
+	Take $a=2$ or $3$ and use Pocklington's theorem.
+\end{hint}
+
+\begin{problem}
+	$ $
+	\begin{enumerate}
+		\item Let $m,n$, and $k$ be non-negative integers such that $m>1$. Prove that at least one of the numbers
 			\begin{align*}
-				\binom{2n}{n}
-					& \leq \prod_{p \leq 2n} p^{\lfloor\ln 2n/\ln p\rfloor }
+				\binom{n}{k}, \binom{n+1}{k}, \ldots,\binom{n+k}{k}
 			\end{align*}
-	\end{hint}
+	 is not divisible by $m$.
+	 \item Let $k$ and $m$ be positive integers such that $m>1$. Show that there are infinitely many positive integers $n$ such that
+		 \begin{align*}
+			 \binom{n}{k}, \binom{n+1}{k}, \ldots, \binom{n+k-1}{k}
+		 \end{align*}
+	 are all divisible by $m$.
+	\end{enumerate}
+\end{problem}
 
-	\begin{problem}
-		Find a formula for the number of square-free numbers less than $x$ for a real number $x$. Recall that, a natural number $n$ is square-free if $n$ does not have any factor that is perfect square other than $1$. Can you represent this formula using \textit{M\" obius function} as well?
-	\end{problem}
+\begin{hint}
+	Use Kummer's theorem to construct the solution.
+\end{hint}
 
-	\begin{problem}
-		Show that $8081, 31627,$ and $65537$ are all primes.
-	\end{problem}
-	\begin{hint}
-		Take $a=2$ or $3$ and use Pocklington's theorem.
-	\end{hint}
+\begin{problem}
+	Let $k$ and $n$ be positive integers such that $0<k\leq n$ and let $p$ be a prime such that $p \nmid n+1$. Prove that if $p\nmid\binom{n}{k}$, then $p \nmid\binom{n+1}{k}$.
+\end{problem}
 
-	\begin{problem}
-		$ $
-		\begin{enumerate}
-			\item Let $m,n$, and $k$ be non-negative integers such that $m>1$. Prove that at least one of the numbers
-				\begin{align*}
-					\binom{n}{k}, \binom{n+1}{k}, \ldots,\binom{n+k}{k}
-				\end{align*}
-			 is not divisible by $m$.
-			 \item Let $k$ and $m$ be positive integers such that $m>1$. Show that there are infinitely many positive integers $n$ such that
-				 \begin{align*}
-					 \binom{n}{k}, \binom{n+1}{k}, \ldots, \binom{n+k-1}{k}
-				 \end{align*}
-			 are all divisible by $m$.
-		\end{enumerate}
-	\end{problem}
-
-	\begin{hint}
-		Use Kummer's theorem to construct the solution.
-	\end{hint}
-
-	\begin{problem}
-		Let $k$ and $n$ be positive integers such that $0<k\leq n$ and let $p$ be a prime such that $p \nmid n+1$. Prove that if $p\nmid\binom{n}{k}$, then $p \nmid\binom{n+1}{k}$.
-	\end{problem}
-
-	\begin{problem}
-		Let $m$ and $n$ be positive integers. Suppose that the binary representation of $m$ and $n$ is
-			\begin{align*}
-				m   &= 2^km_k+2^{k-1}m_{k-1}+\cdots +2m_1+m_0\\
-				n   &= 2^kn_k+2^{k-1}n_{k-1}+\cdots +2n_1+n_0
-			\end{align*}
-		Show that if $\binom{m}{n}$ is odd, then
-			\begin{align*}
-				\binom{m}{n}
-					& \equiv \prod_{i=1}^{k} (-1)^{n_{i-1}m_i+n_im_{i-1}} \pmod 4
-			\end{align*}
-	\end{problem}
+\begin{problem}
+	Let $m$ and $n$ be positive integers. Suppose that the binary representation of $m$ and $n$ is
+		\begin{align*}
+			m   &= 2^km_k+2^{k-1}m_{k-1}+\cdots +2m_1+m_0\\
+			n   &= 2^kn_k+2^{k-1}n_{k-1}+\cdots +2n_1+n_0
+		\end{align*}
+	Show that if $\binom{m}{n}$ is odd, then
+		\begin{align*}
+			\binom{m}{n}
+				& \equiv \prod_{i=1}^{k} (-1)^{n_{i-1}m_i+n_im_{i-1}} \pmod 4
+		\end{align*}
+\end{problem}
 
 
 \section{Open Questions In Primes}
-	\begin{conjecture}[Twin Prime Conjecture]
-		There exists infinitely many primes $p$ so that $p+2$ is a prime too.
-	\end{conjecture}
+\begin{conjecture}[Twin Prime Conjecture]
+	There exists infinitely many primes $p$ so that $p+2$ is a prime too.
+\end{conjecture}
 
-	\begin{conjecture}[Goldbach's Conjecture]
-		For all even number $n$ greater than $4$, $n$ is a sum of two primes.
-	\end{conjecture}
+\begin{conjecture}[Goldbach's Conjecture]
+	For all even number $n$ greater than $4$, $n$ is a sum of two primes.
+\end{conjecture}
 
-	\begin{conjecture}[Legendre's conjecture]\label{open:legendre}
-		There exists a prime between $n^2$ and $(n+1)^2$.
-	\end{conjecture}
+\begin{conjecture}[Legendre's conjecture]\label{open:legendre}
+	There exists a prime between $n^2$ and $(n+1)^2$.
+\end{conjecture}
 
-	\textit{Adway Mitra} conjectured an improvement over this, which is known as the improved version of Legendre's conjecture.
-	\begin{conjecture}
-		There always exists at least two primes in the interval $[n^2,(n+1)^2]$.
-	\end{conjecture}
+\textit{Adway Mitra} conjectured an improvement over this, which is known as the improved version of Legendre's conjecture.
+\begin{conjecture}
+	There always exists at least two primes in the interval $[n^2,(n+1)^2]$.
+\end{conjecture}
 
-	Another variation was proposed by \textit{Oppermann}.
-	\begin{conjecture}[Oppermann's Conjecture]
-		For all integer $x>1$, there exists at least one prime between $x(x-1)$ and $x^2$ and another prime between $x^2$ and $x(x+1)$.
-	\end{conjecture}
-	An improved version was conjectured by Brocard.
-	\begin{conjecture}[Brocard's conjecture]\label{open:brocard}
-		There exists at least $4$ primes between $p_n^2$ and $p_{n+1}^2$ where $p_n$ is the $n$th prime number.
-	\end{conjecture}
-	Andrica's inequality is worthy of mentioning while we are on the subject.
-	\begin{conjecture}[Andrica's Inequality]
-		For all $n\geq1$,
+Another variation was proposed by \textit{Oppermann}.
+\begin{conjecture}[Oppermann's Conjecture]
+	For all integer $x>1$, there exists at least one prime between $x(x-1)$ and $x^2$ and another prime between $x^2$ and $x(x+1)$.
+\end{conjecture}
+An improved version was conjectured by Brocard.
+\begin{conjecture}[Brocard's conjecture]\label{open:brocard}
+	There exists at least $4$ primes between $p_n^2$ and $p_{n+1}^2$ where $p_n$ is the $n$th prime number.
+\end{conjecture}
+Andrica's inequality is worthy of mentioning while we are on the subject.
+\begin{conjecture}[Andrica's Inequality]
+	For all $n\geq1$,
+	\begin{align*}
+	\sqrt{p_{n+1}}-\sqrt{p_n} & < 1
+	\end{align*}
+\end{conjecture}
+
+\begin{conjecture}[$n^2+1$ Problem]
+	Does there exist infinitely primes of the form $n^2+1$?
+\end{conjecture}
+
+\begin{conjecture}[Polignac Conjecture]
+	For every even integer $2n$ are there infinitely many pairs of consecutive primes which differ by $2n$.
+\end{conjecture}
+
+\begin{conjecture}[Sophie Germain Primes]
+	A prime is called a \textit{Sophie Germain prime} if $2p+1$ is a prime too. Does there exist infinitely many Sophie Germain primes?
+\end{conjecture}
+
+\begin{conjecture}[Mersenne Prime Problem]
+	Is the number of Mersenne primes infinite?
+\end{conjecture}
+
+
+\begin{conjecture}[Rassias Conjecture]
+	For a prime $p>2$, there exists two primes $p_1,p_2$ such that,
 		\begin{align*}
-		\sqrt{p_{n+1}}-\sqrt{p_n} & < 1
+			p & = \dfrac{p_1+p_2+1}{p_1}
 		\end{align*}
-	\end{conjecture}
-
-	\begin{conjecture}[$n^2+1$ Problem]
-		Does there exist infinitely primes of the form $n^2+1$?
-	\end{conjecture}
-
-	\begin{conjecture}[Polignac Conjecture]
-		For every even integer $2n$ are there infinitely many pairs of consecutive primes which differ by $2n$.
-	\end{conjecture}
-
-	\begin{conjecture}[Sophie Germain Primes]
-		A prime is called a \textit{Sophie Germain prime} if $2p+1$ is a prime too. Does there exist infinitely many Sophie Germain primes?
-	\end{conjecture}
-
-	\begin{conjecture}[Mersenne Prime Problem]
-		Is the number of Mersenne primes infinite?
-	\end{conjecture}
-
-
-	\begin{conjecture}[Rassias Conjecture]
-		For a prime $p>2$, there exists two primes $p_1,p_2$ such that,
-			\begin{align*}
-				p & = \dfrac{p_1+p_2+1}{p_1}
-			\end{align*}
-	\end{conjecture}
-
-\end{document}
+\end{conjecture}
