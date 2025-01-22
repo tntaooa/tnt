@@ -1,15 +1,5 @@
-%\NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mystyle}
-\usepackage{appendix}
-\usepackage{amsbsy, color, graphicx, fullpage, float, wasysym, , enumerate, geometry, xlop, tikz, cancel, pgfplots, subcaption, textgreek,epigraph, mathdots, emptypage}
-%\usepackage{mathtools}
-\usepackage{xparse}
-\usepackage{xifthen}
+\usepackage{float, enumerate, xlop, tikz, cancel, pgfplots, subcaption, mathdots}
 \usepackage{centernot}
-
-\usepackage{csquotes}
-
-
 
 \usetikzlibrary{fit,matrix,shapes}
 
@@ -29,10 +19,8 @@
 \newtheorem{identity}{}
 \pgfplotsset{compat=1.7,}
 
-
 \theoremstyle{definition}
-
-\newenvironment{definition}[1][]{\par\medskip\noindent \textit{\textbf{\ifthenelse{\isempty{#1}}{Definition.}{#1.}}} \rmfamily}{\medskip}
+\newtheorem{definition}{Definition}
 \newtheorem*{notation}{\textbf{\textit{Notation}}}
 \newtheorem{problem}{\textbf{\textit{Problem}}}
 \newtheorem*{question}{\textbf{\textit{Question}}}

@@ -1,6 +1,3 @@
-\documentclass[main.tex]{subfile}
-
-\begin{document}
 
 	For brevity assume
 	\begin{align*}
@@ -9,7 +6,7 @@
 
 	Remember from definition \eqref{def:vp} that $v_{p}(n)=\alpha$ means $\alpha$ is the greatest positive integer so that $p^\alpha|n$. Alternatively, we can denote this by $p^\alpha\|n$.
 
-	\begin{theorem}[Exponent \texorpdfstring{$\boldsymbol{\gcd}$}{gcd} Lemma]\label{thm:egl}
+	\begin{theorem}[Exponent \texorpdfstring{${\gcd}$}{gcd} Lemma]\label{thm:egl}
 		If $x\perp y$, then
 			\begin{align*}
 				g=\big(x-y,f(x,y,n)\big)\mid n
@@ -116,5 +113,3 @@ Let's see how we can use this lemma to solve problems.
 			\end{align*}
 		for $n>1$. So we need to check for only $p\in\{2,3,5\}$. If $p=2$, then $2^x-1=1$, so $x=1$. If $p=3$, then $3^x-1=2$ so $x=1$. If $p=5$, $5^x-1=24$ so $x=2$.
 	\end{solution}
-
-\end{document}

@@ -1,18 +1,10 @@
-\documentclass[leqno,12pt]{book}
+\documentclass[leqno,14pt,DIV=calc]{scrbook}
 
-\usepackage{amsthm, amsfonts, amssymb, amsmath}
-\usepackage{subfiles}
-\usepackage{bookmark,rotating,fdsymbol,titletoc,fmtcount,tocloft,mathtools,etoolbox,mfirstuc,ifthen,xifthen}
-
-%\renewcommand{\thepart}{\NUMBERstring{part}}
-
-\usepackage{mystyle}
+\usepackage{amsthm, amsmath,hyperref,amssymb}
+\usepackage{ifthen,xifthen}
+\input{custom}
 
 \usepackage[,backend=biber,autopunct,sortcites,]{biblatex}
-
-%\hypersetup{linktocpage,unicode,allcolors=black,anchorcolor=black,allbordercolors=black,hidelinks}
-%\DeclareNameAlias{sortname}{given-family}
-%\interfootnotelinepenalty=10000
 
 \usepackage[toc,nopostdot,]{glossaries}
 \usepackage{makeidx}
@@ -23,6 +15,17 @@
 \glstoctrue
 \makeindex
 \makeglossaries
+
+\usepackage{iftex}
+
+\ifPDFTeX
+	%\usepackage{stix}
+	\usepackage{newtxtext}
+	\usepackage[lite,subscriptcorrection,]{mtpro2}
+\else
+	\usepackage{unicode-math}
+	\usepackage[regular]{newcomputermodern}
+\fi
 
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
@@ -51,28 +54,29 @@
 %\newcommand{\identityautorefname}{Identity}
 %\newcommand{\lemmaautorefname}{Lemma}
 
-\title{Topics in Number Theory\\An Olympiad Oriented Approach}
+\title{Topics in Number Theory}
+\subtitle{An Olympiad Oriented Approach}
 \author{Masum Billal\and Amir Parvardi}
 \date{}
 
 \usepackage{graphicx}
 \usepackage{eso-pic}
 
+\usepackage{scrlayer-scrpage}
+
 \addbibresource{ref.bib}
-\subfile{glossary.tex}
-
-
+\input{glossary.tex}
 
 \begin{document}
 %\pagestyle{empty}
-\begin{tikzpicture}[remember picture,overlay]
-	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}};
-\end{tikzpicture}
+%\begin{tikzpicture}[remember picture,overlay]
+%	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}};
+%\end{tikzpicture}
 %\includegraphics[width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}
 %\AddToShipoutPictureBG{\includegraphics[width=\paperwidth,height=\paperheight]{background}}
-\pagestyle{empty}
+\frontmatter
 \maketitle
-%\pagestyle{empty}
+\pagestyle{empty}
 
 \section*{Preface to Second Edition}
 It has been over $3$ years since we have written this book. When we read the book now, we sometimes feel kind of silly. In some places, the writing comes off as childish and probably even unprofessional. But we do not regret writing the book that way. There are reasons why we have written it the way we did. We admit that we did not have the enormous amount of patience required to finish the book in a greater style. We were hurried to write a lot of the things back then. Not because we were told to, since this is an independent publication after all. There are a number of factors why we felt hurried to finish the book. For example, the book was already large even though we discarded a lot of the content we had planned for the book. In fact, we discarded most of the content we planned because the book would be so huge not even us would have been interested in reading a book that large. But that messed with our plans a lot since we had to change a lot of things on the fly. The whole reason we wanted to write a book despite there existing a lot of books on number theory is that we wanted our book to contain results or techniques that would not be as common in other Olympiad books. However, even with the minimum amount of content we decided to go with, it still felt like it was getting too large. So we tried to pick up the pace after some chapters. And one of the biggest concerns we had was that if we had not finished the book soon, we might not have been able to finish it at all. Or even worse, we could have forgotten about the whole book altogether (that has happened as well). Anyway, we mention these here not to make any excuses, nor do we feel terrible about it. Because even though the end-product does not look like the best output right now, we believe this book can still help people, at least some new students who are looking to solve number theory problems. Would the book be a lot better if we rewrote it now? Yes, probably at least ten times better. But we have neither the energy nor the time to do so. There are some updates and error fixes in this edition which hopefully improves at least some aspects of the book.
@@ -80,7 +84,7 @@ It has been over $3$ years since we have written this book. When we read the boo
 It is possible there are some \LaTeX\ issues in the new edition. If anyone finds any, please do not hesitate to email us.
 
 \begin{flushright}
-	\it Masum Billal\\
+	\itshape Masum Billal\\
 	Amir Parvardi\\
 	August, $2021$
 \end{flushright}
@@ -100,7 +104,7 @@ Initially, my plan was to make this book a series of $5$ volumes, this being the
 Finally, I would like to thank Amir for joining me in this project. At one point, I stopped writing the book. If he had not agreed to be a co-author, this book would have probably not been completed at all, more so because he agreed to follow the style I wanted to write in even when we had objections from a reputed publisher like \textit{Springer}.
 
 \begin{flushright}
-	\it Masum Billal
+	\itshape Masum Billal
 \end{flushright}
 
 \newpage
@@ -116,7 +120,7 @@ The idea behind the lattices in the \textit{cover} is a geometric proof of the l
 \vspace{0.3cm}
 There are so many wonderful things to learn in this book. I hope you enjoy it!
 \begin{flushright}
-	\it Amir Parvardi,\\
+	\itshape Amir Parvardi,\\
 % 	University of British Columbia,\\
 	Vancouver, BC, Canada,\\
 	July 2018.
@@ -159,20 +163,18 @@ Here is a list of all the kind people who helped us review, edit, and improve th
 
 		\item We are thankful to \textit{Sepehr Yadegarzadeh} for informing us about the correct \textit{umlaut}\footnote{\textit{umlaut}: a mark (\H{}), used over a vowel, as in German or Hungarian, to indicate a different vowel quality, usually fronting or rounding.} for M\"{o}bius among other grammatical and vocabulary points.
 	\end{enumerate}
-	\clearpage
-	\frontmatter
 	\tableofcontents
-	\subfile{nomenclature.tex}
+	\input{nomenclature.tex}
 	\printnomenclature
 	\mainmatter
-		\include{divisibility.tex}
-		\include{congruence.tex}
-		\include{arithfunc.tex}
-		\include{primes.tex}
-		\include{special.tex}
-		\include{solved.tex}
-		\include{unsolved.tex}
-		\include{unsolved2016.tex}
+	\pagestyle{headings}
+	\include{divisibility.tex}
+	\include{congruence.tex}
+	\include{arithfunc.tex}
+	\include{primes.tex}
+	\include{special.tex}
+	\input{solved.tex}
+	\input{unsolved.tex}
 	\backmatter
 	\pagestyle{empty}
 	\printglossaries

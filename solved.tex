@@ -1,11 +1,9 @@
-\part{Problem Column}
 \chapter{Solving Challenge Problems}\label{ch:solved}
 
 \numberwithin{theorem}{chapter}
-\epigraph{There will be plenty of time to rest in the grave.}{\textit{Paul Erd\H{o}s}}
 
 \begin{problem}
-	Prove divisibility criteria for $2,3,4,5,7,9,11,13,17,19$, as stated in section \eqref{subs:divrules}\watermark.
+	Prove divisibility criteria for $2,3,4,5,7,9,11,13,17,19$, as stated in section \eqref{subs:divrules}.
 \end{problem}
 
 \begin{solution}
@@ -57,7 +55,7 @@
 \begin{problem}\label{prob:productdividesfactorial}
 	Let $n$ be a positive integer. Show that the product of n consecutive integers is divisible by $n!$.
 \end{problem}
-Before we solve this problem, let me tell you about my story when I first encountered this problem.\footnote{I was a total beginner then \blacksmiley} Since $n!=1\cdot2\cdots n$, the first thing that I thought was: since there are $n$ consecutive integers, one must leave the remainder $0$ modulo $n$. And this has to be true for all $m\leq n$. But then I immediately realized that even if we proved that the product of these $n$ integers is divisible by all $m\leq n$ individually, we can not guarantee that their $1\cdot2\cdots n$ will divide their product too! It would be a common mistake to think so. Beginners tend to make assumptions that are wrong. For example, $a$ and $b$ both divide $c$, then $ab$ divides $c$ too. We will see some common mistakes as we solve the problems. Be aware of them whenever you are thinking about a problem. So, to be on the safe side, if you assume something, don't think it's true until you can prove it. Appearances can be deceiving! Now, let's see a correct solution.
+Before we solve this problem, let me tell you about my story when I first encountered this problem. Since $n!=1\cdot2\cdots n$, the first thing that I thought was: since there are $n$ consecutive integers, one must leave the remainder $0$ modulo $n$. And this has to be true for all $m\leq n$. But then I immediately realized that even if we proved that the product of these $n$ integers is divisible by all $m\leq n$ individually, we can not guarantee that their $1\cdot2\cdots n$ will divide their product too! It would be a common mistake to think so. Beginners tend to make assumptions that are wrong. For example, $a$ and $b$ both divide $c$, then $ab$ divides $c$ too. We will see some common mistakes as we solve the problems. Be aware of them whenever you are thinking about a problem. So, to be on the safe side, if you assume something, don't think it's true until you can prove it. Appearances can be deceiving! Now, let's see a correct solution.
 \begin{solution}
 	Let the $n$ consecutive integers be $a,a-1,\cdots,a-n+1$ (verify that if you take $n$ consecutive integers decreasing from $a$, the last integer will be $a-n+1$). See that,
 		\begin{align*}

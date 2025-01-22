@@ -1,7 +1,7 @@
 \chapter{Modular Arithmetic}\label{ch:congruence}
 
-	\subfile{cong-basic.tex}
- \subfile{bez-crt.tex}
+\input{cong-basic.tex}
+\input{bez-crt.tex}
 
 \section{Wilson's Theorem}
 We have probably discussed that if $n>4$ is a composite integer, then $(n-1)!$ is divisible by $n$. What if $n$ is a prime? Take $n=3$, then $(n-1)!=2$, not divisible by $3$. Take $n=5$. $(n-1)!=24$, which is not divisible by $5$. Take $n=7$, then $(n-1)!=120$ which is not divisible by $7$. Take $n=11$, $(n-1)!=3\, 628\, 800$ and this is not divisible by $11$ either. Since they are not divisible by the primes (as expected), we should check for remainders. $2!$ leaves a remainder $2$ when divided by $3$. $4!$ leaves $4$ when divided by $5$, $6!$ leaves $6$ when divided by $7$. If you calculate further, you will see the pattern goes on. So it suggests us to conjecture that the remainder of $(p-1)!$ when divided by the prime $p$ is $p-1$. In fact, this is what we call \textit{Wilson's theorem}.
@@ -119,7 +119,7 @@ Since $1,2,\ldots, 6$ are all co-prime to $7$, we can divide both sides of the a
 	\begin{align*}
 		3^6 \equiv 1 \pmod 7
 	\end{align*}
-It is now clear that the same argument works for the general case\watermark.
+It is now clear that the same argument works for the general case.
 	\begin{proof}
 		From the Definition \ref{def:completeresiduesystem}, it is clear that the set $A=\{0, 1, \ldots, p-1\}$ is a complete residue system modulo $p$. We know that $a \bot p$, so from Proposition \ref{prop:generalcompletesystem} the set $A'=\{0 \cdot a, 1 \cdot a, \ldots, (p-1) \cdot a\}$ is also a complete residue system modulo $p$. Putting aside the first element, $0$, it is clear that the product of the elements of $A$ and $A'$ are congruent modulo $p$:
 			\begin{align*}
@@ -237,21 +237,21 @@ Here is an exercise for you.
 
 
 \section{Quadratic Residues}\label{sec:qr}
-	\subfile{qr.tex}
+	\input{qr.tex}
 \section{Wolstenholme's Theorem}
-	\subfile{wolst.tex}
+	\input{wolst.tex}
 \section{Lucas' Theorem}
-	\subfile{lucas.tex}
+	\input{lucas.tex}
 \section{Lagrange's Theorem}
-	\subfile{lagrange.tex}
+	\input{lagrange.tex}
 \section{Order, Primitive Roots} \label{sec:order}
-	\subfile{primitive.tex}
+	\input{primitive.tex}
 \section{Carmichael Function, Primitive \texorpdfstring{$\lambda$}{L}-roots}
-	\subfile{carmichael.tex}
+	\input{carmichael.tex}
 \section{Pseudoprimes} \label{sec:pseudoprimes}
-	\subfile{pseudoprimes.tex}
+	\input{pseudoprimes.tex}
 \section{Using Congruence in Diophantine Equations}
-	\subfile{cong-de.tex}
+	\input{cong-de.tex}
 
 	\newpage
 	\section{Exercises}

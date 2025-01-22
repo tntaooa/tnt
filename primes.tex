@@ -1,7 +1,7 @@
 \chapter{Primes}\label{ch:primes}
 
 \section{Introduction}
-Prime numbers just might be the most mysterious topic in mathematics. There are already countless books on the topic. We have already defined prime numbers in autoref{ch:divisibility}. Recall that a positive integer $p$ is a prime if and only if it has exactly two positive divisors: only $1$ and $p$ itself (recall how this lets us deal with the case of $1$ automatically). In this chapter, we are going to explore the properties of primes\watermark.
+Prime numbers just might be the most mysterious topic in mathematics. There are already countless books on the topic. We have already defined prime numbers in autoref{ch:divisibility}. Recall that a positive integer $p$ is a prime if and only if it has exactly two positive divisors: only $1$ and $p$ itself (recall how this lets us deal with the case of $1$ automatically). In this chapter, we are going to explore the properties of primes.
 
 We will start with the infinitude of primes. Besides providing Euclid's proof of the theorem, we will show some other proofs. Many of them are not very common these days. We try to provide precise history such as who the proof should be accredited to and when etc. As we go on, we will encounter the famous ingenious proof by Erd\H{o}s, an elementary proof of \textit{Bertrand's postulate}. We will also discuss primality testing and some relevant theorems. Most of them will be interconnected. But you may be surprised when you see that we have discussed some things at the end of this chapter which are not quite Olympiad style topics. We do not give the elementary proof of \textit{Prime Number Theorem} by \textit{Erd\H{o}s} and \textit{Selberg}. There was a dispute over the prime number theorem whether Erd\H{o}s and Selberg would write a joint paper or not. \textcite{goldfeld_2004} and \textcite{baas_skau_2008} are great reads in this regard.
 
@@ -359,7 +359,7 @@ Otherwise, if $i$ is not square-free, then $\mu(i)=0$ and there would be no cont
 
 While on the topic, we should mention the \textit{Meissel-Lehmer Method}. It is a sieve method based on this theorem, that ultimately provides a way to compute $p_n$ in $O(\sqrt{n})$ complexity i.e. a function that does not grow faster than $\sqrt{n}$. This is a very good improvement for computing $\pi(x)$ and $p_n$.
 
-\subfile{bertrand.tex}
+\input{bertrand.tex}
 There are still many open questions left regarding prime numbers. We will describe some later. You don't have to necessarily find an answer to them, just try them! You may learn something new by yourself, or even find new theorems. In many cases, mathematicians develop theories this way.
 
 \section{Miscellaneous}
@@ -549,7 +549,7 @@ An improvement on this result is given by \textcite{panaitopol_2000}.
 			\end{align*}
 	\end{theorem}
 \section{Distribution of Prime Numbers}
-\subfile{dist.tex}
+\input{dist.tex}
 
 
 \section{Primality Testing}\label{sec:primalitytesting}

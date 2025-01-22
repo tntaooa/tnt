@@ -1,663 +1,658 @@
-\documentclass{subfile}
-
-\begin{document}
 Recall the examples we took while discussing Fermat's little theorem. We were working with something like $2^6\pmod7$ or $6^6\pmod7$. While calculating, we found that $6^2\equiv1\pmod7$ or $2^3\equiv1\pmod7$ which eventually led to $6^6\equiv1\pmod7$ and $2^6\pmod7$. Along with the ideas we used there, did you conjecture anything else? We left a hint when we said that since $6^2\equiv1\pmod7$, $6^4\equiv1\pmod7$ and $6^6\equiv1\pmod7$ as well. We hope that this is sort of obvious by now. But it should also trigger you to think of something. If we can find the smallest exponent for which $2^x\equiv1\pmod7$, then we can say $2^y\equiv1\pmod7$ for all multiples of $x$ ($y$ here). We will shortly prove this formally. Moreover, it also encourages us to study these \textit{smallest }values for which we get $1$. The motivation is obvious. Whenever we get $1$, we get a cycle of remainders from which point, the remainders repeat. Just finish the examples above if you did not entirely understand what we meant. We call this smallest integer order. And it should be clear to you why the study of order is important.
-	\begin{definition}[Order Modulo Integers]
-		Let $a$ and $n$ be co-prime positive integers. If $x$ is the smallest positive integer such that  \[a^x\equiv1\pmod n\] then $x$ is called the \textit{order} of $a$ modulo $n$. We denote this by $\ord_n(a)=x$.
-	\end{definition}
+\begin{definition}[Order Modulo Integers]
+	Let $a$ and $n$ be co-prime positive integers. If $x$ is the smallest positive integer such that  \[a^x\equiv1\pmod n\] then $x$ is called the \textit{order} of $a$ modulo $n$. We denote this by $\ord_n(a)=x$.
+\end{definition}
 
-	\begin{example}
-		$\ord_8(3)=2$ i.e. $2$ is the smallest positive integer such that  $3^2\equiv1\pmod 8$.
-	\end{example}
+\begin{example}
+	$\ord_8(3)=2$ i.e. $2$ is the smallest positive integer such that  $3^2\equiv1\pmod 8$.
+\end{example}
 
 
-	\begin{theorem}\label{thm:ordDiv}
-		Let $a$ and $n$ be positive integers. If $\ord_n(a)=d$ and $a^x\equiv1\pmod n$, then $d\mid x$.
-	\end{theorem}
+\begin{theorem}\label{thm:ordDiv}
+	Let $a$ and $n$ be positive integers. If $\ord_n(a)=d$ and $a^x\equiv1\pmod n$, then $d\mid x$.
+\end{theorem}
 
-	\begin{proof}
-		If $x<d$, it would contradict the fact that, $d$ is such smallest positive integer that $a^d\equiv1\pmod n$. We are left with the case $x>d$. Assume that $x=dq+r$ with $0\leq r<d$.
-			\begin{align*}
-				a^x
-					& \equiv a^{dq}\cdot a^r\pmod{n}\\
-					& \equiv (a^d)^q \cdot a^r\pmod{n}\\
-					& \equiv 1 \cdot a^r\pmod{n}\\
-					& \equiv a^r \pmod n
-			\end{align*}
-		So $a^r \equiv a^x \equiv 1 \pmod n$. Since $0\leq r<d$ and $d$ is the order of $a$, this is impossible unless $r=0$. Thus $x=dq$ and we are done.
-	\end{proof}
+\begin{proof}
+	If $x<d$, it would contradict the fact that, $d$ is such smallest positive integer that $a^d\equiv1\pmod n$. We are left with the case $x>d$. Assume that $x=dq+r$ with $0\leq r<d$.
+		\begin{align*}
+			a^x
+				& \equiv a^{dq}\cdot a^r\pmod{n}\\
+				& \equiv (a^d)^q \cdot a^r\pmod{n}\\
+				& \equiv 1 \cdot a^r\pmod{n}\\
+				& \equiv a^r \pmod n
+		\end{align*}
+	So $a^r \equiv a^x \equiv 1 \pmod n$. Since $0\leq r<d$ and $d$ is the order of $a$, this is impossible unless $r=0$. Thus $x=dq$ and we are done.
+\end{proof}
 
-	\begin{corollary}\label{cor:phiDiv}
-		If $a\perp n$, then $\ord_n(a)\mid \varphi (n)$.
-	\end{corollary}
+\begin{corollary}\label{cor:phiDiv}
+	If $a\perp n$, then $\ord_n(a)\mid \varphi (n)$.
+\end{corollary}
 
-	\begin{proof}
-		If $d=\ord_n(a)$, then $a^d\equiv1\pmod n$. From Euler's theorem, $a^{\varphi (n)}\equiv1\pmod n$. Then using \autoref{thm:ordDiv}, we can say that $d\mid \varphi (n)$.
-	\end{proof}
+\begin{proof}
+	If $d=\ord_n(a)$, then $a^d\equiv1\pmod n$. From Euler's theorem, $a^{\varphi (n)}\equiv1\pmod n$. Then using \autoref{thm:ordDiv}, we can say that $d\mid \varphi (n)$.
+\end{proof}
 We can use this result to find orders in practice. We only need to check for divisors of $\varphi(n)$ and find the smallest divisor for which the relation $a^d\equiv1\pmod n$ holds.
-	\begin{corollary}
-		$a^k\equiv a^l\pmod n$ if and only if $k\equiv l\pmod{\ord_n(a)}$.
-	\end{corollary}
+\begin{corollary}
+	$a^k\equiv a^l\pmod n$ if and only if $k\equiv l\pmod{\ord_n(a)}$.
+\end{corollary}
 
-	\begin{proof}
-		$a^k\equiv a^l\pmod n$ implies $a^{k-l} \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, we have $\ord_n(a) \mid  k-l$. The reverse of this approach can be applied to prove the other part of the corollary.
-	\end{proof}
+\begin{proof}
+	$a^k\equiv a^l\pmod n$ implies $a^{k-l} \equiv 1 \pmod n$. By \autoref{thm:ordDiv}, we have $\ord_n(a) \mid  k-l$. The reverse of this approach can be applied to prove the other part of the corollary.
+\end{proof}
 One could ask if we know the order of $a$ modulo $n$, how do we find the order of other powers of $a$. Or, if we know order of $a$ modulo two positive integers $m$ and $n$, then what would be the order of $a$ modulo $mn$?
-	\begin{theorem}
-		If $m$ and $n$ are relatively prime positive integers such that $\ord_m(a)=d$ and $\ord_n(a)=e$, then $\ord_{mn}(a)=[d,e]$.\label{thm:ordL}
-	\end{theorem}
+\begin{theorem}
+	If $m$ and $n$ are relatively prime positive integers such that $\ord_m(a)=d$ and $\ord_n(a)=e$, then $\ord_{mn}(a)=[d,e]$.\label{thm:ordL}
+\end{theorem}
 
-	\begin{proof}
-		Let $\ord_{mn}(a)=h$, so
-			\begin{align*}
-				a^h
-					& \equiv1\pmod {mn}
-			\end{align*}
-		which gives $a^h\equiv1\pmod m$ and $a^h\equiv1\pmod n$ as well. By \autoref{thm:ordDiv}, since $d$ and $e$ are order of $a$ modulo $m$ and $n$, respectively, we have $d\mid h$ and $e\mid h$. Therefore, for the minimum $h$, we must have $h=[d,e]$ to satisfy the conditions.
-	\end{proof}
+\begin{proof}
+	Let $\ord_{mn}(a)=h$, so
+		\begin{align*}
+			a^h
+				& \equiv1\pmod {mn}
+		\end{align*}
+	which gives $a^h\equiv1\pmod m$ and $a^h\equiv1\pmod n$ as well. By \autoref{thm:ordDiv}, since $d$ and $e$ are order of $a$ modulo $m$ and $n$, respectively, we have $d\mid h$ and $e\mid h$. Therefore, for the minimum $h$, we must have $h=[d,e]$ to satisfy the conditions.
+\end{proof}
 
-	\begin{theorem}\label{thm:prproduct}
-		Let $a,b$, and $n$ be positive integers such that $\ord_n(a)=k$ and $\ord_n(b)=l$, where $k\bot l$. Then $\ord_n(ab)=kl$.
-	\end{theorem}
+\begin{theorem}\label{thm:prproduct}
+	Let $a,b$, and $n$ be positive integers such that $\ord_n(a)=k$ and $\ord_n(b)=l$, where $k\bot l$. Then $\ord_n(ab)=kl$.
+\end{theorem}
 
-	\begin{proof}
-		Let $\ord_n(ab)=h$. First, note that
-			\begin{align*}
-				a^{lh}
-					& \equiv a^{lh}\cdot b^{lh}\pmod{n}\\
-					& \equiv (ab)^{lh}\pmod{n}\\
-					& \equiv \left((ab)^h\right)^l\pmod{n}\\
-					& \equiv 1 \pmod n
-			\end{align*}
-		So, by \autoref{thm:ordDiv}, we have $k\mid lh$ and since $(k,l)=1$, it follows that $k\mid h$. We can similarly prove that $l\mid h$. So $kl\mid h$. On the other hand,
-			\begin{align*}
-				(ab)^{kl}
-					& \equiv (a^k)^l \cdot (b^l)^k\pmod{n}\\
-					& \equiv 1 \pmod n
-			\end{align*}
-		Again, by Theorem \eqref{thm:ordDiv}, we have $h\mid kl$. This finishes the proof.
-	\end{proof}
+\begin{proof}
+	Let $\ord_n(ab)=h$. First, note that
+		\begin{align*}
+			a^{lh}
+				& \equiv a^{lh}\cdot b^{lh}\pmod{n}\\
+				& \equiv (ab)^{lh}\pmod{n}\\
+				& \equiv \left((ab)^h\right)^l\pmod{n}\\
+				& \equiv 1 \pmod n
+		\end{align*}
+	So, by \autoref{thm:ordDiv}, we have $k\mid lh$ and since $(k,l)=1$, it follows that $k\mid h$. We can similarly prove that $l\mid h$. So $kl\mid h$. On the other hand,
+		\begin{align*}
+			(ab)^{kl}
+				& \equiv (a^k)^l \cdot (b^l)^k\pmod{n}\\
+				& \equiv 1 \pmod n
+		\end{align*}
+	Again, by Theorem \eqref{thm:ordDiv}, we have $h\mid kl$. This finishes the proof.
+\end{proof}
 
-	\begin{theorem}
-		If the order of $a$ modulo $n$ is $d$, then the order of $a^k$ modulo $n$ is $d/{(d,k)}$.
-	\end{theorem}
+\begin{theorem}
+	If the order of $a$ modulo $n$ is $d$, then the order of $a^k$ modulo $n$ is $d/{(d,k)}$.
+\end{theorem}
 
-	\begin{proof}
-		Let the order of $a^k$ modulo $n$ be $h$. Then $\left(a^k\right)^h \equiv a^{kh} \equiv 1\pmod n$. \autoref{thm:ordDiv} says that $d$ must divide $kh$. Assume that $(k,d)=g$, so there exist relatively prime positive integers $l$ and $e$ such that $k=gl$ and $d=ge$. Rewriting $d \mid  kh$ implies
-			\begin{align*}
-				ge\mid glh \implies e\mid lh
-			\end{align*}
-		and since $l\bot e$, $e$ must divide $h$. Since $dl=ke=gel$,
-			\begin{align*}
-				\left(a^k\right)^{e}
-					& \equiv \left(a^d\right)^{l}\\
-					& \equiv 1\pmod n
-			\end{align*}
-		This means that the order of $a^k$ modulo $n$ must divide $e$. So, $h$ divides $e$ as well. We get that $$h=e=\dfrac{d}{(d,k)}$$ must hold.
-	\end{proof}
+\begin{proof}
+	Let the order of $a^k$ modulo $n$ be $h$. Then $\left(a^k\right)^h \equiv a^{kh} \equiv 1\pmod n$. \autoref{thm:ordDiv} says that $d$ must divide $kh$. Assume that $(k,d)=g$, so there exist relatively prime positive integers $l$ and $e$ such that $k=gl$ and $d=ge$. Rewriting $d \mid  kh$ implies
+		\begin{align*}
+			ge\mid glh \implies e\mid lh
+		\end{align*}
+	and since $l\bot e$, $e$ must divide $h$. Since $dl=ke=gel$,
+		\begin{align*}
+			\left(a^k\right)^{e}
+				& \equiv \left(a^d\right)^{l}\\
+				& \equiv 1\pmod n
+		\end{align*}
+	This means that the order of $a^k$ modulo $n$ must divide $e$. So, $h$ divides $e$ as well. We get that $$h=e=\dfrac{d}{(d,k)}$$ must hold.
+\end{proof}
 The previous theorem also implies the following one.
-	\begin{theorem}
-		The order of $a$ modulo $n$ is the same as the order of $a^k$ modulo $n$ if and only if $(k,n)=1$.
-	\end{theorem}
+\begin{theorem}
+	The order of $a$ modulo $n$ is the same as the order of $a^k$ modulo $n$ if and only if $(k,n)=1$.
+\end{theorem}
 Here is a very useful theorem, often used to solve Diophantine equations.
-	\begin{theorem}\label{thm:cyclodiv}
-		Let $q$ be a prime and $x$ be a positive integer. Every prime divisor of the number
-			\begin{align*}
-				1+x+\cdots+x^{q-1}
-			\end{align*}
-		is either $q$ or congruent to $1$ modulo $q$.
-	\end{theorem}
+\begin{theorem}\label{thm:cyclodiv}
+	Let $q$ be a prime and $x$ be a positive integer. Every prime divisor of the number
+		\begin{align*}
+			1+x+\cdots+x^{q-1}
+		\end{align*}
+	is either $q$ or congruent to $1$ modulo $q$.
+\end{theorem}
 
-	\begin{proof}
-		The sum can be written as
-			\begin{align*}
-				S = 1+x+\cdots+x^{q-1} & = \dfrac{x^q-1}{x-1}
-			\end{align*}
-		Let $p$ be any prime factor of $S$. Then
-			\begin{align*}
-				x^q & \equiv1\pmod p
-			\end{align*}
-		If the order of $x$ modulo $p$ is $d$, we have $d\mid q$. Since $q$ is a prime, either $d=1$ or $d=q$. If $d=1$, then $x\equiv1\pmod p$. In that case,
-			\begin{align*}
-				S & \equiv 1+1+\cdots+1\pmod p
-			\end{align*}
-		which gives $0  \equiv q\pmod p$. So, $p=q$. Now assume the case that $d=q$. Because of Fermat's little theorem,
-			\begin{align*}
-				x^{p-1} & \equiv1\pmod p
-			\end{align*}
-		This implies that $d=q$ divides $p-1$. So $p\equiv1\pmod q$, as claimed.
-	\end{proof}
+\begin{proof}
+	The sum can be written as
+		\begin{align*}
+			S = 1+x+\cdots+x^{q-1} & = \dfrac{x^q-1}{x-1}
+		\end{align*}
+	Let $p$ be any prime factor of $S$. Then
+		\begin{align*}
+			x^q & \equiv1\pmod p
+		\end{align*}
+	If the order of $x$ modulo $p$ is $d$, we have $d\mid q$. Since $q$ is a prime, either $d=1$ or $d=q$. If $d=1$, then $x\equiv1\pmod p$. In that case,
+		\begin{align*}
+			S & \equiv 1+1+\cdots+1\pmod p
+		\end{align*}
+	which gives $0  \equiv q\pmod p$. So, $p=q$. Now assume the case that $d=q$. Because of Fermat's little theorem,
+		\begin{align*}
+			x^{p-1} & \equiv1\pmod p
+		\end{align*}
+	This implies that $d=q$ divides $p-1$. So $p\equiv1\pmod q$, as claimed.
+\end{proof}
 
-	\begin{definition}[Primitive Root]
-		Let $n$ be a given positive integer. An integer $g$ which is relatively prime to $n$  is called a \textit{primitive root} modulo $n$ if $\ord_n(g)=\varphi(n)$. That is, if $g^x\not\equiv1\pmod n$ for any positive integer $x<\varphi(n)$.
-	\end{definition}
+\begin{definition}[Primitive Root]
+	Let $n$ be a given positive integer. An integer $g$ which is relatively prime to $n$  is called a \textit{primitive root} modulo $n$ if $\ord_n(g)=\varphi(n)$. That is, if $g^x\not\equiv1\pmod n$ for any positive integer $x<\varphi(n)$.
+\end{definition}
 
-	\begin{note}
-		Using this definition, we can say that:
-			\begin{enumerate}
-				\item Let $g$ be a positive integer relatively prime to $n$. It is clear that $g^m$ is also co-prime to $n$ for any $m \in \mathbb N$.
-				\item If $g$ is a primitive root modulo $n$ and if $g^a \equiv g^b \pmod n$ for some positive integers $a$ and $b$ less than $\varphi(n)$, then $a=b$. The reason is simple: if $a \neq b$, then $g^{a-b} \equiv 1 \pmod n$, which is absurd since $a-b \leq \varphi(n)$ and $g$ is a primitive root.
-			\end{enumerate}
-	\end{note}
+\begin{note}
+	Using this definition, we can say that:
+		\begin{enumerate}
+			\item Let $g$ be a positive integer relatively prime to $n$. It is clear that $g^m$ is also co-prime to $n$ for any $m \in \mathbb N$.
+			\item If $g$ is a primitive root modulo $n$ and if $g^a \equiv g^b \pmod n$ for some positive integers $a$ and $b$ less than $\varphi(n)$, then $a=b$. The reason is simple: if $a \neq b$, then $g^{a-b} \equiv 1 \pmod n$, which is absurd since $a-b \leq \varphi(n)$ and $g$ is a primitive root.
+		\end{enumerate}
+\end{note}
 
 These two notes tell us that if $g$ is a primitive root of $n$, then the set $\{g,g^2,\cdots,g^{\varphi(n)}\}$ is equal to $\mathbb U_n$, where $\mathbb U_n$ is the set of units modulo $n$ (as defined in Definition \ref{def:setofunits}). Notice that equality of these two sets is considered modulo $n$. Actually, the set $\{g,g^2,\cdots,g^{\varphi(n)}\}$ may contain some elements larger than $n$. We reduce those elements modulo $n$ so that we have all elements less than $n$. This new set is now equal to $\mathbb U_n$. We may denote this by the notation $\{g,g^2,\cdots,g^{\varphi(n)}\} \equiv \mathbb U_n \pmod n$.
 
 In algebraic words, $g$ is a \textit{generator} of $\mathbb U_n$. Moreover, the generators of $\mathbb U_n$ are exactly the primitive roots of $n$ (if there is any). We will summarize this result in the following theorem.
 
-	\begin{theorem}\label{thm:prequalsU}
-		A primitive root $g$ modulo $n$ (if existing) is a generator of $\mathbb U_n$. That is, for any $a\in\mathbb{U}$, there is a unique $k$ with $0< k\leq\varphi(n)$ such that $g^k \equiv a \pmod n$.
-	\end{theorem}
+\begin{theorem}\label{thm:prequalsU}
+	A primitive root $g$ modulo $n$ (if existing) is a generator of $\mathbb U_n$. That is, for any $a\in\mathbb{U}$, there is a unique $k$ with $0< k\leq\varphi(n)$ such that $g^k \equiv a \pmod n$.
+\end{theorem}
 
-	\begin{proof}
-		Consider the powers $g,g^2,\ldots,g^{\varphi (n)}$ modulo $n$. Now assume  $g^u  \equiv g^v \pmod n$ for some $u, v \in \{1,2,\ldots, \varphi(n)\}$, then since $(g,n)=1$, we obtain
+\begin{proof}
+	Consider the powers $g,g^2,\ldots,g^{\varphi (n)}$ modulo $n$. Now assume  $g^u  \equiv g^v \pmod n$ for some $u, v \in \{1,2,\ldots, \varphi(n)\}$, then since $(g,n)=1$, we obtain
+		\begin{align*}
+			g^{u-v}&\equiv1\pmod n
+		\end{align*}
+	This is not possible unless $u=v$. The reason is simple: if $u \neq v$, then we have found some $x=u-v$ such that $0 < x \leq \varphi(n)$ and $g^x \equiv 1 \pmod n$, which is in contradiction with $g$ being a primitive root modulo $n$.
+\end{proof}
+
+	\begin{example}
+	$ $
+	\begin{enumerate}
+		\item $3$ is a primitive root modulo $7$ since $\varphi(7)=6$ and $3^i\not\equiv1\pmod 7$ for $i\in\{1,2,3,4,5\}$. Notice that powers of $3$ create the whole set $\mathbb U_7$:
+		\begin{align*}
+			3^1 \equiv 3, \quad 3^2 \equiv 2, \quad 3^3 \equiv 6, 3^4 \equiv 4, \quad 3^5 \equiv 5, \quad 3^6 \equiv 1
+		\end{align*}
+		where all the congruences are taken modulo $7$.
+		\item Let's see if there exists a primitive root modulo $15$. To show this, a possible way is to start from $a=2$ and compute all the powers $a^i$ for $i=2,\ldots,\varphi(15)-1=7$ modulo $15$ one by one:
 			\begin{align*}
-				g^{u-v}&\equiv1\pmod n
+				2^2 \equiv 4, \quad 2^3 \equiv 8, \quad 2^4 \equiv 1
 			\end{align*}
-		This is not possible unless $u=v$. The reason is simple: if $u \neq v$, then we have found some $x=u-v$ such that $0 < x \leq \varphi(n)$ and $g^x \equiv 1 \pmod n$, which is in contradiction with $g$ being a primitive root modulo $n$.
-	\end{proof}
-
-		\begin{example}
-		$ $
-		\begin{enumerate}
-			\item $3$ is a primitive root modulo $7$ since $\varphi(7)=6$ and $3^i\not\equiv1\pmod 7$ for $i\in\{1,2,3,4,5\}$. Notice that powers of $3$ create the whole set $\mathbb U_7$:
+		We stop at $2^4$ because we got $1$ mod $15$, and this shows that $2$ is not a primitive root modulo $15$. Then, we should do the same process, but this time for $a=4$ (we don't check $3$ because it's not relatively prime to $15$). Now you should be able to do the math much faster, and come up with $4^2 \equiv 1 \pmod{15}$, which shows $a=4$ is not a primitive root modulo $15$. Fortunately, we don't need to check $a=5$ and $a=6$. For $a=7$, the computations are not as easy as $a=2$ and $a=4$, but still not hard
 			\begin{align*}
-				3^1 \equiv 3, \quad 3^2 \equiv 2, \quad 3^3 \equiv 6, 3^4 \equiv 4, \quad 3^5 \equiv 5, \quad 3^6 \equiv 1
+				7^2 \equiv 4, \quad 7^3 \equiv 13, \quad 7^4 \equiv 1
 			\end{align*}
-			where all the congruences are taken modulo $7$.
-			\item Let's see if there exists a primitive root modulo $15$. To show this, a possible way is to start from $a=2$ and compute all the powers $a^i$ for $i=2,\ldots,\varphi(15)-1=7$ modulo $15$ one by one:
-				\begin{align*}
-					2^2 \equiv 4, \quad 2^3 \equiv 8, \quad 2^4 \equiv 1
-				\end{align*}
-			We stop at $2^4$ because we got $1$ mod $15$, and this shows that $2$ is not a primitive root modulo $15$. Then, we should do the same process, but this time for $a=4$ (we don't check $3$ because it's not relatively prime to $15$). Now you should be able to do the math much faster, and come up with $4^2 \equiv 1 \pmod{15}$, which shows $a=4$ is not a primitive root modulo $15$. Fortunately, we don't need to check $a=5$ and $a=6$. For $a=7$, the computations are not as easy as $a=2$ and $a=4$, but still not hard
-				\begin{align*}
-					7^2 \equiv 4, \quad 7^3 \equiv 13, \quad 7^4 \equiv 1
-				\end{align*}
-			So, $7$ is not a primitive root mod $15$ either. Now, we don't need to do the computations for $a=8$ because in this case, $a^{-1}$ is $2$ and we showed that $2$ is not a primitive root (why is that enough?). The next values for $a$ to check are $11, 13$, and $14$. Since $13=7^{-1}$, we don't need to worry about $13$. Check $11$ and $14$ for yourself and verify that neither of them are primitive roots mod $15$ (we can't do the modular arithmetic invers trick here because $11$ and $14$ are the inverse of themselves modulo $15$). This shows that there is no primitive root mod $15$.
+		So, $7$ is not a primitive root mod $15$ either. Now, we don't need to do the computations for $a=8$ because in this case, $a^{-1}$ is $2$ and we showed that $2$ is not a primitive root (why is that enough?). The next values for $a$ to check are $11, 13$, and $14$. Since $13=7^{-1}$, we don't need to worry about $13$. Check $11$ and $14$ for yourself and verify that neither of them are primitive roots mod $15$ (we can't do the modular arithmetic invers trick here because $11$ and $14$ are the inverse of themselves modulo $15$). This shows that there is no primitive root mod $15$.
 
-			\item Let's assume that elements $g_i$ of $\mathbb U_n$ are sorted in ascending order. That is, $g_1<\cdots<g_{\varphi(n)}$. Then we  have $g_1=1$ and $g_{\varphi(n)}=n-1$.
-		\end{enumerate}
-	\end{example}
+		\item Let's assume that elements $g_i$ of $\mathbb U_n$ are sorted in ascending order. That is, $g_1<\cdots<g_{\varphi(n)}$. Then we  have $g_1=1$ and $g_{\varphi(n)}=n-1$.
+	\end{enumerate}
+\end{example}
 
 
-	\begin{corollary}\label{cor:prres}
-		If $g$ is a primitive root of $p$ then
-		\[\mathbb G=\{g^1,g^2,\ldots,g^{p-1}\}\]
-		forms a complete residue system modulo $p$.
-	\end{corollary}
+\begin{corollary}\label{cor:prres}
+	If $g$ is a primitive root of $p$ then
+	\[\mathbb G=\{g^1,g^2,\ldots,g^{p-1}\}\]
+	forms a complete residue system modulo $p$.
+\end{corollary}
 
-	\begin{theorem}\label{prd}
-		Let $n$ be a positive integer and let $a$ be a quadratic non-residue modulo $n$ such that $a\bot n$. Assume that $\mathbb U_n = \{g_1, g_2, \ldots, g_{\varphi(n)}\}$. Then
-		\[g_1g_2\cdots g_{\varphi(n)}\equiv a^{\frac{\varphi(n)}{2}}\pmod n\]
-	\end{theorem}
+\begin{theorem}\label{prd}
+	Let $n$ be a positive integer and let $a$ be a quadratic non-residue modulo $n$ such that $a\bot n$. Assume that $\mathbb U_n = \{g_1, g_2, \ldots, g_{\varphi(n)}\}$. Then
+	\[g_1g_2\cdots g_{\varphi(n)}\equiv a^{\frac{\varphi(n)}{2}}\pmod n\]
+\end{theorem}
 
-	\begin{proof}
-		According to \autoref{thm:ax=b}, for any $g_i$, there exists some $x$ such that
-			\begin{align}
-				g_i x\equiv a\pmod n
-			\end{align}
-		It is clear that $x \bot n$ because if $(x,n)=d$, then $d\mid n$ and $n\mid g_{i}x-a$, so $d\mid g_ix-a$ implies $d\mid a$. Since $\gcd(a,d)=1$, we have $d=1$. So $x=g_j$ for some $j$. We have $g_i \neq g_j$ since $a$ is a quadratic non-residue. Moreover, $g_j$ is unique because if $g_ig_k \equiv a \pmod n$ for some $k$, then $g_k \equiv g_j \pmod n$ and since $g_k$ and $g_j$ are both less than $n$, this forces $g_k=g_j$. Thus, we can pair up the $\varphi(n)$ elements of $\mathbb{U}_n$ into $\varphi(n)/2$ pairs $(g_i, g_j)$, such that $g_ig_j \equiv a \pmod n$. Hence,
-			\begin{align*}
-				g_1g_2\cdots g_{\varphi(n)}
-					& \equiv a^{\frac{\varphi(n)}{2}}\pmod n
-			\end{align*}
-	\end{proof}
+\begin{proof}
+	According to \autoref{thm:ax=b}, for any $g_i$, there exists some $x$ such that
+		\begin{align}
+			g_i x\equiv a\pmod n
+		\end{align}
+	It is clear that $x \bot n$ because if $(x,n)=d$, then $d\mid n$ and $n\mid g_{i}x-a$, so $d\mid g_ix-a$ implies $d\mid a$. Since $\gcd(a,d)=1$, we have $d=1$. So $x=g_j$ for some $j$. We have $g_i \neq g_j$ since $a$ is a quadratic non-residue. Moreover, $g_j$ is unique because if $g_ig_k \equiv a \pmod n$ for some $k$, then $g_k \equiv g_j \pmod n$ and since $g_k$ and $g_j$ are both less than $n$, this forces $g_k=g_j$. Thus, we can pair up the $\varphi(n)$ elements of $\mathbb{U}_n$ into $\varphi(n)/2$ pairs $(g_i, g_j)$, such that $g_ig_j \equiv a \pmod n$. Hence,
+		\begin{align*}
+			g_1g_2\cdots g_{\varphi(n)}
+				& \equiv a^{\frac{\varphi(n)}{2}}\pmod n
+		\end{align*}
+\end{proof}
 Here is a nice theorem which relates primitive roots and quadratic residues modulo a prime $p$.
-	\begin{theorem}\label{thm:pr+qr}
-		If $g$ is a primitive root modulo a prime $p$, then the quadratic residues of $p$ are $g^2,g^4,\ldots,g^{p-1}$.
-	\end{theorem}
+\begin{theorem}\label{thm:pr+qr}
+	If $g$ is a primitive root modulo a prime $p$, then the quadratic residues of $p$ are $g^2,g^4,\ldots,g^{p-1}$.
+\end{theorem}
 
-	\begin{proof}
-		By Euler's criterion, we know that if $a$ is a quadratic residue modulo $p$, then
-			\begin{align*}
-				a^{\frac{p-1}{2}}
-					& \equiv 1 \pmod p
-			\end{align*}
-		Using Fermat's little theorem, it follows that $g^2,g^4,\ldots,g^{p-1}$ are all quadratic residues modulo $p$. Since the set $\{g^1,g^2,\ldots,g^{p-1}\}$ is a complete residue set modulo $p$ and we know by \autoref{thm:primeresidue} that there are exactly $\frac{p-1}{2}$ incongruent quadratic residues modulo $p$, we find that $g^2,g^4,\ldots,g^{p-1}$ are the only quadratic residues.
-	\end{proof}
+\begin{proof}
+	By Euler's criterion, we know that if $a$ is a quadratic residue modulo $p$, then
+		\begin{align*}
+			a^{\frac{p-1}{2}}
+				& \equiv 1 \pmod p
+		\end{align*}
+	Using Fermat's little theorem, it follows that $g^2,g^4,\ldots,g^{p-1}$ are all quadratic residues modulo $p$. Since the set $\{g^1,g^2,\ldots,g^{p-1}\}$ is a complete residue set modulo $p$ and we know by \autoref{thm:primeresidue} that there are exactly $\frac{p-1}{2}$ incongruent quadratic residues modulo $p$, we find that $g^2,g^4,\ldots,g^{p-1}$ are the only quadratic residues.
+\end{proof}
 It is a natural question whether there exists a primitive root $g$ modulo an arbitrary positive integer $n$. If the answer is negative, one might ask for which $n$ there exists a primitive root. We will answer these questions shortly.
-	\begin{theorem}\label{thm:prTest}
-		A positive integer $g$ is a primitive root modulo $n$ if and only if
-			\begin{align*}
-				g^{\frac{\varphi(n)}{p}}
-					& \not\equiv1\pmod n
-			\end{align*}
-		for any prime $p$ which divides $\varphi(n)$.
-	\end{theorem}
+\begin{theorem}\label{thm:prTest}
+	A positive integer $g$ is a primitive root modulo $n$ if and only if
+		\begin{align*}
+			g^{\frac{\varphi(n)}{p}}
+				& \not\equiv1\pmod n
+		\end{align*}
+	for any prime $p$ which divides $\varphi(n)$.
+\end{theorem}
 
-	\begin{proof}
-		It is straightforward to check the truth of the ``if'' part. For the sake of contradiction, assume $\varphi(n)=pk$ and
-			\begin{align*}
-				g^{k} & \equiv1\pmod n.
-			\end{align*}
-		But this would contradict the minimality of $\varphi(n)$ since $k$ is less than $\varphi(n)$, meaning that $g$ is not a primitive root.
+\begin{proof}
+	It is straightforward to check the truth of the ``if'' part. For the sake of contradiction, assume $\varphi(n)=pk$ and
+		\begin{align*}
+			g^{k} & \equiv1\pmod n.
+		\end{align*}
+	But this would contradict the minimality of $\varphi(n)$ since $k$ is less than $\varphi(n)$, meaning that $g$ is not a primitive root.
 
-		For the ``only if'' part, assume that for every prime divisor $p$ of $\varphi(n)$, we have
-			\begin{align*}
-				g^{\frac{\varphi(n)}{p}}
-					& \not\equiv1\pmod n
-			\end{align*}
-		We want to show that $g$ is a primitive root modulo $n$. Let $d=\ord_n(g)$, so that $d \mid \varphi(n)$. If $d<\varphi(n)$, then we must have $d\mid {\varphi(n)}/{p}$ for some prime $p$ dividing $\varphi(n)$. Letting $\varphi(n)=pdl$,
-			\begin{align*}
-				g^{\frac{\varphi(n)}{p}}
-					& \equiv g^{dl}\pmod{n}\\
-					& \equiv \left(g^d\right)^l\pmod{n}\\
-					& \equiv1\pmod n
-			\end{align*}
-		which is a contradiction. Hence, $d=\varphi(n)$ must hold.
-	\end{proof}
+	For the ``only if'' part, assume that for every prime divisor $p$ of $\varphi(n)$, we have
+		\begin{align*}
+			g^{\frac{\varphi(n)}{p}}
+				& \not\equiv1\pmod n
+		\end{align*}
+	We want to show that $g$ is a primitive root modulo $n$. Let $d=\ord_n(g)$, so that $d \mid \varphi(n)$. If $d<\varphi(n)$, then we must have $d\mid {\varphi(n)}/{p}$ for some prime $p$ dividing $\varphi(n)$. Letting $\varphi(n)=pdl$,
+		\begin{align*}
+			g^{\frac{\varphi(n)}{p}}
+				& \equiv g^{dl}\pmod{n}\\
+				& \equiv \left(g^d\right)^l\pmod{n}\\
+				& \equiv1\pmod n
+		\end{align*}
+	which is a contradiction. Hence, $d=\varphi(n)$ must hold.
+\end{proof}
 
-	\begin{note}
-		In the proof above, we could just take $p$ to be the smallest prime divisor of $\varphi(n)$. Then we must have that $d$ is a divisor of ${\varphi(n)}/{p}$. This is because the greatest divisor of $n$ less than $n$ is ${n}/{p}$, where $p$ is the smallest prime divisor of $n$ (can you sense why?).
-	\end{note}
+\begin{note}
+	In the proof above, we could just take $p$ to be the smallest prime divisor of $\varphi(n)$. Then we must have that $d$ is a divisor of ${\varphi(n)}/{p}$. This is because the greatest divisor of $n$ less than $n$ is ${n}/{p}$, where $p$ is the smallest prime divisor of $n$ (can you sense why?).
+\end{note}
 
-	\begin{corollary}\label{cor:prpower}
-		Let $m$ be a positive integer. If $g$ is a primitive root of $n$, then $g^m$ is also a primitive root modulo $n$ if and only if $m \bot \varphi(m)$.
-	\end{corollary}
+\begin{corollary}\label{cor:prpower}
+	Let $m$ be a positive integer. If $g$ is a primitive root of $n$, then $g^m$ is also a primitive root modulo $n$ if and only if $m \bot \varphi(m)$.
+\end{corollary}
 
-	\begin{proof}
-		Let $(m,\varphi(n))=d$, so that $m\varphi(n)=d\cdot [m,\varphi(n)]$. According to \autoref{thm:prTest}, $g^m$ is a primitive root modulo $n$ if and only if
-			\begin{align}\label{eq:prpower1}
-				g^{{d\cdot [m,\varphi(n)]}/{p}}
-					& \not\equiv1\pmod n
-			\end{align}
-		for all prime divisors $p$ of $\varphi(n)$. Now, if $d \neq 1$, there exists a prime $q$ which divides $d$. In that case, write $d=qk$ for some integer $k$. But then,
-			\begin{align*}
-				g^{{d\cdot [m,\varphi(n)]}/{q}}
-					& \equiv g^{k \cdot [m,\varphi(n)]}\pmod n
-			\end{align*}
-		and since $[m,\varphi(n)]$ is divisible by $\varphi(n)$, we have $g^{ [m,\varphi(n)]} \equiv 1\pmod n$. Thus,
-			\begin{align*}
-				g^{{d\cdot [m,\varphi(n)]}/{q}}
-					& \equiv \left(g^{[m,\varphi(n)]}\right)^k\\
-					& \equiv 1\pmod n
-			\end{align*}
-		which is in contradiction with equation \eqref{eq:prpower1} since $q$ is a prime divisor of $\varphi(n)$ (why?). So, we must have $d=1$, and the proof is complete.
-	\end{proof}
+\begin{proof}
+	Let $(m,\varphi(n))=d$, so that $m\varphi(n)=d\cdot [m,\varphi(n)]$. According to \autoref{thm:prTest}, $g^m$ is a primitive root modulo $n$ if and only if
+		\begin{align}\label{eq:prpower1}
+			g^{{d\cdot [m,\varphi(n)]}/{p}}
+				& \not\equiv1\pmod n
+		\end{align}
+	for all prime divisors $p$ of $\varphi(n)$. Now, if $d \neq 1$, there exists a prime $q$ which divides $d$. In that case, write $d=qk$ for some integer $k$. But then,
+		\begin{align*}
+			g^{{d\cdot [m,\varphi(n)]}/{q}}
+				& \equiv g^{k \cdot [m,\varphi(n)]}\pmod n
+		\end{align*}
+	and since $[m,\varphi(n)]$ is divisible by $\varphi(n)$, we have $g^{ [m,\varphi(n)]} \equiv 1\pmod n$. Thus,
+		\begin{align*}
+			g^{{d\cdot [m,\varphi(n)]}/{q}}
+				& \equiv \left(g^{[m,\varphi(n)]}\right)^k\\
+				& \equiv 1\pmod n
+		\end{align*}
+	which is in contradiction with equation \eqref{eq:prpower1} since $q$ is a prime divisor of $\varphi(n)$ (why?). So, we must have $d=1$, and the proof is complete.
+\end{proof}
 
 Assume that some positive integer $n$ has a primitive root. An interesting question is to find the number of primitive roots which are incongruent modulo $n$. The next theorem answers this question.
 
-	\begin{theorem}\label{thm:npr}
-		For any positive integer $n$, if there exists a primitive root modulo $n$, then there are exactly $\varphi(\varphi(n))$ incongruent primitive roots modulo $n$.
-	\end{theorem}
+\begin{theorem}\label{thm:npr}
+	For any positive integer $n$, if there exists a primitive root modulo $n$, then there are exactly $\varphi(\varphi(n))$ incongruent primitive roots modulo $n$.
+\end{theorem}
 
-	\begin{note}
-		In case the word \textit{incongruent} is somewhat unclear to you: two integers $a$ and $b$ are called \textit{incongruent} modulo a natural number $n$ if and only if $a \not \equiv b \pmod n$.
-	\end{note}
+\begin{note}
+	In case the word \textit{incongruent} is somewhat unclear to you: two integers $a$ and $b$ are called \textit{incongruent} modulo a natural number $n$ if and only if $a \not \equiv b \pmod n$.
+\end{note}
 
-	\begin{proof}
-		Assume that $g$ is a primitive root modulo $n$. We aim to find all primitive roots of $n$. Since we are looking for incongruent primitive roots modulo $n$, it suffices to search in the set $\mathbb U_n$. \autoref{thm:prequalsU} tells us that $\{g,g^2,\cdots,g^{\varphi(n)}\} \equiv \mathbb U_n \pmod n$ and so we should search for primitive roots in the set $\{g,g^2,\cdots,g^{\varphi(n)}\}$. On the other hand, Corollary \ref{cor:prpower} implies tha we should only investigate powers $g^m$ of $g$ for which $(m, \varphi(n))=1$. The number of such elements is $\varphi(\varphi(n))$.
-	\end{proof}
+\begin{proof}
+	Assume that $g$ is a primitive root modulo $n$. We aim to find all primitive roots of $n$. Since we are looking for incongruent primitive roots modulo $n$, it suffices to search in the set $\mathbb U_n$. \autoref{thm:prequalsU} tells us that $\{g,g^2,\cdots,g^{\varphi(n)}\} \equiv \mathbb U_n \pmod n$ and so we should search for primitive roots in the set $\{g,g^2,\cdots,g^{\varphi(n)}\}$. On the other hand, Corollary \ref{cor:prpower} implies tha we should only investigate powers $g^m$ of $g$ for which $(m, \varphi(n))=1$. The number of such elements is $\varphi(\varphi(n))$.
+\end{proof}
 
 We are back to the first question: for which integers $n$ do we have a primitive root? The process of finding such $n$ is long, and we will break it into smaller parts. The first step is to see if there exist primitive roots modulo primes. We will soon prove that there always exists a primitive root modulo any prime. We need the following lemma to prove our claim.
 
-	\begin{lemma}\label{lem:exactlyDsolutions}
-		Let $p$ be a prime and $d$ be a positive integer such that $d \mid p-1$. Then $x^d -1 \equiv 0 \pmod p$ has exactly $d$ incongruent solutions modulo $p$.
-	\end{lemma}
+\begin{lemma}\label{lem:exactlyDsolutions}
+	Let $p$ be a prime and $d$ be a positive integer such that $d \mid p-1$. Then $x^d -1 \equiv 0 \pmod p$ has exactly $d$ incongruent solutions modulo $p$.
+\end{lemma}
 
-	\begin{proof}
-		Let $p-1=dk$ for some integer $k$. Consider the polynomial
-			\begin{align*}
-				P(x)
-					& = 1+x^d + \left(x^d\right)^2 + \cdots + \left(x^d\right)^{k-1}
-			\end{align*}
-		Then,
-			\begin{align}\label{eq:exactlyDsolutions}
-				x^{p-1} -1
-					& = (x^d-1)P(x)
-			\end{align}
-		By Fermat's theorem, all integers $1, 2, \ldots, p-1$ are solutions to $x^{p-1}-1 \equiv 0 \pmod p$. So, this equation has exactly $p-1=dk$ solutions. From \eqref{eq:exactlyDsolutions}, each of these $dk$ solutions is either a solution of $P(x) \equiv 0 \pmod p$ or a solution of $x^d-1 \equiv 0 \pmod p$. However, Lagrange's theorem says that $P(x) \equiv 0 \pmod p$ has at most $d(k-1)$ solutions and that $x^d-1 \equiv 0 \pmod p$ has at most $d$ solutions. Since $dk=d(k-1)+d$, this is only possible when $x^d-1 \equiv 0 \pmod p$ has exactly $d$ solutions and also $P(x) \equiv 0 \pmod p$ has exactly $d(k-1)$ solutions.
-	\end{proof}
+\begin{proof}
+	Let $p-1=dk$ for some integer $k$. Consider the polynomial
+		\begin{align*}
+			P(x)
+				& = 1+x^d + \left(x^d\right)^2 + \cdots + \left(x^d\right)^{k-1}
+		\end{align*}
+	Then,
+		\begin{align}\label{eq:exactlyDsolutions}
+			x^{p-1} -1
+				& = (x^d-1)P(x)
+		\end{align}
+	By Fermat's theorem, all integers $1, 2, \ldots, p-1$ are solutions to $x^{p-1}-1 \equiv 0 \pmod p$. So, this equation has exactly $p-1=dk$ solutions. From \eqref{eq:exactlyDsolutions}, each of these $dk$ solutions is either a solution of $P(x) \equiv 0 \pmod p$ or a solution of $x^d-1 \equiv 0 \pmod p$. However, Lagrange's theorem says that $P(x) \equiv 0 \pmod p$ has at most $d(k-1)$ solutions and that $x^d-1 \equiv 0 \pmod p$ has at most $d$ solutions. Since $dk=d(k-1)+d$, this is only possible when $x^d-1 \equiv 0 \pmod p$ has exactly $d$ solutions and also $P(x) \equiv 0 \pmod p$ has exactly $d(k-1)$ solutions.
+\end{proof}
 
-	\begin{theorem}\label{thm:primeprimitive}
-		Let $p$ be a prime. There are exactly $\varphi(p-1)$ incongruent primitive roots modulo $p$.
-	\end{theorem}
+\begin{theorem}\label{thm:primeprimitive}
+	Let $p$ be a prime. There are exactly $\varphi(p-1)$ incongruent primitive roots modulo $p$.
+\end{theorem}
 
-	\begin{proof}
-		The case $p=2$ is obvious. If there exists one primitive root of $p$, then by \autoref{thm:npr} there are exactly $\varphi(\varphi(p))=\varphi(p-1)$ incongruent primitive roots of $p$.
+\begin{proof}
+	The case $p=2$ is obvious. If there exists one primitive root of $p$, then by \autoref{thm:npr} there are exactly $\varphi(\varphi(p))=\varphi(p-1)$ incongruent primitive roots of $p$.
 
-		So we just need to construct a primitive root for $p$. The trick is to factorize $\varphi(p)=p-1$ into product of prime powers. Let $q$ be a prime such that $q^k \mid p-1$ for some integer $k \geq 1$. We want to show that there exists some integer $a$ for which $\ord_p(a)=q^k$. By previous lemma, the equation $x^{q^k} - 1 \equiv 0 \pmod p$ has exactly $q^k$ solutions. Take $a$ to be one of these solutions. Then $a^{q^k} \equiv 1 \pmod p$, and so by \autoref{thm:ordDiv}, it follows that $\ord_p(a)\mid q^k$. So $\ord_p(a)=q^j$ for some integer $0 \leq j \leq k$. This means that $a$ is a solution to the equation $x^{q^j} - 1 \equiv 0 \pmod p$. If $j=k$, we have found such an $a$. Otherwise, suppose that $j<k$. Let $i=k-j\geq 1$. Note that if $x^{q^j} \equiv 1 \pmod p$, then,
-			\begin{align*}
-				x^{q^{k-1}}
-					& \equiv \left(x^{q^j}\right)^{k-j-1}\pmod{p}\\
-					& \equiv \left(x^{q^j}\right)^{i-1}\pmod{p}\\
-					& \equiv 1 \pmod p
-			\end{align*}
-		That is, every solution to $x^{q^j} \equiv 1 \pmod p$ is also a solution to $x^{q^{k-1}} \equiv 1 \pmod p$. According to the preceding lemma, number of solutions of $x^{q^{k-1}} \equiv 1 \pmod p$ is exactly $q^{k-1}$. So there are exactly $q^k - q^{k-1}$ integers $x$ which satisfy $x^{q^k} \equiv 1 \pmod p$ but not $x^{q^{k-1}} \equiv 1 \pmod p$. If we select $a$ from these solutions, we will have $\ord_p(a)=q^k$.
+	So we just need to construct a primitive root for $p$. The trick is to factorize $\varphi(p)=p-1$ into product of prime powers. Let $q$ be a prime such that $q^k \mid p-1$ for some integer $k \geq 1$. We want to show that there exists some integer $a$ for which $\ord_p(a)=q^k$. By previous lemma, the equation $x^{q^k} - 1 \equiv 0 \pmod p$ has exactly $q^k$ solutions. Take $a$ to be one of these solutions. Then $a^{q^k} \equiv 1 \pmod p$, and so by \autoref{thm:ordDiv}, it follows that $\ord_p(a)\mid q^k$. So $\ord_p(a)=q^j$ for some integer $0 \leq j \leq k$. This means that $a$ is a solution to the equation $x^{q^j} - 1 \equiv 0 \pmod p$. If $j=k$, we have found such an $a$. Otherwise, suppose that $j<k$. Let $i=k-j\geq 1$. Note that if $x^{q^j} \equiv 1 \pmod p$, then,
+		\begin{align*}
+			x^{q^{k-1}}
+				& \equiv \left(x^{q^j}\right)^{k-j-1}\pmod{p}\\
+				& \equiv \left(x^{q^j}\right)^{i-1}\pmod{p}\\
+				& \equiv 1 \pmod p
+		\end{align*}
+	That is, every solution to $x^{q^j} \equiv 1 \pmod p$ is also a solution to $x^{q^{k-1}} \equiv 1 \pmod p$. According to the preceding lemma, number of solutions of $x^{q^{k-1}} \equiv 1 \pmod p$ is exactly $q^{k-1}$. So there are exactly $q^k - q^{k-1}$ integers $x$ which satisfy $x^{q^k} \equiv 1 \pmod p$ but not $x^{q^{k-1}} \equiv 1 \pmod p$. If we select $a$ from these solutions, we will have $\ord_p(a)=q^k$.
 
-		To finish the proof, let $$p-1 = q_1^{\alpha_1}q_2^{\alpha_2} \cdots q_t^{\alpha_t},$$ be the prime factorization of $p-1$. From what we have just proved, there exists some integer $a_i$ for each $q_i$ such that $\ord_p(a_i)=q_i^{\alpha_i}$. According to Theorem \eqref{thm:prproduct}, since $q_i$ are relatively prime,
-			\begin{align*}
-				\deg_p\left(\prod_{i=1}^{t}a_i\right)
-					& = \deg_p(a_1) \deg_p(a_2) \cdots \deg_p(a_t)\\
-					& = q_1^{\alpha_1}q_2^{\alpha_2} \cdots q_t^{\alpha_t}\\
-					& = p-1\\
-					& =\varphi(p)
-			\end{align*}
-		and so $\prod_{i=1}^{t}a_i$ is a primitive root modulo $p$.
-	\end{proof}
+	To finish the proof, let $$p-1 = q_1^{\alpha_1}q_2^{\alpha_2} \cdots q_t^{\alpha_t},$$ be the prime factorization of $p-1$. From what we have just proved, there exists some integer $a_i$ for each $q_i$ such that $\ord_p(a_i)=q_i^{\alpha_i}$. According to Theorem \eqref{thm:prproduct}, since $q_i$ are relatively prime,
+		\begin{align*}
+			\deg_p\left(\prod_{i=1}^{t}a_i\right)
+				& = \deg_p(a_1) \deg_p(a_2) \cdots \deg_p(a_t)\\
+				& = q_1^{\alpha_1}q_2^{\alpha_2} \cdots q_t^{\alpha_t}\\
+				& = p-1\\
+				& =\varphi(p)
+		\end{align*}
+	and so $\prod_{i=1}^{t}a_i$ is a primitive root modulo $p$.
+\end{proof}
 
 The next step is to find what other numbers have a primitive root. We will show, by the help of the following lemma, that all powers of an odd prime number have a primitive root.
 
-	\begin{lemma}
-		Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ such that $g^{p-1} \not \equiv 1 \pmod{p^2}$. Then,
-			\begin{align*}
-				g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}
-			\end{align*}
-		for any integer $k \geq 1$.
-	\end{lemma}
+\begin{lemma}
+	Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ such that $g^{p-1} \not \equiv 1 \pmod{p^2}$. Then,
+		\begin{align*}
+			g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}
+		\end{align*}
+	for any integer $k \geq 1$.
+\end{lemma}
 
-	\begin{proof}
-		We will induct on $k$. The base case $k=1$ is immediately followed from the assumption that $g^{p-1} \not \equiv 1 \pmod{p^2}$. As the induction hypothesis, consider that $g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}$ for some $k\geq 1$. From Euler's theorem, $g^{\varphi(p^k)} \equiv 1 \pmod{p^k}$, which means $$g^{\varphi(p^k)} = 1+mp^k$$ for some $m$. The induction hypothesis implies that $p \nmid m$. By Proposition \ref{prop:phiproperties}, we know that
-			\begin{align*}
-				\varphi(p^{k+1})
-					& =p^{k+1}-p^k\\
-					& =p\left(p^k - p^{k-1}\right)\\
-					& =p\cdot \varphi(p^k)
-			\end{align*}
-		Hence,
-			\begin{align*}
-				g^{\varphi(p^{k+1})}
-					& = (1+mp^k)^p \\
-					& = 1+ \binom{p}{1}mp^k + \underbrace{\binom{p}{2} (mp^k)^2 + \cdots +\binom{p}{p-1} (mp^k)^{p-1} +(mp^k)^p}_{\mbox{divisible by }p^{k+2}}\\
-					& \equiv 1+mp^{k+1} \pmod {p^{k+2}}
-			\end{align*}
-		As $m$ is not divisible by $p$, $mp^{k+1}$ is not divisible by $p^{k+2}$. So,
-			\begin{align*}
-				g^{\varphi(p^{k+1})}
-					& \not \equiv 1 \pmod {p^{k+2}}
-			\end{align*}
-		as desired.
-	\end{proof}
+\begin{proof}
+	We will induct on $k$. The base case $k=1$ is immediately followed from the assumption that $g^{p-1} \not \equiv 1 \pmod{p^2}$. As the induction hypothesis, consider that $g^{\varphi(p^k)} \not \equiv 1 \pmod{p^{k+1}}$ for some $k\geq 1$. From Euler's theorem, $g^{\varphi(p^k)} \equiv 1 \pmod{p^k}$, which means $$g^{\varphi(p^k)} = 1+mp^k$$ for some $m$. The induction hypothesis implies that $p \nmid m$. By Proposition \ref{prop:phiproperties}, we know that
+		\begin{align*}
+			\varphi(p^{k+1})
+				& =p^{k+1}-p^k\\
+				& =p\left(p^k - p^{k-1}\right)\\
+				& =p\cdot \varphi(p^k)
+		\end{align*}
+	Hence,
+		\begin{align*}
+			g^{\varphi(p^{k+1})}
+				& = (1+mp^k)^p \\
+				& = 1+ \binom{p}{1}mp^k + \underbrace{\binom{p}{2} (mp^k)^2 + \cdots +\binom{p}{p-1} (mp^k)^{p-1} +(mp^k)^p}_{\mbox{divisible by }p^{k+2}}\\
+				& \equiv 1+mp^{k+1} \pmod {p^{k+2}}
+		\end{align*}
+	As $m$ is not divisible by $p$, $mp^{k+1}$ is not divisible by $p^{k+2}$. So,
+		\begin{align*}
+			g^{\varphi(p^{k+1})}
+				& \not \equiv 1 \pmod {p^{k+2}}
+		\end{align*}
+	as desired.
+\end{proof}
 
-	\begin{theorem}\label{thm:primepowerprimitive}
-		Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ (as we know exists from \autoref{thm:primeprimitive}). Then, either $g$ or $g+p$ is a primitive root modulo $p^k$ for any integer $k\geq 1$.
-	\end{theorem}
+\begin{theorem}\label{thm:primepowerprimitive}
+	Let $p$ be an odd prime and let $g$ be a primitive root modulo $p$ (as we know exists from \autoref{thm:primeprimitive}). Then, either $g$ or $g+p$ is a primitive root modulo $p^k$ for any integer $k\geq 1$.
+\end{theorem}
 
-	\begin{proof}
-		We break the proof into two parts:
-		\begin{enumerate}
-			\item If $g^{p-1} \not \equiv 1 \pmod{p^2}$, then we will show that $g$ is a primitive root of $p^k$. That is, we will prove that
-				\begin{align}\label{eq:ordermodprimepower}
-					\ord_{p^k} (g)
-						& =\varphi(p^k)\\
-						& =p^{k-1}(p-1)
-				\end{align}
-			This is obviously true for $k=1$. Suppose that equation \eqref{eq:ordermodprimepower} holds for some $k\geq 1$. We will prove that it also holds for $k+1$. Let $\ord_{p^{k+1}} (g)=m$. Then
-				\begin{align*}
-					g^m
-						& \equiv 1 \pmod{p^{k+1}}\\
-					\implies g^m
-						& \equiv 1 \pmod{p^{k}}
-				\end{align*}
-			Since we know that order of $g$ modulo $p^k$ is $\varphi(p^k)$, we should have $\varphi(p^k)=p^{k-1}(p-1)\mid m$. On the other hand, since $m$ is the order of $g$ modulo $p^{k+1}$, by corollary \eqref{cor:phiDiv}, we get $m\mid \varphi(p^{k+1})=p^k(p-1)$. Therefore, $m$ equals either $\varphi(p^k)=p^{k-1}(p-1)$ or $\varphi(p^{k+1})=p^{k}(p-1)$. Previous lemma states that it is impossible to have $m=\ord_{p^{k+1}} (g)=\varphi(p^k)$. So, $m=\varphi(p^{k+1})$ and we are done.
+\begin{proof}
+	We break the proof into two parts:
+	\begin{enumerate}
+		\item If $g^{p-1} \not \equiv 1 \pmod{p^2}$, then we will show that $g$ is a primitive root of $p^k$. That is, we will prove that
+			\begin{align}\label{eq:ordermodprimepower}
+				\ord_{p^k} (g)
+					& =\varphi(p^k)\\
+					& =p^{k-1}(p-1)
+			\end{align}
+		This is obviously true for $k=1$. Suppose that equation \eqref{eq:ordermodprimepower} holds for some $k\geq 1$. We will prove that it also holds for $k+1$. Let $\ord_{p^{k+1}} (g)=m$. Then
+			\begin{align*}
+				g^m
+					& \equiv 1 \pmod{p^{k+1}}\\
+				\implies g^m
+					& \equiv 1 \pmod{p^{k}}
+			\end{align*}
+		Since we know that order of $g$ modulo $p^k$ is $\varphi(p^k)$, we should have $\varphi(p^k)=p^{k-1}(p-1)\mid m$. On the other hand, since $m$ is the order of $g$ modulo $p^{k+1}$, by corollary \eqref{cor:phiDiv}, we get $m\mid \varphi(p^{k+1})=p^k(p-1)$. Therefore, $m$ equals either $\varphi(p^k)=p^{k-1}(p-1)$ or $\varphi(p^{k+1})=p^{k}(p-1)$. Previous lemma states that it is impossible to have $m=\ord_{p^{k+1}} (g)=\varphi(p^k)$. So, $m=\varphi(p^{k+1})$ and we are done.
 
-			\item If $g^{p-1} \equiv 1 \pmod{p^2}$, then we will show that $g+p$ is a primitive root modulo $p^k$ for any integer $k\geq 1$. Note that
-				\begin{align*}
-					(g+p)^{p-1}
-						& = g^{p-1} + \binom{p-1}{1} g^{p-2}p \\
-						& + \underbrace{\binom{p-1}{2}g^{p-3}p^2+\cdots + \binom{p-1}{p-2} gp^{p-2} + p^{p-1}}_{\mbox{divisible by } p^2}
-				\end{align*}
-			Taking modulo $p^2$,
-				\begin{align*}
-					(g+p)^{p-1}
-						& \equiv g^{p-1}+(p-1)g^{p-2}p\\
-						& \equiv 1 - g^{p-2}p\\
-						& \not \equiv 1 \pmod{p^2}
-				\end{align*}
-			because $p \nmid g$. We can now apply the same approach we followed in the first case, but now with $g+p$ instead of $g$. So $g+p$ is a primitive root modulo all powers of $p$ and the proof is complete.
-		\end{enumerate}
-	\end{proof}
+		\item If $g^{p-1} \equiv 1 \pmod{p^2}$, then we will show that $g+p$ is a primitive root modulo $p^k$ for any integer $k\geq 1$. Note that
+			\begin{align*}
+				(g+p)^{p-1}
+					& = g^{p-1} + \binom{p-1}{1} g^{p-2}p \\
+					& + \underbrace{\binom{p-1}{2}g^{p-3}p^2+\cdots + \binom{p-1}{p-2} gp^{p-2} + p^{p-1}}_{\mbox{divisible by } p^2}
+			\end{align*}
+		Taking modulo $p^2$,
+			\begin{align*}
+				(g+p)^{p-1}
+					& \equiv g^{p-1}+(p-1)g^{p-2}p\\
+					& \equiv 1 - g^{p-2}p\\
+					& \not \equiv 1 \pmod{p^2}
+			\end{align*}
+		because $p \nmid g$. We can now apply the same approach we followed in the first case, but now with $g+p$ instead of $g$. So $g+p$ is a primitive root modulo all powers of $p$ and the proof is complete.
+	\end{enumerate}
+\end{proof}
 
 Finally, we are ready to answer our question.
 
-	\begin{theorem}[Primitive Root Theorem]
-		Let $n>1$ be a positive integer. There exists a primitive root modulo $n$ if and only if $n\in\{2,4,p^k,2p^k\}$ for some odd prime $p$ and a positive integer $k$.
-		\label{thm:pr:wh}
-	\end{theorem}
+\begin{theorem}[Primitive Root Theorem]
+	Let $n>1$ be a positive integer. There exists a primitive root modulo $n$ if and only if $n\in\{2,4,p^k,2p^k\}$ for some odd prime $p$ and a positive integer $k$.
+	\label{thm:pr:wh}
+\end{theorem}
 
-	\begin{proof}
-		Obviously, $g=1$ and $g=3$ are primitive roots modulo $2$ and $4$, respectively. So, $n=2$ and $n=4$ are off the list. Let's consider the ``if'' part first. If $n$ has a primitive root, we will prove $n$ must be of the form $p^k$ or $2p^k$, where $p$ is an odd prime.
-		First, let us show that $2^k$ does not have a primitive root for $k >2$. It is obvious that if $a$ is a primitive root modulo $2^k$, then $a$ is odd. We leave it as an exercise for the reader to prove by induction that for any odd $a$ and $k>2$,
-			\begin{align*}
-				2^k & \mid a^{2^{k-2}}-1
-			\end{align*}
-		Since $\varphi(2^k)=2^{k-1}$, $a$ is never a primitive root modulo $2^k$.
+\begin{proof}
+	Obviously, $g=1$ and $g=3$ are primitive roots modulo $2$ and $4$, respectively. So, $n=2$ and $n=4$ are off the list. Let's consider the ``if'' part first. If $n$ has a primitive root, we will prove $n$ must be of the form $p^k$ or $2p^k$, where $p$ is an odd prime.
+	First, let us show that $2^k$ does not have a primitive root for $k >2$. It is obvious that if $a$ is a primitive root modulo $2^k$, then $a$ is odd. We leave it as an exercise for the reader to prove by induction that for any odd $a$ and $k>2$,
+		\begin{align*}
+			2^k & \mid a^{2^{k-2}}-1
+		\end{align*}
+	Since $\varphi(2^k)=2^{k-1}$, $a$ is never a primitive root modulo $2^k$.
 
-		Now, if $n$ is not of the form $p^k$ or $2p^k$, we can write $n=ab$ with $\gcd(a,b)=1$ and $a>b>2$. So, $\varphi(b)$ and $\varphi(a)$ are larger than $1$, and by Proposition \ref{prop:phiproperties}, they are both even. Let $g$ be a primitive root modulo $n$. This means that $\ord_{n}(g)=\varphi(ab)$. We will show that this cannot happen. Let $\ord_a(g)=d$ and $\ord_b(g)=e$. Since
-			\begin{align*}
-				g^{\varphi(a)} & \equiv1\pmod a\\
-				g^{\varphi(b)} & \equiv1\pmod b
-			\end{align*}
-		by Corollary \eqref{cor:phiDiv}, we find that $d \mid \varphi(a)$ and $e\mid \varphi(b)$.
-		Hence, by Theorem \eqref{thm:ordL},
-			\begin{align*}
-				\ord_{ab}(g)
-					& =  [d,e]\\
-					& \leq [\varphi(a),\varphi(b)]\\
-					& = \dfrac{\varphi(a) \varphi(b)}{(\varphi(a), \varphi(b))}\\
-					& = \dfrac{\varphi(ab)}{(\varphi(a), \varphi(b))}\\
-					& \leq  \dfrac{\varphi(ab)}{2}
-			\end{align*}
-		where we have used the fact that $(\varphi(a),\varphi(b))$ is at least $2$. This gives us the contradiction we were looking for. So, $n$ must be of the form $p^k$ or $2p^k$.
+	Now, if $n$ is not of the form $p^k$ or $2p^k$, we can write $n=ab$ with $\gcd(a,b)=1$ and $a>b>2$. So, $\varphi(b)$ and $\varphi(a)$ are larger than $1$, and by Proposition \ref{prop:phiproperties}, they are both even. Let $g$ be a primitive root modulo $n$. This means that $\ord_{n}(g)=\varphi(ab)$. We will show that this cannot happen. Let $\ord_a(g)=d$ and $\ord_b(g)=e$. Since
+		\begin{align*}
+			g^{\varphi(a)} & \equiv1\pmod a\\
+			g^{\varphi(b)} & \equiv1\pmod b
+		\end{align*}
+	by Corollary \eqref{cor:phiDiv}, we find that $d \mid \varphi(a)$ and $e\mid \varphi(b)$.
+	Hence, by Theorem \eqref{thm:ordL},
+		\begin{align*}
+			\ord_{ab}(g)
+				& =  [d,e]\\
+				& \leq [\varphi(a),\varphi(b)]\\
+				& = \dfrac{\varphi(a) \varphi(b)}{(\varphi(a), \varphi(b))}\\
+				& = \dfrac{\varphi(ab)}{(\varphi(a), \varphi(b))}\\
+				& \leq  \dfrac{\varphi(ab)}{2}
+		\end{align*}
+	where we have used the fact that $(\varphi(a),\varphi(b))$ is at least $2$. This gives us the contradiction we were looking for. So, $n$ must be of the form $p^k$ or $2p^k$.
 
-		The only remaining part is to prove that for an odd prime $p$ and $k \geq 1$, there exist primitive roots modulo the numbers $p^k$ and $2p^k$. According to \autoref{thm:primeprimitive}, $p$ has a primitive root, say $g$. It now follows from \autoref{thm:primepowerprimitive} that either $g$ or $g+p$ is a primitive root modulo $p^k$. Since Euler's totient function is multiplicative, we have
-			\begin{align*}
-				\varphi(2p^k)
-					& = \varphi(2)\cdot \varphi(p^k)\\
-					& = \varphi(p^k)
-			\end{align*}
-		Let $g$ be a primitive root modulo $p^k$.
-		\begin{enumerate}
-			\item If $g$ is odd, then
-			\begin{align*}
-				g^a
-					& \equiv 1 \pmod{p^k}\\
-				\iff g^a
-					& \equiv 1 \pmod{2p^k}
-			\end{align*}
-			Let $m = \ord_{2p^k}(g)$. If $m<\varphi(2p^k)=\varphi(p^k)$, then $g^m \equiv 1\pmod{2p^k}$ implies $g^m \equiv 1\pmod{p^k}$, which contradicts the fact that $g$ is a primitive root modulo $p^k$. Therefore, $g$ is also a primitive root modulo $2p^k$.
-			\item If $g$ is even, then $g'=g+p^k$ is an odd number and it is also a primitive root modulo $p^k$. Applying the same approach used in the first case, we find that $g'$ is a primitive root modulo $2p^k$.
-		\end{enumerate}
-		We have shown that $2p^k$ always has a primitive root and the proof is complete.
-	\end{proof}
+	The only remaining part is to prove that for an odd prime $p$ and $k \geq 1$, there exist primitive roots modulo the numbers $p^k$ and $2p^k$. According to \autoref{thm:primeprimitive}, $p$ has a primitive root, say $g$. It now follows from \autoref{thm:primepowerprimitive} that either $g$ or $g+p$ is a primitive root modulo $p^k$. Since Euler's totient function is multiplicative, we have
+		\begin{align*}
+			\varphi(2p^k)
+				& = \varphi(2)\cdot \varphi(p^k)\\
+				& = \varphi(p^k)
+		\end{align*}
+	Let $g$ be a primitive root modulo $p^k$.
+	\begin{enumerate}
+		\item If $g$ is odd, then
+		\begin{align*}
+			g^a
+				& \equiv 1 \pmod{p^k}\\
+			\iff g^a
+				& \equiv 1 \pmod{2p^k}
+		\end{align*}
+		Let $m = \ord_{2p^k}(g)$. If $m<\varphi(2p^k)=\varphi(p^k)$, then $g^m \equiv 1\pmod{2p^k}$ implies $g^m \equiv 1\pmod{p^k}$, which contradicts the fact that $g$ is a primitive root modulo $p^k$. Therefore, $g$ is also a primitive root modulo $2p^k$.
+		\item If $g$ is even, then $g'=g+p^k$ is an odd number and it is also a primitive root modulo $p^k$. Applying the same approach used in the first case, we find that $g'$ is a primitive root modulo $2p^k$.
+	\end{enumerate}
+	We have shown that $2p^k$ always has a primitive root and the proof is complete.
+\end{proof}
 
 Here is a generalization of Wilson's theorem, though it can be generalized even further. We refer the reader to section \eqref{sec:wilsongeneral} of the book to see another generalization of Wilson's theorem.
-	\begin{problem}\label{thm:genWilson}
-		Let $n$ be a positive integer and let $\mathbb U_n = \{g_1, g_2, \ldots, g_{\varphi(n)}\}$. Prove that if there exists a primitive root modulo $n$, then
-			\begin{align*}
-				g_1g_2\cdots g_{\varphi(n)}
-					& \equiv-1\pmod n
-			\end{align*}
-		Otherwise,
-			\begin{align*}
-				g_1g_2\cdots g_{\varphi(n)}
-					& \equiv1\pmod n
-			\end{align*}
-	\end{problem}
-
-	\begin{hint}
-		Combine Theorems \ref{thm:pr:wh} and \ref{thm:prTest} along with the fact that if $p$ is an odd prime and $k$ is a positive integer, then $p^k \mid a^2-1$ implies $p^k \mid a+1$ or $p^k\mid a-1$.
-	\end{hint}
-
-	\begin{theorem}
-		Let $g$ be a primitive root modulo $n$. Then $n-g$ is a primitive root modulo $n$ as well if $4$ divides $\varphi(n)$.
-	\end{theorem}
-
-	\begin{proof}
-		We have a criteria to see if $x$ is a primitive root modulo $n$. We need to check if $x^{{\varphi(n)}/{p}}\not\equiv1\pmod n$ for any prime $p$ which divides $\varphi(n)$. Therefore, to check if $n-g$ is a primitive root of $n$, we just need to prove the following holds
+\begin{problem}\label{thm:genWilson}
+	Let $n$ be a positive integer and let $\mathbb U_n = \{g_1, g_2, \ldots, g_{\varphi(n)}\}$. Prove that if there exists a primitive root modulo $n$, then
 		\begin{align*}
-			(n-g)^{{\varphi(n)}/{p}} & \not\equiv1\pmod n
+			g_1g_2\cdots g_{\varphi(n)}
+				& \equiv-1\pmod n
 		\end{align*}
-		for any prime divisor $p$ of $\varphi(n)$. Now, since $4 \mid \varphi(n)$, we have $2 \mid {\varphi(n)}/{2}$. So, ${\varphi(n)}/{p}$ is even for any proper $p$. Using the fact that $g^2\equiv(n-g)^2\pmod n$, we get
+	Otherwise,
 		\begin{align*}
-			(n-g)^\frac{\varphi(n)}{p}
-				& \equiv\left((n-g)^2\right)^{\frac{\varphi(n)}{2p}}\\
-				& \equiv \left(g^2\right)^{\frac{\varphi(n)}{2p}}\\
-				& \equiv g^{\frac{\varphi(n)}{p}}\\
-				& \not\equiv1\pmod n
+			g_1g_2\cdots g_{\varphi(n)}
+				& \equiv1\pmod n
 		\end{align*}
-		Thus, $(n-g)$ is a primitive root modulo $n$ as well.
-	\end{proof}
+\end{problem}
+
+\begin{hint}
+	Combine Theorems \ref{thm:pr:wh} and \ref{thm:prTest} along with the fact that if $p$ is an odd prime and $k$ is a positive integer, then $p^k \mid a^2-1$ implies $p^k \mid a+1$ or $p^k\mid a-1$.
+\end{hint}
+
+\begin{theorem}
+	Let $g$ be a primitive root modulo $n$. Then $n-g$ is a primitive root modulo $n$ as well if $4$ divides $\varphi(n)$.
+\end{theorem}
+
+\begin{proof}
+	We have a criteria to see if $x$ is a primitive root modulo $n$. We need to check if $x^{{\varphi(n)}/{p}}\not\equiv1\pmod n$ for any prime $p$ which divides $\varphi(n)$. Therefore, to check if $n-g$ is a primitive root of $n$, we just need to prove the following holds
+	\begin{align*}
+		(n-g)^{{\varphi(n)}/{p}} & \not\equiv1\pmod n
+	\end{align*}
+	for any prime divisor $p$ of $\varphi(n)$. Now, since $4 \mid \varphi(n)$, we have $2 \mid {\varphi(n)}/{2}$. So, ${\varphi(n)}/{p}$ is even for any proper $p$. Using the fact that $g^2\equiv(n-g)^2\pmod n$, we get
+	\begin{align*}
+		(n-g)^\frac{\varphi(n)}{p}
+			& \equiv\left((n-g)^2\right)^{\frac{\varphi(n)}{2p}}\\
+			& \equiv \left(g^2\right)^{\frac{\varphi(n)}{2p}}\\
+			& \equiv g^{\frac{\varphi(n)}{p}}\\
+			& \not\equiv1\pmod n
+	\end{align*}
+	Thus, $(n-g)$ is a primitive root modulo $n$ as well.
+\end{proof}
 The use of primitive roots is usually not obvious in problems. There is hardly any hint on why you should use it. Best if you see its use through problems.
-	\begin{problem}
-		Let $p$ be odd prime number. Prove that equation  $x^{p-1}\equiv 1 \pmod{p^n}$ has exactly $p -1$ different solution modulo $p^{n}$.
-	\end{problem}
+\begin{problem}
+	Let $p$ be odd prime number. Prove that equation  $x^{p-1}\equiv 1 \pmod{p^n}$ has exactly $p -1$ different solution modulo $p^{n}$.
+\end{problem}
 
-	\begin{solution}[1]
-		Let $g$ be a primitive root modulo $p^n$ (which exists by \autoref{thm:pr:wh}). Now, take $x=g^k$, so every solution $x$ maps to a certain $k$. The number of different $k$ is the number of solutions of this congruence equation. Since
-			\begin{align*}
-				\ord_{p^n}(g)
-					& =p^{n-1}(p-1)\\
-				g^{k(p-1)}
-					& \equiv1\pmod{p^n}
-			\end{align*}
-		we either have
-			\begin{align*}
-				p^{n-1}(p-1)
-					& \mid k(p-1)
-			\end{align*}
-		or $p^{n-1} \mid k$ for any such $k$. Take $k=p^{n-1}\ell$. If $\ell=sp+r$ with $1\leq r<p$, then we have that
-			\begin{align*}
-				g^k
-					& =g^{p^{n-1}(p-1)(sp+r)}\pmod{p^{n}}\\
-					& \equiv g^{p^{n-1}(p-1)r}\pmod{p^n}
-			\end{align*}
-		Therefore, for two incongruent solutions, we must have $1\leq r\leq p-1$, giving us exactly $p-1$ solutions.
-	\end{solution}
+\begin{solution}[1]
+	Let $g$ be a primitive root modulo $p^n$ (which exists by \autoref{thm:pr:wh}). Now, take $x=g^k$, so every solution $x$ maps to a certain $k$. The number of different $k$ is the number of solutions of this congruence equation. Since
+		\begin{align*}
+			\ord_{p^n}(g)
+				& =p^{n-1}(p-1)\\
+			g^{k(p-1)}
+				& \equiv1\pmod{p^n}
+		\end{align*}
+	we either have
+		\begin{align*}
+			p^{n-1}(p-1)
+				& \mid k(p-1)
+		\end{align*}
+	or $p^{n-1} \mid k$ for any such $k$. Take $k=p^{n-1}\ell$. If $\ell=sp+r$ with $1\leq r<p$, then we have that
+		\begin{align*}
+			g^k
+				& =g^{p^{n-1}(p-1)(sp+r)}\pmod{p^{n}}\\
+				& \equiv g^{p^{n-1}(p-1)r}\pmod{p^n}
+		\end{align*}
+	Therefore, for two incongruent solutions, we must have $1\leq r\leq p-1$, giving us exactly $p-1$ solutions.
+\end{solution}
 
-	\begin{solution}[2]
-		This is a special case of Lemma \ref{lem:exactlyDsolutions}, where $d=p-1$.
-	\end{solution}
+\begin{solution}[2]
+	This is a special case of Lemma \ref{lem:exactlyDsolutions}, where $d=p-1$.
+\end{solution}
 
-	\begin{problem}
-		Prove that $3$ is a primitive root modulo $p$, where $p$ is any prime of the form $2^n+1$ for some integer $n>1$.
-	\end{problem}
+\begin{problem}
+	Prove that $3$ is a primitive root modulo $p$, where $p$ is any prime of the form $2^n+1$ for some integer $n>1$.
+\end{problem}
 
-	\begin{solution}[1]
-		$p=2^n+1$ in particular means $p \equiv 1 \pmod{4}$.
-		According to Problem \ref{prob:prime=poweroftwoplusone}, we find that $p$ is of the form $2^{2^r} + 1$ for some positive integer $r$. Therefore
-			\begin{align*}
-				p
-					& = 2^{2^{r}} +1\\
-					& \equiv (-1)^{2^r} +1\\
-					& \equiv 2 \pmod{3}
-			\end{align*}
-		which is not a quadratic residue modulo $3$.
-		Using the law of quadratic reciprocity and the fact that $p \equiv 1 \pmod{4}$,
-			\begin{align*}
-				\parenthesis{\dfrac{3}{p}}\parenthesis{\dfrac{p}{3}}
-					& = (-1)^{(p-1)/2} = 1
-			\end{align*}
-		From the above discussion, we know that $\parenthesis{\frac{p}{3}} = -1$. Therefore, $\parenthesis{\frac{3}{p}}=-1$ and $3$ is a quadratic non-residue modulo $p$.
+\begin{solution}[1]
+	$p=2^n+1$ in particular means $p \equiv 1 \pmod{4}$.
+	According to Problem \ref{prob:prime=poweroftwoplusone}, we find that $p$ is of the form $2^{2^r} + 1$ for some positive integer $r$. Therefore
+		\begin{align*}
+			p
+				& = 2^{2^{r}} +1\\
+				& \equiv (-1)^{2^r} +1\\
+				& \equiv 2 \pmod{3}
+		\end{align*}
+	which is not a quadratic residue modulo $3$.
+	Using the law of quadratic reciprocity and the fact that $p \equiv 1 \pmod{4}$,
+		\begin{align*}
+			\parenthesis{\dfrac{3}{p}}\parenthesis{\dfrac{p}{3}}
+				& = (-1)^{(p-1)/2} = 1
+		\end{align*}
+	From the above discussion, we know that $\parenthesis{\frac{p}{3}} = -1$. Therefore, $\parenthesis{\frac{3}{p}}=-1$ and $3$ is a quadratic non-residue modulo $p$.
 
-		We will now prove that for a prime of the form $p=2^{2^{r}}+1$ every quadratic non-residue modulo $p$ is a primitive root modulo $p$. Since $p$ is a prime, we know that there exists a primitive root modulo $p$, say $g$. By \autoref{thm:pr+qr}, we know that $g^2,g^4,\cdots,g^{p-1}$ are ${p-1}/{2}$ different nonzero residues modulo $p$ and they are all quadratic residues. Therefore, all the quadratic non-residues are given by
-			\begin{align*}
-				g,g^3,g^5,\cdots,g^{p-2}
-			\end{align*}
-		We will now take one of these residues, say $g^{2k+1}$, and show that it is a primitive root mod ${p}$. This means we want to show that $$g^{2k+1},g^{2(2k+1)},g^{3(2k+1)},\ldots,g^{(p-1)(2k+1)}$$ are incongruent modulo $p$, which  happens if and only if
-			\begin{align*}
-				2k+1,2(2k+1),3(2k+1),\ldots,(p-1)(2k+1)
-			\end{align*}
-		are all different modulo ${p-1}$. This happens if and only if $(2k+1,p-1)=1$, or $(2k+1,2^{2^r})=1$, which is clearly true since $2k+1$ is odd and $2^{2^{r}}$ is a power of $2$.
+	We will now prove that for a prime of the form $p=2^{2^{r}}+1$ every quadratic non-residue modulo $p$ is a primitive root modulo $p$. Since $p$ is a prime, we know that there exists a primitive root modulo $p$, say $g$. By \autoref{thm:pr+qr}, we know that $g^2,g^4,\cdots,g^{p-1}$ are ${p-1}/{2}$ different nonzero residues modulo $p$ and they are all quadratic residues. Therefore, all the quadratic non-residues are given by
+		\begin{align*}
+			g,g^3,g^5,\cdots,g^{p-2}
+		\end{align*}
+	We will now take one of these residues, say $g^{2k+1}$, and show that it is a primitive root mod ${p}$. This means we want to show that $$g^{2k+1},g^{2(2k+1)},g^{3(2k+1)},\ldots,g^{(p-1)(2k+1)}$$ are incongruent modulo $p$, which  happens if and only if
+		\begin{align*}
+			2k+1,2(2k+1),3(2k+1),\ldots,(p-1)(2k+1)
+		\end{align*}
+	are all different modulo ${p-1}$. This happens if and only if $(2k+1,p-1)=1$, or $(2k+1,2^{2^r})=1$, which is clearly true since $2k+1$ is odd and $2^{2^{r}}$ is a power of $2$.
 
-		Therefore, all quadratic-non residues are primitive roots modulo $p$, and as we have shown $3$ is among them, we are done.
-	\end{solution}
+	Therefore, all quadratic-non residues are primitive roots modulo $p$, and as we have shown $3$ is among them, we are done.
+\end{solution}
 
-	\begin{solution}[2]
-		Just like the previous solution, we will use the fact that $3$ is not a quadratic residue modulo $p$. Therefore, by Euler's criterion,
-			\begin{align}\label{eq:3^{2^{m-1}}}
-				3^{\frac{p-1}{2}} \equiv \parenthesis{\frac{3}{p}}
-					& = -1\pmod p\\
-				\implies 3^{2^{m-1}}
-					& \equiv -1 \pmod p
-			\end{align}
-		Let $d$ be the order of $3$ modulo $p$. Since $d\mid p-1=2^n$, we must have $d=2^{\alpha}$ for some integer $\alpha$. If $\alpha<n$ then
-			\begin{align*}
-				3^{2^{\alpha}}
-					& \equiv 1\pmod{p}\\
-				\implies 3^{2^{n-1}}
-					& \equiv 1\pmod{p}
-			\end{align*}
-		which is in contradiction with equation \eqref{eq:3^{2^{m-1}}}. So, $d=2^n$, and this means that $3$ is primitive root modulo $p=2^n+1$.
-	\end{solution}
+\begin{solution}[2]
+	Just like the previous solution, we will use the fact that $3$ is not a quadratic residue modulo $p$. Therefore, by Euler's criterion,
+		\begin{align}\label{eq:3^{2^{m-1}}}
+			3^{\frac{p-1}{2}} \equiv \parenthesis{\frac{3}{p}}
+				& = -1\pmod p\\
+			\implies 3^{2^{m-1}}
+				& \equiv -1 \pmod p
+		\end{align}
+	Let $d$ be the order of $3$ modulo $p$. Since $d\mid p-1=2^n$, we must have $d=2^{\alpha}$ for some integer $\alpha$. If $\alpha<n$ then
+		\begin{align*}
+			3^{2^{\alpha}}
+				& \equiv 1\pmod{p}\\
+			\implies 3^{2^{n-1}}
+				& \equiv 1\pmod{p}
+		\end{align*}
+	which is in contradiction with equation \eqref{eq:3^{2^{m-1}}}. So, $d=2^n$, and this means that $3$ is primitive root modulo $p=2^n+1$.
+\end{solution}
 
-	\begin{problem}
-		Let $p$ and $q$ be prime numbers such that $ p=2q+1$. Let $a$ be an integer relatively prime to $p$ and incongruent to $-1$, $0$, and $1$ modulo $p$. Show that $ -a^2$ is primitive root modulo $p$.
-	\end{problem}
+\begin{problem}
+	Let $p$ and $q$ be prime numbers such that $ p=2q+1$. Let $a$ be an integer relatively prime to $p$ and incongruent to $-1$, $0$, and $1$ modulo $p$. Show that $ -a^2$ is primitive root modulo $p$.
+\end{problem}
 
-	\begin{solution}
-		Check $ q=2$ for yourself. Assume $ q \ge 3$ is an odd prime, say $q=2k+1$. Hence, $ p=4k+3$, or $p \equiv 3 \pmod 4$. According to \autoref{thm:a^2+b^2}, $ -a^2$ is not a quadratic residue modulo $ p$. Suppose that $ -a^2$ is not a primitive root modulo $p$. Let $ g$ be a primitive root modulo $p$. \autoref{thm:pr+qr} states that there exists an $ l\ge 1$ such that
-			\begin{align*}
-				g^{2l+1}
-					& \equiv -a^2 \pmod p
-			\end{align*}
-		Since $-a^2$ is not a primitive root, there exists an integer $k$ with $ k<p-1$ such that
-			\begin{align*}
-				g^{(2l+1)k}
-					& \equiv (-a^2)^k\\
-					& \equiv 1 \pmod p
-			\end{align*}
-		This, together with Fermat's little theorem, implies $ (2l+1)k \mid p-1=2q$ and hence $ k=2$. Therefore, $ a^4 \equiv 1 \pmod p$ and by Fermat's little theorem $ 4\mid 2q$, which leads to a contradiction as $q$ is prime. Hence, $ -a^2$ is a primitive root modulo $p$.
-	\end{solution}
+\begin{solution}
+	Check $ q=2$ for yourself. Assume $ q \ge 3$ is an odd prime, say $q=2k+1$. Hence, $ p=4k+3$, or $p \equiv 3 \pmod 4$. According to \autoref{thm:a^2+b^2}, $ -a^2$ is not a quadratic residue modulo $ p$. Suppose that $ -a^2$ is not a primitive root modulo $p$. Let $ g$ be a primitive root modulo $p$. \autoref{thm:pr+qr} states that there exists an $ l\ge 1$ such that
+		\begin{align*}
+			g^{2l+1}
+				& \equiv -a^2 \pmod p
+		\end{align*}
+	Since $-a^2$ is not a primitive root, there exists an integer $k$ with $ k<p-1$ such that
+		\begin{align*}
+			g^{(2l+1)k}
+				& \equiv (-a^2)^k\\
+				& \equiv 1 \pmod p
+		\end{align*}
+	This, together with Fermat's little theorem, implies $ (2l+1)k \mid p-1=2q$ and hence $ k=2$. Therefore, $ a^4 \equiv 1 \pmod p$ and by Fermat's little theorem $ 4\mid 2q$, which leads to a contradiction as $q$ is prime. Hence, $ -a^2$ is a primitive root modulo $p$.
+\end{solution}
 
-	\begin{problem}
-		Let $q$ be a prime such that $q\equiv 1\pmod 4$ and that $p=2q+1$ is also prime. Prove that $2$ is a primitive root mod $p$.
-	\end{problem}
+\begin{problem}
+	Let $q$ be a prime such that $q\equiv 1\pmod 4$ and that $p=2q+1$ is also prime. Prove that $2$ is a primitive root mod $p$.
+\end{problem}
 
-	\begin{solution}
-		By Euler's criterion, we have
-			\begin{align*}
-				2^q
-					& \equiv 2^{\frac{p-1}{2}}\\
-					& \equiv \pm 1 \pmod{p}
-			\end{align*}
-		 We analyze both cases now:
-			\begin{itemize}
-				\item Assume that $2^q \equiv -1 \pmod p$. Let $\ord_p(2)=d$. Then, $d\mid \varphi(p)=p-1=2q$. Since $q$ is a prime, we must have
-					\begin{align*}
-						d
-							& \in \{1,2,q,2q\}
-					\end{align*}
-				Since $q \equiv 1 \pmod 4$, we have $q \geq 5$ and the cases $d=1$ and $d=2$ cannot happen. Also, if $d=q$, then $2^q \equiv 1 \pmod p$, which is in contradiction with $2^q \equiv -1 \pmod p$. Thus $d=2q=p-1$ and $2$ is a primitive root modulo $p$.
-				\item Assume that $2^q \equiv 1 \pmod{p}$. Multiply both sides of this equation by $2$ to get $2^{q+1} \equiv 2 \pmod p$. Since $q+1$ is even, the latter equation means that $2$ is a quadratic residue modulo $p$. Therefore, by \autoref{thm:2qr}, $p$ must be congruent to either $1$ or $7$ modulo $8$. However, problem says that $q \equiv 1 \pmod 4$ which results in $q \equiv 1$ or $5 \pmod 8$. Now,
-					\begin{align*}
-						p
-							& \equiv 2q +1\\
-							& \equiv 3,5 \pmod 8
-					\end{align*}
-				which is a quick contradiction. Hence, $2^q \equiv 1 \pmod{p}$ is not possible.
-			\end{itemize}
-	\end{solution}
+\begin{solution}
+	By Euler's criterion, we have
+		\begin{align*}
+			2^q
+				& \equiv 2^{\frac{p-1}{2}}\\
+				& \equiv \pm 1 \pmod{p}
+		\end{align*}
+ We analyze both cases now:
+		\begin{itemize}
+			\item Assume that $2^q \equiv -1 \pmod p$. Let $\ord_p(2)=d$. Then, $d\mid \varphi(p)=p-1=2q$. Since $q$ is a prime, we must have
+				\begin{align*}
+					d
+						& \in \{1,2,q,2q\}
+				\end{align*}
+			Since $q \equiv 1 \pmod 4$, we have $q \geq 5$ and the cases $d=1$ and $d=2$ cannot happen. Also, if $d=q$, then $2^q \equiv 1 \pmod p$, which is in contradiction with $2^q \equiv -1 \pmod p$. Thus $d=2q=p-1$ and $2$ is a primitive root modulo $p$.
+			\item Assume that $2^q \equiv 1 \pmod{p}$. Multiply both sides of this equation by $2$ to get $2^{q+1} \equiv 2 \pmod p$. Since $q+1$ is even, the latter equation means that $2$ is a quadratic residue modulo $p$. Therefore, by \autoref{thm:2qr}, $p$ must be congruent to either $1$ or $7$ modulo $8$. However, problem says that $q \equiv 1 \pmod 4$ which results in $q \equiv 1$ or $5 \pmod 8$. Now,
+				\begin{align*}
+					p
+						& \equiv 2q +1\\
+						& \equiv 3,5 \pmod 8
+				\end{align*}
+			which is a quick contradiction. Hence, $2^q \equiv 1 \pmod{p}$ is not possible.
+		\end{itemize}
+\end{solution}
 
-	\begin{problem}
-		Suppose that $p$ is an odd prime number. Prove that there exists a positive integer $x$ such that $x$ and $4x$ are both primitive roots modulo $p$.
-	\end{problem}
+\begin{problem}
+	Suppose that $p$ is an odd prime number. Prove that there exists a positive integer $x$ such that $x$ and $4x$ are both primitive roots modulo $p$.
+\end{problem}
 
-	\begin{solution}
-		We will prove a stronger claim: there exists some $x$ such that both $x$ and $d^2x$ are primitive roots mod $p$ for any integer $d$. Let $g$ be a primitive root modulo $p$. Since $d^2$ is a quadratic residue mod $p$, it follows by \autoref{thm:pr+qr} that
-			\begin{align*}
-				d^2
-					& \equiv g^{2k} \pmod{p}
-			\end{align*}
-		for some integer $k$. We then find by Corollary \ref{cor:prpower} that any power $g^n$ of $g$ is a primitive root modulo $p$ if and only if $(n, p-1)=1$.
+\begin{solution}
+	We will prove a stronger claim: there exists some $x$ such that both $x$ and $d^2x$ are primitive roots mod $p$ for any integer $d$. Let $g$ be a primitive root modulo $p$. Since $d^2$ is a quadratic residue mod $p$, it follows by \autoref{thm:pr+qr} that
+		\begin{align*}
+			d^2
+				& \equiv g^{2k} \pmod{p}
+		\end{align*}
+	for some integer $k$. We then find by Corollary \ref{cor:prpower} that any power $g^n$ of $g$ is a primitive root modulo $p$ if and only if $(n, p-1)=1$.
 
-		Now, it suffices to show there exist two integers $a$ and $b$ such that
-			\begin{align*}
-				b-a
-					& = 2k\\
-				\gcd(b,p-1)
-					& = \gcd(a,p-1)\\
-					& = 1
-			\end{align*}
-		because then $x=g^a$ would be a solution.
-		This is luckily easy. Let $2,q_1,q_2,\ldots,q_z$ be the prime divisors of $p-1$. Suppose that $a_1,a_2,\ldots,a_z$ are integers such that $2k \equiv a_i \pmod{q_i}$ for each $1 \le i \le z$.
-		By CRT, there exists an $a$ such that
-			\begin{align*}
-				a
-					& \equiv 1 \pmod{2}\\
-				a
-					& \equiv -a_i + p_i \pmod{q_i}
-			\end{align*}
-		where $p_i$ is some prime, not equal to $q_i$, and $a_i \not \equiv p_i \pmod{q_i}$. It is easy to see $\gcd(a,p-1) = 1$ and $\gcd(a+2k, p-1) = 1$. Thus, $g^a$ and $g^{a+2k}$ are primitive roots modulo $p$ and $g^{a+2k} \equiv d^2g^a \pmod{p}$, done.
-	\end{solution}
-
-\end{document}
+	Now, it suffices to show there exist two integers $a$ and $b$ such that
+		\begin{align*}
+			b-a
+				& = 2k\\
+			\gcd(b,p-1)
+				& = \gcd(a,p-1)\\
+				& = 1
+		\end{align*}
+	because then $x=g^a$ would be a solution.
+	This is luckily easy. Let $2,q_1,q_2,\ldots,q_z$ be the prime divisors of $p-1$. Suppose that $a_1,a_2,\ldots,a_z$ are integers such that $2k \equiv a_i \pmod{q_i}$ for each $1 \le i \le z$.
+	By CRT, there exists an $a$ such that
+		\begin{align*}
+			a
+				& \equiv 1 \pmod{2}\\
+			a
+				& \equiv -a_i + p_i \pmod{q_i}
+		\end{align*}
+	where $p_i$ is some prime, not equal to $q_i$, and $a_i \not \equiv p_i \pmod{q_i}$. It is easy to see $\gcd(a,p-1) = 1$ and $\gcd(a+2k, p-1) = 1$. Thus, $g^a$ and $g^{a+2k}$ are primitive roots modulo $p$ and $g^{a+2k} \equiv d^2g^a \pmod{p}$, done.
+\end{solution}

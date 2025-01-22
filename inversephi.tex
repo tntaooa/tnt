@@ -1,184 +1,178 @@
-\documentclass[main.tex]{subfile}
+For a given positive integer $n$, we can find $\varphi(n)$ after factorizing $n$. What about the reverse problem? That is, given $\varphi(n)$, can you find $n$? A more interesting question is whether this solution $n$ is unique or there are other solutions. We can answer the latter question pretty quickly using an example: $\varphi(4)=2$ and $\varphi (6)=2$. In other words, $\varphi $ is not a one to one function. Now, another question normally arises here:
+	\begin{problem}
+		Is there any $n\in\mathbb{N}$ such that $\varphi(x)=n$ has a unique solution for $x$?
+	\end{problem}
+There are good results on this topic. It has also been studied how to find such $x$, and the upper or lower bounds of $x$. Here we will discuss some of the results, which fits into our book.
+	\begin{definition}[Inverse Phi]
+		Let $n$ be a positive integer. Assume that $\varphi ^{-1}(n)$ is the \textit{set} of all possible values of $x\in\mathbb{N} $ such that $\varphi (x)=n$. In other words,
+			\begin{align*}
+				\varphi^{-1}(n) & = \{x:\varphi(x)=n\}
+			\end{align*}
+		We call $\varphi^{-1}(n)$ the \textit{inverse of Euler's totient function}, or simply the \textit{inverse of phi function}. Moreover, for ever positive integer $x$, we define $N(x)$ to be the number of positive integers $y$ such that $\varphi(x)=\varphi(y)$.
+	\end{definition}
 
-\begin{document}
-	For a given positive integer $n$, we can find $\varphi(n)$ after factorizing $n$. What about the reverse problem? That is, given $\varphi(n)$, can you find $n$? A more interesting question is whether this solution $n$ is unique or there are other solutions. We can answer the latter question pretty quickly using an example: $\varphi(4)=2$ and $\varphi (6)=2$. In other words, $\varphi $ is not a one to one function. Now, another question normally arises here:
-		\begin{problem}
-			Is there any $n\in\mathbb{N}$ such that $\varphi(x)=n$ has a unique solution for $x$?
-		\end{problem}
-	There are good results on this topic. It has also been studied how to find such $x$, and the upper or lower bounds of $x$. Here we will discuss some of the results, which fits into our book.
-		\begin{definition}[Inverse Phi]
-			Let $n$ be a positive integer. Assume that $\varphi ^{-1}(n)$ is the \textit{set} of all possible values of $x\in\mathbb{N} $ such that $\varphi (x)=n$. In other words,
-				\begin{align*}
-					\varphi^{-1}(n) & = \{x:\varphi(x)=n\}
-				\end{align*}
-			We call $\varphi^{-1}(n)$ the \textit{inverse of Euler's totient function}, or simply the \textit{inverse of phi function}. Moreover, for ever positive integer $x$, we define $N(x)$ to be the number of positive integers $y$ such that $\varphi(x)=\varphi(y)$.
-		\end{definition}
+\textcite{carmichael_1907} stated that the cardinality (number of elements) of $\varphi^{-1}(n)$ is always greater than $1$ but due to his proof being inadequate, this is a conjecture now:
+	\begin{conjecture}[Carmichael's Totient Conjecture]
+		For a positive integer $n$, the number of solutions to $\varphi(x)=n$ is either $0$ or at least $2$.
+	\end{conjecture}
+After this statement, quite a lot of number theorists worked on it. There has been no proof of the theorem to our knowledge, though there are some nice results on it. And it is indeed a very interesting topic to work on. Even though it is a conjecture, everything points this to be true. For example, \textcite{jr._1947} pointed out that if $N(x)=1$ then $x$ and $\varphi(x)$ are both larger than $10^{400}$. Carmichael originally proved that $x>10^{37}$ must be true. Let's start investigating $N(x)$.
+	\begin{theorem}
+		Let $x$ be a positive integer. If $N(x)=1$, then $x$ is divisible by $4$.
+	\end{theorem}
 
-	\textcite{carmichael_1907} stated that the cardinality (number of elements) of $\varphi^{-1}(n)$ is always greater than $1$ but due to his proof being inadequate, this is a conjecture now:
-		\begin{conjecture}[Carmichael's Totient Conjecture]
-			For a positive integer $n$, the number of solutions to $\varphi(x)=n$ is either $0$ or at least $2$.
-		\end{conjecture}
-	After this statement, quite a lot of number theorists worked on it. There has been no proof of the theorem to our knowledge, though there are some nice results on it. And it is indeed a very interesting topic to work on. Even though it is a conjecture, everything points this to be true. For example, \textcite{jr._1947} pointed out that if $N(x)=1$ then $x$ and $\varphi(x)$ are both larger than $10^{400}$. Carmichael originally proved that $x>10^{37}$ must be true. Let's start investigating $N(x)$.
-		\begin{theorem}
-			Let $x$ be a positive integer. If $N(x)=1$, then $x$ is divisible by $4$.
-		\end{theorem}
+	\begin{proof}
+		For $n>2$, $\varphi(n)$ is always even. If $x$ is odd, then $2\bot x$ so $\varphi(2x)=\varphi(x)$ so $y=2x$ is a solution, so contradiction. Again, if $x=2t$ with $t$ odd then $\varphi(x)=\varphi(t)$ by same argument. Thus, $x$ is divisible by $4$.
+	\end{proof}
+The following theorem is due to Carmichael.
 
-		\begin{proof}
-			For $n>2$, $\varphi(n)$ is always even. If $x$ is odd, then $2\bot x$ so $\varphi(2x)=\varphi(x)$ so $y=2x$ is a solution, so contradiction. Again, if $x=2t$ with $t$ odd then $\varphi(x)=\varphi(t)$ by same argument. Thus, $x$ is divisible by $4$.
-		\end{proof}
-	The following theorem is due to Carmichael.
+	\begin{theorem}
+		Let $x$ be a positive integer and let $p=2^k+1$ be a prime divisor of $x$, where $k$ is some natural number. If $N(x)=1$, then $p^2\mid x$.
+	\end{theorem}
 
-		\begin{theorem}
-			Let $x$ be a positive integer and let $p=2^k+1$ be a prime divisor of $x$, where $k$ is some natural number. If $N(x)=1$, then $p^2\mid x$.
-		\end{theorem}
+	\begin{proof}
+		To the contrary, assume that $x=2^eps$ for some positive integers $e$ and $s$ with $s\bot 2p$. Then,
+			\begin{align*}
+				\varphi(x)  & = \varphi(2^e)\varphi(p)\varphi(s)\\
+						& = 2^{e-1}2^k\varphi(s)\\
+						& = \varphi(2^{k+e})\varphi(s)\\
+						& = \varphi(2^{k+e}s)
+			\end{align*}
+		Thus, $y=2^{k+e}s\neq x$ satisfies the condition, so we must have $p\mid s$ and hence $p^2\mid x$.
+	\end{proof}
+Here is a very nice result that provides us with a sufficient condition for $N(x)=1$ to happen. The result is due to \textcite{pomerance_1974}.
+	\begin{theorem}[Carl Pomerance]
+	 Let $x$ be a positive integer. Suppose that the following property holds for every prime $p$:
+			\begin{align*}
+				p-1
+					& \mid \varphi(x)\\
+				\implies p^2\mid x
+			\end{align*}
+		Then $N(x)=1$. That is, if $\varphi(y)=\varphi(x)$ for some positive integer $y$, then $y=x$.
+	\end{theorem}
 
-		\begin{proof}
-			To the contrary, assume that $x=2^eps$ for some positive integers $e$ and $s$ with $s\bot 2p$. Then,
-				\begin{align*}
-					\varphi(x)  & = \varphi(2^e)\varphi(p)\varphi(s)\\
-							& = 2^{e-1}2^k\varphi(s)\\
-							& = \varphi(2^{k+e})\varphi(s)\\
-							& = \varphi(2^{k+e}s)
-				\end{align*}
-			Thus, $y=2^{k+e}s\neq x$ satisfies the condition, so we must have $p\mid s$ and hence $p^2\mid x$.
-		\end{proof}
-	Here is a very nice result that provides us with a sufficient condition for $N(x)=1$ to happen. The result is due to \textcite{pomerance_1974}.
-		\begin{theorem}[Carl Pomerance]
-			 Let $x$ be a positive integer. Suppose that the following property holds for every prime $p$:
-				\begin{align*}
-					p-1
-						& \mid \varphi(x)\\
-					\implies p^2\mid x
-				\end{align*}
-			Then $N(x)=1$. That is, if $\varphi(y)=\varphi(x)$ for some positive integer $y$, then $y=x$.
-		\end{theorem}
+	\begin{proof}
+		For every positive integer $n$, define $S(n)$ to be the set of prime divisors of $n$. If the prime factorization of $n$ is $\prod_{i=1}^{r}p_i^{e_i}$, then
+			\begin{align*}
+				\varphi(n) & = \prod_{i=1}^{r}p_i^{e_i-1}(p_i-1)
+			\end{align*}
+		According to our assumption, $x$ is a positive integer such that if $p-1\mid \varphi(x)$ then $p^2\mid x$. We are required to prove that under this assumption, if $\varphi(x)=\varphi(y)$ then $x=y$ must hold. If $p\in S(y)$ then $p-1\mid \varphi(y)=\varphi(x)$. So, from the assumption, $p^2\mid x$ for any prime $p$ in $S(y)$. This gives us $S(y)\subseteq S(x)$.
 
-		\begin{proof}
-			For every positive integer $n$, define $S(n)$ to be the set of prime divisors of $n$. If the prime factorization of $n$ is $\prod_{i=1}^{r}p_i^{e_i}$, then
-				\begin{align*}
-					\varphi(n) & = \prod_{i=1}^{r}p_i^{e_i-1}(p_i-1)
-				\end{align*}
-			According to our assumption, $x$ is a positive integer such that if $p-1\mid \varphi(x)$ then $p^2\mid x$. We are required to prove that under this assumption, if $\varphi(x)=\varphi(y)$ then $x=y$ must hold. If $p\in S(y)$ then $p-1\mid \varphi(y)=\varphi(x)$. So, from the assumption, $p^2\mid x$ for any prime $p$ in $S(y)$. This gives us $S(y)\subseteq S(x)$.
+		We will investigate the exponent of a prime $p$ in $\varphi(n)$. There are two cases:
+			\begin{enumerate}
+				\item $p$ divides $n$. Suppose that $p^e\|n$. Then we have $p^{e-1}\mid \varphi(n)$. But is this the highest exponent possible? No. Because in the factorization of $\varphi(n)$, there are factors of the form $(q-1)$ for any other prime divisor $q$ of $n$. If $p\mid q-1$ for any such $q$, those will contribute to $\nu_{p}(\varphi(n))$ as well. That is,
+					\begin{align*}
+						\nu_{p}(\varphi(n)) & = \nu_{p}(n)-1+\sum_{q\in S(n)}\nu_{p}(q-1)
+					\end{align*}
 
-			We will investigate the exponent of a prime $p$ in $\varphi(n)$. There are two cases:
-				\begin{enumerate}
-					\item $p$ divides $n$. Suppose that $p^e\|n$. Then we have $p^{e-1}\mid \varphi(n)$. But is this the highest exponent possible? No. Because in the factorization of $\varphi(n)$, there are factors of the form $(q-1)$ for any other prime divisor $q$ of $n$. If $p\mid q-1$ for any such $q$, those will contribute to $\nu_{p}(\varphi(n))$ as well. That is,
+				\item $p$ does not divide $n$. In this case, only factors of the form $(q-1)$ for any prime divisor $q$ of $n$ may contribute to $\nu_{p}(\varphi(n))$. In other words,
+					\begin{align*}
+						\nu_{p}(\varphi(n)) & = \sum_{q\in S(n)}\nu_{p}(q-1)
+					\end{align*}
+			\end{enumerate}
+
+		Combining these two results, we find out that for any prime $p$ and any positive integer $n$,
+			\begin{align*}
+				\nu_{p}(\varphi(n)) & =
+					\begin{cases}
+						\sum_{q\in S(n)}\nu_{p}(q-1)&\text{ if }p\nmid n\\
+						\nu_{p}(n)-1+\sum_{q\in S(n)}\nu_{p}(q-1)&\text{ otherwise}
+					\end{cases}
+			\end{align*}
+		Let $p$ be a prime factor of $x$. Since $\varphi(x)=\varphi(y)$, for any prime $p$, we must have
+			\begin{align*}
+				\nu_{p}(\varphi(x)) & = \nu_{p}(\varphi(y))
+			\end{align*}
+		There are two cases to consider.
+			\begin{enumerate}[1.]
+				\item $p\notin S(y)$ or $p\nmid y$. Then,
 						\begin{align*}
-							\nu_{p}(\varphi(n)) & = \nu_{p}(n)-1+\sum_{q\in S(n)}\nu_{p}(q-1)
+							\nu_{p}(x)-1+\sum_{q\in S(x)}\nu_{p}(q-1) & = \sum_{q\in S(y)}\nu_{p}(q-1)\\
+														  & \leq\sum_{q\in S(x)}\nu_{p}(q-1)
 						\end{align*}
+					since $S(y)\subseteq S(x)$. The latter result implies $\nu_{p}(x) \leq 1$. But this is impossible since $\nu_{p}(x)\geq2$ due to the fact that $p^2\mid x$.
+				\item $p\in S(y)$. That is, $p\mid y$, or $S(x)=S(y)$. In this case we should expect to get $x=y$. One way to prove this is to show that $\nu_{p}(x)=\nu_{p}(y)$. Notice that
+					\begin{align*}
+						\nu_{p}(x) & = \nu_{p}(\varphi(x))+1-\sum_{q\in S(x)} \nu_{p}(q-1)\\
+							 & = \nu_{p}(\varphi(y))+1-\sum_{q\in S(y)} \nu_{p}(q-1)
+					\end{align*}
+				since $\varphi(x)=\varphi(y)$ and $S(x)=S(y)$. So, $\nu_{p}(x)=\nu_{p}(y)$.
+			\end{enumerate}
+		which was what we wanted.
+	\end{proof}
 
-					\item $p$ does not divide $n$. In this case, only factors of the form $(q-1)$ for any prime divisor $q$ of $n$ may contribute to $\nu_{p}(\varphi(n))$. In other words,
-						\begin{align*}
-							\nu_{p}(\varphi(n)) & = \sum_{q\in S(n)}\nu_{p}(q-1)
-						\end{align*}
-				\end{enumerate}
+\textcite{gupta_1981} found upper and lower bounds for $\varphi^{-1}(n)$. For odd $n$, $\varphi^{-1}(n)$ is empty. Therefore, we only need to consider the case when $n$ is even.
+	\begin{theorem}[Gupta]\label{thm:gupta}
+		Let $m$ and $n$ be two positive integers such that $n\in\varphi^{-1}(m)$. Then,
+			\begin{align*}
+				m < n & \leq m\prod_{p-1\mid m}\dfrac{p}{p-1}
+			\end{align*}
+	\end{theorem}
 
-			Combining these two results, we find out that for any prime $p$ and any positive integer $n$,
-				\begin{align*}
-					\nu_{p}(\varphi(n)) & =
-						\begin{cases}
-							\sum_{q\in S(n)}\nu_{p}(q-1)&\text{ if }p\nmid n\\
-							\nu_{p}(n)-1+\sum_{q\in S(n)}\nu_{p}(q-1)&\text{ otherwise}
-						\end{cases}
-				\end{align*}
-			Let $p$ be a prime factor of $x$. Since $\varphi(x)=\varphi(y)$, for any prime $p$, we must have
-				\begin{align*}
-					\nu_{p}(\varphi(x)) & = \nu_{p}(\varphi(y))
-				\end{align*}
-			There are two cases to consider.
-				\begin{enumerate}[1.]
-					\item $p\notin S(y)$ or $p\nmid y$. Then,
-							\begin{align*}
-								\nu_{p}(x)-1+\sum_{q\in S(x)}\nu_{p}(q-1) & = \sum_{q\in S(y)}\nu_{p}(q-1)\\
-																	  & \leq\sum_{q\in S(x)}\nu_{p}(q-1)
-							\end{align*}
-						since $S(y)\subseteq S(x)$. The latter result implies $\nu_{p}(x) \leq 1$. But this is impossible since $\nu_{p}(x)\geq2$ due to the fact that $p^2\mid x$.
-					\item $p\in S(y)$. That is, $p\mid y$, or $S(x)=S(y)$. In this case we should expect to get $x=y$. One way to prove this is to show that $\nu_{p}(x)=\nu_{p}(y)$. Notice that
-						\begin{align*}
-							\nu_{p}(x) & = \nu_{p}(\varphi(x))+1-\sum_{q\in S(x)} \nu_{p}(q-1)\\
-									 & = \nu_{p}(\varphi(y))+1-\sum_{q\in S(y)} \nu_{p}(q-1)
-						\end{align*}
-					since $\varphi(x)=\varphi(y)$ and $S(x)=S(y)$. So, $\nu_{p}(x)=\nu_{p}(y)$.
-				\end{enumerate}
-			which was what we wanted.
-		\end{proof}
+	\begin{proof}
+		For even $n$, $m=\varphi(n)<n$ because $\varphi(n)=n$ holds for $n=1$ only. This proves the lower bound. For the upper bound, we can write
+			\begin{align*}
+				\dfrac{n}{\varphi(n)} & = \prod_{p\mid n}\dfrac{p}{p-1}\\
+						  & \leq \prod_{p-1\mid m}\dfrac{p}{p-1}
+			\end{align*}
+		The last line is true because if $p\mid n$ then $p-1\mid m$ must hold, but the converse is not true. If $p-1\mid m$, $p$ may or may not divide $n$.
+	\end{proof}
 
-	\textcite{gupta_1981} found upper and lower bounds for $\varphi^{-1}(n)$. For odd $n$, $\varphi^{-1}(n)$ is empty. Therefore, we only need to consider the case when $n$ is even.
-		\begin{theorem}[Gupta]\label{thm:gupta}
-			Let $m$ and $n$ be two positive integers such that $n\in\varphi^{-1}(m)$. Then,
-				\begin{align*}
-					m < n & \leq m\prod_{p-1\mid m}\dfrac{p}{p-1}
-				\end{align*}
-		\end{theorem}
+Now we will look at the elements of $\varphi^{-1}(m)$.
+	\begin{theorem}
+		Let $m$ be a positive integers and suppose that $\varphi^{-1}(m)$ contains $A$ elements. Then, the number of odd elements of $\varphi^{-1}(m)$ is less than or equal to $A/2$.
+	\end{theorem}
 
-		\begin{proof}
-			For even $n$, $m=\varphi(n)<n$ because $\varphi(n)=n$ holds for $n=1$ only. This proves the lower bound. For the upper bound, we can write
-				\begin{align*}
-					\dfrac{n}{\varphi(n)} & = \prod_{p\mid n}\dfrac{p}{p-1}\\
-									  & \leq \prod_{p-1\mid m}\dfrac{p}{p-1}
-				\end{align*}
-			The last line is true because if $p\mid n$ then $p-1\mid m$ must hold, but the converse is not true. If $p-1\mid m$, $p$ may or may not divide $n$.
-		\end{proof}
+	\begin{proof}
+		For a positive integer $n$, if $\varphi(n)=m$ then $\varphi(2n)=m$ is true as well. Thus, for any odd $n$, there is an even $x$ which belongs to $\varphi^{-1}(m)$. This proves that the number of odd elements is at most half of the number of elements in $\varphi^{-1}(m)$.
+	\end{proof}
 
-	Now we will look at the elements of $\varphi^{-1}(m)$.
-		\begin{theorem}
-			Let $m$ be a positive integers and suppose that $\varphi^{-1}(m)$ contains $A$ elements. Then, the number of odd elements of $\varphi^{-1}(m)$ is less than or equal to $A/2$.
-		\end{theorem}
+	\begin{theorem}
+		For a prime $p$, there exists a positive integer $n$ such that $n\in\varphi^{-1}(2p)$ if and only if $2p+1$ is a prime.
+	\end{theorem}
 
-		\begin{proof}
-			For a positive integer $n$, if $\varphi(n)=m$ then $\varphi(2n)=m$ is true as well. Thus, for any odd $n$, there is an even $x$ which belongs to $\varphi^{-1}(m)$. This proves that the number of odd elements is at most half of the number of elements in $\varphi^{-1}(m)$.
-		\end{proof}
+	\begin{proof}
+		The ``only if'' part is easy to prove. When $q=2p+1$ is a prime, $\varphi(q)=2p$ so $q\in\varphi^{-1}(2p)$.
 
-		\begin{theorem}
-			For a prime $p$, there exists a positive integer $n$ such that $n\in\varphi^{-1}(2p)$ if and only if $2p+1$ is a prime.
-		\end{theorem}
+		Now we prove the ``if'' part. For a positive integer $n\in\varphi^{-1}(m)$, consider that $\varphi(n)=2p$. In other words, suppose that $n \in\varphi^{-1}(2p)$.  If $p=2$ we see that $n=5$ works. We need to show it for odd $p$ now.
 
-		\begin{proof}
-			The ``only if'' part is easy to prove. When $q=2p+1$ is a prime, $\varphi(q)=2p$ so $q\in\varphi^{-1}(2p)$.
+		Suppose that $n= 2^a p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$, where $p_1, p_2, \dots, p_k$ are odd primes. Obviously, both $a$ and $k$ cannot be zero at the same time. We have three cases here:
 
-			Now we prove the ``if'' part. For a positive integer $n\in\varphi^{-1}(m)$, consider that $\varphi(n)=2p$. In other words, suppose that $n \in\varphi^{-1}(2p)$.  If $p=2$ we see that $n=5$ works. We need to show it for odd $p$ now.
+			\begin{enumerate}
+				\item If $a$ and $k$ are both non-zero, then
+					\begin{align*}
+						\varphi(n) &= 2^{a-1} p_1^{e_1-1}p_2^{e_2-1}\dots p_k^{e_k-1} (p_1-1)(p_2-1)\dots (p_k-1)\\
+					   &= 2p
+					\end{align*}
+				Notice that $\nu_2(\varphi(n)) \geq a-1+k$ and $\nu_2(2p)=1$. Therefore, $a+k-1 \leq 1$ or $a+k \leq 2$. This gives $a=k=1$, which means $n=2p_1$. Then,
+					\begin{align*}
+						\varphi(n)   &= p_1-1\\
+					     &= 2p\\
+						\implies p_1 &= 2p+1
+					\end{align*}
+				implying $2p+1$ is a prime.
 
-			Suppose that $n= 2^a p_1^{e_1}p_2^{e_2}\dots p_k^{e_k}$, where $p_1, p_2, \dots, p_k$ are odd primes. Obviously, both $a$ and $k$ cannot be zero at the same time. We have three cases here:
+				\item If $a=0$, then
+					\begin{align*}
+						\varphi(n) &= p_1^{e_1-1}p_2^{e_2-1}\dots p_k^{e_k-1} (p_1-1)(p_2-1)\dots (p_k-1)\\
+					   &= 2p
+					\end{align*}
+				In this case, $1 = \nu_2(2p) = \nu_2(\varphi(n)) \geq k$, and hence $k=1$ or $n=p_1$. So, $\varphi(n)=p_1-1=2p$, and $2p+1$ will be a prime in this case.
 
-				\begin{enumerate}
-					\item If $a$ and $k$ are both non-zero, then
-						\begin{align*}
-							\varphi(n) &= 2^{a-1} p_1^{e_1-1}p_2^{e_2-1}\dots p_k^{e_k-1} (p_1-1)(p_2-1)\dots (p_k-1)\\
-									   &= 2p
-						\end{align*}
-					Notice that $\nu_2(\varphi(n)) \geq a-1+k$ and $\nu_2(2p)=1$. Therefore, $a+k-1 \leq 1$ or $a+k \leq 2$. This gives $a=k=1$, which means $n=2p_1$. Then,
-						\begin{align*}
-							\varphi(n)   &= p_1-1\\
-									     &= 2p\\
-							\implies p_1 &= 2p+1
-						\end{align*}
-					implying $2p+1$ is a prime.
+				\item If $k=0$, then
+					\begin{align*}
+						\varphi(n) &= 2^{a-1}\\
+					   &= 2p
+					\end{align*}
+				which is not possible.
+			\end{enumerate}
+		The proof is complete.
+	\end{proof}
 
-					\item If $a=0$, then
-						\begin{align*}
-							\varphi(n) &= p_1^{e_1-1}p_2^{e_2-1}\dots p_k^{e_k-1} (p_1-1)(p_2-1)\dots (p_k-1)\\
-									   &= 2p
-						\end{align*}
-					In this case, $1 = \nu_2(2p) = \nu_2(\varphi(n)) \geq k$, and hence $k=1$ or $n=p_1$. So, $\varphi(n)=p_1-1=2p$, and $2p+1$ will be a prime in this case.
+We leave the following theorems as exercise for the reader.
+	\begin{theorem}
+		The number of odd elements in $\varphi^{-1}(2^k)$ is $0$ or $1$.
+	\end{theorem}
 
-					\item If $k=0$, then
-						\begin{align*}
-							\varphi(n) &= 2^{a-1}\\
-									   &= 2p
-						\end{align*}
-					which is not possible.
-				\end{enumerate}
-			The proof is complete.
-		\end{proof}
-
-	We leave the following theorems as exercise for the reader.
-		\begin{theorem}
-			The number of odd elements in $\varphi^{-1}(2^k)$ is $0$ or $1$.
-		\end{theorem}
-
-		\begin{theorem}
-			For an odd $m$, the number of odd elements in $\varphi^{-1}(m)$ is equal to the number of even elements.
-		\end{theorem}
-
-
-\end{document}
+	\begin{theorem}
+		For an odd $m$, the number of odd elements in $\varphi^{-1}(m)$ is equal to the number of even elements.
+	\end{theorem}

@@ -1,458 +1,452 @@
-\documentclass{subfile}
+\section{B\'{e}zout's Lemma}
 
-\begin{document}
-	\section{B\'{e}zout's Lemma}
+In this section, we are going to explain the simple but useful B\'{e}zout's lemma and then introduce modular multiplicative inverses.
 
-	In this section, we are going to explain the simple but useful B\'{e}zout's lemma and then introduce modular multiplicative inverses.
+\subsection{B\'{e}zout's Identity and Its Generalization}
+Before representing this lemma, we would like you define the \textit{linear combination} of two integers.
 
-	\subsection{B\'{e}zout's Identity and Its Generalization}
-	Before representing this lemma, we would like you define the \textit{linear combination} of two integers.
+\begin{definition}\label{def:linearcombination}
+	For two integers $a$ and $b$, every number of the form
+	\begin{align*} ax+by\end{align*}
+	is called a \itshape{linear combination} of $a$ and $b$, where $x$ and $y$ are integers.
+\end{definition}
 
-	\begin{definition}\label{def:linearcombination}
-		For two integers $a$ and $b$, every number of the form
-		\begin{align*} ax+by\end{align*}
-		is called a \itshape{linear combination} of $a$ and $b$, where $x$ and $y$ are integers.
-	\end{definition}
+For example, $2a+3b$ and $-4a$ are both linear combinations of $a$ and $b$, but $a^2-b$ is not. The \textit{B\'{e}zout's lemma} (sometimes called \textit{B\'{e}zout's identity} states that for every two integers $a$ and $b$, there exists a linear combination of $a$ and $b$ which is equal to $(a,b)$. For example if $a=18$ and $b=27$, then $18 \cdot (-1) + 27 \cdot 1 = 9 =(18,27)$.
 
-	For example, $2a+3b$ and $-4a$ are both linear combinations of $a$ and $b$, but $a^2-b$ is not. The \textit{B\'{e}zout's lemma} (sometimes called \textit{B\'{e}zout's identity} states that for every two integers $a$ and $b$, there exists a linear combination of $a$ and $b$ which is equal to $(a,b)$. For example if $a=18$ and $b=27$, then $18 \cdot (-1) + 27 \cdot 1 = 9 =(18,27)$.
-
-	\begin{theorem} [B\'{e}zout's Identity]
-		For two nonzero integers $a$ and $b$, there exists $x, y \in \mathbb Z$ such that
-		\begin{align*}
-		ax+by = (a,b)
-		\end{align*}
-	\end{theorem}
-
-	You are probably familiar with this theorem. A simple proof uses Euclidean division, but it doesn't show you where exactly to use this identity. So, we prove a stronger theorem and the proof of B\'{e}zout's identity is immediately implied from it.
-
-	\begin{theorem}\label{thm:equationgcd}
-		Let $a,b,m$ be integers such that $a, b$ are not zero at the same time. Then the equation
-		\begin{align*}
-			ax + by
-				& = m
-		\end{align*}
-		has solutions for $x$ and $y$ in positive integers if and only if $(a,b)\mid m$.
-	\end{theorem}
-
-	\begin{proof}
-		The first part is easy. Suppose that there exist integers $x_0$ and $y_0$ such that
-		\begin{align*}
-			ax_0 + by_0
-				& = m
-		\end{align*}
-		We know that $(a,b)\mid a$ and also $(a,b)\mid b$, thus $(a,b)\mid m$ and we are done.
-
-		Conversely, if $(a,b)=d$ and $m$ is divisible by $d$, then we want to prove that there exist some positive integers $x$ and $y$ for which $ax+by=m$. First, we show that it's sufficient to show that there exist $x$ and $y$ such that
-		\begin{align*}
-			ax + by
-				& = d
-		\end{align*}
-		The reason is simple: if there exist $x$ and $y$ such that $ax + by = d$, then
-		\begin{align*}
-			a\parenthesis{x \frac{m}{d}} + b \parenthesis{y \frac{m}{d}}
-				& = m
-		\end{align*}
-		Assume that $A$ is the set of all positive integer linear combinations of $a$ and $b$. $A$ is non-empty because if $a \neq 0$, then
-		\begin{align*}
-			0<|a| = a\frac{|a|}{a} + b\cdot 0
-		\end{align*}
-		and if $b \neq 0$, then
-		\begin{align*}	0<|b| =  a\cdot 0 + b \frac{|b|}{b}\end{align*}
-		Because of well-ordering principle\footnote{The well-ordering principle states that every non-empty set of positive integers contains a least element.}, $A$ contains a least element. Let this smallest element be $t$. So there exist integers $x_0$ and $y_0$ such that
-			\begin{align*}
-				ax_0 + by_0
-					& = t
-			\end{align*}
-		We claim that $t\mid a$ and $t\mid b$. Using division theorem, divide $a$ by $t$:
-			\begin{align*}
-				a
-					& = tq+r
-			\end{align*}
-		and thus
-			\begin{align*}
-				a\underbrace{(1-qx_0)}_{=x_1}+b\underbrace{(-qy_0)}_{=y_1}
-					& =a-tq=r<t
-			\end{align*}
-		If $r \neq 0$, then $r$ is a positive integer written in the form $ax_1+by_1$, which is a positive integer linear combination of $a$ and $b$, so $r \in A$. But $r<t$, which is in contradiction with minimality of $t$. Therefore $r=0$ and $t\mid a$. We can prove that $t\mid b$ in a similar way. By Proposition \ref{prop:dividegcd}, we find that $t\mid d$. Also, according to the first part of the proof, we have $d\mid t$. Following Proposition \ref{prop:bothdivide}, $t=d$. This means that $d \in A$ and there exist integers $x$ and $y$ such that
-		\begin{align*}
-			ax + by
-				& = d
-		\end{align*}
-	\end{proof}
-
-	B\'{e}zout's Identity has many interesting applications. We will see one such application in Chapter \ref{ch:special}, to prove \textit{Chicken McNugget Theorem}.
-
-	We are now ready to represent a stronger version and also a generalization of B\'{e}zout's lemma.
-
-	\begin{corollary}   [Stronger Form of B\'{e}zout's Identity]\label{cor:strongbezout}
-		The smallest positive integer linear combination of $a$ and $b$ is $(a,b)$.
-	\end{corollary}
-
-	\begin{corollary}  \label{cor:bezoutrelatively prime}
-		If $a \perp b$ for non-zero integers $a$ and $b$, then there exist integers $x$ and $y$ such that
-			\begin{align*}
-				ax+by
-					& = 1
-			\end{align*}
-	\end{corollary}
-
-	\begin{theorem} [Generalization of B\'{e}zout's Identity]
-		If $a_1, a_2, \cdots, a_n$ are integers with $(a_1, a_2, \cdots, a_n)=d$, then the equation
-			\begin{align*}
-				a_1x_1 + a_2x_2 + \cdots + a_n x_n = m
-			\end{align*}
-		has a solution $(x_1, x_2, \cdots, x_n)$ in integers if and only if $d\mid m$.
-	\end{theorem}
-
-	\begin{theorem}\label{thm:ax=b}
-		Let $m$ be a positive integer and let $a$ and $b$ be positive integers. Then the modular arithmetic equation
-		\begin{align*}
-			ax
-				& \equiv b \pmod m
-		\end{align*}
-		has a solution for $x$ in integers if and only if $(m,a)\mid b$.
-	\end{theorem}
-
-	\begin{proof}
-		Rewrite the congruence equation as $ax-my = b$ for some integer $y$. Now it is the same as \autoref{thm:equationgcd}. The equation $ax-by=m$ has solutions if and only if $(m,a)\mid b$, which is what we want.
-	\end{proof}
-
-	\begin{problem}
-		Let $a,b,$ and $c$ be non-zero integers such that $(a, c)=(b,c)=1$. Prove that $(ab,c)=1$.
-	\end{problem}
-
-	\begin{solution}
-		By Corollary \ref{cor:bezoutrelatively prime}, there exist integers $x,y,z,$ and $t$ such that
-			\begin{align*}
-				ax+cy&=1\\
-				bz+ct&=1
-			\end{align*}
-		Multiply these two equations to get
-			\begin{align*}
-				1 &= (ax+cy)(bz+ct)\\
-				  &= ab(xz)+c(axt+byz+cyt)
-			\end{align*}
-		This means that we have found a linear combination of $c$ and $ab$ which is equal to $1$. From Corollary \ref{cor:strongbezout} it follows that $(ab,c)=1$ (why?).
-	\end{solution}
-
-	Let's prove the second part of proposition \eqref{prop:cpdiv} in section \eqref{sec:gcd-lcm}.
-
-	\begin{problem}\label{prob:a|bc}
-		Let $a,b,$ and $c$ be integers. If $a\mid bc$ and $(a,b)=1$, prove that $a\mid c$.
-	\end{problem}
-
-	\begin{solution}
-		The problem is obvious for $c=0$. Assume that $c \neq 0$. Since $(a,b)=1$, there exist integers $x$ and $y$ such that $ax+by=1$. Multiply both sides of this equation by $c$ to obtain $acx+bcy=c$. Because $a$ divides both $acx$ and $bcy$, it must also divide their sum, which is equal to $c$.
-
-	\end{solution}
-
-	\subsection{Modular Arithmetic Multiplicative Inverse}\label{sec:arithinverse}
-
-	When speaking of real numbers, the multiplicative inverse of $x$ -- usually named reciprocal of $x$ -- is $\frac{1}{x}$. This is because $x \cdot \frac{1}{x} = 1$ for non-zero $x$.
-
-	The definition of a multiplicative inverse in modular arithmetic must be more clear for you now.
-
-	\begin{definition}
-		Let $a$ be an integer and let $m$ be a positive integer. The \textit{modular multiplicative inverse} of $a$ modulo $m$ is an integer $x$ such that
-		\begin{align*}
-		ax \equiv 1 \pmod m
-		\end{align*}
-		Once defined, $x$ may be denoted by $a^{-1}$ and simply called \textit{inverse of $a$}.
-	\end{definition}
-
-	\begin{note}
-		Unlike real numbers which have a unique reciprocal, an integer $a$ has either no inverse, or infinitely many inverses modulo $m$.
-	\end{note}
-
-	\begin{example}
-		An inverse for $3$ modulo $7$ is $5$:
-			\begin{align*}
-				3 \cdot 5
-					& \equiv 1 \pmod 7
-			\end{align*}
-		We can easily generate other inverses of $3$ modulo $7$ by adding various multiples of $7$ to $5$. Thus, the numbers in the set $\{\cdots, -2, 5, 12, 19, \cdots \}$ are all inverses of $3$ modulo $7$.
-	\end{example}
-
-	\begin{example}
-		An inverse for $2^{16}+1$ modulo $2^{31}-1$ is $2^{16}-1$. In fact,
-			\begin{align*}
-				(2^{16} - 1)(2^{16} + 1) = 2^{32} -1 = 2(2^{31} - 1) + 1 \equiv 1 \pmod{2^{31} - 1}
-			\end{align*}
-	\end{example}
-
-
-	\begin{theorem} \label{thm:arithinverse}
-		Let $a$ be an integer and let $m$ be a positive integer such that $a \perp m$. Then $a$ has an inverse modulo $m$. Also, every two inverses of $a$ are congruent modulo $m$.
-	\end{theorem}
-
-	\begin{proof}
-		The proof is a straightforward result of corollary \eqref{cor:bezoutrelatively prime}. Since $a \perp m$, the equation $ax+my=1$ has solutions. Now take modulo $m$ from both sides to complete the proof of the first part. For the second part, assume that $x_1$ and $x_2$ are inverses of $a$ modulo $m$. Then,
-		\begin{align*}
-		ax_1
-			& \equiv ax_2 \equiv 1 \pmod m\\
-		\stackrel{(a,m)=1}{\implies} x_1
-			& \equiv x_2 \pmod m
-		\end{align*}
-		as desired.
-	\end{proof}
-
-The uniqueness of inverse of an integer $a$ modulo $m$ gives us the following corollary.
-
-	\begin{corollary}
-		For a positive integer $m$, let $\{a_{1}, a_{2}, \cdots, a_{\varphi(m)}\}$ be a reduced residue system modulo $m$. Then $\{a_{1}^{-1}, a_{2}^{-1}, \cdots, a_{\varphi(m)}^{-1}\}$ is also a reduced residue system modulo $m$.
-	\end{corollary}
-
-
-	\begin{problem}
-		Find the unique odd integer $t$ such that $0<t<23$ and $t+2$ is the modular inverse of $t$ modulo $23$.
-	\end{problem}
-
-	\begin{solution}
-		This means that $t(t+2)\equiv 1 \pmod{23}$. Add $1$ to both sides of this congruence relation to get $(t+1)^2 \equiv 2 \equiv 25\pmod{23}$. Therefore, $23\mid (t+1)^2-25$ or $23\mid (t-4)(t+6)$. By Euclid's lemma (Proposition \ref{prop:euclidslemma}), $23\mid t-4$ or $23\mid t+6$, which give $t=4$ and $t=17$ as solutions. Since we want $t$ to be odd, the answer is $t=17$.
-	\end{solution}
-
-We are going to prove a very simple fact which will be very useful later (for instance, in the next theorem or in the proof of Wolstenholme's theorem, where we re-state the same result as Lemma \ref{lem:wolstproof3}).
-
-	\begin{proposition}\label{prop:inversepower}
-		For a prime $p\geq 3$ and any positive integer $a$ relatively prime to $p$,
-		\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p\]
-		for all positive integers $n$.
-	\end{proposition}
-
-	\begin{proof}
-		Since $a$ is relatively prime to $p$, $a^{-1}$ exists. Therefore,
-			\begin{align*}
-				a \cdot a^{-1}
-					& \equiv 1 \pmod p\\
-				\implies a^n \cdot (a^{-1})^n
-					& \equiv 1 \pmod p\\
-				\implies (a^{-1})^n
-					& \equiv (a^n)^{-1} \pmod p
-			\end{align*}
-		as desired.
-	\end{proof}
-
-
-
-	\begin{theorem}\label{thm:modgcd}
-	Let $a,b$ be integers and $x,y,$ and $n$ be positive integers such that $(a,n)=(b,n)=1$,  $a^x\equiv b^x\pmod n$, and $a^y\equiv b^y\pmod n$. Then,
+\begin{theorem} [B\'{e}zout's Identity]
+	For two nonzero integers $a$ and $b$, there exists $x, y \in \mathbb Z$ such that
 	\begin{align*}
-		a^{(x,y)} & \equiv b^{(x,y)}\pmod n
+	ax+by = (a,b)
 	\end{align*}
 \end{theorem}
 
+You are probably familiar with this theorem. A simple proof uses Euclidean division, but it doesn't show you where exactly to use this identity. So, we prove a stronger theorem and the proof of B\'{e}zout's identity is immediately implied from it.
+
+\begin{theorem}\label{thm:equationgcd}
+	Let $a,b,m$ be integers such that $a, b$ are not zero at the same time. Then the equation
+	\begin{align*}
+		ax + by
+			& = m
+	\end{align*}
+	has solutions for $x$ and $y$ in positive integers if and only if $(a,b)\mid m$.
+\end{theorem}
+
 \begin{proof}
-	By B\'{e}zout's identity, we know there are integers $u$ and $v$ so that $ux+vy=(x,y)$. Therefore,
-	\begin{align}
-		a^{(x,y)} &\equiv a^{ux+vy}\nonumber\\
-		&\equiv \left(a^x\right)^u \cdot \left(a^y\right)^v\\
-		& \equiv \left(b^x\right)^u \cdot \left(b^y\right)^v\label{eq:modgcd}\\
-		&\equiv b^{ux+vy}\\
-		& \equiv b^{(x,y)} \pmod n\nonumber
-	\end{align}
+	The first part is easy. Suppose that there exist integers $x_0$ and $y_0$ such that
+	\begin{align*}
+		ax_0 + by_0
+			& = m
+	\end{align*}
+	We know that $(a,b)\mid a$ and also $(a,b)\mid b$, thus $(a,b)\mid m$ and we are done.
+
+	Conversely, if $(a,b)=d$ and $m$ is divisible by $d$, then we want to prove that there exist some positive integers $x$ and $y$ for which $ax+by=m$. First, we show that it's sufficient to show that there exist $x$ and $y$ such that
+	\begin{align*}
+		ax + by
+			& = d
+	\end{align*}
+	The reason is simple: if there exist $x$ and $y$ such that $ax + by = d$, then
+	\begin{align*}
+		a\parenthesis{x \frac{m}{d}} + b \parenthesis{y \frac{m}{d}}
+			& = m
+	\end{align*}
+	Assume that $A$ is the set of all positive integer linear combinations of $a$ and $b$. $A$ is non-empty because if $a \neq 0$, then
+	\begin{align*}
+		0<|a| = a\frac{|a|}{a} + b\cdot 0
+	\end{align*}
+	and if $b \neq 0$, then
+	\begin{align*}	0<|b| =  a\cdot 0 + b \frac{|b|}{b}\end{align*}
+	Because of well-ordering principle\footnote{The well-ordering principle states that every non-empty set of positive integers contains a least element.}, $A$ contains a least element. Let this smallest element be $t$. So there exist integers $x_0$ and $y_0$ such that
+		\begin{align*}
+			ax_0 + by_0
+				& = t
+		\end{align*}
+	We claim that $t\mid a$ and $t\mid b$. Using division theorem, divide $a$ by $t$:
+		\begin{align*}
+			a
+				& = tq+r
+		\end{align*}
+	and thus
+		\begin{align*}
+			a\underbrace{(1-qx_0)}_{=x_1}+b\underbrace{(-qy_0)}_{=y_1}
+				& =a-tq=r<t
+		\end{align*}
+	If $r \neq 0$, then $r$ is a positive integer written in the form $ax_1+by_1$, which is a positive integer linear combination of $a$ and $b$, so $r \in A$. But $r<t$, which is in contradiction with minimality of $t$. Therefore $r=0$ and $t\mid a$. We can prove that $t\mid b$ in a similar way. By Proposition \ref{prop:dividegcd}, we find that $t\mid d$. Also, according to the first part of the proof, we have $d\mid t$. Following Proposition \ref{prop:bothdivide}, $t=d$. This means that $d \in A$ and there exist integers $x$ and $y$ such that
+	\begin{align*}
+		ax + by
+			& = d
+	\end{align*}
+\end{proof}
+
+B\'{e}zout's Identity has many interesting applications. We will see one such application in Chapter \ref{ch:special}, to prove \textit{Chicken McNugget Theorem}.
+
+We are now ready to represent a stronger version and also a generalization of B\'{e}zout's lemma.
+
+\begin{corollary}   [Stronger Form of B\'{e}zout's Identity]\label{cor:strongbezout}
+	The smallest positive integer linear combination of $a$ and $b$ is $(a,b)$.
+\end{corollary}
+
+\begin{corollary}  \label{cor:bezoutrelatively prime}
+	If $a \perp b$ for non-zero integers $a$ and $b$, then there exist integers $x$ and $y$ such that
+		\begin{align*}
+			ax+by
+				& = 1
+		\end{align*}
+\end{corollary}
+
+\begin{theorem} [Generalization of B\'{e}zout's Identity]
+	If $a_1, a_2, \cdots, a_n$ are integers with $(a_1, a_2, \cdots, a_n)=d$, then the equation
+		\begin{align*}
+			a_1x_1 + a_2x_2 + \cdots + a_n x_n = m
+		\end{align*}
+	has a solution $(x_1, x_2, \cdots, x_n)$ in integers if and only if $d\mid m$.
+\end{theorem}
+
+\begin{theorem}\label{thm:ax=b}
+	Let $m$ be a positive integer and let $a$ and $b$ be positive integers. Then the modular arithmetic equation
+	\begin{align*}
+		ax
+			& \equiv b \pmod m
+	\end{align*}
+	has a solution for $x$ in integers if and only if $(m,a)\mid b$.
+\end{theorem}
+
+\begin{proof}
+	Rewrite the congruence equation as $ax-my = b$ for some integer $y$. Now it is the same as \autoref{thm:equationgcd}. The equation $ax-by=m$ has solutions if and only if $(m,a)\mid b$, which is what we want.
+\end{proof}
+
+\begin{problem}
+	Let $a,b,$ and $c$ be non-zero integers such that $(a, c)=(b,c)=1$. Prove that $(ab,c)=1$.
+\end{problem}
+
+\begin{solution}
+	By Corollary \ref{cor:bezoutrelatively prime}, there exist integers $x,y,z,$ and $t$ such that
+		\begin{align*}
+			ax+cy&=1\\
+			bz+ct&=1
+		\end{align*}
+	Multiply these two equations to get
+		\begin{align*}
+			1 &= (ax+cy)(bz+ct)\\
+	  &= ab(xz)+c(axt+byz+cyt)
+		\end{align*}
+	This means that we have found a linear combination of $c$ and $ab$ which is equal to $1$. From Corollary \ref{cor:strongbezout} it follows that $(ab,c)=1$ (why?).
+\end{solution}
+
+Let's prove the second part of proposition \eqref{prop:cpdiv} in section \eqref{sec:gcd-lcm}.
+
+\begin{problem}\label{prob:a|bc}
+	Let $a,b,$ and $c$ be integers. If $a\mid bc$ and $(a,b)=1$, prove that $a\mid c$.
+\end{problem}
+
+\begin{solution}
+	The problem is obvious for $c=0$. Assume that $c \neq 0$. Since $(a,b)=1$, there exist integers $x$ and $y$ such that $ax+by=1$. Multiply both sides of this equation by $c$ to obtain $acx+bcy=c$. Because $a$ divides both $acx$ and $bcy$, it must also divide their sum, which is equal to $c$.
+
+\end{solution}
+
+\subsection{Modular Arithmetic Multiplicative Inverse}\label{sec:arithinverse}
+
+When speaking of real numbers, the multiplicative inverse of $x$ -- usually named reciprocal of $x$ -- is $\frac{1}{x}$. This is because $x \cdot \frac{1}{x} = 1$ for non-zero $x$.
+
+The definition of a multiplicative inverse in modular arithmetic must be more clear for you now.
+
+\begin{definition}
+	Let $a$ be an integer and let $m$ be a positive integer. The \textit{modular multiplicative inverse} of $a$ modulo $m$ is an integer $x$ such that
+	\begin{align*}
+	ax \equiv 1 \pmod m
+	\end{align*}
+	Once defined, $x$ may be denoted by $a^{-1}$ and simply called \textit{inverse of $a$}.
+\end{definition}
+
+\begin{note}
+	Unlike real numbers which have a unique reciprocal, an integer $a$ has either no inverse, or infinitely many inverses modulo $m$.
+\end{note}
+
+\begin{example}
+	An inverse for $3$ modulo $7$ is $5$:
+		\begin{align*}
+			3 \cdot 5
+				& \equiv 1 \pmod 7
+		\end{align*}
+	We can easily generate other inverses of $3$ modulo $7$ by adding various multiples of $7$ to $5$. Thus, the numbers in the set $\{\cdots, -2, 5, 12, 19, \cdots \}$ are all inverses of $3$ modulo $7$.
+\end{example}
+
+\begin{example}
+	An inverse for $2^{16}+1$ modulo $2^{31}-1$ is $2^{16}-1$. In fact,
+		\begin{align*}
+			(2^{16} - 1)(2^{16} + 1) = 2^{32} -1 = 2(2^{31} - 1) + 1 \equiv 1 \pmod{2^{31} - 1}
+		\end{align*}
+\end{example}
+
+
+\begin{theorem} \label{thm:arithinverse}
+	Let $a$ be an integer and let $m$ be a positive integer such that $a \perp m$. Then $a$ has an inverse modulo $m$. Also, every two inverses of $a$ are congruent modulo $m$.
+\end{theorem}
+
+\begin{proof}
+	The proof is a straightforward result of corollary \eqref{cor:bezoutrelatively prime}. Since $a \perp m$, the equation $ax+my=1$ has solutions. Now take modulo $m$ from both sides to complete the proof of the first part. For the second part, assume that $x_1$ and $x_2$ are inverses of $a$ modulo $m$. Then,
+	\begin{align*}
+	ax_1
+		& \equiv ax_2 \equiv 1 \pmod m\\
+	\stackrel{(a,m)=1}{\implies} x_1
+		& \equiv x_2 \pmod m
+	\end{align*}
+	as desired.
+\end{proof}
+
+The uniqueness of inverse of an integer $a$ modulo $m$ gives us the following corollary.
+
+\begin{corollary}
+	For a positive integer $m$, let $\{a_{1}, a_{2}, \cdots, a_{\varphi(m)}\}$ be a reduced residue system modulo $m$. Then $\{a_{1}^{-1}, a_{2}^{-1}, \cdots, a_{\varphi(m)}^{-1}\}$ is also a reduced residue system modulo $m$.
+\end{corollary}
+
+
+\begin{problem}
+	Find the unique odd integer $t$ such that $0<t<23$ and $t+2$ is the modular inverse of $t$ modulo $23$.
+\end{problem}
+
+\begin{solution}
+	This means that $t(t+2)\equiv 1 \pmod{23}$. Add $1$ to both sides of this congruence relation to get $(t+1)^2 \equiv 2 \equiv 25\pmod{23}$. Therefore, $23\mid (t+1)^2-25$ or $23\mid (t-4)(t+6)$. By Euclid's lemma (Proposition \ref{prop:euclidslemma}), $23\mid t-4$ or $23\mid t+6$, which give $t=4$ and $t=17$ as solutions. Since we want $t$ to be odd, the answer is $t=17$.
+\end{solution}
+
+We are going to prove a very simple fact which will be very useful later (for instance, in the next theorem or in the proof of Wolstenholme's theorem, where we re-state the same result as Lemma \ref{lem:wolstproof3}).
+
+\begin{proposition}\label{prop:inversepower}
+	For a prime $p\geq 3$ and any positive integer $a$ relatively prime to $p$,
+	\[ (a^{-1})^n \equiv (a^n)^{-1} \pmod p\]
+	for all positive integers $n$.
+\end{proposition}
+
+\begin{proof}
+	Since $a$ is relatively prime to $p$, $a^{-1}$ exists. Therefore,
+		\begin{align*}
+			a \cdot a^{-1}
+				& \equiv 1 \pmod p\\
+			\implies a^n \cdot (a^{-1})^n
+				& \equiv 1 \pmod p\\
+			\implies (a^{-1})^n
+				& \equiv (a^n)^{-1} \pmod p
+		\end{align*}
+	as desired.
+\end{proof}
+
+
+
+\begin{theorem}\label{thm:modgcd}
+Let $a,b$ be integers and $x,y,$ and $n$ be positive integers such that $(a,n)=(b,n)=1$,  $a^x\equiv b^x\pmod n$, and $a^y\equiv b^y\pmod n$. Then,
+\begin{align*}
+	a^{(x,y)} & \equiv b^{(x,y)}\pmod n
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+By B\'{e}zout's identity, we know there are integers $u$ and $v$ so that $ux+vy=(x,y)$. Therefore,
+\begin{align}
+	a^{(x,y)} &\equiv a^{ux+vy}\nonumber\\
+	&\equiv \left(a^x\right)^u \cdot \left(a^y\right)^v\\
+	& \equiv \left(b^x\right)^u \cdot \left(b^y\right)^v\label{eq:modgcd}\\
+	&\equiv b^{ux+vy}\\
+	& \equiv b^{(x,y)} \pmod n\nonumber
+\end{align}
 \end{proof}
 
 \begin{remark}
-		Thanks to Professor Greg Martin, we should point out a very important detail here. In the computations above, we used the fact that there exist integers $u$ and $v$ such that $ux+by = 1$. One must notice that these integers $u$ and $v$ need not be positive. In fact, if $x$ and $y$ are both positive, then $u$ and $v$ cannot be both positive (why?). But that doesn't make our calculations wrong, due to Proposition \ref{prop:inversepower}. If it's not clear to you yet, think of it in this way: suppose that, say, $u$ is negative. For instance, consider the example when $x=3$ and $y=15$. Then, since $3 \cdot (-4) + 15 \cdot 1 = (3,15)$, we have $u=-4$ and $v=1$ . Then, equation \eqref{eq:modgcd}, would look like
-			\begin{align*}
-				(a^3)^{-4} \cdot (a^{15})^{1} \equiv (b^3)^{-4} \cdot (b^{15})^{1} \pmod n
-			\end{align*}
-		This might not seem normal because we have a $-4$ in the exponents. So, using Proposition \ref{prop:inversepower}, we can write the above congruence equation as
-			\begin{align*}
-				\parenthesis{\parenthesis{a^{-1}}^{3}}^{4} \cdot (a^{15})^{1} \equiv \parenthesis{\parenthesis{b^{-1}}^3}^{4} \cdot (b^{15})^{1} \pmod n
-			\end{align*}
-		Notice that we need $(a,n)=1$ and $(b,n)=1$ to imply $a^{-1}$ and $b^{-1}$ exist modulo $n$.
+	Thanks to Professor Greg Martin, we should point out a very important detail here. In the computations above, we used the fact that there exist integers $u$ and $v$ such that $ux+by = 1$. One must notice that these integers $u$ and $v$ need not be positive. In fact, if $x$ and $y$ are both positive, then $u$ and $v$ cannot be both positive (why?). But that doesn't make our calculations wrong, due to Proposition \ref{prop:inversepower}. If it's not clear to you yet, think of it in this way: suppose that, say, $u$ is negative. For instance, consider the example when $x=3$ and $y=15$. Then, since $3 \cdot (-4) + 15 \cdot 1 = (3,15)$, we have $u=-4$ and $v=1$ . Then, equation \eqref{eq:modgcd}, would look like
+		\begin{align*}
+			(a^3)^{-4} \cdot (a^{15})^{1} \equiv (b^3)^{-4} \cdot (b^{15})^{1} \pmod n
+		\end{align*}
+	This might not seem normal because we have a $-4$ in the exponents. So, using Proposition \ref{prop:inversepower}, we can write the above congruence equation as
+		\begin{align*}
+			\parenthesis{\parenthesis{a^{-1}}^{3}}^{4} \cdot (a^{15})^{1} \equiv \parenthesis{\parenthesis{b^{-1}}^3}^{4} \cdot (b^{15})^{1} \pmod n
+		\end{align*}
+	Notice that we need $(a,n)=1$ and $(b,n)=1$ to imply $a^{-1}$ and $b^{-1}$ exist modulo $n$.
 \end{remark}
 
-	\begin{problem}
-		Prove that, $\frac{(m,n)}{m}\binom{m}{n}$ is an integer.
-	\end{problem}
-	Since this problem is juxtaposed with this section, it is obvious we are going to use this theorem. But in a real contest, that may  not be the case at all. Try solving it without seeing the solution first and you will know what we mean.
-	\begin{solution}
-		Since there are integers $x,y$ with $(m,n)=mx+ny$, it is easy to deduce that:
-			\begin{align*}
-				\dfrac{\gcd(m,n)}{m}\binom{m}{n}
-					& = \dfrac{mx+ny}{m}\binom{m}{n}\\
-					& = x\binom{m}{n}+\dfrac{ny}{m}\binom{m}{n}\\
-					& = x\binom{m}{n}+\dfrac{ny}{m}\cdot\dfrac{m}{n}\binom{m-1}{n-1}\\
-					& = x\binom{m}{n}+y\binom{m-1}{n-1}
-			\end{align*}
-		This is obviously an integer.
-	\end{solution}
+\begin{problem}
+	Prove that, $\frac{(m,n)}{m}\binom{m}{n}$ is an integer.
+\end{problem}
+Since this problem is juxtaposed with this section, it is obvious we are going to use this theorem. But in a real contest, that may  not be the case at all. Try solving it without seeing the solution first and you will know what we mean.
+\begin{solution}
+	Since there are integers $x,y$ with $(m,n)=mx+ny$, it is easy to deduce that:
+		\begin{align*}
+			\dfrac{\gcd(m,n)}{m}\binom{m}{n}
+				& = \dfrac{mx+ny}{m}\binom{m}{n}\\
+				& = x\binom{m}{n}+\dfrac{ny}{m}\binom{m}{n}\\
+				& = x\binom{m}{n}+\dfrac{ny}{m}\cdot\dfrac{m}{n}\binom{m-1}{n-1}\\
+				& = x\binom{m}{n}+y\binom{m-1}{n-1}
+		\end{align*}
+	This is obviously an integer.
+\end{solution}
 
 \section{Chinese Remainder Theorem}
-	Chinese Remainder Theorem --usually called \textit{CRT}-- is a very old principle in mathematics. It was first introduced by a Chinese mathematician Sun Tzu almost $1700$ years ago. Consider the following example.
+Chinese Remainder Theorem --usually called \textit{CRT}-- is a very old principle in mathematics. It was first introduced by a Chinese mathematician Sun Tzu almost $1700$ years ago. Consider the following example.
 
-	\begin{problem}
-		A positive integer $n$ leaves remainder $2$ when divided by $7$ but has a remainder $4$ when divided by $9$. Find the smallest value of $n$.
-	\end{problem}
-	You might have encountered similar problems when you were in $4$th or $5$th grade. May be even more basic ones. But the idea is essentially the same. If the problem was a bit different, like
-	\begin{problem}
-		A positive integer $n$ leaves remainder $2$ when divided by $7$ or $9$. Find the smallest value of $n$.
-	\end{problem}
-	Then it would be easier. Because then we would have that $n-2$ is
-	divisible by both $7$ and $9$. That means $n-2$ has to be divisible by their least common multiple, $63$. Obviously, the minimum such $n$ is $n=2$. Let's see what happens if we want $n>2$. Then all such positive integers would be $n=2+63k$. Now, as for this problem, we can't do this directly when the remainders are different. So we go back to the original problem and see how we can tackle the new one. Let's write them using congruence.
+\begin{problem}
+	A positive integer $n$ leaves remainder $2$ when divided by $7$ but has a remainder $4$ when divided by $9$. Find the smallest value of $n$.
+\end{problem}
+You might have encountered similar problems when you were in $4$th or $5$th grade. May be even more basic ones. But the idea is essentially the same. If the problem was a bit different, like
+\begin{problem}
+	A positive integer $n$ leaves remainder $2$ when divided by $7$ or $9$. Find the smallest value of $n$.
+\end{problem}
+Then it would be easier. Because then we would have that $n-2$ is
+divisible by both $7$ and $9$. That means $n-2$ has to be divisible by their least common multiple, $63$. Obviously, the minimum such $n$ is $n=2$. Let's see what happens if we want $n>2$. Then all such positive integers would be $n=2+63k$. Now, as for this problem, we can't do this directly when the remainders are different. So we go back to the original problem and see how we can tackle the new one. Let's write them using congruence.
+\begin{align*}
+	n & \equiv2\pmod{7}\\
+	n & \equiv4\pmod{9}
+\end{align*}
+In other words, using divisibility notation, $7\mid n-2$ and $9\mid n-4$. We can not do the same now. But \textit{if} these two remainders were same, we could do that. Probably we should focus on that. That is, we want it to be something like
 	\begin{align*}
-		n & \equiv2\pmod{7}\\
-		n & \equiv4\pmod{9}
+		n & \equiv a\pmod 7\\
+		n & \equiv a\pmod 9
 	\end{align*}
-	In other words, using divisibility notation, $7\mid n-2$ and $9\mid n-4$. We can not do the same now. But \textit{if} these two remainders were same, we could do that. Probably we should focus on that. That is, we want it to be something like
-		\begin{align*}
-			n & \equiv a\pmod 7\\
-			n & \equiv a\pmod 9
-		\end{align*}
-	The only thing we can do here is
-		\begin{align*}
-			n & \equiv2+7k\pmod7\\
-			n & \equiv4+9l\pmod9
-		\end{align*}
-	for some \textit{suitable} integer $k$ and $l$. Our aim is to find their values. Since both $2+7k$ and $4+9l$ must be the same modulo $7$ and $9$, if we can find a way to keep $9$ in $2+7k$ and $7$ is $4+9l$, that could work! One way around it is to do the following:
-		\begin{align*}
-			n & \equiv2\cdot1+7\cdot4\pmod7\\
-			n & \equiv2\cdot9\cdot9^{-1}+7\cdot4\pmod{7}
-		\end{align*}
-	Let's do the same for the other congruence.
-		\begin{align*}
-			n & \equiv4\cdot1+9\cdot2\pmod{9}\\
-			n & \equiv4\cdot7\cdot7^{-1}+2\cdot9\pmod{9}
-		\end{align*}
-	Now you should understand what we can do to make those two equal. In the first congruence, no matter what we multiply with $7\cdot4$, the remainder won't change modulo $7$. The same for $9$ in the second congruence. We will exploit this fact. We need to rearrange it just a bit more. But here is a warning. We wouldn't be able to do it if $7$ and $9$ were not relatively prime, since then they would not have any multiplicative inverse. We could do that trick writing $1=7\cdot7^{-1}$ only because $7^{-1}$ modulo $9$ exists. For simplicity, let's assume $7^{-1}\equiv u\pmod{9}$ and $9^{-1}\equiv v\pmod{7}$.
-		\begin{align*}
-			n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7}\\
-			n & \equiv4\cdot7\cdot u+2\cdot9\cdot v\pmod{9}
-		\end{align*}
-	And now, we have what we want! We can say,
-		\begin{align*}
-			n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7\cdot9}
-		\end{align*}
-	since $7 \perp 9$. We have our solution! Think more on our approach and what led us to do this. Question is, is this $n$ the smallest solution? If we take $r$ with $0\leq r\leq mn$ so that
-		\begin{align*}
-			n & \equiv r\equiv18v+28u\pmod{63}
-		\end{align*}
-	where $u\equiv7^{-1}\equiv4\pmod9$ and $v\equiv9^{-1}\equiv4\pmod 7$. Therefore,
-		\begin{align*}
-			n
-				& = (18\cdot4+28\cdot4)\pmod{63}\\
-				& =184\pmod{63}\\
-				& =58
-		\end{align*}
-	Since $58<63$, such a solution will be unique! Mathematically, we can write it this way. Let the inverse of $a$ modulo $n$ be $a^{-1}_n$.
-		\begin{theorem}[Chinese Remainder Theorem for Two Integers]
-			For two positive integers $a\bot b$,
-				\begin{align*}
-					x & \equiv m\pmod a\\
-					x & \equiv n\pmod b
-				\end{align*}
-			has a solution
-				\begin{align*}
-					x_0 \equiv (mbb^{-1}_a+naa^{-1}_b)\pmod{ab}
-				\end{align*}
-			and all the solutions are given by $x=x_0+abk$.
-		\end{theorem}
-	But this form is not that convenient. We will give it a better shape. Let $M=ab$, then $\frac{M}{a}\bot b$ and $\frac{M}{b}\bot b$. Rewrite the theorem in the following form.
-		\begin{theorem}[Refined CRT]
-			If $a_1\bot a_2$ and $M=a_1a_2$, then the congruences
+The only thing we can do here is
+	\begin{align*}
+		n & \equiv2+7k\pmod7\\
+		n & \equiv4+9l\pmod9
+	\end{align*}
+for some \textit{suitable} integer $k$ and $l$. Our aim is to find their values. Since both $2+7k$ and $4+9l$ must be the same modulo $7$ and $9$, if we can find a way to keep $9$ in $2+7k$ and $7$ is $4+9l$, that could work! One way around it is to do the following:
+	\begin{align*}
+		n & \equiv2\cdot1+7\cdot4\pmod7\\
+		n & \equiv2\cdot9\cdot9^{-1}+7\cdot4\pmod{7}
+	\end{align*}
+Let's do the same for the other congruence.
+	\begin{align*}
+		n & \equiv4\cdot1+9\cdot2\pmod{9}\\
+		n & \equiv4\cdot7\cdot7^{-1}+2\cdot9\pmod{9}
+	\end{align*}
+Now you should understand what we can do to make those two equal. In the first congruence, no matter what we multiply with $7\cdot4$, the remainder won't change modulo $7$. The same for $9$ in the second congruence. We will exploit this fact. We need to rearrange it just a bit more. But here is a warning. We wouldn't be able to do it if $7$ and $9$ were not relatively prime, since then they would not have any multiplicative inverse. We could do that trick writing $1=7\cdot7^{-1}$ only because $7^{-1}$ modulo $9$ exists. For simplicity, let's assume $7^{-1}\equiv u\pmod{9}$ and $9^{-1}\equiv v\pmod{7}$.
+	\begin{align*}
+		n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7}\\
+		n & \equiv4\cdot7\cdot u+2\cdot9\cdot v\pmod{9}
+	\end{align*}
+And now, we have what we want! We can say,
+	\begin{align*}
+		n & \equiv2\cdot9\cdot v+4\cdot7\cdot u\pmod{7\cdot9}
+	\end{align*}
+since $7 \perp 9$. We have our solution! Think more on our approach and what led us to do this. Question is, is this $n$ the smallest solution? If we take $r$ with $0\leq r\leq mn$ so that
+	\begin{align*}
+		n & \equiv r\equiv18v+28u\pmod{63}
+	\end{align*}
+where $u\equiv7^{-1}\equiv4\pmod9$ and $v\equiv9^{-1}\equiv4\pmod 7$. Therefore,
+	\begin{align*}
+		n
+			& = (18\cdot4+28\cdot4)\pmod{63}\\
+			& =184\pmod{63}\\
+			& =58
+	\end{align*}
+Since $58<63$, such a solution will be unique! Mathematically, we can write it this way. Let the inverse of $a$ modulo $n$ be $a^{-1}_n$.
+	\begin{theorem}[Chinese Remainder Theorem for Two Integers]
+		For two positive integers $a\bot b$,
 			\begin{align*}
-			x & \equiv r_1\pmod{a_1}\\
-			x & \equiv r_2\pmod{a_2}
+				x & \equiv m\pmod a\\
+				x & \equiv n\pmod b
 			\end{align*}
-			has the smallest solution
+		has a solution
 			\begin{align*}
-			x_0
-				&\equiv r_{1}\parenthesis{\dfrac{M}{a_1}}\parenthesis{\dfrac{M}{a_1}}^{-1}_{a_2}+r_{2}\parenthesis{\dfrac{M}{a_2}}\parenthesis{\dfrac{M}{a_2}}^{-1}_{a_1}\pmod{M}
+				x_0 \equiv (mbb^{-1}_a+naa^{-1}_b)\pmod{ab}
 			\end{align*}
-		\end{theorem}
-	If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
-		\begin{theorem}[CRT]
-			For $n$ pairwise relatively prime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
-				\begin{align*}
-					x & \equiv r_1\pmod{a_1}\\
-					x & \equiv r_2\pmod{a_2}\\
-					   &\vdots\\
-					x & \equiv r_n\pmod{a_n}
-				\end{align*}
-			If $M=a_1a_2\cdots a_n$ and $M_i=\dfrac{M}{a_i}$ and $M_ie_i\equiv1\pmod{a_i}$, then the smallest  modulo $M$ is given by
-			\begin{align*}
-				x_0
-					& \equiv \left(r_1 M_1e_i+\cdots+r_n M_ne_n\right)\\
-					& \equiv \parenthesis{\sum_{i=1}^{n} r_i M_ie_i}\pmod M
-			\end{align*}
-		\end{theorem}
-
-		\begin{proof}
-			Note that, for a fixed $i$, $M_j$ is divisible by $a_i$ if $i\neq j$. Therefore,
-			\begin{align*}
-			x_0
-				& = \sum_{i=1}^{n} r_i M_ie_i\\
-				& \equiv r_iM_ie_i\\
-				& \equiv r_i\pmod{a_i}
-			\end{align*}
-			So $x_0$ is a solution to those congruences. Since $M_i\bot a_i$, there is a multiplicative inverse of $M_i$ modulo $a_i$ due to B\'{e}zout's identity. We leave it to the reader to prove that if $x,y$ are two solutions, then $x\equiv y\pmod M$. That would prove its uniqueness modulo $M$.
-		\end{proof}
-	We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\cdots,p_k$ are pairwise relatively prime integers. By the way, we could generalize CRT the following way.
-		\begin{theorem}[General CRT]
-			For $n$ integers $a_1,\cdots,a_n$ the system of congruences
+		and all the solutions are given by $x=x_0+abk$.
+	\end{theorem}
+But this form is not that convenient. We will give it a better shape. Let $M=ab$, then $\frac{M}{a}\bot b$ and $\frac{M}{b}\bot b$. Rewrite the theorem in the following form.
+	\begin{theorem}[Refined CRT]
+		If $a_1\bot a_2$ and $M=a_1a_2$, then the congruences
+		\begin{align*}
+		x & \equiv r_1\pmod{a_1}\\
+		x & \equiv r_2\pmod{a_2}
+		\end{align*}
+		has the smallest solution
+		\begin{align*}
+		x_0
+			&\equiv r_{1}\parenthesis{\dfrac{M}{a_1}}\parenthesis{\dfrac{M}{a_1}}^{-1}_{a_2}+r_{2}\parenthesis{\dfrac{M}{a_2}}\parenthesis{\dfrac{M}{a_2}}^{-1}_{a_1}\pmod{M}
+		\end{align*}
+	\end{theorem}
+If we take $n$ relatively prime integers instead of two, the same process will work! So we can generalize this for $n$ variables.
+	\begin{theorem}[CRT]
+		For $n$ pairwise relatively prime integers $a_1,a_2,\cdots,a_n$ there exists a solution to the congruences
 			\begin{align*}
 				x & \equiv r_1\pmod{a_1}\\
 				x & \equiv r_2\pmod{a_2}\\
-				&\vdots\\
+	   &\vdots\\
 				x & \equiv r_n\pmod{a_n}
 			\end{align*}
-			has a solution if and only if
+		If $M=a_1a_2\cdots a_n$ and $M_i=\dfrac{M}{a_i}$ and $M_ie_i\equiv1\pmod{a_i}$, then the smallest  modulo $M$ is given by
+		\begin{align*}
+			x_0
+				& \equiv \left(r_1 M_1e_i+\cdots+r_n M_ne_n\right)\\
+				& \equiv \parenthesis{\sum_{i=1}^{n} r_i M_ie_i}\pmod M
+		\end{align*}
+	\end{theorem}
+
+	\begin{proof}
+		Note that, for a fixed $i$, $M_j$ is divisible by $a_i$ if $i\neq j$. Therefore,
+		\begin{align*}
+		x_0
+			& = \sum_{i=1}^{n} r_i M_ie_i\\
+			& \equiv r_iM_ie_i\\
+			& \equiv r_i\pmod{a_i}
+		\end{align*}
+		So $x_0$ is a solution to those congruences. Since $M_i\bot a_i$, there is a multiplicative inverse of $M_i$ modulo $a_i$ due to B\'{e}zout's identity. We leave it to the reader to prove that if $x,y$ are two solutions, then $x\equiv y\pmod M$. That would prove its uniqueness modulo $M$.
+	\end{proof}
+We want to mention a particular use of CRT. When you are facing some problems related to congruence equation, if you can not solve for some $n$, instead show a solution for $p_i^{e_i}$ where $n=p_1^{e_1}\cdots p_k^{e_k}$. Then you can say that such a solution modulo $n$ exists as well. In short, we could reduce the congruences to prime powers because $p_1,\cdots,p_k$ are pairwise relatively prime integers. By the way, we could generalize CRT the following way.
+	\begin{theorem}[General CRT]
+		For $n$ integers $a_1,\cdots,a_n$ the system of congruences
+		\begin{align*}
+			x & \equiv r_1\pmod{a_1}\\
+			x & \equiv r_2\pmod{a_2}\\
+			&\vdots\\
+			x & \equiv r_n\pmod{a_n}
+		\end{align*}
+		has a solution if and only if
+		\begin{align*}
+			r_i & \equiv r_j\pmod{(a_i,a_j)}
+		\end{align*}
+		for all $i$ and $j$. Any two solutions $x,y$ are congruent modulo the least common multiple of all $a_i$. That is, if $M=[a_1,\cdots,a_n]$ and $x,y$ are two solutions, then $x\equiv y\pmod M$.
+	\end{theorem}
+
+	\begin{problem}
+		Prove that, for any $n$ there are $n$ consecutive integers such that all of them are composite.
+	\end{problem}
+
+	\begin{solution}
+		We will use CRT here forcibly, even though it has a much easier solution. Consider the following congruences:
 			\begin{align*}
-				r_i & \equiv r_j\pmod{(a_i,a_j)}
+				x & \equiv -1\pmod{p_1p_2}\\
+				x & \equiv -2\pmod{p_3p_4}\\
+		  & \vdots \\
+				x & \equiv -n\pmod{p_{2n-1}p_{2n}}
 			\end{align*}
-			for all $i$ and $j$. Any two solutions $x,y$ are congruent modulo the least common multiple of all $a_i$. That is, if $M=[a_1,\cdots,a_n]$ and $x,y$ are two solutions, then $x\equiv y\pmod M$.
-		\end{theorem}
-
-		\begin{problem}
-			Prove that, for any $n$ there are $n$ consecutive integers such that all of them are composite.
-		\end{problem}
-
-		\begin{solution}
-			We will use CRT here forcibly, even though it has a much easier solution. Consider the following congruences:
-				\begin{align*}
-					x & \equiv -1\pmod{p_1p_2}\\
-					x & \equiv -2\pmod{p_3p_4}\\
-					  & \vdots \\
-					x & \equiv -n\pmod{p_{2n-1}p_{2n}}
-				\end{align*}
-			Here, $p_1,\cdots,p_{2n}$ are distinct primes. Therefore, $M_1=p_1p_2,\cdots,M_n=p_{2n-1}p_{2n}$ are pair-wisely co-prime. So, by CRT, there is indeed such an $x$ which satisfies all of the congruences above. And our problem is solved. Notice that, $x+1$ is divisible by at least two primes $p_1,p_2$. Similarly, $x+i$ is divisible by $p_{2i-1}p_{2i}$.
-		\end{solution}
-
-		\begin{note}
-			A common idea in such problems is to bring factorial into the play. Here, $(n+1)!+2,(n+1)!+3,\cdots,(n+1)!+(n+1)$ are such $n$ consecutive integers. But the motivation behind the solution above is that, we making use of the fact: primes are co-prime to each other. And to make an integer composite, we can just use two or more primes instead of one.
-		\end{note}
-
-		\begin{problem}
-			Suppose that $ \{s_1,s_2\cdots , s_{\phi(m)}\} $ is a reduced residue set modulo $m$. Find all positive integers $a$ for which $ \{s_1+a,s_2+a\cdots , s_{\phi(m)}+a\} $ is also a reduced residue set modulo $m$.
-		\end{problem}
-
-		\begin{solution}
-			We claim that the given set is a reduced residue system modulo $m$ if and only if $a$ is divisible by each prime factor of $m$.
-
-			First, suppose that $m$ has a factor $p$ and $a$ is not divisible by $p$. Let $m=p^{\alpha}n$ for some positive integer $n$ relatively prime to $p$. Since $n \bot p$, by CRT, there exists some integer $k$ such that
-				\begin{align*}
-					k &\equiv -a \pmod p\\
-					k &\equiv \phantom{-}1  \pmod n
-				\end{align*}
-			Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d\mid k$, meaning $d\mid 1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not relatively prime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
-
-			For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\cdots , s_{\varphi(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is relatively prime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is co-prime to $p$, so is $s+a$. Thus $s+a$ is co-prime to all prime factors of $m$, making it relatively prime to $m$ as well.
-		\end{solution}
-
-		\begin{problem}[$1997$ Czech and Slovak Mathematical Olympiad]
-			Show that there exists an increasing sequence $\{a_{n}\}_{n=1}^{\infty}$ of natural numbers such that for any $k \geq  0$, the sequence $\{k+a_{n}\}$ contains only finitely many primes.
-		\end{problem}
-	It is a standard example of CRT because it is not obvious how CRT comes into the play here.
-		\begin{solution}
-			Let $p_{k}$ be the $k$th prime number. Set ${a_1}= 2$. For	$n \geq  1$, let $a_{n+1}$ be the least integer greater than $a_{n}$ that is congruent to $-k$ modulo $p_{k+1}$ for all $k \leq  n$. Such an integer exists by the Chinese Remainder
-			Theorem. Thus, for all $k \geq 0$, $k+a_{n}\equiv 0\pmod{p_{k+1}}$ for $n \geq  k + 1$. Then at most $k+1$ values in the sequence $\{k+a_{n}\}$ can be prime since the $i$th term onward for $i\geq k+2$, the values are nontrivial multiples of $p_{k+1}$ and must be composite. This completes the proof.
-		\end{solution}
+		Here, $p_1,\cdots,p_{2n}$ are distinct primes. Therefore, $M_1=p_1p_2,\cdots,M_n=p_{2n-1}p_{2n}$ are pair-wisely co-prime. So, by CRT, there is indeed such an $x$ which satisfies all of the congruences above. And our problem is solved. Notice that, $x+1$ is divisible by at least two primes $p_1,p_2$. Similarly, $x+i$ is divisible by $p_{2i-1}p_{2i}$.
+	\end{solution}
 
 	\begin{note}
-		We could deal with this using $a_n=(p_n-1)!$ as well, combining with Wilson's theorem. Because if $k>1$ then $p_n-1>k$ for sufficiently large $n$ so it will be composite from that $n$. Otherwise $(p-1)!+1$ is divisible by $p$, so it is composite as well.
+		A common idea in such problems is to bring factorial into the play. Here, $(n+1)!+2,(n+1)!+3,\cdots,(n+1)!+(n+1)$ are such $n$ consecutive integers. But the motivation behind the solution above is that, we making use of the fact: primes are co-prime to each other. And to make an integer composite, we can just use two or more primes instead of one.
 	\end{note}
 
+	\begin{problem}
+		Suppose that $ \{s_1,s_2\cdots , s_{\phi(m)}\} $ is a reduced residue set modulo $m$. Find all positive integers $a$ for which $ \{s_1+a,s_2+a\cdots , s_{\phi(m)}+a\} $ is also a reduced residue set modulo $m$.
+	\end{problem}
 
-\end{document}
+	\begin{solution}
+		We claim that the given set is a reduced residue system modulo $m$ if and only if $a$ is divisible by each prime factor of $m$.
+
+		First, suppose that $m$ has a factor $p$ and $a$ is not divisible by $p$. Let $m=p^{\alpha}n$ for some positive integer $n$ relatively prime to $p$. Since $n \bot p$, by CRT, there exists some integer $k$ such that
+			\begin{align*}
+				k &\equiv -a \pmod p\\
+				k &\equiv \phantom{-}1  \pmod n
+			\end{align*}
+		Since $k \equiv -a \not \equiv 0 \pmod p$, we have $k \bot p$. Also, let $(k,n)=d$. Then $d\mid n\mid k-1$ and $d\mid k$, meaning $d\mid 1$ and so $d=1$. It follows that $k \bot m$. So, $k \in \{s_1,s_2\cdots , s_{\varphi(m)}\} $. But $k+a$ is divisible by $p$, and therefore not relatively prime to $n$, forcing $ \{s_1+a,s_2+a\cdots , s_{\varphi(m)}+a\} $ not a reduced residue system.
+
+		For the converse, suppose that $a$ is an integer which is divisible by all prime factors of $m$. Obviously, $s_1+a,s_2+a\cdots , s_{\varphi(m)}+a$ are all distinct modulo $m$. We just need to show that if $s$ is relatively prime to $m$, then so is $s+a$. For any prime $p$ which divides $m$, we have $s+a \equiv s \pmod p$ because as assumed, $a$ is divisible by $p$. Since $s$ is co-prime to $p$, so is $s+a$. Thus $s+a$ is co-prime to all prime factors of $m$, making it relatively prime to $m$ as well.
+	\end{solution}
+
+	\begin{problem}[$1997$ Czech and Slovak Mathematical Olympiad]
+		Show that there exists an increasing sequence $\{a_{n}\}_{n=1}^{\infty}$ of natural numbers such that for any $k \geq  0$, the sequence $\{k+a_{n}\}$ contains only finitely many primes.
+	\end{problem}
+It is a standard example of CRT because it is not obvious how CRT comes into the play here.
+	\begin{solution}
+		Let $p_{k}$ be the $k$th prime number. Set ${a_1}= 2$. For	$n \geq  1$, let $a_{n+1}$ be the least integer greater than $a_{n}$ that is congruent to $-k$ modulo $p_{k+1}$ for all $k \leq  n$. Such an integer exists by the Chinese Remainder
+		Theorem. Thus, for all $k \geq 0$, $k+a_{n}\equiv 0\pmod{p_{k+1}}$ for $n \geq  k + 1$. Then at most $k+1$ values in the sequence $\{k+a_{n}\}$ can be prime since the $i$th term onward for $i\geq k+2$, the values are nontrivial multiples of $p_{k+1}$ and must be composite. This completes the proof.
+	\end{solution}
+
+\begin{note}
+	We could deal with this using $a_n=(p_n-1)!$ as well, combining with Wilson's theorem. Because if $k>1$ then $p_n-1>k$ for sufficiently large $n$ so it will be composite from that $n$. Otherwise $(p-1)!+1$ is divisible by $p$, so it is composite as well.
+\end{note}

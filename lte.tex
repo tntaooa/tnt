@@ -1,7 +1,3 @@
-\documentclass[main.tex]{subfile}
-
-%SALAAM
-\begin{document}
 \textit{Lifting The Exponent Lemma} is a powerful method for solving exponential Diophantine equations. It is pretty well-known in the literature though its origins are hard to trace. Mathematically, it is a close relative of \textit{Hensel's lemma} in number theory (in both the statement and the idea of the proof). This is a technique that has been used a lot in recent Olympiad problems.
 
 One can use the Lifting The Exponent Lemma (this is a long name, let's call it \textbf{LTE}!) in problems involving exponential equations, especially when there are some prime numbers (and is actually an overkill for many problems). This lemma shows how to find the greatest power of a prime $p$ -- which is often $\geq 3$ -- that divides $a^n \pm b^n$ for some positive integers $a$ and $b$. The advantage of this lemma is that, it is quite simple to understand and if in some contest, it is refrained from being used, the proof is not hard as well.
@@ -166,7 +162,7 @@ Here is a problem which will explain the main idea behind LTE.
     \end{theorem}
 
 
-\subsection{The Case \texorpdfstring{$\boldsymbol{p=2}$}{p = 2}}
+\subsection{The Case \texorpdfstring{${p=2}$}{p = 2}}
 
     \begin{question}
         Why did we assume that $p$ is an odd prime, i.e., $p \neq 2 ?$ Why can't we assume that $p=2$ in our proofs?
@@ -379,7 +375,3 @@ Here is a problem which will explain the main idea behind LTE.
         	\end{align*}
         so $x^{2009} + y^{2009} = 49\cdot k\cdot (x + y)$ where $7\nmid k$. But we have $x^{2009} + y^{2009} = 7^z$, which means the only prime factor of $x^{2009} + y^{2009}$ is $7$, so $k=1$. Thus $x^{2009} + y^{2009} = 49(x + y)$.  But in this equation the left hand side is much larger than the right hand one if $\max(x, y) > 1$, and, clearly, $(x, y) = (1, 1)$ is not a solution. Thus the given equation does not have any solutions in the set of positive integers.
     \end{solution}
-
-
-
-\end{document}

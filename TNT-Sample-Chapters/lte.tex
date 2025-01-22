@@ -3,21 +3,21 @@
 %SALAAM
 \begin{document}
 \textit{Lifting The Exponent Lemma} is a powerful method for solving exponential Diophantine equations. It is pretty well-known in the literature though its origins are hard to trace. Mathematically, it is a close relative of \textit{Hensel's lemma} in number theory (in both the statement and the idea of the proof). This is a technique that has been used a lot in recent olympiad problems.
-        
+
 One can use the Lifting The Exponent Lemma (this is a long name, let's call it \textbf{LTE}!) in problems involving exponential equations, especially when there are some prime numbers (and actually in some cases overkills the problems). This lemma shows how to find the greatest power of a prime $p$ -- which is often $\geq 3$ -- that divides $a^n \pm b^n$ for some positive integers $a$ and $b$. The advantage of this lemma is that, it is quite simple to understand and if in some contest, it is refrained from being used, the proof is not hard as well.
 
 
 In section \eqref{sec:powerofprimes} of chapter \eqref{ch:arithfunc}, we defined $v_p(n)$. Recall that $v_p(n)$ is the highest power of a prime $p$ which divides a positive integer $n$. Here, we will make use of this function to solve Diophantine equations.
-    
+
 Here is a problem which will explain the main idea behind LTE.
 
     \begin{problem}
     	Show that there exist no positive integers $x$ and $y$ such that
     	\begin{align*}
     		2^{6x+1} + 1 = 3^{2y}.
-    	\end{align*} 
+    	\end{align*}
     \end{problem}
-    
+
     \begin{solution}
     	The idea is that the largest power of $3$ which divides the right side of the given equation, should be the same as that of the left side. Clearly, $v_3(3^{2y})=2y$. Let's find $v_3\left(2^{6x+1} + 1\right)$. Since $6x+1= 2 \cdot x +1$ is odd, we can write
     	\begin{align*}
@@ -31,7 +31,7 @@ Here is a problem which will explain the main idea behind LTE.
     	\end{align*}
     	This means that $2y=1$, which is impossible since $y$ is an integer.
     \end{solution}
-    
+
 \subsection{Two Important and Useful Lemmas}
 
     \begin{lemma}\label{lem:lte-firstlemma}
@@ -43,7 +43,7 @@ Here is a problem which will explain the main idea behind LTE.
 
     \begin{proof}
         We use the fact that
-        
+
         \begin{align*}
         x^n - y^n = (x - y)\big(x^{n - 1} + x^{n - 2}y + x^{n - 3}y^2 + \cdots + y^{n - 1}\big).
         \end{align*}
@@ -60,7 +60,7 @@ Here is a problem which will explain the main idea behind LTE.
        \end{proof}
 
 
-    \begin{lemma}\label{secondlemma} 
+    \begin{lemma}\label{secondlemma}
         Let $ x$ and $y$ be (not necessarily positive) integers and let $n$ be an odd positive integer. Given an arbitrary prime $p$ (in particular, we can have $p=2$) such that $ \gcd(n,p) = 1$, $p\mid x + y$ and neither $x$, nor $y$ is divisible by $p$, we have
         \begin{align*}
 	        v_p\big(  x^n + y^n \big) = v_p ( x + y ).
@@ -82,8 +82,8 @@ Here is a problem which will explain the main idea behind LTE.
         $x$ and $y$ is divisible by $p$ (i.e., $p \nmid x$ and $p \nmid y$).  We have
         \[ v_p(  x^n - y^n ) = v_p(  x - y ) + v_p  (n ).\]
     \end{theorem}
-    
-    
+
+
     \begin{proof}
         We may use induction on $v_p(n).$ First, let us prove the following statement:
             \begin{equation}\label{equation1}
@@ -133,9 +133,9 @@ Here is a problem which will explain the main idea behind LTE.
                 & = v_p\big(  x^{p^{\alpha-2}} - y^{p^{\alpha-2}} \big) + 2 \\
                 & \phantom{=} \vdots \\
                 & = v_p\big(  (x^{p^{1}})^1 - (y^{p^{1}})^1  \big) + \alpha -1  = v_p\big(  x-y \big) + \alpha \\
-                & =v_p\big(  x-y \big) + v_p\big(  n \big) . 
+                & =v_p\big(  x-y \big) + v_p\big(  n \big) .
             \end{align*}
-        
+
         Note that we used the fact that if $p \mid x-y,$ then we have $p \mid x^k -y^k,$ because we have $x-y \mid x^k-y^k$ for all positive integers $k.$ The proof is complete.
     \end{proof}
 
@@ -147,28 +147,28 @@ Here is a problem which will explain the main idea behind LTE.
         \[ v_p(  x^n + y^n ) = v_p(  x + y ) + v_p(  n ). \]
     \end{theorem}
 
-    \begin{proof} 
+    \begin{proof}
         This is obvious using theorem \eqref{theorem1}. See the trick we used in proof of lemma \eqref{secondlemma}.
 	\end{proof}
-    
+
     The following theorem is a  special case of Zsigmondy's theorem (discussed later in \eqref{thm:zsigmondy}), which can be proved using LTE and EGL (theorem \eqref{thm:egl}). And probably it is the most important case of Zsigmondy's theorem  we use in problems. In case someone considers the original theorem to be a sledgehammer, in that case this theorem should work fine. We leave the proof as an exercise.
-    
+
     \begin{theorem}\slshape
     	For a prime $p>3$ and coprime integers $x,y$, $x^{p^k}-y^{p^k}$ has a prime factor $q$ such that $q|x^{p^k}-y^{p^k}$ but $q\nmid x^{p^i}-y^{p^i}$ for $0\le i<k$.
     \end{theorem}
-    
 
-\subsection{The Case \texorpdfstring{$\boldsymbol{p=2}$}{p = 2}}
+
+\subsection{The Case \texorpdfstring{${p=2}$}{p = 2}}
 
     \begin{question}
         Why did we assume that $p$ is an odd prime, i.e., $p \neq 2 ?$ Why can't we assume that $p=2$ in our proofs?
     \end{question}
-    
+
     \begin{hint}
         Note that $\frac{p-1}{2}$ is an integer only for $p>2.$
     \end{hint}
-    
-    
+
+
     \begin{theorem}[LTE for $p = 2$]
         Let $x$ and $y$ be two odd integers such that $4 \mid x-y.$ Then
          \begin{align*}
@@ -197,44 +197,44 @@ Here is a problem which will explain the main idea behind LTE.
 
     \begin{proof}
         We know that the square of an odd integer is of the form $4k+1.$ So for odd $x$ and $y$ we have $4 \mid x^2-y^2.$ Now let $m$ be an odd integer and $k$ be a positive integer such that $n=m \cdot 2^k.$ Then
-        
+
             \begin{align*}
                 v_2 \big( x^{n} - y^{n} \big)  & = v_2\big( x^{m \cdot 2^{k}} - y^{m \cdot 2^{k}} \big)   \\
                 & = v_2\big((x^2)^{2^{k-1}}-(y^2)^{2^{k-1}}\big) \\
                 & \phantom{=} \vdots \\
                 & =  v_2 \big( x^{2} - y^{2} \big) + k-1  \\
-                & = v_2 ( x - y )+v_2 ( x + y )+v_2 ( n )-1. 
+                & = v_2 ( x - y )+v_2 ( x + y )+v_2 ( n )-1.
             \end{align*}
     \end{proof}
 
 \subsection{Summary}
 
     Let $p$ be a prime number and let $x$ and $y$ be two (not necessarily positive) integers that are not divisible by $p.$ Then:
-    
+
     \begin{enumerate}[(a)]
-        \item  For a positive integer $n$ 
+        \item  For a positive integer $n$
             \begin{itemize}
                 \item if $p \neq 2$ and $p \mid x-y,$ then
                  \begin{align*}
                  v_p\big(  x^n - y^n \big) = v_p(  x - y ) + v_p(  n ).
                  \end{align*}
-            
+
                 \item if $p=2$ and $4 \mid x-y,$ then
                 \begin{align*}
                  v_2\big(  x^n - y^n \big) = v_2(  x-y ) + v_2(  n ).
                 \end{align*}
-            
+
                 \item if $p=2$, $n$ is even, and $2\mid x-y,$ then
                 \begin{align*}
                 v_2\big(  x^n - y^n \big) = v_2(  x - y )+v_2(  x + y )+v_2(  n )-1.
                 \end{align*}
             \end{itemize}
-    
+
         \item For an odd positive integer $n,$ if $p \mid x+y,$ then
 	            \begin{align*}
                  v_p\big(  x^n + y^n \big) = v_p(  x + y ) + v_p(  n ).
                  \end{align*}
-    
+
         \item For a positive integer $n$ with $\gcd(p,n)=1,$ if $p\mid x-y$, we have
          \begin{align*}
          v_p\big(  x^n - y^n \big) = v_p(  x - y )  .
@@ -243,7 +243,7 @@ Here is a problem which will explain the main idea behind LTE.
 		\begin{align*}
 		v_p\big(  x^n + y^n \big) = v_p(  x + y )  .
 		\end{align*}
-    
+
     \end{enumerate}
 
     \begin{note}
@@ -270,14 +270,14 @@ Here is a problem which will explain the main idea behind LTE.
 	                & = 3^n,
                 \end{align*}
                 which is a contradiction.
-                
+
                 \item $m=1$. Then $x+y=3$, so $x=1, y=2$ (or $x=2, y=1$). Thus $3^{1+v_3(k)}= 1+2^k$. But note that
                 $3^{v_3(k)} \mid k$ so $3^{v_3(k)} \leq k$. Thus
                 \[1+2^k = 3^{v_3(k)+1} = 3 \cdot \underbrace{3^{v_3(k)}}_{\leq k} \leq 3k \implies 2^k +1 \leq 3k .\]
                 And one can check that the only odd value of $k>1$ that satisfies the above inequality is $k=3$. So $(x,y,n,k)=(1,2,2,3), (2,1,2,3)$ in this case.
             \end{enumerate}
     Thus, the final answer is $n=2.$
-    
+
     \end{solution}
 
     \begin{problem}[Balkan 1993]
@@ -303,22 +303,22 @@ Here is a problem which will explain the main idea behind LTE.
         		2^{m-1}(x_1^p+y_1^p)=d^{m-p}(x_1+y_1)^m.
         	\end{align*}
         There are two cases:
-        
+
         \begin{enumerate}
         	\item Assume that $p$ is odd. Take any prime divisor $q$ of $x_1+y_1$ and let $v=v_q(x_1+y_1)$. If $q$ is odd, we see that
         		\begin{align*}
         			v_q(x_1^p +y_1^p)=v+v_q(p) \text{ and } v_q(d^{m-p}(x_1+y_1)^m) \geq mv
         		\end{align*}
-        	(because $q$  may also be a factor of $d$). 
+        	(because $q$  may also be a factor of $d$).
         	Thus $m\le 2$ and $p\le 2$, giving an immediate contradiction. If $q=2$, then $m-1+v\ge mv$, so $v\le 1$ and $x_1+y_1=2$, i.e., $x=y$, which immediately implies $m=p$.
-        	
+
         	\item Assume that $p=2$. We notice that for $x+y \geq 4$ we have
         		\begin{align*}
         			\frac{x^2+y^2}2< 2\left(\frac{x+y}2\right)^2\le \left(\frac{x+y}2\right)^3,
         		\end{align*}
         	so $m=2$. It remains to check that the remaining cases $(x,y)=(1,2),(2,1)$ are impossible.
         \end{enumerate}
-    
+
     \end{solution}
 
     \begin{problem}
@@ -327,7 +327,7 @@ Here is a problem which will explain the main idea behind LTE.
 	        	b^a | a^b-1.
         	\end{align*}
     \end{problem}
-    
+
     \begin{solution}
         Let $p$ be the least prime divisor of $b$. Let $m$ be the least positive integer for which $p|a^m-1$. Then $m|b$ and $m\mid p-1$, so any prime divisor of $m$ divides $b$ and is less than $p$. Thus, not to run into a contradiction, we must have $m=1$. Now, if $p$ is odd, we have $av_p(b)\le v_p(a-1)+v_p(b)$, so
         	\begin{align*}
@@ -340,7 +340,7 @@ Here is a problem which will explain the main idea behind LTE.
         whence
         	\begin{align*}
         		a\le (a-1)v_2(b)+1\le v_2(a-1)+v_2(a+1)
-        	\end{align*} 
+        	\end{align*}
         which is possible only if $a=3$ and $v_2(b)=1$. Put $b=2B$ with odd $B$ and rewrite the condition as $2^3B^3\mid 3^{2B}-1$. Let $q$ be the least prime divisor of $B$ (now, surely, odd). Let $n$ be the least positive integer such that $q\mid 3^n-1$. Then $n\mid 2B$ and $n\mid q-1$ whence $n$ must be $1$ or $2$ (or $B$ has a smaller prime divisor), so $q\mid 3-1=2$ or $q\mid 3^2-1=8$, which is impossible. Thus $B=1$ and $b=2$.
     \end{solution}
 

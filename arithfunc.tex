@@ -1,6 +1,6 @@
 \chapter{Arithmetic Functions}\label{ch:arithfunc}
 
-In \autoref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ that satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers. \watermark.
+In \autoref{ch:divisibility}, we encountered cases where we had to iterate through the divisors of a number. For example, in problem \ref{prob:ex1}, we were looking for divisors of $17$ that satisfied a certain condition. In the next problem, we checked for divisors of $8$. This is a pattern which encourages us to study the number of divisors in details. One can go a step further and ask the sum of these divisors. It is natural that we would encounter more of these functions repeatedly. Therefore, we are interested in similar functions that involve natural numbers.
 \section{Definitions}
 
 	\begin{definition}[Arithmetic Function]
@@ -161,7 +161,7 @@ Here are some examples of arithmetic functions.
 				\end{align*}
 		\end{definition}
 	What if the number is so huge that we can not compute all the divisors by hand? Or what if we need to tell a computer how to compute the number of divisors in general?\footnote{Well, you can use a brute force method if you are familiar with programming. But certainly iterating through integers from $1$ to $n$ or a solution of that complexity is not a good idea.} If you need more motivation to find a way to compute number of divisors easily, consider the following nice problem!
-		\begin{problem}[Bangladesh National Mathematical Olympiad, $\boldsymbol {2010}$]
+		\begin{problem}[Bangladesh National Mathematical Olympiad, $ {2010}$]
 			You have a regular $2016$-gon. You have to choose some points from that polygon so that the resulting polygon you get from those points is a regular polygon. How many distinct regular polygons can you construct this way? Order of vertex is not important. And the polygon will be constructed joining a point with the next one in an order that does not result in a self intersecting polygon or a polygon which has an angle larger than $180$ (convex simple polygon in other words).
 		\end{problem}
 
@@ -391,7 +391,7 @@ The mighty Euler (see \textcite[Chapter I, Page $42$]{dickson_1952}) found a mor
 
 	Using the same method, we can prove a stronger result.
 
-	\begin{theorem}[Generalization of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]
+	\begin{theorem}[Generalization of \texorpdfstring{${\varphi}$}{\textphi}]
 		Let $m$ and $n$ be positive integers and let $n= p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ be the prime factorization of $n$. The number of positive integers less than or equal to $m$ which are co-prime to $n$ is $m - \Psi(m)$, where
 		\begin{align*}
 		\Psi(m) &= \sum_{1 \leq i_1 \leq k} \floor{\frac{m}{p_{i_1}}}- \sum_{\substack{1 \leq i_1<i_2 \leq k}} \floor{\frac{m}{p_{i_1}p_{i_2}}}+ \cdots + (-1)^{k+1}\floor{\frac{m}{p_1p_2\cdots p_k}}
@@ -399,7 +399,7 @@ The mighty Euler (see \textcite[Chapter I, Page $42$]{dickson_1952}) found a mor
 	\end{theorem}
 	We already stated (but did not prove) some properties of Euler's totient function in proposition \ref{prop:phiproperties}. Here, we are going to prove them beside a few more.
 
-	\begin{theorem}[Properties of \texorpdfstring{$\boldsymbol{\varphi}$}{\textphi}]\label{thm:phiproperties-ch:arith}
+	\begin{theorem}[Properties of \texorpdfstring{${\varphi}$}{\textphi}]\label{thm:phiproperties-ch:arith}
 		Let $m$ and $n$ be positive integers. Then,
 			\begin{enumerate}[(a)]
 				\item $\varphi$ is a multiplicative function. That is, if $m \bot n$, then
