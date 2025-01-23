@@ -21,7 +21,11 @@
 
 \ifPDFTeX
 	%\usepackage{stix} %uncomment this line if not using mtpro2
-	\usepackage{newtxtext}
+	\usepackage[T1]{fontenc}
+	\usepackage[nf]{coelacanth}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+	%\usepackage{crimson}
 	\usepackage[lite,subscriptcorrection,]{mtpro2}%comment out this line if mtpro2 is not installed
 	%\usepackage{newtxmath}% alternatively, uncomment this line if not using mtpro2
 \else
@@ -60,7 +64,12 @@
 \subtitle{An Olympiad Oriented Approach}
 \author{Masum Billal\and Amir Parvardi}
 \uppertitleback{\textcopyright Masum Billal, Amir Parvardi}
-\lowertitleback{\textcopyright Masum Billal, Amir Parvardi}
+\lowertitleback{\textcopyright Masum Billal, Amir Parvardi\\This work is subject to copyright. All rights are solely owned by the authors, whether
+	the whole or part of the material is concerned, specifically the rights of translation, reprinting, reuse
+	of illustrations, recitation, broadcasting, reproduction on microfilms or in any other physical way, and
+	transmission or information storage and retrieval, electronic adaptation, computer software, or by similar
+	or dissimilar methodology now known or hereafter developed.}
+
 \date{}
 
 \usepackage{graphicx}
