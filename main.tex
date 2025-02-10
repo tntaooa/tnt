@@ -25,23 +25,26 @@
 	%\usepackage[nf]{coelacanth}
 	%\let\oldnormalfont\normalfont
 	%\def\normalfont{\oldnormalfont\mdseries}
-	\usepackage{crimson}
+	%\usepackage{crimson}
+	\usepackage{tempora}
 	\usepackage[lite,subscriptcorrection,]{mtpro2}%comment out this line if mtpro2 is not installed
 	%\usepackage{newtxmath}% alternatively, uncomment this line if not using mtpro2
 \else
-	\usepackage{unicode-math}
-	%\usepackage[regular]{newcomputermodern}
-	\defaultfontfeatures{FakeBold=.5}
-	\setmainfont{Old-Times.otf}[ItalicFont=Old-TimesItalic.otf,BoldItalicFont=Old-TimesBold-Italic.otf,BoldFont=TimesCE-Bold.otf,BoldFeatures={SmallCapsFont=Times-BoldSC.otf},SmallCapsFont=TimesRomanSCOSF.otf]
-	\setmathfont{Tex Gyre Termes Math}[]
-	\setmathfont{Old-Times.otf}[range={up/{latin,Latin}}]
-	\setmathfont{Old-TimesItalic.otf}[range={it/{latin,Latin}}]
-	\setmathfont{ScotchModern-Italic.otf}[range={it/{greek,Greek,}},]
-	\setmathfont{ScotchModern-Regular.otf}[range={up/{greek,Greek}},]
-	\setmathfont{XITS Math}[range={\sqrt,}]
-	\setmathfont{New Computer Modern Math}[range={,\symbb,\leq,\geq,\sim,\ll,\gg,\equiv}]
-	\setmathfont{Old Standard Math}[range={\sum,\prod,,},]
-	\setmathfont{STIX Two Math}[range={\int,,\lfloor,\rfloor,},]
+	%\usepackage{unicode-math}
+	\usepackage[regular]{newcomputermodern}
+	%\defaultfontfeatures{FakeBold=.5}
+	%\setmainfont{Old-Times.otf}[ItalicFont=Old-TimesItalic.otf,BoldItalicFont=Old-TimesBold-Italic.otf,BoldFont=TimesCE-Bold.otf,BoldFeatures={SmallCapsFont=Times-BoldSC.otf},SmallCapsFont=TimesRomanSCOSF.otf]
+	%\setmathfont{XITS Math}
+	%\setmathfont{New Computer Modern Math}
+	%\setmathfont{Tex Gyre Termes Math}[]
+	%\setmathfont{Old-Times.otf}[range={up/{latin,Latin}}]
+	%\setmathfont{Old-TimesItalic.otf}[range={it/{latin,Latin}}]
+	%\setmathfont{ScotchModern-Italic.otf}[range={it/{greek,Greek,}},]
+	%\setmathfont{ScotchModern-Regular.otf}[range={up/{greek,Greek}},]
+	%\setmathfont{XITS Math}[range={\sqrt,}]
+	%\setmathfont{New Computer Modern Math}[range={,\symbb,\leq,\geq,\sim,\ll,\gg,\equiv}]
+	%\setmathfont{Old Standard Math}[range={\sum,\prod,,},]
+	%\setmathfont{STIX Two Math}[range={\int,,\lfloor,\rfloor,},]
 \fi
 
 \addtokomafont{chapter}{\rmfamily}
@@ -103,6 +106,7 @@
 \begin{document}
 %\pagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
+
 	\node at (current page.center) {\includegraphics[origin=c,angle=0,width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}};
 \end{tikzpicture}
 %\includegraphics[width=\paperwidth,height=\paperheight]{TNT_Cover/FrontCover.jpg}
