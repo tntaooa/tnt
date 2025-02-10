@@ -21,17 +21,34 @@
 
 \ifPDFTeX
 	%\usepackage{stix} %uncomment this line if not using mtpro2
-	\usepackage[T1]{fontenc}
-	\usepackage[nf]{coelacanth}
-	\let\oldnormalfont\normalfont
-	\def\normalfont{\oldnormalfont\mdseries}
-	%\usepackage{crimson}
+	%\usepackage[T1]{fontenc}
+	%\usepackage[nf]{coelacanth}
+	%\let\oldnormalfont\normalfont
+	%\def\normalfont{\oldnormalfont\mdseries}
+	\usepackage{crimson}
 	\usepackage[lite,subscriptcorrection,]{mtpro2}%comment out this line if mtpro2 is not installed
 	%\usepackage{newtxmath}% alternatively, uncomment this line if not using mtpro2
 \else
 	\usepackage{unicode-math}
-	\usepackage[regular]{newcomputermodern}
+	%\usepackage[regular]{newcomputermodern}
+	\defaultfontfeatures{FakeBold=.5}
+	\setmainfont{Old-Times.otf}[ItalicFont=Old-TimesItalic.otf,BoldItalicFont=Old-TimesBold-Italic.otf,BoldFont=TimesCE-Bold.otf,BoldFeatures={SmallCapsFont=Times-BoldSC.otf},SmallCapsFont=TimesRomanSCOSF.otf]
+	\setmathfont{Tex Gyre Termes Math}[]
+	\setmathfont{Old-Times.otf}[range={up/{latin,Latin}}]
+	\setmathfont{Old-TimesItalic.otf}[range={it/{latin,Latin}}]
+	\setmathfont{ScotchModern-Italic.otf}[range={it/{greek,Greek,}},]
+	\setmathfont{ScotchModern-Regular.otf}[range={up/{greek,Greek}},]
+	\setmathfont{XITS Math}[range={\sqrt,}]
+	\setmathfont{New Computer Modern Math}[range={,\symbb,\leq,\geq,\sim,\ll,\gg,\equiv}]
+	\setmathfont{Old Standard Math}[range={\sum,\prod,,},]
+	\setmathfont{STIX Two Math}[range={\int,,\lfloor,\rfloor,},]
 \fi
+
+\addtokomafont{chapter}{\rmfamily}
+\addtokomafont{section}{\rmfamily}
+\addtokomafont{paragraph}{\rmfamily}
+\addtokomafont{title}{\rmfamily}
+\addtokomafont{chapterentry}{\rmfamily}
 
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
@@ -60,9 +77,9 @@
 %\newcommand{\identityautorefname}{Identity}
 %\newcommand{\lemmaautorefname}{Lemma}
 
-\title{Topics in Number Theory}
-\subtitle{An Olympiad Oriented Approach}
-\author{Masum Billal\and Amir Parvardi}
+\title{TOPICS IN NUMBER THEORY}
+\subtitle{\textit{An Olympiad Oriented Approach}}
+\author{\textsc{Masum Billal} \and \textsc{Amir Parvardi}}
 \uppertitleback{\textcopyright Masum Billal, Amir Parvardi}
 \lowertitleback{\textcopyright Masum Billal, Amir Parvardi\\This work is subject to copyright. All rights are solely owned by the authors, whether
 	the whole or part of the material is concerned, specifically the rights of translation, reprinting, reuse
